@@ -135,7 +135,7 @@ write_log() {
 # ==============================================================================
 
 show_help() {
-    cat << EOF
+    echo -e "$(cat << EOF
 ${BOLD}${CYAN}GERENCIADOR DE LEGENDAS E ARQUIVOS DE MÍDIA v${VERSION}${NC}
 
 ${BOLD}USO:${NC}
@@ -217,11 +217,12 @@ ${BOLD}REPOSITÓRIO:${NC}
     https://github.com/seu-usuario/manager-srt
 
 EOF
+)"
 }
 
 show_version() {
     echo -e "${BOLD}${CYAN}manager-srt${NC} versão ${GREEN}${VERSION}${NC}"
-    echo "Copyright (C) 2024 Narayan/Tales"
+    echo "Copyright (C) 2025 Narayan/Tales"
     echo "Licença: GPL v3+"
 }
 
