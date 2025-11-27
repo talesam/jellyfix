@@ -1,8 +1,8 @@
-# 🎬 Manager-SRT v1.0.3
+# 🎬 Manager-SRT v1.0.4
 
 **Gerenciador Profissional de Legendas e Arquivos de Mídia**
 
-[![Version](https://img.shields.io/badge/version-1.0.3-blue.svg)](https://github.com/talesam/manager-srt)
+[![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)](https://github.com/talesam/manager-srt)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Bash](https://img.shields.io/badge/bash-4.0%2B-orange.svg)](https://www.gnu.org/software/bash/)
 
@@ -77,7 +77,7 @@ sudo cp manager-srt /usr/local/bin/
 
 ```bash
 manager-srt --version
-# Saída: manager-srt versão 1.0.3
+# Saída: manager-srt versão 1.0.4
 ```
 
 ## 📖 Uso
@@ -227,7 +227,7 @@ manager-srt --backup /backup/$(date +%Y%m%d) --log /var/log/manager.log
 
 ```
 ╔════════════════════════════════════════════════════════════════════════╗
-║  GERENCIADOR DE LEGENDAS E ARQUIVOS DE MÍDIA v1.0.3                    ║
+║  GERENCIADOR DE LEGENDAS E ARQUIVOS DE MÍDIA v1.0.4                    ║
 ╚════════════════════════════════════════════════════════════════════════╝
 
 [INFO] Diretório de trabalho: /media/filmes/Matrix
@@ -392,7 +392,7 @@ Contribuições são bem-vindas! Por favor:
 
 ## 📝 Changelog
 
-### v1.0.3 (2024-11-26)
+### v1.0.4 (2024-11-26)
 - ✨ Sistema `--help` completo e colorido
 - ✨ Modo preview/dry-run detalhado
 - ✨ 20+ opções de linha de comando
