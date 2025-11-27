@@ -8,7 +8,7 @@
 # Last Update: 2024-11-25
 # ==============================================================================
 
-VERSION="1.0.3"
+VERSION="1.0.4"
 SCRIPT_NAME="$(basename "$0")"
 
 # ==============================================================================
@@ -352,15 +352,17 @@ scan_files() {
         declare -A seen_files
         
         local patterns=(
-            "*.ara.srt"
-            "*.chi.srt" "*.cze.srt" "*.cze2.srt" "*.dan.srt" "*.dut.srt"
-            "*.fil.srt" "*.fin.srt" "*.fre.srt" "*.ger.srt" "*.gre.srt"
-            "*.heb.srt" "*.hrv.srt" "*.hun.srt" "*.ind.srt" "*.ita.srt"
-            "*.jpn.srt" "*.kor.srt" "*.may.srt" "*.nob.srt" "*.pol.srt"
-            "*.rum.srt" "*.rus.srt" "*.spa.srt" "*.spa2.srt" "*.swe.srt" "*.tha.srt"
-            "*.tur.srt" "*.ukr.srt" "*.vie.srt" "*.hin.srt" "*.nor.srt"
-            "*.tam.srt" "*.tel.srt" "*.slo.srt" "*.bul.srt" "*.lav.srt"
-            "*.lit.srt" "*.slv.srt" "*.glg.srt" "*.cat.srt" "*.baq.srt"
+            # Legendas em outros idiomas (captura .eng.srt, .eng2.srt, .eng.forced.srt, etc.)
+            "*.ara*.srt" "*.chi*.srt" "*.cze*.srt" "*.dan*.srt" "*.dut*.srt"
+            "*.eng*.srt" "*.fil*.srt" "*.fin*.srt" "*.fre*.srt" "*.ger*.srt"
+            "*.gre*.srt" "*.heb*.srt" "*.hrv*.srt" "*.hun*.srt" "*.ind*.srt"
+            "*.ita*.srt" "*.jpn*.srt" "*.kor*.srt" "*.may*.srt" "*.nob*.srt"
+            "*.pol*.srt" "*.rum*.srt" "*.rus*.srt" "*.spa*.srt" "*.swe*.srt"
+            "*.tha*.srt" "*.tur*.srt" "*.ukr*.srt" "*.vie*.srt" "*.hin*.srt"
+            "*.nor*.srt" "*.tam*.srt" "*.tel*.srt" "*.slo*.srt" "*.bul*.srt"
+            "*.lav*.srt" "*.lit*.srt" "*.slv*.srt" "*.glg*.srt" "*.cat*.srt"
+            "*.baq*.srt"
+            # Arquivos de imagem e metadados
             "*.jpg" "*.jpeg" "*.png" "*.gif" "*.bmp" "*.nfo"
         )
         
