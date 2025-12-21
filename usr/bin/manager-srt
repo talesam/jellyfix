@@ -7,7 +7,7 @@
 # Last Update: 2024-11-25
 # ==============================================================================
 
-APP_VERSION="1.1.6"
+APP_VERSION="1.1.7"
 SCRIPT_NAME="$(basename "$0")"
 
 # ==============================================================================
@@ -346,36 +346,47 @@ scan_files() {
     # Escanear arquivos indesejados
     if [ "$DO_REMOVE_UNWANTED" = true ]; then
         log_info "🔍 Procurando arquivos indesejados..."
-        
+
         # Array associativo para evitar duplicatas
         declare -A seen_files
-        
-        local patterns=(
-            # Legendas em outros idiomas (captura .eng.srt, .eng2.srt, .eng.forced.srt, etc.)
-            "*.ara*.srt" "*.chi*.srt" "*.cze*.srt" "*.dan*.srt" "*.dut*.srt"
-            "*.fil*.srt" "*.fin*.srt" "*.fre*.srt" "*.ger*.srt"
-            "*.gre*.srt" "*.heb*.srt" "*.hrv*.srt" "*.hun*.srt" "*.ind*.srt"
-            "*.ita*.srt" "*.jpn*.srt" "*.kor*.srt" "*.may*.srt" "*.nob*.srt"
-            "*.pol*.srt" "*.rum*.srt" "*.rus*.srt" "*.spa*.srt" "*.swe*.srt"
-            "*.tha*.srt" "*.tur*.srt" "*.ukr*.srt" "*.vie*.srt" "*.hin*.srt"
-            "*.nor*.srt" "*.tam*.srt" "*.tel*.srt" "*.slo*.srt" "*.bul*.srt"
-            "*.lav*.srt" "*.lit*.srt" "*.slv*.srt" "*.glg*.srt" "*.cat*.srt"
-            "*.baq*.srt"
-            # Arquivos de imagem e metadados
-            "*.jpg" "*.jpeg" "*.png" "*.gif" "*.bmp" "*.nfo"
+
+        # Lista de códigos de idiomas estrangeiros (NÃO português ou inglês)
+        local foreign_langs=(
+            "ara" "chi" "cze" "dan" "dut" "fil" "fin" "fre" "ger"
+            "gre" "heb" "hrv" "hun" "ind" "ita" "jpn" "kor" "may"
+            "nob" "pol" "rum" "rus" "spa" "swe" "tha" "tur" "ukr"
+            "vie" "hin" "nor" "tam" "tel" "slo" "bul" "lav" "lit"
+            "slv" "glg" "cat" "baq"
         )
-        
-        for pattern in "${patterns[@]}"; do
-            while IFS= read -r -d '' file; do
-                # Evita duplicatas
-                if [ -z "${seen_files[$file]}" ]; then
-                    preview_unwanted_files+=("$file")
-                    seen_files[$file]=1
-                    ((total_found_unwanted++))
-                fi
-            done < <(fd -u -t f -g "$pattern" "$WORK_DIR" -0)
-        done
-        
+
+        # Procura TODOS os arquivos .srt
+        while IFS= read -r -d '' file; do
+            local basename=$(basename "$file")
+            local should_remove=false
+
+            # Verifica se é arquivo de imagem ou metadados (sempre remover)
+            if [[ "$basename" =~ \.(jpg|jpeg|png|gif|bmp|nfo)$ ]]; then
+                should_remove=true
+            else
+                # Para arquivos .srt, verifica se contém código de idioma estrangeiro
+                # Padrão: verifica se o basename termina com .XXX.srt, .XXX2.srt, .XXX.forced.srt, etc.
+                for lang in "${foreign_langs[@]}"; do
+                    # Verifica padrões: .LANG.srt, .LANG2.srt, .LANG3.srt, .LANG.forced.srt
+                    if [[ "$basename" =~ \.${lang}[0-9]?\.srt$ ]] || [[ "$basename" =~ \.${lang}\.forced\.srt$ ]]; then
+                        should_remove=true
+                        break
+                    fi
+                done
+            fi
+
+            # Adiciona à lista de remoção se necessário e não for duplicata
+            if [ "$should_remove" = true ] && [ -z "${seen_files[$file]}" ]; then
+                preview_unwanted_files+=("$file")
+                seen_files[$file]=1
+                ((total_found_unwanted++))
+            fi
+        done < <(fd -u -t f -e srt -e jpg -e jpeg -e png -e gif -e bmp -e nfo -0 . "$WORK_DIR")
+
         if [ $total_found_unwanted -gt 0 ]; then
             echo -e "   ${GREEN}✓${NC} Encontrados: ${BOLD}${total_found_unwanted}${NC} arquivos"
         else
