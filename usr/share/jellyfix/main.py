@@ -15,14 +15,11 @@ from rich.panel import Panel
 # Adiciona o diretório atual ao path para imports relativos
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from jellyfix.utils.config import Config, set_config
+from jellyfix.utils.config import Config, set_config, APP_VERSION
 from jellyfix.utils.logger import Logger, set_logger
 from jellyfix.ui.menu import InteractiveMenu
 from jellyfix.core.scanner import scan_library
 from jellyfix.core.renamer import Renamer
-
-# Versão do aplicativo
-APP_VERSION = "2.0.1"
 
 
 def show_help():
