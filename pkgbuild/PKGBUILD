@@ -1,19 +1,18 @@
 # Maintainer: Tales A. Mendonça <talesam@gmail.com>
 
-pkgname=manager-srt
-pkgdesc="Manage SRT files"
-# Uncomment and edit the following lines as needed
-depends=('fd')
-#makedepends=('')
-#optdepends=('')
-#conflicts=('')
-#provides=('')
-#replaces=('')
+pkgname=jellyfix
+pkgdesc="Organizador inteligente de bibliotecas Jellyfin - renomeia filmes, séries e legendas automaticamente"
 pkgver=$(date +%y.%m.%d)
 pkgrel=$(date +%H%M)
 arch=('any')
 license=('MIT')
 url="https://github.com/talesam/${pkgname}"
+depends=(
+    'python'
+    'python-rich'
+    'python-requests'
+    'python-questionary'
+)
 source=("git+${url}.git")
 md5sums=('SKIP')
 
@@ -26,47 +25,46 @@ fi
 
 prepare() {
     cd "${srcdir}/${pkgname}"
-    # Add any preparation steps here, if needed
-    # For example: patch -p1 < "${srcdir}/patch-file.patch"
+    # Nenhuma preparação necessária
 }
 
 build() {
     cd "${srcdir}/${pkgname}"
-    # Add build steps here, if needed
-    # For example: make
+    # Não há compilação necessária para Python
 }
 
 check() {
     cd "${srcdir}/${pkgname}"
-    # Add check/test steps here, if needed
-    # For example: make check
+    # Verifica se o script principal existe e é executável
+    if [ ! -f "usr/bin/jellyfix" ]; then
+        echo "Erro: usr/bin/jellyfix não encontrado!"
+        return 1
+    fi
 }
 
 package() {
     cd "${srcdir}/${pkgname}"
 
-    # Determine the correct source directory
-    if [ -d "${pkgname}" ]; then
-        srcdir="${srcdir}/${pkgname}/${pkgname}"
-    else
-        srcdir="${srcdir}/${pkgname}"
+    # Instala arquivos do projeto
+    if [ -d "usr" ]; then
+        cp -a usr "${pkgdir}/"
     fi
 
-    # Install files
-    local dirs=("usr" "etc" "opt")
-    for dir in "${dirs[@]}"; do
-        if [ -d "${srcdir}/${dir}" ]; then
-            cp -a "${srcdir}/${dir}" "${pkgdir}/"
-        fi
-    done
+    # Garante permissões corretas
+    chmod +x "${pkgdir}/usr/bin/jellyfix"
 
-    # Install license file if present
+    # Instala licença
     if [ -f "LICENSE" ]; then
         install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
     fi
 
-    # Install documentation if present
+    # Instala documentação
     if [ -f "README.md" ]; then
         install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
+    fi
+
+    # Instala guia de nomenclatura
+    if [ -f "jellyfin-naming-guide.md" ]; then
+        install -Dm644 jellyfin-naming-guide.md "${pkgdir}/usr/share/doc/${pkgname}/jellyfin-naming-guide.md"
     fi
 }
