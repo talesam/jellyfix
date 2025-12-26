@@ -1,7 +1,7 @@
 """Busca de metadados via TMDB e TVDB"""
 
 from pathlib import Path
-from typing import Optional, Dict
+from typing import Optional, Dict, List
 from dataclasses import dataclass
 import re
 
@@ -60,13 +60,14 @@ class MetadataFetcher:
             self.logger.error(f"Erro ao inicializar TMDB: {e}")
             return None
 
-    def search_movie(self, title: str, year: Optional[int] = None) -> Optional[Metadata]:
+    def search_movie(self, title: str, year: Optional[int] = None, interactive: bool = False) -> Optional[Metadata]:
         """
         Busca metadados de um filme.
 
         Args:
             title: Título do filme
             year: Ano (opcional, melhora a busca)
+            interactive: Se True, permite escolher entre múltiplos resultados
 
         Returns:
             Metadata ou None se não encontrado
@@ -89,8 +90,14 @@ class MetadataFetcher:
                 self.logger.debug(f"Nenhum resultado para: {clean_title}")
                 return None
 
-            # Pega o primeiro resultado
-            movie = results[0]
+            # Se modo interativo e múltiplos resultados, pede escolha
+            if interactive and len(results) > 1 and self.config.interactive:
+                movie = self._choose_movie_interactive(results, clean_title)
+                if not movie:
+                    return None
+            else:
+                # Pega o primeiro resultado
+                movie = results[0]
 
             # Extrai ano do release_date
             movie_year = None
@@ -112,13 +119,14 @@ class MetadataFetcher:
             self.logger.error(f"Erro ao buscar filme '{title}': {e}")
             return None
 
-    def search_tvshow(self, title: str, year: Optional[int] = None) -> Optional[Metadata]:
+    def search_tvshow(self, title: str, year: Optional[int] = None, interactive: bool = False) -> Optional[Metadata]:
         """
         Busca metadados de uma série.
 
         Args:
             title: Título da série
             year: Ano (opcional)
+            interactive: Se True, permite escolher entre múltiplos resultados
 
         Returns:
             Metadata ou None se não encontrado
@@ -138,18 +146,24 @@ class MetadataFetcher:
                 self.logger.debug(f"Nenhum resultado para série: {clean_title}")
                 return None
 
-            # Pega o primeiro resultado (ou busca por ano se fornecido)
-            show = None
-            if year:
-                for result in results[:5]:  # Verifica os 5 primeiros
-                    if hasattr(result, 'first_air_date') and result.first_air_date:
-                        match = re.search(r'^(\d{4})', result.first_air_date)
-                        if match and int(match.group(1)) == year:
-                            show = result
-                            break
+            # Se modo interativo e múltiplos resultados, pede escolha
+            if interactive and len(results) > 1 and self.config.interactive:
+                show = self._choose_tvshow_interactive(results, clean_title)
+                if not show:
+                    return None
+            else:
+                # Pega o primeiro resultado (ou busca por ano se fornecido)
+                show = None
+                if year:
+                    for result in results[:5]:  # Verifica os 5 primeiros
+                        if hasattr(result, 'first_air_date') and result.first_air_date:
+                            match = re.search(r'^(\d{4})', result.first_air_date)
+                            if match and int(match.group(1)) == year:
+                                show = result
+                                break
 
-            if not show:
-                show = results[0]
+                if not show:
+                    show = results[0]
 
             # Extrai ano
             show_year = None
@@ -236,3 +250,154 @@ class MetadataFetcher:
                 folder_name += f" [tvdbid-{metadata.tvdb_id}]"
 
         return folder_name
+
+    def _choose_movie_interactive(self, results: List, search_title: str):
+        """
+        Permite escolher interativamente entre múltiplos resultados de filme.
+
+        Args:
+            results: Lista de resultados do TMDB
+            search_title: Título da busca
+
+        Returns:
+            Resultado escolhido ou None
+        """
+        try:
+            import questionary
+            from rich.console import Console
+            from rich.table import Table
+
+            console = Console()
+            console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_title}[/cyan]\n")
+
+            # Prepara opções para seleção
+            choices = []
+            for i, movie in enumerate(results[:10]):  # Máximo 10 resultados
+                year = ""
+                if hasattr(movie, 'release_date') and movie.release_date:
+                    match = re.search(r'^(\d{4})', movie.release_date)
+                    if match:
+                        year = f" ({match.group(1)})"
+
+                # Link do TMDB
+                tmdb_link = f"https://www.themoviedb.org/movie/{movie.id}"
+
+                # Descrição resumida
+                overview = ""
+                if hasattr(movie, 'overview') and movie.overview:
+                    overview = movie.overview[:80] + "..." if len(movie.overview) > 80 else movie.overview
+
+                label = f"{movie.title}{year}"
+                if overview:
+                    label += f" - {overview}"
+
+                choices.append(questionary.Choice(
+                    title=label,
+                    value=(movie, tmdb_link)
+                ))
+
+            # Adiciona opção para pular
+            choices.append(questionary.Choice(
+                title="❌ Nenhum destes / Pular",
+                value=None
+            ))
+
+            # Pergunta ao usuário
+            from ..ui.menu import custom_style
+            result = questionary.select(
+                "Escolha o resultado correto:",
+                choices=choices,
+                style=custom_style,
+                instruction="(Use ↑↓ para navegar, ENTER para confirmar)"
+            ).ask()
+
+            if result:
+                selected_movie, tmdb_link = result
+                console.print(f"\n[green]✓ Selecionado:[/green] {selected_movie.title}")
+                console.print(f"[dim]🔗 Link: {tmdb_link}[/dim]\n")
+                return selected_movie
+
+            return None
+
+        except ImportError:
+            # Se questionary não disponível, usa o primeiro resultado
+            self.logger.warning("Modo interativo não disponível. Usando primeiro resultado.")
+            return results[0]
+        except Exception as e:
+            self.logger.error(f"Erro na escolha interativa: {e}")
+            return results[0]
+
+    def _choose_tvshow_interactive(self, results: List, search_title: str):
+        """
+        Permite escolher interativamente entre múltiplos resultados de série.
+
+        Args:
+            results: Lista de resultados do TMDB
+            search_title: Título da busca
+
+        Returns:
+            Resultado escolhido ou None
+        """
+        try:
+            import questionary
+            from rich.console import Console
+
+            console = Console()
+            console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_title}[/cyan]\n")
+
+            # Prepara opções para seleção
+            choices = []
+            for i, show in enumerate(results[:10]):  # Máximo 10 resultados
+                year = ""
+                if hasattr(show, 'first_air_date') and show.first_air_date:
+                    match = re.search(r'^(\d{4})', show.first_air_date)
+                    if match:
+                        year = f" ({match.group(1)})"
+
+                # Link do TMDB
+                tmdb_link = f"https://www.themoviedb.org/tv/{show.id}"
+
+                # Descrição resumida
+                overview = ""
+                if hasattr(show, 'overview') and show.overview:
+                    overview = show.overview[:80] + "..." if len(show.overview) > 80 else show.overview
+
+                label = f"{show.name}{year}"
+                if overview:
+                    label += f" - {overview}"
+
+                choices.append(questionary.Choice(
+                    title=label,
+                    value=(show, tmdb_link)
+                ))
+
+            # Adiciona opção para pular
+            choices.append(questionary.Choice(
+                title="❌ Nenhum destes / Pular",
+                value=None
+            ))
+
+            # Pergunta ao usuário
+            from ..ui.menu import custom_style
+            result = questionary.select(
+                "Escolha o resultado correto:",
+                choices=choices,
+                style=custom_style,
+                instruction="(Use ↑↓ para navegar, ENTER para confirmar)"
+            ).ask()
+
+            if result:
+                selected_show, tmdb_link = result
+                console.print(f"\n[green]✓ Selecionado:[/green] {selected_show.name}")
+                console.print(f"[dim]🔗 Link: {tmdb_link}[/dim]\n")
+                return selected_show
+
+            return None
+
+        except ImportError:
+            # Se questionary não disponível, usa o primeiro resultado
+            self.logger.warning("Modo interativo não disponível. Usando primeiro resultado.")
+            return results[0]
+        except Exception as e:
+            self.logger.error(f"Erro na escolha interativa: {e}")
+            return results[0]

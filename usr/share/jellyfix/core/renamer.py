@@ -103,7 +103,7 @@ class Renamer:
         folder_suffix = ""
         if self.metadata_fetcher and self.config.fetch_metadata:
             self.logger.info(f"🔍 Buscando: {title}")
-            metadata = self.metadata_fetcher.search_movie(title, year)
+            metadata = self.metadata_fetcher.search_movie(title, year, interactive=self.config.interactive)
 
             if metadata:
                 # Usa título e ano dos metadados
@@ -173,7 +173,7 @@ class Renamer:
         year = None
         if self.metadata_fetcher and self.config.fetch_metadata:
             self.logger.info(f"🔍 Buscando série: {title}")
-            metadata = self.metadata_fetcher.search_tvshow(title)
+            metadata = self.metadata_fetcher.search_tvshow(title, interactive=self.config.interactive)
 
             if metadata:
                 # Usa título dos metadados

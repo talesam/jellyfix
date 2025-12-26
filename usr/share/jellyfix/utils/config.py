@@ -5,6 +5,9 @@ from pathlib import Path
 from typing import Optional
 import os
 
+# Versão do aplicativo
+APP_VERSION = "2.0.1"
+
 
 @dataclass
 class Config:

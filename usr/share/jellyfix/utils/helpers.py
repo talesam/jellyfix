@@ -153,8 +153,16 @@ def normalize_spaces(name: str) -> str:
     Returns:
         Nome normalizado
     """
-    # Substitui pontos por espaços (exceto na extensão)
-    name = name.replace('.', ' ')
+    # Substitui pontos, underscores e hífen duplo por espaços
+    name = name.replace('.', ' ').replace('_', ' ').replace('--', ' ')
+
+    # Remove colchetes com conteúdo de release (mas preserva ano)
+    # Remove: [1080p], [BluRay], [HEVC], [DUAL], etc
+    name = re.sub(r'\[(?!19|20)\w+[\w\s\.\-]*\]', '', name)
+
+    # Remove parênteses que NÃO são ano (1900-2099)
+    # Remove: (BluRay), (DUAL), etc, mas preserva (1999), (2024)
+    name = re.sub(r'\((?!19\d{2}|20\d{2})[^\)]*\)', '', name)
 
     # Remove espaços múltiplos
     name = re.sub(r'\s+', ' ', name).strip()
@@ -184,10 +192,11 @@ def extract_season_episode(name: str) -> Optional[tuple]:
     Extrai informações de temporada e episódio do nome.
 
     Formatos suportados:
-    - S01E01
-    - s01e01
+    - S01E01, s01e01
     - 1x01
     - S01E01-E02 (múltiplos episódios)
+    - Book 1 - 01, Volume 1 - 01, Part 1 - 01
+    - Season 1 Episode 01, Temporada 1 Episodio 01
 
     Args:
         name: Nome do arquivo
@@ -209,6 +218,27 @@ def extract_season_episode(name: str) -> Optional[tuple]:
         season = int(match.group(1))
         episode = int(match.group(2))
         return (season, episode, episode)
+
+    # Padrões alternativos: Book 1 - 01, T01E01, [01x01], etc
+    patterns = [
+        # Book 1 - 01, Volume 2 - 05, Part 3 - 12, Season 1 Episode 01
+        r'(?:Book|Volume|Vol|Part|Season|Temporada|Temp)\s*(\d{1,2})\s*[-\s]+(?:Episode|Episodio|Ep\.?|E)?\s*(\d{1,2})',
+        # T01E01, T1E1, Temp01Ep01
+        r'T(?:emp)?\.?\s*(\d{1,2})\s*E(?:p)?\.?\s*(\d{1,2})',
+        # [01x01], (1x01), {1x01}
+        r'[\[\(\{]\s*(\d{1,2})x(\d{1,2})\s*[\]\)\}]',
+        # Cap 01, Ep 01, E01
+        r'(?:Cap\.?|Ep\.?|E)\s*(\d{1,2})',
+        # - 101, - 201 (temporada implícita: 1x01, 2x01)
+        r'[-\s](\d)(\d{2})(?:\D|$)',
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, name, re.IGNORECASE)
+        if match:
+            season = int(match.group(1))
+            episode = int(match.group(2)) if len(match.groups()) > 1 else int(match.group(1))
+            return (season, episode, episode)
 
     return None
 

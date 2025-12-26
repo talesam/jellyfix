@@ -14,7 +14,7 @@ from rich import box
 from ..core.scanner import scan_library, ScanResult
 from ..core.renamer import Renamer
 from ..core.metadata import MetadataFetcher
-from ..utils.config import Config, get_config
+from ..utils.config import Config, get_config, APP_VERSION
 from ..utils.logger import get_logger, console
 from ..utils.config_manager import ConfigManager
 
@@ -616,8 +616,8 @@ class InteractiveMenu:
     def show_help(self):
         """Mostra ajuda"""
         self.console.clear()  # Limpa a tela
-        help_text = """
-[bold cyan]📖 Ajuda - jellyfix[/bold cyan]
+        help_text = f"""
+[bold cyan]📖 Ajuda - jellyfix v{APP_VERSION}[/bold cyan]
 
 [bold]O que o jellyfix faz:[/bold]
 

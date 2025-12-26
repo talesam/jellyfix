@@ -42,8 +42,10 @@ class MediaInfo:
             self.media_type = MediaType.TVSHOW
             self.season, self.episode_start, self.episode_end = se_info
 
-            # Extrai o título (tudo antes de S01E01)
+            # Extrai o título (tudo antes do padrão de season/episode)
             import re
+
+            # Tenta padrão S01E01
             match = re.search(r'^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,2}', filename)
             if match:
                 self.title = match.group(1).strip()
@@ -52,6 +54,14 @@ class MediaInfo:
                 match = re.search(r'^(.+?)\s*\d{1,2}x\d{1,2}', filename)
                 if match:
                     self.title = match.group(1).strip()
+                else:
+                    # Tenta padrão Book/Volume/Part/Season
+                    match = re.search(r'^(.+?)\s*(?:Book|Volume|Vol|Part|Season|Temporada|Cap\.?|Ep\.?)\s*\d{1,2}', filename, re.IGNORECASE)
+                    if match:
+                        self.title = match.group(1).strip()
+                    else:
+                        # Fallback: usa o nome do arquivo sem extensão
+                        self.title = filename
         else:
             # Verifica se a estrutura de pastas indica série
             parent_folder = self.file_path.parent.name.lower()
