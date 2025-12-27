@@ -85,6 +85,9 @@ class Renamer:
         remaining_subtitles = [s for s in subtitle_files if s not in processed_subtitles]
         self._plan_subtitle_variants(remaining_subtitles, directory)
 
+        # Processa arquivos extras (NFO, imagens, etc) que devem acompanhar os vídeos
+        self._plan_extra_files(directory, video_files)
+
         return self.operations
 
     def _plan_video_rename(self, file_path: Path):
@@ -513,6 +516,69 @@ class Renamer:
                         operation_type='rename',
                         reason="Adicionar código de idioma português (.por)"
                     ))
+
+    def _plan_extra_files(self, directory: Path, video_files: List[Path]):
+        """
+        Planeja movimentação de arquivos extras (NFO, imagens, etc) que acompanham vídeos.
+
+        Quando um vídeo é movido para uma nova pasta, todos os arquivos extras da pasta
+        original devem ser movidos junto.
+
+        Args:
+            directory: Diretório base
+            video_files: Lista de arquivos de vídeo processados
+        """
+        from ..utils.helpers import is_video_file, is_subtitle_file
+
+        # Cria mapa de vídeos: pasta_original -> nova_pasta
+        video_folder_map = {}
+        for op in self.operations:
+            if op.source in video_files:
+                old_folder = op.source.parent
+                new_folder = op.destination.parent
+                if old_folder != new_folder:
+                    # Armazena mapeamento da pasta antiga para a nova
+                    if old_folder not in video_folder_map:
+                        video_folder_map[old_folder] = new_folder
+
+        # Se não há vídeos sendo movidos entre pastas, não há nada a fazer
+        if not video_folder_map:
+            return
+
+        # Para cada pasta que está sendo esvaziada, move os arquivos extras
+        for old_folder, new_folder in video_folder_map.items():
+            # Lista todos os arquivos na pasta antiga
+            for file_path in old_folder.iterdir():
+                if not file_path.is_file():
+                    continue
+
+                # Ignora arquivos ocultos
+                if file_path.name.startswith('.'):
+                    continue
+
+                # Ignora vídeos e legendas (já foram processados)
+                if is_video_file(file_path) or is_subtitle_file(file_path):
+                    continue
+
+                # Verifica se o arquivo já tem uma operação planejada
+                already_planned = any(op.source == file_path for op in self.operations)
+                if already_planned:
+                    continue
+
+                # Move o arquivo extra para a nova pasta
+                new_path = new_folder / file_path.name
+
+                # Verifica se já existe um arquivo com esse nome no destino
+                if new_path.exists() and new_path != file_path:
+                    self.logger.warning(f"Arquivo extra já existe no destino, pulando: {file_path.name}")
+                    continue
+
+                self.operations.append(RenameOperation(
+                    source=file_path,
+                    destination=new_path,
+                    operation_type='move',
+                    reason=f"Mover arquivo extra junto com vídeo: {file_path.name}"
+                ))
 
     def execute_operations(self, dry_run: bool = True) -> Dict[str, int]:
         """

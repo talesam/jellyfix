@@ -13,7 +13,7 @@ PORTUGUESE_WORDS = [
 ]
 
 # Caracteres proibidos no Jellyfin
-FORBIDDEN_CHARS = r'[<>:"/\\|?*]'
+FORBIDDEN_CHARS = r'[<>"/\\|?*]'  # Removido ':' para permitir em Linux
 
 # Extensões de vídeo suportadas
 VIDEO_EXTENSIONS = {
@@ -177,10 +177,12 @@ def normalize_spaces(name: str) -> str:
         r'\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|CAMRip|TS|TC)\b',
         # Codecs
         r'\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC)\b',
+        # Plataformas de streaming
+        r'\b(Amazon|Netflix|Hulu|HBO|HMAX|Disney|Apple|Paramount|Peacock|Showtime|Starz)\b',
         # Áudio (deve vir antes para pegar "Dual Audio" junto)
         r'\b(Dual\.?Audio|DUAL)\b',
         r'\b(Audio)\b',  # Remove "Audio" sozinho também
-        r'\b(AAC|AC3|DTS|MP3|FLAC|Dolby|Atmos|TrueHD)\b',
+        r'\b(AAC|AC3|E-?AC-?3|DTS|DD\+?|MP3|FLAC|Dolby|Atmos|TrueHD)\b',
         r'\b(5\.1|7\.1|2\.0)\b',
         # Edições especiais
         r'\b(EXTENDED|UNRATED|REMASTERED|DIRECTORS?\.?CUT|DC|IMAX)\b',
@@ -190,6 +192,10 @@ def normalize_spaces(name: str) -> str:
 
     for pattern in quality_patterns:
         name = re.sub(pattern, '', name, flags=re.IGNORECASE)
+
+    # Remove números isolados de 1 dígito (restos de "5.1", "7.1", etc)
+    name = re.sub(r'\s+\d\s+\d\b', ' ', name)  # Remove "5 1", "7 1", etc
+    name = re.sub(r'\s+\d\b', ' ', name)  # Remove dígitos isolados restantes
 
     # Remove sufixos repetidos como "-converted-converted" (antes de remover grupos)
     name = re.sub(r'(-\w+)\1+', r'\1', name)  # Remove repetições

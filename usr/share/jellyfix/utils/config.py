@@ -5,8 +5,8 @@ from pathlib import Path
 from typing import Optional
 import os
 
-# Versão do aplicativo
-APP_VERSION = "2.0.1"
+# Importa versão do arquivo central
+from ..version import APP_VERSION
 
 
 @dataclass
