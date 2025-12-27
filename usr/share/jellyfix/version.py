@@ -1,3 +1,3 @@
 """Versão do jellyfix"""
 
-APP_VERSION = "2.1.2"
+APP_VERSION = "2.1.3"

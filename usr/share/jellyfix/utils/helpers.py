@@ -205,6 +205,21 @@ def normalize_spaces(name: str) -> str:
     # Ex: -3LT0N, -YTS, -RARBG, -converted
     name = re.sub(r'-[A-Z0-9]{2,}\b', '', name, flags=re.IGNORECASE)
 
+    # Remove grupos de release comuns que aparecem soltos (sem hífen)
+    # Ex: BRHD, YTS, YIFY, RARBG, ETRG, etc.
+    release_groups = [
+        'BRHD', 'YTS', 'YIFY', 'RARBG', 'ETRG', 'PSA', 'AMIABLE',
+        'SPARKS', 'FLEET', 'ION10', 'CMRG', 'EVO', 'NTb', 'AMRAP',
+        'FGT', 'STUTTERSHIT', 'VYNDROS', 'MkvCage', 'GalaxyRG',
+        'DEFLATE', 'NOGRP', 'W4F', 'ETHEL', 'TOMMY', 'AFG', 'GECKOS'
+    ]
+    for group in release_groups:
+        name = re.sub(rf'\b{group}\b', '', name, flags=re.IGNORECASE)
+
+    # Remove palavras em MAIÚSCULAS de 2-6 letras isoladas no final (geralmente grupos de release)
+    # Mas preserva palavras conhecidas como "HD", "4K", "DC" (que já foram removidas antes)
+    name = re.sub(r'\s+\b[A-Z]{2,6}\b\s*$', ' ', name)
+
     # Remove espaços múltiplos
     name = re.sub(r'\s+', ' ', name).strip()
 
