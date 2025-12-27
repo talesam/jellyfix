@@ -60,6 +60,83 @@ class MetadataFetcher:
             self.logger.error(f"Erro ao inicializar TMDB: {e}")
             return None
 
+    def _search_movie_with_fallback(self, movie_api, title: str, year: Optional[int] = None):
+        """
+        Busca filme com fallback incremental.
+        Se não encontrar, remove palavras do final até achar.
+
+        Args:
+            movie_api: API do TMDB Movie
+            title: Título limpo
+            year: Ano (opcional)
+
+        Returns:
+            Resultados da busca ou None
+        """
+        words = title.split()
+        min_words = 1  # Mínimo de palavras para tentar
+
+        # Tenta com título completo primeiro
+        for i in range(len(words), min_words - 1, -1):
+            current_title = ' '.join(words[:i])
+
+            if i < len(words):
+                self.logger.debug(f"Tentando busca alternativa: '{current_title}'")
+
+            try:
+                results = movie_api.search(current_title)
+
+                # Se encontrou resultados, retorna
+                if results and hasattr(results, 'total_results') and results.total_results > 0:
+                    if i < len(words):
+                        self.logger.info(f"✓ Encontrado usando: '{current_title}' (removidas {len(words) - i} palavras)")
+                    return results
+
+            except Exception as e:
+                self.logger.debug(f"Erro ao buscar '{current_title}': {e}")
+                continue
+
+        # Não encontrou nada
+        return None
+
+    def _search_tvshow_with_fallback(self, tv_api, title: str):
+        """
+        Busca série com fallback incremental.
+        Se não encontrar, remove palavras do final até achar.
+
+        Args:
+            tv_api: API do TMDB TV
+            title: Título limpo
+
+        Returns:
+            Resultados da busca ou None
+        """
+        words = title.split()
+        min_words = 1  # Mínimo de palavras para tentar
+
+        # Tenta com título completo primeiro
+        for i in range(len(words), min_words - 1, -1):
+            current_title = ' '.join(words[:i])
+
+            if i < len(words):
+                self.logger.debug(f"Tentando busca alternativa: '{current_title}'")
+
+            try:
+                results = tv_api.search(current_title)
+
+                # Se encontrou resultados, retorna
+                if results and hasattr(results, 'total_results') and results.total_results > 0:
+                    if i < len(words):
+                        self.logger.info(f"✓ Encontrado usando: '{current_title}' (removidas {len(words) - i} palavras)")
+                    return results
+
+            except Exception as e:
+                self.logger.debug(f"Erro ao buscar '{current_title}': {e}")
+                continue
+
+        # Não encontrou nada
+        return None
+
     def search_movie(self, title: str, year: Optional[int] = None, interactive: bool = False) -> Optional[Metadata]:
         """
         Busca metadados de um filme.
@@ -80,8 +157,8 @@ class MetadataFetcher:
             # Limpa o título
             clean_title = self._clean_search_title(title)
 
-            # Busca no TMDB (sem parâmetro year, filtrar depois)
-            results = tmdb['movie'].search(clean_title)
+            # Busca incremental: tenta com título completo, depois vai removendo palavras do final
+            results = self._search_movie_with_fallback(tmdb['movie'], clean_title, year)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:
@@ -159,8 +236,8 @@ class MetadataFetcher:
             # Limpa o título
             clean_title = self._clean_search_title(title)
 
-            # Busca no TMDB
-            results = tmdb['tv'].search(clean_title)
+            # Busca incremental: tenta com título completo, depois vai removendo palavras do final
+            results = self._search_tvshow_with_fallback(tmdb['tv'], clean_title)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:
@@ -215,12 +292,12 @@ class MetadataFetcher:
 
     def _clean_search_title(self, title: str) -> str:
         """
-        Limpa o título para busca.
+        Limpa o título para busca usando heurísticas estruturais.
 
-        Remove:
-        - Informações de qualidade (1080p, 720p, BluRay, etc)
-        - Grupos de release ([YTS], [RARBG], etc)
-        - Informações extras
+        Estratégia:
+        1. Detecta o ano e pega apenas até ele (geralmente após o ano é lixo)
+        2. Remove informações técnicas óbvias
+        3. Remove grupos de release
 
         Args:
             title: Título original
@@ -228,28 +305,51 @@ class MetadataFetcher:
         Returns:
             Título limpo
         """
+        original = title
+
         # Remove informações entre colchetes e parênteses (exceto ano)
         title = re.sub(r'\[[^\]]*\]', '', title)
         title = re.sub(r'\([^\)]*(?:1080|720|480|BluRay|WEB|HDTV|DVDRip)[^\)]*\)', '', title)
 
-        # Remove informações de qualidade comuns
-        quality_patterns = [
-            r'\b(1080p|720p|480p|2160p|4K)\b',
-            r'\b(BluRay|BRRip|WEB-DL|WEBRip|HDTV|DVDRip|BDRip)\b',
-            r'\b(x264|x265|H\.?264|H\.?265|HEVC|XviD)\b',
-            r'\b(AAC|AC3|DTS|MP3|FLAC)\b',
-            r'\b(5\.1|2\.0|7\.1)\b',
-            r'\b(EXTENDED|UNRATED|DIRECTORS?\.CUT|REMASTERED)\b',
-        ]
+        # Substitui separadores por espaços
+        title = title.replace('.', ' ').replace('_', ' ').replace('-', ' ')
 
-        for pattern in quality_patterns:
-            title = re.sub(pattern, '', title, flags=re.IGNORECASE)
+        # HEURÍSTICA 1: Se tem ano (1900-2099), pega apenas até o ano
+        # Ex: "Movie Name 2020 1080p BluRay" -> "Movie Name 2020"
+        year_match = re.search(r'\b(19\d{2}|20\d{2})\b', title)
+        if year_match:
+            # Pega tudo até o final do ano
+            title = title[:year_match.end()].strip()
+        else:
+            # HEURÍSTICA 2: Se não tem ano, detecta onde começa a parte técnica
+            # Procura pela primeira ocorrência de padrões técnicos
+            technical_start = None
 
-        # Remove pontos e underscores
-        title = title.replace('.', ' ').replace('_', ' ')
+            # Padrões que indicam início de metadados técnicos
+            technical_patterns = [
+                r'\b(1080p|720p|480p|2160p|4K|8K)\b',  # Resoluções
+                r'\b(BluRay|BRRip|WEB-?DL|WEBRip|HDTV|DVDRip|BDRip)\b',  # Formatos
+                r'\b(x264|x265|H\.?264|H\.?265|HEVC|XviD)\b',  # Codecs
+                r'\b(AAC|AC3|DTS|DD|MP3|FLAC)\b',  # Áudio
+                r'\b(DUAL|Dual\.?Audio)\b',  # Dual audio
+            ]
+
+            for pattern in technical_patterns:
+                match = re.search(pattern, title, re.IGNORECASE)
+                if match:
+                    if technical_start is None or match.start() < technical_start:
+                        technical_start = match.start()
+
+            if technical_start is not None and technical_start > 0:
+                title = title[:technical_start].strip()
 
         # Remove espaços múltiplos
         title = re.sub(r'\s+', ' ', title).strip()
+
+        # Se ficou muito curto (< 2 palavras), usa o original limpo
+        if len(title.split()) < 2:
+            title = original.replace('.', ' ').replace('_', ' ')
+            title = re.sub(r'\s+', ' ', title).strip()
 
         return title
 
