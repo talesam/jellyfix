@@ -10,7 +10,7 @@ from ..utils.helpers import (
     clean_filename, normalize_spaces, extract_year,
     extract_season_episode, format_season_folder,
     is_video_file, is_subtitle_file, parse_subtitle_filename,
-    calculate_subtitle_quality
+    calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
 )
 from ..utils.config import get_config
 from ..utils.logger import get_logger
@@ -76,8 +76,14 @@ class Renamer:
         for file_path in video_files:
             self._plan_video_rename(file_path)
 
-        # Processa legendas de forma inteligente (2 fases)
-        self._plan_subtitle_variants(subtitle_files, directory)
+        # Processa legendas que acompanham vídeos (move/renomeia junto)
+        # Retorna lista de legendas já processadas
+        processed_subtitles = self._plan_subtitle_companion(subtitle_files, video_files)
+
+        # Processa legendas de forma inteligente (variações de idioma)
+        # Exclui as que já foram processadas
+        remaining_subtitles = [s for s in subtitle_files if s not in processed_subtitles]
+        self._plan_subtitle_variants(remaining_subtitles, directory)
 
         return self.operations
 
@@ -120,11 +126,26 @@ class Renamer:
             else:
                 self.logger.warning(f"✗ Não encontrado: {title}")
 
-        # Formato: "Nome do Filme (YYYY).ext"
+        # Detecta tag de qualidade
+        quality_tag = None
+        if self.config.add_quality_tag:
+            # Primeiro tenta extrair do nome do arquivo
+            quality_tag = extract_quality_tag(file_path.stem)
+
+            # Se não encontrou e ffprobe está habilitado, detecta do vídeo
+            if not quality_tag and self.config.use_ffprobe:
+                quality_tag = detect_video_resolution(file_path)
+
+        # Formato Jellyfin: "Nome do Filme (YYYY) - 1080p.ext" ou "Nome do Filme (YYYY).ext"
         if year:
-            new_name = f"{title} ({year}){file_path.suffix}"
+            base_name = f"{title} ({year})"
         else:
-            new_name = f"{title}{file_path.suffix}"
+            base_name = f"{title}"
+
+        if quality_tag:
+            new_name = f"{base_name} - {quality_tag}{file_path.suffix}"
+        else:
+            new_name = f"{base_name}{file_path.suffix}"
 
         # Verifica se está na pasta correta
         parent_folder = file_path.parent.name
@@ -191,13 +212,26 @@ class Renamer:
             else:
                 self.logger.warning(f"✗ Não encontrado: {title}")
 
-        # Formato: "Nome da Série S01E01.ext" ou "Nome da Série S01E01-E02.ext"
+        # Detecta tag de qualidade
+        quality_tag = None
+        if self.config.add_quality_tag:
+            # Primeiro tenta extrair do nome do arquivo
+            quality_tag = extract_quality_tag(file_path.stem)
+
+            # Se não encontrou e ffprobe está habilitado, detecta do vídeo
+            if not quality_tag and self.config.use_ffprobe:
+                quality_tag = detect_video_resolution(file_path)
+
+        # Formato Jellyfin: "Nome da Série - S01E01 - 1080p.ext" ou "Nome da Série - S01E01.ext"
         if media_info.episode_end and media_info.episode_end != media_info.episode_start:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
         else:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
 
-        new_name = f"{title} {episode_part}{file_path.suffix}"
+        if quality_tag:
+            new_name = f"{title} - {episode_part} - {quality_tag}{file_path.suffix}"
+        else:
+            new_name = f"{title} - {episode_part}{file_path.suffix}"
 
         # Verifica estrutura de pastas
         # Esperado: SeriesFolder/Season XX/episode.mkv
@@ -253,6 +287,97 @@ class Renamer:
                 operation_type=op_type,
                 reason=reason
             ))
+
+    def _plan_subtitle_companion(self, subtitle_files: List[Path], video_files: List[Path]) -> List[Path]:
+        """
+        Processa legendas que acompanham vídeos.
+        Quando um vídeo é movido/renomeado, a legenda correspondente também é.
+
+        Returns:
+            Lista de legendas que foram processadas
+        """
+        from ..utils.helpers import normalize_spaces, has_language_code, is_portuguese_subtitle
+        import re
+
+        processed_subtitles = []
+
+        # Cria mapa de vídeos por base name (normalizado para matching)
+        video_operations = {}
+        for op in self.operations:
+            if op.source in video_files:
+                # Normaliza o nome do vídeo para fazer matching
+                video_stem = op.source.stem
+                video_normalized = normalize_spaces(video_stem)
+                video_operations[video_normalized] = op
+                # Também guarda pela chave exata para matching direto
+                video_operations[video_stem] = op
+
+        # Processa cada legenda
+        for subtitle_path in subtitle_files:
+            # Extrai base name da legenda (remove .LANG.srt)
+            subtitle_name = subtitle_path.stem
+
+            # Remove código de idioma se presente
+            # Padrões: .por, .eng, .spa, .por2, .eng3, etc.
+            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)$', subtitle_name, re.IGNORECASE)
+            if base_match:
+                subtitle_base = base_match.group(1)
+                lang_code = base_match.group(2)
+            else:
+                # Não tem código de idioma explícito
+                subtitle_base = subtitle_name
+                lang_code = None
+
+            # Procura vídeo correspondente (primeiro tenta match exato, depois normalizado)
+            matching_video_op = video_operations.get(subtitle_base)
+
+            if not matching_video_op:
+                # Tenta matching normalizado (mais flexível)
+                subtitle_normalized = normalize_spaces(subtitle_base)
+                matching_video_op = video_operations.get(subtitle_normalized)
+
+            if matching_video_op:
+                # Encontrou vídeo correspondente que será movido/renomeado
+                # Marca como processada
+                processed_subtitles.append(subtitle_path)
+
+                # Monta novo nome da legenda baseado no novo nome do vídeo
+                new_video_stem = matching_video_op.destination.stem
+
+                # Se não tem código de idioma, tenta detectar e adicionar
+                if not lang_code:
+                    # Verifica se é legenda portuguesa e deve adicionar código
+                    if self.config.rename_no_lang and is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
+                        lang_code = 'por'
+
+                if lang_code:
+                    new_subtitle_name = f"{new_video_stem}.{lang_code}{subtitle_path.suffix}"
+                else:
+                    new_subtitle_name = f"{new_video_stem}{subtitle_path.suffix}"
+
+                # Destino é na mesma pasta do novo vídeo
+                new_subtitle_path = matching_video_op.destination.parent / new_subtitle_name
+
+                if new_subtitle_path != subtitle_path:
+                    # Detecta tipo de operação
+                    pasta_mudou = new_subtitle_path.parent != subtitle_path.parent
+                    nome_mudou = new_subtitle_path.name != subtitle_path.name
+
+                    if pasta_mudou and nome_mudou:
+                        op_type = 'move_rename'
+                    elif pasta_mudou:
+                        op_type = 'move'
+                    else:
+                        op_type = 'rename'
+
+                    self.operations.append(RenameOperation(
+                        source=subtitle_path,
+                        destination=new_subtitle_path,
+                        operation_type=op_type,
+                        reason=f"Acompanhar vídeo: {subtitle_path.name} → {new_subtitle_name}"
+                    ))
+
+        return processed_subtitles
 
     def _plan_subtitle_variants(self, subtitle_files: List[Path], directory: Path):
         """
