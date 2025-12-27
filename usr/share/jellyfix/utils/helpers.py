@@ -357,9 +357,20 @@ def extract_season_episode(name: str) -> Optional[tuple]:
         ep_end = int(match.group(3)) if match.group(3) else ep_start
         return (season, ep_start, ep_end)
 
-    # Padrão 1x01
-    match = re.search(r'(\d{1,2})x(\d{1,2})', name)
+    # Padrão 1x01 (com word boundaries para não pegar anos como "2018" → "20x18")
+    match = re.search(r'\b(\d{1,2})x(\d{1,2})\b', name)
     if match:
+        # Verifica se não é um ano (ex: "2018" não deve virar "20x18")
+        # Anos válidos: 1900-2099
+        full_match = match.group(0)  # Ex: "20x18"
+        # Se parece com ano, ignora
+        potential_year = match.group(1) + match.group(2)  # Ex: "2018"
+        if len(potential_year) == 4 and potential_year.isdigit():
+            year_val = int(potential_year)
+            if 1900 <= year_val <= 2099:
+                # É um ano, não é SxxExx
+                return None
+
         season = int(match.group(1))
         episode = int(match.group(2))
         return (season, episode, episode)
@@ -381,6 +392,21 @@ def extract_season_episode(name: str) -> Optional[tuple]:
     for pattern in patterns:
         match = re.search(pattern, name, re.IGNORECASE)
         if match:
+            # Verifica se o match não está dentro de um ano
+            # Ex: "Movie 2018" não deve ser S20E18 ou S2E01
+            match_start = match.start()
+            match_end = match.end()
+
+            # Verifica se há um dígito antes do match (formando ano)
+            if match_start > 0 and name[match_start - 1].isdigit():
+                # Pode ser parte de um ano maior
+                continue
+
+            # Verifica se há dígito depois (formando ano)
+            if match_end < len(name) and name[match_end].isdigit():
+                # Pode ser parte de um ano maior
+                continue
+
             season = int(match.group(1))
             episode = int(match.group(2)) if len(match.groups()) > 1 else int(match.group(1))
             return (season, episode, episode)
