@@ -164,10 +164,134 @@ def normalize_spaces(name: str) -> str:
     # Remove: (BluRay), (DUAL), etc, mas preserva (1999), (2024)
     name = re.sub(r'\((?!19\d{2}|20\d{2})[^\)]*\)', '', name)
 
+    # Remove ano solto (sem parênteses) quando está no meio/final do nome
+    # Ex: "Matrix 1999 1080p" -> "Matrix 1080p"
+    # Preserva apenas se estiver entre parênteses: (1999)
+    name = re.sub(r'\s+(19\d{2}|20\d{2})(?!\))\s*', ' ', name)
+
+    # Remove informações de qualidade e release comuns (padrões específicos)
+    quality_patterns = [
+        # Resoluções
+        r'\b(1080p|720p|480p|2160p|4K|HD|UHD|FHD)\b',
+        # Formatos de vídeo (palavras específicas)
+        r'\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|CAMRip|TS|TC)\b',
+        # Codecs
+        r'\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC)\b',
+        # Áudio (deve vir antes para pegar "Dual Audio" junto)
+        r'\b(Dual\.?Audio|DUAL)\b',
+        r'\b(Audio)\b',  # Remove "Audio" sozinho também
+        r'\b(AAC|AC3|DTS|MP3|FLAC|Dolby|Atmos|TrueHD)\b',
+        r'\b(5\.1|7\.1|2\.0)\b',
+        # Edições especiais
+        r'\b(EXTENDED|UNRATED|REMASTERED|DIRECTORS?\.?CUT|DC|IMAX)\b',
+        # Sufixos técnicos comuns
+        r'\b(converted|rip|web|hdtv|bluray)\b',
+    ]
+
+    for pattern in quality_patterns:
+        name = re.sub(pattern, '', name, flags=re.IGNORECASE)
+
+    # Remove sufixos repetidos como "-converted-converted" (antes de remover grupos)
+    name = re.sub(r'(-\w+)\1+', r'\1', name)  # Remove repetições
+    name = re.sub(r'-converted', '', name, flags=re.IGNORECASE)
+
+    # Remove grupo de release precedido por hífen (em qualquer posição)
+    # Ex: -3LT0N, -YTS, -RARBG, -converted
+    name = re.sub(r'-[A-Z0-9]{2,}\b', '', name, flags=re.IGNORECASE)
+
     # Remove espaços múltiplos
     name = re.sub(r'\s+', ' ', name).strip()
 
-    return name
+    # Remove espaços antes de pontuação
+    name = re.sub(r'\s+([,\.!?;:])', r'\1', name)
+
+    # Limpeza final: remove hífens, espaços e pontos isolados no final
+    name = re.sub(r'[\s\-\.]+$', '', name)
+    name = re.sub(r'^[\s\-\.]+', '', name)  # Remove também do início se houver
+
+    return name.strip()
+
+
+def extract_quality_tag(name: str) -> Optional[str]:
+    """
+    Extrai tag de qualidade do nome do arquivo.
+
+    Suporta formatos:
+    - Resoluções: 480p, 720p, 1080p, 2160p, 4K, 8K
+    - Dentro ou fora de colchetes/parênteses
+    - Com ou sem separadores (_1080p_, .1080p., 1080p)
+
+    Args:
+        name: Nome do arquivo
+
+    Returns:
+        Tag de qualidade ou None
+    """
+    # Resoluções (aceita word boundary OU underscore/ponto)
+    resolution_patterns = [
+        (r'(?:^|[\s\._\-\[\(])(2160p|4K)(?:[\s\._\-\]\)]|$)', '2160p'),  # 4K
+        (r'(?:^|[\s\._\-\[\(])(1080p)(?:[\s\._\-\]\)]|$)', '1080p'),
+        (r'(?:^|[\s\._\-\[\(])(720p)(?:[\s\._\-\]\)]|$)', '720p'),
+        (r'(?:^|[\s\._\-\[\(])(480p)(?:[\s\._\-\]\)]|$)', '480p'),
+        (r'(?:^|[\s\._\-\[\(])(8K)(?:[\s\._\-\]\)]|$)', '8K'),
+    ]
+
+    for pattern, tag in resolution_patterns:
+        match = re.search(pattern, name, re.IGNORECASE)
+        if match:
+            return tag
+
+    return None
+
+
+def detect_video_resolution(file_path: Path) -> Optional[str]:
+    """
+    Detecta resolução de vídeo usando ffprobe.
+
+    Args:
+        file_path: Caminho do arquivo de vídeo
+
+    Returns:
+        Tag de resolução (480p, 720p, 1080p, 2160p) ou None
+    """
+    try:
+        import subprocess
+        import json
+
+        # Verifica se ffprobe está disponível
+        result = subprocess.run(
+            ['ffprobe', '-v', 'quiet', '-print_format', 'json', '-show_streams', str(file_path)],
+            capture_output=True,
+            text=True,
+            timeout=10
+        )
+
+        if result.returncode != 0:
+            return None
+
+        data = json.loads(result.stdout)
+
+        # Procura stream de vídeo
+        for stream in data.get('streams', []):
+            if stream.get('codec_type') == 'video':
+                height = stream.get('height')
+                if height:
+                    # Mapeia altura para tag de qualidade
+                    if height >= 2160:
+                        return '2160p'
+                    elif height >= 1080:
+                        return '1080p'
+                    elif height >= 720:
+                        return '720p'
+                    elif height >= 480:
+                        return '480p'
+                    else:
+                        return None
+
+        return None
+
+    except (ImportError, FileNotFoundError, subprocess.TimeoutExpired, json.JSONDecodeError):
+        return None
 
 
 def extract_year(name: str) -> Optional[int]:

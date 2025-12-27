@@ -26,6 +26,8 @@ class Config:
     remove_unwanted: bool = True
     organize_folders: bool = True
     fetch_metadata: bool = True
+    add_quality_tag: bool = True  # Adiciona tag de qualidade (1080p, 720p, etc)
+    use_ffprobe: bool = False  # Usa ffprobe para detectar resolução (mais lento mas preciso)
 
     # Detecção de português
     min_pt_words: int = 5
