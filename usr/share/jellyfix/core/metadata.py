@@ -80,15 +80,30 @@ class MetadataFetcher:
             # Limpa o título
             clean_title = self._clean_search_title(title)
 
-            # Busca no TMDB
-            if year:
-                results = tmdb['movie'].search(clean_title, year=year)
-            else:
-                results = tmdb['movie'].search(clean_title)
+            # Busca no TMDB (sem parâmetro year, filtrar depois)
+            results = tmdb['movie'].search(clean_title)
 
-            if not results:
+            # Verifica se há resultados reais (total_results > 0)
+            if not results or results.total_results == 0:
                 self.logger.debug(f"Nenhum resultado para: {clean_title}")
                 return None
+
+            # Se ano foi fornecido, filtra resultados
+            if year:
+                filtered_results = []
+                # Itera diretamente (sem slice, pois AsObj não suporta)
+                count = 0
+                for result in results:
+                    if count >= 10:  # Verifica os 10 primeiros apenas
+                        break
+                    count += 1
+                    if hasattr(result, 'release_date') and result.release_date:
+                        match = re.search(r'^(\d{4})', result.release_date)
+                        if match and int(match.group(1)) == year:
+                            filtered_results.append(result)
+                # Se encontrou filmes do ano, usa eles; senão usa todos os resultados
+                if filtered_results:
+                    results = filtered_results
 
             # Se modo interativo e múltiplos resultados, pede escolha
             if interactive and len(results) > 1 and self.config.interactive:
@@ -96,8 +111,13 @@ class MetadataFetcher:
                 if not movie:
                     return None
             else:
-                # Pega o primeiro resultado
-                movie = results[0]
+                # Pega o primeiro resultado (itera pois AsObj não suporta indexação)
+                movie = None
+                for result in results:
+                    movie = result
+                    break
+                if not movie:
+                    return None
 
             # Extrai ano do release_date
             movie_year = None
@@ -142,7 +162,8 @@ class MetadataFetcher:
             # Busca no TMDB
             results = tmdb['tv'].search(clean_title)
 
-            if not results:
+            # Verifica se há resultados reais (total_results > 0)
+            if not results or results.total_results == 0:
                 self.logger.debug(f"Nenhum resultado para série: {clean_title}")
                 return None
 
@@ -155,7 +176,12 @@ class MetadataFetcher:
                 # Pega o primeiro resultado (ou busca por ano se fornecido)
                 show = None
                 if year:
-                    for result in results[:5]:  # Verifica os 5 primeiros
+                    # Itera diretamente (sem slice, pois AsObj não suporta)
+                    count = 0
+                    for result in results:
+                        if count >= 5:  # Verifica os 5 primeiros apenas
+                            break
+                        count += 1
                         if hasattr(result, 'first_air_date') and result.first_air_date:
                             match = re.search(r'^(\d{4})', result.first_air_date)
                             if match and int(match.group(1)) == year:
@@ -163,7 +189,10 @@ class MetadataFetcher:
                                 break
 
                 if not show:
-                    show = results[0]
+                    # Pega o primeiro resultado iterando
+                    for result in results:
+                        show = result
+                        break
 
             # Extrai ano
             show_year = None
@@ -272,7 +301,10 @@ class MetadataFetcher:
 
             # Prepara opções para seleção
             choices = []
-            for i, movie in enumerate(results[:10]):  # Máximo 10 resultados
+            # Itera diretamente (sem slice, pois AsObj não suporta)
+            for i, movie in enumerate(results):
+                if i >= 10:  # Máximo 10 resultados
+                    break
                 year = ""
                 if hasattr(movie, 'release_date') and movie.release_date:
                     match = re.search(r'^(\d{4})', movie.release_date)
@@ -347,7 +379,10 @@ class MetadataFetcher:
 
             # Prepara opções para seleção
             choices = []
-            for i, show in enumerate(results[:10]):  # Máximo 10 resultados
+            # Itera diretamente (sem slice, pois AsObj não suporta)
+            for i, show in enumerate(results):
+                if i >= 10:  # Máximo 10 resultados
+                    break
                 year = ""
                 if hasattr(show, 'first_air_date') and show.first_air_date:
                     match = re.search(r'^(\d{4})', show.first_air_date)
