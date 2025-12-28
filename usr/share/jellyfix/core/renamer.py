@@ -100,46 +100,46 @@ class Renamer:
             self._plan_tvshow_rename(file_path, media_info)
 
     def _plan_movie_rename(self, file_path: Path, media_info):
-        """Planeja renomeação de um filme"""
-        # Extrai informações
+        """Plan movie file rename"""
+        # Extract information
         title = clean_filename(normalize_spaces(media_info.title or file_path.stem))
         year = extract_year(file_path.stem)
 
         if not title:
             return
 
-        # Busca metadados se configurado
+        # Fetch metadata if configured
         folder_suffix = ""
         if self.metadata_fetcher and self.config.fetch_metadata:
-            self.logger.info(f"🔍 Buscando: {title}")
+            self.logger.info(f"🔍 Searching: {title}")
             metadata = self.metadata_fetcher.search_movie(title, year, interactive=self.config.interactive)
 
             if metadata:
-                # Usa título e ano dos metadados
+                # Use title and year from metadata
                 title = clean_filename(metadata.title)
                 year = metadata.year or year
 
-                # Adiciona ID do provedor
+                # Add provider ID
                 if metadata.tmdb_id:
                     folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
                 elif metadata.imdb_id:
                     folder_suffix = f" [imdbid-{metadata.imdb_id}]"
 
-                self.logger.info(f"✓ Encontrado: {title} ({year}) [ID: {metadata.tmdb_id}]")
+                self.logger.info(f"✓ Found: {title} ({year}) [ID: {metadata.tmdb_id}]")
             else:
-                self.logger.warning(f"✗ Não encontrado: {title}")
+                self.logger.warning(f"✗ Not found: {title}")
 
-        # Detecta tag de qualidade
+        # Detect quality tag
         quality_tag = None
         if self.config.add_quality_tag:
-            # Primeiro tenta extrair do nome do arquivo
+            # First try to extract from filename
             quality_tag = extract_quality_tag(file_path.stem)
 
-            # Se não encontrou e ffprobe está habilitado, detecta do vídeo
+            # If not found and ffprobe is enabled, detect from video
             if not quality_tag and self.config.use_ffprobe:
                 quality_tag = detect_video_resolution(file_path)
 
-        # Formato Jellyfin: "Nome do Filme (YYYY) - 1080p.ext" ou "Nome do Filme (YYYY).ext"
+        # Jellyfin format: "Movie Name (YYYY) - 1080p.ext" or "Movie Name (YYYY).ext"
         if year:
             base_name = f"{title} ({year})"
         else:
@@ -150,27 +150,27 @@ class Renamer:
         else:
             new_name = f"{base_name}{file_path.suffix}"
 
-        # Verifica se está na pasta correta
+        # Check if in correct folder
         parent_folder = file_path.parent.name
         expected_folder = f"{title} ({year}){folder_suffix}" if year else f"{title}{folder_suffix}"
 
-        # Define destino
+        # Define destination
         if parent_folder != expected_folder:
-            # Precisa mover para pasta correta
+            # Move to correct folder
             new_folder = file_path.parent.parent / expected_folder
             new_path = new_folder / new_name
         else:
-            # Apenas renomeia
+            # Just rename
             new_path = file_path.parent / new_name
 
         if new_path != file_path:
-            # Detecta o tipo de operação com mais precisão
-            pasta_mudou = new_path.parent != file_path.parent
-            nome_mudou = new_path.name != file_path.name
+            # Detect operation type precisely
+            folder_changed = new_path.parent != file_path.parent
+            name_changed = new_path.name != file_path.name
 
-            if pasta_mudou and nome_mudou:
+            if folder_changed and name_changed:
                 op_type = 'move_rename'
-            elif pasta_mudou:
+            elif folder_changed:
                 op_type = 'move'
             else:
                 op_type = 'rename'
@@ -179,7 +179,7 @@ class Renamer:
                 source=file_path,
                 destination=new_path,
                 operation_type=op_type,
-                reason=f"Padronizar nome de filme: {file_path.name} → {new_name}"
+                reason=f"Standardize movie name: {file_path.name} → {new_name}"
             ))
 
     def _plan_tvshow_rename(self, file_path: Path, media_info):

@@ -1,0 +1,14 @@
+#!/bin/sh
+# Wrapper to execute Jellyfix GUI
+
+# Detect installation directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+JELLYFIX_DIR="$SCRIPT_DIR/../share/jellyfix"
+
+# If installed on system
+if [ ! -d "$JELLYFIX_DIR" ]; then
+    JELLYFIX_DIR="/usr/share/jellyfix"
+fi
+
+# Execute jellyfix-gui.py
+exec python3 "$JELLYFIX_DIR/jellyfix-gui.py" "$@"

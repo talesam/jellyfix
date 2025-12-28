@@ -1,384 +1,274 @@
 #!/usr/bin/env python3
-"""
-jellyfix - Organizador inteligente de bibliotecas Jellyfin
+# -*- coding: utf-8 -*-
+#
+# main.py - Entry point for Jellyfix CLI
+#
 
-Renomeia e organiza filmes, séries e legendas automaticamente seguindo
-as convenções de nomenclatura do Jellyfin.
+"""
+Jellyfix - Intelligent Jellyfin Library Organizer
+
+Automatically renames and organizes movies, TV shows, and subtitles
+following Jellyfin naming conventions.
 """
 
 import sys
 import argparse
 from pathlib import Path
-from rich.console import Console
-from rich.panel import Panel
 
-# Adiciona o diretório atual ao path para imports relativos
+# Add parent directory to path for relative imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from jellyfix.utils.config import Config, set_config, APP_VERSION
-from jellyfix.utils.logger import Logger, set_logger
-from jellyfix.ui.menu import InteractiveMenu
-from jellyfix.core.scanner import scan_library
-from jellyfix.core.renamer import Renamer
+from jellyfix.utils.config import Config, set_config, __version__
+from jellyfix.cli import run_cli
+from rich.console import Console
+from rich.panel import Panel
+from rich.text import Text
+from rich import box
 
 
 def show_help():
-    """Mostra ajuda com cores usando Rich"""
+    """Display colorful and detailed help using Rich"""
     console = Console()
 
-    console.print(Panel.fit(
-        f"[bold cyan]jellyfix v{APP_VERSION}[/bold cyan]\n"
-        "[dim]Organizador inteligente de bibliotecas Jellyfin[/dim]",
-        border_style="cyan"
-    ))
+    # Title banner
+    console.print()
+    title = Text()
+    title.append("╔══════════════════════════════════════════════════════════╗\n", style="bold blue")
+    title.append("║          ", style="bold blue")
+    title.append("         🎬  JELLYFIX  🎬", style="bold magenta")
+    title.append("                       ║\n", style="bold blue")
+    title.append("║     ", style="bold blue")
+    title.append("Intelligent Jellyfin Library Organizer", style="cyan")
+    title.append("           ║\n", style="bold blue")
+    title.append("║                    ", style="bold blue")
+    title.append(f"v{__version__}", style="dim")
+    title.append("                           ║\n", style="bold blue")
+    title.append("╚══════════════════════════════════════════════════════════╝", style="bold blue")
+    console.print(title)
+    console.print()
 
-    console.print("\n[bold yellow]USO:[/bold yellow]")
-    console.print("  jellyfix [opções]")
+    # Usage
+    console.print("[bold cyan]USAGE[/bold cyan]")
+    console.print("  [yellow]jellyfix[/yellow] [OPTIONS]")
+    console.print("  [yellow]jellyfix[/yellow] [dim]--help[/dim]     # Show this help")
+    console.print("  [yellow]jellyfix[/yellow] [dim]--version[/dim]  # Show version")
+    console.print()
 
-    console.print("\n[bold yellow]OPÇÕES:[/bold yellow]")
-    console.print("  [cyan]-h, --help[/cyan]              Mostra esta ajuda")
-    console.print("  [cyan]-v, --version[/cyan]          Mostra a versão")
-    console.print("  [cyan]-w, --workdir[/cyan] DIR      Diretório de trabalho (padrão: atual)")
-    console.print("  [cyan]--dry-run[/cyan]              Apenas simula, sem modificar arquivos [padrão]")
-    console.print("  [cyan]--execute[/cyan]              Executa as operações de verdade")
-    console.print("  [cyan]-y, --yes[/cyan]              Confirma todas as operações automaticamente")
-    console.print("  [cyan]--verbose[/cyan]              Modo verboso (mais detalhes)")
-    console.print("  [cyan]-q, --quiet[/cyan]            Modo silencioso (apenas erros)")
-    console.print("  [cyan]--log[/cyan] ARQUIVO          Salva log em arquivo")
-    console.print("  [cyan]--min-pt-words[/cyan] N       Mínimo de palavras PT para detectar (padrão: 5)")
-    console.print("  [cyan]--no-rename-por2[/cyan]       Não renomear .por2.srt → .por.srt")
-    console.print("  [cyan]--no-add-lang[/cyan]          Não adicionar código de idioma")
-    console.print("  [cyan]--no-remove-foreign[/cyan]    Não remover legendas estrangeiras")
-    console.print("  [cyan]--no-metadata[/cyan]          Não buscar metadados via TMDB")
-    console.print("  [cyan]--non-interactive[/cyan]      Modo não-interativo (sem menu)")
+    # Description
+    console.print("[bold cyan]DESCRIPTION[/bold cyan]")
+    console.print("  Automatically organizes your Jellyfin media library:")
+    console.print("    • Renames files to Jellyfin standard")
+    console.print("    • Organizes episodes into Season folders")
+    console.print("    • Manages subtitles (renames, removes foreign, adds language codes)")
+    console.print("    • Fetches metadata from TMDB/TVDB")
+    console.print("    • Detects and adds quality tags (1080p, 720p, etc)")
+    console.print()
 
-    console.print("\n[bold yellow]EXEMPLOS:[/bold yellow]")
-    console.print("  [dim]# Modo interativo (padrão)[/dim]")
-    console.print("  jellyfix")
-    console.print("\n  [dim]# Processar diretório específico[/dim]")
-    console.print("  jellyfix --workdir /media/filmes")
-    console.print("\n  [dim]# Executar sem confirmação[/dim]")
-    console.print("  jellyfix --yes --execute")
-    console.print("\n  [dim]# Modo verboso com log[/dim]")
-    console.print("  jellyfix --verbose --log /var/log/jellyfix.log")
+    # General Options
+    console.print("[bold cyan]GENERAL OPTIONS[/bold cyan]")
+    console.print("  [green]-h, --help[/green]              Show this help message and exit")
+    console.print("  [green]-v, --version[/green]           Show program version and exit")
+    console.print("  [green]-w, --workdir[/green] [yellow]DIR[/yellow]      Working directory (default: current directory)")
+    console.print()
 
-    console.print("\n[bold yellow]CONFIGURAÇÃO DE API:[/bold yellow]")
-    console.print("  [dim]Para buscar metadados via TMDB:[/dim]")
-    console.print("  export TMDB_API_KEY=sua_chave_aqui")
+    # Execution Mode
+    console.print("[bold cyan]EXECUTION MODE[/bold cyan]")
+    console.print("  [green]--dry-run[/green]               [bold](Default)[/bold] Preview changes without modifying files")
+    console.print("  [green]--execute[/green]               Execute operations and modify files for real")
+    console.print("  [green]-y, --yes[/green]               Auto-confirm all operations (skip confirmations)")
+    console.print("  [green]--non-interactive[/green]       Non-interactive mode (for scripts/automation)")
+    console.print()
 
-    console.print("\n[bold yellow]MAIS INFORMAÇÕES:[/bold yellow]")
-    console.print("  https://github.com/talesam/jellyfix\n")
+    # Output Options
+    console.print("[bold cyan]OUTPUT OPTIONS[/bold cyan]")
+    console.print("  [green]--verbose[/green]               Verbose output with detailed information")
+    console.print("  [green]-q, --quiet[/green]             Quiet mode (show errors only)")
+    console.print("  [green]--log[/green] [yellow]FILE[/yellow]              Save detailed log to file")
+    console.print()
+
+    # Subtitle Options
+    console.print("[bold cyan]SUBTITLE OPTIONS[/bold cyan]")
+    console.print("  [green]--min-pt-words[/green] [yellow]N[/yellow]        Minimum Portuguese words to detect (default: 5)")
+    console.print("  [green]--no-rename-por2[/green]        Do NOT rename .por2.srt → .por.srt")
+    console.print("  [green]--no-add-lang[/green]           Do NOT add language codes to subtitles")
+    console.print("  [green]--no-remove-foreign[/green]     Do NOT remove foreign subtitles")
+    console.print()
+
+    # Metadata Options
+    console.print("[bold cyan]METADATA OPTIONS[/bold cyan]")
+    console.print("  [green]--no-metadata[/green]           Disable metadata fetching from TMDB/TVDB")
+    console.print("  [green]--no-quality-tag[/green]        Do NOT add quality tags to filenames")
+    console.print("  [green]--use-ffprobe[/green]           Use ffprobe for accurate quality detection")
+    console.print()
+
+    # Examples
+    console.print("[bold cyan]EXAMPLES[/bold cyan]")
+    console.print("  [dim]# Interactive mode (default - launches menu)[/dim]")
+    console.print("  [yellow]jellyfix[/yellow]")
+    console.print()
+    console.print("  [dim]# Preview changes in a specific directory[/dim]")
+    console.print("  [yellow]jellyfix[/yellow] --workdir /path/to/media --dry-run")
+    console.print()
+    console.print("  [dim]# Execute operations for real (with confirmation)[/dim]")
+    console.print("  [yellow]jellyfix[/yellow] --workdir /path/to/media --execute")
+    console.print()
+    console.print("  [dim]# Auto-execute without confirmation (careful!)[/dim]")
+    console.print("  [yellow]jellyfix[/yellow] --workdir /path/to/media --execute -y")
+    console.print()
+    console.print("  [dim]# Non-interactive mode for scripts[/dim]")
+    console.print("  [yellow]jellyfix[/yellow] --workdir /path/to/media --execute --non-interactive -y")
+    console.print()
+    console.print("  [dim]# Save detailed log to file[/dim]")
+    console.print("  [yellow]jellyfix[/yellow] --workdir /path/to/media --execute --log jellyfix.log")
+    console.print()
+
+    # Configuration
+    console.print("[bold cyan]CONFIGURATION[/bold cyan]")
+    console.print("  Config file: [cyan]~/.jellyfix/config.json[/cyan]")
+    console.print("  - Stores TMDB API key, kept languages, and preferences")
+    console.print("  - Configure via interactive menu: [yellow]jellyfix[/yellow] → Settings")
+    console.print()
+
+    # What it does
+    console.print("[bold cyan]WHAT JELLYFIX DOES[/bold cyan]")
+    console.print()
+    console.print("  [bold green]Movies:[/bold green]")
+    console.print("    [dim]Before:[/dim] movie.name.2023.1080p.bluray.mkv")
+    console.print("    [dim]After:[/dim]  Movie Name (2023) [1080p].mkv")
+    console.print()
+    console.print("  [bold green]TV Shows:[/bold green]")
+    console.print("    [dim]Before:[/dim] show.name.s01e05.720p.mkv")
+    console.print("    [dim]After:[/dim]  Show Name/Season 01/Show Name S01E05 [720p].mkv")
+    console.print()
+    console.print("  [bold green]Subtitles:[/bold green]")
+    console.print("    • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt")
+    console.print("    • Adds language codes: subtitle.srt → Movie.por.srt")
+    console.print("    • Removes foreign languages (keeps por, eng by default)")
+    console.print("    • [bold]NEVER[/bold] removes .forced.srt files")
+    console.print()
+    console.print("  [bold green]Metadata:[/bold green]")
+    console.print("    • Fetches from TMDB/TVDB")
+    console.print("    • Adds IDs to folders: [tmdbid-12345]")
+    console.print("    • Downloads posters and metadata")
+    console.print()
+
+    # Important notes
+    console.print("[bold yellow]⚠️  IMPORTANT NOTES[/bold yellow]")
+    console.print("  • [bold]Dry-run is DEFAULT[/bold] - files are NOT modified unless you use --execute")
+    console.print("  • Always review the preview before executing")
+    console.print("  • Configure TMDB API key for metadata: Settings → Configure APIs")
+    console.print("  • Customize kept languages in interactive menu")
+    console.print()
+
+    # Links
+    console.print("[bold cyan]LINKS[/bold cyan]")
+    console.print("  Homepage:   [link=https://github.com/talesam/jellyfix]https://github.com/talesam/jellyfix[/link]")
+    console.print("  Issues:     [link=https://github.com/talesam/jellyfix/issues]https://github.com/talesam/jellyfix/issues[/link]")
+    console.print("  TMDB API:   [link=https://www.themoviedb.org/settings/api]https://www.themoviedb.org/settings/api[/link]")
+    console.print()
 
 
 def parse_args():
-    """Parse argumentos da linha de comando"""
-    parser = argparse.ArgumentParser(
-        description='jellyfix - Organizador inteligente de bibliotecas Jellyfin',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        add_help=False  # Desabilita --help padrão para usar o customizado
-    )
-
-    parser.add_argument(
-        '-h', '--help',
-        action='store_true',
-        help='Mostra esta ajuda'
-    )
-
-    parser.add_argument(
-        '-v', '--version',
-        action='version',
-        version=f'jellyfix {APP_VERSION}'
-    )
-
-    parser.add_argument(
-        '-w', '--workdir',
-        type=str,
-        default=None,
-        help='Diretório de trabalho (padrão: diretório atual)'
-    )
-
-    parser.add_argument(
-        '--dry-run',
-        action='store_true',
-        default=True,
-        help='Apenas mostra o que seria feito, sem modificar arquivos (padrão)'
-    )
-
-    parser.add_argument(
-        '--execute',
-        action='store_true',
-        help='Executa as operações de verdade (desativa dry-run)'
-    )
-
-    parser.add_argument(
-        '-y', '--yes',
-        action='store_true',
-        help='Confirma todas as operações automaticamente'
-    )
-
-    parser.add_argument(
-        '--verbose',
-        action='store_true',
-        help='Modo verboso (mostra mais detalhes)'
-    )
-
-    parser.add_argument(
-        '-q', '--quiet',
-        action='store_true',
-        help='Modo silencioso (apenas erros)'
-    )
-
-    parser.add_argument(
-        '--log',
-        type=str,
-        default=None,
-        help='Arquivo de log'
-    )
-
-    parser.add_argument(
-        '--min-pt-words',
-        type=int,
-        default=5,
-        help='Mínimo de palavras portuguesas para detectar legenda (padrão: 5)'
-    )
-
-    parser.add_argument(
-        '--no-rename-por2',
-        action='store_true',
-        help='Não renomear .por2.srt para .por.srt'
-    )
-
-    parser.add_argument(
-        '--no-add-lang',
-        action='store_true',
-        help='Não adicionar código de idioma a legendas'
-    )
-
-    parser.add_argument(
-        '--no-remove-foreign',
-        action='store_true',
-        help='Não remover legendas estrangeiras'
-    )
-
-    parser.add_argument(
-        '--no-metadata',
-        action='store_true',
-        help='Não buscar metadados via TMDB/TVDB'
-    )
-
-    parser.add_argument(
-        '--non-interactive',
-        action='store_true',
-        help='Modo não-interativo (sem menu)'
-    )
-
-    args = parser.parse_args()
-
-    # Se --help foi usado, mostra ajuda customizada e sai
-    if args.help:
+    """Parse command-line arguments"""
+    # Check if --help or -h is requested
+    if '-h' in sys.argv or '--help' in sys.argv:
         show_help()
         sys.exit(0)
 
-    return args
+    parser = argparse.ArgumentParser(
+        prog='jellyfix',
+        description='Intelligent Jellyfin Library Organizer',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        add_help=False  # We handle help ourselves
+    )
 
+    parser.add_argument('-v', '--version', action='version',
+                       version=f'jellyfix {__version__}')
 
-def interactive_mode(config: Config):
-    """Modo interativo com menu"""
-    menu = InteractiveMenu()
+    # Working directory
+    parser.add_argument('-w', '--workdir', type=str, metavar='DIR',
+                       help='Working directory (default: current)')
 
-    while True:
-        menu.show_banner()  # Limpa tela e mostra banner
-        choice = menu.main_menu()
+    # Execution mode
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument('--dry-run', action='store_true', default=True,
+                           help='Simulate only, do not modify files (default)')
+    mode_group.add_argument('--execute', action='store_true',
+                           help='Execute operations for real')
 
-        if choice == "❌ Sair":
-            menu.console.clear()
-            menu.console.print("\n[bold blue]Até logo! 👋[/bold blue]\n")
-            break
+    # Confirmation
+    parser.add_argument('-y', '--yes', action='store_true',
+                       help='Confirm all operations automatically')
 
-        elif choice == "ℹ️  Ajuda":
-            menu.show_help()
-            menu.console.input("\n[dim]Pressione ENTER para voltar ao menu...[/dim]")
+    # Interactive mode
+    parser.add_argument('--non-interactive', action='store_true',
+                       help='Non-interactive mode (for scripts)')
 
-        elif choice == "🔧 Configurações":
-            config = menu.settings_menu(config)
-            set_config(config)
+    # Output verbosity
+    verbosity_group = parser.add_mutually_exclusive_group()
+    verbosity_group.add_argument('--verbose', action='store_true',
+                                help='Verbose mode (more details)')
+    verbosity_group.add_argument('-q', '--quiet', action='store_true',
+                                help='Quiet mode (errors only)')
 
-        elif choice == "📂 Escanear biblioteca":
-            # Seleciona diretório
-            directory = menu.select_directory(config.work_dir)
-            if not directory:
-                continue
+    # Logging
+    parser.add_argument('--log', type=str, metavar='FILE',
+                       help='Save log to file')
 
-            # Escaneia
-            menu.console.print("\n[cyan]🔍 Escaneando biblioteca...[/cyan]")
-            result = scan_library(directory)
-            menu.show_scan_results(result)
-            menu.console.input("\n[dim]Pressione ENTER para voltar ao menu...[/dim]")
+    # Subtitle options
+    parser.add_argument('--min-pt-words', type=int, default=5, metavar='N',
+                       help='Minimum Portuguese words to detect (default: 5)')
+    parser.add_argument('--no-rename-por2', action='store_true',
+                       help='Do not rename .por2.srt → .por.srt')
+    parser.add_argument('--no-add-lang', action='store_true',
+                       help='Do not add language code to subtitles')
+    parser.add_argument('--no-remove-foreign', action='store_true',
+                       help='Do not remove foreign subtitles')
 
-        elif choice == "🚀 Processar arquivos":
-            # Seleciona diretório
-            directory = menu.select_directory(config.work_dir)
-            if not directory:
-                continue
+    # Metadata
+    parser.add_argument('--no-metadata', action='store_true',
+                       help='Disable metadata fetching from TMDB')
+    parser.add_argument('--no-quality-tag', action='store_true',
+                       help='Do not add quality tags to filenames')
+    parser.add_argument('--use-ffprobe', action='store_true',
+                       help='Use ffprobe for quality detection')
 
-            # Escaneia
-            menu.console.print("\n[cyan]🔍 Analisando arquivos...[/cyan]")
-
-            # Mostra se vai buscar metadados
-            if config.fetch_metadata and config.tmdb_api_key:
-                menu.console.print("[dim]   • Buscando metadados via TMDB...[/dim]")
-
-            # Planeja operações
-            renamer = Renamer()
-
-            with menu.console.status("[cyan]Processando...[/cyan]", spinner="dots"):
-                renamer.plan_operations(directory)
-
-            # Mostra preview
-            menu.show_operation_preview(renamer)
-
-            if not renamer.operations:
-                menu.console.input("\n[dim]Pressione ENTER para voltar ao menu...[/dim]")
-                continue
-
-            # Confirma
-            if not config.auto_confirm:
-                if not menu.confirm_operations():
-                    menu.console.print("\n[yellow]Operação cancelada.[/yellow]\n")
-                    menu.console.input("\n[dim]Pressione ENTER para voltar ao menu...[/dim]")
-                    continue
-
-            # Pergunta se quer executar de verdade ou dry-run
-            dry_run = True
-            if not config.auto_confirm:
-                execute = menu.console.input(
-                    "\n[bold yellow]Executar de verdade? (s/N):[/bold yellow] "
-                ).lower() == 's'
-                dry_run = not execute
-
-            # Executa
-            menu.console.print("\n[cyan]⚙️  Processando...[/cyan]\n")
-            stats = renamer.execute_operations(dry_run=dry_run)
-
-            # Mostra resultados
-            if dry_run:
-                menu.console.print(
-                    f"\n[bold yellow]🔍 Dry-run completado![/bold yellow]\n"
-                    f"Operações planejadas: {len(renamer.operations)}\n"
-                    f"Use --execute para aplicar as mudanças.\n"
-                )
-            else:
-                # Monta mensagem de conclusão
-                parts = []
-                if stats['renamed'] > 0:
-                    parts.append(f"{stats['renamed']} renomeado(s)")
-                if stats['moved'] > 0:
-                    parts.append(f"{stats['moved']} movido(s)")
-                if stats['deleted'] > 0:
-                    parts.append(f"{stats['deleted']} removido(s)")
-                if stats.get('cleaned', 0) > 0:
-                    parts.append(f"{stats['cleaned']} pasta(s) limpa(s)")
-                if stats['failed'] > 0:
-                    parts.append(f"{stats['failed']} falha(s)")
-                if stats['skipped'] > 0:
-                    parts.append(f"{stats['skipped']} pulado(s)")
-
-                message = "Concluído! " + ", ".join(parts) if parts else "Nenhuma operação executada"
-                menu.show_success(message)
-
-            menu.console.input("\n[dim]Pressione ENTER para voltar ao menu...[/dim]")
-
-
-def non_interactive_mode(config: Config):
-    """Modo não-interativo (CLI)"""
-    logger = Logger(config.log_file, config.verbose, config.quiet)
-    set_logger(logger)
-
-    logger.title("JELLYFIX - Organizador de Bibliotecas Jellyfin")
-
-    # Escaneia
-    logger.info(f"Escaneando: {config.work_dir}")
-    result = scan_library(config.work_dir)
-
-    logger.info(f"Encontrados: {len(result.video_files)} vídeos, {len(result.subtitle_files)} legendas")
-
-    # Planeja operações
-    logger.info("Planejando operações...")
-    renamer = Renamer()
-    renamer.plan_operations(config.work_dir)
-
-    if not renamer.operations:
-        logger.success("Nenhuma operação necessária. Tudo já está organizado!")
-        return
-
-    logger.info(f"{len(renamer.operations)} operações planejadas")
-
-    # Executa
-    dry_run = not config.auto_confirm
-    if config.dry_run:
-        dry_run = True
-
-    if dry_run:
-        logger.warning("Modo DRY-RUN: Nenhuma alteração será feita")
-
-    stats = renamer.execute_operations(dry_run=dry_run)
-
-    # Resultados
-    if dry_run:
-        logger.info(
-            f"Dry-run concluído: {len(renamer.operations)} operações planejadas"
-        )
-    else:
-        # Monta mensagem de conclusão
-        parts = []
-        if stats['renamed'] > 0:
-            parts.append(f"{stats['renamed']} renomeado(s)")
-        if stats['moved'] > 0:
-            parts.append(f"{stats['moved']} movido(s)")
-        if stats['deleted'] > 0:
-            parts.append(f"{stats['deleted']} removido(s)")
-        if stats.get('cleaned', 0) > 0:
-            parts.append(f"{stats['cleaned']} pasta(s) limpa(s)")
-        if stats['failed'] > 0:
-            parts.append(f"{stats['failed']} falha(s)")
-        if stats['skipped'] > 0:
-            parts.append(f"{stats['skipped']} pulado(s)")
-
-        message = "Concluído! " + ", ".join(parts) if parts else "Nenhuma operação executada"
-        logger.success(message)
+    return parser.parse_args()
 
 
 def main():
-    """Função principal"""
+    """Main entry point"""
+    # Parse arguments
     args = parse_args()
 
-    # Cria configuração
+    # Create configuration
     config = Config(
         work_dir=Path(args.workdir) if args.workdir else Path.cwd(),
-        log_file=Path(args.log) if args.log else None,
-        dry_run=args.dry_run and not args.execute,
+        dry_run=not args.execute if hasattr(args, 'execute') else args.dry_run,
+        auto_confirm=args.yes,
+        interactive=not args.non_interactive,
         verbose=args.verbose,
         quiet=args.quiet,
-        auto_confirm=args.yes,
+        log_file=Path(args.log) if args.log else None,
         min_pt_words=args.min_pt_words,
         rename_por2=not args.no_rename_por2,
         rename_no_lang=not args.no_add_lang,
         remove_foreign_subs=not args.no_remove_foreign,
         fetch_metadata=not args.no_metadata,
+        add_quality_tag=not args.no_quality_tag if hasattr(args, 'no_quality_tag') else True,
+        use_ffprobe=args.use_ffprobe if hasattr(args, 'use_ffprobe') else False
     )
 
+    # Set global config
     set_config(config)
 
-    # Modo interativo ou CLI
-    if args.non_interactive or args.yes:
-        non_interactive_mode(config)
-    else:
-        try:
-            interactive_mode(config)
-        except KeyboardInterrupt:
-            print("\n\n👋 Interrompido pelo usuário. Até logo!\n")
-            sys.exit(0)
+    # Run CLI
+    try:
+        return run_cli()
+    except KeyboardInterrupt:
+        print("\nOperation cancelled by user")
+        return 1
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

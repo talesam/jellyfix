@@ -125,5 +125,64 @@ class ConfigManager:
             self.config_file.unlink()
 
     def get_config_path(self) -> str:
-        """Retorna caminho do arquivo de configuração"""
+        """Return config file path"""
         return str(self.config_file)
+
+    def get_recent_libraries(self, max_count: int = 5) -> list:
+        """
+        Get list of recently scanned libraries.
+
+        Args:
+            max_count: Maximum number of libraries to return
+
+        Returns:
+            List of dicts with 'path' and 'timestamp' keys
+        """
+        libraries = self.get('recent_libraries', [])
+        return libraries[:max_count]
+
+    def add_recent_library(self, path: str):
+        """
+        Add a library to recent libraries list.
+
+        Args:
+            path: Path to the library directory
+        """
+        from datetime import datetime
+
+        libraries = self.get('recent_libraries', [])
+
+        # Remove if already exists
+        libraries = [lib for lib in libraries if lib.get('path') != path]
+
+        # Add to beginning
+        libraries.insert(0, {
+            'path': path,
+            'timestamp': datetime.now().isoformat()
+        })
+
+        # Keep only last 10
+        libraries = libraries[:10]
+
+        self.set('recent_libraries', libraries)
+
+    def clear_recent_libraries(self):
+        """Clear all recent libraries"""
+        self.set('recent_libraries', [])
+
+    def get_clear_recent_on_start(self) -> bool:
+        """Get whether to clear recent libraries on startup (default: True)"""
+        return self.get('clear_recent_on_start', True)
+
+    def set_clear_recent_on_start(self, value: bool):
+        """Set whether to clear recent libraries on startup"""
+        self.set('clear_recent_on_start', value)
+
+    def get_keep_recent_libraries(self) -> bool:
+        """Get whether to keep recent libraries (inverse of clear_on_start for UI)"""
+        return not self.get_clear_recent_on_start()
+
+    def set_keep_recent_libraries(self, value: bool):
+        """Set whether to keep recent libraries"""
+        self.set_clear_recent_on_start(not value)
+

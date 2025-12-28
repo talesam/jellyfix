@@ -1,12 +1,13 @@
-"""Sistema de configuração do jellyfix"""
+"""Configuration system for Jellyfix"""
 
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 import os
 
-# Importa versão do arquivo central
-from ..version import APP_VERSION
+# Application version
+__version__ = "2.1.4"
+APP_VERSION = __version__  # Backward compatibility
 
 
 @dataclass
@@ -43,54 +44,54 @@ class Config:
     tmdb_api_key: str = ""
     tvdb_api_key: str = ""
 
-    # Idiomas de legendas MANTIDOS (NÃO serão removidos)
-    # Por padrão: português e inglês
+    # Subtitle languages to KEEP (will NOT be removed)
+    # Default: Portuguese and English
     kept_languages: list = field(default_factory=lambda: ["por", "eng"])
 
-    # Lista completa de idiomas conhecidos (para interface de seleção)
+    # Complete list of known languages (for selection interface)
     all_languages: dict = field(default_factory=lambda: {
-        "ara": "Árabe",
-        "baq": "Basco",
-        "bul": "Búlgaro",
-        "cat": "Catalão",
-        "chi": "Chinês",
-        "cze": "Tcheco",
-        "dan": "Dinamarquês",
-        "dut": "Holandês",
-        "eng": "Inglês",
+        "ara": "Arabic",
+        "baq": "Basque",
+        "bul": "Bulgarian",
+        "cat": "Catalan",
+        "chi": "Chinese",
+        "cze": "Czech",
+        "dan": "Danish",
+        "dut": "Dutch",
+        "eng": "English",
         "fil": "Filipino",
-        "fin": "Finlandês",
-        "fre": "Francês",
-        "ger": "Alemão",
-        "glg": "Galego",
-        "gre": "Grego",
-        "heb": "Hebraico",
+        "fin": "Finnish",
+        "fre": "French",
+        "ger": "German",
+        "glg": "Galician",
+        "gre": "Greek",
+        "heb": "Hebrew",
         "hin": "Hindi",
-        "hrv": "Croata",
-        "hun": "Húngaro",
-        "ind": "Indonésio",
-        "ita": "Italiano",
-        "jpn": "Japonês",
-        "kor": "Coreano",
-        "lav": "Letão",
-        "lit": "Lituano",
-        "may": "Malaio",
-        "nob": "Norueguês (Bokmål)",
-        "nor": "Norueguês",
-        "pol": "Polonês",
-        "por": "Português",
-        "rum": "Romeno",
-        "rus": "Russo",
-        "slo": "Eslovaco",
-        "slv": "Esloveno",
-        "spa": "Espanhol",
-        "swe": "Sueco",
-        "tam": "Tâmil",
+        "hrv": "Croatian",
+        "hun": "Hungarian",
+        "ind": "Indonesian",
+        "ita": "Italian",
+        "jpn": "Japanese",
+        "kor": "Korean",
+        "lav": "Latvian",
+        "lit": "Lithuanian",
+        "may": "Malay",
+        "nob": "Norwegian (Bokmål)",
+        "nor": "Norwegian",
+        "pol": "Polish",
+        "por": "Portuguese",
+        "rum": "Romanian",
+        "rus": "Russian",
+        "slo": "Slovak",
+        "slv": "Slovenian",
+        "spa": "Spanish",
+        "swe": "Swedish",
+        "tam": "Tamil",
         "tel": "Telugu",
-        "tha": "Tailandês",
-        "tur": "Turco",
-        "ukr": "Ucraniano",
-        "vie": "Vietnamita"
+        "tha": "Thai",
+        "tur": "Turkish",
+        "ukr": "Ukrainian",
+        "vie": "Vietnamese"
     })
 
     def __post_init__(self):
