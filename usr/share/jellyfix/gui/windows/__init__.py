@@ -8,5 +8,7 @@
 
 from .main_window import JellyfixMainWindow
 from .preferences_window import PreferencesWindow
+from .search_dialog import SearchDialog
 
-__all__ = ['JellyfixMainWindow', 'PreferencesWindow']
+__all__ = ['JellyfixMainWindow', 'PreferencesWindow', 'SearchDialog']
+

@@ -128,7 +128,7 @@ class OperationsListView(Gtk.Box):
 
         # Search entry
         self.search_entry = Gtk.SearchEntry()
-        self.search_entry.set_placeholder_text(_("Search operations..."))
+        self.search_entry.set_placeholder_text(_("Search..."))
         self.search_entry.connect("search-changed", self._on_search_changed)
         toolbar.append(self.search_entry)
 

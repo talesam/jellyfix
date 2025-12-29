@@ -151,6 +151,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.preview_panel = PreviewPanel()
         self.preview_panel.set_vexpand(True)
         self.preview_panel.set_hexpand(True)
+        
+        # Connect callback for when user manually changes metadata via SearchDialog
+        self.preview_panel.set_metadata_callback(self._on_metadata_changed)
 
         content_page = Adw.NavigationPage(
             title=_("Preview"),
@@ -635,3 +638,97 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             self.preview_panel.load_poster(poster_path)
 
         return False  # Remove from GLib idle queue
+
+    def _on_metadata_changed(self, operation, metadata):
+        """
+        Handle metadata change from SearchDialog.
+        Updates the operation with new title/year and refreshes the UI.
+
+        Args:
+            operation: RenameOperation to update
+            metadata: New Metadata selected by user
+        """
+        from ...utils.helpers import clean_filename, extract_quality_tag
+        from ...utils.config import get_config
+        import re
+
+        config = get_config()
+        self.logger.info(f"Updating operation with new metadata: {metadata.title} ({metadata.year})")
+
+        # Find the operation in the list
+        operations = self.operations_handler.operations
+        op_index = None
+        for i, op in enumerate(operations):
+            if op.source == operation.source:
+                op_index = i
+                break
+
+        if op_index is None:
+            self.logger.warning("Operation not found in list")
+            return
+
+        # Build new destination path
+        title = clean_filename(metadata.title)
+        year = metadata.year
+
+        # Get quality tag from original
+        quality_tag = extract_quality_tag(operation.source.stem)
+        if not quality_tag and config.add_quality_tag:
+            from ...utils.helpers import detect_video_resolution
+            quality_tag = detect_video_resolution(operation.source)
+
+        # Build folder suffix with TMDB ID
+        folder_suffix = ""
+        if metadata.tmdb_id:
+            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
+
+        # Build new name
+        if year:
+            base_name = f"{title} ({year})"
+        else:
+            base_name = f"{title}"
+
+        if quality_tag:
+            new_name = f"{base_name} - {quality_tag}{operation.source.suffix}"
+        else:
+            new_name = f"{base_name}{operation.source.suffix}"
+
+        # Build new folder path
+        expected_folder = f"{base_name}{folder_suffix}"
+
+        # Determine new path
+        base_dir = self.operations_handler.current_directory
+        if operation.source.parent == base_dir:
+            # File is loose in root
+            new_folder = base_dir / expected_folder
+        else:
+            # File is in subfolder
+            new_folder = base_dir / expected_folder
+
+        new_path = new_folder / new_name
+
+        # Update the operation
+        from ...core.renamer import RenameOperation
+        new_operation = RenameOperation(
+            source=operation.source,
+            destination=new_path,
+            operation_type='move_rename' if new_path.parent != operation.source.parent else 'rename',
+            reason=f"Manual update: {metadata.title} ({metadata.year})"
+        )
+
+        # Replace in list
+        operations[op_index] = new_operation
+
+        # Refresh the UI
+        self.operations_list.set_operations(operations)
+
+        # Update preview with new operation
+        self.preview_panel.show_operation(new_operation)
+
+        # Fetch new poster
+        self._try_fetch_poster(new_operation)
+
+        # Show success toast
+        toast = Adw.Toast(title=f"Updated: {metadata.title} ({metadata.year})")
+        toast.set_timeout(3)
+        self.toast_overlay.add_toast(toast)

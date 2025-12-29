@@ -186,3 +186,12 @@ class ConfigManager:
         """Set whether to keep recent libraries"""
         self.set_clear_recent_on_start(not value)
 
+    def get_last_directory(self) -> Optional[str]:
+        """Get last opened directory for file chooser"""
+        return self.get('last_directory')
+
+    def set_last_directory(self, path: str):
+        """Set last opened directory for file chooser"""
+        self.set('last_directory', path)
+
+
