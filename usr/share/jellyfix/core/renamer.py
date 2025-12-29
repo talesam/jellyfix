@@ -52,6 +52,7 @@ class Renamer:
             Lista de operações planejadas
         """
         self.operations = []
+        self.base_directory = directory  # Store base directory for reference
 
         # Coleta todos os arquivos de legendas para processamento inteligente
         subtitle_files = []
@@ -157,7 +158,13 @@ class Renamer:
         # Define destination
         if parent_folder != expected_folder:
             # Move to correct folder
-            new_folder = file_path.parent.parent / expected_folder
+            # Check if file is directly in the base directory (loose file)
+            if file_path.parent == self.base_directory:
+                # File is loose in root - create folder inside base directory
+                new_folder = self.base_directory / expected_folder
+            else:
+                # File is in a subfolder - create folder in parent
+                new_folder = file_path.parent.parent / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
@@ -258,7 +265,13 @@ class Renamer:
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
             # A pasta da série precisa ser renomeada
-            new_series_folder = series_folder.parent / expected_series_folder
+            # Check if series is directly in base directory (loose file)
+            if series_folder == self.base_directory:
+                # File is loose in root - create folder inside base directory
+                new_series_folder = self.base_directory / expected_series_folder
+            else:
+                # File is in a subfolder - create folder in parent
+                new_series_folder = series_folder.parent / expected_series_folder
         else:
             new_series_folder = series_folder
 
