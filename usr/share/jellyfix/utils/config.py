@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-__version__ = "2.1.4"
+__version__ = "2.2.4"
 APP_VERSION = __version__  # Backward compatibility
 
 
