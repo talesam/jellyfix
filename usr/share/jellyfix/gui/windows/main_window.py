@@ -270,36 +270,47 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         from pathlib import Path
         
         if not paths:
+            self.logger.warning("load_paths called with empty paths")
             return
         
         self.logger.info(f"Loading {len(paths)} path(s) from command line")
+        for p in paths:
+            self.logger.debug(f"  Path: {p}")
         
         # Convert all paths to Path objects
         path_objects = [Path(p) for p in paths]
         
-        # Collect all parent directories to find common root
-        parent_dirs = set()
-        for p in path_objects:
-            if p.is_dir():
-                # For folders, add parent (we want to scan the folder containing them)
-                parent_dirs.add(p.parent)
-            else:
-                # For files, add their parent directory
-                parent_dirs.add(p.parent)
+        # Check if we have folders selected
+        folders = [p for p in path_objects if p.is_dir()]
+        files = [p for p in path_objects if p.is_file()]
         
-        # If all items are in the same directory, use that directory
-        # If items are in different directories, use the common parent
-        if len(parent_dirs) == 1:
-            directory = parent_dirs.pop()
+        self.logger.debug(f"Found {len(folders)} folders and {len(files)} files")
+        
+        if folders:
+            # If folders are selected, use the first folder as the directory to scan
+            # This is the most common case when right-clicking on a folder
+            self.logger.debug(f"Folders: {[str(f) for f in folders]}")
+            if len(folders) == 1:
+                directory = folders[0]  # Scan THIS folder, not its parent
+                self.logger.info(f"Single folder selected, scanning: {directory}")
+            else:
+                # Multiple folders - find common parent
+                try:
+                    directory = Path(os.path.commonpath([str(f) for f in folders]))
+                except ValueError:
+                    directory = folders[0]
+                self.logger.info(f"Multiple folders, using common parent: {directory}")
         else:
-            # Find common parent of all directories
-            # This handles cases where user selects items from different subfolders
-            try:
-                # Get common path prefix
-                directory = Path(os.path.commonpath([str(d) for d in parent_dirs]))
-            except ValueError:
-                # Fallback to first item's parent
-                directory = path_objects[0].parent if not path_objects[0].is_dir() else path_objects[0]
+            # Only files selected - use their common parent
+            parent_dirs = set(p.parent for p in files)
+            if len(parent_dirs) == 1:
+                directory = parent_dirs.pop()
+            else:
+                try:
+                    directory = Path(os.path.commonpath([str(d) for d in parent_dirs]))
+                except ValueError:
+                    directory = files[0].parent
+            self.logger.info(f"Files selected, using parent: {directory}")
         
         self.logger.info(f"Will scan directory: {directory}")
         

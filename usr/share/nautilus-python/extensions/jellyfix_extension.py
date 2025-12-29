@@ -116,7 +116,7 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
 
     def _count_media_in_folder(self, folder_path: Path) -> tuple[int, int]:
         """
-        Counts video and subtitle files in a folder (non-recursive, just first level).
+        Counts video and subtitle files in a folder (RECURSIVE, includes subfolders).
         Returns (video_count, subtitle_count).
         """
         video_extensions = {'.mp4', '.mkv', '.webm', '.mov', '.avi', '.wmv', 
@@ -127,7 +127,8 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         subtitle_count = 0
         
         try:
-            for item in folder_path.iterdir():
+            # Use rglob for recursive search
+            for item in folder_path.rglob('*'):
                 if item.is_file():
                     ext = item.suffix.lower()
                     if ext in video_extensions:
