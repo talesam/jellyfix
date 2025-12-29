@@ -1387,6 +1387,69 @@ msgstr "Докладвайте проблеми"
 msgid "Get TMDB API Key"
 msgstr "Вземете TMDB API ключ"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Търсене на заглавие"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Въведете името на филм или сериал..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Търсене"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Филм"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "ТВ сериали"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Отмяна"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Приложи"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Търсене..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB не е конфигуриран"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Няма намерени резултати"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "резултати"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1507,16 +1570,6 @@ msgstr "Въведете вашия TMDB API ключ по-долу"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Поставете тук API ключа"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Отмяна"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1741,14 +1794,6 @@ msgstr "Приложи операции?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Това ще преименува {} файла. Продължавате ли?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Приложи"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
@@ -1977,6 +2022,16 @@ msgstr "Няма избор"
 msgid "Select an item to preview"
 msgstr "Изберете елемент за преглед"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Търсене на заглавие"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Неправилен заглавие? Кликнете, за да търсите ръчно."
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2060,8 +2115,8 @@ msgstr "Току-що"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Търсене на операции..."
+msgid "Search..."
+msgstr "Търсене..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

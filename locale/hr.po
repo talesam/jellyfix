@@ -1386,6 +1386,69 @@ msgstr "Prijavite probleme"
 msgid "Get TMDB API Key"
 msgstr "Dobijte TMDB API ključ"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Pretraži naslov"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Unesite naziv filma ili serije..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Pretraži"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "TV serije"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Otkaži"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Primijeni"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Traženje..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB nije konfiguriran"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Nema pronađenih rezultata"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "rezultati"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1506,16 +1569,6 @@ msgstr "Unesite svoj TMDB API ključ u nastavku"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Zalijepite API ključ ovdje"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Otkaži"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1740,14 +1793,6 @@ msgstr "Primijeni operacije?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Ovo će preimenovati {} datoteka. Nastaviti?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Primijeni"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
@@ -1976,6 +2021,16 @@ msgstr "Nema odabira"
 msgid "Select an item to preview"
 msgstr "Odaberite stavku za pregled"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Pretraži naslov"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Pogrešan naslov? Kliknite za ručno pretraživanje"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2059,8 +2114,8 @@ msgstr "Upravo sada"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Pretraživanje operacija..."
+msgid "Search..."
+msgstr "Pretraži..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

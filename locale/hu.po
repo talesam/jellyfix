@@ -1387,6 +1387,69 @@ msgstr "Jelentse a problémákat"
 msgid "Get TMDB API Key"
 msgstr "Szerezd meg a TMDB API kulcsot"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Keresési cím"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Írja be a film vagy sorozat nevét..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Keresés"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "TV Sorozat"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Mégsem"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Alkalmazás"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Keresés..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB nincs konfigurálva"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Nincs találat."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "eredmények"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1507,16 +1570,6 @@ msgstr "Írd be az alábbi mezőbe a TMDB API kulcsodat"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Illessze be az API kulcsot ide"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Mégsem"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1741,14 +1794,6 @@ msgstr "Műveletek alkalmazása?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Ez átnevezi a {} fájlt. Folytatja?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Alkalmazás"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
@@ -1977,6 +2022,16 @@ msgstr "Nincs kiválasztás"
 msgid "Select an item to preview"
 msgstr "Válasszon ki egy elemet az előnézethez"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Keresési cím"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Hibás cím? Kattintson a manuális kereséshez"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2060,8 +2115,8 @@ msgstr "Most azonnal"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Keresési műveletek..."
+msgid "Search..."
+msgstr "Keresés..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

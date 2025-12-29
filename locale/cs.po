@@ -1389,6 +1389,69 @@ msgstr "Nahlásit problémy"
 msgid "Get TMDB API Key"
 msgstr "Získejte API klíč TMDB"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Hledat název"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Zadejte název filmu nebo seriálu..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Hledat"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "Televizní seriál"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Zrušit"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Použít"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Hledání..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB není nakonfigurováno"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Žádné výsledky nenalezeny"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "výsledky"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1509,16 +1572,6 @@ msgstr "Zadejte svůj TMDB API klíč níže"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Vložte sem API klíč"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Zrušit"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1743,14 +1796,6 @@ msgstr "Použít operace?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Toto přejmenuje {} souborů. Chcete pokračovat?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Použít"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
@@ -1979,6 +2024,16 @@ msgstr "Žádný výběr"
 msgid "Select an item to preview"
 msgstr "Vyberte položku pro náhled"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Hledat název"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Špatný název? Klikněte pro ruční vyhledávání"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2062,8 +2117,8 @@ msgstr "Právě teď"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Hledání operací..."
+msgid "Search..."
+msgstr "Hledat..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK
