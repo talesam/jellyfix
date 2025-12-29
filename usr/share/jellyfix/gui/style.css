@@ -1,0 +1,59 @@
+/* Jellyfix GUI Styles */
+
+/* Ensure PreferencesGroup doesn't add extra spacing */
+preferencesgroup {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Status pages should center content */
+statuspage {
+    min-height: 200px;
+}
+
+/* Badge styling for quality tags */
+.badge {
+    background-color: alpha(@accent_bg_color, 0.2);
+    color: @accent_fg_color;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Remove separator line from navigation split view */
+navigationsplitview>separator {
+    background: transparent;
+    min-width: 0;
+    border: none;
+}
+
+/* Clean navigation pages - no borders */
+navigationpage {
+    border: none;
+}
+
+/* Ensure view switcher is compact */
+viewswitcher {
+    margin: 6px;
+}
+
+/* Drop zone styling */
+.drop-zone {
+    border: 2px dashed alpha(@borders, 0.5);
+    border-radius: 12px;
+    transition: all 200ms ease;
+}
+
+/* Drop zone active state (during drag) */
+.drop-active {
+    border-color: @accent_bg_color;
+    background-color: alpha(@accent_bg_color, 0.1);
+}
+
+/* Pill button style */
+.pill {
+    border-radius: 999px;
+    padding-left: 24px;
+    padding-right: 24px;
+}

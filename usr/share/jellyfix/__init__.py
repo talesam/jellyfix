@@ -1,12 +1,12 @@
 """
-jellyfix - Organizador inteligente de bibliotecas Jellyfin
+Jellyfix - Intelligent Jellyfin Library Organizer
 
-Renomeia e organiza filmes, séries e legendas automaticamente seguindo
-as convenções de nomenclatura do Jellyfin.
+Automatically renames and organizes movies, TV shows, and subtitles
+following Jellyfin naming conventions.
 """
 
-# Importa versão do arquivo central
-from .version import APP_VERSION as __version__
+# Import version from config
+from .utils.config import APP_VERSION
 
 __author__ = "talesam"
 __license__ = "MIT"

@@ -11,7 +11,7 @@ from ..utils.logger import get_logger
 
 @dataclass
 class Metadata:
-    """Metadados de um filme ou série"""
+    """Movie or TV show metadata"""
     title: str
     year: Optional[int] = None
     tmdb_id: Optional[int] = None
@@ -19,6 +19,11 @@ class Metadata:
     imdb_id: Optional[str] = None
     original_title: Optional[str] = None
     overview: Optional[str] = None
+    # Image paths
+    poster_path: Optional[str] = None      # Relative path (e.g., '/abc123.jpg')
+    backdrop_path: Optional[str] = None    # Relative path (e.g., '/xyz789.jpg')
+    poster_url: Optional[str] = None       # Full CDN URL
+    backdrop_url: Optional[str] = None     # Full CDN URL
 
 
 class MetadataFetcher:
@@ -203,13 +208,25 @@ class MetadataFetcher:
                 if match:
                     movie_year = int(match.group(1))
 
+            # Build image URLs
+            poster_path = getattr(movie, 'poster_path', None)
+            backdrop_path = getattr(movie, 'backdrop_path', None)
+
+            base_url = "https://image.tmdb.org/t/p"
+            poster_url = f"{base_url}/w500{poster_path}" if poster_path else None
+            backdrop_url = f"{base_url}/w1280{backdrop_path}" if backdrop_path else None
+
             return Metadata(
                 title=movie.title,
                 year=movie_year,
                 tmdb_id=movie.id,
                 imdb_id=getattr(movie, 'imdb_id', None),
                 original_title=getattr(movie, 'original_title', None),
-                overview=getattr(movie, 'overview', None)
+                overview=getattr(movie, 'overview', None),
+                poster_path=poster_path,
+                backdrop_path=backdrop_path,
+                poster_url=poster_url,
+                backdrop_url=backdrop_url
             )
 
         except Exception as e:
@@ -278,12 +295,24 @@ class MetadataFetcher:
                 if match:
                     show_year = int(match.group(1))
 
+            # Build image URLs
+            poster_path = getattr(show, 'poster_path', None)
+            backdrop_path = getattr(show, 'backdrop_path', None)
+
+            base_url = "https://image.tmdb.org/t/p"
+            poster_url = f"{base_url}/w500{poster_path}" if poster_path else None
+            backdrop_url = f"{base_url}/w1280{backdrop_path}" if backdrop_path else None
+
             return Metadata(
                 title=show.name,
                 year=show_year,
                 tmdb_id=show.id,
                 original_title=getattr(show, 'original_name', None),
-                overview=getattr(show, 'overview', None)
+                overview=getattr(show, 'overview', None),
+                poster_path=poster_path,
+                backdrop_path=backdrop_path,
+                poster_url=poster_url,
+                backdrop_url=backdrop_url
             )
 
         except Exception as e:
@@ -435,7 +464,7 @@ class MetadataFetcher:
             ))
 
             # Pergunta ao usuário
-            from ..ui.menu import custom_style
+            from ..cli.interactive import custom_style
             result = questionary.select(
                 "Escolha o resultado correto:",
                 choices=choices,
@@ -454,10 +483,14 @@ class MetadataFetcher:
         except ImportError:
             # Se questionary não disponível, usa o primeiro resultado
             self.logger.warning("Modo interativo não disponível. Usando primeiro resultado.")
-            return results[0]
+            for result in results:
+                return result
         except Exception as e:
             self.logger.error(f"Erro na escolha interativa: {e}")
-            return results[0]
+            # Retorna primeiro resultado (itera pois AsObj não suporta indexação)
+            for result in results:
+                return result
+            return None
 
     def _choose_tvshow_interactive(self, results: List, search_title: str):
         """
@@ -513,7 +546,7 @@ class MetadataFetcher:
             ))
 
             # Pergunta ao usuário
-            from ..ui.menu import custom_style
+            from ..cli.interactive import custom_style
             result = questionary.select(
                 "Escolha o resultado correto:",
                 choices=choices,
@@ -532,7 +565,11 @@ class MetadataFetcher:
         except ImportError:
             # Se questionary não disponível, usa o primeiro resultado
             self.logger.warning("Modo interativo não disponível. Usando primeiro resultado.")
-            return results[0]
+            for result in results:
+                return result
         except Exception as e:
             self.logger.error(f"Erro na escolha interativa: {e}")
-            return results[0]
+            # Retorna primeiro resultado (itera pois AsObj não suporta indexação)
+            for result in results:
+                return result
+            return None

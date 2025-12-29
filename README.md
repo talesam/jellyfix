@@ -1,25 +1,30 @@
-# JellyFix
+<p align="center">
+  <img src="usr/share/icons/hicolor/scalable/apps/jellyfix.svg" alt="Jellyfix Logo" width="128" height="128">
+</p>
 
-**Organizador inteligente de bibliotecas Jellyfin** - Renomeia e organiza filmes, séries e legendas automaticamente seguindo as convenções do Jellyfin.
+<h1 align="center">Jellyfix</h1>
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+<p align="center">
+  <strong>Intelligent Jellyfin Media Library Organizer</strong>
+</p>
 
-## Características
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.8%2B-blue.svg" alt="Python"></a>
+  <a href="https://gtk.org/"><img src="https://img.shields.io/badge/GTK-4-orange.svg" alt="GTK4"></a>
+</p>
 
-- 🎬 **Renomeação inteligente** - Filmes e séries no padrão Jellyfin
-- 📝 **Gestão avançada de legendas**
-  - Escolhe a melhor variação (.por2, .eng3) por qualidade
-  - Remove idiomas estrangeiros (configurável)
-  - Adiciona códigos de idioma automaticamente
-  - Protege arquivos .forced
-- 🌍 **Suporte multilíngue** - Configure quais idiomas manter
-- 📊 **Metadados TMDB** - Busca títulos, anos e IDs automaticamente
-- 🗂️ **Organização automática** - Estrutura de pastas Season XX
-- 🎨 **Interface TUI** - Menu interativo elegante com Rich
-- 💾 **Configuração persistente** - Preferências salvas em `~/.jellyfix/config.json`
+---
 
-## Instalação
+## ✨ Features
+
+- **Smart Renaming** — Movies and TV shows following Jellyfin naming conventions
+- **TMDB Integration** — Automatic metadata, titles, and poster fetching
+- **Subtitle Management** — Language detection, quality selection, and cleanup
+- **Modern GUI** — GTK4 + libadwaita interface with drag-and-drop support
+- **CLI Mode** — Full-featured command line interface with TUI menu
+
+## 📦 Installation
 
 ### Arch Linux
 
@@ -28,181 +33,89 @@ cd pkgbuild/
 makepkg -si
 ```
 
-### Outras Distribuições
+### Manual Installation
 
 ```bash
-# 1. Instale dependências
+# Install dependencies
 pip install rich questionary requests
 
-# 2. Instale JellyFix
+# Install Jellyfix
 sudo cp -r usr/share/jellyfix /usr/share/
-sudo cp usr/bin/jellyfix /usr/bin/
-sudo chmod +x /usr/bin/jellyfix
+sudo cp -r usr/share/icons /usr/share/
+sudo cp -r usr/share/applications /usr/share/
+sudo cp usr/bin/jellyfix* /usr/bin/
+sudo chmod +x /usr/bin/jellyfix*
 ```
 
-## Uso
+## 🚀 Usage
 
-### Modo Interativo
+### GUI Mode
+
+```bash
+jellyfix-gui
+```
+
+### CLI Interactive Mode
 
 ```bash
 jellyfix
 ```
 
-Menu com todas as opções disponíveis.
-
-### Modo CLI
+### CLI Direct Mode
 
 ```bash
-# Dry-run (padrão - mostra o que seria feito)
-jellyfix --workdir /media/filmes
+# Preview changes (dry-run)
+jellyfix --workdir /media/movies
 
-# Executar de verdade
-jellyfix --workdir /media/filmes --execute --yes
-
-# Com log
-jellyfix --verbose --log /var/log/jellyfix.log
+# Apply changes
+jellyfix --workdir /media/movies --execute --yes
 ```
 
-## Exemplos
+## 📁 Before & After
 
-### Filmes
-
-**Antes:**
-```
-/Filmes/Matrix.1999.1080p.BluRay.mkv
-```
-
-**Depois:**
-```
-/Filmes/Matrix (1999) [tmdbid-603]/
-├── Matrix (1999).mkv
-├── Matrix (1999).por.srt
-└── Matrix (1999).eng.srt
-```
-
-### Séries
-
-**Antes:**
-```
-/Series/breaking.bad.s01e01.720p.mkv
-```
-
-**Depois:**
-```
-/Series/Breaking Bad (2008) [tmdbid-1396]/
-└── Season 01/
-    ├── Breaking Bad S01E01.mkv
-    └── Breaking Bad S01E01.por.srt
-```
-
-## Sistema de Qualidade de Legendas
-
-JellyFix escolhe a **melhor** legenda entre variações baseado em:
-
-- Tamanho do arquivo
-- Número de blocos de diálogo
-- Número de linhas de texto
-- Rejeita arquivos < 100 bytes
-
-**Exemplo:** Se `por3.srt` (102KB) tem mais conteúdo que `por2.srt` (65KB), o **por3** será escolhido e renomeado para `por.srt`.
-
-## Configuração
-
-### API TMDB (Opcional)
-
-```bash
-# 1. Obtenha chave gratuita: https://www.themoviedb.org/settings/api
-# 2. Configure
-export TMDB_API_KEY="sua_chave_aqui"
-```
-
-### Idiomas Mantidos
-
-Por padrão mantém **português** e **inglês**. Configure outros no menu interativo:
+### Movies
 
 ```
-🌍 Idiomas mantidos: por, eng
+Before: /Movies/Matrix.1999.1080p.BluRay.mkv
+
+After:  /Movies/Matrix (1999) [tmdbid-603]/
+        ├── Matrix (1999) - 1080p.mkv
+        └── Matrix (1999).por.srt
 ```
 
-## Opções CLI
+### TV Shows
 
 ```
-jellyfix [opções]
+Before: /Series/breaking.bad.s01e01.720p.mkv
 
-Diretório:
-  -w, --workdir DIR       Diretório de trabalho
-
-Execução:
-  --dry-run               Apenas simula (padrão)
-  --execute               Executa de verdade
-  -y, --yes               Confirma automaticamente
-
-Saída:
-  --verbose               Modo verboso
-  -q, --quiet             Modo silencioso
-  --log ARQUIVO           Salva log
-
-Operações:
-  --no-rename-por2        Desativa renomeação de variações
-  --no-add-lang           Não adiciona código de idioma
-  --no-remove-foreign     Não remove legendas estrangeiras
-  --no-metadata           Não busca metadados
-
-Detecção:
-  --min-pt-words N        Palavras PT para detectar (padrão: 5)
-
-Outros:
-  -h, --help              Mostra ajuda
-  -v, --version           Mostra versão
-  --non-interactive       Modo CLI sem menu
+After:  /Series/Breaking Bad (2008) [tmdbid-1396]/
+        └── Season 01/
+            └── Breaking Bad - S01E01 - 720p.mkv
 ```
 
-## Estrutura do Projeto
+## ⚙️ Configuration
 
-```
-jellyfix/
-├── usr/
-│   ├── bin/jellyfix              # CLI principal
-│   └── share/jellyfix/           # Módulos Python
-│       ├── core/                 # Lógica principal
-│       │   ├── detector.py       # Detecção filme/série
-│       │   ├── scanner.py        # Scanner de arquivos
-│       │   ├── renamer.py        # Renomeação
-│       │   └── metadata.py       # TMDB API
-│       ├── utils/                # Utilitários
-│       │   ├── config.py         # Configurações
-│       │   ├── helpers.py        # Funções auxiliares
-│       │   └── logger.py         # Logging
-│       └── ui/
-│           └── menu.py           # Interface TUI
-├── pkgbuild/PKGBUILD             # Pacote Arch Linux
-├── README.md
-├── jellyfin-naming-guide.md      # Guia completo
-└── LICENSE
-```
+### TMDB API Key
 
-## Dependências
+Get your free API key at [themoviedb.org](https://www.themoviedb.org/settings/api) and configure via:
+
+- GUI: Menu → Configure API
+- CLI: `export TMDB_API_KEY="your_key"`
+- Config file: `~/.jellyfix/config.json`
+
+## 📋 Requirements
 
 - Python 3.8+
-- python-rich
-- python-requests
-- python-questionary
+- GTK4, libadwaita (GUI only)
+- python-rich, python-questionary, python-requests
 
-## Documentação Adicional
+## 📄 License
 
-- [Guia de Nomenclatura Jellyfin](jellyfin-naming-guide.md)
-- [Documentação Oficial Jellyfin](https://jellyfin.org/docs/general/server/media/movies/)
-
-## Licença
-
-MIT License - Copyright (c) 2024 Tales A. Mendonça
-
-## Links
-
-- **Repositório**: https://github.com/talesam/jellyfix
-- **Issues**: https://github.com/talesam/jellyfix/issues
-- **TMDB API**: https://www.themoviedb.org/settings/api
+MIT License — Copyright (c) 2024 Tales A. Mendonça
 
 ---
 
-**⭐ Se este projeto foi útil, deixe uma estrela!**
+<p align="center">
+  <a href="https://github.com/talesam/jellyfix">GitHub</a> •
+  <a href="https://github.com/talesam/jellyfix/issues">Issues</a>
+</p>
