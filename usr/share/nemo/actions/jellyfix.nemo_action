@@ -33,6 +33,7 @@ Comment[es]=Organizar archivos de video y subtítulos usando Jellyfix
 Exec=jellyfix-gui %F
 Icon-Name=jellyfix
 Selection=any
-Extensions=mp4;mkv;webm;mov;avi;wmv;mpeg;mpg;m4v;ts;flv;srt;vtt;ass;sub;ssa;
-Mimetypes=video/mp4;video/x-matroska;video/webm;video/quicktime;video/x-msvideo;video/x-ms-wmv;video/mpeg;video/x-m4v;video/mp2t;video/x-flv;application/x-subrip;text/vtt;application/x-ass;text/x-ssa;
+Extensions=mp4;mkv;webm;mov;avi;wmv;mpeg;mpg;m4v;ts;flv;srt;vtt;ass;sub;ssa;dir;
+Mimetypes=video/mp4;video/x-matroska;video/webm;video/quicktime;video/x-msvideo;video/x-ms-wmv;video/mpeg;video/x-m4v;video/mp2t;video/x-flv;application/x-subrip;text/vtt;application/x-ass;text/x-ssa;inode/directory;
 Dependencies=jellyfix-gui;
+

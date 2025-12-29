@@ -60,30 +60,84 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
 
     def get_file_items(self, *args):
         """
-        Returns menu items for the selected files.
-        The menu is only shown if one or more supported video or subtitle files are selected.
+        Returns menu items for the selected files or folders.
+        The menu is shown if one or more supported video/subtitle files are selected,
+        OR if one or more folders are selected (folders may contain media files).
 
         Note: Using *args for compatibility across Nautilus versions.
         The last argument is always the list of selected files.
         """
         files = args[-1]
 
-        video_files = [f for f in files if self._is_video_file(f)]
-        subtitle_files = [f for f in files if self._is_subtitle_file(f)]
+        # Separate folders from files
+        folders = [f for f in files if f.is_directory()]
+        regular_files = [f for f in files if not f.is_directory()]
 
-        if not video_files and not subtitle_files:
+        video_files = [f for f in regular_files if self._is_video_file(f)]
+        subtitle_files = [f for f in regular_files if self._is_subtitle_file(f)]
+
+        # Count media files in folders (for label display)
+        folder_video_count = 0
+        folder_subtitle_count = 0
+        for folder in folders:
+            folder_path = self._get_file_path(folder)
+            if folder_path:
+                v_count, s_count = self._count_media_in_folder(Path(folder_path))
+                folder_video_count += v_count
+                folder_subtitle_count += s_count
+
+        # Show menu if we have any media files OR any folders selected
+        total_videos = len(video_files) + folder_video_count
+        total_subtitles = len(subtitle_files) + folder_subtitle_count
+        
+        if not folders and not video_files and not subtitle_files:
             return []
 
-        num_videos = len(video_files)
-        num_subtitles = len(subtitle_files)
-
         # Build the label based on what's selected
-        label = self._build_label(num_videos, num_subtitles)
+        if folders and not video_files and not subtitle_files:
+            # Only folders selected - show folder count or media count if available
+            if total_videos > 0 or total_subtitles > 0:
+                label = self._build_label(total_videos, total_subtitles)
+            else:
+                if len(folders) == 1:
+                    label = _('Organize Folder with Jellyfix')
+                else:
+                    label = _('Organize {0} Folders with Jellyfix').format(len(folders))
+        else:
+            label = self._build_label(total_videos, total_subtitles)
+
         name = 'Jellyfix::Organize'
 
+        # Pass all selected items (files and folders)
+        all_items = folders + video_files + subtitle_files
         menu_item = Nautilus.MenuItem(name=name, label=label)
-        menu_item.connect('activate', self._launch_application, video_files + subtitle_files)
+        menu_item.connect('activate', self._launch_application, all_items)
         return [menu_item]
+
+    def _count_media_in_folder(self, folder_path: Path) -> tuple[int, int]:
+        """
+        Counts video and subtitle files in a folder (non-recursive, just first level).
+        Returns (video_count, subtitle_count).
+        """
+        video_extensions = {'.mp4', '.mkv', '.webm', '.mov', '.avi', '.wmv', 
+                           '.mpeg', '.mpg', '.m4v', '.ts', '.flv', '.3gp', '.ogv'}
+        subtitle_extensions = {'.srt', '.vtt', '.ass', '.sub', '.ssa'}
+        
+        video_count = 0
+        subtitle_count = 0
+        
+        try:
+            for item in folder_path.iterdir():
+                if item.is_file():
+                    ext = item.suffix.lower()
+                    if ext in video_extensions:
+                        video_count += 1
+                    elif ext in subtitle_extensions:
+                        subtitle_count += 1
+        except (PermissionError, OSError):
+            pass
+        
+        return video_count, subtitle_count
 
     def _build_label(self, num_videos: int, num_subtitles: int) -> str:
         """
@@ -160,7 +214,7 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
 
     def _launch_application(self, menu_item: Nautilus.MenuItem, files: list[Nautilus.FileInfo]):
         """
-        Launches the Jellyfix application with the selected files.
+        Launches the Jellyfix application with the selected files or folders.
         """
         file_paths = []
         for f in files:
@@ -177,14 +231,38 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
 
         try:
             cmd = [self.app_executable] + file_paths
-            subprocess.Popen(
+            print(f"Jellyfix Extension: Launching command: {cmd}")
+            
+            # Use Popen with proper error handling
+            process = subprocess.Popen(
                 cmd,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
                 start_new_session=True
             )
+            
+            # Don't wait for process, just log if there's immediate failure
+            # Check if process started successfully
+            import time
+            time.sleep(0.5)
+            if process.poll() is not None:
+                # Process exited immediately - there was an error
+                _, stderr = process.communicate()
+                error_msg = stderr.decode('utf-8', errors='replace') if stderr else "Unknown error"
+                print(f"Jellyfix Extension: Process failed: {error_msg}")
+                self._show_error_notification(
+                    _("Application Launch Error"),
+                    error_msg[:200]
+                )
+                
+        except FileNotFoundError:
+            print(f"Jellyfix Extension: Executable not found: {self.app_executable}")
+            self._show_error_notification(
+                _("Application Not Found"),
+                _("Could not find '{0}'. Is Jellyfix installed?").format(self.app_executable)
+            )
         except Exception as e:
-            print(f"Error launching '{self.app_executable}': {e}")
+            print(f"Jellyfix Extension: Error launching '{self.app_executable}': {e}")
             self._show_error_notification(
                 _("Application Launch Error"),
                 _("Failed to start Jellyfix: {0}").format(str(e))

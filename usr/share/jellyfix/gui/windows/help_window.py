@@ -15,7 +15,7 @@ gi.require_version('Adw', '1')
 from gi.repository import Gtk, Adw
 
 from ...utils.i18n import _
-from ...utils.config import __version__
+from ...utils.config import APP_VERSION
 
 
 class HelpWindow(Adw.Window):
@@ -66,7 +66,7 @@ class HelpWindow(Adw.Window):
 
         # Version
         version_label = Gtk.Label()
-        version_label.set_markup(f'<span size="small">{_("Version")} {__version__}</span>')
+        version_label.set_markup(f'<span size="small">{_("Version")} {APP_VERSION}</span>')
         version_label.set_halign(Gtk.Align.CENTER)
         content_box.append(version_label)
 

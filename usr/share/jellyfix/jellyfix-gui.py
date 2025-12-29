@@ -21,7 +21,7 @@ gi.require_version('Adw', '1')
 # Add parent directory to path for relative imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from jellyfix.utils.config import Config, set_config, __version__, get_config
+from jellyfix.utils.config import Config, set_config, APP_VERSION, get_config
 from jellyfix.utils.logger import Logger, set_logger, get_logger
 from jellyfix.gui import JellyfixApplication
 
@@ -55,7 +55,7 @@ def main():
     )
     set_logger(logger)
 
-    logger.info(f"Starting Jellyfix GUI v{__version__}")
+    logger.info(f"Starting Jellyfix GUI v{APP_VERSION}")
 
     # Create and run GTK application
     try:

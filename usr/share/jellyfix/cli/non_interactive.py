@@ -110,7 +110,7 @@ class NonInteractiveCLI:
     
     def _show_banner(self):
         """Show application banner"""
-        from ..utils.config import __version__
+        from ..utils.config import APP_VERSION
         
         banner = f"""
 {'='*60}

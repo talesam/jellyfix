@@ -19,6 +19,7 @@ gi.require_version('Adw', '1')
 
 from gi.repository import Gtk, Adw, GLib
 from pathlib import Path
+import os
 
 from ...utils.logger import get_logger
 from ...utils.i18n import _
@@ -255,6 +256,53 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             directory=directory,
             complete_callback=self.on_scan_complete
         )
+
+    def load_paths(self, paths):
+        """
+        Load paths passed from command line (via file manager extension).
+        
+        Args:
+            paths: List of file/folder paths to process
+        """
+        from pathlib import Path
+        
+        if not paths:
+            return
+        
+        self.logger.info(f"Loading {len(paths)} path(s) from command line")
+        
+        # Convert all paths to Path objects
+        path_objects = [Path(p) for p in paths]
+        
+        # Collect all parent directories to find common root
+        parent_dirs = set()
+        for p in path_objects:
+            if p.is_dir():
+                # For folders, add parent (we want to scan the folder containing them)
+                parent_dirs.add(p.parent)
+            else:
+                # For files, add their parent directory
+                parent_dirs.add(p.parent)
+        
+        # If all items are in the same directory, use that directory
+        # If items are in different directories, use the common parent
+        if len(parent_dirs) == 1:
+            directory = parent_dirs.pop()
+        else:
+            # Find common parent of all directories
+            # This handles cases where user selects items from different subfolders
+            try:
+                # Get common path prefix
+                directory = Path(os.path.commonpath([str(d) for d in parent_dirs]))
+            except ValueError:
+                # Fallback to first item's parent
+                directory = path_objects[0].parent if not path_objects[0].is_dir() else path_objects[0]
+        
+        self.logger.info(f"Will scan directory: {directory}")
+        
+        # Start scan after a short delay to ensure UI is ready
+        from gi.repository import GLib
+        GLib.timeout_add(100, lambda: self._start_scan(directory) or False)
 
     def on_scan_complete(self, files):
         """

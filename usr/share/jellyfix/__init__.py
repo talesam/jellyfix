@@ -6,7 +6,7 @@ following Jellyfin naming conventions.
 """
 
 # Import version from config
-from .utils.config import __version__
+from .utils.config import APP_VERSION
 
 __author__ = "talesam"
 __license__ = "MIT"

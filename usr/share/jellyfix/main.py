@@ -18,7 +18,7 @@ from pathlib import Path
 # Add parent directory to path for relative imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from jellyfix.utils.config import Config, set_config, __version__
+from jellyfix.utils.config import Config, set_config, APP_VERSION
 from jellyfix.cli import run_cli
 from rich.console import Console
 from rich.panel import Panel
@@ -41,7 +41,7 @@ def show_help():
     title.append("Intelligent Jellyfin Library Organizer", style="cyan")
     title.append("           ║\n", style="bold blue")
     title.append("║                    ", style="bold blue")
-    title.append(f"v{__version__}", style="dim")
+    title.append(f"v{APP_VERSION}", style="dim")
     title.append("                           ║\n", style="bold blue")
     title.append("╚══════════════════════════════════════════════════════════╝", style="bold blue")
     console.print(title)
@@ -183,7 +183,7 @@ def parse_args():
     )
 
     parser.add_argument('-v', '--version', action='version',
-                       version=f'jellyfix {__version__}')
+                       version=f'jellyfix {APP_VERSION}')
 
     # Working directory
     parser.add_argument('-w', '--workdir', type=str, metavar='DIR',

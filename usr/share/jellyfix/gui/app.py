@@ -17,7 +17,7 @@ gi.require_version('Adw', '1')
 
 from gi.repository import Gtk, Adw, Gio, Gdk
 from pathlib import Path
-from ..utils.config import __version__
+from ..utils.config import APP_VERSION
 from ..utils.logger import get_logger
 from ..utils.i18n import _
 from .windows.main_window import JellyfixMainWindow
@@ -31,11 +31,12 @@ class JellyfixApplication(Adw.Application):
         """Initialize application"""
         super().__init__(
             application_id='org.talesam.jellyfix',
-            flags=Gio.ApplicationFlags.FLAGS_NONE
+            flags=Gio.ApplicationFlags.HANDLES_OPEN
         )
         
         self.logger = get_logger()
         self.window = None
+        self.initial_paths = []  # Paths passed via command line
     
     def do_activate(self):
         """Activate application (create main window)"""
@@ -43,8 +44,27 @@ class JellyfixApplication(Adw.Application):
         if not self.window:
             self.window = JellyfixMainWindow(application=self)
         
+        # If we have initial paths, load them
+        if self.initial_paths:
+            self.window.load_paths(self.initial_paths)
+            self.initial_paths = []
+        
         # Present window
         self.window.present()
+    
+    def do_open(self, files, n_files, hint):
+        """Handle files/folders passed as arguments"""
+        # Store the paths
+        self.initial_paths = []
+        for gfile in files:
+            path = gfile.get_path()
+            if path:
+                self.initial_paths.append(path)
+        
+        self.logger.info(f"Received {len(self.initial_paths)} path(s) to process")
+        
+        # Activate the application (this will create window and load paths)
+        self.do_activate()
     
     def do_startup(self):
         """Startup application (setup actions, etc)"""
@@ -122,7 +142,7 @@ class JellyfixApplication(Adw.Application):
             application_name=_("Jellyfix"),
             application_icon="jellyfix",
             developer_name="talesam",
-            version=__version__,
+            version=APP_VERSION,
             website="https://github.com/talesam/jellyfix",
             issue_url="https://github.com/talesam/jellyfix/issues",
             copyright="© 2024 talesam",
