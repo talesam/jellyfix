@@ -1401,6 +1401,75 @@ msgid "Get TMDB API Key"
 msgstr "Get TMDB API Key"
 
 #
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+msgid "Search Title"
+msgstr "Search Title"
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+msgid "Enter movie or series name..."
+msgstr "Enter movie or series name..."
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+msgid "Search"
+msgstr "Search"
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+msgid "Movie"
+msgstr "Movie"
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+msgid "TV Series"
+msgstr "TV Series"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 231
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 380
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 422
+msgid "Cancel"
+msgstr "Cancel"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 235
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 381
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+msgid "Apply"
+msgstr "Apply"
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+msgid "Searching..."
+msgstr "Searching..."
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+msgid "TMDB not configured"
+msgstr "TMDB not configured"
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+msgid "No results found"
+msgstr "No results found"
+
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+msgid "results"
+msgstr "results"
+
+#
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 msgid "TMDB Configuration"
 msgstr "TMDB Configuration"
@@ -1497,7 +1566,7 @@ msgstr "Remove"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
 msgid "Help"
 msgstr "Help"
 
@@ -1520,16 +1589,6 @@ msgstr "Enter your TMDB API key below"
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
 msgid "Paste API key here"
 msgstr "Paste API key here"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 377
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 419
-msgid "Cancel"
-msgstr "Cancel"
 
 #
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
@@ -1576,10 +1635,10 @@ msgstr "No TMDB API key configured yet"
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 459
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 462
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 177
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 246
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 445
 msgid "OK"
 msgstr "OK"
 
@@ -1707,98 +1766,90 @@ msgid "Library"
 msgstr "Library"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 156
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 159
 msgid "Preview"
 msgstr "Preview"
 
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 186
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
 msgid "Preferences"
 msgstr "Preferences"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 184
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 187
 msgid "Configure API Keys"
 msgstr "Configure API Keys"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 190
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
 msgid "About Jellyfix"
 msgstr "About Jellyfix"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 194
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 197
 msgid "Quit"
 msgstr "Quit"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 249
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 252
 msgid "Scanning directory..."
 msgstr "Scanning directory..."
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 324
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
 msgid "Generating operations..."
 msgstr "Generating operations..."
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 349
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 352
 #, python-brace-format
 msgid "{} operations ready"
 msgstr "{} operations ready"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 374
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 377
 msgid "Apply Operations?"
 msgstr "Apply Operations?"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 375
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 415
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 378
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 418
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "This will rename {} files. Continue?"
 
 #
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 378
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-msgid "Apply"
-msgstr "Apply"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 385
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 388
 msgid "Applying operations..."
 msgstr "Applying operations..."
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 414
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 417
 msgid "Execute Operations?"
 msgstr "Execute Operations?"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 420
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 423
 msgid "Execute"
 msgstr "Execute"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 443
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 446
 #, python-brace-format
 msgid "Dry-run: {} operations previewed"
 msgstr "Dry-run: {} operations previewed"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 446
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 449
 #, python-brace-format
 msgid "{} operations completed"
 msgstr "{} operations completed"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 456
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 459
 msgid "Complete!"
 msgstr "Complete!"
 
@@ -1968,22 +2019,22 @@ msgid "Remember recently scanned libraries between sessions"
 msgstr "Remember recently scanned libraries between sessions"
 
 #
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 73
 msgid "Select Directory to Scan"
 msgstr "Select Directory to Scan"
 
 #
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 174
 msgid "Scan Failed"
 msgstr "Scan Failed"
 
 #
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 243
 msgid "Operation Generation Failed"
 msgstr "Operation Generation Failed"
 
 #
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 442
 msgid "Execution Failed"
 msgstr "Execution Failed"
 
@@ -1998,32 +2049,42 @@ msgid "Select an item to preview"
 msgstr "Select an item to preview"
 
 #
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+msgid "Search title"
+msgstr "Search title"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+msgid "Wrong title? Click to search manually"
+msgstr "Wrong title? Click to search manually"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 134
 msgid "From:"
 msgstr "From:"
 
 #
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 166
 msgid "To:"
 msgstr "To:"
 
 #
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 241
 msgid "MOVE"
 msgstr "MOVE"
 
 #
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 244
 msgid "DELETE"
 msgstr "DELETE"
 
 #
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 251
 msgid "MOVE + RENAME"
 msgstr "MOVE + RENAME"
 
 #
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 254
 msgid "RENAME"
 msgstr "RENAME"
 
@@ -2080,8 +2141,8 @@ msgstr "Just now"
 
 #
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-msgid "Search operations..."
-msgstr "Search operations..."
+msgid "Search..."
+msgstr "Search..."
 
 #
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
