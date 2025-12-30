@@ -1091,7 +1091,7 @@ msgstr "Move + Rename"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 176
 msgid "Move"
 msgstr "Move"
 
@@ -1099,7 +1099,7 @@ msgstr "Move"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 170
 msgid "Rename"
 msgstr "Rename"
 
@@ -1107,7 +1107,7 @@ msgstr "Rename"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 182
 msgid "Delete"
 msgstr "Delete"
 
@@ -1433,8 +1433,8 @@ msgstr "TV Series"
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 231
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 380
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 422
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 391
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 433
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -1444,8 +1444,8 @@ msgstr "Cancel"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 235
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 381
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 392
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 234
 msgid "Apply"
 msgstr "Apply"
 
@@ -1635,7 +1635,7 @@ msgstr "No TMDB API key configured yet"
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 462
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 473
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 177
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 246
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 445
@@ -1756,7 +1756,7 @@ msgstr "Dashboard"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 133
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 139
 msgid "Operations"
 msgstr "Operations"
 
@@ -1799,57 +1799,57 @@ msgid "Scanning directory..."
 msgstr "Scanning directory..."
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 338
 msgid "Generating operations..."
 msgstr "Generating operations..."
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 352
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 363
 #, python-brace-format
 msgid "{} operations ready"
 msgstr "{} operations ready"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 377
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 388
 msgid "Apply Operations?"
 msgstr "Apply Operations?"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 378
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 418
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 389
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 429
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "This will rename {} files. Continue?"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 388
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 399
 msgid "Applying operations..."
 msgstr "Applying operations..."
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 417
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 428
 msgid "Execute Operations?"
 msgstr "Execute Operations?"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 423
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 434
 msgid "Execute"
 msgstr "Execute"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 446
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 457
 #, python-brace-format
 msgid "Dry-run: {} operations previewed"
 msgstr "Dry-run: {} operations previewed"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 449
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 460
 #, python-brace-format
 msgid "{} operations completed"
 msgstr "{} operations completed"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 459
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 470
 msgid "Complete!"
 msgstr "Complete!"
 
@@ -2140,48 +2140,48 @@ msgid "Just now"
 msgstr "Just now"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 154
 msgid "Search..."
 msgstr "Search..."
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 164
 msgid "All"
 msgstr "All"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 203
 msgid "No Operations"
 msgstr "No Operations"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 204
 msgid "Scan a directory to generate operations"
 msgstr "Scan a directory to generate operations"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 379
 msgid "rename"
 msgstr "rename"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 381
 msgid "move"
 msgstr "move"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 383
 msgid "delete"
 msgstr "delete"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 386
 #, python-brace-format
 msgid "Showing {} of {} operations"
 msgstr "Showing {} of {} operations"
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 388
 #, python-brace-format
 msgid "Total: {} operations"
 msgstr "Total: {} operations"
@@ -2203,79 +2203,79 @@ msgid "Organize {0} Folders with Jellyfix"
 msgstr "Organize {0} Folders with Jellyfix"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 149
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
 msgid "Organize 1 Video and 1 Subtitle"
 msgstr "Organize 1 Video and 1 Subtitle"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 151
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
 #, python-brace-format
 msgid "Organize 1 Video and {0} Subtitles"
 msgstr "Organize 1 Video and {0} Subtitles"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 153
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
 #, python-brace-format
 msgid "Organize {0} Videos and 1 Subtitle"
 msgstr "Organize {0} Videos and 1 Subtitle"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 155
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
 #, python-brace-format
 msgid "Organize {0} Videos and {1} Subtitles"
 msgstr "Organize {0} Videos and {1} Subtitles"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 159
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
 msgid "Organize Video"
 msgstr "Organize Video"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 161
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
 #, python-brace-format
 msgid "Organize {0} Videos"
 msgstr "Organize {0} Videos"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 165
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
 msgid "Organize Subtitle"
 msgstr "Organize Subtitle"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 167
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
 #, python-brace-format
 msgid "Organize {0} Subtitles"
 msgstr "Organize {0} Subtitles"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 227
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
 msgid "No valid local files selected"
 msgstr "No valid local files selected"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
 msgid "Could not get the path for the selected files."
 msgstr "Could not get the path for the selected files."
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 254
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 267
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 255
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 268
 msgid "Application Launch Error"
 msgstr "Application Launch Error"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 261
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 262
 msgid "Application Not Found"
 msgstr "Application Not Found"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 262
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 263
 #, python-brace-format
 msgid "Could not find '{0}'. Is Jellyfix installed?"
 msgstr "Could not find '{0}'. Is Jellyfix installed?"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 268
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 269
 #, python-brace-format
 msgid "Failed to start Jellyfix: {0}"
 msgstr "Failed to start Jellyfix: {0}"
