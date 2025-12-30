@@ -293,6 +293,7 @@ class InteractiveCLI:
                     f"🌍 " + _("Kept languages:") + f" {kept_langs_str}",
                     f"{'✓' if self.config.organize_folders else '✗'} " + _("Organize in folders (Season XX)"),
                     f"{'✓' if self.config.fetch_metadata else '✗'} " + _("Fetch metadata (TMDB/TVDB)"),
+                    f"{'✓' if self.config.ask_on_multiple_results else '✗'} " + _("Ask when multiple TMDB results"),
                     f"{'✓' if self.config.add_quality_tag else '✗'} " + _("Add quality tags (1080p, 720p, etc)"),
                     f"{'✓' if self.config.use_ffprobe else '✗'} " + _("Use ffprobe for quality detection"),
                     f"📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
@@ -338,6 +339,11 @@ class InteractiveCLI:
             elif _("Fetch metadata") in choice:
                 self.config.fetch_metadata = not self.config.fetch_metadata
                 self.config_manager.set('fetch_metadata', self.config.fetch_metadata)
+                show_success(_("Setting saved"))
+
+            elif _("Ask when multiple TMDB results") in choice:
+                self.config.ask_on_multiple_results = not self.config.ask_on_multiple_results
+                self.config_manager.set('ask_on_multiple_results', self.config.ask_on_multiple_results)
                 show_success(_("Setting saved"))
 
             elif _("Add quality tags") in choice:

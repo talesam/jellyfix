@@ -188,7 +188,7 @@ class MetadataFetcher:
                     results = filtered_results
 
             # Se modo interativo e múltiplos resultados, pede escolha
-            if interactive and len(results) > 1 and self.config.interactive:
+            if interactive and len(results) > 1 and self.config.ask_on_multiple_results:
                 movie = self._choose_movie_interactive(results, clean_title)
                 if not movie:
                     return None
@@ -262,7 +262,7 @@ class MetadataFetcher:
                 return None
 
             # Se modo interativo e múltiplos resultados, pede escolha
-            if interactive and len(results) > 1 and self.config.interactive:
+            if interactive and len(results) > 1 and self.config.ask_on_multiple_results:
                 show = self._choose_tvshow_interactive(results, clean_title)
                 if not show:
                     return None
