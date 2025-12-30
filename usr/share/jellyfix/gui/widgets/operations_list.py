@@ -265,7 +265,14 @@ class OperationsListView(Gtk.Box):
 
         # Apply type filter
         if self.current_filter != "all":
-            filtered = [op for op in filtered if op.operation_type == self.current_filter]
+            if self.current_filter == "rename":
+                # Rename e move_rename contêm renomeação
+                filtered = [op for op in filtered if op.operation_type in ('rename', 'move_rename')]
+            elif self.current_filter == "move":
+                # Move e move_rename contêm movimentação
+                filtered = [op for op in filtered if op.operation_type in ('move', 'move_rename')]
+            else:
+                filtered = [op for op in filtered if op.operation_type == self.current_filter]
 
         # Apply search filter
         if self.search_text:

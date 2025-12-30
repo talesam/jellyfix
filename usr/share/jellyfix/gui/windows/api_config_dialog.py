@@ -36,7 +36,7 @@ class APIConfigDialog(Adw.Window):
 
         # Window properties
         self.set_title(_("API Configuration"))
-        self.set_default_size(600, 500)
+        self.set_default_size(660, 680)
 
         # Build UI
         self._build_ui()

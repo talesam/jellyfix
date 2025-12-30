@@ -42,7 +42,7 @@ class PreferencesWindow(Adw.PreferencesWindow):
 
         # Window properties
         self.set_title(_("Preferences"))
-        self.set_default_size(600, 500)
+        self.set_default_size(650, 730)
 
         # Build UI
         self._build_ui()
