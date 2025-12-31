@@ -229,46 +229,66 @@ class DashboardView(Gtk.Box):
         self.drop_zone.remove_css_class("drop-active")
 
     def _on_drop(self, drop_target, value, x, y):
-        """Handle folder drop - supports multiple folders"""
+        """Handle folder drop - supports multiple folders and files"""
         self.drop_zone.remove_css_class("drop-active")
 
         if isinstance(value, Gdk.FileList):
             # Get all files from the list
             files = list(value.get_files())
-            directories = []
+            paths = []
 
+            # Collect all paths (both files and directories)
             for file in files:
                 if file:
                     path = Path(file.get_path())
-                    if path.is_dir():
-                        directories.append(path)
+                    paths.append(path)
 
-            if len(directories) == 1:
-                # Single directory - scan it directly
-                self._start_scan(directories[0])
+            if not paths:
+                return False
+
+            if len(paths) == 1:
+                # Single item
+                path = paths[0]
+                if path.is_dir():
+                    # Single directory - scan it directly
+                    self._start_scan(path)
+                else:
+                    # Single file - scan its parent directory
+                    self._start_scan(path.parent)
                 return True
-            elif len(directories) > 1:
-                # Multiple directories - find common parent and scan it
-                # Or scan each one and merge operations
-                self._start_multi_scan(directories)
+            else:
+                # Multiple items - find common parent directory
+                # Get parent of each path (if it's a file, already the parent; if dir, get parent)
+                parents = []
+                for path in paths:
+                    if path.is_dir():
+                        # For directories, we want the parent that contains them
+                        parents.append(path.parent)
+                    else:
+                        # For files, use their parent directory
+                        parents.append(path.parent)
+                
+                # Find most common parent
+                # Check if all parents are the same
+                if len(set(parents)) == 1:
+                    # All items are in the same directory - scan that directory
+                    self._start_scan(parents[0])
+                else:
+                    # Items are in different directories
+                    # Find the common ancestor
+                    common_parent = parents[0]
+                    for parent in parents[1:]:
+                        # Find common ancestor
+                        while common_parent not in parent.parents and common_parent != parent:
+                            common_parent = common_parent.parent
+                            if common_parent == Path('/'):
+                                # Reached root, scan first item's parent
+                                self._start_scan(parents[0])
+                                return True
+                    self._start_scan(common_parent)
                 return True
 
         return False
-
-    def _start_multi_scan(self, directories: list):
-        """Start scanning multiple directories"""
-        # Find common parent directory if possible
-        common_parent = directories[0].parent
-        all_in_same_parent = all(d.parent == common_parent for d in directories)
-
-        if all_in_same_parent:
-            # If all are in the same parent, scan the parent
-            self._start_scan(common_parent)
-        else:
-            # Otherwise, scan each directory sequentially
-            # For now, just scan the first one and show a message
-            # TODO: Implement proper multi-directory scanning
-            self._start_scan(directories[0])
 
     def _on_add_library_clicked(self, button):
         """Handle add library button click"""

@@ -59,6 +59,7 @@ class Renamer:
         # Coleta todos os arquivos de legendas para processamento inteligente
         subtitle_files = []
         video_files = []
+        videos_in_base = []  # Videos directly in base_directory
 
         for file_path in directory.rglob('*'):
             if not file_path.is_file():
@@ -70,10 +71,22 @@ class Renamer:
             # Processa vídeos
             if is_video_file(file_path):
                 video_files.append(file_path)
+                # Check if video is directly in base_directory
+                if file_path.parent == directory:
+                    videos_in_base.append(file_path)
 
             # Processa legendas
             elif is_subtitle_file(file_path):
                 subtitle_files.append(file_path)
+        
+        # Detect if base_directory is a single movie folder
+        # True if ALL videos are directly in base_directory (no videos in subfolders)
+        # False if it's a library folder with videos in subfolders or mixed
+        has_videos_in_base = len(videos_in_base) > 0
+        has_videos_in_subfolders = len(video_files) > len(videos_in_base)
+        
+        # Only consider it a movie folder if ALL videos are in base (no subfolders)
+        self.is_movie_folder = has_videos_in_base and not has_videos_in_subfolders
 
         # Processa vídeos
         for file_path in video_files:
@@ -160,13 +173,16 @@ class Renamer:
         # Define destination
         if parent_folder != expected_folder:
             # Move to correct folder
-            # Check if file is directly in the base directory (loose file)
-            if file_path.parent == self.base_directory:
-                # File is loose in root - create folder inside base directory
-                new_folder = self.base_directory / expected_folder
+            # If base_directory is a movie folder (contains videos directly),
+            # create new folder in parent. Otherwise, create in base_directory.
+            if self.is_movie_folder:
+                # base_directory contains videos directly - it's a movie folder
+                # Create new folder in parent of base_directory
+                new_folder = self.base_directory.parent / expected_folder
             else:
-                # File is in a subfolder - create folder in parent
-                new_folder = file_path.parent.parent / expected_folder
+                # base_directory is a library folder with subfolders
+                # Create new folder in base_directory
+                new_folder = self.base_directory / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
@@ -266,14 +282,16 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # A pasta da série precisa ser renomeada
-            # Check if series is directly in base directory (loose file)
-            if series_folder == self.base_directory:
-                # File is loose in root - create folder inside base directory
-                new_series_folder = self.base_directory / expected_series_folder
+            # If base_directory is a movie folder (contains videos directly),
+            # create new folder in parent. Otherwise, create in base_directory.
+            if self.is_movie_folder:
+                # base_directory contains videos directly - it's a movie/series folder
+                # Create new folder in parent of base_directory
+                new_series_folder = self.base_directory.parent / expected_series_folder
             else:
-                # File is in a subfolder - create folder in parent
-                new_series_folder = series_folder.parent / expected_series_folder
+                # base_directory is a library folder with subfolders
+                # Create new folder in base_directory
+                new_series_folder = self.base_directory / expected_series_folder
         else:
             new_series_folder = series_folder
 
