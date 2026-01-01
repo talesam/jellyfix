@@ -296,6 +296,7 @@ class InteractiveCLI:
                     f"{'✓' if self.config.ask_on_multiple_results else '✗'} " + _("Ask when multiple TMDB results"),
                     f"{'✓' if self.config.add_quality_tag else '✗'} " + _("Add quality tags (1080p, 720p, etc)"),
                     f"{'✓' if self.config.use_ffprobe else '✗'} " + _("Use ffprobe for quality detection"),
+                    f"{'✓' if self.config.rename_nfo else '✗'} " + _("Rename NFO files to match video"),
                     f"📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
                     "🔑 " + _("Configure APIs (TMDB/TVDB)"),
                     "← " + _("Back")
@@ -351,9 +352,14 @@ class InteractiveCLI:
                 self.config_manager.set('add_quality_tag', self.config.add_quality_tag)
                 show_success(_("Setting saved"))
 
-            elif _("Use ffprobe") in choice:
+            elif _("Use ffprobe for quality detection") in choice:
                 self.config.use_ffprobe = not self.config.use_ffprobe
                 self.config_manager.set('use_ffprobe', self.config.use_ffprobe)
+                show_success(_("Setting saved"))
+
+            elif _("Rename NFO files to match video") in choice:
+                self.config.rename_nfo = not self.config.rename_nfo
+                self.config_manager.set('rename_nfo', self.config.rename_nfo)
                 show_success(_("Setting saved"))
 
             elif _("Min Portuguese words") in choice:
