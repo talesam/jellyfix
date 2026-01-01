@@ -10,5 +10,5 @@ if [ ! -d "$JELLYFIX_DIR" ]; then
     JELLYFIX_DIR="/usr/share/jellyfix"
 fi
 
-# Executa o main.py
-exec python3 "$JELLYFIX_DIR/main.py" "$@"
+# Executa o main.py usando Python do sistema (não pyenv)
+exec /usr/bin/python3 "$JELLYFIX_DIR/main.py" "$@"

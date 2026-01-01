@@ -635,10 +635,11 @@ class Renamer:
 
     def _plan_extra_files(self, directory: Path, video_files: List[Path]):
         """
-        Planeja movimentação de arquivos extras (NFO, imagens, etc) que acompanham vídeos.
+        Planeja movimentação e renomeação de arquivos extras (NFO, imagens, etc) que acompanham vídeos.
 
         Quando um vídeo é movido para uma nova pasta, todos os arquivos extras da pasta
-        original devem ser movidos junto.
+        original devem ser movidos junto. Arquivos NFO são também renomeados para
+        corresponder ao nome do vídeo se a opção rename_nfo estiver habilitada.
 
         Args:
             directory: Diretório base
@@ -646,20 +647,28 @@ class Renamer:
         """
         from ..utils.helpers import is_video_file, is_subtitle_file
 
-        # Cria mapa de vídeos: pasta_original -> nova_pasta
+        # Cria mapa de vídeos: pasta_original -> (nova_pasta, video_stem_antigo, video_stem_novo)
         video_folder_map = {}
+        video_rename_map = {}  # old_stem -> new_stem para renomear NFO
+        
         for op in self.operations:
             if op.source in video_files:
                 old_folder = op.source.parent
                 new_folder = op.destination.parent
+                old_stem = op.source.stem
+                new_stem = op.destination.stem
+                
+                # Mapeia pastas
                 if old_folder != new_folder:
-                    # Armazena mapeamento da pasta antiga para a nova
                     if old_folder not in video_folder_map:
                         video_folder_map[old_folder] = new_folder
-
-        # Se não há vídeos sendo movidos entre pastas, não há nada a fazer
-        if not video_folder_map:
-            return
+                
+                # Mapeia renomeação de stem (para NFO)
+                if old_stem != new_stem:
+                    video_rename_map[old_stem] = (new_stem, new_folder)
+                elif old_folder != new_folder:
+                    # Mesmo stem mas pasta diferente
+                    video_rename_map[old_stem] = (old_stem, new_folder)
 
         # Para cada pasta que está sendo esvaziada, move os arquivos extras
         for old_folder, new_folder in video_folder_map.items():
@@ -681,7 +690,44 @@ class Renamer:
                 if already_planned:
                     continue
 
-                # Move o arquivo extra para a nova pasta
+                # Verifica se é arquivo NFO e se deve renomear
+                is_nfo = file_path.suffix.lower() == '.nfo'
+                
+                if is_nfo and self.config.rename_nfo:
+                    # Tenta encontrar o vídeo correspondente para renomear o NFO
+                    nfo_stem = file_path.stem
+                    
+                    if nfo_stem in video_rename_map:
+                        # NFO corresponde a um vídeo renomeado
+                        new_stem, target_folder = video_rename_map[nfo_stem]
+                        new_name = f"{new_stem}.nfo"
+                        new_path = target_folder / new_name
+                        
+                        # Verifica conflito
+                        if new_path.exists() and new_path != file_path:
+                            self.logger.warning(f"NFO já existe no destino, pulando: {file_path.name}")
+                            continue
+                        
+                        # Determina tipo de operação
+                        pasta_mudou = new_path.parent != file_path.parent
+                        nome_mudou = new_path.name != file_path.name
+                        
+                        if pasta_mudou and nome_mudou:
+                            op_type = 'move_rename'
+                        elif pasta_mudou:
+                            op_type = 'move'
+                        else:
+                            op_type = 'rename'
+                        
+                        self.operations.append(RenameOperation(
+                            source=file_path,
+                            destination=new_path,
+                            operation_type=op_type,
+                            reason=f"Renomear NFO para corresponder ao vídeo: {file_path.name} → {new_name}"
+                        ))
+                        continue
+                
+                # Move o arquivo extra para a nova pasta (sem renomear)
                 new_path = new_folder / file_path.name
 
                 # Verifica se já existe um arquivo com esse nome no destino
