@@ -371,7 +371,7 @@ class InteractiveCLI:
                     show_error(_("Invalid value!"))
                 questionary.press_any_key_to_continue().ask()
 
-            elif _("Configure APIs") in choice:
+            elif _("Configure APIs (TMDB/TVDB)") in choice:
                 self._api_settings_menu()
 
     def _language_selection_menu(self):
@@ -440,7 +440,7 @@ class InteractiveCLI:
             if not choice or _("Back") in choice:
                 break
 
-            elif _("Configure TMDB") in choice:
+            elif _("Configure TMDB API Key") in choice:
                 console.print("\n[cyan]" + _("Enter your TMDB API key:") + "[/cyan]")
                 api_key = questionary.text(
                     "TMDB API Key:",
@@ -457,7 +457,7 @@ class InteractiveCLI:
 
                 questionary.press_any_key_to_continue().ask()
 
-            elif _("View current key") in choice:
+            elif _("View current key (TMDB)") in choice:
                 key = self.config_manager.get_tmdb_api_key()
                 if key:
                     # Show only first and last 4 characters
@@ -488,7 +488,7 @@ class InteractiveCLI:
             elif _("Test TMDB connection") in choice:
                 self._test_tmdb_connection()
 
-            elif _("How to get") in choice:
+            elif _("How to get TMDB key") in choice:
                 self._show_tmdb_help()
 
     def _test_tmdb_connection(self):
