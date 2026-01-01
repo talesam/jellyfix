@@ -115,14 +115,16 @@ def show_scan_results(result: ScanResult):
         ))
 
 
-def show_operation_preview(renamer: Renamer, limit: int = 20):
+def show_operation_preview(renamer: Renamer, limit: int = 50):
     """
-    Display preview of planned operations.
+    Display preview of planned operations grouped by video with subtitles.
 
     Args:
         renamer: Renamer object with planned operations
-        limit: Maximum number of operations to display
+        limit: Maximum number of groups to display
     """
+    from ..utils.helpers import VIDEO_EXTENSIONS, SUBTITLE_EXTENSIONS
+
     operations = renamer.operations
     total = len(operations)
 
@@ -139,15 +141,6 @@ def show_operation_preview(renamer: Renamer, limit: int = 20):
         border_style="yellow"
     ))
 
-    # Group by operation type
-    renames = [op for op in operations if op.operation_type == 'rename']
-    moves = [op for op in operations if op.operation_type == 'move']
-    move_renames = [op for op in operations if op.operation_type == 'move_rename']
-    deletes = [op for op in operations if op.operation_type == 'delete']
-
-    # Show limited operations in list format with colors
-    preview_ops = operations[:limit]
-
     # ANSI color codes
     CYAN = '\033[96m'
     GREEN = '\033[92m'
@@ -158,27 +151,121 @@ def show_operation_preview(renamer: Renamer, limit: int = 20):
     BOLD = '\033[1m'
     RESET = '\033[0m'
 
+    # Separate operations by type
+    video_ops = []
+    subtitle_ops = []
+    other_ops = []
+
+    for op in operations:
+        src_ext = op.source.suffix.lower()
+        if src_ext in VIDEO_EXTENSIONS:
+            video_ops.append(op)
+        elif src_ext in SUBTITLE_EXTENSIONS:
+            subtitle_ops.append(op)
+        else:
+            other_ops.append(op)
+
+    # Build grouped structure: video -> [subtitles]
+    groups = []
+
+    for video_op in video_ops:
+        video_stem = video_op.source.stem
+        video_parent = video_op.source.parent
+
+        # Find all subtitles that belong to this video
+        related_subs = []
+        for sub_op in subtitle_ops[:]:  # Iterate over a copy
+            sub_stem_base = sub_op.source.stem.split('.')[0]  # Get base name before .lang.srt
+            # Check if subtitle matches video (same base name or starts with video name)
+            if (sub_op.source.parent == video_parent and
+                (sub_stem_base == video_stem or
+                 sub_op.source.stem.startswith(video_stem + '.') or
+                 video_stem.startswith(sub_stem_base))):
+                related_subs.append(sub_op)
+                subtitle_ops.remove(sub_op)
+
+        groups.append({
+            'video': video_op,
+            'subtitles': related_subs
+        })
+
+    # Add orphan subtitles as standalone groups
+    for sub_op in subtitle_ops:
+        groups.append({
+            'video': None,
+            'subtitles': [sub_op]
+        })
+
+    # Add other operations (NFO, images, etc.)
+    for other_op in other_ops:
+        groups.append({
+            'video': None,
+            'subtitles': [],
+            'other': other_op
+        })
+
+    # Display grouped operations
     print()
-    for i, op in enumerate(preview_ops, 1):
-        if op.operation_type == 'delete':
-            print(f"{BOLD}{CYAN}{i}.{RESET} {RED}🗑️  DELETE:{RESET} {op.source.name}")
-        elif op.operation_type == 'move_rename':
-            print(f"{BOLD}{CYAN}{i}.{RESET} {MAGENTA}📦✏️  MOVE+RENAME:{RESET}")
-            print(f"   {DIM}From:{RESET} {YELLOW}{op.source}{RESET}")
-            print(f"   {DIM}To:{RESET}   {GREEN}{op.destination}{RESET}")
-        elif op.operation_type == 'move':
-            print(f"{BOLD}{CYAN}{i}.{RESET} {MAGENTA}📦 MOVE:{RESET}")
-            print(f"   {DIM}From:{RESET} {YELLOW}{op.source}{RESET}")
-            print(f"   {DIM}To:{RESET}   {GREEN}{op.destination}{RESET}")
-        else:  # rename
-            print(f"{BOLD}{CYAN}{i}.{RESET} {CYAN}✏️  RENAME:{RESET}")
-            print(f"   {DIM}From:{RESET} {YELLOW}{op.source.name}{RESET}")
-            print(f"   {DIM}To:{RESET}   {GREEN}{op.destination.name}{RESET}")
+    displayed = 0
+
+    for i, group in enumerate(groups[:limit], 1):
+        video_op = group.get('video')
+        subtitles = group.get('subtitles', [])
+        other_op = group.get('other')
+
+        if video_op:
+            # Video operation
+            op_type_icon = _get_operation_icon(video_op.operation_type)
+            print(f"{BOLD}{CYAN}{i}.{RESET} 🎬 {op_type_icon}")
+            print(f"   {DIM}From:{RESET} {YELLOW}{op_op_path(video_op.source)}{RESET}")
+            print(f"   {DIM}To:{RESET}   {GREEN}{op_op_path(video_op.destination)}{RESET}")
+            displayed += 1
+
+            # Related subtitles (indented)
+            for sub_op in subtitles:
+                sub_icon = _get_operation_icon(sub_op.operation_type)
+                if sub_op.operation_type == 'delete':
+                    print(f"      📄 {RED}DELETE:{RESET} {sub_op.source.name}")
+                else:
+                    print(f"      📄 {sub_icon}")
+                    print(f"         {DIM}From:{RESET} {YELLOW}{sub_op.source.name}{RESET}")
+                    print(f"         {DIM}To:{RESET}   {GREEN}{sub_op.destination.name}{RESET}")
+                displayed += 1
+
+        elif other_op:
+            # Other file operation (NFO, images, etc.)
+            op_type_icon = _get_operation_icon(other_op.operation_type)
+            if other_op.operation_type == 'delete':
+                print(f"{BOLD}{CYAN}{i}.{RESET} 📁 {RED}DELETE:{RESET} {other_op.source.name}")
+            else:
+                print(f"{BOLD}{CYAN}{i}.{RESET} 📁 {op_type_icon}")
+                print(f"   {DIM}From:{RESET} {YELLOW}{op_op_path(other_op.source)}{RESET}")
+                print(f"   {DIM}To:{RESET}   {GREEN}{op_op_path(other_op.destination)}{RESET}")
+            displayed += 1
+
+        elif subtitles:
+            # Orphan subtitles (no video parent)
+            for sub_op in subtitles:
+                sub_icon = _get_operation_icon(sub_op.operation_type)
+                if sub_op.operation_type == 'delete':
+                    print(f"{BOLD}{CYAN}{i}.{RESET} 📄 {RED}DELETE:{RESET} {sub_op.source.name}")
+                else:
+                    print(f"{BOLD}{CYAN}{i}.{RESET} 📄 {sub_icon}")
+                    print(f"   {DIM}From:{RESET} {YELLOW}{op_op_path(sub_op.source)}{RESET}")
+                    print(f"   {DIM}To:{RESET}   {GREEN}{op_op_path(sub_op.destination)}{RESET}")
+                displayed += 1
+
         print()
 
     # Show truncation notice
-    if total > limit:
-        console.print(f"\n[dim]... " + _("and {} more operations").format(total - limit) + "[/dim]\n")
+    if len(groups) > limit:
+        console.print(f"\n[dim]... " + _("and {} more groups").format(len(groups) - limit) + "[/dim]\n")
+
+    # Group by operation type for summary
+    renames = [op for op in operations if op.operation_type == 'rename']
+    moves = [op for op in operations if op.operation_type == 'move']
+    move_renames = [op for op in operations if op.operation_type == 'move_rename']
+    deletes = [op for op in operations if op.operation_type == 'delete']
 
     # Summary table
     console.print("\n")
@@ -206,6 +293,31 @@ def show_operation_preview(renamer: Renamer, limit: int = 20):
         )
 
     console.print(Panel(summary, title=_("Summary"), border_style="cyan"))
+
+
+def _get_operation_icon(op_type: str) -> str:
+    """Get colored operation icon based on type."""
+    MAGENTA = '\033[95m'
+    CYAN = '\033[96m'
+    RED = '\033[91m'
+    RESET = '\033[0m'
+
+    icons = {
+        'move_rename': f'{MAGENTA}MOVE+RENAME{RESET}',
+        'move': f'{MAGENTA}MOVE{RESET}',
+        'rename': f'{CYAN}RENAME{RESET}',
+        'delete': f'{RED}DELETE{RESET}'
+    }
+    return icons.get(op_type, op_type)
+
+
+def op_op_path(path: Path) -> str:
+    """Format path for display, shortening if needed."""
+    path_str = str(path)
+    # Shorten very long paths
+    if len(path_str) > 100:
+        return f"...{path_str[-97:]}"
+    return path_str
 
 
 def _show_operation_summary(operations: List[RenameOperation]):

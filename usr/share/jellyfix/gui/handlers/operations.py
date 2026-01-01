@@ -64,9 +64,20 @@ class OperationsHandler:
         Args:
             callback: Optional callback to run after selection
         """
+        from ...utils.config_manager import ConfigManager
+        from gi.repository import Gio
+        
+        config_manager = ConfigManager()
+        
         dialog = Gtk.FileDialog()
         dialog.set_title(_("Select Directory to Scan"))
         dialog.set_modal(True)
+        
+        # Set initial folder to last opened directory
+        last_dir = config_manager.get_last_directory()
+        if last_dir and Path(last_dir).exists():
+            initial_folder = Gio.File.new_for_path(last_dir)
+            dialog.set_initial_folder(initial_folder)
 
         def on_response(dialog, result):
             try:
@@ -74,6 +85,9 @@ class OperationsHandler:
                 if folder:
                     self.current_directory = Path(folder.get_path())
                     self.logger.info(f"Selected directory: {self.current_directory}")
+                    
+                    # Save as last directory
+                    config_manager.set_last_directory(str(self.current_directory))
 
                     if callback:
                         callback(self.current_directory)

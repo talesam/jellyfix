@@ -211,6 +211,12 @@ msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "Obțineți metadate (TMDB/TVDB)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: NEEDS WORK
+msgid "Ask when multiple TMDB results"
+msgstr "Întreabă când există rezultate multiple TMDB"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: NEEDS WORK
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "Adaugă etichete de calitate (1080p, 720p, etc)"
@@ -1052,11 +1058,11 @@ msgstr "Nicio operațiune necesară. Totul este deja organizat!"
 msgid "Operation Preview ({} files)"
 msgstr "Previzualizare operațiune ({} fișiere)"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 181
+# File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 #, python-brace-format
-msgid "and {} more operations"
-msgstr "și {} alte operații"
+msgid "and {} more groups"
+msgstr "și {} grupuri suplimentare"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 189
 #: NEEDS WORK
@@ -1389,6 +1395,69 @@ msgstr "Raportați problemele"
 msgid "Get TMDB API Key"
 msgstr "Obțineți cheia API TMDB"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Căutare Titlu"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Introduceți numele filmului sau al serialului..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Căutare"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "Serii TV"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Anulează"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Aplică"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Căutare..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB nu este configurat"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Nu au fost găsite rezultate"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "rezultate"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1509,16 +1578,6 @@ msgstr "Introduceți cheia API TMDB mai jos"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Introduceți cheia API aici"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Anulează"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1743,14 +1802,6 @@ msgstr "Aplică operații?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Aceasta va redenumi {} fișiere. Continuăm?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Aplică"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
@@ -1979,6 +2030,16 @@ msgstr "Nicio selecție"
 msgid "Select an item to preview"
 msgstr "Selectați un element pentru previzualizare"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Căutare titlu"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Titlu greșit? Faceți clic pentru a căuta manual"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2062,8 +2123,8 @@ msgstr "Chiar acum"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Operațiuni de căutare..."
+msgid "Search..."
+msgstr "Caută..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

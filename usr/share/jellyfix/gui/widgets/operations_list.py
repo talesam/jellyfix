@@ -30,13 +30,14 @@ from ...core.renamer import RenameOperation
 class OperationRow(Adw.ActionRow):
     """Single operation row"""
 
-    def __init__(self, operation: RenameOperation, index: int):
+    def __init__(self, operation: RenameOperation, index: int, is_subtitle: bool = False):
         """
         Initialize operation row.
 
         Args:
             operation: RenameOperation instance
             index: Operation index
+            is_subtitle: Whether this is a subtitle (for indentation)
         """
         super().__init__()
 
@@ -54,21 +55,43 @@ class OperationRow(Adw.ActionRow):
 
         self.set_subtitle(f"→ {dest_name}")
 
-        # Add prefix icon based on operation type
-        icon_name = {
-            'rename': 'document-edit-symbolic',
-            'move': 'folder-move-symbolic',
-            'delete': 'user-trash-symbolic'
-        }.get(operation.operation_type, 'document-edit-symbolic')
+        # Determine file type and icon based on extension
+        ext = operation.source.suffix.lower()
+        
+        # Video extensions
+        video_exts = {'.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.ts', '.mpg', '.mpeg'}
+        # Subtitle extensions
+        subtitle_exts = {'.srt', '.sub', '.ass', '.ssa', '.vtt'}
+        # Image extensions
+        image_exts = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp'}
+        
+        if ext in video_exts:
+            icon_name = 'video-x-generic-symbolic'
+            self.add_css_class('video-row')
+        elif ext in subtitle_exts:
+            icon_name = 'text-x-generic-symbolic'
+            self.add_css_class('subtitle-row')
+        elif ext in image_exts:
+            icon_name = 'image-x-generic-symbolic'
+        elif operation.operation_type == 'delete':
+            icon_name = 'user-trash-symbolic'
+        elif operation.operation_type == 'move' or operation.operation_type == 'move_rename':
+            icon_name = 'folder-symbolic'
+        else:
+            icon_name = 'document-edit-symbolic'
 
         prefix_icon = Gtk.Image.new_from_icon_name(icon_name)
         self.add_prefix(prefix_icon)
 
-        # Add badge for operation type
+        # Add visual styling for operation type
         if operation.operation_type == 'delete':
             self.add_css_class('error')
         elif operation.will_overwrite:
             self.add_css_class('warning')
+        
+        # Indent subtitles slightly
+        if is_subtitle:
+            self.set_margin_start(24)
 
         # Make row activatable
         self.set_activatable(True)
@@ -128,7 +151,7 @@ class OperationsListView(Gtk.Box):
 
         # Search entry
         self.search_entry = Gtk.SearchEntry()
-        self.search_entry.set_placeholder_text(_("Search operations..."))
+        self.search_entry.set_placeholder_text(_("Search..."))
         self.search_entry.connect("search-changed", self._on_search_changed)
         toolbar.append(self.search_entry)
 
@@ -242,7 +265,14 @@ class OperationsListView(Gtk.Box):
 
         # Apply type filter
         if self.current_filter != "all":
-            filtered = [op for op in filtered if op.operation_type == self.current_filter]
+            if self.current_filter == "rename":
+                # Rename e move_rename contêm renomeação
+                filtered = [op for op in filtered if op.operation_type in ('rename', 'move_rename')]
+            elif self.current_filter == "move":
+                # Move e move_rename contêm movimentação
+                filtered = [op for op in filtered if op.operation_type in ('move', 'move_rename')]
+            else:
+                filtered = [op for op in filtered if op.operation_type == self.current_filter]
 
         # Apply search filter
         if self.search_text:
@@ -257,7 +287,7 @@ class OperationsListView(Gtk.Box):
         self._update_display()
 
     def _update_display(self):
-        """Update the display with filtered operations"""
+        """Update the display with filtered operations, grouped by video"""
         operations = self.filtered_operations
 
         # Clear existing rows - rebuild the group instead of removing children
@@ -282,9 +312,61 @@ class OperationsListView(Gtk.Box):
         self.empty_state.set_visible(False)
         self.operations_group.set_visible(True)
 
-        # Add operation rows
-        for i, operation in enumerate(operations):
-            row = OperationRow(operation, i)
+        # Separate videos from subtitles and other files
+        video_exts = {'.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.ts', '.mpg', '.mpeg'}
+        subtitle_exts = {'.srt', '.sub', '.ass', '.ssa', '.vtt'}
+        
+        videos = []
+        subtitles = []
+        others = []
+        
+        for op in operations:
+            ext = op.source.suffix.lower()
+            if ext in video_exts:
+                videos.append(op)
+            elif ext in subtitle_exts:
+                subtitles.append(op)
+            else:
+                others.append(op)
+        
+        # Group subtitles with their videos by matching base name
+        # Build a sorted list: video, then its subtitles, then next video, etc.
+        grouped_operations = []
+        used_subtitle_indices = set()  # Use indices since RenameOperation isn't hashable
+        
+        for video in videos:
+            grouped_operations.append((video, False))  # (operation, is_subtitle)
+            
+            # Find matching subtitles (same base name without extension)
+            video_stem = video.source.stem
+            for idx, sub in enumerate(subtitles):
+                if idx in used_subtitle_indices:
+                    continue
+                # Check if subtitle matches video (starts with video name)
+                sub_stem = sub.source.stem
+                # Remove language codes like .por, .eng from subtitle stem
+                base_sub = sub_stem
+                for lang in ['.por', '.eng', '.spa', '.fre', '.ger', '.ita', '.jpn', '.chi', '.kor']:
+                    if base_sub.lower().endswith(lang):
+                        base_sub = base_sub[:-4]
+                        break
+                
+                if base_sub == video_stem or sub_stem.startswith(video_stem):
+                    grouped_operations.append((sub, True))
+                    used_subtitle_indices.add(idx)
+        
+        # Add remaining subtitles (not matched to videos)
+        for idx, sub in enumerate(subtitles):
+            if idx not in used_subtitle_indices:
+                grouped_operations.append((sub, False))
+        
+        # Add other files at the end
+        for other in others:
+            grouped_operations.append((other, False))
+        
+        # Add operation rows in grouped order
+        for i, (operation, is_subtitle) in enumerate(grouped_operations):
+            row = OperationRow(operation, i, is_subtitle=is_subtitle)
 
             # Connect activation signal
             row.connect("activated", self._on_row_activated)

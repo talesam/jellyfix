@@ -211,6 +211,12 @@ msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "Hämta metadata (TMDB/TVDB)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: NEEDS WORK
+msgid "Ask when multiple TMDB results"
+msgstr "Fråga när flera TMDB-resultat finns"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: NEEDS WORK
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "Lägg till kvalitetsetiketter (1080p, 720p, etc)"
@@ -1052,11 +1058,11 @@ msgstr "Inga åtgärder behövs. Allt är redan organiserat!"
 msgid "Operation Preview ({} files)"
 msgstr "Operation Förhandsgranskning ({} filer)"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 181
+# File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 #, python-brace-format
-msgid "and {} more operations"
-msgstr "och {} fler operationer"
+msgid "and {} more groups"
+msgstr "och {} fler grupper"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 189
 #: NEEDS WORK
@@ -1389,6 +1395,69 @@ msgstr "Rapportera problem"
 msgid "Get TMDB API Key"
 msgstr "Hämta TMDB API-nyckel"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Sök Titel"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Ange film- eller serienamn..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Sök"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "TV-serie"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Avbryt"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Tillämpa"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Söker..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB är inte konfigurerad"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Inga resultat hittades"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "resultat"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1509,16 +1578,6 @@ msgstr "Ange din TMDB API-nyckel nedan"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Klistra in API-nyckel här"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Avbryt"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1743,14 +1802,6 @@ msgstr "Tillämpa åtgärder?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Detta kommer att döpa om {} filer. Fortsätta?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Tillämpa"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
@@ -1979,6 +2030,16 @@ msgstr "Ingen val"
 msgid "Select an item to preview"
 msgstr "Välj ett objekt för att förhandsgranska"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Sök titel"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Fel titel? Klicka för att söka manuellt"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2062,8 +2123,8 @@ msgstr "Nyss"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Sökoperationer..."
+msgid "Search..."
+msgstr "Sök..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

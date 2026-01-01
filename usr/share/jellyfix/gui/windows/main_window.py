@@ -151,6 +151,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.preview_panel = PreviewPanel()
         self.preview_panel.set_vexpand(True)
         self.preview_panel.set_hexpand(True)
+        
+        # Connect callback for when user manually changes metadata via SearchDialog
+        self.preview_panel.set_metadata_callback(self._on_metadata_changed)
 
         content_page = Adw.NavigationPage(
             title=_("Preview"),
@@ -267,36 +270,47 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         from pathlib import Path
         
         if not paths:
+            self.logger.warning("load_paths called with empty paths")
             return
         
         self.logger.info(f"Loading {len(paths)} path(s) from command line")
+        for p in paths:
+            self.logger.debug(f"  Path: {p}")
         
         # Convert all paths to Path objects
         path_objects = [Path(p) for p in paths]
         
-        # Collect all parent directories to find common root
-        parent_dirs = set()
-        for p in path_objects:
-            if p.is_dir():
-                # For folders, add parent (we want to scan the folder containing them)
-                parent_dirs.add(p.parent)
-            else:
-                # For files, add their parent directory
-                parent_dirs.add(p.parent)
+        # Check if we have folders selected
+        folders = [p for p in path_objects if p.is_dir()]
+        files = [p for p in path_objects if p.is_file()]
         
-        # If all items are in the same directory, use that directory
-        # If items are in different directories, use the common parent
-        if len(parent_dirs) == 1:
-            directory = parent_dirs.pop()
+        self.logger.debug(f"Found {len(folders)} folders and {len(files)} files")
+        
+        if folders:
+            # If folders are selected, use the first folder as the directory to scan
+            # This is the most common case when right-clicking on a folder
+            self.logger.debug(f"Folders: {[str(f) for f in folders]}")
+            if len(folders) == 1:
+                directory = folders[0]  # Scan THIS folder, not its parent
+                self.logger.info(f"Single folder selected, scanning: {directory}")
+            else:
+                # Multiple folders - find common parent
+                try:
+                    directory = Path(os.path.commonpath([str(f) for f in folders]))
+                except ValueError:
+                    directory = folders[0]
+                self.logger.info(f"Multiple folders, using common parent: {directory}")
         else:
-            # Find common parent of all directories
-            # This handles cases where user selects items from different subfolders
-            try:
-                # Get common path prefix
-                directory = Path(os.path.commonpath([str(d) for d in parent_dirs]))
-            except ValueError:
-                # Fallback to first item's parent
-                directory = path_objects[0].parent if not path_objects[0].is_dir() else path_objects[0]
+            # Only files selected - use their common parent
+            parent_dirs = set(p.parent for p in files)
+            if len(parent_dirs) == 1:
+                directory = parent_dirs.pop()
+            else:
+                try:
+                    directory = Path(os.path.commonpath([str(d) for d in parent_dirs]))
+                except ValueError:
+                    directory = files[0].parent
+            self.logger.info(f"Files selected, using parent: {directory}")
         
         self.logger.info(f"Will scan directory: {directory}")
         
@@ -635,3 +649,97 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             self.preview_panel.load_poster(poster_path)
 
         return False  # Remove from GLib idle queue
+
+    def _on_metadata_changed(self, operation, metadata):
+        """
+        Handle metadata change from SearchDialog.
+        Updates the operation with new title/year and refreshes the UI.
+
+        Args:
+            operation: RenameOperation to update
+            metadata: New Metadata selected by user
+        """
+        from ...utils.helpers import clean_filename, extract_quality_tag
+        from ...utils.config import get_config
+        import re
+
+        config = get_config()
+        self.logger.info(f"Updating operation with new metadata: {metadata.title} ({metadata.year})")
+
+        # Find the operation in the list
+        operations = self.operations_handler.operations
+        op_index = None
+        for i, op in enumerate(operations):
+            if op.source == operation.source:
+                op_index = i
+                break
+
+        if op_index is None:
+            self.logger.warning("Operation not found in list")
+            return
+
+        # Build new destination path
+        title = clean_filename(metadata.title)
+        year = metadata.year
+
+        # Get quality tag from original
+        quality_tag = extract_quality_tag(operation.source.stem)
+        if not quality_tag and config.add_quality_tag:
+            from ...utils.helpers import detect_video_resolution
+            quality_tag = detect_video_resolution(operation.source)
+
+        # Build folder suffix with TMDB ID
+        folder_suffix = ""
+        if metadata.tmdb_id:
+            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
+
+        # Build new name
+        if year:
+            base_name = f"{title} ({year})"
+        else:
+            base_name = f"{title}"
+
+        if quality_tag:
+            new_name = f"{base_name} - {quality_tag}{operation.source.suffix}"
+        else:
+            new_name = f"{base_name}{operation.source.suffix}"
+
+        # Build new folder path
+        expected_folder = f"{base_name}{folder_suffix}"
+
+        # Determine new path
+        base_dir = self.operations_handler.current_directory
+        if operation.source.parent == base_dir:
+            # File is loose in root
+            new_folder = base_dir / expected_folder
+        else:
+            # File is in subfolder
+            new_folder = base_dir / expected_folder
+
+        new_path = new_folder / new_name
+
+        # Update the operation
+        from ...core.renamer import RenameOperation
+        new_operation = RenameOperation(
+            source=operation.source,
+            destination=new_path,
+            operation_type='move_rename' if new_path.parent != operation.source.parent else 'rename',
+            reason=f"Manual update: {metadata.title} ({metadata.year})"
+        )
+
+        # Replace in list
+        operations[op_index] = new_operation
+
+        # Refresh the UI
+        self.operations_list.set_operations(operations)
+
+        # Update preview with new operation
+        self.preview_panel.show_operation(new_operation)
+
+        # Fetch new poster
+        self._try_fetch_poster(new_operation)
+
+        # Show success toast
+        toast = Adw.Toast(title=f"Updated: {metadata.title} ({metadata.year})")
+        toast.set_timeout(3)
+        self.toast_overlay.add_toast(toast)

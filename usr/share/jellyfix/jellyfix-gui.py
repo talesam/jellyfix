@@ -32,7 +32,7 @@ def main():
     config = Config(
         work_dir=Path.cwd(),  # Start with current directory, will be changed via GUI
         dry_run=False,  # Execute operations for real when Apply is clicked
-        interactive=True,  # GUI is inherently interactive
+        interactive=False,  # GUI handles interaction via SearchDialog, not CLI prompts
         verbose=False,
         quiet=False,
         log_file=None,

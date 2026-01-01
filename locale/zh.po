@@ -211,6 +211,12 @@ msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "获取元数据（TMDB/TVDB）"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: NEEDS WORK
+msgid "Ask when multiple TMDB results"
+msgstr "当有多个TMDB结果时询问"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: NEEDS WORK
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "添加质量标签（1080p、720p等）"
@@ -1055,11 +1061,11 @@ msgstr "无需操作。一切都已整理好！"
 msgid "Operation Preview ({} files)"
 msgstr "操作预览 ({} 个文件)"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 181
+# File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 #, python-brace-format
-msgid "and {} more operations"
-msgstr "和 {} 更多操作"
+msgid "and {} more groups"
+msgstr "和 {} 个更多组"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 189
 #: NEEDS WORK
@@ -1392,6 +1398,69 @@ msgstr "报告问题"
 msgid "Get TMDB API Key"
 msgstr "获取 TMDB API 密钥"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "搜索标题"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "输入电影或系列名称..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "搜索"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "电影"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "电视剧"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "取消"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "应用"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "搜索中..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB未配置"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "未找到结果"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "结果"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1512,16 +1581,6 @@ msgstr "在下面输入您的 TMDB API 密钥"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "在此粘贴API密钥"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "取消"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1750,14 +1809,6 @@ msgstr "应用操作？"
 msgid "This will rename {} files. Continue?"
 msgstr "这将重命名 {} 个文件。继续吗？"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "应用"
-# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
 msgid "Applying operations..."
@@ -1985,6 +2036,16 @@ msgstr "未选择"
 msgid "Select an item to preview"
 msgstr "选择一个项目进行预览"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "搜索标题"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "标题错误？点击手动搜索"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2068,8 +2129,8 @@ msgstr "刚刚"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "搜索操作..."
+msgid "Search..."
+msgstr "搜索..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

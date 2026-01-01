@@ -97,6 +97,25 @@ class PreviewPanel(Gtk.Box):
         self.poster_image.set_visible(False)
         self.preview_content.append(self.poster_image)
         
+        # Search button for manual title correction
+        self.search_button = Gtk.Button()
+        self.search_button.set_halign(Gtk.Align.CENTER)
+        search_content = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        search_icon = Gtk.Image.new_from_icon_name("system-search-symbolic")
+        search_content.append(search_icon)
+        search_label = Gtk.Label(label=_("Search title"))
+        search_content.append(search_label)
+        self.search_button.set_child(search_content)
+        self.search_button.add_css_class("suggested-action")  # Purple/accent color
+        self.search_button.set_tooltip_text(_("Wrong title? Click to search manually"))
+        self.search_button.connect("clicked", self._on_search_clicked)
+        self.search_button.set_visible(False)
+        self.preview_content.append(self.search_button)
+        
+        # Store current operation for search callback
+        self.current_operation = None
+        self.on_metadata_changed = None  # Callback when metadata is manually changed
+        
         # From/To card
         self.operation_card = Gtk.Frame()
         self.operation_card.add_css_class("card")
@@ -204,9 +223,16 @@ class PreviewPanel(Gtk.Box):
         Args:
             operation: RenameOperation instance
         """
+        # Store current operation for search callback
+        self.current_operation = operation
+        
         # Hide empty state, show content
         self.empty_state.set_visible(False)
         self.preview_content.set_visible(True)
+        
+        # Show search button for rename operations
+        op_type = getattr(operation, 'operation_type', 'rename')
+        self.search_button.set_visible(op_type in ('rename', 'move_rename'))
         
         # Set operation type
         op_type = getattr(operation, 'operation_type', 'rename')
@@ -253,6 +279,32 @@ class PreviewPanel(Gtk.Box):
         self.preview_content.set_visible(False)
         self.poster_image.set_visible(False)
         self.quality_box.set_visible(False)
+        self.search_button.set_visible(False)
+        self.current_operation = None
+    
+    def _on_search_clicked(self, button):
+        """Handle search button click - open manual search dialog"""
+        from ..windows.search_dialog import SearchDialog
+        
+        # Get parent window
+        parent = self.get_root()
+        
+        # Create and show dialog
+        dialog = SearchDialog(
+            parent=parent,
+            is_movie=True,  # Default to movie; could detect from operation
+            on_select=self._on_metadata_selected
+        )
+        dialog.present(parent)
+    
+    def _on_metadata_selected(self, metadata):
+        """Handle metadata selection from search dialog"""
+        if self.on_metadata_changed and self.current_operation:
+            self.on_metadata_changed(self.current_operation, metadata)
+    
+    def set_metadata_callback(self, callback):
+        """Set callback for when metadata is manually changed"""
+        self.on_metadata_changed = callback
 
     # Legacy methods for compatibility
     def set_metadata(self, title: str, year: int = None,

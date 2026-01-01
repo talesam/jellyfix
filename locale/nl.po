@@ -211,6 +211,12 @@ msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "Haal metadata op (TMDB/TVDB)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: NEEDS WORK
+msgid "Ask when multiple TMDB results"
+msgstr "Vraag bij meerdere TMDB-resultaten"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: NEEDS WORK
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "Voeg kwaliteitslabels toe (1080p, 720p, enz.)"
@@ -1052,11 +1058,11 @@ msgstr "Geen bewerkingen nodig. Alles is al georganiseerd!"
 msgid "Operation Preview ({} files)"
 msgstr "Bewerking Voorbeeld ({} bestanden)"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 181
+# File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 #, python-brace-format
-msgid "and {} more operations"
-msgstr "en {} meer bewerkingen"
+msgid "and {} more groups"
+msgstr "en {} meer groepen"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 189
 #: NEEDS WORK
@@ -1389,6 +1395,69 @@ msgstr "Problemen Rapporteren"
 msgid "Get TMDB API Key"
 msgstr "Verkrijg TMDB API-sleutel"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: NEEDS WORK
+msgid "Search Title"
+msgstr "Zoektitel"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: NEEDS WORK
+msgid "Enter movie or series name..."
+msgstr "Voer de naam van de film of serie in..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: NEEDS WORK
+msgid "Search"
+msgstr "Zoeken"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: NEEDS WORK
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: NEEDS WORK
+msgid "TV Series"
+msgstr "TV-serie"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: NEEDS WORK
+msgid "Cancel"
+msgstr "Annuleren"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: NEEDS WORK
+msgid "Apply"
+msgstr "Toepassen"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: NEEDS WORK
+msgid "Searching..."
+msgstr "Zoeken..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: NEEDS WORK
+msgid "TMDB not configured"
+msgstr "TMDB niet geconfigureerd"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: NEEDS WORK
+msgid "No results found"
+msgstr "Geen resultaten gevonden"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: NEEDS WORK
+msgid "results"
+msgstr "resultaten"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
 msgid "TMDB Configuration"
@@ -1509,16 +1578,6 @@ msgstr "Voer hieronder uw TMDB API-sleutel in"
 #: NEEDS WORK
 msgid "Paste API key here"
 msgstr "Plak hier de API-sleutel in"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
-msgid "Cancel"
-msgstr "Annuleren"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: NEEDS WORK
@@ -1747,14 +1806,6 @@ msgstr "Toepassen van bewerkingen?"
 msgid "This will rename {} files. Continue?"
 msgstr "Dit zal {} bestanden hernoemen. Doorgaan?"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
-msgid "Apply"
-msgstr "Toepassen"
-# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
 #: NEEDS WORK
 msgid "Applying operations..."
@@ -1982,6 +2033,16 @@ msgstr "Geen selectie"
 msgid "Select an item to preview"
 msgstr "Selecteer een item om een voorbeeld te bekijken"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: NEEDS WORK
+msgid "Search title"
+msgstr "Zoektitel"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: NEEDS WORK
+msgid "Wrong title? Click to search manually"
+msgstr "Verkeerde titel? Klik om handmatig te zoeken"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2065,8 +2126,8 @@ msgstr "Net nu"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
 #: NEEDS WORK
-msgid "Search operations..."
-msgstr "Zoekbewerkingen..."
+msgid "Search..."
+msgstr "Zoeken..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
 #: NEEDS WORK

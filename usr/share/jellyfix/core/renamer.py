@@ -53,10 +53,13 @@ class Renamer:
         """
         self.operations = []
         self.base_directory = directory  # Store base directory for reference
+        self.planned_destinations = set()  # Rastreia destinos para evitar conflitos
+        self.video_operations_map = {}  # Mapa: video_stem -> operação de vídeo
 
         # Coleta todos os arquivos de legendas para processamento inteligente
         subtitle_files = []
         video_files = []
+        videos_in_base = []  # Videos directly in base_directory
 
         for file_path in directory.rglob('*'):
             if not file_path.is_file():
@@ -68,10 +71,17 @@ class Renamer:
             # Processa vídeos
             if is_video_file(file_path):
                 video_files.append(file_path)
+                # Check if video is directly in base_directory
+                if file_path.parent == directory:
+                    videos_in_base.append(file_path)
 
             # Processa legendas
             elif is_subtitle_file(file_path):
                 subtitle_files.append(file_path)
+        
+        # Note: We no longer need to detect if base_directory is a movie folder
+        # We always create organized folders INSIDE base_directory (the selected/dragged directory)
+        # This ensures consistent behavior whether files are loose or in subfolders
 
         # Processa vídeos
         for file_path in video_files:
@@ -158,13 +168,8 @@ class Renamer:
         # Define destination
         if parent_folder != expected_folder:
             # Move to correct folder
-            # Check if file is directly in the base directory (loose file)
-            if file_path.parent == self.base_directory:
-                # File is loose in root - create folder inside base directory
-                new_folder = self.base_directory / expected_folder
-            else:
-                # File is in a subfolder - create folder in parent
-                new_folder = file_path.parent.parent / expected_folder
+            # Always create new folder in base_directory (the selected/dragged directory)
+            new_folder = self.base_directory / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
@@ -264,14 +269,8 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # A pasta da série precisa ser renomeada
-            # Check if series is directly in base directory (loose file)
-            if series_folder == self.base_directory:
-                # File is loose in root - create folder inside base directory
-                new_series_folder = self.base_directory / expected_series_folder
-            else:
-                # File is in a subfolder - create folder in parent
-                new_series_folder = series_folder.parent / expected_series_folder
+            # Always create new folder in base_directory (the selected/dragged directory)
+            new_series_folder = self.base_directory / expected_series_folder
         else:
             new_series_folder = series_folder
 
@@ -308,6 +307,7 @@ class Renamer:
         """
         Processa legendas que acompanham vídeos.
         Quando um vídeo é movido/renomeado, a legenda correspondente também é.
+        Legendas de idiomas estrangeiros são marcadas para DELETE se configurado.
 
         Returns:
             Lista de legendas que foram processadas
@@ -327,6 +327,9 @@ class Renamer:
                 video_operations[video_normalized] = op
                 # Também guarda pela chave exata para matching direto
                 video_operations[video_stem] = op
+        
+        # Armazena para uso em _plan_subtitle_variants
+        self.video_operations_map = video_operations
 
         # Processa cada legenda
         for subtitle_path in subtitle_files:
@@ -334,15 +337,20 @@ class Renamer:
             subtitle_name = subtitle_path.stem
 
             # Remove código de idioma se presente
-            # Padrões: .por, .eng, .spa, .por2, .eng3, etc.
-            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)$', subtitle_name, re.IGNORECASE)
+            # Padrões: .por, .eng, .por.forced, .eng.forced, .por2, etc.
+            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', subtitle_name, re.IGNORECASE)
             if base_match:
                 subtitle_base = base_match.group(1)
-                lang_code = base_match.group(2)
+                lang_code = base_match.group(2).lower()  # Normaliza para lowercase
+                # Remove dígito do código se tiver (por2 -> por)
+                lang_code_base = re.sub(r'\d+$', '', lang_code)
+                forced_suffix = base_match.group(3) or ''
             else:
                 # Não tem código de idioma explícito
                 subtitle_base = subtitle_name
                 lang_code = None
+                lang_code_base = None
+                forced_suffix = ''
 
             # Procura vídeo correspondente (primeiro tenta match exato, depois normalizado)
             matching_video_op = video_operations.get(subtitle_base)
@@ -354,44 +362,88 @@ class Renamer:
 
             if matching_video_op:
                 # Encontrou vídeo correspondente que será movido/renomeado
-                # Marca como processada
-                processed_subtitles.append(subtitle_path)
 
-                # Monta novo nome da legenda baseado no novo nome do vídeo
-                new_video_stem = matching_video_op.destination.stem
+                # Detecta se é uma variante (tem dígito no código de idioma: por2, eng3, etc.)
+                is_variant = lang_code and lang_code != lang_code_base  # por2 != por
 
-                # Se não tem código de idioma, tenta detectar e adicionar
-                if not lang_code:
-                    # Verifica se é legenda portuguesa e deve adicionar código
-                    if self.config.rename_no_lang and is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
-                        lang_code = 'por'
+                # VERIFICA SE É IDIOMA ESTRANGEIRO (NÃO está na lista de mantidos)
+                is_foreign = False
+                if lang_code_base and self.config.remove_foreign_subs:
+                    # Verifica se o idioma base está na lista de mantidos
+                    is_foreign = lang_code_base not in self.config.kept_languages
 
-                if lang_code:
-                    new_subtitle_name = f"{new_video_stem}.{lang_code}{subtitle_path.suffix}"
-                else:
-                    new_subtitle_name = f"{new_video_stem}{subtitle_path.suffix}"
-
-                # Destino é na mesma pasta do novo vídeo
-                new_subtitle_path = matching_video_op.destination.parent / new_subtitle_name
-
-                if new_subtitle_path != subtitle_path:
-                    # Detecta tipo de operação
-                    pasta_mudou = new_subtitle_path.parent != subtitle_path.parent
-                    nome_mudou = new_subtitle_path.name != subtitle_path.name
-
-                    if pasta_mudou and nome_mudou:
-                        op_type = 'move_rename'
-                    elif pasta_mudou:
-                        op_type = 'move'
-                    else:
-                        op_type = 'rename'
-
+                if is_foreign:
+                    # Legenda estrangeira - marcar como processada e DELETE
+                    processed_subtitles.append(subtitle_path)
                     self.operations.append(RenameOperation(
                         source=subtitle_path,
-                        destination=new_subtitle_path,
-                        operation_type=op_type,
-                        reason=f"Acompanhar vídeo: {subtitle_path.name} → {new_subtitle_name}"
+                        destination=subtitle_path,  # Será deletado
+                        operation_type='delete',
+                        reason=f"Remover legenda em idioma estrangeiro ({lang_code_base})"
                     ))
+                elif is_variant:
+                    # Variante de idioma mantido (.por2, .eng3)
+                    # NÃO processa aqui - deixa para _plan_subtitle_variants
+                    # que vai escolher a melhor legenda se não existir .por.srt
+                    pass  # Será tratada depois
+                else:
+                    # Legenda de idioma mantido (não é variante) - mover/renomear junto com vídeo
+                    
+                    # Se não tem código de idioma, verifica se vai receber um
+                    if not lang_code:
+                        # Verifica se é legenda portuguesa e deve adicionar código
+                        if self.config.rename_no_lang and is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
+                            # Esta legenda receberia código .por
+                            # Mas NÃO processa aqui - deixa para _plan_subtitle_variants
+                            # para comparar qualidade com .por2.srt, .por3.srt, etc.
+                            pass  # Será tratada depois
+                            continue
+                    
+                    processed_subtitles.append(subtitle_path)
+                    
+                    # Monta novo nome da legenda baseado no novo nome do vídeo
+                    new_video_stem = matching_video_op.destination.stem
+
+                    # Usa o código base (sem dígito) para o nome final
+                    final_lang_code = lang_code_base if lang_code_base else lang_code
+
+                    if final_lang_code:
+                        new_subtitle_name = f"{new_video_stem}.{final_lang_code}{forced_suffix}{subtitle_path.suffix}"
+                    else:
+                        new_subtitle_name = f"{new_video_stem}{subtitle_path.suffix}"
+
+                    # Destino é na mesma pasta do novo vídeo
+                    new_subtitle_path = matching_video_op.destination.parent / new_subtitle_name
+
+                    # VERIFICA CONFLITO: Se o destino já foi planejado, pula esta legenda
+                    if new_subtitle_path in self.planned_destinations:
+                        self.logger.warning(
+                            f"Conflito de destino: {subtitle_path.name} → {new_subtitle_name} "
+                            f"(destino já em uso, ignorando)"
+                        )
+                        continue
+
+                    if new_subtitle_path != subtitle_path:
+                        # Detecta tipo de operação
+                        pasta_mudou = new_subtitle_path.parent != subtitle_path.parent
+                        nome_mudou = new_subtitle_path.name != subtitle_path.name
+
+                        if pasta_mudou and nome_mudou:
+                            op_type = 'move_rename'
+                        elif pasta_mudou:
+                            op_type = 'move'
+                        else:
+                            op_type = 'rename'
+
+                        self.operations.append(RenameOperation(
+                            source=subtitle_path,
+                            destination=new_subtitle_path,
+                            operation_type=op_type,
+                            reason=f"Acompanhar vídeo: {subtitle_path.name} → {new_subtitle_name}"
+                        ))
+                        
+                        # Marca o destino como usado
+                        self.planned_destinations.add(new_subtitle_path)
 
         return processed_subtitles
 
@@ -427,8 +479,26 @@ class Renamer:
                 key = (file_path.parent, base_name, lang_code)
                 grouped[key].append((variant_num, file_path))
             else:
-                # Não é variação, processa normalmente
-                self._plan_subtitle_other_operations(file_path)
+                # Verifica se é .srt sem código de idioma que é português
+                # Estas são candidatas para se tornarem .por.srt
+                from ..utils.helpers import is_portuguese_subtitle
+                no_lang_match = re.match(r'^(.+)\.srt$', file_path.name, re.IGNORECASE)
+                if no_lang_match and self.config.rename_no_lang:
+                    # Verifica se não tem código de idioma explícito
+                    base_name_check = no_lang_match.group(1)
+                    has_lang = re.search(r'\.([a-z]{2,3})$', base_name_check, re.IGNORECASE)
+                    if not has_lang and is_portuguese_subtitle(file_path, self.config.min_pt_words):
+                        # É .srt português sem código → candidata para .por.srt
+                        base_name = base_name_check
+                        key = (file_path.parent, base_name, 'por')
+                        # Usa 0 como número para ter prioridade sobre variantes
+                        grouped[key].append((0, file_path))
+                    else:
+                        # Não é português ou já tem código, processa normalmente
+                        self._plan_subtitle_other_operations(file_path)
+                else:
+                    # Não é variação, processa normalmente
+                    self._plan_subtitle_other_operations(file_path)
 
         # Processa cada grupo de variações
         for (parent_dir, base_name, lang_code), variants in grouped.items():
@@ -451,6 +521,20 @@ class Renamer:
             # Verifica se existe .lang.srt (sem número)
             target_name = f"{base_name}.{lang_code}.srt"
             target_path = parent_dir / target_name
+            
+            # Verifica se há operação de vídeo correspondente (para usar a pasta de destino)
+            from ..utils.helpers import normalize_spaces
+            video_op = self.video_operations_map.get(base_name) or \
+                       self.video_operations_map.get(normalize_spaces(base_name))
+            
+            if video_op:
+                # Usa a pasta de destino do vídeo
+                new_video_stem = video_op.destination.stem
+                final_target_name = f"{new_video_stem}.{lang_code}.srt"
+                final_target_path = video_op.destination.parent / final_target_name
+            else:
+                # Mantém na pasta original
+                final_target_path = target_path
 
             if not target_path.exists():
                 # NÃO existe .lang.srt → renomeia a MELHOR variação
@@ -458,12 +542,31 @@ class Renamer:
 
                 # Verifica se a melhor tem qualidade > 0 (não é vazia/inválida)
                 if best_quality > 0:
-                    self.operations.append(RenameOperation(
-                        source=best_path,
-                        destination=target_path,
-                        operation_type='rename',
-                        reason=f"Renomear .{lang_code}{best_num}.srt para .{lang_code}.srt (melhor: {best_size} bytes, qualidade {best_quality:.0f})"
-                    ))
+                    # Verifica conflito de destino
+                    if final_target_path in self.planned_destinations:
+                        self.logger.warning(
+                            f"Conflito de destino: {best_path.name} → {final_target_path.name} "
+                            f"(destino já em uso, ignorando)"
+                        )
+                    else:
+                        # Determina tipo de operação
+                        pasta_mudou = final_target_path.parent != best_path.parent
+                        nome_mudou = final_target_path.name != best_path.name
+                        
+                        if pasta_mudou and nome_mudou:
+                            op_type = 'move_rename'
+                        elif pasta_mudou:
+                            op_type = 'move'
+                        else:
+                            op_type = 'rename'
+                        
+                        self.operations.append(RenameOperation(
+                            source=best_path,
+                            destination=final_target_path,
+                            operation_type=op_type,
+                            reason=f"Renomear .{lang_code}{best_num}.srt para .{lang_code}.srt (melhor: {best_size} bytes, qualidade {best_quality:.0f})"
+                        ))
+                        self.planned_destinations.add(final_target_path)
 
                     # Marca as outras para remoção (se configurado)
                     if self.config.remove_language_variants and len(scored_variants) > 1:
@@ -502,8 +605,8 @@ class Renamer:
                 if lang_code in self.config.kept_languages:
                     continue
 
-                # Verifica padrões: .LANG.srt, .LANG2.srt, .LANG3.srt
-                pattern = rf'\.{lang_code}\d?\.srt$'
+                # Verifica padrões: .LANG.srt, .LANG2.srt, .LANG.forced.srt
+                pattern = rf'\.{lang_code}\d?(?:\.forced)?\.srt$'
                 if re.search(pattern, filename):
                     self.operations.append(RenameOperation(
                         source=file_path,

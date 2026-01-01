@@ -193,9 +193,9 @@ def normalize_spaces(name: str) -> str:
     for pattern in quality_patterns:
         name = re.sub(pattern, '', name, flags=re.IGNORECASE)
 
-    # Remove números isolados de 1 dígito (restos de "5.1", "7.1", etc)
-    name = re.sub(r'\s+\d\s+\d\b', ' ', name)  # Remove "5 1", "7 1", etc
-    name = re.sub(r'\s+\d\b', ' ', name)  # Remove dígitos isolados restantes
+    # Remove APENAS padrões de canais de áudio (5.1, 7.1, 2.0 -> "5 1", "7 1", "2 0")
+    # NÃO remove dígitos isolados para preservar títulos como "Super 8", "District 9"
+    name = re.sub(r'\b([257])\s+([01])\b', ' ', name)
 
     # Remove sufixos repetidos como "-converted-converted" (antes de remover grupos)
     name = re.sub(r'(-\w+)\1+', r'\1', name)  # Remove repetições

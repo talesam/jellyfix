@@ -32,13 +32,13 @@ class ScanResult:
     nfo_files: List[Path] = field(default_factory=list)
 
     # Estatísticas
-    total_files: int = 0
     total_movies: int = 0
     total_episodes: int = 0
 
-    def __post_init__(self):
-        """Calcula estatísticas"""
-        self.total_files = (
+    @property
+    def total_files(self) -> int:
+        """Total calculado dinamicamente após arquivos serem adicionados"""
+        return (
             len(self.video_files) +
             len(self.subtitle_files) +
             len(self.image_files) +
