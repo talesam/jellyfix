@@ -237,16 +237,17 @@ class Renamer:
             if not quality_tag and self.config.use_ffprobe:
                 quality_tag = detect_video_resolution(file_path)
 
-        # Formato Jellyfin: "Nome da Série - S01E01 - 1080p.ext" ou "Nome da Série - S01E01.ext"
+        # Formato Jellyfin: "Nome da Série S01E01 - 1080p.ext" ou "Nome da Série S01E01.ext"
+        # IMPORTANTE: NÃO usar hífen antes de S01E01, apenas ESPAÇO! O Jellyfin não reconhece com hífen.
         if media_info.episode_end and media_info.episode_end != media_info.episode_start:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
         else:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
 
         if quality_tag:
-            new_name = f"{title} - {episode_part} - {quality_tag}{file_path.suffix}"
+            new_name = f"{title} {episode_part} - {quality_tag}{file_path.suffix}"
         else:
-            new_name = f"{title} - {episode_part}{file_path.suffix}"
+            new_name = f"{title} {episode_part}{file_path.suffix}"
 
         # Verifica estrutura de pastas
         # Esperado: SeriesFolder/Season XX/episode.mkv
