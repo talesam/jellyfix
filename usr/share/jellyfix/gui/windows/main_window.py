@@ -530,19 +530,33 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             """Background poster fetch"""
             try:
                 metadata = None
+                is_movie = media_info.media_type == MediaType.MOVIE
 
                 # Try by ID first
                 if tmdb_id:
-                    self.logger.info(f"Fetching movie by TMDB ID: {tmdb_id}")
-                    try:
-                        metadata = self.operations_handler.metadata_fetcher.get_movie_by_id(tmdb_id)
-                    except Exception as e:
-                        self.logger.debug(f"get_movie_by_id failed: {e}")
-                        # Fallback to search
-                        metadata = self.operations_handler.metadata_fetcher.search_movie(title, year)
+                    if is_movie:
+                        self.logger.info(f"Fetching movie by TMDB ID: {tmdb_id}")
+                        try:
+                            metadata = self.operations_handler.metadata_fetcher.get_movie_by_id(tmdb_id)
+                        except Exception as e:
+                            self.logger.debug(f"get_movie_by_id failed: {e}")
+                            # Fallback to search
+                            metadata = self.operations_handler.metadata_fetcher.search_movie(title, year)
+                    else:
+                        self.logger.info(f"Fetching TV show by TMDB ID: {tmdb_id}")
+                        try:
+                            metadata = self.operations_handler.metadata_fetcher.get_tvshow_by_id(tmdb_id)
+                        except Exception as e:
+                            self.logger.debug(f"get_tvshow_by_id failed: {e}")
+                            # Fallback to search
+                            metadata = self.operations_handler.metadata_fetcher.search_tvshow(title, year)
                 else:
-                    self.logger.info(f"Searching movie: {title} ({year})")
-                    metadata = self.operations_handler.metadata_fetcher.search_movie(title, year)
+                    if is_movie:
+                        self.logger.info(f"Searching movie: {title} ({year})")
+                        metadata = self.operations_handler.metadata_fetcher.search_movie(title, year)
+                    else:
+                        self.logger.info(f"Searching TV show: {title}")
+                        metadata = self.operations_handler.metadata_fetcher.search_tvshow(title, year)
 
                 if metadata:
                     self.logger.debug(f"Got metadata: {metadata}")

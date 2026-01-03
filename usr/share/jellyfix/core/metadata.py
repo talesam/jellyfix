@@ -65,6 +65,113 @@ class MetadataFetcher:
             self.logger.error(f"Erro ao inicializar TMDB: {e}")
             return None
 
+    def get_movie_by_id(self, tmdb_id: int) -> Optional[Metadata]:
+        """
+        Busca metadados de filme diretamente pelo TMDB ID.
+
+        Args:
+            tmdb_id: TMDB ID do filme
+
+        Returns:
+            Metadata ou None se não encontrado
+        """
+        tmdb = self._init_tmdb()
+        if not tmdb:
+            return None
+
+        try:
+            # Busca diretamente pelo ID
+            movie = tmdb['movie'].details(tmdb_id)
+
+            if not movie:
+                self.logger.debug(f"Filme não encontrado com ID: {tmdb_id}")
+                return None
+
+            # Extrai ano do release_date
+            movie_year = None
+            if hasattr(movie, 'release_date') and movie.release_date:
+                match = re.search(r'^(\d{4})', movie.release_date)
+                if match:
+                    movie_year = int(match.group(1))
+
+            # Build image URLs
+            poster_path = getattr(movie, 'poster_path', None)
+            backdrop_path = getattr(movie, 'backdrop_path', None)
+
+            base_url = "https://image.tmdb.org/t/p"
+            poster_url = f"{base_url}/w500{poster_path}" if poster_path else None
+            backdrop_url = f"{base_url}/w1280{backdrop_path}" if backdrop_path else None
+
+            return Metadata(
+                title=movie.title,
+                year=movie_year,
+                tmdb_id=movie.id,
+                imdb_id=getattr(movie, 'imdb_id', None),
+                original_title=getattr(movie, 'original_title', None),
+                overview=getattr(movie, 'overview', None),
+                poster_path=poster_path,
+                backdrop_path=backdrop_path,
+                poster_url=poster_url,
+                backdrop_url=backdrop_url
+            )
+
+        except Exception as e:
+            self.logger.error(f"Erro ao buscar filme por ID {tmdb_id}: {e}")
+            return None
+
+    def get_tvshow_by_id(self, tmdb_id: int) -> Optional[Metadata]:
+        """
+        Busca metadados de série diretamente pelo TMDB ID.
+
+        Args:
+            tmdb_id: TMDB ID da série
+
+        Returns:
+            Metadata ou None se não encontrado
+        """
+        tmdb = self._init_tmdb()
+        if not tmdb:
+            return None
+
+        try:
+            # Busca diretamente pelo ID
+            show = tmdb['tv'].details(tmdb_id)
+
+            if not show:
+                self.logger.debug(f"Série não encontrada com ID: {tmdb_id}")
+                return None
+
+            # Extrai ano
+            show_year = None
+            if hasattr(show, 'first_air_date') and show.first_air_date:
+                match = re.search(r'^(\d{4})', show.first_air_date)
+                if match:
+                    show_year = int(match.group(1))
+
+            # Build image URLs
+            poster_path = getattr(show, 'poster_path', None)
+            backdrop_path = getattr(show, 'backdrop_path', None)
+
+            base_url = "https://image.tmdb.org/t/p"
+            poster_url = f"{base_url}/w500{poster_path}" if poster_path else None
+            backdrop_url = f"{base_url}/w1280{backdrop_path}" if backdrop_path else None
+
+            return Metadata(
+                title=show.name,
+                year=show_year,
+                tmdb_id=show.id,
+                original_title=getattr(show, 'original_name', None),
+                overview=getattr(show, 'overview', None),
+                poster_path=poster_path,
+                backdrop_path=backdrop_path,
+                poster_url=poster_url,
+                backdrop_url=backdrop_url
+            )
+
+        except Exception as e:
+            self.logger.error(f"Erro ao buscar série por ID {tmdb_id}: {e}")
+            return None
+
     def _search_movie_with_fallback(self, movie_api, title: str, year: Optional[int] = None):
         """
         Busca filme com fallback incremental.
