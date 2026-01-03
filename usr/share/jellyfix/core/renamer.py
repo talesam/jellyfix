@@ -52,14 +52,13 @@ class Renamer:
             Lista de operações planejadas
         """
         self.operations = []
-        self.base_directory = directory  # Store base directory for reference
         self.planned_destinations = set()  # Rastreia destinos para evitar conflitos
         self.video_operations_map = {}  # Mapa: video_stem -> operação de vídeo
+        self.work_dir = directory  # Working directory for organizing files
 
         # Coleta todos os arquivos de legendas para processamento inteligente
         subtitle_files = []
         video_files = []
-        videos_in_base = []  # Videos directly in base_directory
 
         for file_path in directory.rglob('*'):
             if not file_path.is_file():
@@ -71,17 +70,10 @@ class Renamer:
             # Processa vídeos
             if is_video_file(file_path):
                 video_files.append(file_path)
-                # Check if video is directly in base_directory
-                if file_path.parent == directory:
-                    videos_in_base.append(file_path)
 
             # Processa legendas
             elif is_subtitle_file(file_path):
                 subtitle_files.append(file_path)
-        
-        # Note: We no longer need to detect if base_directory is a movie folder
-        # We always create organized folders INSIDE base_directory (the selected/dragged directory)
-        # This ensures consistent behavior whether files are loose or in subfolders
 
         # Processa vídeos
         for file_path in video_files:
@@ -167,9 +159,8 @@ class Renamer:
 
         # Define destination
         if parent_folder != expected_folder:
-            # Move to correct folder
-            # Always create new folder in base_directory (the selected/dragged directory)
-            new_folder = self.base_directory / expected_folder
+            # Always create the organized folder in the working directory
+            new_folder = self.work_dir / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
@@ -270,8 +261,12 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # Always create new folder in base_directory (the selected/dragged directory)
-            new_series_folder = self.base_directory / expected_series_folder
+            # If series folder IS the work_dir itself, organize in parent directory
+            # Otherwise organize in work_dir
+            if series_folder == self.work_dir:
+                new_series_folder = self.work_dir.parent / expected_series_folder
+            else:
+                new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
 
