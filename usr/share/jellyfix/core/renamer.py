@@ -738,6 +738,44 @@ class Renamer:
                     reason=f"Mover arquivo extra junto com vídeo: {file_path.name}"
                 ))
 
+        # Processar tvshow.nfo de séries
+        # Para séries, o tvshow.nfo fica na pasta raiz (ex: /Serie/tvshow.nfo)
+        # Precisamos movê-lo quando a pasta da série é renomeada
+        series_root_map = {}  # old_series_root -> new_series_root
+
+        for old_folder, new_folder in video_folder_map.items():
+            # Detecta se é uma pasta de temporada (Season XX)
+            if 'season' in old_folder.name.lower():
+                old_series_root = old_folder.parent
+                new_series_root = new_folder.parent
+
+                if old_series_root != new_series_root:
+                    series_root_map[old_series_root] = new_series_root
+
+        # Mover tvshow.nfo da raiz da série
+        for old_series_root, new_series_root in series_root_map.items():
+            tvshow_nfo = old_series_root / 'tvshow.nfo'
+
+            if tvshow_nfo.exists() and tvshow_nfo.is_file():
+                # Verifica se já tem operação planejada
+                already_planned = any(op.source == tvshow_nfo for op in self.operations)
+                if already_planned:
+                    continue
+
+                new_tvshow_path = new_series_root / 'tvshow.nfo'
+
+                # Verifica conflito
+                if new_tvshow_path.exists() and new_tvshow_path != tvshow_nfo:
+                    self.logger.warning(f"tvshow.nfo já existe no destino, pulando")
+                    continue
+
+                self.operations.append(RenameOperation(
+                    source=tvshow_nfo,
+                    destination=new_tvshow_path,
+                    operation_type='move',
+                    reason="Mover tvshow.nfo para nova pasta da série"
+                ))
+
     def execute_operations(self, dry_run: bool = True) -> Dict[str, int]:
         """
         Executa as operações planejadas.
