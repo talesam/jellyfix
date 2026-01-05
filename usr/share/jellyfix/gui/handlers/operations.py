@@ -198,7 +198,8 @@ class OperationsHandler:
             """Background operation generation task"""
             try:
                 # Create renamer and plan operations
-                renamer = Renamer()
+                # Passa o metadata_fetcher para o Renamer para compartilhar o cache de escolhas
+                renamer = Renamer(metadata_fetcher=self.metadata_fetcher)
                 operations = renamer.plan_operations(self.current_directory)
                 self.operations = operations
 

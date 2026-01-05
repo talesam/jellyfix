@@ -72,6 +72,18 @@ class ConfigManager:
         config[key] = value
         self.save(config)
 
+    def remove(self, key: str):
+        """
+        Remove uma chave de configuração.
+
+        Args:
+            key: Chave da configuração a remover
+        """
+        config = self.load()
+        if key in config:
+            del config[key]
+            self.save(config)
+
     def get_tmdb_api_key(self) -> Optional[str]:
         """Obtém chave da API TMDB"""
         return self.get('tmdb_api_key')
@@ -80,6 +92,10 @@ class ConfigManager:
         """Define chave da API TMDB"""
         self.set('tmdb_api_key', key)
 
+    def remove_tmdb_api_key(self):
+        """Remove chave da API TMDB"""
+        self.remove('tmdb_api_key')
+
     def get_tvdb_api_key(self) -> Optional[str]:
         """Obtém chave da API TVDB"""
         return self.get('tvdb_api_key')
@@ -87,6 +103,10 @@ class ConfigManager:
     def set_tvdb_api_key(self, key: str):
         """Define chave da API TVDB"""
         self.set('tvdb_api_key', key)
+
+    def remove_tvdb_api_key(self):
+        """Remove chave da API TVDB"""
+        self.remove('tvdb_api_key')
 
     def get_min_pt_words(self) -> int:
         """Obtém número mínimo de palavras portuguesas"""

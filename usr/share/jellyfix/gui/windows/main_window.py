@@ -744,6 +744,47 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Replace in list
         operations[op_index] = new_operation
 
+        # IMPORTANT: Update related subtitle operations to follow the video
+        # Find all subtitle operations that were meant to accompany this video
+        video_stem_original = operation.source.stem
+        new_video_stem = new_path.stem
+
+        for i, op in enumerate(operations):
+            if i == op_index:  # Skip the video itself
+                continue
+
+            # Check if this is a subtitle operation
+            if op.source.suffix.lower() == '.srt':
+                # Check if subtitle was originally companion to this video
+                # Subtitles follow pattern: video_name.lang.srt
+                subtitle_base = op.source.stem
+
+                # Remove language code to get base name
+                import re
+                base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', subtitle_base, re.IGNORECASE)
+                if base_match:
+                    subtitle_video_base = base_match.group(1)
+                    lang_code = base_match.group(2)
+                    forced = base_match.group(3) or ''
+
+                    # Check if this subtitle belongs to the video we're updating
+                    # Use normalize_spaces for flexible matching
+                    from ...utils.helpers import normalize_spaces
+                    if normalize_spaces(subtitle_video_base) == normalize_spaces(video_stem_original):
+                        # This subtitle belongs to our video - update it too!
+                        new_subtitle_name = f"{new_video_stem}.{lang_code}{forced}.srt"
+                        new_subtitle_path = new_folder / new_subtitle_name
+
+                        new_sub_operation = RenameOperation(
+                            source=op.source,
+                            destination=new_subtitle_path,
+                            operation_type='move_rename' if new_subtitle_path.parent != op.source.parent else 'rename',
+                            reason=f"Acompanhar vídeo: {new_subtitle_name}"
+                        )
+
+                        operations[i] = new_sub_operation
+                        self.logger.info(f"Updated companion subtitle: {op.source.name} → {new_subtitle_name}")
+
         # Refresh the UI
         self.operations_list.set_operations(operations)
 

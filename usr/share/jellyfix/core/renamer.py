@@ -35,11 +35,15 @@ class RenameOperation:
 class Renamer:
     """Gerenciador de renomeação de arquivos"""
 
-    def __init__(self):
+    def __init__(self, metadata_fetcher: Optional[MetadataFetcher] = None):
         self.config = get_config()
         self.logger = get_logger()
         self.operations: List[RenameOperation] = []
-        self.metadata_fetcher = MetadataFetcher() if self.config.fetch_metadata else None
+        # Usa o metadata_fetcher fornecido (com cache de escolhas) ou cria novo
+        if metadata_fetcher:
+            self.metadata_fetcher = metadata_fetcher
+        else:
+            self.metadata_fetcher = MetadataFetcher() if self.config.fetch_metadata else None
 
     def plan_operations(self, directory: Path) -> List[RenameOperation]:
         """
@@ -73,6 +77,9 @@ class Renamer:
 
             # Processa legendas
             elif is_subtitle_file(file_path):
+                # Ignora legendas vazias ou muito pequenas (< 20 bytes)
+                if file_path.stat().st_size < 20:
+                    continue
                 subtitle_files.append(file_path)
 
         # Processa vídeos

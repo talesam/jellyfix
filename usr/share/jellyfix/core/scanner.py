@@ -90,6 +90,11 @@ class LibraryScanner:
                     result.total_episodes += 1
 
             elif is_subtitle_file(file_path):
+                # Ignora legendas vazias ou muito pequenas (< 20 bytes)
+                # Uma legenda SRT válida tem no mínimo: número + timestamp + texto
+                if file_path.stat().st_size < 20:
+                    continue
+
                 result.subtitle_files.append(file_path)
                 self._categorize_subtitle(file_path, result)
 
