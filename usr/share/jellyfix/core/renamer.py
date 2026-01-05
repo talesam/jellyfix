@@ -100,6 +100,302 @@ class Renamer:
 
         return self.operations
 
+    def replan_for_video_with_metadata(self, video_path: Path, metadata, all_operations: List[RenameOperation]) -> List[RenameOperation]:
+        """
+        Re-planeja operações para um vídeo específico usando novo metadata fornecido manualmente.
+        Retorna lista de novas operações que devem substituir as antigas.
+
+        Args:
+            video_path: Caminho do arquivo de vídeo original
+            metadata: Novo metadata selecionado manualmente (objeto Metadata)
+            all_operations: Lista completa de operações atuais
+
+        Returns:
+            Lista de novas operações (vídeo + legendas + extras) que substituirão as antigas
+        """
+        from ..utils.helpers import normalize_spaces, is_subtitle_file
+        import re
+
+        # Inicializa variáveis de controle
+        self.operations = []
+        self.planned_destinations = set()
+        self.video_operations_map = {}
+        self.work_dir = video_path.parent
+
+        # Detecta tipo de mídia
+        media_info = detect_media_type(video_path)
+
+        # Planeja operação do vídeo com o novo metadata
+        if media_info.is_movie():
+            new_video_op = self._plan_movie_rename_with_metadata(video_path, media_info, metadata)
+        elif media_info.is_tvshow():
+            new_video_op = self._plan_tvshow_rename_with_metadata(video_path, media_info, metadata)
+        else:
+            return []  # Não é filme nem série, não faz nada
+
+        if not new_video_op:
+            return []
+
+        # Encontra todos os arquivos relacionados ao vídeo original
+        video_stem_original = video_path.stem
+        video_normalized = normalize_spaces(video_stem_original)
+        related_files = []
+
+        # Busca legendas, NFO, e outros arquivos relacionados no mesmo diretório
+        for file_path in video_path.parent.iterdir():
+            if not file_path.is_file():
+                continue
+            if file_path == video_path:
+                continue
+
+            # Verifica se o arquivo está relacionado ao vídeo (mesmo base name)
+            file_stem = file_path.stem
+
+            # Para legendas, remove código de idioma antes de comparar
+            if is_subtitle_file(file_path):
+                base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', file_stem, re.IGNORECASE)
+                if base_match:
+                    file_base = base_match.group(1)
+                else:
+                    file_base = file_stem
+
+                if normalize_spaces(file_base) == video_normalized or file_base == video_stem_original:
+                    related_files.append(file_path)
+
+            # Para NFO e outros, compara nome completo
+            elif file_path.suffix.lower() in ['.nfo', '.jpg', '.png', '.jpeg']:
+                if normalize_spaces(file_stem) == video_normalized or file_stem == video_stem_original:
+                    related_files.append(file_path)
+
+        # Separa por tipo
+        subtitle_files = [f for f in related_files if is_subtitle_file(f)]
+        nfo_files = [f for f in related_files if f.suffix.lower() == '.nfo']
+        image_files = [f for f in related_files if f.suffix.lower() in ['.jpg', '.png', '.jpeg']]
+
+        # Configura mapa de operações de vídeo para _plan_subtitle_companion
+        self.video_operations_map[video_stem_original] = new_video_op
+        self.video_operations_map[video_normalized] = new_video_op
+
+        # Planeja legendas companheiras (remove estrangeiras, renomeia)
+        processed_subs = self._plan_subtitle_companion(subtitle_files, [video_path])
+
+        # Planeja variantes de legendas (escolhe melhor qualidade, remove duplicadas)
+        remaining_subs = [s for s in subtitle_files if s not in processed_subs]
+        if remaining_subs:
+            self._plan_subtitle_variants(remaining_subs, video_path.parent)
+
+        # Planeja arquivos NFO
+        if nfo_files and self.config.rename_nfo:
+            new_video_stem = new_video_op.destination.stem
+            new_video_folder = new_video_op.destination.parent
+
+            for nfo_path in nfo_files:
+                new_nfo_name = f"{new_video_stem}.nfo"
+                new_nfo_path = new_video_folder / new_nfo_name
+
+                if new_nfo_path != nfo_path:
+                    pasta_mudou = new_nfo_path.parent != nfo_path.parent
+                    nome_mudou = new_nfo_path.name != nfo_path.name
+
+                    if pasta_mudou and nome_mudou:
+                        op_type = 'move_rename'
+                    elif pasta_mudou:
+                        op_type = 'move'
+                    else:
+                        op_type = 'rename'
+
+                    self.operations.append(RenameOperation(
+                        source=nfo_path,
+                        destination=new_nfo_path,
+                        operation_type=op_type,
+                        reason=f"Acompanhar vídeo: {nfo_path.name} → {new_nfo_name}"
+                    ))
+
+        # Planeja arquivos de imagem
+        if image_files:
+            new_video_folder = new_video_op.destination.parent
+
+            for img_path in image_files:
+                new_img_path = new_video_folder / img_path.name
+
+                if new_img_path != img_path and new_img_path.parent != img_path.parent:
+                    self.operations.append(RenameOperation(
+                        source=img_path,
+                        destination=new_img_path,
+                        operation_type='move',
+                        reason=f"Acompanhar vídeo"
+                    ))
+
+        return self.operations
+
+    def _plan_movie_rename_with_metadata(self, file_path: Path, media_info, metadata) -> Optional[RenameOperation]:
+        """
+        Planeja renomeação de filme usando metadata fornecido (não busca TMDB).
+        Retorna a operação planejada ou None.
+        """
+        title = clean_filename(metadata.title)
+        year = metadata.year
+
+        # Build folder suffix with TMDB ID
+        folder_suffix = ""
+        if metadata.tmdb_id:
+            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
+        elif metadata.imdb_id:
+            folder_suffix = f" [imdbid-{metadata.imdb_id}]"
+
+        # Detect quality tag
+        quality_tag = None
+        if self.config.add_quality_tag:
+            quality_tag = extract_quality_tag(file_path.stem)
+            if not quality_tag and self.config.use_ffprobe:
+                quality_tag = detect_video_resolution(file_path)
+
+        # Build new name
+        if year:
+            base_name = f"{title} ({year})"
+        else:
+            base_name = f"{title}"
+
+        if quality_tag:
+            new_name = f"{base_name} - {quality_tag}{file_path.suffix}"
+        else:
+            new_name = f"{base_name}{file_path.suffix}"
+
+        # Expected folder name
+        expected_folder = f"{base_name}{folder_suffix}"
+
+        # Determine if we need to organize into folders
+        if self.config.organize_folders:
+            # Check current location
+            parent_folder = file_path.parent
+
+            if parent_folder.name != expected_folder:
+                # Need to create/move to proper folder
+                if parent_folder == self.work_dir:
+                    new_folder = self.work_dir / expected_folder
+                else:
+                    new_folder = self.work_dir / expected_folder
+            else:
+                # Already in correct folder
+                new_folder = parent_folder
+        else:
+            # Don't organize folders, keep in current location
+            new_folder = file_path.parent
+
+        new_path = new_folder / new_name
+
+        if new_path != file_path:
+            pasta_mudou = new_path.parent != file_path.parent
+            nome_mudou = new_path.name != file_path.name
+
+            if pasta_mudou and nome_mudou:
+                op_type = 'move_rename'
+            elif pasta_mudou:
+                op_type = 'move'
+            else:
+                op_type = 'rename'
+
+            op = RenameOperation(
+                source=file_path,
+                destination=new_path,
+                operation_type=op_type,
+                reason=f"Atualização manual: {metadata.title} ({metadata.year})"
+            )
+            self.operations.append(op)
+            return op
+
+        return None
+
+    def _plan_tvshow_rename_with_metadata(self, file_path: Path, media_info, metadata) -> Optional[RenameOperation]:
+        """
+        Planeja renomeação de série usando metadata fornecido (não busca TMDB).
+        Retorna a operação planejada ou None.
+        """
+        title = clean_filename(metadata.title)
+        year = metadata.year
+
+        # Build folder suffix with TMDB ID
+        folder_suffix = ""
+        if metadata.tmdb_id:
+            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
+        elif metadata.tvdb_id:
+            folder_suffix = f" [tvdbid-{metadata.tvdb_id}]"
+        elif metadata.imdb_id:
+            folder_suffix = f" [imdbid-{metadata.imdb_id}]"
+
+        # Detect quality tag
+        quality_tag = None
+        if self.config.add_quality_tag:
+            quality_tag = extract_quality_tag(file_path.stem)
+            if not quality_tag and self.config.use_ffprobe:
+                quality_tag = detect_video_resolution(file_path)
+
+        # Format episode part
+        if media_info.episode_end and media_info.episode_end != media_info.episode_start:
+            episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
+        else:
+            episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
+
+        if quality_tag:
+            new_name = f"{title} {episode_part} - {quality_tag}{file_path.suffix}"
+        else:
+            new_name = f"{title} {episode_part}{file_path.suffix}"
+
+        # Determine series folder structure
+        season_folder_name = format_season_folder(media_info.season)
+
+        # Find series folder
+        if file_path.parent.name.lower().startswith('season'):
+            series_folder = file_path.parent.parent
+        else:
+            series_folder = file_path.parent
+
+        # Expected series folder name
+        if year:
+            expected_series_folder = f"{title} ({year}){folder_suffix}"
+        else:
+            expected_series_folder = f"{title}{folder_suffix}"
+
+        # Determine new series folder path
+        if series_folder.name != expected_series_folder:
+            if series_folder == self.work_dir:
+                new_series_folder = self.work_dir.parent / expected_series_folder
+            else:
+                new_series_folder = self.work_dir / expected_series_folder
+        else:
+            new_series_folder = series_folder
+
+        # Full path
+        new_folder = new_series_folder / season_folder_name
+        new_path = new_folder / new_name
+
+        if new_path != file_path:
+            pasta_mudou = new_path.parent != file_path.parent
+            nome_mudou = new_path.name != file_path.name
+
+            if pasta_mudou and nome_mudou:
+                op_type = 'move_rename'
+            elif pasta_mudou:
+                op_type = 'move'
+            else:
+                op_type = 'rename'
+
+            if new_series_folder != series_folder:
+                reason = f"Atualização manual: {series_folder.name} → {expected_series_folder}"
+            else:
+                reason = f"Atualização manual: {file_path.name} → {new_name}"
+
+            op = RenameOperation(
+                source=file_path,
+                destination=new_path,
+                operation_type=op_type,
+                reason=reason
+            )
+            self.operations.append(op)
+            return op
+
+        return None
+
     def _plan_video_rename(self, file_path: Path):
         """Planeja renomeação de um arquivo de vídeo"""
         media_info = detect_media_type(file_path)

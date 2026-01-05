@@ -667,134 +667,105 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
     def _on_metadata_changed(self, operation, metadata):
         """
         Handle metadata change from SearchDialog.
-        Updates the operation with new title/year and refreshes the UI.
+        Re-plans all operations for the video using the new metadata, respecting all config settings.
 
         Args:
             operation: RenameOperation to update
             metadata: New Metadata selected by user
         """
-        from ...utils.helpers import clean_filename, extract_quality_tag
-        from ...utils.config import get_config
+        from ...utils.helpers import normalize_spaces, is_subtitle_file
+        from ...core.renamer import Renamer
         import re
 
-        config = get_config()
-        self.logger.info(f"Updating operation with new metadata: {metadata.title} ({metadata.year})")
+        self.logger.info(f"Re-planning operations with new metadata: {metadata.title} ({metadata.year})")
 
-        # Find the operation in the list
+        # Get current operations list
         operations = self.operations_handler.operations
-        op_index = None
-        for i, op in enumerate(operations):
-            if op.source == operation.source:
-                op_index = i
-                break
 
-        if op_index is None:
-            self.logger.warning("Operation not found in list")
+        # Find video operation and all related operations
+        video_source = operation.source
+        video_stem_original = video_source.stem
+        video_normalized = normalize_spaces(video_stem_original)
+
+        # Find indices of all operations related to this video
+        related_indices = []
+        video_index = None
+
+        for i, op in enumerate(operations):
+            if op.source == video_source:
+                # This is the video itself
+                video_index = i
+                related_indices.append(i)
+            else:
+                # Check if this operation is related to the video
+                file_stem = op.source.stem
+
+                # For subtitles, remove language code before comparing
+                if is_subtitle_file(op.source):
+                    base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', file_stem, re.IGNORECASE)
+                    if base_match:
+                        file_base = base_match.group(1)
+                    else:
+                        file_base = file_stem
+
+                    if normalize_spaces(file_base) == video_normalized or file_base == video_stem_original:
+                        related_indices.append(i)
+
+                # For NFO and image files, compare full stem
+                elif op.source.suffix.lower() in ['.nfo', '.jpg', '.png', '.jpeg']:
+                    if normalize_spaces(file_stem) == video_normalized or file_stem == video_stem_original:
+                        related_indices.append(i)
+
+        if video_index is None:
+            self.logger.warning("Video operation not found in list")
             return
 
-        # Build new destination path
-        title = clean_filename(metadata.title)
-        year = metadata.year
+        # Create a Renamer instance with the current metadata_fetcher (preserves cache)
+        renamer = Renamer(metadata_fetcher=self.operations_handler.metadata_fetcher)
 
-        # Get quality tag from original
-        quality_tag = extract_quality_tag(operation.source.stem)
-        if not quality_tag and config.add_quality_tag:
-            from ...utils.helpers import detect_video_resolution
-            quality_tag = detect_video_resolution(operation.source)
-
-        # Build folder suffix with TMDB ID
-        folder_suffix = ""
-        if metadata.tmdb_id:
-            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
-
-        # Build new name
-        if year:
-            base_name = f"{title} ({year})"
-        else:
-            base_name = f"{title}"
-
-        if quality_tag:
-            new_name = f"{base_name} - {quality_tag}{operation.source.suffix}"
-        else:
-            new_name = f"{base_name}{operation.source.suffix}"
-
-        # Build new folder path
-        expected_folder = f"{base_name}{folder_suffix}"
-
-        # Determine new path
-        base_dir = self.operations_handler.current_directory
-        if operation.source.parent == base_dir:
-            # File is loose in root
-            new_folder = base_dir / expected_folder
-        else:
-            # File is in subfolder
-            new_folder = base_dir / expected_folder
-
-        new_path = new_folder / new_name
-
-        # Update the operation
-        from ...core.renamer import RenameOperation
-        new_operation = RenameOperation(
-            source=operation.source,
-            destination=new_path,
-            operation_type='move_rename' if new_path.parent != operation.source.parent else 'rename',
-            reason=f"Manual update: {metadata.title} ({metadata.year})"
+        # Re-plan operations for this video with the new metadata
+        # This will respect ALL config settings (remove_foreign_subs, organize_folders, etc.)
+        new_operations = renamer.replan_for_video_with_metadata(
+            video_path=video_source,
+            metadata=metadata,
+            all_operations=operations
         )
 
-        # Replace in list
-        operations[op_index] = new_operation
+        if not new_operations:
+            self.logger.warning("Failed to re-plan operations")
+            return
 
-        # IMPORTANT: Update related subtitle operations to follow the video
-        # Find all subtitle operations that were meant to accompany this video
-        video_stem_original = operation.source.stem
-        new_video_stem = new_path.stem
+        # Remove old related operations (in reverse order to maintain indices)
+        for i in sorted(related_indices, reverse=True):
+            del operations[i]
 
-        for i, op in enumerate(operations):
-            if i == op_index:  # Skip the video itself
-                continue
+        # Insert new operations at the position where the video was
+        insert_position = min(related_indices)
+        for i, new_op in enumerate(new_operations):
+            operations.insert(insert_position + i, new_op)
 
-            # Check if this is a subtitle operation
-            if op.source.suffix.lower() == '.srt':
-                # Check if subtitle was originally companion to this video
-                # Subtitles follow pattern: video_name.lang.srt
-                subtitle_base = op.source.stem
+        # Log what was updated
+        self.logger.info(f"Replaced {len(related_indices)} old operations with {len(new_operations)} new operations")
+        for new_op in new_operations:
+            if new_op.operation_type == 'delete':
+                self.logger.info(f"  - DELETE: {new_op.source.name} ({new_op.reason})")
+            else:
+                self.logger.info(f"  - {new_op.operation_type.upper()}: {new_op.source.name} → {new_op.destination.name}")
 
-                # Remove language code to get base name
-                import re
-                base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', subtitle_base, re.IGNORECASE)
-                if base_match:
-                    subtitle_video_base = base_match.group(1)
-                    lang_code = base_match.group(2)
-                    forced = base_match.group(3) or ''
-
-                    # Check if this subtitle belongs to the video we're updating
-                    # Use normalize_spaces for flexible matching
-                    from ...utils.helpers import normalize_spaces
-                    if normalize_spaces(subtitle_video_base) == normalize_spaces(video_stem_original):
-                        # This subtitle belongs to our video - update it too!
-                        new_subtitle_name = f"{new_video_stem}.{lang_code}{forced}.srt"
-                        new_subtitle_path = new_folder / new_subtitle_name
-
-                        new_sub_operation = RenameOperation(
-                            source=op.source,
-                            destination=new_subtitle_path,
-                            operation_type='move_rename' if new_subtitle_path.parent != op.source.parent else 'rename',
-                            reason=f"Acompanhar vídeo: {new_subtitle_name}"
-                        )
-
-                        operations[i] = new_sub_operation
-                        self.logger.info(f"Updated companion subtitle: {op.source.name} → {new_subtitle_name}")
+        # Update the operations handler
+        self.operations_handler.operations = operations
 
         # Refresh the UI
         self.operations_list.set_operations(operations)
 
-        # Update preview with new operation
-        self.preview_panel.show_operation(new_operation)
+        # Update preview with the first new operation (the video)
+        if new_operations:
+            self.preview_panel.show_operation(new_operations[0])
 
-        # Fetch new poster
-        self._try_fetch_poster(new_operation)
+            # Fetch new poster
+            self._try_fetch_poster(new_operations[0])
 
-        # Show success toast
-        toast = Adw.Toast(title=f"Updated: {metadata.title} ({metadata.year})")
+        # Show success toast with count of operations
+        toast = Adw.Toast(title=f"Updated: {metadata.title} ({metadata.year}) - {len(new_operations)} operations")
         toast.set_timeout(3)
         self.toast_overlay.add_toast(toast)
