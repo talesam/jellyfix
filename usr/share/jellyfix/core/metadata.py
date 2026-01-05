@@ -45,7 +45,7 @@ class MetadataFetcher:
             return None
 
         try:
-            from tmdbv3api import TMDb, Movie, TV
+            from tmdbv3api import TMDb, Movie, TV, Search
 
             tmdb = TMDb()
             tmdb.api_key = self.config.tmdb_api_key
@@ -54,7 +54,8 @@ class MetadataFetcher:
             self._tmdb = {
                 'client': tmdb,
                 'movie': Movie(),
-                'tv': TV()
+                'tv': TV(),
+                'search': Search()
             }
             return self._tmdb
 
@@ -172,15 +173,15 @@ class MetadataFetcher:
             self.logger.error(f"Erro ao buscar série por ID {tmdb_id}: {e}")
             return None
 
-    def _search_movie_with_fallback(self, movie_api, title: str, year: Optional[int] = None):
+    def _search_movie_with_fallback(self, search_api, title: str, year: Optional[int] = None):
         """
         Busca filme com fallback incremental.
         Se não encontrar, remove palavras do final até achar.
 
         Args:
-            movie_api: API do TMDB Movie
+            search_api: API do TMDB Search
             title: Título limpo
-            year: Ano (opcional)
+            year: Ano (opcional, melhora a precisão da busca)
 
         Returns:
             Resultados da busca ou None
@@ -196,7 +197,13 @@ class MetadataFetcher:
                 self.logger.debug(f"Tentando busca alternativa: '{current_title}'")
 
             try:
-                results = movie_api.search(current_title)
+                # Inclui o ano na busca se fornecido (melhora muito a precisão)
+                if year:
+                    results = search_api.movies(current_title, year=year)
+                    if i == len(words):
+                        self.logger.debug(f"Buscando: '{current_title}' (ano: {year})")
+                else:
+                    results = search_api.movies(current_title)
 
                 # Se encontrou resultados, retorna
                 if results and hasattr(results, 'total_results') and results.total_results > 0:
@@ -270,7 +277,7 @@ class MetadataFetcher:
             clean_title = self._clean_search_title(title)
 
             # Busca incremental: tenta com título completo, depois vai removendo palavras do final
-            results = self._search_movie_with_fallback(tmdb['movie'], clean_title, year)
+            results = self._search_movie_with_fallback(tmdb['search'], clean_title, year)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:

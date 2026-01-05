@@ -12,6 +12,7 @@ depends=(
     'python-rich'
     'python-requests'
     'python-questionary'
+    'python-tmdbv3api'
 )
 source=("git+${url}.git")
 md5sums=('SKIP')
