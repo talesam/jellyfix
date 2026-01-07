@@ -263,29 +263,32 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
     def load_paths(self, paths):
         """
         Load paths passed from command line (via file manager extension).
-        
+
         Args:
             paths: List of file/folder paths to process
         """
         from pathlib import Path
-        
+
         if not paths:
             self.logger.warning("load_paths called with empty paths")
             return
-        
+
         self.logger.info(f"Loading {len(paths)} path(s) from command line")
         for p in paths:
             self.logger.debug(f"  Path: {p}")
-        
+
         # Convert all paths to Path objects
         path_objects = [Path(p) for p in paths]
-        
+
         # Check if we have folders selected
         folders = [p for p in path_objects if p.is_dir()]
         files = [p for p in path_objects if p.is_file()]
-        
+
         self.logger.debug(f"Found {len(folders)} folders and {len(files)} files")
-        
+
+        # Store selected folders for filtering later
+        self.selected_folders = []
+
         if folders:
             # If folders are selected, use the first folder as the directory to scan
             # This is the most common case when right-clicking on a folder
@@ -293,13 +296,17 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             if len(folders) == 1:
                 directory = folders[0]  # Scan THIS folder, not its parent
                 self.logger.info(f"Single folder selected, scanning: {directory}")
+                # No filtering needed for single folder
             else:
-                # Multiple folders - find common parent
+                # Multiple folders - scan parent but filter to selected folders only
                 try:
                     directory = Path(os.path.commonpath([str(f) for f in folders]))
                 except ValueError:
-                    directory = folders[0]
-                self.logger.info(f"Multiple folders, using common parent: {directory}")
+                    directory = folders[0].parent
+                self.logger.info(f"Multiple folders selected, scanning parent: {directory}")
+                self.logger.info(f"Will filter to only these folders: {[str(f) for f in folders]}")
+                # Store selected folders for filtering
+                self.selected_folders = folders
         else:
             # Only files selected - use their common parent
             parent_dirs = set(p.parent for p in files)
@@ -311,9 +318,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 except ValueError:
                     directory = files[0].parent
             self.logger.info(f"Files selected, using parent: {directory}")
-        
+
         self.logger.info(f"Will scan directory: {directory}")
-        
+
         # Start scan after a short delay to ensure UI is ready
         from gi.repository import GLib
         GLib.timeout_add(100, lambda: self._start_scan(directory) or False)
@@ -328,6 +335,13 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Dismiss scanning toast
         if hasattr(self, 'current_scan_toast'):
             self.current_scan_toast.dismiss()
+
+        # Apply folder filtering if multiple folders were selected
+        if hasattr(self, 'selected_folders') and self.selected_folders:
+            self.logger.info(f"Filtering scan results to {len(self.selected_folders)} selected folder(s)")
+            files = self._filter_scan_result(files, self.selected_folders)
+            # Clear selected_folders after filtering
+            self.selected_folders = []
 
         # Get file counts from ScanResult
         total_files = files.total_files if hasattr(files, 'total_files') else len(files)
@@ -369,6 +383,68 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
         # Switch to operations view
         self.sidebar_stack.set_visible_child_name("operations")
+
+    def _filter_scan_result(self, scan_result, selected_folders):
+        """
+        Filter ScanResult to include only files within selected folders.
+
+        Args:
+            scan_result: Original ScanResult from scanner
+            selected_folders: List of Path objects representing selected folders
+
+        Returns:
+            Filtered ScanResult containing only files in selected folders
+        """
+        from ...core.scanner import ScanResult
+        from pathlib import Path
+
+        def is_in_selected_folders(file_path):
+            """Check if file is within any of the selected folders"""
+            try:
+                # Convert to Path if needed
+                file_path = Path(file_path)
+                for folder in selected_folders:
+                    # Check if file is inside this folder (or is the folder itself)
+                    try:
+                        # Use resolve() to handle symlinks and relative paths
+                        file_resolved = file_path.resolve()
+                        folder_resolved = folder.resolve()
+                        # Check if file_resolved starts with folder_resolved
+                        if file_resolved == folder_resolved or folder_resolved in file_resolved.parents:
+                            return True
+                    except (OSError, ValueError):
+                        # Fallback: simple string comparison
+                        if str(file_path).startswith(str(folder)):
+                            return True
+                return False
+            except Exception as e:
+                self.logger.warning(f"Error checking file {file_path}: {e}")
+                return False
+
+        # Filter all file lists
+        filtered_result = ScanResult(
+            video_files=[f for f in scan_result.video_files if is_in_selected_folders(f)],
+            subtitle_files=[f for f in scan_result.subtitle_files if is_in_selected_folders(f)],
+            image_files=[f for f in scan_result.image_files if is_in_selected_folders(f)],
+            other_files=[f for f in scan_result.other_files if is_in_selected_folders(f)],
+            variant_subtitles=[f for f in scan_result.variant_subtitles if is_in_selected_folders(f)],
+            no_lang_subtitles=[f for f in scan_result.no_lang_subtitles if is_in_selected_folders(f)],
+            foreign_subtitles=[f for f in scan_result.foreign_subtitles if is_in_selected_folders(f)],
+            kept_subtitles=[f for f in scan_result.kept_subtitles if is_in_selected_folders(f)],
+            unwanted_images=[f for f in scan_result.unwanted_images if is_in_selected_folders(f)],
+            nfo_files=[f for f in scan_result.nfo_files if is_in_selected_folders(f)]
+        )
+
+        # Update statistics
+        filtered_result.total_movies = scan_result.total_movies
+        filtered_result.total_shows = scan_result.total_shows if hasattr(scan_result, 'total_shows') else 0
+
+        # Log filtering results
+        original_count = len(scan_result.video_files) + len(scan_result.subtitle_files)
+        filtered_count = len(filtered_result.video_files) + len(filtered_result.subtitle_files)
+        self.logger.info(f"Filtered: {original_count} → {filtered_count} files")
+
+        return filtered_result
 
     def on_apply_operations(self, operations):
         """
