@@ -180,12 +180,14 @@ class OperationsHandler:
         return False  # Remove from GLib idle queue
 
     def generate_operations(self, files: Optional[List[Path]] = None,
+                           scan_result=None,
                            complete_callback: Optional[Callable] = None):
         """
         Generate rename operations from scanned files.
 
         Args:
-            files: List of files (uses scanned_files if None) - not used, uses directory
+            files: Deprecated, use scan_result instead
+            scan_result: ScanResult from scan (if provided, uses filtered files)
             complete_callback: Called when complete with operations list
         """
         if not self.current_directory:
@@ -193,6 +195,8 @@ class OperationsHandler:
             return
 
         self.logger.info(f"Generating operations for directory: {self.current_directory}")
+        if scan_result:
+            print(f"DEBUG: generate_operations received scan_result with {len(scan_result.video_files)} videos")
 
         def generate_task():
             """Background operation generation task"""
@@ -200,7 +204,7 @@ class OperationsHandler:
                 # Create renamer and plan operations
                 # Passa o metadata_fetcher para o Renamer para compartilhar o cache de escolhas
                 renamer = Renamer(metadata_fetcher=self.metadata_fetcher)
-                operations = renamer.plan_operations(self.current_directory)
+                operations = renamer.plan_operations(self.current_directory, scan_result=scan_result)
                 self.operations = operations
 
                 # Update UI on main thread

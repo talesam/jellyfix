@@ -233,12 +233,15 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         try:
             cmd = [self.app_executable] + file_paths
             print(f"Jellyfix Extension: Launching command: {cmd}")
-            
+
+            # Open log file for debugging
+            log_file = open('/tmp/jellyfix-gui-debug.log', 'w')
+
             # Use Popen with proper error handling
             process = subprocess.Popen(
                 cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
+                stdout=log_file,
+                stderr=log_file,
                 start_new_session=True
             )
             

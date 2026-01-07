@@ -45,12 +45,13 @@ class Renamer:
         else:
             self.metadata_fetcher = MetadataFetcher() if self.config.fetch_metadata else None
 
-    def plan_operations(self, directory: Path) -> List[RenameOperation]:
+    def plan_operations(self, directory: Path, scan_result=None) -> List[RenameOperation]:
         """
         Planeja todas as operações de renomeação.
 
         Args:
             directory: Diretório a processar
+            scan_result: ScanResult opcional (se fornecido, usa arquivos filtrados; caso contrário, escaneia o diretório)
 
         Returns:
             Lista de operações planejadas
@@ -64,23 +65,30 @@ class Renamer:
         subtitle_files = []
         video_files = []
 
-        for file_path in directory.rglob('*'):
-            if not file_path.is_file():
-                continue
-
-            if file_path.name.startswith('.'):
-                continue
-
-            # Processa vídeos
-            if is_video_file(file_path):
-                video_files.append(file_path)
-
-            # Processa legendas
-            elif is_subtitle_file(file_path):
-                # Ignora legendas vazias ou muito pequenas (< 20 bytes)
-                if file_path.stat().st_size < 20:
+        if scan_result:
+            # Usa arquivos do ScanResult filtrado
+            print(f"DEBUG: Using filtered ScanResult - videos: {len(scan_result.video_files)}, subtitles: {len(scan_result.subtitle_files)}")
+            video_files = scan_result.video_files
+            subtitle_files = scan_result.subtitle_files
+        else:
+            # Escaneia o diretório normalmente
+            for file_path in directory.rglob('*'):
+                if not file_path.is_file():
                     continue
-                subtitle_files.append(file_path)
+
+                if file_path.name.startswith('.'):
+                    continue
+
+                # Processa vídeos
+                if is_video_file(file_path):
+                    video_files.append(file_path)
+
+                # Processa legendas
+                elif is_subtitle_file(file_path):
+                    # Ignora legendas vazias ou muito pequenas (< 20 bytes)
+                    if file_path.stat().st_size < 20:
+                        continue
+                    subtitle_files.append(file_path)
 
         # Processa vídeos
         for file_path in video_files:

@@ -305,8 +305,10 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     directory = folders[0].parent
                 self.logger.info(f"Multiple folders selected, scanning parent: {directory}")
                 self.logger.info(f"Will filter to only these folders: {[str(f) for f in folders]}")
+                print(f"DEBUG: Setting selected_folders = {[str(f) for f in folders]}")
                 # Store selected folders for filtering
                 self.selected_folders = folders
+                print(f"DEBUG: selected_folders is now = {self.selected_folders}")
         else:
             # Only files selected - use their common parent
             parent_dirs = set(p.parent for p in files)
@@ -337,11 +339,19 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             self.current_scan_toast.dismiss()
 
         # Apply folder filtering if multiple folders were selected
+        print(f"DEBUG: hasattr(self, 'selected_folders') = {hasattr(self, 'selected_folders')}")
+        if hasattr(self, 'selected_folders'):
+            print(f"DEBUG: self.selected_folders = {self.selected_folders}")
+
         if hasattr(self, 'selected_folders') and self.selected_folders:
             self.logger.info(f"Filtering scan results to {len(self.selected_folders)} selected folder(s)")
+            print(f"DEBUG: Filtering to folders: {[str(f) for f in self.selected_folders]}")
             files = self._filter_scan_result(files, self.selected_folders)
+            print(f"DEBUG: After filter - videos: {len(files.video_files)}, subtitles: {len(files.subtitle_files)}")
             # Clear selected_folders after filtering
             self.selected_folders = []
+        else:
+            print(f"DEBUG: No filtering - processing all files from scan")
 
         # Get file counts from ScanResult
         total_files = files.total_files if hasattr(files, 'total_files') else len(files)
@@ -354,9 +364,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.toast_overlay.add_toast(toast)
         self.current_gen_toast = toast
 
-        # Generate operations
+        # Generate operations with filtered scan result
         self.operations_handler.generate_operations(
-            files=files,
+            scan_result=files,
             complete_callback=self.on_operations_generated
         )
 
