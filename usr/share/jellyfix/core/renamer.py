@@ -635,21 +635,37 @@ class Renamer:
             # Extrai base name da legenda (remove .LANG.srt)
             subtitle_name = subtitle_path.stem
 
+            # Primeiro, detecta se tem .forced (case-insensitive) em qualquer posição
+            forced_suffix = ''
+            subtitle_name_lower = subtitle_name.lower()
+            if '.forced' in subtitle_name_lower:
+                forced_suffix = '.forced'
+                # Remove .forced temporariamente para facilitar o parsing
+                # Preserva o case original para o matching
+                forced_pos = subtitle_name_lower.rfind('.forced')
+                subtitle_name_no_forced = subtitle_name[:forced_pos] + subtitle_name[forced_pos+7:]
+            else:
+                subtitle_name_no_forced = subtitle_name
+
             # Remove código de idioma se presente
-            # Padrões: .por, .eng, .por.forced, .eng.forced, .por2, etc.
-            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', subtitle_name, re.IGNORECASE)
+            # Padrões: .por, .eng, .por2, etc. (agora sem .forced porque já foi removido)
+            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)$', subtitle_name_no_forced, re.IGNORECASE)
             if base_match:
                 subtitle_base = base_match.group(1)
                 lang_code = base_match.group(2).lower()  # Normaliza para lowercase
                 # Remove dígito do código se tiver (por2 -> por)
                 lang_code_base = re.sub(r'\d+$', '', lang_code)
-                forced_suffix = base_match.group(3) or ''
             else:
                 # Não tem código de idioma explícito
-                subtitle_base = subtitle_name
+                subtitle_base = subtitle_name_no_forced
                 lang_code = None
                 lang_code_base = None
-                forced_suffix = ''
+
+                # Se é .forced sem código de idioma, detecta pelo conteúdo
+                if forced_suffix and self.config.rename_no_lang:
+                    if is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
+                        lang_code = 'por'
+                        lang_code_base = 'por'
 
             # Procura vídeo correspondente (primeiro tenta match exato, depois normalizado)
             matching_video_op = video_operations.get(subtitle_base)
