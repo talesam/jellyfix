@@ -429,6 +429,66 @@ def is_image_file(file_path: Path) -> bool:
     return file_path.suffix.lower() in IMAGE_EXTENSIONS
 
 
+def normalize_language_code(lang_code: str) -> str:
+    """
+    Normaliza códigos de idioma de 2 ou 3 caracteres para o padrão de 3 letras.
+
+    Args:
+        lang_code: Código de idioma (pode ser en, eng, pt, pt-BR, pt_BR, br, etc.)
+
+    Returns:
+        Código normalizado de 3 letras (eng, por, spa, etc.)
+    """
+    # Remove qualquer região/país do código (pt-BR -> pt, pt_BR -> pt)
+    base_code = lang_code.split('-')[0].split('_')[0].lower()
+
+    # Mapa de códigos de 2 letras para 3 letras (ISO 639-1 -> ISO 639-2)
+    code_map = {
+        'en': 'eng',  # English
+        'pt': 'por',  # Portuguese
+        'br': 'por',  # Brazilian (não é código ISO, mas comum em legendas)
+        'es': 'spa',  # Spanish
+        'fr': 'fre',  # French
+        'de': 'ger',  # German
+        'it': 'ita',  # Italian
+        'ja': 'jpn',  # Japanese
+        'ko': 'kor',  # Korean
+        'zh': 'chi',  # Chinese
+        'ru': 'rus',  # Russian
+        'ar': 'ara',  # Arabic
+        'hi': 'hin',  # Hindi
+        'nl': 'dut',  # Dutch
+        'sv': 'swe',  # Swedish
+        'no': 'nor',  # Norwegian
+        'da': 'dan',  # Danish
+        'fi': 'fin',  # Finnish
+        'pl': 'pol',  # Polish
+        'tr': 'tur',  # Turkish
+        'he': 'heb',  # Hebrew
+        'el': 'gre',  # Greek
+        'cs': 'cze',  # Czech
+        'hu': 'hun',  # Hungarian
+        'ro': 'rum',  # Romanian
+        'uk': 'ukr',  # Ukrainian
+        'th': 'tha',  # Thai
+        'vi': 'vie',  # Vietnamese
+        'id': 'ind',  # Indonesian
+        'ms': 'may',  # Malay
+        'tl': 'fil',  # Filipino
+    }
+
+    # Se já está no formato de 3 letras, retorna normalizado
+    if len(base_code) == 3:
+        return base_code
+
+    # Se é 2 letras, converte usando o mapa
+    if len(base_code) == 2:
+        return code_map.get(base_code, base_code)
+
+    # Se não se encaixa em nenhum padrão, retorna como está
+    return base_code
+
+
 def has_language_code(filename: str) -> Optional[str]:
     """
     Verifica se o nome do arquivo já tem código de idioma.
@@ -437,21 +497,28 @@ def has_language_code(filename: str) -> Optional[str]:
         filename: Nome do arquivo
 
     Returns:
-        Código de idioma encontrado ou None
+        Código de idioma encontrado (normalizado para 3 letras) ou None
     """
-    # Procura por padrões como .pt, .pt-BR, .eng, .eng2, .eng.forced, etc.
+    # Procura por padrões como .pt, .pt-BR, .pt_BR, .eng, .en, .eng2, .eng.forced, etc.
     # IMPORTANTE: Apenas ANTES da extensão do arquivo para evitar falsos positivos
     # Exemplos aceitos:
     #   "file.eng.srt" -> "eng"
+    #   "file.en.srt" -> "eng"
     #   "file.eng2.srt" -> "eng"
     #   "file.eng.forced.srt" -> "eng"
     #   "file.por.srt" -> "por"
+    #   "file.pt.srt" -> "por"
+    #   "file.pt-BR.srt" -> "por"
+    #   "file.pt_BR.srt" -> "por"
     #   "The.Great.Flood.srt" -> None (não pega "gre" de Great)
 
     # Padrão: .LANG[NUMERO][.forced|.sdh|.default].EXTENSAO
-    match = re.search(r'\.([a-z]{2,3}(?:-[A-Z]{2})?)(?:\d)?(?:\.(forced|sdh|default))?\.(srt|ass|ssa|sub|vtt)$', filename.lower())
+    # Aceita 2-3 letras, com região opcional (-XX ou _XX)
+    match = re.search(r'\.([a-z]{2,3}(?:[-_][A-Z]{2})?)(?:\d)?(?:\.(forced|sdh|default))?\.(srt|ass|ssa|sub|vtt)$', filename.lower())
     if match:
-        return match.group(1)
+        lang_code = match.group(1)
+        # Normaliza o código para 3 letras
+        return normalize_language_code(lang_code)
     return None
 
 
@@ -522,8 +589,9 @@ def parse_subtitle_filename(file_path: Path) -> dict:
             info['forced'] = True
         elif part_lower == 'sdh':
             info['sdh'] = True
-        # Verifica código de idioma (2-3 letras, opcionalmente com região)
-        elif re.match(r'^[a-z]{2,3}(?:-[A-Z]{2})?$', part):
-            info['language'] = part
+        # Verifica código de idioma (2-3 letras, opcionalmente com região como pt-BR ou pt_BR)
+        elif re.match(r'^[a-z]{2,3}(?:[-_][A-Z]{2})?$', part_lower):
+            # Normaliza o código de idioma para 3 letras
+            info['language'] = normalize_language_code(part_lower)
 
     return info

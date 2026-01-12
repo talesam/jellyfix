@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.4.11"
+APP_VERSION = "2.5.0"
 
 
 @dataclass
@@ -30,6 +30,7 @@ class Config:
     use_ffprobe: bool = False  # Usa ffprobe para detectar resolução (mais lento mas preciso)
     ask_on_multiple_results: bool = False  # Pergunta ao usuário quando há múltiplos resultados TMDB
     rename_nfo: bool = True  # Renomeia arquivos NFO para corresponder ao vídeo
+    remove_non_media: bool = False  # Remove arquivos que não sejam .srt ou .mp4
 
     # Detecção de português
     min_pt_words: int = 5
@@ -126,7 +127,7 @@ class Config:
         # Carrega opções booleanas
         for key in ['rename_por2', 'rename_no_lang', 'remove_foreign_subs',
                     'remove_language_variants', 'organize_folders', 'fetch_metadata',
-                    'ask_on_multiple_results', 'rename_nfo']:
+                    'ask_on_multiple_results', 'rename_nfo', 'remove_non_media']:
             saved_value = config_mgr.get(key)
             if saved_value is not None:
                 setattr(self, key, saved_value)

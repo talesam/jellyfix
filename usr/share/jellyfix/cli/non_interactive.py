@@ -69,7 +69,7 @@ class NonInteractiveCLI:
         # Plan operations
         self.logger.info(_("Planning operations..."))
         renamer = Renamer()
-        renamer.plan_operations(workdir)
+        renamer.plan_operations(workdir, scan_result)
         
         operations_count = len(renamer.operations)
         self.logger.info(_("%d operations planned") % operations_count)

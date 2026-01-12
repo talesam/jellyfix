@@ -152,7 +152,7 @@ class InteractiveCLI:
         # Plan operations
         self.logger.info(_("Planning operations..."))
         renamer = Renamer()
-        renamer.plan_operations(workdir)
+        renamer.plan_operations(workdir, result)
 
         if len(renamer.operations) == 0:
             show_warning(_("No operations needed"))
@@ -297,6 +297,7 @@ class InteractiveCLI:
                     f"{'✓' if self.config.add_quality_tag else '✗'} " + _("Add quality tags (1080p, 720p, etc)"),
                     f"{'✓' if self.config.use_ffprobe else '✗'} " + _("Use ffprobe for quality detection"),
                     f"{'✓' if self.config.rename_nfo else '✗'} " + _("Rename NFO files to match video"),
+                    f"{'✓' if self.config.remove_non_media else '✗'} " + _("Remove non-media files (keep only videos/subtitles)"),
                     f"📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
                     "🔑 " + _("Configure APIs (TMDB/TVDB)"),
                     "← " + _("Back")
@@ -360,6 +361,11 @@ class InteractiveCLI:
             elif _("Rename NFO files to match video") in choice:
                 self.config.rename_nfo = not self.config.rename_nfo
                 self.config_manager.set('rename_nfo', self.config.rename_nfo)
+                show_success(_("Setting saved"))
+
+            elif _("Remove non-media files") in choice:
+                self.config.remove_non_media = not self.config.remove_non_media
+                self.config_manager.set('remove_non_media', self.config.remove_non_media)
                 show_success(_("Setting saved"))
 
             elif _("Min Portuguese words") in choice:

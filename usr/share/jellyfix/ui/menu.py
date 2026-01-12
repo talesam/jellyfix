@@ -324,6 +324,7 @@ class InteractiveMenu:
                     f"🌍 Idiomas mantidos: {kept_langs_str}",
                     f"{'✓' if config.organize_folders else '✗'} Organizar em pastas (Season XX)",
                     f"{'✓' if config.fetch_metadata else '✗'} Buscar metadados (TMDB/TVDB)",
+                    f"{'✓' if config.remove_non_media else '✗'} Remover arquivos não-mídia (.srt/.mp4)",
                     f"Min. palavras portuguesas: {config.min_pt_words}",
                     "🔑 Configurar APIs (TMDB/TVDB)",
                     "← Voltar"
@@ -360,6 +361,10 @@ class InteractiveMenu:
                 config.fetch_metadata = not config.fetch_metadata
                 config_mgr = ConfigManager()
                 config_mgr.set('fetch_metadata', config.fetch_metadata)
+            elif "não-mídia" in choice:
+                config.remove_non_media = not config.remove_non_media
+                config_mgr = ConfigManager()
+                config_mgr.set('remove_non_media', config.remove_non_media)
             elif "palavras portuguesas" in choice:
                 new_value = questionary.text(
                     "Número mínimo de palavras portuguesas:",

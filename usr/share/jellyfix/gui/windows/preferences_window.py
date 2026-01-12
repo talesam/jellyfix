@@ -223,6 +223,23 @@ class PreferencesWindow(Adw.PreferencesWindow):
 
         general_page.add(app_group)
 
+        # File cleanup group
+        cleanup_group = Adw.PreferencesGroup(
+            title=_("File Cleanup"),
+            description=_("Configure which files to remove")
+        )
+
+        # Remove non-media files
+        self.remove_non_media_row = Adw.SwitchRow(
+            title=_("Remove Non-Media Files"),
+            subtitle=_("Remove all files that are not .srt or .mp4")
+        )
+        self.remove_non_media_row.set_active(self.config.remove_non_media)
+        self.remove_non_media_row.connect("notify::active", self._on_remove_non_media_changed)
+        cleanup_group.add(self.remove_non_media_row)
+
+        general_page.add(cleanup_group)
+
         self.add(general_page)
 
     def _on_rename_variants_changed(self, switch, param):
@@ -292,4 +309,10 @@ class PreferencesWindow(Adw.PreferencesWindow):
         """Handle keep recent libraries toggle"""
         self.config_manager.set_keep_recent_libraries(switch.get_active())
         self.logger.debug(f"Keep recent libraries: {switch.get_active()}")
+
+    def _on_remove_non_media_changed(self, switch, param):
+        """Handle remove non-media files toggle"""
+        self.config.remove_non_media = switch.get_active()
+        self.config_manager.set('remove_non_media', self.config.remove_non_media)
+        self.logger.debug(f"Remove non-media files: {self.config.remove_non_media}")
 

@@ -30,6 +30,7 @@ class ScanResult:
     # Arquivos indesejados
     unwanted_images: List[Path] = field(default_factory=list)
     nfo_files: List[Path] = field(default_factory=list)
+    non_media_files: List[Path] = field(default_factory=list)  # Arquivos que não são .srt ou .mp4
 
     # Estatísticas
     total_movies: int = 0
@@ -101,12 +102,21 @@ class LibraryScanner:
             elif is_image_file(file_path):
                 result.image_files.append(file_path)
                 self._categorize_image(file_path, result)
+                # Marca imagens como non-media se configurado
+                if self.config.remove_non_media:
+                    result.non_media_files.append(file_path)
 
             elif file_path.suffix.lower() == '.nfo':
                 result.nfo_files.append(file_path)
+                # Marca NFO como non-media se configurado
+                if self.config.remove_non_media:
+                    result.non_media_files.append(file_path)
 
             else:
                 result.other_files.append(file_path)
+                # Marca arquivos que não são vídeos ou legendas para possível remoção
+                if self.config.remove_non_media:
+                    result.non_media_files.append(file_path)
 
         return result
 
@@ -126,11 +136,9 @@ class LibraryScanner:
         lang_code = has_language_code(filename)
 
         if lang_code:
+            # lang_code já vem normalizado para 3 letras pela função has_language_code
             # Verifica se é idioma mantido
-            lang_base = lang_code.split('-')[0]  # 'pt-BR' -> 'pt'
-            is_kept = (lang_base in self.config.kept_languages or
-                      lang_code in self.config.kept_languages or
-                      lang_code in ('pt', 'pt-BR', 'pt-PT', 'por'))
+            is_kept = lang_code in self.config.kept_languages
 
             if is_kept:
                 result.kept_subtitles.append(file_path)

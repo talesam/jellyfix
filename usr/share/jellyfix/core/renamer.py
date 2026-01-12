@@ -103,6 +103,10 @@ class Renamer:
         remaining_subtitles = [s for s in subtitle_files if s not in processed_subtitles]
         self._plan_subtitle_variants(remaining_subtitles, directory)
 
+        # Remove arquivos não-mídia se configurado (ANTES de processar extras)
+        if self.config.remove_non_media and scan_result and scan_result.non_media_files:
+            self._plan_non_media_removal(scan_result.non_media_files)
+
         # Processa arquivos extras (NFO, imagens, etc) que devem acompanhar os vídeos
         self._plan_extra_files(directory, video_files)
 
@@ -656,13 +660,25 @@ class Renamer:
                 subtitle_name_no_forced = subtitle_name
 
             # Remove código de idioma se presente
-            # Padrões: .por, .eng, .por2, etc. (agora sem .forced porque já foi removido)
-            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)$', subtitle_name_no_forced, re.IGNORECASE)
+            # Padrões: .por, .eng, .pt, .en, .pt-BR, .pt_BR, .por2, etc. (agora sem .forced porque já foi removido)
+            base_match = re.match(r'(.+?)\.([a-z]{2,3}(?:[-_][A-Z]{2})?\d?)$', subtitle_name_no_forced, re.IGNORECASE)
             if base_match:
+                from ..utils.helpers import normalize_language_code
                 subtitle_base = base_match.group(1)
-                lang_code = base_match.group(2).lower()  # Normaliza para lowercase
-                # Remove dígito do código se tiver (por2 -> por)
-                lang_code_base = re.sub(r'\d+$', '', lang_code)
+                lang_code_raw = base_match.group(2).lower()  # ex: "en2", "pt-br", "por"
+
+                # Remove dígito do código se tiver (por2 -> por, en2 -> en)
+                lang_code_no_digit = re.sub(r'\d+$', '', lang_code_raw)
+
+                # Normaliza o código de idioma para 3 letras (en -> eng, pt -> por, pt-BR -> por)
+                lang_code_base = normalize_language_code(lang_code_no_digit)
+
+                # lang_code mantém o original com dígito se tiver (usado para detectar variantes)
+                # mas normalizado (en2 -> eng2)
+                if lang_code_raw != lang_code_no_digit:  # tem dígito
+                    lang_code = lang_code_base + lang_code_raw[-1]  # eng + 2 = eng2
+                else:
+                    lang_code = lang_code_base
             else:
                 # Não tem código de idioma explícito
                 subtitle_base = subtitle_name_no_forced
@@ -792,12 +808,16 @@ class Renamer:
                 self._plan_subtitle_other_operations(file_path)
                 continue
 
-            # Detecta variações: .lang2.srt, .lang3.srt
-            variant_match = re.search(r'\.([a-z]{3})(\d)\.srt$', filename)
+            # Detecta variações: .lang2.srt, .lang3.srt (aceita 2-3 letras)
+            variant_match = re.search(r'\.([a-z]{2,3})(\d)\.srt$', filename)
             if variant_match:
-                lang_code = variant_match.group(1)
+                from ..utils.helpers import normalize_language_code
+                lang_code_raw = variant_match.group(1)
                 variant_num = int(variant_match.group(2))
                 base_name = file_path.name[:-(len(variant_match.group(0)))]
+
+                # Normaliza o código de idioma para 3 letras
+                lang_code = normalize_language_code(lang_code_raw)
 
                 key = (file_path.parent, base_name, lang_code)
                 grouped[key].append((variant_num, file_path))
@@ -1102,6 +1122,27 @@ class Renamer:
                     operation_type='move',
                     reason="Mover tvshow.nfo para nova pasta da série"
                 ))
+
+    def _plan_non_media_removal(self, non_media_files: List[Path]):
+        """
+        Planeja remoção de arquivos que não sejam .srt ou .mp4.
+
+        Args:
+            non_media_files: Lista de arquivos não-mídia a serem removidos
+        """
+        for file_path in non_media_files:
+            # Verifica se o arquivo ainda não tem operação planejada
+            already_planned = any(op.source == file_path for op in self.operations)
+            if already_planned:
+                continue
+
+            # Adiciona operação de remoção
+            self.operations.append(RenameOperation(
+                source=file_path,
+                destination=file_path,  # Será deletado
+                operation_type='delete',
+                reason=f"Remover arquivo não-mídia: {file_path.suffix}"
+            ))
 
     def execute_operations(self, dry_run: bool = True) -> Dict[str, int]:
         """
