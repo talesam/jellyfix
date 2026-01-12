@@ -232,6 +232,11 @@ msgstr "Kasutage ffprobe'i kvaliteedi tuvastamiseks"
 msgid "Rename NFO files to match video"
 msgstr "NFO failide ümbernimetamine vastavusse viimiseks videoga"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Eemalda mitte-meediafailid (jätka ainult videoid/pealkirju)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -307,6 +312,11 @@ msgstr "Hangi metaandmed"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "Lisa kvaliteedi silte"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "Eemalda mitte-meediafailid"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1981,6 +1991,26 @@ msgstr "Hoia hiljutisi teeke"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Käivita hiljuti skaneeritud raamatukogud seansside vahel"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "Faili puhastus"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "Konfigureeri, millised failid eemaldada"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "Eemalda mitte-meedia faile"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Eemalda kõik failid, mis ei ole .srt või .mp4"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

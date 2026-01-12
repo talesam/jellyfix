@@ -232,6 +232,11 @@ msgstr "Utilisez ffprobe pour la détection de qualité"
 msgid "Rename NFO files to match video"
 msgstr "Renommer les fichiers NFO pour correspondre à la vidéo"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Supprimer les fichiers non multimédias (conserver uniquement les vidéos/sous-titres)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -307,6 +312,11 @@ msgstr "Récupérer les métadonnées"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "Ajouter des étiquettes de qualité"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "Supprimer les fichiers non multimédias"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1980,6 +1990,26 @@ msgstr "Conserver les bibliothèques récentes"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Se souvenir des bibliothèques récemment scannées entre les sessions"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "Nettoyage de fichiers"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "Configurer quels fichiers supprimer"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "Supprimer les fichiers non multimédias"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Supprimer tous les fichiers qui ne sont pas .srt ou .mp4"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

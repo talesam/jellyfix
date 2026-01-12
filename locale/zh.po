@@ -232,6 +232,11 @@ msgstr "使用 ffprobe 进行质量检测"
 msgid "Rename NFO files to match video"
 msgstr "重命名NFO文件以匹配视频"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "删除非媒体文件（仅保留视频/字幕）"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -310,6 +315,11 @@ msgstr "获取元数据"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "添加质量标签"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "删除非媒体文件"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1986,6 +1996,26 @@ msgstr "保持最近的库"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "记住会话之间最近扫描的库"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "文件清理"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "配置要删除的文件"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "删除非媒体文件"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "删除所有不是 .srt 或 .mp4 的文件"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

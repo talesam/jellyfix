@@ -232,6 +232,11 @@ msgstr "Použite ffprobe na detekciu kvality"
 msgid "Rename NFO files to match video"
 msgstr "Prezrite názvy súborov NFO, aby zodpovedali videu"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Odstrániť súbory, ktoré nie sú médiami (ponechať iba videá/titulky)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -307,6 +312,11 @@ msgstr "Načítanie metadát"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "Pridať kvalitné značky"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "Odstrániť súbory, ktoré nie sú médiami"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1983,6 +1993,26 @@ msgstr "Uchovávajte nedávne knižnice"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Pamätajte si nedávno skenované knižnice medzi reláciami"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "Údržba súborov"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "Nastavte, ktoré súbory sa majú odstrániť"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "Odstrániť súbory, ktoré nie sú médiami"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Odstrániť všetky súbory, ktoré nie sú .srt alebo .mp4"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

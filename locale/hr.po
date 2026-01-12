@@ -232,6 +232,11 @@ msgstr "Koristite ffprobe za detekciju kvalitete"
 msgid "Rename NFO files to match video"
 msgstr "Preimenujte NFO datoteke da odgovaraju videu"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Ukloni ne-medijske datoteke (zadrži samo videozapise/titlove)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -307,6 +312,11 @@ msgstr "Preuzmi metapodatke"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "Dodaj oznake kvalitete"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "Ukloni datoteke koje nisu medijske"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1977,6 +1987,26 @@ msgstr "Zadrži nedavne biblioteke"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Zapamti nedavno skenirane biblioteke između sesija"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "Čišćenje datoteka"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "Konfigurirajte koje datoteke ukloniti"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "Ukloni ne-medijske datoteke"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Ukloni sve datoteke koje nisu .srt ili .mp4"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

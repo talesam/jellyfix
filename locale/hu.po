@@ -232,6 +232,11 @@ msgstr "Használja a ffprobe-ot a minőségellenőrzéshez"
 msgid "Rename NFO files to match video"
 msgstr "NFO fájlok átnevezése a videóhoz való illesztéshez"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Távolítsa el a nem médiafájlokat (csak videókat/feliratokat tartson meg)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -307,6 +312,11 @@ msgstr "Metaadatok lekérése"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "Minőségi címkék hozzáadása"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "Távolítsa el a nem médiafájlokat"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1978,6 +1988,26 @@ msgstr "Tartsa meg a legutóbbi könyvtárakat"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Emlékezzen a legutóbb beolvasott könyvtárakra a munkamenetek között"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "Fájl Tisztítás"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "Állítsa be, mely fájlokat távolítson el"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "Nem médiához tartozó fájlok eltávolítása"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Távolítsa el az összes fájlt, amely nem .srt vagy .mp4."
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

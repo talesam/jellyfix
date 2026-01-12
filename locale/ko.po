@@ -232,6 +232,11 @@ msgstr "ffprobe를 사용하여 품질 감지하기"
 msgid "Rename NFO files to match video"
 msgstr "비디오에 맞게 NFO 파일 이름 바꾸기"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "비미디어 파일 제거 (비디오/자막만 유지)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -307,6 +312,11 @@ msgstr "메타데이터 가져오기"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "품질 태그 추가"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "비미디어 파일 제거"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1977,6 +1987,26 @@ msgstr "최근 라이브러리 유지"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "세션 간 최근 스캔한 라이브러리 기억하기"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "파일 정리"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "제거할 파일 구성"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "비미디어 파일 제거"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr ".srt 또는 .mp4가 아닌 모든 파일을 제거합니다."
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

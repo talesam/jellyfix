@@ -232,6 +232,11 @@ msgstr "השתמש ב-ffprobe לזיהוי איכות"
 msgid "Rename NFO files to match video"
 msgstr "שנה את קבצי ה-NFO כך שיתאימו לסרטון"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: NEEDS WORK
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "הסר קבצים שאינם מדיה (שמור רק סרטונים/כתוביות)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -310,6 +315,11 @@ msgstr "שחזר מטאדאטה"
 #: NEEDS WORK
 msgid "Add quality tags"
 msgstr "הוסף תגי איכות"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: NEEDS WORK
+msgid "Remove non-media files"
+msgstr "הסר קבצים שאינם מדיה"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -1980,6 +1990,26 @@ msgstr "שמור ספריות אחרונות"
 #: NEEDS WORK
 msgid "Remember recently scanned libraries between sessions"
 msgstr "זכור ספריות שנסרקו לאחרונה בין מפגשים"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: NEEDS WORK
+msgid "File Cleanup"
+msgstr "ניקוי קבצים"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: NEEDS WORK
+msgid "Configure which files to remove"
+msgstr "הגדר אילו קבצים להסיר"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: NEEDS WORK
+msgid "Remove Non-Media Files"
+msgstr "הסר קבצים שאינם מדיה"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: NEEDS WORK
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "הסר את כל הקבצים שאינם .srt או .mp4"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK
