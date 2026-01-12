@@ -29,6 +29,7 @@ from jellyfix.gui import JellyfixApplication
 def main():
     """Main entry point for GUI"""
     # Create default configuration for GUI mode
+    # Don't specify boolean options here - let them load from saved config
     config = Config(
         work_dir=Path.cwd(),  # Start with current directory, will be changed via GUI
         dry_run=False,  # Execute operations for real when Apply is clicked
@@ -36,13 +37,10 @@ def main():
         verbose=False,
         quiet=False,
         log_file=None,
-        min_pt_words=5,
-        rename_por2=True,
-        rename_no_lang=False,
-        remove_foreign_subs=True,
-        fetch_metadata=True,
         auto_confirm=False
     )
+    # Note: Other settings (rename_por2, remove_non_media, etc.) will be loaded
+    # from ~/.jellyfix/config.json automatically by Config.__post_init__
 
     # Set global config
     set_config(config)
