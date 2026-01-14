@@ -187,11 +187,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         settings_section.append(_("Configure API Keys"), "app.configure_api")
         menu.append_section(None, settings_section)
 
-        # Tools section
-        tools_section = Gio.Menu()
-        tools_section.append(_("Fix Mirabel files"), "app.fix_mirabel")
-        menu.append_section(None, tools_section)
-
         # Help section
         help_section = Gio.Menu()
         help_section.append(_("Help"), "app.help")

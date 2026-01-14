@@ -90,6 +90,10 @@ class Renamer:
                         continue
                     subtitle_files.append(file_path)
 
+        # Processa arquivos Mirabel se configurado (ANTES de processar vídeos)
+        if self.config.fix_mirabel_files:
+            subtitle_files = self._plan_mirabel_fixes(subtitle_files)
+
         # Processa vídeos
         for file_path in video_files:
             self._plan_video_rename(file_path)
@@ -1247,3 +1251,73 @@ class Renamer:
                     self.logger.debug(f"Não foi possível remover pasta {folder}: {e}")
 
         return stats
+
+    def _plan_mirabel_fixes(self, subtitle_files: List[Path]) -> List[Path]:
+        """
+        Planeja correção de arquivos Mirabel (legendas com códigos não-padrão).
+
+        Padrões reconhecidos:
+        - .pt-BR.hi.srt → .por.srt
+        - .br.hi.srt → .por.srt
+        - .pt-BR.hi.forced.srt → .por.forced.srt
+        - .br.hi.forced.srt → .por.forced.srt
+
+        Args:
+            subtitle_files: Lista de arquivos de legenda
+
+        Returns:
+            Lista atualizada de arquivos de legenda (com paths renomeados)
+        """
+        # Pattern para detectar arquivos Mirabel
+        mirabel_pattern = re.compile(
+            r'^(.+?)\.(pt-BR|pt-br|br|BR|pt_BR|pt_br)\.hi(\.forced)?\.srt$',
+            re.IGNORECASE
+        )
+
+        updated_subtitle_files = []
+        mirabel_renames = {}  # Mapa: old_path -> new_path
+
+        for file_path in subtitle_files:
+            match = mirabel_pattern.match(file_path.name)
+            if match:
+                base_name = match.group(1)
+                forced = match.group(3)  # '.forced' ou None
+
+                # Constrói novo nome
+                if forced:
+                    new_name = f"{base_name}.por.forced.srt"
+                else:
+                    new_name = f"{base_name}.por.srt"
+
+                new_path = file_path.parent / new_name
+
+                # Verifica se destino já existe
+                if new_path.exists() and new_path != file_path:
+                    # Destino existe - marca para deleção
+                    self.operations.append(RenameOperation(
+                        source=file_path,
+                        destination=file_path,
+                        operation_type='delete',
+                        reason=f"Mirabel duplicado: {new_name} já existe"
+                    ))
+                    self.logger.debug(f"Mirabel duplicado será deletado: {file_path.name}")
+                else:
+                    # Renomeia arquivo Mirabel
+                    self.operations.append(RenameOperation(
+                        source=file_path,
+                        destination=new_path,
+                        operation_type='rename',
+                        reason=f"Mirabel fix: {file_path.name} → {new_name}"
+                    ))
+                    self.planned_destinations.add(new_path)
+                    mirabel_renames[file_path] = new_path
+                    updated_subtitle_files.append(new_path)
+                    self.logger.debug(f"Mirabel será renomeado: {file_path.name} → {new_name}")
+            else:
+                # Não é arquivo Mirabel, mantém na lista
+                updated_subtitle_files.append(file_path)
+
+        if mirabel_renames:
+            self.logger.info(f"Encontrados {len(mirabel_renames)} arquivos Mirabel para correção")
+
+        return updated_subtitle_files

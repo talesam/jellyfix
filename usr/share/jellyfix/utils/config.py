@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.6.0"
+APP_VERSION = "2.6.1"
 
 
 @dataclass
@@ -31,6 +31,7 @@ class Config:
     ask_on_multiple_results: bool = False  # Pergunta ao usuário quando há múltiplos resultados TMDB
     rename_nfo: bool = True  # Renomeia arquivos NFO para corresponder ao vídeo
     remove_non_media: bool = False  # Remove arquivos que não sejam .srt ou .mp4
+    fix_mirabel_files: bool = True  # Corrige legendas Mirabel (.pt-BR.hi → .por)
 
     # Detecção de português
     min_pt_words: int = 5
@@ -127,7 +128,8 @@ class Config:
         # Carrega opções booleanas
         for key in ['rename_por2', 'rename_no_lang', 'remove_foreign_subs',
                     'remove_language_variants', 'organize_folders', 'fetch_metadata',
-                    'ask_on_multiple_results', 'rename_nfo', 'remove_non_media']:
+                    'ask_on_multiple_results', 'rename_nfo', 'remove_non_media',
+                    'fix_mirabel_files']:
             saved_value = config_mgr.get(key)
             if saved_value is not None:
                 setattr(self, key, saved_value)

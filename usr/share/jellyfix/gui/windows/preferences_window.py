@@ -238,6 +238,15 @@ class PreferencesWindow(Adw.PreferencesWindow):
         self.remove_non_media_row.connect("notify::active", self._on_remove_non_media_changed)
         cleanup_group.add(self.remove_non_media_row)
 
+        # Fix Mirabel files
+        self.fix_mirabel_row = Adw.SwitchRow(
+            title=_("Fix Mirabel Files"),
+            subtitle=_("Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt")
+        )
+        self.fix_mirabel_row.set_active(self.config.fix_mirabel_files)
+        self.fix_mirabel_row.connect("notify::active", self._on_fix_mirabel_changed)
+        cleanup_group.add(self.fix_mirabel_row)
+
         general_page.add(cleanup_group)
 
         self.add(general_page)
@@ -315,4 +324,10 @@ class PreferencesWindow(Adw.PreferencesWindow):
         self.config.remove_non_media = switch.get_active()
         self.config_manager.set('remove_non_media', self.config.remove_non_media)
         self.logger.debug(f"Remove non-media files: {self.config.remove_non_media}")
+
+    def _on_fix_mirabel_changed(self, switch, param):
+        """Handle fix Mirabel files toggle"""
+        self.config.fix_mirabel_files = switch.get_active()
+        self.config_manager.set('fix_mirabel_files', self.config.fix_mirabel_files)
+        self.logger.debug(f"Fix Mirabel files: {self.config.fix_mirabel_files}")
 
