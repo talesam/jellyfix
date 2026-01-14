@@ -13,6 +13,7 @@ for scanning and organizing Jellyfin libraries.
 
 from pathlib import Path
 from typing import Optional
+import re
 import questionary
 from questionary import Style
 
@@ -81,6 +82,10 @@ class InteractiveCLI:
                 self._settings_menu()
                 console.clear()
                 show_banner()
+            elif choice == "fix_mirabel":
+                self._fix_mirabel_files()
+                console.clear()
+                show_banner()
             elif choice == "help":
                 self._show_help()
                 console.clear()
@@ -101,6 +106,7 @@ class InteractiveCLI:
                 questionary.Choice(_("📂 Scan library"), value="scan"),
                 questionary.Choice(_("🔧 Settings"), value="settings"),
                 questionary.Choice(_("🚀 Process files"), value="process"),
+                questionary.Choice(_("🩹 Fix Mirabel files"), value="fix_mirabel"),
                 questionary.Choice(_("ℹ️  Help"), value="help"),
                 questionary.Choice(_("❌ Exit"), value="exit")
             ],
@@ -655,4 +661,137 @@ class InteractiveCLI:
 """
         from rich.panel import Panel
         console.print(Panel(help_text, border_style="cyan", expand=False))
+        questionary.press_any_key_to_continue().ask()
+
+    def _fix_mirabel_files(self):
+        """
+        Fix Mirabel subtitle files.
+
+        Renames subtitle files with non-standard language codes like:
+        - .pt-BR.hi.srt → .por.srt
+        - .br.hi.srt → .por.srt
+        - .pt-BR.hi.forced.srt → .por.forced.srt
+        - .br.hi.forced.srt → .por.forced.srt
+        """
+        from ..core.renamer import RenameOperation
+
+        # Select directory
+        workdir = self._select_directory()
+        if not workdir:
+            return
+
+        console.clear()
+        show_info(_("Scanning for Mirabel files: %s") % workdir)
+
+        # Pattern to match Mirabel files: .pt-BR.hi, .br.hi, .pt-br.hi, .BR.hi, etc.
+        mirabel_pattern = re.compile(
+            r'^(.+?)\.(pt-BR|pt-br|br|BR|pt_BR|pt_br)\.hi(\.forced)?\.srt$',
+            re.IGNORECASE
+        )
+
+        # Scan for Mirabel files
+        mirabel_files = []
+        for file_path in workdir.rglob('*.srt'):
+            if not file_path.is_file():
+                continue
+            if mirabel_pattern.match(file_path.name):
+                mirabel_files.append(file_path)
+
+        if not mirabel_files:
+            show_warning(_("No Mirabel files found"))
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        self.logger.info(_("Found %d Mirabel files") % len(mirabel_files))
+
+        # Create rename operations
+        operations = []
+        for file_path in mirabel_files:
+            match = mirabel_pattern.match(file_path.name)
+            if match:
+                base_name = match.group(1)
+                forced = match.group(3)  # '.forced' or None
+
+                # Build new filename
+                if forced:
+                    new_name = f"{base_name}.por.forced.srt"
+                else:
+                    new_name = f"{base_name}.por.srt"
+
+                new_path = file_path.parent / new_name
+
+                # Check if destination already exists
+                if new_path.exists() and new_path != file_path:
+                    # Destination exists - mark for deletion instead
+                    operations.append(RenameOperation(
+                        source=file_path,
+                        destination=file_path,  # Not used for delete
+                        operation_type='delete',
+                        reason=_("Duplicate: %s already exists") % new_name
+                    ))
+                else:
+                    operations.append(RenameOperation(
+                        source=file_path,
+                        destination=new_path,
+                        operation_type='rename',
+                        reason=_("Mirabel fix: %s → %s") % (file_path.name, new_name)
+                    ))
+
+        if not operations:
+            show_warning(_("No operations needed"))
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        # Show preview
+        console.print("\n[bold cyan]" + _("Operations to perform:") + "[/bold cyan]\n")
+        for i, op in enumerate(operations[:50], 1):
+            if op.operation_type == 'delete':
+                console.print(f"[red]{i}. DELETE: {op.source.name}[/red]")
+                console.print(f"   [dim]{op.reason}[/dim]")
+            else:
+                console.print(f"[green]{i}. {op.source.name}[/green]")
+                console.print(f"   → [yellow]{op.destination.name}[/yellow]")
+
+        if len(operations) > 50:
+            console.print(f"\n[dim]... {_('and %d more operations') % (len(operations) - 50)}[/dim]")
+
+        console.print(f"\n[bold]{_('Total: %d operations') % len(operations)}[/bold]\n")
+
+        # Confirm
+        confirm = questionary.confirm(
+            _("Execute these operations?"),
+            default=False,
+            style=custom_style
+        ).ask()
+
+        if not confirm:
+            show_info(_("Operation cancelled"))
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        # Execute operations
+        self.logger.info(_("Executing operations..."))
+        stats = {'renamed': 0, 'deleted': 0, 'failed': 0}
+
+        for op in operations:
+            try:
+                if op.operation_type == 'delete':
+                    op.source.unlink()
+                    stats['deleted'] += 1
+                else:
+                    op.source.rename(op.destination)
+                    stats['renamed'] += 1
+            except Exception as e:
+                self.logger.error(_("Error processing %s: %s") % (op.source.name, e))
+                stats['failed'] += 1
+
+        # Show results
+        console.print("\n[bold green]" + _("Results:") + "[/bold green]")
+        console.print(f"  [green]✓ {_('Renamed')}: {stats['renamed']}[/green]")
+        if stats['deleted'] > 0:
+            console.print(f"  [yellow]🗑 {_('Deleted')}: {stats['deleted']}[/yellow]")
+        if stats['failed'] > 0:
+            console.print(f"  [red]✗ {_('Failed')}: {stats['failed']}[/red]")
+
+        show_success(_("Mirabel files fixed!"))
         questionary.press_any_key_to_continue().ask()

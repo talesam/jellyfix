@@ -130,6 +130,11 @@ class JellyfixApplication(Adw.Application):
         help_action.connect("activate", self._on_help)
         self.add_action(help_action)
 
+        # Fix Mirabel files action
+        fix_mirabel_action = Gio.SimpleAction.new("fix_mirabel", None)
+        fix_mirabel_action.connect("activate", self._on_fix_mirabel)
+        self.add_action(fix_mirabel_action)
+
         # Keyboard shortcuts
         self.set_accels_for_action("app.quit", ["<Control>q"])
         self.set_accels_for_action("app.preferences", ["<Control>comma"])
@@ -168,6 +173,12 @@ class JellyfixApplication(Adw.Application):
         from .windows.help_window import HelpWindow
         help_window = HelpWindow(self.window)
         help_window.present()
+
+    def _on_fix_mirabel(self, action, param):
+        """Show Fix Mirabel files dialog"""
+        from .windows.mirabel_dialog import MirabelDialog
+        dialog = MirabelDialog(self.window)
+        dialog.present()
 
 
 def run_gui():
