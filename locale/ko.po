@@ -37,6 +37,11 @@ msgstr "🔧 설정"
 msgid "🚀 Process files"
 msgstr "🚀 파일 처리"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: NEEDS WORK
+msgid "🩹 Fix Mirabel files"
+msgstr "🩹 미라벨 파일 수정"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -862,6 +867,92 @@ msgstr "팁:"
 msgid "Configure your TMDB key"
 msgstr "TMDB 키를 구성하세요"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 684
+#: NEEDS WORK
+#, python-format
+msgid "Scanning for Mirabel files: %s"
+msgstr "미라벨 파일 검색 중: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 701
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 278
+#: NEEDS WORK
+msgid "No Mirabel files found"
+msgstr "미라벨 파일을 찾을 수 없습니다."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 705
+#: NEEDS WORK
+#, python-format
+msgid "Found %d Mirabel files"
+msgstr "%d개의 Mirabel 파일을 찾았습니다."
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 730
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 254
+#: NEEDS WORK
+#, python-format
+msgid "Duplicate: %s already exists"
+msgstr "중복: %s가 이미 존재합니다"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 737
+#: NEEDS WORK
+#, python-format
+msgid "Mirabel fix: %s → %s"
+msgstr "미라벨 수정: %s → %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 746
+#: NEEDS WORK
+msgid "Operations to perform:"
+msgstr "수행할 작업:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 756
+#: NEEDS WORK
+#, python-format
+msgid "and %d more operations"
+msgstr "및 %d개의 추가 작업"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 758
+#: NEEDS WORK
+#, python-format
+msgid "Total: %d operations"
+msgstr "총: %d 작업"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 785
+#: NEEDS WORK
+#, python-format
+msgid "Error processing %s: %s"
+msgstr "%s 처리 중 오류: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 789
+#: NEEDS WORK
+msgid "Results:"
+msgstr "결과:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: NEEDS WORK
+msgid "Renamed"
+msgstr "이름 변경됨"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: NEEDS WORK
+msgid "Deleted"
+msgstr "삭제됨"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: NEEDS WORK
+msgid "Failed"
+msgstr "실패"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 796
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 371
+#: NEEDS WORK
+msgid "Mirabel files fixed!"
+msgstr "미라벨 파일이 수정되었습니다!"
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: NEEDS WORK
 msgid "Error: No working directory specified"
@@ -1117,30 +1208,15 @@ msgstr "✅ 실행 결과"
 msgid "Action"
 msgstr "작업"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: NEEDS WORK
-msgid "Renamed"
-msgstr "이름 변경됨"
-# 
 # File: usr/share/jellyfix/cli/display.py, line: 258
 #: NEEDS WORK
 msgid "Moved"
 msgstr "이동됨"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: NEEDS WORK
-msgid "Deleted"
-msgstr "삭제됨"
-# 
 # File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 msgid "Cleaned folders"
 msgstr "정리된 폴더"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: NEEDS WORK
-msgid "Failed"
-msgstr "실패"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 266
 #: NEEDS WORK
@@ -1753,6 +1829,14 @@ msgstr "환경 설정"
 msgid "Configure API Keys"
 msgstr "API 키 구성"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
+#: NEEDS WORK
+msgid "Fix Mirabel files"
+msgstr "미라벨 파일 수정"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: NEEDS WORK
 msgid "About Jellyfix"
@@ -1822,6 +1906,105 @@ msgstr "{} 작업 완료"
 #: NEEDS WORK
 msgid "Complete!"
 msgstr "완료!"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 95
+#: NEEDS WORK
+msgid "What are Mirabel files?"
+msgstr "미라벨 파일이란 무엇인가요?"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 101
+#: NEEDS WORK
+msgid ""
+"Subtitle files with non-standard language codes like:\n"
+"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
+msgstr ""
+"비표준 언어 코드가 포함된 자막 파일 예:\n"
+"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 115
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 183
+#: NEEDS WORK
+msgid "Select Directory"
+msgstr "디렉토리 선택"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 119
+#: NEEDS WORK
+msgid "Directory to scan"
+msgstr "스캔할 디렉터리"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 120
+#: NEEDS WORK
+msgid "No directory selected"
+msgstr "선택된 디렉터리가 없습니다"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 125
+#: NEEDS WORK
+msgid "Select"
+msgstr "선택"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 302
+#: NEEDS WORK
+msgid "Files Found"
+msgstr "파일 발견됨"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 162
+#: NEEDS WORK
+msgid "Scan"
+msgstr "스캔"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 166
+#: NEEDS WORK
+msgid "Apply Changes"
+msgstr "변경 사항 적용"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 219
+#: NEEDS WORK
+msgid "Scanning for Mirabel files..."
+msgstr "미라벨 파일 검색 중..."
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 261
+#: NEEDS WORK
+msgid "Mirabel fix"
+msgstr "미라벨 수정"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 291
+#: NEEDS WORK
+msgid "Will be deleted (duplicate)"
+msgstr "삭제됩니다 (중복)"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 304
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {} Mirabel files"
+msgstr "{} 미라벨 파일을 찾았습니다."
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 317
+#: NEEDS WORK
+msgid "Apply Changes?"
+msgstr "변경 사항 적용?"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 350
+#: NEEDS WORK
+#, python-brace-format
+msgid "{} renamed"
+msgstr "{} 이름 변경됨"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 352
+#: NEEDS WORK
+#, python-brace-format
+msgid "{} deleted"
+msgstr "{} 삭제됨"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 354
+#: NEEDS WORK
+#, python-brace-format
+msgid "{} failed"
+msgstr "{} 실패"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK

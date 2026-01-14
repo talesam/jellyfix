@@ -37,6 +37,11 @@ msgstr "🔧 Nastavení"
 msgid "🚀 Process files"
 msgstr "🚀 Zpracovat soubory"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: NEEDS WORK
+msgid "🩹 Fix Mirabel files"
+msgstr "🩹 Opravit soubory Mirabel"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -865,6 +870,92 @@ msgstr "Tip:"
 msgid "Configure your TMDB key"
 msgstr "Nakonfigurujte svůj TMDB klíč"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 684
+#: NEEDS WORK
+#, python-format
+msgid "Scanning for Mirabel files: %s"
+msgstr "Skenování souborů Mirabel: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 701
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 278
+#: NEEDS WORK
+msgid "No Mirabel files found"
+msgstr "Žádné soubory Mirabel nebyly nalezeny"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 705
+#: NEEDS WORK
+#, python-format
+msgid "Found %d Mirabel files"
+msgstr "Nalezeno %d souborů Mirabel"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 730
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 254
+#: NEEDS WORK
+#, python-format
+msgid "Duplicate: %s already exists"
+msgstr "Duplicitní: %s již existuje"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 737
+#: NEEDS WORK
+#, python-format
+msgid "Mirabel fix: %s → %s"
+msgstr "Oprava Mirabel: %s → %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 746
+#: NEEDS WORK
+msgid "Operations to perform:"
+msgstr "Operace k provedení:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 756
+#: NEEDS WORK
+#, python-format
+msgid "and %d more operations"
+msgstr "a %d dalších operací"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 758
+#: NEEDS WORK
+#, python-format
+msgid "Total: %d operations"
+msgstr "Celkem: %d operací"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 785
+#: NEEDS WORK
+#, python-format
+msgid "Error processing %s: %s"
+msgstr "Chyba při zpracování %s: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 789
+#: NEEDS WORK
+msgid "Results:"
+msgstr "Výsledky:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: NEEDS WORK
+msgid "Renamed"
+msgstr "Přejmenováno"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: NEEDS WORK
+msgid "Deleted"
+msgstr "Smazáno"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: NEEDS WORK
+msgid "Failed"
+msgstr "Selhalo"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 796
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 371
+#: NEEDS WORK
+msgid "Mirabel files fixed!"
+msgstr "Soubory Mirabel opraveny!"
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: NEEDS WORK
 msgid "Error: No working directory specified"
@@ -1120,30 +1211,15 @@ msgstr "✅ Výsledky provedení"
 msgid "Action"
 msgstr "Akce"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: NEEDS WORK
-msgid "Renamed"
-msgstr "Přejmenováno"
-# 
 # File: usr/share/jellyfix/cli/display.py, line: 258
 #: NEEDS WORK
 msgid "Moved"
 msgstr "Přesunuto"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: NEEDS WORK
-msgid "Deleted"
-msgstr "Smazáno"
-# 
 # File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 msgid "Cleaned folders"
 msgstr "Vyčištěné složky"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: NEEDS WORK
-msgid "Failed"
-msgstr "Selhalo"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 266
 #: NEEDS WORK
@@ -1756,6 +1832,14 @@ msgstr "Nastavení"
 msgid "Configure API Keys"
 msgstr "Konfigurovat API klíče"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
+#: NEEDS WORK
+msgid "Fix Mirabel files"
+msgstr "Opravit soubory Mirabel"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: NEEDS WORK
 msgid "About Jellyfix"
@@ -1825,6 +1909,105 @@ msgstr "{} operací dokončeno"
 #: NEEDS WORK
 msgid "Complete!"
 msgstr "Hotovo!"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 95
+#: NEEDS WORK
+msgid "What are Mirabel files?"
+msgstr "Co jsou soubory Mirabel?"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 101
+#: NEEDS WORK
+msgid ""
+"Subtitle files with non-standard language codes like:\n"
+"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
+msgstr ""
+"Soubory titulků s nestandardními jazykovými kódy jako:\n"
+"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
+"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 115
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 183
+#: NEEDS WORK
+msgid "Select Directory"
+msgstr "Vyberte adresář"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 119
+#: NEEDS WORK
+msgid "Directory to scan"
+msgstr "Adresář ke skenování"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 120
+#: NEEDS WORK
+msgid "No directory selected"
+msgstr "Žádný adresář nebyl vybrán"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 125
+#: NEEDS WORK
+msgid "Select"
+msgstr "Vybrat"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 302
+#: NEEDS WORK
+msgid "Files Found"
+msgstr "Nalezené soubory"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 162
+#: NEEDS WORK
+msgid "Scan"
+msgstr "Skenovat"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 166
+#: NEEDS WORK
+msgid "Apply Changes"
+msgstr "Použít změny"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 219
+#: NEEDS WORK
+msgid "Scanning for Mirabel files..."
+msgstr "Skenování souborů Mirabel..."
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 261
+#: NEEDS WORK
+msgid "Mirabel fix"
+msgstr "Oprava Mirabel"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 291
+#: NEEDS WORK
+msgid "Will be deleted (duplicate)"
+msgstr "Bude smazáno (duplicitní)"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 304
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {} Mirabel files"
+msgstr "Nalezeno {} souborů Mirabel"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 317
+#: NEEDS WORK
+msgid "Apply Changes?"
+msgstr "Použít změny?"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 350
+#: NEEDS WORK
+#, python-brace-format
+msgid "{} renamed"
+msgstr "{} přejmenováno"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 352
+#: NEEDS WORK
+#, python-brace-format
+msgid "{} deleted"
+msgstr "{} smazáno"
+# 
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 354
+#: NEEDS WORK
+#, python-brace-format
+msgid "{} failed"
+msgstr "{} selhalo"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
