@@ -37,11 +37,6 @@ msgstr "🔧 הגדרות"
 msgid "🚀 Process files"
 msgstr "🚀 עיבוד קבצים"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 109
-#: NEEDS WORK
-msgid "🩹 Fix Mirabel files"
-msgstr "🩹 תקן קבצי מירבל"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -242,6 +237,11 @@ msgstr "שנה את קבצי ה-NFO כך שיתאימו לסרטון"
 msgid "Remove non-media files (keep only videos/subtitles)"
 msgstr "הסר קבצים שאינם מדיה (שמור רק סרטונים/כתוביות)"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 301
+#: NEEDS WORK
+msgid "Fix Mirabel files (.pt-BR.hi → .por)"
+msgstr "תיקון קבצי מיראבל (.pt-BR.hi → .por)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -325,6 +325,14 @@ msgstr "הוסף תגי איכות"
 #: NEEDS WORK
 msgid "Remove non-media files"
 msgstr "הסר קבצים שאינם מדיה"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
+#: NEEDS WORK
+msgid "Fix Mirabel files"
+msgstr "תיקון קבצי מיראבל"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -870,92 +878,6 @@ msgstr "טיפ:"
 msgid "Configure your TMDB key"
 msgstr "הגדר את המפתח שלך ב-TMDB"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 684
-#: NEEDS WORK
-#, python-format
-msgid "Scanning for Mirabel files: %s"
-msgstr "סריקת קבצי מירבל: %s"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 701
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 278
-#: NEEDS WORK
-msgid "No Mirabel files found"
-msgstr "לא נמצאו קבצי מירבל"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 705
-#: NEEDS WORK
-#, python-format
-msgid "Found %d Mirabel files"
-msgstr "נמצאו %d קבצי מירבל"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 730
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 254
-#: NEEDS WORK
-#, python-format
-msgid "Duplicate: %s already exists"
-msgstr "שכפול: %s כבר קיים"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 737
-#: NEEDS WORK
-#, python-format
-msgid "Mirabel fix: %s → %s"
-msgstr "תיקון מירבל: %s → %s"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 746
-#: NEEDS WORK
-msgid "Operations to perform:"
-msgstr "פעולות לביצוע:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 756
-#: NEEDS WORK
-#, python-format
-msgid "and %d more operations"
-msgstr "וגם %d פעולות נוספות"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 758
-#: NEEDS WORK
-#, python-format
-msgid "Total: %d operations"
-msgstr "סך הכל: %d פעולות"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 785
-#: NEEDS WORK
-#, python-format
-msgid "Error processing %s: %s"
-msgstr "שגיאה בעיבוד %s: %s"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 789
-#: NEEDS WORK
-msgid "Results:"
-msgstr "תוצאות:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: NEEDS WORK
-msgid "Renamed"
-msgstr "שונה שם"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: NEEDS WORK
-msgid "Deleted"
-msgstr "מחקו"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: NEEDS WORK
-msgid "Failed"
-msgstr "נכשל"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 796
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 371
-#: NEEDS WORK
-msgid "Mirabel files fixed!"
-msgstr "קבצי מיראבל תוקנו!"
-# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: NEEDS WORK
 msgid "Error: No working directory specified"
@@ -1211,15 +1133,30 @@ msgstr "✅ תוצאות ביצוע"
 msgid "Action"
 msgstr "פעולה"
 # 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: NEEDS WORK
+msgid "Renamed"
+msgstr "שונה שם"
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 258
 #: NEEDS WORK
 msgid "Moved"
 msgstr "זז"
 # 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: NEEDS WORK
+msgid "Deleted"
+msgstr "מחקו"
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 msgid "Cleaned folders"
 msgstr "תיקיות נקיות"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: NEEDS WORK
+msgid "Failed"
+msgstr "נכשל"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 266
 #: NEEDS WORK
@@ -1832,14 +1769,6 @@ msgstr "העדפות"
 msgid "Configure API Keys"
 msgstr "הגדר מפתחות API"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
-#: NEEDS WORK
-msgid "Fix Mirabel files"
-msgstr "תיקון קבצי מיראבל"
-# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: NEEDS WORK
 msgid "About Jellyfix"
@@ -1909,105 +1838,6 @@ msgstr "{} פעולות הושלמו"
 #: NEEDS WORK
 msgid "Complete!"
 msgstr "הושלם!"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 95
-#: NEEDS WORK
-msgid "What are Mirabel files?"
-msgstr "מהם קבצי מיראבל?"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 101
-#: NEEDS WORK
-msgid ""
-"Subtitle files with non-standard language codes like:\n"
-"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
-msgstr ""
-"קבצי כתוביות עם קודי שפה לא סטנדרטיים כמו:\n"
-"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 115
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 183
-#: NEEDS WORK
-msgid "Select Directory"
-msgstr "בחר תיקייה"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 119
-#: NEEDS WORK
-msgid "Directory to scan"
-msgstr "תיקייה לסריקה"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 120
-#: NEEDS WORK
-msgid "No directory selected"
-msgstr "לא נבחרה תיקייה"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 125
-#: NEEDS WORK
-msgid "Select"
-msgstr "בחר"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 302
-#: NEEDS WORK
-msgid "Files Found"
-msgstr "קבצים שנמצאו"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 162
-#: NEEDS WORK
-msgid "Scan"
-msgstr "סרוק"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 166
-#: NEEDS WORK
-msgid "Apply Changes"
-msgstr "החל שינויים"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 219
-#: NEEDS WORK
-msgid "Scanning for Mirabel files..."
-msgstr "סריקת קבצי מירבל..."
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 261
-#: NEEDS WORK
-msgid "Mirabel fix"
-msgstr "תיקון מירבל"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 291
-#: NEEDS WORK
-msgid "Will be deleted (duplicate)"
-msgstr "יימחק (שכפול)"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 304
-#: NEEDS WORK
-#, python-brace-format
-msgid "Found {} Mirabel files"
-msgstr "נמצאו {} קבצי מירבל"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 317
-#: NEEDS WORK
-msgid "Apply Changes?"
-msgstr "האם להחיל שינויים?"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 350
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} renamed"
-msgstr "{} שונה שם"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 352
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} deleted"
-msgstr "{} נמחק"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} failed"
-msgstr "{} נכשל"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
@@ -2193,6 +2023,16 @@ msgstr "הסר קבצים שאינם מדיה"
 #: NEEDS WORK
 msgid "Remove all files that are not .srt or .mp4"
 msgstr "הסר את כל הקבצים שאינם .srt או .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: NEEDS WORK
+msgid "Fix Mirabel Files"
+msgstr "תיקון קבצי מירבל"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: NEEDS WORK
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "שנה את .pt-BR.hi.srt, .br.hi.srt ל-.por.srt"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

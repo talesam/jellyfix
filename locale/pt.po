@@ -37,11 +37,6 @@ msgstr "🔧 Configurações"
 msgid "🚀 Process files"
 msgstr "🚀 Processar arquivos"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 109
-#: NEEDS WORK
-msgid "🩹 Fix Mirabel files"
-msgstr "🩹 Corrigir arquivos Mirabel"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -242,6 +237,11 @@ msgstr "Renomear arquivos NFO para corresponder ao vídeo"
 msgid "Remove non-media files (keep only videos/subtitles)"
 msgstr "Remover arquivos não-mídia (manter apenas vídeos/legendas)"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 301
+#: NEEDS WORK
+msgid "Fix Mirabel files (.pt-BR.hi → .por)"
+msgstr "Corrigir arquivos Mirabel (.pt-BR.hi → .por)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -322,6 +322,14 @@ msgstr "Adicionar tags de qualidade"
 #: NEEDS WORK
 msgid "Remove non-media files"
 msgstr "Remover arquivos não-mídia"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
+#: NEEDS WORK
+msgid "Fix Mirabel files"
+msgstr "Corrigir arquivos Mirabel"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -867,92 +875,6 @@ msgstr "Dica:"
 msgid "Configure your TMDB key"
 msgstr "Configure sua chave TMDB"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 684
-#: NEEDS WORK
-#, python-format
-msgid "Scanning for Mirabel files: %s"
-msgstr "Escaneando arquivos Mirabel: %s"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 701
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 278
-#: NEEDS WORK
-msgid "No Mirabel files found"
-msgstr "Nenhum arquivo Mirabel encontrado"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 705
-#: NEEDS WORK
-#, python-format
-msgid "Found %d Mirabel files"
-msgstr "Encontrados %d arquivos Mirabel"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 730
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 254
-#: NEEDS WORK
-#, python-format
-msgid "Duplicate: %s already exists"
-msgstr "Duplicado: %s já existe"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 737
-#: NEEDS WORK
-#, python-format
-msgid "Mirabel fix: %s → %s"
-msgstr "Correção do Mirabel: %s → %s"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 746
-#: NEEDS WORK
-msgid "Operations to perform:"
-msgstr "Operações a realizar:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 756
-#: NEEDS WORK
-#, python-format
-msgid "and %d more operations"
-msgstr "e %d mais operações"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 758
-#: NEEDS WORK
-#, python-format
-msgid "Total: %d operations"
-msgstr "Total: %d operações"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 785
-#: NEEDS WORK
-#, python-format
-msgid "Error processing %s: %s"
-msgstr "Erro ao processar %s: %s"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 789
-#: NEEDS WORK
-msgid "Results:"
-msgstr "Resultados:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: NEEDS WORK
-msgid "Renamed"
-msgstr "Renomeado"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: NEEDS WORK
-msgid "Deleted"
-msgstr "Excluído"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: NEEDS WORK
-msgid "Failed"
-msgstr "Falhou"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 796
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 371
-#: NEEDS WORK
-msgid "Mirabel files fixed!"
-msgstr "Arquivos do Mirabel corrigidos!"
-# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: NEEDS WORK
 msgid "Error: No working directory specified"
@@ -1208,15 +1130,30 @@ msgstr "✅ Resultados da Execução"
 msgid "Action"
 msgstr "Ação"
 # 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: NEEDS WORK
+msgid "Renamed"
+msgstr "Renomeado"
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 258
 #: NEEDS WORK
 msgid "Moved"
 msgstr "Movido"
 # 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: NEEDS WORK
+msgid "Deleted"
+msgstr "Excluído"
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 msgid "Cleaned folders"
 msgstr "Pastas limpas"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: NEEDS WORK
+msgid "Failed"
+msgstr "Falhou"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 266
 #: NEEDS WORK
@@ -1834,14 +1771,6 @@ msgstr "Preferências"
 msgid "Configure API Keys"
 msgstr "Configurar Chaves da API"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
-#: NEEDS WORK
-msgid "Fix Mirabel files"
-msgstr "Corrigir arquivos Mirabel"
-# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: NEEDS WORK
 msgid "About Jellyfix"
@@ -1911,105 +1840,6 @@ msgstr "{} operações concluídas"
 #: NEEDS WORK
 msgid "Complete!"
 msgstr "Completo!"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 95
-#: NEEDS WORK
-msgid "What are Mirabel files?"
-msgstr "O que são arquivos Mirabel?"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 101
-#: NEEDS WORK
-msgid ""
-"Subtitle files with non-standard language codes like:\n"
-"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
-msgstr ""
-"Arquivos de legendas com códigos de idioma não padrão como:\n"
-"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 115
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 183
-#: NEEDS WORK
-msgid "Select Directory"
-msgstr "Selecionar Diretório"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 119
-#: NEEDS WORK
-msgid "Directory to scan"
-msgstr "Diretório a escanear"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 120
-#: NEEDS WORK
-msgid "No directory selected"
-msgstr "Nenhum diretório selecionado"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 125
-#: NEEDS WORK
-msgid "Select"
-msgstr "Selecionar"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 302
-#: NEEDS WORK
-msgid "Files Found"
-msgstr "Arquivos Encontrados"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 162
-#: NEEDS WORK
-msgid "Scan"
-msgstr "Digitalizar"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 166
-#: NEEDS WORK
-msgid "Apply Changes"
-msgstr "Aplicar Alterações"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 219
-#: NEEDS WORK
-msgid "Scanning for Mirabel files..."
-msgstr "Escaneando arquivos Mirabel..."
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 261
-#: NEEDS WORK
-msgid "Mirabel fix"
-msgstr "Correção do Mirabel"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 291
-#: NEEDS WORK
-msgid "Will be deleted (duplicate)"
-msgstr "Será excluído (duplicado)"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 304
-#: NEEDS WORK
-#, python-brace-format
-msgid "Found {} Mirabel files"
-msgstr "Encontrados {} arquivos Mirabel"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 317
-#: NEEDS WORK
-msgid "Apply Changes?"
-msgstr "Aplicar Alterações?"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 350
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} renamed"
-msgstr "{} renomeado"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 352
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} deleted"
-msgstr "{} excluído"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} failed"
-msgstr "{} falhou"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
@@ -2195,6 +2025,16 @@ msgstr "Remover Arquivos Não-Mídia"
 #: NEEDS WORK
 msgid "Remove all files that are not .srt or .mp4"
 msgstr "Remover todos os arquivos que não são .srt ou .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: NEEDS WORK
+msgid "Fix Mirabel Files"
+msgstr "Corrigir Arquivos Mirabel"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: NEEDS WORK
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Renomear .pt-BR.hi.srt, .br.hi.srt para .por.srt"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK

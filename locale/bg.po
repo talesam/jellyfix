@@ -37,11 +37,6 @@ msgstr "🔧 Настройки"
 msgid "🚀 Process files"
 msgstr "🚀 Обработване на файлове"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 109
-#: NEEDS WORK
-msgid "🩹 Fix Mirabel files"
-msgstr "🩹 Поправете файловете на Mirabel"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -242,6 +237,11 @@ msgstr "Преименувайте NFO файлове, за да съвпада�
 msgid "Remove non-media files (keep only videos/subtitles)"
 msgstr "Премахнете не-медийните файлове (запазете само видеа/субтитри)"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 301
+#: NEEDS WORK
+msgid "Fix Mirabel files (.pt-BR.hi → .por)"
+msgstr "Поправете файловете на Mirabel (.pt-BR.hi → .por)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: NEEDS WORK
 msgid "Min Portuguese words:"
@@ -322,6 +322,14 @@ msgstr "Добавяне на качествени тагове"
 #: NEEDS WORK
 msgid "Remove non-media files"
 msgstr "Премахнете файловете, които не са медийни"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
+#: NEEDS WORK
+msgid "Fix Mirabel files"
+msgstr "Поправете файловете на Mirabel"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: NEEDS WORK
@@ -867,92 +875,6 @@ msgstr "Съвет:"
 msgid "Configure your TMDB key"
 msgstr "Конфигурирайте вашия TMDB ключ"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 684
-#: NEEDS WORK
-#, python-format
-msgid "Scanning for Mirabel files: %s"
-msgstr "Сканиране за файлове на Mirabel: %s"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 701
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 278
-#: NEEDS WORK
-msgid "No Mirabel files found"
-msgstr "Не са намерени файлове Mirabel"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 705
-#: NEEDS WORK
-#, python-format
-msgid "Found %d Mirabel files"
-msgstr "Намерени са %d файла Mirabel"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 730
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 254
-#: NEEDS WORK
-#, python-format
-msgid "Duplicate: %s already exists"
-msgstr "Дубликат: %s вече съществува"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 737
-#: NEEDS WORK
-#, python-format
-msgid "Mirabel fix: %s → %s"
-msgstr "Mirabel корекция: %s → %s"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 746
-#: NEEDS WORK
-msgid "Operations to perform:"
-msgstr "Операции за изпълнение:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 756
-#: NEEDS WORK
-#, python-format
-msgid "and %d more operations"
-msgstr "и %d допълнителни операции"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 758
-#: NEEDS WORK
-#, python-format
-msgid "Total: %d operations"
-msgstr "Общо: %d операции"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 785
-#: NEEDS WORK
-#, python-format
-msgid "Error processing %s: %s"
-msgstr "Грешка при обработка на %s: %s"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 789
-#: NEEDS WORK
-msgid "Results:"
-msgstr "Резултати:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: NEEDS WORK
-msgid "Renamed"
-msgstr "Преименуван"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: NEEDS WORK
-msgid "Deleted"
-msgstr "Изтрито"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: NEEDS WORK
-msgid "Failed"
-msgstr "Неуспешно"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 796
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 371
-#: NEEDS WORK
-msgid "Mirabel files fixed!"
-msgstr "Файловете на Mirabel са поправени!"
-# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: NEEDS WORK
 msgid "Error: No working directory specified"
@@ -1208,15 +1130,30 @@ msgstr "✅ Резултати от изпълнението"
 msgid "Action"
 msgstr "Действие"
 # 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: NEEDS WORK
+msgid "Renamed"
+msgstr "Преименуван"
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 258
 #: NEEDS WORK
 msgid "Moved"
 msgstr "Преместен"
 # 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: NEEDS WORK
+msgid "Deleted"
+msgstr "Изтрито"
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 262
 #: NEEDS WORK
 msgid "Cleaned folders"
 msgstr "Почистени папки"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: NEEDS WORK
+msgid "Failed"
+msgstr "Неуспешно"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 266
 #: NEEDS WORK
@@ -1830,14 +1767,6 @@ msgstr "Настройки"
 msgid "Configure API Keys"
 msgstr "Конфигуриране на API ключове"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
-#: NEEDS WORK
-msgid "Fix Mirabel files"
-msgstr "Поправете файловете на Mirabel"
-# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: NEEDS WORK
 msgid "About Jellyfix"
@@ -1907,105 +1836,6 @@ msgstr "{} операции завършени"
 #: NEEDS WORK
 msgid "Complete!"
 msgstr "Завършено!"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 95
-#: NEEDS WORK
-msgid "What are Mirabel files?"
-msgstr "Какви са файловете Mirabel?"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 101
-#: NEEDS WORK
-msgid ""
-"Subtitle files with non-standard language codes like:\n"
-"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
-msgstr ""
-"Файлове с субтитри с нестандартни езикови кодове като:\n"
-"• <tt>.pt-BR.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.br.hi.srt</tt> → <tt>.por.srt</tt>\n"
-"• <tt>.pt-BR.hi.forced.srt</tt> → <tt>.por.forced.srt</tt>"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 115
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 183
-#: NEEDS WORK
-msgid "Select Directory"
-msgstr "Изберете директория"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 119
-#: NEEDS WORK
-msgid "Directory to scan"
-msgstr "Директория за сканиране"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 120
-#: NEEDS WORK
-msgid "No directory selected"
-msgstr "Не е избрана директория"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 125
-#: NEEDS WORK
-msgid "Select"
-msgstr "Изберете"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 302
-#: NEEDS WORK
-msgid "Files Found"
-msgstr "Намалени файлове"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 162
-#: NEEDS WORK
-msgid "Scan"
-msgstr "Сканиране"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 166
-#: NEEDS WORK
-msgid "Apply Changes"
-msgstr "Приложи промените"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 219
-#: NEEDS WORK
-msgid "Scanning for Mirabel files..."
-msgstr "Сканиране за файлове Mirabel..."
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 261
-#: NEEDS WORK
-msgid "Mirabel fix"
-msgstr "Mirabel корекция"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 291
-#: NEEDS WORK
-msgid "Will be deleted (duplicate)"
-msgstr "Ще бъде изтрито (дубликат)"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 304
-#: NEEDS WORK
-#, python-brace-format
-msgid "Found {} Mirabel files"
-msgstr "Намерени са {} файлове Mirabel"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 317
-#: NEEDS WORK
-msgid "Apply Changes?"
-msgstr "Приложи промените?"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 350
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} renamed"
-msgstr "{} преименуван"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 352
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} deleted"
-msgstr "{} изтрит"
-# 
-# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "{} failed"
-msgstr "{} неуспешно"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
@@ -2191,6 +2021,16 @@ msgstr "Премахнете файловете, които не са медий
 #: NEEDS WORK
 msgid "Remove all files that are not .srt or .mp4"
 msgstr "Премахнете всички файлове, които не са .srt или .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: NEEDS WORK
+msgid "Fix Mirabel Files"
+msgstr "Поправете файловете на Мирбель"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: NEEDS WORK
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Преименувайте .pt-BR.hi.srt, .br.hi.srt на .por.srt"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
 #: NEEDS WORK
