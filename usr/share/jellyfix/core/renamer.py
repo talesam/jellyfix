@@ -580,11 +580,23 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # If series folder IS the work_dir itself, organize in parent directory
-            # Otherwise organize in work_dir
+            # Determina onde criar a nova pasta da série
+            # Caso 1: work_dir É a pasta da série → criar no parent do work_dir
+            # Caso 2: work_dir É uma pasta Season → criar no parent do parent do work_dir
+            # Caso 3: work_dir é uma pasta que contém séries → criar no work_dir
+
             if series_folder == self.work_dir:
+                # Caso 1: usuário selecionou a pasta da série (ex: "Criminal Minds")
                 new_series_folder = self.work_dir.parent / expected_series_folder
+            elif self.work_dir.name.lower().startswith('season'):
+                # Caso 2: usuário selecionou uma pasta Season (ex: "Season 1")
+                # A nova pasta da série deve ficar no mesmo nível da pasta da série original
+                new_series_folder = series_folder.parent / expected_series_folder
+            elif series_folder.parent == self.work_dir:
+                # Caso 3: work_dir contém a pasta da série
+                new_series_folder = self.work_dir / expected_series_folder
             else:
+                # Caso padrão: criar no work_dir
                 new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
