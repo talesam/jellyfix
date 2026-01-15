@@ -648,52 +648,63 @@ class Renamer:
 
         # Processa cada legenda
         for subtitle_path in subtitle_files:
-            # Extrai base name da legenda (remove .LANG.srt)
-            subtitle_name = subtitle_path.stem
+            # Verifica se é arquivo Mirabel (já identificado em _plan_mirabel_fixes)
+            mirabel_data = getattr(self, 'mirabel_info', {}).get(subtitle_path)
 
-            # Primeiro, detecta se tem .forced (case-insensitive) em qualquer posição
-            forced_suffix = ''
-            subtitle_name_lower = subtitle_name.lower()
-            if '.forced' in subtitle_name_lower:
-                forced_suffix = '.forced'
-                # Remove .forced temporariamente para facilitar o parsing
-                # Preserva o case original para o matching
-                forced_pos = subtitle_name_lower.rfind('.forced')
-                subtitle_name_no_forced = subtitle_name[:forced_pos] + subtitle_name[forced_pos+7:]
+            if mirabel_data:
+                # Usa informações do Mirabel
+                subtitle_base = mirabel_data['base_name']
+                lang_code = mirabel_data['target_lang']
+                lang_code_base = mirabel_data['target_lang']
+                forced_suffix = '.forced' if mirabel_data['forced'] else ''
             else:
-                subtitle_name_no_forced = subtitle_name
+                # Processamento normal para legendas não-Mirabel
+                # Extrai base name da legenda (remove .LANG.srt)
+                subtitle_name = subtitle_path.stem
 
-            # Remove código de idioma se presente
-            # Padrões: .por, .eng, .pt, .en, .pt-BR, .pt_BR, .por2, etc. (agora sem .forced porque já foi removido)
-            base_match = re.match(r'(.+?)\.([a-z]{2,3}(?:[-_][A-Z]{2})?\d?)$', subtitle_name_no_forced, re.IGNORECASE)
-            if base_match:
-                from ..utils.helpers import normalize_language_code
-                subtitle_base = base_match.group(1)
-                lang_code_raw = base_match.group(2).lower()  # ex: "en2", "pt-br", "por"
-
-                # Remove dígito do código se tiver (por2 -> por, en2 -> en)
-                lang_code_no_digit = re.sub(r'\d+$', '', lang_code_raw)
-
-                # Normaliza o código de idioma para 3 letras (en -> eng, pt -> por, pt-BR -> por)
-                lang_code_base = normalize_language_code(lang_code_no_digit)
-
-                # lang_code mantém o original com dígito se tiver (usado para detectar variantes)
-                # mas normalizado (en2 -> eng2)
-                if lang_code_raw != lang_code_no_digit:  # tem dígito
-                    lang_code = lang_code_base + lang_code_raw[-1]  # eng + 2 = eng2
+                # Primeiro, detecta se tem .forced (case-insensitive) em qualquer posição
+                forced_suffix = ''
+                subtitle_name_lower = subtitle_name.lower()
+                if '.forced' in subtitle_name_lower:
+                    forced_suffix = '.forced'
+                    # Remove .forced temporariamente para facilitar o parsing
+                    # Preserva o case original para o matching
+                    forced_pos = subtitle_name_lower.rfind('.forced')
+                    subtitle_name_no_forced = subtitle_name[:forced_pos] + subtitle_name[forced_pos+7:]
                 else:
-                    lang_code = lang_code_base
-            else:
-                # Não tem código de idioma explícito
-                subtitle_base = subtitle_name_no_forced
-                lang_code = None
-                lang_code_base = None
+                    subtitle_name_no_forced = subtitle_name
 
-                # Se é .forced sem código de idioma, detecta pelo conteúdo
-                if forced_suffix and self.config.rename_no_lang:
-                    if is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
-                        lang_code = 'por'
-                        lang_code_base = 'por'
+                # Remove código de idioma se presente
+                # Padrões: .por, .eng, .pt, .en, .pt-BR, .pt_BR, .por2, etc. (agora sem .forced porque já foi removido)
+                base_match = re.match(r'(.+?)\.([a-z]{2,3}(?:[-_][A-Z]{2})?\d?)$', subtitle_name_no_forced, re.IGNORECASE)
+                if base_match:
+                    from ..utils.helpers import normalize_language_code
+                    subtitle_base = base_match.group(1)
+                    lang_code_raw = base_match.group(2).lower()  # ex: "en2", "pt-br", "por"
+
+                    # Remove dígito do código se tiver (por2 -> por, en2 -> en)
+                    lang_code_no_digit = re.sub(r'\d+$', '', lang_code_raw)
+
+                    # Normaliza o código de idioma para 3 letras (en -> eng, pt -> por, pt-BR -> por)
+                    lang_code_base = normalize_language_code(lang_code_no_digit)
+
+                    # lang_code mantém o original com dígito se tiver (usado para detectar variantes)
+                    # mas normalizado (en2 -> eng2)
+                    if lang_code_raw != lang_code_no_digit:  # tem dígito
+                        lang_code = lang_code_base + lang_code_raw[-1]  # eng + 2 = eng2
+                    else:
+                        lang_code = lang_code_base
+                else:
+                    # Não tem código de idioma explícito
+                    subtitle_base = subtitle_name_no_forced
+                    lang_code = None
+                    lang_code_base = None
+
+                    # Se é .forced sem código de idioma, detecta pelo conteúdo
+                    if forced_suffix and self.config.rename_no_lang:
+                        if is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
+                            lang_code = 'por'
+                            lang_code_base = 'por'
 
             # Procura vídeo correspondente (primeiro tenta match exato, depois normalizado)
             matching_video_op = video_operations.get(subtitle_base)
@@ -1254,70 +1265,86 @@ class Renamer:
 
     def _plan_mirabel_fixes(self, subtitle_files: List[Path]) -> List[Path]:
         """
-        Planeja correção de arquivos Mirabel (legendas com códigos não-padrão).
+        Identifica arquivos Mirabel e guarda informações para renomeação posterior.
+
+        NÃO cria operações aqui - apenas prepara as informações para que
+        _plan_subtitle_companion crie uma única operação direta do arquivo
+        original para o destino final.
 
         Padrões reconhecidos:
         - .pt-BR.hi.srt → .por.srt
         - .br.hi.srt → .por.srt
         - .pt-BR.hi.forced.srt → .por.forced.srt
         - .br.hi.forced.srt → .por.forced.srt
+        - .en.hi.srt → .eng.srt
+        - .en.hi.forced.srt → .eng.forced.srt
 
         Args:
             subtitle_files: Lista de arquivos de legenda
 
         Returns:
-            Lista atualizada de arquivos de legenda (com paths renomeados)
+            Lista de arquivos de legenda (paths originais, não modificados)
         """
-        # Pattern para detectar arquivos Mirabel
-        mirabel_pattern = re.compile(
-            r'^(.+?)\.(pt-BR|pt-br|br|BR|pt_BR|pt_br)\.hi(\.forced)?\.srt$',
-            re.IGNORECASE
-        )
+        # Patterns para detectar arquivos Mirabel
+        # Grupo 1: base_name, Grupo 2: código do idioma, Grupo 3: .forced (opcional)
+        mirabel_patterns = [
+            # Português: pt-BR, br, pt_BR, etc → por
+            (re.compile(r'^(.+?)\.(pt-BR|pt-br|br|BR|pt_BR|pt_br)\.hi(\.forced)?\.srt$', re.IGNORECASE), 'por'),
+            # Inglês: en, EN → eng
+            (re.compile(r'^(.+?)\.(en|EN)\.hi(\.forced)?\.srt$', re.IGNORECASE), 'eng'),
+        ]
+
+        # Inicializa o mapa de informações Mirabel
+        self.mirabel_info = {}  # Mapa: old_path -> {base_name, target_lang, forced}
 
         updated_subtitle_files = []
-        mirabel_renames = {}  # Mapa: old_path -> new_path
+        mirabel_count = 0
 
         for file_path in subtitle_files:
-            match = mirabel_pattern.match(file_path.name)
-            if match:
-                base_name = match.group(1)
-                forced = match.group(3)  # '.forced' ou None
+            matched = False
+            for pattern, target_lang in mirabel_patterns:
+                match = pattern.match(file_path.name)
+                if match:
+                    matched = True
+                    base_name = match.group(1)
+                    forced = match.group(3)  # '.forced' ou None
 
-                # Constrói novo nome
-                if forced:
-                    new_name = f"{base_name}.por.forced.srt"
-                else:
-                    new_name = f"{base_name}.por.srt"
+                    # Constrói novo nome para verificar se já existe
+                    if forced:
+                        new_name = f"{base_name}.{target_lang}.forced.srt"
+                    else:
+                        new_name = f"{base_name}.{target_lang}.srt"
 
-                new_path = file_path.parent / new_name
+                    new_path = file_path.parent / new_name
 
-                # Verifica se destino já existe
-                if new_path.exists() and new_path != file_path:
-                    # Destino existe - marca para deleção
-                    self.operations.append(RenameOperation(
-                        source=file_path,
-                        destination=file_path,
-                        operation_type='delete',
-                        reason=f"Mirabel duplicado: {new_name} já existe"
-                    ))
-                    self.logger.debug(f"Mirabel duplicado será deletado: {file_path.name}")
-                else:
-                    # Renomeia arquivo Mirabel
-                    self.operations.append(RenameOperation(
-                        source=file_path,
-                        destination=new_path,
-                        operation_type='rename',
-                        reason=f"Mirabel fix: {file_path.name} → {new_name}"
-                    ))
-                    self.planned_destinations.add(new_path)
-                    mirabel_renames[file_path] = new_path
-                    updated_subtitle_files.append(new_path)
-                    self.logger.debug(f"Mirabel será renomeado: {file_path.name} → {new_name}")
-            else:
+                    # Verifica se destino já existe
+                    if new_path.exists() and new_path != file_path:
+                        # Destino existe - marca para deleção
+                        self.operations.append(RenameOperation(
+                            source=file_path,
+                            destination=file_path,
+                            operation_type='delete',
+                            reason=f"Mirabel duplicado: {new_name} já existe"
+                        ))
+                        self.logger.debug(f"Mirabel duplicado será deletado: {file_path.name}")
+                    else:
+                        # Guarda informações para renomeação posterior
+                        self.mirabel_info[file_path] = {
+                            'base_name': base_name,
+                            'target_lang': target_lang,
+                            'forced': bool(forced)
+                        }
+                        mirabel_count += 1
+                        # Mantém o path ORIGINAL na lista
+                        updated_subtitle_files.append(file_path)
+                        self.logger.debug(f"Mirabel identificado: {file_path.name} → {new_name}")
+                    break  # Sai do loop de patterns após match
+
+            if not matched:
                 # Não é arquivo Mirabel, mantém na lista
                 updated_subtitle_files.append(file_path)
 
-        if mirabel_renames:
-            self.logger.info(f"Encontrados {len(mirabel_renames)} arquivos Mirabel para correção")
+        if mirabel_count > 0:
+            self.logger.info(f"Encontrados {mirabel_count} arquivos Mirabel para correção")
 
         return updated_subtitle_files
