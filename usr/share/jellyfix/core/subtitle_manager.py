@@ -101,25 +101,34 @@ class SubtitleManager:
             
             result = {}
             for sub in saved_subtitles:
-                lang_str = str(sub.language.alpha3)
-                if lang_str not in result:
-                    result[lang_str] = []
+                # Always aim for 3-letter code (por, eng)
+                lang_alpha3 = str(sub.language.alpha3)
+                lang_alpha2 = str(sub.language.alpha2)
                 
-                # Subliminal returns the subtitles object, we need to construct the path
-                # It usually saves as video_name.lang.srt
-                # Let's try to find the file that was created
+                if lang_alpha3 not in result:
+                    result[lang_alpha3] = []
                 
-                # Construct expected filename pattern
-                # This is a bit tricky because subliminal might handle naming differently
-                # But generally it's video_stem.lang.srt
-                expected_path = video_path.with_suffix(f".{sub.language.alpha3}.srt")
-                if expected_path.exists():
-                    result[lang_str].append(expected_path)
-                else:
-                    # Try 2-letter code if 3-letter didn't exist (though we asked for 3)
-                    expected_path_2 = video_path.with_suffix(f".{sub.language.alpha2}.srt")
-                    if expected_path_2.exists():
-                        result[lang_str].append(expected_path_2)
+                # Expected paths
+                path_alpha3 = video_path.with_suffix(f".{lang_alpha3}.srt")
+                path_alpha2 = video_path.with_suffix(f".{lang_alpha2}.srt")
+                
+                final_path = None
+                
+                if path_alpha3.exists():
+                    # Already perfect
+                    final_path = path_alpha3
+                elif path_alpha2.exists():
+                    # Rename 2-letter to 3-letter
+                    try:
+                        path_alpha2.rename(path_alpha3)
+                        self.logger.info(f"Renamed subtitle: {path_alpha2.name} -> {path_alpha3.name}")
+                        final_path = path_alpha3
+                    except Exception as e:
+                        self.logger.error(f"Failed to rename subtitle {path_alpha2.name}: {e}")
+                        final_path = path_alpha2
+                
+                if final_path:
+                    result[lang_alpha3].append(final_path)
 
             return result
 
