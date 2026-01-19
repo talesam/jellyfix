@@ -111,10 +111,26 @@ class PreviewPanel(Gtk.Box):
         self.search_button.connect("clicked", self._on_search_clicked)
         self.search_button.set_visible(False)
         self.preview_content.append(self.search_button)
+
+        # Download subtitles button
+        self.download_subs_button = Gtk.Button()
+        self.download_subs_button.set_halign(Gtk.Align.CENTER)
+        subs_content = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        subs_icon = Gtk.Image.new_from_icon_name("media-view-subtitles-symbolic")
+        subs_content.append(subs_icon)
+        subs_label = Gtk.Label(label=_("Download Subtitles"))
+        subs_content.append(subs_label)
+        self.download_subs_button.set_child(subs_content)
+        self.download_subs_button.add_css_class("suggested-action")
+        self.download_subs_button.set_tooltip_text(_("Search and download subtitles automatically"))
+        self.download_subs_button.connect("clicked", self._on_download_subs_clicked)
+        self.download_subs_button.set_visible(False)
+        self.preview_content.append(self.download_subs_button)
         
         # Store current operation for search callback
         self.current_operation = None
         self.on_metadata_changed = None  # Callback when metadata is manually changed
+        self.on_download_subs_clicked_callback = None # Callback for subtitle download
         
         # From/To card
         self.operation_card = Gtk.Frame()
@@ -234,6 +250,12 @@ class PreviewPanel(Gtk.Box):
         op_type = getattr(operation, 'operation_type', 'rename')
         self.search_button.set_visible(op_type in ('rename', 'move_rename'))
         
+        # Show download subs button for video files (rename/move_rename)
+        # Check extensions
+        video_exts = {'.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.ts', '.mpg', '.mpeg'}
+        is_video = operation.source.suffix.lower() in video_exts
+        self.download_subs_button.set_visible(is_video and op_type in ('rename', 'move_rename'))
+
         # Set operation type
         op_type = getattr(operation, 'operation_type', 'rename')
         if op_type == 'move':
@@ -280,6 +302,7 @@ class PreviewPanel(Gtk.Box):
         self.poster_image.set_visible(False)
         self.quality_box.set_visible(False)
         self.search_button.set_visible(False)
+        self.download_subs_button.set_visible(False)
         self.current_operation = None
     
     def _on_search_clicked(self, button):
@@ -302,9 +325,18 @@ class PreviewPanel(Gtk.Box):
         if self.on_metadata_changed and self.current_operation:
             self.on_metadata_changed(self.current_operation, metadata)
     
+    def _on_download_subs_clicked(self, button):
+        """Handle download subtitles button click"""
+        if self.on_download_subs_clicked_callback and self.current_operation:
+            self.on_download_subs_clicked_callback(self.current_operation)
+
     def set_metadata_callback(self, callback):
         """Set callback for when metadata is manually changed"""
         self.on_metadata_changed = callback
+
+    def set_download_subs_callback(self, callback):
+        """Set callback for download subtitles button"""
+        self.on_download_subs_clicked_callback = callback
 
     # Legacy methods for compatibility
     def set_metadata(self, title: str, year: int = None,

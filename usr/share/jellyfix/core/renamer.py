@@ -112,7 +112,7 @@ class Renamer:
             self._plan_non_media_removal(scan_result.non_media_files)
 
         # Processa arquivos extras (NFO, imagens, etc) que devem acompanhar os vídeos
-        self._plan_extra_files(directory, video_files)
+        self._plan_extra_files(directory, video_files, scan_result)
 
         return self.operations
 
@@ -1003,7 +1003,7 @@ class Renamer:
                         reason="Adicionar código de idioma português (.por)"
                     ))
 
-    def _plan_extra_files(self, directory: Path, video_files: List[Path]):
+    def _plan_extra_files(self, directory: Path, video_files: List[Path], scan_result=None):
         """
         Planeja movimentação e renomeação de arquivos extras (NFO, imagens, etc) que acompanham vídeos.
 
@@ -1014,8 +1014,26 @@ class Renamer:
         Args:
             directory: Diretório base
             video_files: Lista de arquivos de vídeo processados
+            scan_result: Resultado do scan (opcional) para filtrar arquivos permitidos
         """
         from ..utils.helpers import is_video_file, is_subtitle_file
+
+        # Se temos um scan_result (filtrado), cria um set de arquivos permitidos
+        allowed_files = None
+        if scan_result:
+            allowed_files = set()
+            allowed_files.update(scan_result.video_files)
+            allowed_files.update(scan_result.subtitle_files)
+            allowed_files.update(scan_result.image_files)
+            allowed_files.update(scan_result.nfo_files)
+            allowed_files.update(scan_result.other_files)
+            allowed_files.update(scan_result.non_media_files)
+            # Inclui também as listas categorizadas para garantir
+            allowed_files.update(scan_result.variant_subtitles)
+            allowed_files.update(scan_result.no_lang_subtitles)
+            allowed_files.update(scan_result.foreign_subtitles)
+            allowed_files.update(scan_result.kept_subtitles)
+            allowed_files.update(scan_result.unwanted_images)
 
         # Cria mapa de vídeos: pasta_original -> (nova_pasta, video_stem_antigo, video_stem_novo)
         video_folder_map = {}
@@ -1045,6 +1063,10 @@ class Renamer:
             # Lista todos os arquivos na pasta antiga
             for file_path in old_folder.iterdir():
                 if not file_path.is_file():
+                    continue
+                
+                # Verifica se o arquivo é permitido (se houver filtro)
+                if allowed_files is not None and file_path not in allowed_files:
                     continue
 
                 # Ignora arquivos ocultos

@@ -18,6 +18,7 @@ from questionary import Style
 
 from ..core.scanner import LibraryScanner
 from ..core.renamer import Renamer
+from ..core.subtitle_manager import SubtitleManager
 from ..utils.logger import get_logger
 from ..utils.config_manager import ConfigManager
 from ..utils.config import get_config, APP_VERSION
@@ -77,6 +78,10 @@ class InteractiveCLI:
                 self._process_files()
                 console.clear()
                 show_banner()
+            elif choice == "subtitles":
+                self._download_subtitles_menu()
+                console.clear()
+                show_banner()
             elif choice == "settings":
                 self._settings_menu()
                 console.clear()
@@ -101,6 +106,7 @@ class InteractiveCLI:
                 questionary.Choice(_("📂 Scan library"), value="scan"),
                 questionary.Choice(_("🔧 Settings"), value="settings"),
                 questionary.Choice(_("🚀 Process files"), value="process"),
+                questionary.Choice(_("📥 Download subtitles"), value="subtitles"),
                 questionary.Choice(_("ℹ️  Help"), value="help"),
                 questionary.Choice(_("❌ Exit"), value="exit")
             ],
@@ -109,6 +115,103 @@ class InteractiveCLI:
         ).ask()
 
         return choice
+
+    def _download_subtitles_menu(self):
+        """Download subtitles menu"""
+        subtitle_manager = SubtitleManager()
+        
+        if not subtitle_manager.is_available():
+            show_error(_("Subliminal library not found!"))
+            console.print("[yellow]" + _("Please install 'subliminal' to use this feature.") + "[/yellow]")
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        # Select directory
+        workdir = self._select_directory()
+        if not workdir:
+            return
+
+        console.clear()
+        show_info(_("Scanning for videos: %s") % workdir)
+
+        # Scan
+        scanner = LibraryScanner()
+        result = scanner.scan(workdir)
+        
+        if not result.video_files:
+            show_warning(_("No videos found!"))
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        # Create choices for video files
+        choices = []
+        for video in sorted(result.video_files):
+            # Check if it already has subtitles (simplistic check)
+            has_sub = any(s.stem.startswith(video.stem) for s in result.subtitle_files)
+            status = "[green]✓[/green]" if has_sub else "[red]✗[/red]"
+            
+            choices.append(questionary.Choice(
+                title=f"{status} {video.name}",
+                value=video
+            ))
+            
+        # Select videos
+        selected_videos = questionary.checkbox(
+            _("Select videos to download subtitles for:"),
+            choices=choices,
+            style=custom_style,
+            instruction=_("(SPACE to select, ENTER to confirm)")
+        ).ask()
+        
+        if not selected_videos:
+            return
+            
+        # Confirm
+        console.print(f"\n[bold]{_('Selected:')} {len(selected_videos)} {_('videos')}[/bold]")
+        confirm = questionary.confirm(
+            _("Start download?"),
+            default=True,
+            style=custom_style
+        ).ask()
+        
+        if not confirm:
+            return
+            
+        # Download loop
+        success_count = 0
+        total_subs = 0
+        
+        import rich.progress
+        
+        with rich.progress.Progress(
+            rich.progress.SpinnerColumn(),
+            rich.progress.TextColumn("[progress.description]{task.description}"),
+            rich.progress.BarColumn(),
+            rich.progress.TaskProgressColumn(),
+            console=console
+        ) as progress:
+            task_id = progress.add_task(_("Downloading..."), total=len(selected_videos))
+            
+            for video in selected_videos:
+                progress.update(task_id, description=_("Downloading for: {}").format(video.name))
+                
+                results = subtitle_manager.download_subtitles(video)
+                
+                if results:
+                    count = sum(len(paths) for paths in results.values())
+                    total_subs += count
+                    if count > 0:
+                        success_count += 1
+                        
+                progress.advance(task_id)
+                
+        # Show results
+        if total_subs > 0:
+            show_success(_("Downloaded {} subtitles for {} videos").format(total_subs, success_count))
+        else:
+            show_warning(_("No subtitles found"))
+            
+        questionary.press_any_key_to_continue().ask()
 
     def _scan_library(self):
         """Scan library and display results"""

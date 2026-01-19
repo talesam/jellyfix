@@ -17,7 +17,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, GLib
+from gi.repository import Gtk, Adw, GLib, Pango
 from pathlib import Path
 import os
 
@@ -27,6 +27,7 @@ from ..widgets.dashboard import DashboardView
 from ..widgets.preview_panel import PreviewPanel
 from ..widgets.operations_list import OperationsListView
 from ..handlers import OperationsHandler
+from ...core.subtitle_manager import SubtitleManager
 
 
 class JellyfixMainWindow(Adw.ApplicationWindow):
@@ -42,6 +43,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         super().__init__(application=application)
 
         self.logger = get_logger()
+        self.subtitle_manager = SubtitleManager()
 
         # Window properties
         self.set_title(_("Jellyfix"))
@@ -125,7 +127,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Operations list view
         self.operations_list = OperationsListView(
             on_operation_selected=self.on_operation_selected,
-            on_apply_clicked=self.on_apply_operations
+            on_apply_clicked=self.on_apply_operations,
+            on_download_subs_clicked=self.on_download_batch_subtitles
         )
         operations_page = self.sidebar_stack.add_titled(
             self.operations_list,
@@ -154,6 +157,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         
         # Connect callback for when user manually changes metadata via SearchDialog
         self.preview_panel.set_metadata_callback(self._on_metadata_changed)
+        
+        # Connect callback for subtitle download
+        self.preview_panel.set_download_subs_callback(self.on_download_subtitles)
 
         content_page = Adw.NavigationPage(
             title=_("Preview"),
@@ -210,6 +216,20 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Check if directory was pre-selected (from dashboard drag-drop or recent)
         if widget and hasattr(widget, 'selected_directory'):
             directory = widget.selected_directory
+            
+            # Check for selected paths (specific files/folders from drag-drop)
+            if hasattr(widget, 'selected_paths') and widget.selected_paths:
+                files = [p for p in widget.selected_paths if p.is_file()]
+                folders = [p for p in widget.selected_paths if p.is_dir()]
+                
+                if files:
+                    self.selected_files = files
+                    self.logger.info(f"Selected specific files: {[f.name for f in files]}")
+                
+                if folders:
+                    self.selected_folders = folders
+                    self.logger.info(f"Selected specific folders: {[f.name for f in folders]}")
+            
             self.logger.info(f"Using pre-selected directory: {directory}")
             self._start_scan(directory)
             return
@@ -286,8 +306,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
         self.logger.debug(f"Found {len(folders)} folders and {len(files)} files")
 
-        # Store selected folders for filtering later
+        # Store selected items for filtering later
         self.selected_folders = []
+        self.selected_files = []
 
         if folders:
             # If folders are selected, use the first folder as the directory to scan
@@ -305,10 +326,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     directory = folders[0].parent
                 self.logger.info(f"Multiple folders selected, scanning parent: {directory}")
                 self.logger.info(f"Will filter to only these folders: {[str(f) for f in folders]}")
-                print(f"DEBUG: Setting selected_folders = {[str(f) for f in folders]}")
                 # Store selected folders for filtering
                 self.selected_folders = folders
-                print(f"DEBUG: selected_folders is now = {self.selected_folders}")
         else:
             # Only files selected - use their common parent
             parent_dirs = set(p.parent for p in files)
@@ -320,6 +339,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 except ValueError:
                     directory = files[0].parent
             self.logger.info(f"Files selected, using parent: {directory}")
+            self.logger.info(f"Will filter to only these files: {[f.name for f in files]}")
+            # Store selected files for filtering
+            self.selected_files = files
 
         self.logger.info(f"Will scan directory: {directory}")
 
@@ -338,20 +360,21 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         if hasattr(self, 'current_scan_toast'):
             self.current_scan_toast.dismiss()
 
-        # Apply folder filtering if multiple folders were selected
-        print(f"DEBUG: hasattr(self, 'selected_folders') = {hasattr(self, 'selected_folders')}")
-        if hasattr(self, 'selected_folders'):
-            print(f"DEBUG: self.selected_folders = {self.selected_folders}")
-
-        if hasattr(self, 'selected_folders') and self.selected_folders:
-            self.logger.info(f"Filtering scan results to {len(self.selected_folders)} selected folder(s)")
-            print(f"DEBUG: Filtering to folders: {[str(f) for f in self.selected_folders]}")
-            files = self._filter_scan_result(files, self.selected_folders)
-            print(f"DEBUG: After filter - videos: {len(files.video_files)}, subtitles: {len(files.subtitle_files)}")
-            # Clear selected_folders after filtering
-            self.selected_folders = []
+        # Apply folder/file filtering if selected
+        has_folders = hasattr(self, 'selected_folders') and self.selected_folders
+        has_files = hasattr(self, 'selected_files') and self.selected_files
+        
+        if has_folders or has_files:
+            self.logger.info(f"Filtering scan results...")
+            files = self._filter_scan_result(files)
+            
+            # Clear filters
+            if hasattr(self, 'selected_folders'):
+                self.selected_folders = []
+            if hasattr(self, 'selected_files'):
+                self.selected_files = []
         else:
-            print(f"DEBUG: No filtering - processing all files from scan")
+            self.logger.debug("No filtering - processing all files from scan")
 
         # Get file counts from ScanResult
         total_files = files.total_files if hasattr(files, 'total_files') else len(files)
@@ -394,60 +417,99 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Switch to operations view
         self.sidebar_stack.set_visible_child_name("operations")
 
-    def _filter_scan_result(self, scan_result, selected_folders):
+    def _filter_scan_result(self, scan_result):
         """
-        Filter ScanResult to include only files within selected folders.
+        Filter ScanResult to include only selected files/folders.
+        Uses self.selected_folders and self.selected_files.
 
         Args:
             scan_result: Original ScanResult from scanner
-            selected_folders: List of Path objects representing selected folders
 
         Returns:
-            Filtered ScanResult containing only files in selected folders
+            Filtered ScanResult
         """
         from ...core.scanner import ScanResult
         from pathlib import Path
-
-        def is_in_selected_folders(file_path):
-            """Check if file is within any of the selected folders"""
+        
+        selected_folders = getattr(self, 'selected_folders', []) or []
+        selected_files = getattr(self, 'selected_files', []) or []
+        
+        # Convert selected files to resolved paths for robust comparison
+        # Also create a set of selected file stems (names without extension) 
+        # to catch related files (like subtitles) if we decide to
+        resolved_files = set()
+        selected_stems = set()
+        
+        for f in selected_files:
             try:
-                # Convert to Path if needed
+                path = Path(f).resolve()
+                resolved_files.add(path)
+                selected_stems.add(path.stem)
+            except Exception:
+                pass
+
+        def is_selected(file_path):
+            """Check if file matches selection filters"""
+            try:
                 file_path = Path(file_path)
-                for folder in selected_folders:
-                    # Check if file is inside this folder (or is the folder itself)
-                    try:
-                        # Use resolve() to handle symlinks and relative paths
-                        file_resolved = file_path.resolve()
-                        folder_resolved = folder.resolve()
-                        # Check if file_resolved starts with folder_resolved
-                        if file_resolved == folder_resolved or folder_resolved in file_resolved.parents:
-                            return True
-                    except (OSError, ValueError):
-                        # Fallback: simple string comparison
-                        if str(file_path).startswith(str(folder)):
-                            return True
-                return False
+                file_resolved = file_path.resolve()
+                
+                # Check file filter first
+                if selected_files:
+                    if file_resolved in resolved_files:
+                        return True
+                        
+                    # Also include subtitles that match the selected video file stem?
+                    # This is usually desired behavior when drag-dropping a movie file
+                    # If we drag "movie.mkv", we probably want "movie.srt" too.
+                    # But let's be strict for now as per request: "dragged 1 file, wants 1 file processed"
+                    # However, operations might break if we rename video but not subtitle.
+                    # Let's keep strict match for now to fix the "scanning everything" issue.
+                    pass
+                
+                # Check folder filter
+                if selected_folders:
+                    for folder in selected_folders:
+                        try:
+                            folder_resolved = folder.resolve()
+                            if file_resolved == folder_resolved or folder_resolved in file_resolved.parents:
+                                return True
+                        except Exception:
+                            if str(file_path).startswith(str(folder)):
+                                return True
+                    
+                # If we have file filters but no match, return False
+                if selected_files:
+                    return False
+                    
+                # If we have folder filters but no match, return False
+                if selected_folders:
+                    return False
+                    
+                # No filters active
+                return True
+                
             except Exception as e:
                 self.logger.warning(f"Error checking file {file_path}: {e}")
                 return False
 
         # Filter all file lists
         filtered_result = ScanResult(
-            video_files=[f for f in scan_result.video_files if is_in_selected_folders(f)],
-            subtitle_files=[f for f in scan_result.subtitle_files if is_in_selected_folders(f)],
-            image_files=[f for f in scan_result.image_files if is_in_selected_folders(f)],
-            other_files=[f for f in scan_result.other_files if is_in_selected_folders(f)],
-            variant_subtitles=[f for f in scan_result.variant_subtitles if is_in_selected_folders(f)],
-            no_lang_subtitles=[f for f in scan_result.no_lang_subtitles if is_in_selected_folders(f)],
-            foreign_subtitles=[f for f in scan_result.foreign_subtitles if is_in_selected_folders(f)],
-            kept_subtitles=[f for f in scan_result.kept_subtitles if is_in_selected_folders(f)],
-            unwanted_images=[f for f in scan_result.unwanted_images if is_in_selected_folders(f)],
-            nfo_files=[f for f in scan_result.nfo_files if is_in_selected_folders(f)]
+            video_files=[f for f in scan_result.video_files if is_selected(f)],
+            subtitle_files=[f for f in scan_result.subtitle_files if is_selected(f)],
+            image_files=[f for f in scan_result.image_files if is_selected(f)],
+            other_files=[f for f in scan_result.other_files if is_selected(f)],
+            variant_subtitles=[f for f in scan_result.variant_subtitles if is_selected(f)],
+            no_lang_subtitles=[f for f in scan_result.no_lang_subtitles if is_selected(f)],
+            foreign_subtitles=[f for f in scan_result.foreign_subtitles if is_selected(f)],
+            kept_subtitles=[f for f in scan_result.kept_subtitles if is_selected(f)],
+            unwanted_images=[f for f in scan_result.unwanted_images if is_selected(f)],
+            nfo_files=[f for f in scan_result.nfo_files if is_selected(f)]
         )
 
         # Update statistics
-        filtered_result.total_movies = scan_result.total_movies
-        filtered_result.total_shows = scan_result.total_shows if hasattr(scan_result, 'total_shows') else 0
+        filtered_result.total_movies = len(filtered_result.video_files) # Approximate
+        filtered_result.total_episodes = 0 # We don't distinguish in filtered view without re-scanning
 
         # Log filtering results
         original_count = len(scan_result.video_files) + len(scan_result.subtitle_files)
@@ -670,6 +732,199 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         import threading
         thread = threading.Thread(target=fetch_task, daemon=True)
         thread.start()
+
+    def on_download_batch_subtitles(self, operations):
+        """
+        Handle batch subtitle download request.
+        
+        Args:
+            operations: List of RenameOperation instances (videos)
+        """
+        if not operations:
+            return
+
+        self.logger.info(f"Batch subtitle download requested for {len(operations)} videos")
+        
+        if not self.subtitle_manager.is_available():
+            dialog = Adw.MessageDialog(
+                transient_for=self,
+                heading=_("Feature Unavailable"),
+                body=_("The 'subliminal' library is not installed.\nPlease install it to use this feature.")
+            )
+            dialog.add_response("ok", _("OK"))
+            dialog.present()
+            return
+
+        # Show progress dialog
+        # Since Adw doesn't have a built-in progress dialog, we can use a custom Gtk.Window 
+        # or use the Toast overlay with a spinner, but for batch operations a modal dialog is better.
+        # Let's creating a simple modal window.
+        
+        progress_window = Gtk.Window(transient_for=self, modal=True)
+        progress_window.set_title(_("Downloading Subtitles"))
+        progress_window.set_default_size(400, 200)
+        progress_window.set_resizable(False)
+        
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        box.set_margin_top(24)
+        box.set_margin_bottom(24)
+        box.set_margin_start(24)
+        box.set_margin_end(24)
+        
+        # Status Label
+        status_label = Gtk.Label(label=_("Preparing..."))
+        status_label.set_wrap(True)
+        status_label.set_justify(Gtk.Justification.CENTER)
+        box.append(status_label)
+        
+        # Progress Bar
+        progress_bar = Gtk.ProgressBar()
+        progress_bar.set_fraction(0.0)
+        progress_bar.set_show_text(True)
+        box.append(progress_bar)
+        
+        # Current file label
+        file_label = Gtk.Label(label="")
+        file_label.set_wrap(True)
+        file_label.add_css_class("dim-label")
+        file_label.set_ellipsize(Pango.EllipsizeMode.MIDDLE)
+        box.append(file_label)
+        
+        progress_window.set_child(box)
+        progress_window.present()
+        
+        # Store for updating
+        self.batch_progress = {
+            'window': progress_window,
+            'status': status_label,
+            'bar': progress_bar,
+            'file': file_label,
+            'total': len(operations),
+            'current': 0,
+            'success': 0,
+            'downloaded': 0,
+            'pulse_id': None
+        }
+        
+        # If single file, start pulsing for indeterminate progress
+        if len(operations) == 1:
+            self.batch_progress['pulse_id'] = GLib.timeout_add(100, self._pulse_progress)
+        
+        def batch_task():
+            """Background batch download task"""
+            try:
+                for i, op in enumerate(operations):
+                    # Update progress UI
+                    GLib.idle_add(self._update_batch_progress, i, op.source.name)
+                    
+                    # Download
+                    try:
+                        results = self.subtitle_manager.download_subtitles(op.source)
+                        if results:
+                            count = sum(len(paths) for paths in results.values())
+                            self.batch_progress['downloaded'] += count
+                            if count > 0:
+                                self.batch_progress['success'] += 1
+                    except Exception as e:
+                        self.logger.error(f"Error downloading for {op.source.name}: {e}")
+                
+                # Finish
+                GLib.idle_add(self._on_batch_complete)
+                
+            except Exception as e:
+                self.logger.error(f"Batch download failed: {e}")
+                GLib.idle_add(self._on_batch_error, str(e))
+                
+        # Run in background thread
+        import threading
+        thread = threading.Thread(target=batch_task, daemon=True)
+        thread.start()
+
+    def _pulse_progress(self):
+        """Pulse progress bar for indeterminate status"""
+        if hasattr(self, 'batch_progress'):
+            self.batch_progress['bar'].pulse()
+            return True
+        return False
+
+    def _update_batch_progress(self, index, filename):
+        """Update batch progress dialog"""
+        if not hasattr(self, 'batch_progress'):
+            return
+            
+        total = self.batch_progress['total']
+        
+        # Only update fraction for multiple files to avoid overriding pulse
+        if total > 1:
+            fraction = index / total
+            self.batch_progress['bar'].set_fraction(fraction)
+            self.batch_progress['bar'].set_text(f"{int(fraction * 100)}%")
+        
+        self.batch_progress['status'].set_text(_("Searching subtitles ({}/{})").format(index + 1, total))
+        self.batch_progress['file'].set_text(filename)
+
+    def _on_batch_complete(self):
+        """Handle batch completion"""
+        if hasattr(self, 'batch_progress'):
+            # Stop pulsing if active
+            if self.batch_progress.get('pulse_id'):
+                GLib.source_remove(self.batch_progress['pulse_id'])
+                
+            self.batch_progress['window'].close()
+            
+            total = self.batch_progress['total']
+            success = self.batch_progress['success']
+            downloaded = self.batch_progress['downloaded']
+            
+            del self.batch_progress
+            
+            # Show summary dialog
+            dialog = Adw.MessageDialog(
+                transient_for=self,
+                heading=_("Download Complete"),
+                body=_("Processed {} videos.\nDownloaded {} subtitles for {} videos.").format(
+                    total, downloaded, success
+                )
+            )
+            dialog.add_response("rescan", _("Rescan Now"))
+            dialog.add_response("ok", _("OK"))
+            dialog.set_response_appearance("rescan", Adw.ResponseAppearance.SUGGESTED)
+            
+            def on_response(dialog, response):
+                if response == "rescan":
+                    if hasattr(self.operations_handler, 'current_directory'):
+                        self._start_scan(self.operations_handler.current_directory)
+            
+            dialog.connect("response", on_response)
+            dialog.present()
+
+    def _on_batch_error(self, error_msg):
+        """Handle batch error"""
+        if hasattr(self, 'batch_progress'):
+            # Stop pulsing if active
+            if self.batch_progress.get('pulse_id'):
+                GLib.source_remove(self.batch_progress['pulse_id'])
+                
+            self.batch_progress['window'].close()
+            del self.batch_progress
+            
+        dialog = Adw.MessageDialog(
+            transient_for=self,
+            heading=_("Batch Error"),
+            body=_("An error occurred during batch download:\n{}").format(error_msg)
+        )
+        dialog.add_response("ok", _("OK"))
+        dialog.present()
+
+    def on_download_subtitles(self, operation):
+        """
+        Handle download subtitles request (single file).
+        Redirects to batch handler for consistent UX.
+        
+        Args:
+            operation: RenameOperation instance
+        """
+        self.on_download_batch_subtitles([operation])
 
     def _fetch_metadata_and_poster(self, operation, media_info, title, year):
         """
