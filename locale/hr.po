@@ -37,6 +37,11 @@ msgstr "🔧 Postavke"
 msgid "🚀 Process files"
 msgstr "🚀 Obradi datoteke"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: NEEDS WORK
+msgid "📥 Download subtitles"
+msgstr "📥 Preuzmi titlove"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -51,6 +56,74 @@ msgstr "❌ Izlaz"
 #: NEEDS WORK
 msgid "(Use arrow keys to navigate)"
 msgstr "(Koristite strelice za navigaciju)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 124
+#: NEEDS WORK
+msgid "Subliminal library not found!"
+msgstr "Subliminalna biblioteka nije pronađena!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 125
+#: NEEDS WORK
+msgid "Please install 'subliminal' to use this feature."
+msgstr "Molimo instalirajte 'subliminal' za korištenje ove funkcije."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 135
+#: NEEDS WORK
+#, python-format
+msgid "Scanning for videos: %s"
+msgstr "Skeniranje videozapisa: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 142
+#: NEEDS WORK
+msgid "No videos found!"
+msgstr "Nema pronađenih videozapisa!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 160
+#: NEEDS WORK
+msgid "Select videos to download subtitles for:"
+msgstr "Odaberite videozapise za preuzimanje titlova:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 163
+#: NEEDS WORK
+msgid "(SPACE to select, ENTER to confirm)"
+msgstr "(SPACE za odabir, ENTER za potvrdu)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "Selected:"
+msgstr "Odabrano:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "videos"
+msgstr "videozapisi"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 172
+#: NEEDS WORK
+msgid "Start download?"
+msgstr "Započni preuzimanje?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 193
+#: NEEDS WORK
+msgid "Downloading..."
+msgstr "Preuzimanje..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 196
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloading for: {}"
+msgstr "Preuzimanje za: {}"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 210
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded {} subtitles for {} videos"
+msgstr "Preuzete {} titlove za {} videozapisa"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 212
+#: NEEDS WORK
+msgid "No subtitles found"
+msgstr "Nema pronađenih titlova"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1193,6 +1266,30 @@ msgstr "Čišćenje predmemorije slika..."
 msgid "Image cache cleared"
 msgstr "Keš slike očišćen"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: NEEDS WORK
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Traženje titlova za: %s (Jezici: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: NEEDS WORK
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Nema pronađenih titlova za: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles for: %s"
+msgstr "Pronađeno %d titlova za: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+#: NEEDS WORK
+#, python-format
+msgid "Error downloading subtitles: %s"
+msgstr "Greška prilikom preuzimanja titlova: %s"
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
 msgid "Jellyfix Help"
@@ -1836,6 +1933,69 @@ msgstr "{} operacija dovršeno"
 msgid "Complete!"
 msgstr "Završeno!"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
+#: NEEDS WORK
+msgid "Feature Unavailable"
+msgstr "Značajka nije dostupna"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
+#: NEEDS WORK
+msgid ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+msgstr "Biblioteka 'subliminal' nije instalirana. Molimo instalirajte je da biste koristili ovu značajku."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
+#: NEEDS WORK
+msgid "Downloading Subtitles"
+msgstr "Preuzimanje titlova"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
+#: NEEDS WORK
+msgid "Preparing..."
+msgstr "Priprema..."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
+#: NEEDS WORK
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Traženje titlova ({}/{})"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
+#: NEEDS WORK
+msgid "Download Complete"
+msgstr "Preuzimanje dovršeno"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Processed {} videos.\n"
+"Downloaded {} subtitles for {} videos."
+msgstr ""
+"Obrađeno {} videozapisa.  \n"
+"Preuzeto {} titlova za {} videozapisa."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
+#: NEEDS WORK
+msgid "Rescan Now"
+msgstr "Ponovno skeniraj sada"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
+#: NEEDS WORK
+msgid "Batch Error"
+msgstr "Greška u seriji"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"An error occurred during batch download:\n"
+"{}"
+msgstr ""
+"Došlo je do pogreške tijekom preuzimanja serije:  \n"
+"{}"
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
 msgid "Subtitle Handling"
@@ -2071,6 +2231,16 @@ msgstr "Pretraži naslov"
 msgid "Wrong title? Click to search manually"
 msgstr "Pogrešan naslov? Kliknite za ručno pretraživanje"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: NEEDS WORK
+msgid "Download Subtitles"
+msgstr "Preuzmi titlove"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: NEEDS WORK
+msgid "Search and download subtitles automatically"
+msgstr "Automatski pretraži i preuzmi titlove"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2161,6 +2331,16 @@ msgstr "Pretraži..."
 #: NEEDS WORK
 msgid "All"
 msgstr "Sve"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: NEEDS WORK
+msgid "Download Subtitles for All"
+msgstr "Preuzmi titlove za sve"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: NEEDS WORK
+msgid "Search and download subtitles for all listed videos"
+msgstr "Pretraži i preuzmi titlove za sve navedene videozapise"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
 #: NEEDS WORK

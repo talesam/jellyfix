@@ -37,6 +37,11 @@ msgstr "🔧 Setări"
 msgid "🚀 Process files"
 msgstr "🚀 Procesează fișiere"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: NEEDS WORK
+msgid "📥 Download subtitles"
+msgstr "📥 Descarcă subtitrările"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -51,6 +56,74 @@ msgstr "❌ Ieșire"
 #: NEEDS WORK
 msgid "(Use arrow keys to navigate)"
 msgstr "(Utilizați tastele săgeată pentru a naviga)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 124
+#: NEEDS WORK
+msgid "Subliminal library not found!"
+msgstr "Biblioteca subliminal nu a fost găsită!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 125
+#: NEEDS WORK
+msgid "Please install 'subliminal' to use this feature."
+msgstr "Vă rugăm să instalați 'subliminal' pentru a utiliza această funcție."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 135
+#: NEEDS WORK
+#, python-format
+msgid "Scanning for videos: %s"
+msgstr "Scanare pentru videoclipuri: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 142
+#: NEEDS WORK
+msgid "No videos found!"
+msgstr "Nu au fost găsite videoclipuri!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 160
+#: NEEDS WORK
+msgid "Select videos to download subtitles for:"
+msgstr "Selectați videoclipurile pentru a descărca subtitrările pentru:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 163
+#: NEEDS WORK
+msgid "(SPACE to select, ENTER to confirm)"
+msgstr "(SPAȚIU pentru a selecta, ENTER pentru a confirma)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "Selected:"
+msgstr "Selectat:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "videos"
+msgstr "videoclipuri"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 172
+#: NEEDS WORK
+msgid "Start download?"
+msgstr "Începe descărcarea?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 193
+#: NEEDS WORK
+msgid "Downloading..."
+msgstr "Se descarcă..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 196
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloading for: {}"
+msgstr "Se descarcă pentru: {}"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 210
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded {} subtitles for {} videos"
+msgstr "Descărcate {} subtitrări pentru {} videoclipuri"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 212
+#: NEEDS WORK
+msgid "No subtitles found"
+msgstr "Nu au fost găsite subtitrări"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1196,6 +1269,30 @@ msgstr "Ștergerea cache-ului de imagini..."
 msgid "Image cache cleared"
 msgstr "Cache-ul de imagini a fost șters"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: NEEDS WORK
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Căutare subtitrări pentru: %s (Limbi: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: NEEDS WORK
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Nu au fost găsite subtitrări pentru: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles for: %s"
+msgstr "Am găsit %d subtitrări pentru: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+#: NEEDS WORK
+#, python-format
+msgid "Error downloading subtitles: %s"
+msgstr "Eroare la descărcarea subtitrărilor: %s"
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
 msgid "Jellyfix Help"
@@ -1839,6 +1936,69 @@ msgstr "{} operațiuni finalizate"
 msgid "Complete!"
 msgstr "Complet!"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
+#: NEEDS WORK
+msgid "Feature Unavailable"
+msgstr "Funcționalitate indisponibilă"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
+#: NEEDS WORK
+msgid ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+msgstr "Biblioteca 'subliminal' nu este instalată. Vă rugăm să o instalați pentru a utiliza această funcție."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
+#: NEEDS WORK
+msgid "Downloading Subtitles"
+msgstr "Descărcare Subtitrări"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
+#: NEEDS WORK
+msgid "Preparing..."
+msgstr "Se pregătește..."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
+#: NEEDS WORK
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Căutare subtitrări ({}/{})"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
+#: NEEDS WORK
+msgid "Download Complete"
+msgstr "Descărcare completă"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Processed {} videos.\n"
+"Downloaded {} subtitles for {} videos."
+msgstr ""
+"Procesate {} videoclipuri.  \n"
+"Descărcate {} subtitrări pentru {} videoclipuri."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
+#: NEEDS WORK
+msgid "Rescan Now"
+msgstr "Rescanare acum"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
+#: NEEDS WORK
+msgid "Batch Error"
+msgstr "Eroare de lot"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"An error occurred during batch download:\n"
+"{}"
+msgstr ""
+"A apărut o eroare în timpul descărcării în lot:  \n"
+"{}"
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
 msgid "Subtitle Handling"
@@ -2074,6 +2234,16 @@ msgstr "Căutare titlu"
 msgid "Wrong title? Click to search manually"
 msgstr "Titlu greșit? Faceți clic pentru a căuta manual"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: NEEDS WORK
+msgid "Download Subtitles"
+msgstr "Descarcă subtitrări"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: NEEDS WORK
+msgid "Search and download subtitles automatically"
+msgstr "Caută și descarcă subtitrări automat"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2164,6 +2334,16 @@ msgstr "Caută..."
 #: NEEDS WORK
 msgid "All"
 msgstr "Toate"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: NEEDS WORK
+msgid "Download Subtitles for All"
+msgstr "Descarcă subtitrări pentru toți"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: NEEDS WORK
+msgid "Search and download subtitles for all listed videos"
+msgstr "Caută și descarcă subtitrări pentru toate videoclipurile listate"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
 #: NEEDS WORK

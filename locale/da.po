@@ -37,6 +37,11 @@ msgstr "🔧 Indstillinger"
 msgid "🚀 Process files"
 msgstr "🚀 Behandl filer"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: NEEDS WORK
+msgid "📥 Download subtitles"
+msgstr "📥 Download undertekster"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -51,6 +56,74 @@ msgstr "❌ Afslut"
 #: NEEDS WORK
 msgid "(Use arrow keys to navigate)"
 msgstr "(Brug piletasterne til at navigere)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 124
+#: NEEDS WORK
+msgid "Subliminal library not found!"
+msgstr "Subliminalbibliotek ikke fundet!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 125
+#: NEEDS WORK
+msgid "Please install 'subliminal' to use this feature."
+msgstr "Installer venligst 'subliminal' for at bruge denne funktion."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 135
+#: NEEDS WORK
+#, python-format
+msgid "Scanning for videos: %s"
+msgstr "Scanner efter videoer: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 142
+#: NEEDS WORK
+msgid "No videos found!"
+msgstr "Ingen videoer fundet!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 160
+#: NEEDS WORK
+msgid "Select videos to download subtitles for:"
+msgstr "Vælg videoer til at downloade undertekster til:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 163
+#: NEEDS WORK
+msgid "(SPACE to select, ENTER to confirm)"
+msgstr "(SPACE for at vælge, ENTER for at bekræfte)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "Selected:"
+msgstr "Valgt:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "videos"
+msgstr "videoer"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 172
+#: NEEDS WORK
+msgid "Start download?"
+msgstr "Start download?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 193
+#: NEEDS WORK
+msgid "Downloading..."
+msgstr "Downloader..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 196
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloading for: {}"
+msgstr "Downloader til: {}"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 210
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded {} subtitles for {} videos"
+msgstr "Downloadet {} undertekster til {} videoer"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 212
+#: NEEDS WORK
+msgid "No subtitles found"
+msgstr "Ingen undertekster fundet"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1196,6 +1269,30 @@ msgstr "Rydder billedcache..."
 msgid "Image cache cleared"
 msgstr "Billedcache ryddet"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: NEEDS WORK
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Søger undertekster for: %s (Sprog: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: NEEDS WORK
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Ingen undertekster fundet for: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles for: %s"
+msgstr "Fundet %d undertekster til: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+#: NEEDS WORK
+#, python-format
+msgid "Error downloading subtitles: %s"
+msgstr "Fejl ved download af undertekster: %s"
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
 msgid "Jellyfix Help"
@@ -1842,6 +1939,69 @@ msgstr "{} operationer fuldført"
 msgid "Complete!"
 msgstr "Færdig!"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
+#: NEEDS WORK
+msgid "Feature Unavailable"
+msgstr "Funktion ikke tilgængelig"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
+#: NEEDS WORK
+msgid ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+msgstr "Biblioteket 'subliminal' er ikke installeret. Installer det venligst for at bruge denne funktion."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
+#: NEEDS WORK
+msgid "Downloading Subtitles"
+msgstr "Downloader undertekster"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
+#: NEEDS WORK
+msgid "Preparing..."
+msgstr "Forbereder..."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
+#: NEEDS WORK
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Søger undertekster ({}/{})"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
+#: NEEDS WORK
+msgid "Download Complete"
+msgstr "Download fuldført"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Processed {} videos.\n"
+"Downloaded {} subtitles for {} videos."
+msgstr ""
+"Behandlede {} videoer.  \n"
+"Downloadede {} undertekster til {} videoer."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
+#: NEEDS WORK
+msgid "Rescan Now"
+msgstr "Genoptag nu"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
+#: NEEDS WORK
+msgid "Batch Error"
+msgstr "Batchfejl"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"An error occurred during batch download:\n"
+"{}"
+msgstr ""
+"Der opstod en fejl under batch-download:  \n"
+"{}"
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
 msgid "Subtitle Handling"
@@ -2077,6 +2237,16 @@ msgstr "Søg titel"
 msgid "Wrong title? Click to search manually"
 msgstr "Forkert titel? Klik for at søge manuelt"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: NEEDS WORK
+msgid "Download Subtitles"
+msgstr "Download undertekster"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: NEEDS WORK
+msgid "Search and download subtitles automatically"
+msgstr "Søg og download undertekster automatisk"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2167,6 +2337,16 @@ msgstr "Søg..."
 #: NEEDS WORK
 msgid "All"
 msgstr "Alle"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: NEEDS WORK
+msgid "Download Subtitles for All"
+msgstr "Download undertekster til alle"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: NEEDS WORK
+msgid "Search and download subtitles for all listed videos"
+msgstr "Søg og download undertekster til alle listede videoer"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
 #: NEEDS WORK

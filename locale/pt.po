@@ -37,6 +37,11 @@ msgstr "🔧 Configurações"
 msgid "🚀 Process files"
 msgstr "🚀 Processar arquivos"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: NEEDS WORK
+msgid "📥 Download subtitles"
+msgstr "📥 Baixar legendas"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: NEEDS WORK
 msgid "ℹ️  Help"
@@ -51,6 +56,74 @@ msgstr "❌ Sair"
 #: NEEDS WORK
 msgid "(Use arrow keys to navigate)"
 msgstr "(Use arrow keys to navigate)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 124
+#: NEEDS WORK
+msgid "Subliminal library not found!"
+msgstr "Biblioteca Subliminal não encontrada!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 125
+#: NEEDS WORK
+msgid "Please install 'subliminal' to use this feature."
+msgstr "Por favor, instale 'subliminal' para usar este recurso."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 135
+#: NEEDS WORK
+#, python-format
+msgid "Scanning for videos: %s"
+msgstr "Escaneando vídeos: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 142
+#: NEEDS WORK
+msgid "No videos found!"
+msgstr "Nenhum vídeo encontrado!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 160
+#: NEEDS WORK
+msgid "Select videos to download subtitles for:"
+msgstr "Selecione vídeos para baixar legendas:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 163
+#: NEEDS WORK
+msgid "(SPACE to select, ENTER to confirm)"
+msgstr "(SPAÇO para selecionar, ENTER para confirmar)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "Selected:"
+msgstr "Selecionado:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: NEEDS WORK
+msgid "videos"
+msgstr "vídeos"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 172
+#: NEEDS WORK
+msgid "Start download?"
+msgstr "Iniciar download?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 193
+#: NEEDS WORK
+msgid "Downloading..."
+msgstr "Baixando..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 196
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloading for: {}"
+msgstr "Baixando para: {}"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 210
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded {} subtitles for {} videos"
+msgstr "Baixados {} legendas para {} vídeos"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 212
+#: NEEDS WORK
+msgid "No subtitles found"
+msgstr "Nenhuma legenda encontrada"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1193,6 +1266,30 @@ msgstr "Limpando cache de imagem..."
 msgid "Image cache cleared"
 msgstr "Cache de imagem limpo"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: NEEDS WORK
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Buscando legendas para: %s (Idiomas: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: NEEDS WORK
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Nenhuma legenda encontrada para: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles for: %s"
+msgstr "Encontrados %d legendas para: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+#: NEEDS WORK
+#, python-format
+msgid "Error downloading subtitles: %s"
+msgstr "Erro ao baixar legendas: %s"
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
 msgid "Jellyfix Help"
@@ -1841,6 +1938,69 @@ msgstr "{} operações concluídas"
 msgid "Complete!"
 msgstr "Completo!"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
+#: NEEDS WORK
+msgid "Feature Unavailable"
+msgstr "Recurso Indisponível"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
+#: NEEDS WORK
+msgid ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+msgstr "A biblioteca 'subliminal' não está instalada. Por favor, instale-a para usar este recurso."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
+#: NEEDS WORK
+msgid "Downloading Subtitles"
+msgstr "Baixando Legendas"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
+#: NEEDS WORK
+msgid "Preparing..."
+msgstr "Preparando..."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
+#: NEEDS WORK
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Buscando legendas ({}/{})"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
+#: NEEDS WORK
+msgid "Download Complete"
+msgstr "Download Completo"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Processed {} videos.\n"
+"Downloaded {} subtitles for {} videos."
+msgstr ""
+"Processados {} vídeos.  \n"
+"Baixados {} legendas para {} vídeos."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
+#: NEEDS WORK
+msgid "Rescan Now"
+msgstr "Reescanear Agora"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
+#: NEEDS WORK
+msgid "Batch Error"
+msgstr "Erro de Lote"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"An error occurred during batch download:\n"
+"{}"
+msgstr ""
+"Ocorreu um erro durante o download em lote:  \n"
+"{}"
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK
 msgid "Subtitle Handling"
@@ -2076,6 +2236,16 @@ msgstr "Título da pesquisa"
 msgid "Wrong title? Click to search manually"
 msgstr "Título incorreto? Clique para pesquisar manualmente"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: NEEDS WORK
+msgid "Download Subtitles"
+msgstr "Baixar Legendas"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: NEEDS WORK
+msgid "Search and download subtitles automatically"
+msgstr "Pesquisar e baixar legendas automaticamente"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
 #: NEEDS WORK
 msgid "From:"
@@ -2166,6 +2336,16 @@ msgstr "Pesquisar..."
 #: NEEDS WORK
 msgid "All"
 msgstr "Todos"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: NEEDS WORK
+msgid "Download Subtitles for All"
+msgstr "Baixar Legendas para Todos"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: NEEDS WORK
+msgid "Search and download subtitles for all listed videos"
+msgstr "Pesquisar e baixar legendas para todos os vídeos listados"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
 #: NEEDS WORK
