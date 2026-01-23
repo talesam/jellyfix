@@ -504,7 +504,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             foreign_subtitles=[f for f in scan_result.foreign_subtitles if is_selected(f)],
             kept_subtitles=[f for f in scan_result.kept_subtitles if is_selected(f)],
             unwanted_images=[f for f in scan_result.unwanted_images if is_selected(f)],
-            nfo_files=[f for f in scan_result.nfo_files if is_selected(f)]
+            nfo_files=[f for f in scan_result.nfo_files if is_selected(f)],
+            non_media_files=[f for f in scan_result.non_media_files if is_selected(f)]
         )
 
         # Update statistics
