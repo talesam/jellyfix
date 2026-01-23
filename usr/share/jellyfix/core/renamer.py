@@ -288,7 +288,8 @@ class Renamer:
             if parent_folder.name != expected_folder:
                 # Need to create/move to proper folder
                 if parent_folder == self.work_dir:
-                    new_folder = self.work_dir / expected_folder
+                    # work_dir is the movie folder itself, create new folder in parent
+                    new_folder = self.work_dir.parent / expected_folder
                 else:
                     new_folder = self.work_dir / expected_folder
             else:
@@ -478,8 +479,14 @@ class Renamer:
 
         # Define destination
         if parent_folder != expected_folder:
-            # Always create the organized folder in the working directory
-            new_folder = self.work_dir / expected_folder
+            # Check if work_dir IS the movie folder (file is directly inside work_dir)
+            # In this case, create the new folder in the PARENT of work_dir
+            if file_path.parent == self.work_dir:
+                # work_dir is the movie folder itself, create new folder in parent
+                new_folder = self.work_dir.parent / expected_folder
+            else:
+                # Normal case: create the organized folder in the working directory
+                new_folder = self.work_dir / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
