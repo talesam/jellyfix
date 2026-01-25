@@ -814,18 +814,119 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         def batch_task():
             """Background batch download task"""
             try:
+                from ...core.detector import detect_media_type, MediaType
+                from ...core.subtitle_manager import SubtitleManager
+                from ...utils.config import get_config
+                import re
+                
+                config = get_config()
+                requested_langs = set(config.kept_languages) if config.kept_languages else {'por', 'eng'}
+                
                 for i, op in enumerate(operations):
                     # Update progress UI
                     GLib.idle_add(self._update_batch_progress, i, op.source.name)
                     
-                    # Download
+                    # Extract TMDB info from destination path
+                    dest_str = str(op.destination)
+                    
+                    # Extract TMDB ID
+                    tmdb_match = re.search(r'\[tmdbid-(\d+)\]', dest_str)
+                    tmdb_id = int(tmdb_match.group(1)) if tmdb_match else None
+                    
+                    # Extract title and year from destination
+                    # Pattern: "Title (Year)" or episode "Title S01E01"
+                    dest_name = op.destination.stem
+                    
+                    # Remove quality tags
+                    dest_name = re.sub(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', '', dest_name)
+                    
+                    # Check if it's an episode (S01E01 pattern)
+                    episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
+                    year_match = re.search(r'\((\d{4})\)', dest_name)
+                    
+                    tmdb_title = None
+                    tmdb_year = None
+                    is_episode = False
+                    season = None
+                    episode_num = None
+                    
+                    if episode_match:
+                        # TV Episode
+                        tmdb_title = episode_match.group(1).strip()
+                        season = int(episode_match.group(2))
+                        episode_num = int(episode_match.group(3))
+                        is_episode = True
+                        # Try to get year from folder
+                        folder_year = re.search(r'\((\d{4})\)', str(op.destination.parent))
+                        if folder_year:
+                            tmdb_year = int(folder_year.group(1))
+                    elif year_match:
+                        # Movie
+                        tmdb_year = int(year_match.group(1))
+                        tmdb_title = dest_name[:year_match.start()].strip()
+                    else:
+                        tmdb_title = dest_name.strip()
+                    
+                    # IMPORTANT: Use original title from TMDB for subtitle search
+                    # Subtitle providers index by original (usually English) title
+                    original_title = None
+                    if tmdb_id:
+                        try:
+                            from ...core.metadata import MetadataFetcher
+                            fetcher = MetadataFetcher()
+                            if is_episode:
+                                metadata = fetcher.get_tvshow_by_id(tmdb_id)
+                            else:
+                                metadata = fetcher.get_movie_by_id(tmdb_id)
+                            
+                            if metadata and metadata.original_title:
+                                original_title = metadata.original_title
+                                self.logger.info(f"Using original title for subtitle search: '{original_title}' (translated: '{tmdb_title}')")
+                        except Exception as e:
+                            self.logger.debug(f"Could not fetch original title: {e}")
+                    
+                    # Use original title if available, fallback to translated title
+                    search_title = original_title or tmdb_title
+                    
+                    # Log what we're using for subtitle search
+                    self.logger.info(f"TMDB info for subtitle search: title='{search_title}', year={tmdb_year}, episode={is_episode}")
+                    
+                    # Download with TMDB metadata
                     try:
-                        results = self.subtitle_manager.download_subtitles(op.source)
+                        results = self.subtitle_manager.download_subtitles(
+                            op.source,
+                            tmdb_title=search_title,  # Use original title for better subtitle search
+                            tmdb_year=tmdb_year,
+                            tmdb_id=tmdb_id,
+                            is_episode=is_episode,
+                            season=season,
+                            episode=episode_num
+                        )
                         if results:
+                            found_langs = set(results.keys())
                             count = sum(len(paths) for paths in results.values())
                             self.batch_progress['downloaded'] += count
-                            if count > 0:
+                            
+                            # Check if we got all requested languages
+                            missing = requested_langs - found_langs
+                            if missing:
+                                # Partial success - save for manual search
+                                if 'partial_ops' not in self.batch_progress:
+                                    self.batch_progress['partial_ops'] = []
+                                self.batch_progress['partial_ops'].append({
+                                    'op': op,
+                                    'missing': missing,
+                                    'found': found_langs
+                                })
+                                self.batch_progress['partial'] = self.batch_progress.get('partial', 0) + 1
+                            else:
+                                # Full success
                                 self.batch_progress['success'] += 1
+                        else:
+                            # No subtitles found at all
+                            if 'failed_ops' not in self.batch_progress:
+                                self.batch_progress['failed_ops'] = []
+                            self.batch_progress['failed_ops'].append(op)
                     except Exception as e:
                         self.logger.error(f"Error downloading for {op.source.name}: {e}")
                 
@@ -876,25 +977,73 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             total = self.batch_progress['total']
             success = self.batch_progress['success']
             downloaded = self.batch_progress['downloaded']
+            partial = self.batch_progress.get('partial', 0)
+            partial_ops = self.batch_progress.get('partial_ops', [])
+            failed_ops = self.batch_progress.get('failed_ops', [])
+            
+            # Store for manual search
+            self._last_partial_ops = partial_ops
+            self._last_failed_ops = failed_ops
             
             del self.batch_progress
+            
+            # Determine message and options based on results
+            if downloaded == 0:
+                heading = _("No Subtitles Found")
+                body = _("Could not find any subtitles automatically.\nTry manual search?")
+                show_manual = True
+            elif partial > 0 or failed_ops:
+                # Some languages missing
+                heading = _("Partial Success")
+                
+                # Build detailed message
+                if partial_ops:
+                    missing_langs = set()
+                    for item in partial_ops:
+                        missing_langs.update(item['missing'])
+                    missing_str = ", ".join(sorted(missing_langs))
+                    body = _("Downloaded {} subtitles.\n\nMissing languages: {}\nTry manual search?").format(
+                        downloaded, missing_str
+                    )
+                else:
+                    body = _("Downloaded {} subtitles for {} of {} videos.\nTry manual search for missing?").format(
+                        downloaded, success, total
+                    )
+                show_manual = True
+            else:
+                heading = _("Download Complete")
+                body = _("Downloaded {} subtitles for {} videos (all languages).").format(downloaded, success)
+                show_manual = False
             
             # Show summary dialog
             dialog = Adw.MessageDialog(
                 transient_for=self,
-                heading=_("Download Complete"),
-                body=_("Processed {} videos.\nDownloaded {} subtitles for {} videos.").format(
-                    total, downloaded, success
-                )
+                heading=heading,
+                body=body
             )
+            
+            if show_manual:
+                dialog.add_response("manual", _("Manual Search"))
+                dialog.set_response_appearance("manual", Adw.ResponseAppearance.SUGGESTED)
+            
             dialog.add_response("rescan", _("Rescan Now"))
             dialog.add_response("ok", _("OK"))
-            dialog.set_response_appearance("rescan", Adw.ResponseAppearance.SUGGESTED)
+            
+            if not show_manual:
+                dialog.set_response_appearance("rescan", Adw.ResponseAppearance.SUGGESTED)
             
             def on_response(dialog, response):
                 if response == "rescan":
                     if hasattr(self.operations_handler, 'current_directory'):
                         self._start_scan(self.operations_handler.current_directory)
+                elif response == "manual":
+                    # Open manual search for first item with missing languages
+                    if self._last_partial_ops:
+                        self._open_manual_subtitle_search(self._last_partial_ops[0]['op'])
+                    elif self._last_failed_ops:
+                        self._open_manual_subtitle_search(self._last_failed_ops[0])
+                    else:
+                        self._open_manual_subtitle_search()
             
             dialog.connect("response", on_response)
             dialog.present()
@@ -926,6 +1075,78 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             operation: RenameOperation instance
         """
         self.on_download_batch_subtitles([operation])
+
+    def _open_manual_subtitle_search(self, operation=None):
+        """
+        Open manual subtitle search dialog.
+        
+        Args:
+            operation: Optional RenameOperation to search for. If None, uses current selection.
+        """
+        from .subtitle_search_dialog import SubtitleSearchDialog
+        import re
+        
+        # Get operation from current selection if not provided
+        if operation is None:
+            operation = self.preview_panel.current_operation
+        
+        if operation is None:
+            self.logger.warning("No operation selected for manual subtitle search")
+            return
+        
+        # Extract info from destination
+        dest_str = str(operation.destination)
+        dest_name = operation.destination.stem
+        
+        # Remove quality tags
+        dest_name = re.sub(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', '', dest_name)
+        
+        # Check if it's an episode
+        episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
+        year_match = re.search(r'\((\d{4})\)', dest_name)
+        
+        if episode_match:
+            query = episode_match.group(1).strip()
+            season = int(episode_match.group(2))
+            episode_num = int(episode_match.group(3))
+            is_episode = True
+            # Try to get year from folder
+            folder_year = re.search(r'\((\d{4})\)', str(operation.destination.parent))
+            year = int(folder_year.group(1)) if folder_year else None
+        elif year_match:
+            year = int(year_match.group(1))
+            query = dest_name[:year_match.start()].strip()
+            is_episode = False
+            season = None
+            episode_num = None
+        else:
+            query = dest_name.strip()
+            year = None
+            is_episode = False
+            season = None
+            episode_num = None
+        
+        # Open dialog
+        dialog = SubtitleSearchDialog(
+            parent=self,
+            video_path=operation.source,
+            initial_query=query,
+            is_episode=is_episode,
+            season=season,
+            episode=episode_num,
+            year=year,
+            on_download=lambda path: self._on_manual_subtitle_downloaded(path)
+        )
+        dialog.present()
+    
+    def _on_manual_subtitle_downloaded(self, path):
+        """Handle subtitle downloaded from manual search"""
+        if path:
+            self.logger.success(f"Subtitle downloaded: {path.name}")
+            toast = Adw.Toast(title=_("Subtitle downloaded: {}").format(path.name))
+            toast.set_timeout(3)
+            self.toast_overlay.add_toast(toast)
+
 
     def _fetch_metadata_and_poster(self, operation, media_info, title, year):
         """

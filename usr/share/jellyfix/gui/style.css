@@ -57,3 +57,38 @@ viewswitcher {
     padding-left: 24px;
     padding-right: 24px;
 }
+
+/* Subtitle search result badges */
+.badge.warning {
+    background-color: alpha(@warning_color, 0.2);
+    color: @warning_fg_color;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.badge.accent {
+    background-color: alpha(@accent_bg_color, 0.3);
+    color: @accent_fg_color;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Subtitle language heading */
+.subtitle-lang-heading {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+/* Subtitle result row styling */
+.subtitle-result-row:selected {
+    background-color: alpha(@accent_bg_color, 0.15);
+}
+
+/* Caption text styling */
+.caption {
+    font-size: 0.85em;
+}

@@ -246,15 +246,15 @@ class PreviewPanel(Gtk.Box):
         self.empty_state.set_visible(False)
         self.preview_content.set_visible(True)
         
-        # Show search button for rename operations
+        # Show search button for all operations except 'delete'
         op_type = getattr(operation, 'operation_type', 'rename')
-        self.search_button.set_visible(op_type in ('rename', 'move_rename'))
+        self.search_button.set_visible(op_type != 'delete')
         
-        # Show download subs button for video files (rename/move_rename)
+        # Show download subs button for video files (all operations except 'delete')
         # Check extensions
         video_exts = {'.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.ts', '.mpg', '.mpeg'}
         is_video = operation.source.suffix.lower() in video_exts
-        self.download_subs_button.set_visible(is_video and op_type in ('rename', 'move_rename'))
+        self.download_subs_button.set_visible(is_video and op_type != 'delete')
 
         # Set operation type
         op_type = getattr(operation, 'operation_type', 'rename')
