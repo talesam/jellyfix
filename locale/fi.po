@@ -1272,23 +1272,73 @@ msgstr "Kuvavälimuisti tyhjennetty"
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "Etsitään tekstityksiä: %s (Kielet: %s)"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Taso 1 (hash) löytyi: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: NEEDS WORK
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Puuttuvat kielet: %s - yritetään TMDB-otsikkohakua"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Taso 2 (TMDB) löytyi: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: NEEDS WORK
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Vielä puuttuu: %s (yritä manuaalista hakua)"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
 #: NEEDS WORK
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "Ei tekstityksiä löytynyt: %s"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: NEEDS WORK
 #, python-format
-msgid "Found %d subtitles for: %s"
-msgstr "Löydettiin %d tekstitystä: %s"
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Löydettiin %d tekstitystä hashin perusteella: %s"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #: NEEDS WORK
 #, python-format
-msgid "Error downloading subtitles: %s"
-msgstr "Virhe ladattaessa tekstityksiä: %s"
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Löydettiin %d validoitua tekstitystä otsikon mukaan: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: NEEDS WORK
+#, python-format
+msgid "Manual search: %s"
+msgstr "Manuaalinen haku: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: NEEDS WORK
+msgid "Unknown release"
+msgstr "Tuntematon julkaisu"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Löydettiin %d tekstitystä manuaalisessa haussa"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: NEEDS WORK
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Ladattu tekstitys: %s"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
@@ -1555,6 +1605,75 @@ msgstr "Ei tuloksia löytynyt"
 #: NEEDS WORK
 msgid "results"
 msgstr "tulokset"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: NEEDS WORK
+msgid "Search Subtitles"
+msgstr "Etsi tekstityksiä"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: NEEDS WORK
+msgid "Download"
+msgstr "Lataa"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: NEEDS WORK
+msgid "Enter movie or show title..."
+msgstr "Syötä elokuvan tai sarjan nimi..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: NEEDS WORK
+msgid "Season"
+msgstr "Kauden"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: NEEDS WORK
+msgid "Episode"
+msgstr "Jakso"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: NEEDS WORK
+msgid "Search for Subtitles"
+msgstr "Etsi tekstityksiä"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: NEEDS WORK
+msgid "Enter a title and click search"
+msgstr "Syötä otsikko ja napsauta hakua"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: NEEDS WORK
+msgid "No Results"
+msgstr "Ei tuloksia"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: NEEDS WORK
+msgid "Try a different search term"
+msgstr "Kokeile toista hakusanaa"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "Löydetty {} tekstitystä"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Virhe: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Ladattu: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: NEEDS WORK
+msgid "Download failed"
+msgstr "Lataus epäonnistui"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
@@ -1961,20 +2080,60 @@ msgstr "Valmistellaan..."
 msgid "Searching subtitles ({}/{})"
 msgstr "Etsitään tekstityksiä ({}/{})"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
+#: NEEDS WORK
+msgid "No Subtitles Found"
+msgstr "Ei tekstityksiä löytynyt"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
+#: NEEDS WORK
+msgid ""
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+msgstr ""
+"Ei automaattisia tekstityksiä löytynyt.  \n"
+"Yritä manuaalista hakua?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
+#: NEEDS WORK
+msgid "Partial Success"
+msgstr "Osittainen onnistuminen"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Downloaded {} subtitles.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+msgstr "Ladatut {} tekstitykset."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Downloaded {} subtitles for {} of {} videos.\n"
+"Try manual search for missing?"
+msgstr ""
+"Ladattu {} tekstitystä {}:sta {} videosta.  \n"
+"Yritä manuaalista hakua puuttuville?"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: NEEDS WORK
 msgid "Download Complete"
 msgstr "Lataus valmis"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Processed {} videos.\n"
-"Downloaded {} subtitles for {} videos."
-msgstr ""
-"Käsitelty {} videota.  \n"
-"Ladattu {} tekstitystä {} videolle."
+msgid "Downloaded {} subtitles for {} videos (all languages)."
+msgstr "Ladattu {} tekstitystä {} videolle (kaikki kielet)."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
+#: NEEDS WORK
+msgid "Manual Search"
+msgstr "Manuaalinen Haku"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
 #: NEEDS WORK
@@ -1995,6 +2154,12 @@ msgid ""
 msgstr ""
 "Virhe tapahtui eräsiirron aikana:  \n"
 "{}"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
+#: NEEDS WORK
+#, python-brace-format
+msgid "Subtitle downloaded: {}"
+msgstr "Alkuperäinen ladattu: {}"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK

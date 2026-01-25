@@ -1275,23 +1275,73 @@ msgstr "Bildcache rensad"
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "Söker efter undertexter för: %s (Språk: %s)"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Nivå 1 (hash) hittad: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: NEEDS WORK
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Saknade språk: %s - försöker TMDB titel sökning"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Nivå 2 (TMDB) hittad: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: NEEDS WORK
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Saknas fortfarande: %s (försök med manuell sökning)"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
 #: NEEDS WORK
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "Inga undertexter hittades för: %s"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: NEEDS WORK
 #, python-format
-msgid "Found %d subtitles for: %s"
-msgstr "Hittade %d undertexter för: %s"
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Hittade %d undertexter med hash för: %s"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #: NEEDS WORK
 #, python-format
-msgid "Error downloading subtitles: %s"
-msgstr "Fel vid nedladdning av undertexter: %s"
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Hittade %d validerade undertexter efter titel för: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: NEEDS WORK
+#, python-format
+msgid "Manual search: %s"
+msgstr "Manuell sökning: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: NEEDS WORK
+msgid "Unknown release"
+msgstr "Okänd version"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Hittade %d undertexter i manuell sökning"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: NEEDS WORK
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Nedladdad undertext: %s"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
@@ -1558,6 +1608,75 @@ msgstr "Inga resultat hittades"
 #: NEEDS WORK
 msgid "results"
 msgstr "resultat"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: NEEDS WORK
+msgid "Search Subtitles"
+msgstr "Sök undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: NEEDS WORK
+msgid "Download"
+msgstr "Ladda ner"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: NEEDS WORK
+msgid "Enter movie or show title..."
+msgstr "Ange film- eller programtitel..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: NEEDS WORK
+msgid "Season"
+msgstr "Säsong"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: NEEDS WORK
+msgid "Episode"
+msgstr "Avsnitt"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: NEEDS WORK
+msgid "Search for Subtitles"
+msgstr "Sök efter undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: NEEDS WORK
+msgid "Enter a title and click search"
+msgstr "Ange en titel och klicka på sök"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: NEEDS WORK
+msgid "No Results"
+msgstr "Inga resultat"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: NEEDS WORK
+msgid "Try a different search term"
+msgstr "Försök med en annan sökterm"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "Hittade {} undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Fel: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Nedladdad: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: NEEDS WORK
+msgid "Download failed"
+msgstr "Nedladdning misslyckades"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
@@ -1966,20 +2085,58 @@ msgstr "Förbereder..."
 msgid "Searching subtitles ({}/{})"
 msgstr "Söker efter undertexter ({}/{})"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
+#: NEEDS WORK
+msgid "No Subtitles Found"
+msgstr "Inga undertexter hittades"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
+#: NEEDS WORK
+msgid ""
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+msgstr "Kunde inte hitta några undertexter automatiskt. Försök med manuell sökning?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
+#: NEEDS WORK
+msgid "Partial Success"
+msgstr "Delvis framgång"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Downloaded {} subtitles.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+msgstr "Nedladdade {} undertexter."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Downloaded {} subtitles for {} of {} videos.\n"
+"Try manual search for missing?"
+msgstr ""
+"Nedladdade {} undertexter för {} av {} videor.  \n"
+"Försök med manuell sökning för att hitta saknade?"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: NEEDS WORK
 msgid "Download Complete"
 msgstr "Nedladdning klar"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Processed {} videos.\n"
-"Downloaded {} subtitles for {} videos."
-msgstr ""
-"Behandlade {} videor.  \n"
-"Nedladdade {} undertexter för {} videor."
+msgid "Downloaded {} subtitles for {} videos (all languages)."
+msgstr "Laddade ner {} undertexter för {} videor (alla språk)."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
+#: NEEDS WORK
+msgid "Manual Search"
+msgstr "Manuell sökning"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
 #: NEEDS WORK
@@ -2000,6 +2157,12 @@ msgid ""
 msgstr ""
 "Ett fel inträffade under batchnedladdning:  \n"
 "{}"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
+#: NEEDS WORK
+#, python-brace-format
+msgid "Subtitle downloaded: {}"
+msgstr "Undertext nedladdad: {}"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK

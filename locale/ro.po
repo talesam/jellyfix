@@ -1275,23 +1275,73 @@ msgstr "Cache-ul de imagini a fost șters"
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "Căutare subtitrări pentru: %s (Limbi: %s)"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Nivel 1 (hash) găsit: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: NEEDS WORK
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Limbaje lipsă: %s - încercând căutarea titlului TMDB"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Nivel 2 (TMDB) găsit: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: NEEDS WORK
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Încă lipsă: %s (încearcă căutarea manuală)"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
 #: NEEDS WORK
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "Nu au fost găsite subtitrări pentru: %s"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: NEEDS WORK
 #, python-format
-msgid "Found %d subtitles for: %s"
-msgstr "Am găsit %d subtitrări pentru: %s"
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Am găsit %d subtitrări după hash pentru: %s"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 127
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #: NEEDS WORK
 #, python-format
-msgid "Error downloading subtitles: %s"
-msgstr "Eroare la descărcarea subtitrărilor: %s"
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Am găsit %d subtitrări validate după titlu pentru: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: NEEDS WORK
+#, python-format
+msgid "Manual search: %s"
+msgstr "Căutare manuală: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: NEEDS WORK
+msgid "Unknown release"
+msgstr "Versiune necunoscută"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: NEEDS WORK
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Am găsit %d subtitrări în căutarea manuală"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: NEEDS WORK
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Subtitrare descărcată: %s"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: NEEDS WORK
@@ -1558,6 +1608,75 @@ msgstr "Nu au fost găsite rezultate"
 #: NEEDS WORK
 msgid "results"
 msgstr "rezultate"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: NEEDS WORK
+msgid "Search Subtitles"
+msgstr "Caută Subtitrări"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: NEEDS WORK
+msgid "Download"
+msgstr "Descarcă"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: NEEDS WORK
+msgid "Enter movie or show title..."
+msgstr "Introduceți titlul filmului sau al emisiunii..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: NEEDS WORK
+msgid "Season"
+msgstr "Sezon"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: NEEDS WORK
+msgid "Episode"
+msgstr "Episod"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: NEEDS WORK
+msgid "Search for Subtitles"
+msgstr "Caută subtitrări"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: NEEDS WORK
+msgid "Enter a title and click search"
+msgstr "Introduceți un titlu și faceți clic pe căutare"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: NEEDS WORK
+msgid "No Results"
+msgstr "Nu există rezultate"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: NEEDS WORK
+msgid "Try a different search term"
+msgstr "Încercați un termen de căutare diferit"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "Am găsit {} subtitrări"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Eroare: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: NEEDS WORK
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Descărcat: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: NEEDS WORK
+msgid "Download failed"
+msgstr "Descărcare eșuată"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: NEEDS WORK
@@ -1964,20 +2083,60 @@ msgstr "Se pregătește..."
 msgid "Searching subtitles ({}/{})"
 msgstr "Căutare subtitrări ({}/{})"
 # 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
+#: NEEDS WORK
+msgid "No Subtitles Found"
+msgstr "Nu s-au găsit subtitrări"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
+#: NEEDS WORK
+msgid ""
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+msgstr ""
+"Nu s-au găsit subtitrări automat.  \n"
+"Încercați căutarea manuală?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
+#: NEEDS WORK
+msgid "Partial Success"
+msgstr "Succes parțial"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Downloaded {} subtitles.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+msgstr "Subtitrări {} descărcate."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Downloaded {} subtitles for {} of {} videos.\n"
+"Try manual search for missing?"
+msgstr ""
+"Am descărcat {} subtitrări pentru {} din {} videoclipuri.  \n"
+"Încercați căutarea manuală pentru cele lipsă?"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: NEEDS WORK
 msgid "Download Complete"
 msgstr "Descărcare completă"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Processed {} videos.\n"
-"Downloaded {} subtitles for {} videos."
-msgstr ""
-"Procesate {} videoclipuri.  \n"
-"Descărcate {} subtitrări pentru {} videoclipuri."
+msgid "Downloaded {} subtitles for {} videos (all languages)."
+msgstr "Descărcate {} subtitrări pentru {} videoclipuri (toate limbile)."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
+#: NEEDS WORK
+msgid "Manual Search"
+msgstr "Căutare manuală"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
 #: NEEDS WORK
@@ -1998,6 +2157,12 @@ msgid ""
 msgstr ""
 "A apărut o eroare în timpul descărcării în lot:  \n"
 "{}"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
+#: NEEDS WORK
+#, python-brace-format
+msgid "Subtitle downloaded: {}"
+msgstr "Subtitrare descărcată: {}"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: NEEDS WORK

@@ -102,7 +102,10 @@ msgid   "Start download?"
 msgstr  ""
 
 #
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
 # File: usr/share/jellyfix/cli/interactive.py, line: 193
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 366
 msgid   "Downloading..."
 msgstr  ""
 
@@ -119,7 +122,10 @@ msgid   "Downloaded {} subtitles for {} videos"
 msgstr  ""
 
 #
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
 # File: usr/share/jellyfix/cli/interactive.py, line: 212
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 337
 msgid   "No subtitles found"
 msgstr  ""
 
@@ -1272,27 +1278,77 @@ msgid   "Image cache cleared"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 170
 #, python-format
 msgid   "Searching subtitles for: %s (Languages: %s)"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#, python-format
+msgid   "Level 1 (hash) found: %s"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#, python-format
+msgid   "Missing languages: %s - trying TMDB title search"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#, python-format
+msgid   "Level 2 (TMDB) found: %s"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#, python-format
+msgid   "Still missing: %s (try manual search)"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 214
 #, python-format
 msgid   "No subtitles found for: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 95
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #, python-format
-msgid   "Found %d subtitles for: %s"
+msgid   "Found %d subtitles by hash for: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 136
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #, python-format
-msgid   "Error downloading subtitles: %s"
+msgid   "Found %d validated subtitles by title for: %s"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#, python-format
+msgid   "Manual search: %s"
+msgstr  ""
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+msgid   "Unknown release"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#, python-format
+msgid   "Found %d subtitles in manual search"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#, python-format
+msgid   "Downloaded subtitle: %s"
 msgstr  ""
 
 #
@@ -1455,7 +1511,10 @@ msgid   "Search"
 msgstr  ""
 
 #
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 241
 msgid   "Movie"
 msgstr  ""
 
@@ -1489,7 +1548,10 @@ msgid   "Apply"
 msgstr  ""
 
 #
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 308
 msgid   "Searching..."
 msgstr  ""
 
@@ -1506,6 +1568,75 @@ msgstr  ""
 #
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
 msgid   "results"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+msgid   "Search Subtitles"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+msgid   "Download"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+msgid   "Enter movie or show title..."
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+msgid   "Season"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+msgid   "Episode"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+msgid   "Search for Subtitles"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+msgid   "Enter a title and click search"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+msgid   "No Results"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+msgid   "Try a different search term"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#, python-brace-format
+msgid   "Found {} subtitles"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#, python-brace-format
+msgid   "Error: {}"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#, python-brace-format
+msgid   "Downloaded: {}"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+msgid   "Download failed"
 msgstr  ""
 
 #
@@ -1676,8 +1807,8 @@ msgstr  ""
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 334
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 622
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 755
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 891
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 917
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1030
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1066
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 177
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 251
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 450
@@ -1894,38 +2025,80 @@ msgid   "Preparing..."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 864
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 965
 #, python-brace-format
 msgid   "Searching subtitles ({}/{})"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 885
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
+msgid   "No Subtitles Found"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
+msgid   "Could not find any subtitles automatically.\n"
+        "Try manual search?"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
+msgid   "Partial Success"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
+#, python-brace-format
+msgid   "Downloaded {} subtitles.\n"
+        "\n"
+        "Missing languages: {}\n"
+        "Try manual search?"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
+#, python-brace-format
+msgid   "Downloaded {} subtitles for {} of {} videos.\n"
+        "Try manual search for missing?"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1014
 msgid   "Download Complete"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 886
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #, python-brace-format
-msgid   "Processed {} videos.\n"
-        "Downloaded {} subtitles for {} videos."
+msgid   "Downloaded {} subtitles for {} videos (all languages)."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 890
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
+msgid   "Manual Search"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1029
 msgid   "Rescan Now"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1063
 msgid   "Batch Error"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 915
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1064
 #, python-brace-format
 msgid   "An error occurred during batch download:\n"
         "{}"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
+#, python-brace-format
+msgid   "Subtitle downloaded: {}"
 msgstr  ""
 
 #
