@@ -21,7 +21,7 @@ from ..core.renamer import Renamer
 from ..core.subtitle_manager import SubtitleManager
 from ..utils.logger import get_logger
 from ..utils.config_manager import ConfigManager
-from ..utils.config import get_config, APP_VERSION
+from ..utils.config import APP_VERSION
 from ..utils.i18n import _
 from .display import (
     console, show_banner, show_scan_results,
@@ -303,7 +303,7 @@ class InteractiveCLI:
         while True:
             console.clear()
             console.print("\n[bold cyan]" + _("📂 Directory Browser") + "[/bold cyan]\n")
-            console.print(f"[dim]" + _("Current:") + f"[/dim] [yellow]{current_dir}[/yellow]\n")
+            console.print("[dim]" + _("Current:") + f"[/dim] [yellow]{current_dir}[/yellow]\n")
 
             # List directories
             try:
@@ -393,7 +393,7 @@ class InteractiveCLI:
                     f"{'✓' if self.config.remove_language_variants else '✗'} " + _("Remove duplicate variants (lang2, lang3)"),
                     f"{'✓' if self.config.rename_no_lang else '✗'} " + _("Add language code to subtitles"),
                     f"{'✓' if self.config.remove_foreign_subs else '✗'} " + _("Remove foreign subtitles"),
-                    f"🌍 " + _("Kept languages:") + f" {kept_langs_str}",
+                    "🌍 " + _("Kept languages:") + f" {kept_langs_str}",
                     f"{'✓' if self.config.organize_folders else '✗'} " + _("Organize in folders (Season XX)"),
                     f"{'✓' if self.config.fetch_metadata else '✗'} " + _("Fetch metadata (TMDB/TVDB)"),
                     f"{'✓' if self.config.ask_on_multiple_results else '✗'} " + _("Ask when multiple TMDB results"),
@@ -402,7 +402,7 @@ class InteractiveCLI:
                     f"{'✓' if self.config.rename_nfo else '✗'} " + _("Rename NFO files to match video"),
                     f"{'✓' if self.config.remove_non_media else '✗'} " + _("Remove non-media files (keep only videos/subtitles)"),
                     f"{'✓' if self.config.fix_mirabel_files else '✗'} " + _("Fix Mirabel files (.pt-BR.hi → .por)"),
-                    f"📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
+                    "📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
                     "🔑 " + _("Configure APIs (TMDB/TVDB)"),
                     "← " + _("Back")
                 ],
@@ -522,7 +522,7 @@ class InteractiveCLI:
 
         if selected is not None:
             self.config.kept_languages = selected
-            console.print(f"\n[green]✓ " + _("Kept languages:") + f" {', '.join(selected)}[/green]")
+            console.print("\n[green]✓ " + _("Kept languages:") + f" {', '.join(selected)}[/green]")
 
             # Save to config file
             self.config_manager.set('kept_languages', selected)
@@ -542,7 +542,7 @@ class InteractiveCLI:
             tmdb_status = "[green]✓ " + _("Configured") + "[/green]" if tmdb_key else "[red]✗ " + _("Not configured") + "[/red]"
 
             console.print(f"[bold]TMDB API Key:[/bold] {tmdb_status}")
-            console.print(f"[bold]" + _("Config file:") + f"[/bold] [cyan]{self.config_manager.get_config_path()}[/cyan]\n")
+            console.print("[bold]" + _("Config file:") + f"[/bold] [cyan]{self.config_manager.get_config_path()}[/cyan]\n")
 
             choice = questionary.select(
                 _("What would you like to do?"),
@@ -571,7 +571,7 @@ class InteractiveCLI:
                 if api_key and api_key.strip():
                     self.config_manager.set_tmdb_api_key(api_key.strip())
                     self.config.tmdb_api_key = api_key.strip()
-                    console.print(f"\n[green]✓ " + _("TMDB key saved to:") + "[/green]")
+                    console.print("\n[green]✓ " + _("TMDB key saved to:") + "[/green]")
                     console.print(f"  [cyan]{self.config_manager.get_config_path()}[/cyan]")
                 else:
                     show_warning(_("Operation cancelled"))
@@ -584,7 +584,7 @@ class InteractiveCLI:
                     # Show only first and last 4 characters
                     masked_key = f"{key[:4]}...{key[-4:]}" if len(key) > 8 else "***"
                     console.print(f"\n[cyan]TMDB Key:[/cyan] {masked_key}")
-                    console.print(f"\n[dim]" + _("File:") + f"[/dim] [cyan]{self.config_manager.get_config_path()}[/cyan]")
+                    console.print("\n[dim]" + _("File:") + f"[/dim] [cyan]{self.config_manager.get_config_path()}[/cyan]")
                 else:
                     show_warning(_("No key configured"))
 
@@ -648,12 +648,12 @@ class InteractiveCLI:
                 total_results = data.get('total_results', 0)
 
                 show_success(_("Connection successful!"))
-                console.print(f"[green]• " + _("Valid and working API key") + "[/green]")
-                console.print(f"[green]• " + _("Test search returned %d results") % total_results + "[/green]")
+                console.print("[green]• " + _("Valid and working API key") + "[/green]")
+                console.print("[green]• " + _("Test search returned %d results") % total_results + "[/green]")
 
                 if total_results > 0:
                     first_movie = data['results'][0]
-                    console.print(f"\n[dim]" + _("Example:") + f" {first_movie.get('title')} ({first_movie.get('release_date', 'N/A')[:4]})[/dim]")
+                    console.print("\n[dim]" + _("Example:") + f" {first_movie.get('title')} ({first_movie.get('release_date', 'N/A')[:4]})[/dim]")
 
             elif response.status_code == 401:
                 show_error(_("Invalid API key!"))

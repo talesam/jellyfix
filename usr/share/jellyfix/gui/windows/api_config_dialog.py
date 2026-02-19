@@ -194,7 +194,7 @@ class APIConfigDialog(Adw.Window):
                 api_key = entry.get_text().strip()
                 if api_key:
                     self.config_manager.set_tmdb_api_key(api_key)
-                    self.logger.success(f"TMDB key saved")
+                    self.logger.success("TMDB key saved")
 
                     # IMPORTANT: Update the config singleton in memory
                     from ...utils.config import get_config

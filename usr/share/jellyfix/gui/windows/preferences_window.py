@@ -18,7 +18,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw
+from gi.repository import Adw
 
 from ...utils.logger import get_logger
 from ...utils.i18n import _

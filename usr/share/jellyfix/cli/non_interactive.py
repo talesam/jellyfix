@@ -16,7 +16,6 @@ Usage:
 """
 
 from pathlib import Path
-from typing import Optional
 
 from ..core.scanner import LibraryScanner
 from ..core.renamer import Renamer
@@ -110,7 +109,6 @@ class NonInteractiveCLI:
     
     def _show_banner(self):
         """Show application banner"""
-        from ..utils.config import APP_VERSION
         
         banner = f"""
 {'='*60}

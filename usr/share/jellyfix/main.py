@@ -21,9 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from jellyfix.utils.config import Config, set_config, APP_VERSION
 from jellyfix.cli import run_cli
 from rich.console import Console
-from rich.panel import Panel
 from rich.text import Text
-from rich import box
 
 
 def show_help():

@@ -21,8 +21,8 @@ gi.require_version('Adw', '1')
 # Add parent directory to path for relative imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from jellyfix.utils.config import Config, set_config, APP_VERSION, get_config
-from jellyfix.utils.logger import Logger, set_logger, get_logger
+from jellyfix.utils.config import Config, set_config, APP_VERSION
+from jellyfix.utils.logger import Logger, set_logger
 from jellyfix.gui import JellyfixApplication
 
 

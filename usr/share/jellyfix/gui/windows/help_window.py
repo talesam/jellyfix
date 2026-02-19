@@ -60,7 +60,7 @@ class HelpWindow(Adw.Window):
 
         # Title
         title_label = Gtk.Label()
-        title_label.set_markup(f'<span size="xx-large" weight="bold">🎬 Jellyfix</span>')
+        title_label.set_markup('<span size="xx-large" weight="bold">🎬 Jellyfix</span>')
         title_label.set_halign(Gtk.Align.CENTER)
         content_box.append(title_label)
 

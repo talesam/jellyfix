@@ -1,12 +1,12 @@
 /* Jellyfix GUI Styles */
 
-/* Ensure PreferencesGroup doesn't add extra spacing */
+/* PreferencesGroup default spacing */
 preferencesgroup {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-/* Status pages should center content */
+/* Status pages should centre content */
 statuspage {
     min-height: 200px;
 }
@@ -21,14 +21,14 @@ statuspage {
     font-size: 0.9em;
 }
 
-/* Pill button style */
+/* Pill button */
 .pill {
     border-radius: 999px;
     padding-left: 24px;
     padding-right: 24px;
 }
 
-/* Drop zone active state (during drag) */
+/* Drop zone hover/drag state */
 .drop-active {
     border-color: @accent_bg_color;
     background-color: alpha(@accent_bg_color, 0.1);
@@ -59,12 +59,21 @@ statuspage {
     font-size: 1em;
 }
 
-/* Subtitle result row styling */
+/* Subtitle result row */
 .subtitle-result-row:selected {
     background-color: alpha(@accent_bg_color, 0.15);
 }
 
-/* Caption text styling */
+/* Caption text */
 .caption {
     font-size: 0.85em;
+}
+
+/* Status icons in sidebar */
+.success {
+    color: @success_color;
+}
+
+.warning {
+    color: @warning_color;
 }

@@ -71,9 +71,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
     def _build_ui(self):
         """Build user interface"""
-        # Main split view: work area sidebar (left) | preview content (right)
+        # Main split view: operations sidebar (left) | preview content (right)
         self.split_view = Adw.OverlaySplitView()
-        self.split_view.set_min_sidebar_width(380)
+        self.split_view.set_min_sidebar_width(360)
         self.split_view.set_max_sidebar_width(520)
         self.split_view.set_sidebar_width_fraction(0.40)
         self.split_view.set_sidebar(self._build_sidebar())
@@ -85,7 +85,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.set_content(self.toast_overlay)
 
     def _build_sidebar(self):
-        """Build the work area sidebar: Dashboard + Operations list (left)"""
+        """Build the work area sidebar: Dashboard + Operations list (left)."""
         toolbar = Adw.ToolbarView()
 
         header = Adw.HeaderBar()
@@ -109,14 +109,14 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
         self.dashboard = DashboardView(
             on_scan_clicked=self.on_scan_library,
-            on_process_clicked=self.on_process_files
+            on_process_clicked=self.on_process_files,
         )
         self.content_stack.add_named(self.dashboard, "welcome")
 
         self.operations_list = OperationsListView(
             on_operation_selected=self.on_operation_selected,
             on_apply_clicked=self.on_apply_operations,
-            on_download_subs_clicked=self.on_download_batch_subtitles
+            on_download_subs_clicked=self.on_download_batch_subtitles,
         )
         self.content_stack.add_named(self.operations_list, "operations")
 
@@ -125,11 +125,13 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         return toolbar
 
     def _build_content(self):
-        """Build the preview content pane (right)"""
+        """Build the preview content pane (right)."""
         toolbar = Adw.ToolbarView()
 
         header = Adw.HeaderBar()
         header.set_show_start_title_buttons(False)
+        # Hide the automatic window title on the right pane
+        header.set_title_widget(Gtk.Box())
 
         menu_button = Gtk.MenuButton()
         menu_button.set_icon_name("open-menu-symbolic")
@@ -149,6 +151,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
         return toolbar
     
+    # ── Menu ────────────────────────────────────────────────────────────────
+
     def _create_menu(self):
         """
         Create application menu.
@@ -514,12 +518,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         def on_response(dialog, response):
             if response == "apply":
                 self.logger.info("Executing operations")
-                # Show progress toast
-                toast = Adw.Toast(title=_("Applying operations..."))
-                toast.set_timeout(0)
-                self.toast_overlay.add_toast(toast)
-                self.current_apply_toast = toast
-
                 self.operations_handler.execute_operations(
                     complete_callback=self.on_execution_complete
                 )
@@ -1066,7 +1064,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             return
         
         # Extract info from destination
-        dest_str = str(operation.destination)
         dest_name = operation.destination.stem
         
         # Remove quality tags

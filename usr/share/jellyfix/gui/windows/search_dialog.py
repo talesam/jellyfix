@@ -13,8 +13,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, GdkPixbuf, GLib
-from pathlib import Path
+from gi.repository import Gtk, Adw, GLib
 from typing import Optional, Callable
 import threading
 import urllib.request

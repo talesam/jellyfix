@@ -1,20 +1,19 @@
 """Sistema de renomeação de arquivos para padrão Jellyfin"""
 
 from pathlib import Path
-from typing import Optional, List, Dict, Tuple
+from typing import Optional, List, Dict
 from dataclasses import dataclass
 import re
 import shutil
 
 from ..utils.helpers import (
     clean_filename, normalize_spaces, extract_year,
-    extract_season_episode, format_season_folder,
-    is_video_file, is_subtitle_file, parse_subtitle_filename,
-    calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
+    format_season_folder,
+    is_video_file, is_subtitle_file, calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
 )
 from ..utils.config import get_config
 from ..utils.logger import get_logger
-from .detector import detect_media_type, MediaType
+from .detector import detect_media_type
 from .metadata import MetadataFetcher
 
 
@@ -239,7 +238,7 @@ class Renamer:
                         source=img_path,
                         destination=new_img_path,
                         operation_type='move',
-                        reason=f"Acompanhar vídeo"
+                        reason="Acompanhar vídeo"
                     ))
 
         return self.operations
@@ -646,7 +645,7 @@ class Renamer:
         Returns:
             Lista de legendas que foram processadas
         """
-        from ..utils.helpers import normalize_spaces, has_language_code, is_portuguese_subtitle
+        from ..utils.helpers import normalize_spaces, is_portuguese_subtitle
         import re
 
         processed_subtitles = []
@@ -1169,7 +1168,7 @@ class Renamer:
 
                 # Verifica conflito
                 if new_tvshow_path.exists() and new_tvshow_path != tvshow_nfo:
-                    self.logger.warning(f"tvshow.nfo já existe no destino, pulando")
+                    self.logger.warning("tvshow.nfo já existe no destino, pulando")
                     continue
 
                 self.operations.append(RenameOperation(

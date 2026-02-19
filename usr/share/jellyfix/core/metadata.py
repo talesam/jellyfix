@@ -1,7 +1,6 @@
 """Busca de metadados via TMDB e TVDB"""
 
-from pathlib import Path
-from typing import Optional, Dict, List
+from typing import Optional, List
 from dataclasses import dataclass
 import re
 
@@ -584,7 +583,7 @@ class MetadataFetcher:
             console = Console()
             search_info = f"{search_title}" + (f" ({year})" if year else "")
             console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_info}[/cyan]")
-            console.print(f"[dim]💡 Sua escolha será aplicada a todos os arquivos com este título[/dim]\n")
+            console.print("[dim]💡 Sua escolha será aplicada a todos os arquivos com este título[/dim]\n")
 
             # Prepara opções para seleção
             choices = []
@@ -669,7 +668,7 @@ class MetadataFetcher:
             console = Console()
             search_info = f"{search_title}" + (f" ({year})" if year else "")
             console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_info}[/cyan]")
-            console.print(f"[dim]💡 Sua escolha será aplicada a todos os arquivos com este título[/dim]\n")
+            console.print("[dim]💡 Sua escolha será aplicada a todos os arquivos com este título[/dim]\n")
 
             # Prepara opções para seleção
             choices = []

@@ -17,7 +17,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, Gdk, Gio, GLib
+from gi.repository import Gtk, Adw, Gdk
 from pathlib import Path
 from datetime import datetime
 from ...utils.i18n import _

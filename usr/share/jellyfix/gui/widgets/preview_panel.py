@@ -18,7 +18,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, GdkPixbuf, GLib, Pango
+from gi.repository import Gtk, Adw, Pango
 from pathlib import Path
 
 from ...utils.i18n import _

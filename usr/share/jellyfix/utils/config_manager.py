@@ -1,8 +1,13 @@
 """Gerenciador de configuração persistente em JSON"""
 
 import json
+import logging
+import os
+import shutil
 from pathlib import Path
 from typing import Optional, Dict, Any
+
+_log = logging.getLogger(__name__)
 
 
 class ConfigManager:
@@ -30,7 +35,11 @@ class ConfigManager:
         try:
             with open(self.config_file, 'r', encoding='utf-8') as f:
                 return json.load(f)
-        except Exception:
+        except json.JSONDecodeError as e:
+            _log.warning("Config file corrupted (%s): %s — using defaults", self.config_file, e)
+            return {}
+        except OSError as e:
+            _log.warning("Config file unreadable (%s): %s — using defaults", self.config_file, e)
             return {}
 
     def save(self, config: Dict[str, Any]):
@@ -40,11 +49,18 @@ class ConfigManager:
         Args:
             config: Dicionário com configurações
         """
+        tmp_file = self.config_file.with_suffix('.tmp')
         try:
-            with open(self.config_file, 'w', encoding='utf-8') as f:
+            # Backup existing config before overwriting
+            if self.config_file.exists():
+                shutil.copy2(self.config_file, self.config_file.with_suffix('.bak'))
+            # Write to temp file first, then atomically replace
+            with open(tmp_file, 'w', encoding='utf-8') as f:
                 json.dump(config, f, indent=4, ensure_ascii=False)
-        except Exception as e:
-            raise Exception(f"Erro ao salvar configuração: {e}")
+            os.replace(tmp_file, self.config_file)
+        except OSError as e:
+            tmp_file.unlink(missing_ok=True)
+            raise OSError(f"Failed to save config: {e}") from e
 
     def get(self, key: str, default: Any = None) -> Any:
         """

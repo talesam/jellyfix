@@ -1,14 +1,14 @@
 """Scanner de arquivos e análise de bibliotecas"""
 
 from pathlib import Path
-from typing import List, Dict
+from typing import List
 from dataclasses import dataclass, field
 from ..utils.helpers import (
     is_video_file, is_subtitle_file, is_image_file,
     has_language_code, is_portuguese_subtitle
 )
 from ..utils.config import get_config
-from .detector import detect_media_type, MediaType
+from .detector import detect_media_type
 
 
 @dataclass
