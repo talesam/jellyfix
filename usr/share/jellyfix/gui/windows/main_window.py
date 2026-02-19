@@ -14,29 +14,31 @@ Layout:
 """
 
 import gi
-gi.require_version('Gtk', '4.0')
-gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, GLib, Pango
-from pathlib import Path
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
+
 import os
+from pathlib import Path
 
-from ...utils.logger import get_logger
-from ...utils.i18n import _
-from ..widgets.dashboard import DashboardView
-from ..widgets.preview_panel import PreviewPanel
-from ..widgets.operations_list import OperationsListView
-from ..handlers import OperationsHandler
+from gi.repository import Adw, GLib, Gtk, Pango
+
 from ...core.subtitle_manager import SubtitleManager
+from ...utils.i18n import _
+from ...utils.logger import get_logger
+from ..handlers import OperationsHandler
+from ..widgets.dashboard import DashboardView
+from ..widgets.operations_list import OperationsListView
+from ..widgets.preview_panel import PreviewPanel
 
 
 class JellyfixMainWindow(Adw.ApplicationWindow):
     """Main application window"""
-    
+
     def __init__(self, application):
         """
         Initialize main window.
-        
+
         Args:
             application: JellyfixApplication instance
         """
@@ -61,120 +63,91 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
     def _check_clear_recent_on_start(self):
         """Clear recent libraries on startup if configured"""
         from ...utils.config_manager import ConfigManager
+
         config_manager = ConfigManager()
         if config_manager.get_clear_recent_on_start():
             config_manager.clear_recent_libraries()
             self.logger.debug("Cleared recent libraries on startup")
-    
+
     def _build_ui(self):
         """Build user interface"""
-        # Toast overlay for notifications
+        # Main split view: work area sidebar (left) | preview content (right)
+        self.split_view = Adw.OverlaySplitView()
+        self.split_view.set_min_sidebar_width(380)
+        self.split_view.set_max_sidebar_width(520)
+        self.split_view.set_sidebar_width_fraction(0.40)
+        self.split_view.set_sidebar(self._build_sidebar())
+        self.split_view.set_content(self._build_content())
+
+        # Toast overlay as outermost wrapper
         self.toast_overlay = Adw.ToastOverlay()
+        self.toast_overlay.set_child(self.split_view)
+        self.set_content(self.toast_overlay)
 
-        # Main container
-        main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+    def _build_sidebar(self):
+        """Build the work area sidebar: Dashboard + Operations list (left)"""
+        toolbar = Adw.ToolbarView()
 
-        # Header bar
         header = Adw.HeaderBar()
-        
-        # Menu button
-        menu_button = Gtk.MenuButton()
-        menu_button.set_icon_name("open-menu-symbolic")
-        menu_button.set_menu_model(self._create_menu())
-        header.pack_end(menu_button)
-        
-        # Add header to main box
-        main_box.append(header)
-        
-        # Create split view (list + preview)
-        self.split_view = Adw.NavigationSplitView()
-        self.split_view.set_show_content(True)
-        self.split_view.set_min_sidebar_width(400)
-        self.split_view.set_max_sidebar_width(600)
-        self.split_view.set_sidebar_width_fraction(0.4)
-        self.split_view.set_collapsed(False)
-        self.split_view.set_vexpand(True)
-        self.split_view.set_hexpand(True)
+        header.set_show_end_title_buttons(False)
 
-        # Left sidebar container
-        sidebar_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        sidebar_box.set_vexpand(True)
+        app_icon = Gtk.Image.new_from_icon_name("jellyfix")
+        app_icon.set_pixel_size(20)
+        header.pack_start(app_icon)
 
-        # ViewStack switcher
-        stack_switcher = Adw.ViewSwitcher()
-        stack_switcher.set_policy(Adw.ViewSwitcherPolicy.WIDE)
+        title_label = Gtk.Label(label=_("Jellyfix"))
+        title_label.add_css_class("heading")
+        header.set_title_widget(title_label)
 
-        # ViewStack for Dashboard/Operations
-        self.sidebar_stack = Adw.ViewStack()
-        self.sidebar_stack.set_vexpand(True)
-        self.sidebar_stack.set_hexpand(True)
+        toolbar.add_top_bar(header)
 
-        # Connect switcher to stack
-        stack_switcher.set_stack(self.sidebar_stack)
+        # Stack: welcome/dashboard page and operations list page
+        self.content_stack = Gtk.Stack()
+        self.content_stack.set_transition_type(Gtk.StackTransitionType.CROSSFADE)
+        self.content_stack.set_vexpand(True)
+        self.content_stack.set_hexpand(True)
 
-        # Dashboard view
         self.dashboard = DashboardView(
             on_scan_clicked=self.on_scan_library,
             on_process_clicked=self.on_process_files
         )
-        dashboard_page = self.sidebar_stack.add_titled(
-            self.dashboard,
-            "dashboard",
-            _("Dashboard")
-        )
-        dashboard_page.set_icon_name("view-grid-symbolic")
+        self.content_stack.add_named(self.dashboard, "welcome")
 
-        # Operations list view
         self.operations_list = OperationsListView(
             on_operation_selected=self.on_operation_selected,
             on_apply_clicked=self.on_apply_operations,
             on_download_subs_clicked=self.on_download_batch_subtitles
         )
-        operations_page = self.sidebar_stack.add_titled(
-            self.operations_list,
-            "operations",
-            _("Operations")
-        )
-        operations_page.set_icon_name("document-edit-symbolic")
+        self.content_stack.add_named(self.operations_list, "operations")
 
-        # Start with dashboard
-        self.sidebar_stack.set_visible_child_name("dashboard")
+        toolbar.set_content(self.content_stack)
 
-        # Add switcher and stack to sidebar
-        sidebar_box.append(stack_switcher)
-        sidebar_box.append(self.sidebar_stack)
+        return toolbar
 
-        sidebar_page = Adw.NavigationPage(
-            title=_("Library"),
-            child=sidebar_box
-        )
-        self.split_view.set_sidebar(sidebar_page)
-        
-        # Right panel: Preview
+    def _build_content(self):
+        """Build the preview content pane (right)"""
+        toolbar = Adw.ToolbarView()
+
+        header = Adw.HeaderBar()
+        header.set_show_start_title_buttons(False)
+
+        menu_button = Gtk.MenuButton()
+        menu_button.set_icon_name("open-menu-symbolic")
+        menu_button.set_menu_model(self._create_menu())
+        header.pack_end(menu_button)
+
+        toolbar.add_top_bar(header)
+
+        # Preview panel fills the content area
         self.preview_panel = PreviewPanel()
         self.preview_panel.set_vexpand(True)
         self.preview_panel.set_hexpand(True)
-        
-        # Connect callback for when user manually changes metadata via SearchDialog
         self.preview_panel.set_metadata_callback(self._on_metadata_changed)
-        
-        # Connect callback for subtitle download
         self.preview_panel.set_download_subs_callback(self.on_download_subtitles)
 
-        content_page = Adw.NavigationPage(
-            title=_("Preview"),
-            child=self.preview_panel
-        )
-        self.split_view.set_content(content_page)
-        
-        # Add split view to main box
-        main_box.append(self.split_view)
+        toolbar.set_content(self.preview_panel)
 
-        # Add main box to toast overlay
-        self.toast_overlay.set_child(main_box)
-
-        # Set content
-        self.set_content(self.toast_overlay)
+        return toolbar
     
     def _create_menu(self):
         """
@@ -248,7 +221,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         Args:
             directory: Path to directory to scan
         """
-        from pathlib import Path
         from ...utils.config_manager import ConfigManager
 
         # Ensure directory is a Path object
@@ -287,7 +259,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         Args:
             paths: List of file/folder paths to process
         """
-        from pathlib import Path
 
         if not paths:
             self.logger.warning("load_paths called with empty paths")
@@ -365,7 +336,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         has_files = hasattr(self, 'selected_files') and self.selected_files
         
         if has_folders or has_files:
-            self.logger.info(f"Filtering scan results...")
+            self.logger.info("Filtering scan results...")
             files = self._filter_scan_result(files)
             
             # Clear filters
@@ -415,7 +386,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.operations_list.set_operations(operations)
 
         # Switch to operations view
-        self.sidebar_stack.set_visible_child_name("operations")
+        self.content_stack.set_visible_child_name("operations")
 
     def _filter_scan_result(self, scan_result):
         """
@@ -429,7 +400,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             Filtered ScanResult
         """
         from ...core.scanner import ScanResult
-        from pathlib import Path
         
         selected_folders = getattr(self, 'selected_folders', []) or []
         selected_files = getattr(self, 'selected_files', []) or []
@@ -645,9 +615,10 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         Args:
             operation: RenameOperation instance
         """
-        from ...core.detector import detect_media_type, MediaType
-        from ...utils.helpers import extract_year, clean_filename
         import re
+
+        from ...core.detector import MediaType, detect_media_type
+        from ...utils.helpers import clean_filename, extract_year
 
         # Check if metadata fetcher is available
         if not self.operations_handler.metadata_fetcher:
@@ -814,10 +785,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         def batch_task():
             """Background batch download task"""
             try:
-                from ...core.detector import detect_media_type, MediaType
-                from ...core.subtitle_manager import SubtitleManager
-                from ...utils.config import get_config
                 import re
+
+                from ...utils.config import get_config
                 
                 config = get_config()
                 requested_langs = set(config.kept_languages) if config.kept_languages else {'por', 'eng'}
@@ -1083,8 +1053,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         Args:
             operation: Optional RenameOperation to search for. If None, uses current selection.
         """
-        from .subtitle_search_dialog import SubtitleSearchDialog
         import re
+
+        from .subtitle_search_dialog import SubtitleSearchDialog
         
         # Get operation from current selection if not provided
         if operation is None:
@@ -1236,9 +1207,10 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             operation: RenameOperation to update
             metadata: New Metadata selected by user
         """
-        from ...utils.helpers import normalize_spaces, is_subtitle_file
-        from ...core.renamer import Renamer
         import re
+
+        from ...core.renamer import Renamer
+        from ...utils.helpers import is_subtitle_file, normalize_spaces
 
         self.logger.info(f"Re-planning operations with new metadata: {metadata.title} ({metadata.year})")
 

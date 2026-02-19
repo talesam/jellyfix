@@ -21,41 +21,17 @@ statuspage {
     font-size: 0.9em;
 }
 
-/* Remove separator line from navigation split view */
-navigationsplitview>separator {
-    background: transparent;
-    min-width: 0;
-    border: none;
-}
-
-/* Clean navigation pages - no borders */
-navigationpage {
-    border: none;
-}
-
-/* Ensure view switcher is compact */
-viewswitcher {
-    margin: 6px;
-}
-
-/* Drop zone styling */
-.drop-zone {
-    border: 2px dashed alpha(@borders, 0.5);
-    border-radius: 12px;
-    transition: all 200ms ease;
+/* Pill button style */
+.pill {
+    border-radius: 999px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 /* Drop zone active state (during drag) */
 .drop-active {
     border-color: @accent_bg_color;
     background-color: alpha(@accent_bg_color, 0.1);
-}
-
-/* Pill button style */
-.pill {
-    border-radius: 999px;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 /* Subtitle search result badges */
