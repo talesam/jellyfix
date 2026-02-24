@@ -161,7 +161,7 @@ class LibraryScanner:
 
     def _categorize_image(self, file_path: Path, result: ScanResult):
         """Categoriza um arquivo de imagem"""
-        filename = file_path.name.lower()
+        file_path.name.lower()
 
         # Imagens reconhecidas pelo Jellyfin
         jellyfin_images = {

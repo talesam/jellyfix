@@ -1,5 +1,6 @@
 """Busca de metadados via TMDB e TVDB"""
 
+import time
 from typing import Optional, List
 from dataclasses import dataclass
 import re
@@ -36,6 +37,19 @@ class MetadataFetcher:
         # Cache de escolhas interativas por (título, ano)
         # Evita perguntar múltiplas vezes para arquivos do mesmo filme
         self._interactive_choices_cache = {}
+        # Cache de buscas sem resultado para evitar re-pesquisa
+        self._failed_searches: set = set()
+        # Rate limiting: TMDB free tier = 40 req / 10 sec
+        self._last_request_time: float = 0.0
+        self._min_request_interval: float = 0.25  # 4 req/sec max
+
+    def _rate_limit(self) -> None:
+        """Enforce minimum interval between TMDB API requests."""
+        now = time.monotonic()
+        elapsed = now - self._last_request_time
+        if elapsed < self._min_request_interval:
+            time.sleep(self._min_request_interval - elapsed)
+        self._last_request_time = time.monotonic()
 
     def _init_tmdb(self):
         """Inicializa cliente TMDB"""
@@ -84,6 +98,7 @@ class MetadataFetcher:
 
         try:
             # Busca diretamente pelo ID
+            self._rate_limit()
             movie = tmdb['movie'].details(tmdb_id)
 
             if not movie:
@@ -138,6 +153,7 @@ class MetadataFetcher:
 
         try:
             # Busca diretamente pelo ID
+            self._rate_limit()
             show = tmdb['tv'].details(tmdb_id)
 
             if not show:
@@ -200,6 +216,7 @@ class MetadataFetcher:
 
             try:
                 # Inclui o ano na busca se fornecido (melhora muito a precisão)
+                self._rate_limit()
                 if year:
                     results = search_api.movies(current_title, year=year)
                     if i == len(words):
@@ -243,6 +260,7 @@ class MetadataFetcher:
                 self.logger.debug(f"Tentando busca alternativa: '{current_title}'")
 
             try:
+                self._rate_limit()
                 results = tv_api.search(current_title)
 
                 # Se encontrou resultados, retorna
@@ -292,12 +310,18 @@ class MetadataFetcher:
                 self.logger.debug(f"Usando escolha em cache para '{clean_title}' ({year})")
                 return cached_choice
 
+            # Skip re-querying titles that already returned no results
+            if cache_key in self._failed_searches:
+                self.logger.debug(f"Busca já falhou anteriormente para '{clean_title}' ({year}), pulando")
+                return None
+
             # Busca incremental: tenta com título completo, depois vai removendo palavras do final
             results = self._search_movie_with_fallback(tmdb['search'], clean_title, year)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:
                 self.logger.debug(f"Nenhum resultado para: {clean_title}")
+                self._failed_searches.add(cache_key)
                 return None
 
             # Se ano foi fornecido, filtra resultados
@@ -401,12 +425,18 @@ class MetadataFetcher:
                 self.logger.debug(f"Usando escolha em cache para '{clean_title}' ({year})")
                 return cached_choice
 
+            # Skip re-querying titles that already returned no results
+            if cache_key in self._failed_searches:
+                self.logger.debug(f"Busca já falhou anteriormente para série '{clean_title}' ({year}), pulando")
+                return None
+
             # Busca incremental: tenta com título completo, depois vai removendo palavras do final
             results = self._search_tvshow_with_fallback(tmdb['tv'], clean_title)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:
                 self.logger.debug(f"Nenhum resultado para série: {clean_title}")
+                self._failed_searches.add(cache_key)
                 return None
 
             # Se modo interativo e múltiplos resultados, pede escolha
@@ -578,7 +608,6 @@ class MetadataFetcher:
         try:
             import questionary
             from rich.console import Console
-            from rich.table import Table
 
             console = Console()
             search_info = f"{search_title}" + (f" ({year})" if year else "")

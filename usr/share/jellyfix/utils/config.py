@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.7.5"
+APP_VERSION = "2.7.6"
 
 
 @dataclass
@@ -98,7 +98,7 @@ class Config:
     })
 
     def __post_init__(self):
-        """Converte strings para Path objects"""
+        """Converte strings para Path objects (sem I/O de disco)"""
         if isinstance(self.work_dir, str):
             self.work_dir = Path(self.work_dir)
         if self.backup_dir and isinstance(self.backup_dir, str):
@@ -106,14 +106,16 @@ class Config:
         if self.log_file and isinstance(self.log_file, str):
             self.log_file = Path(self.log_file)
 
-        # Carrega configurações do arquivo persistente
+    def load_persistent_settings(self):
+        """Carrega configurações do arquivo persistente e variáveis de ambiente.
+
+        Chamado separadamente de __post_init__ para evitar I/O no construtor.
+        Prioridade: valor já fornecido > arquivo JSON > variável de ambiente.
+        """
         from .config_manager import ConfigManager
         config_mgr = ConfigManager()
 
-        # API keys com prioridade:
-        # 1. Valor já fornecido
-        # 2. Arquivo de configuração JSON
-        # 3. Variável de ambiente
+        # API keys
         if not self.tmdb_api_key:
             self.tmdb_api_key = config_mgr.get_tmdb_api_key() or os.getenv("TMDB_API_KEY", "")
 
@@ -149,6 +151,7 @@ def get_config() -> Config:
     global _config
     if _config is None:
         _config = Config()
+        _config.load_persistent_settings()
     return _config
 
 

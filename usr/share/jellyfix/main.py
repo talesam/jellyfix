@@ -266,6 +266,7 @@ def main():
         add_quality_tag=not args.no_quality_tag if hasattr(args, 'no_quality_tag') else True,
         use_ffprobe=args.use_ffprobe if hasattr(args, 'use_ffprobe') else False
     )
+    config.load_persistent_settings()
 
     # Set global config
     set_config(config)

@@ -11,12 +11,23 @@ Modern GTK4+libadwaita interface for managing your Jellyfin media library.
 """
 
 import sys
-import gi
+import subprocess
 from pathlib import Path
 
-# Check GTK version requirements
-gi.require_version('Gtk', '4.0')
-gi.require_version('Adw', '1')
+try:
+    import gi
+
+    gi.require_version("Gtk", "4.0")
+    gi.require_version("Adw", "1")
+except (ImportError, ValueError) as e:
+    msg = (
+        "Jellyfix GUI requires GTK4 and libadwaita.\n"
+        f"Error: {e}\n\n"
+        "Install with: sudo pacman -S gtk4 libadwaita python-gobject"
+    )
+    print(msg, file=sys.stderr)
+    subprocess.run(["notify-send", "--icon=dialog-error", "--app-name=Jellyfix", "Jellyfix", msg], check=False)
+    sys.exit(1)
 
 # Add parent directory to path for relative imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -39,8 +50,9 @@ def main():
         log_file=None,
         auto_confirm=False
     )
-    # Note: Other settings (rename_por2, remove_non_media, etc.) will be loaded
-    # from ~/.jellyfix/config.json automatically by Config.__post_init__
+    config.load_persistent_settings()
+    # Note: Other settings (rename_por2, remove_non_media, etc.) are loaded
+    # from ~/.jellyfix/config.json by load_persistent_settings()
 
     # Set global config
     set_config(config)

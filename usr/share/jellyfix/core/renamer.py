@@ -66,7 +66,9 @@ class Renamer:
 
         if scan_result:
             # Usa arquivos do ScanResult filtrado
-            print(f"DEBUG: Using filtered ScanResult - videos: {len(scan_result.video_files)}, subtitles: {len(scan_result.subtitle_files)}")
+            self.logger.debug(
+                f"Using filtered ScanResult - videos: {len(scan_result.video_files)}, subtitles: {len(scan_result.subtitle_files)}"
+            )
             video_files = scan_result.video_files
             subtitle_files = scan_result.subtitle_files
         else:
@@ -115,7 +117,7 @@ class Renamer:
 
         return self.operations
 
-    def replan_for_video_with_metadata(self, video_path: Path, metadata, all_operations: List[RenameOperation]) -> List[RenameOperation]:
+    def replan_for_video_with_metadata(self, video_path: Path, metadata) -> List[RenameOperation]:
         """
         Re-planeja operações para um vídeo específico usando novo metadata fornecido manualmente.
         Retorna lista de novas operações que devem substituir as antigas.
@@ -123,7 +125,6 @@ class Renamer:
         Args:
             video_path: Caminho do arquivo de vídeo original
             metadata: Novo metadata selecionado manualmente (objeto Metadata)
-            all_operations: Lista completa de operações atuais
 
         Returns:
             Lista de novas operações (vídeo + legendas + extras) que substituirão as antigas
@@ -1193,6 +1194,9 @@ class Renamer:
         # Rastreia pastas de origem para limpeza posterior
         source_folders = set()
 
+        # Rollback log: stores completed operations for reversal on failure
+        completed_ops: List[RenameOperation] = []
+
         for operation in self.operations:
             try:
                 # Verifica se vai sobrescrever
@@ -1215,6 +1219,7 @@ class Renamer:
                         operation.source.unlink()
                         self.logger.action(f"Removido: {operation.source.name}")
                         stats['deleted'] += 1
+                        completed_ops.append(operation)
 
                     elif operation.operation_type in ('move', 'move_rename'):
                         # Rastreia pasta de origem para limpeza posterior
@@ -1235,6 +1240,7 @@ class Renamer:
                                 f"Movido: {operation.source} → {operation.destination}"
                             )
                             stats['moved'] += 1
+                        completed_ops.append(operation)
 
                     elif operation.operation_type == 'rename':
                         operation.source.rename(operation.destination)
@@ -1242,10 +1248,21 @@ class Renamer:
                             f"Renomeado: {operation.source.name} → {operation.destination.name}"
                         )
                         stats['renamed'] += 1
+                        completed_ops.append(operation)
 
             except Exception as e:
                 self.logger.error(f"Erro ao processar {operation.source}: {e}")
-                stats['failed'] += 1
+                stats["failed"] += 1
+
+                # Rollback completed operations on failure
+                if completed_ops and not dry_run:
+                    self.logger.warning(f"Falha detectada, revertendo {len(completed_ops)} operações concluídas...")
+                    self._rollback(completed_ops)
+                    stats["failed"] += len(completed_ops)
+                    stats["renamed"] = 0
+                    stats["moved"] = 0
+                    stats["deleted"] = 0
+                    break
 
         # Remove pastas vazias após mover arquivos
         if not dry_run and source_folders:
@@ -1274,6 +1291,25 @@ class Renamer:
                     self.logger.debug(f"Não foi possível remover pasta {folder}: {e}")
 
         return stats
+
+    def _rollback(self, completed_ops: List[RenameOperation]):
+        """Reverte operações concluídas em ordem inversa.
+
+        Move/rename operations are reversed (destination → source).
+        Delete operations cannot be reversed and are logged as warnings.
+        """
+        for op in reversed(completed_ops):
+            try:
+                if op.operation_type == "delete":
+                    self.logger.warning(f"Não é possível reverter exclusão: {op.source}")
+                    continue
+
+                if op.destination.exists():
+                    op.source.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.move(str(op.destination), str(op.source))
+                    self.logger.action(f"Revertido: {op.destination} → {op.source}")
+            except Exception as e:
+                self.logger.error(f"Falha ao reverter {op.destination}: {e}")
 
     def _plan_mirabel_fixes(self, subtitle_files: List[Path]) -> List[Path]:
         """

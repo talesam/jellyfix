@@ -432,15 +432,15 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 if selected_files:
                     if file_resolved in resolved_files:
                         return True
-                        
-                    # Also include subtitles that match the selected video file stem?
-                    # This is usually desired behavior when drag-dropping a movie file
-                    # If we drag "movie.mkv", we probably want "movie.srt" too.
-                    # But let's be strict for now as per request: "dragged 1 file, wants 1 file processed"
-                    # However, operations might break if we rename video but not subtitle.
-                    # Let's keep strict match for now to fix the "scanning everything" issue.
-                    pass
-                
+
+                    # Include subtitles whose stem starts with a selected video's stem
+                    # e.g. "movie.mkv" selected → include "movie.por.srt", "movie.eng.srt"
+                    if file_path.suffix.lower() in (".srt", ".ass", ".ssa", ".sub", ".vtt"):
+                        file_stem = file_path.stem
+                        for stem in selected_stems:
+                            if file_stem == stem or file_stem.startswith(stem + "."):
+                                return True
+
                 # Check folder filter
                 if selected_folders:
                     for folder in selected_folders:
@@ -451,18 +451,18 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                         except Exception:
                             if str(file_path).startswith(str(folder)):
                                 return True
-                    
+
                 # If we have file filters but no match, return False
                 if selected_files:
                     return False
-                    
+
                 # If we have folder filters but no match, return False
                 if selected_folders:
                     return False
-                    
+
                 # No filters active
                 return True
-                
+
             except Exception as e:
                 self.logger.warning(f"Error checking file {file_path}: {e}")
                 return False
@@ -479,12 +479,12 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             kept_subtitles=[f for f in scan_result.kept_subtitles if is_selected(f)],
             unwanted_images=[f for f in scan_result.unwanted_images if is_selected(f)],
             nfo_files=[f for f in scan_result.nfo_files if is_selected(f)],
-            non_media_files=[f for f in scan_result.non_media_files if is_selected(f)]
+            non_media_files=[f for f in scan_result.non_media_files if is_selected(f)],
         )
 
         # Update statistics
-        filtered_result.total_movies = len(filtered_result.video_files) # Approximate
-        filtered_result.total_episodes = 0 # We don't distinguish in filtered view without re-scanning
+        filtered_result.total_movies = len(filtered_result.video_files)  # Approximate
+        filtered_result.total_episodes = 0  # We don't distinguish in filtered view without re-scanning
 
         # Log filtering results
         original_count = len(scan_result.video_files) + len(scan_result.subtitle_files)
@@ -509,7 +509,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         dialog = Adw.MessageDialog(
             transient_for=self,
             heading=_("Apply Operations?"),
-            body=_("This will rename {} files. Continue?").format(len(operations))
+            body=_("This will rename {} files. Continue?").format(len(operations)),
         )
         dialog.add_response("cancel", _("Cancel"))
         dialog.add_response("apply", _("Apply"))
@@ -518,9 +518,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         def on_response(dialog, response):
             if response == "apply":
                 self.logger.info("Executing operations")
-                self.operations_handler.execute_operations(
-                    complete_callback=self.on_execution_complete
-                )
+                self.operations_handler.execute_operations(complete_callback=self.on_execution_complete)
 
         dialog.connect("response", on_response)
         dialog.present()
@@ -543,9 +541,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         dialog = Adw.MessageDialog(
             transient_for=self,
             heading=_("Execute Operations?"),
-            body=_("This will rename {} files. Continue?").format(
-                len(self.operations_handler.operations)
-            )
+            body=_("This will rename {} files. Continue?").format(len(self.operations_handler.operations)),
         )
         dialog.add_response("cancel", _("Cancel"))
         dialog.add_response("execute", _("Execute"))
@@ -554,9 +550,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         def on_response(dialog, response):
             if response == "execute":
                 self.logger.info("Executing operations")
-                self.operations_handler.execute_operations(
-                    complete_callback=self.on_execution_complete
-                )
+                self.operations_handler.execute_operations(complete_callback=self.on_execution_complete)
 
         dialog.connect("response", on_response)
         dialog.present()
@@ -580,15 +574,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         toast = Adw.Toast(title=toast_msg)
         toast.set_timeout(5)  # 5 seconds
         self.toast_overlay.add_toast(toast)
-
-        # Show completion dialog
-        dialog = Adw.MessageDialog(
-            transient_for=self,
-            heading=_("Complete!"),
-            body=toast_msg
-        )
-        dialog.add_response("ok", _("OK"))
-        dialog.present()
 
     def on_operation_selected(self, operation, index: int):
         """
@@ -773,6 +758,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         progress_window.present()
         
         # Store for updating
+        self._batch_source_files = [op.source for op in operations]
         self.batch_progress = {
             "window": progress_window,
             "status": status_label,
@@ -1033,18 +1019,12 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             if show_manual:
                 dialog.add_response("manual", _("Manual Search"))
                 dialog.set_response_appearance("manual", Adw.ResponseAppearance.SUGGESTED)
-            
-            dialog.add_response("rescan", _("Rescan Now"))
+
             dialog.add_response("ok", _("OK"))
-            
-            if not show_manual:
-                dialog.set_response_appearance("rescan", Adw.ResponseAppearance.SUGGESTED)
+            dialog.set_response_appearance("ok", Adw.ResponseAppearance.SUGGESTED)
             
             def on_response(dialog, response):
-                if response == "rescan":
-                    if hasattr(self.operations_handler, 'current_directory'):
-                        self._start_scan(self.operations_handler.current_directory)
-                elif response == "manual":
+                if response == "manual":
                     # Open manual search for first item with missing languages
                     if self._last_partial_ops:
                         self._open_manual_subtitle_search(self._last_partial_ops[0]['op'])
@@ -1052,6 +1032,12 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                         self._open_manual_subtitle_search(self._last_failed_ops[0])
                     else:
                         self._open_manual_subtitle_search()
+                # Always rescan the previously processed files to pick up new subtitles
+                if hasattr(self, "_batch_source_files") and self._batch_source_files:
+                    self.selected_files = list(self._batch_source_files)
+                    del self._batch_source_files
+                    if hasattr(self.operations_handler, "current_directory"):
+                        self._start_scan(self.operations_handler.current_directory)
             
             dialog.connect("response", on_response)
             dialog.present()
@@ -1300,7 +1286,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         new_operations = renamer.replan_for_video_with_metadata(
             video_path=video_source,
             metadata=metadata,
-            all_operations=operations
         )
 
         if not new_operations:

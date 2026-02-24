@@ -30,6 +30,98 @@ IMAGE_EXTENSIONS = {
     '.tiff', '.ico', '.svg'
 }
 
+# Pre-compiled regex patterns (avoid recompilation on every call)
+_RE_FORBIDDEN = re.compile(FORBIDDEN_CHARS)
+_RE_MULTI_SPACE = re.compile(r"\s+")
+_RE_BRACKET_RELEASE = re.compile(r"\[(?!19|20)\w+[\w\s\.\-]*\]")
+_RE_PAREN_NON_YEAR = re.compile(r"\((?!19\d{2}|20\d{2})[^\)]*\)")
+_RE_YEAR_LOOSE = re.compile(r"\s+(19\d{2}|20\d{2})(?!\))\s*")
+_RE_AUDIO_CHANNELS = re.compile(r"\b([257])\s+([01])\b")
+_RE_REPEATED_SUFFIX = re.compile(r"(-\w+)\1+")
+_RE_CONVERTED = re.compile(r"-converted", re.IGNORECASE)
+_RE_RELEASE_GROUP_HYPHEN = re.compile(r"-[A-Z0-9]{2,}\b", re.IGNORECASE)
+_RE_TRAILING_UPPERCASE = re.compile(r"\s+\b[A-Z]{2,6}\b\s*$")
+_RE_SPACE_BEFORE_PUNCT = re.compile(r"\s+([,\.!?;:])")
+_RE_TRAILING_JUNK = re.compile(r"[\s\-\.]+$")
+_RE_LEADING_JUNK = re.compile(r"^[\s\-\.]+")
+_RE_YEAR = re.compile(r"[\(\[]?(19\d{2}|20\d{2})[\)\]]?")
+_RE_SXXEXX = re.compile(r"[Ss](\d{1,2})[Ee](\d{1,2})(?:-?[Ee](\d{1,2}))?")
+_RE_NxNN = re.compile(r"\b(\d{1,2})x(\d{1,2})\b")
+
+_RE_QUALITY_PATTERNS = [
+    re.compile(r"\b(1080p|720p|480p|2160p|4K|HD|UHD|FHD)\b", re.IGNORECASE),
+    re.compile(r"\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|CAMRip|TS|TC)\b", re.IGNORECASE),
+    re.compile(r"\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC)\b", re.IGNORECASE),
+    re.compile(r"\b(Amazon|Netflix|Hulu|HBO|HMAX|Disney|Apple|Paramount|Peacock|Showtime|Starz)\b", re.IGNORECASE),
+    re.compile(r"\b(Dual\.?Audio|DUAL)\b", re.IGNORECASE),
+    re.compile(r"\b(Audio)\b", re.IGNORECASE),
+    re.compile(r"\b(AAC|AC3|E-?AC-?3|DTS|DD\+?|MP3|FLAC|Dolby|Atmos|TrueHD)\b", re.IGNORECASE),
+    re.compile(r"\b(5\.1|7\.1|2\.0)\b", re.IGNORECASE),
+    re.compile(r"\b(EXTENDED|UNRATED|REMASTERED|DIRECTORS?\.?CUT|DC|IMAX)\b", re.IGNORECASE),
+    re.compile(r"\b(converted|rip|web|hdtv|bluray)\b", re.IGNORECASE),
+]
+
+_RE_RESOLUTION_TAGS = [
+    (re.compile(r"(?:^|[\s\._\-\[\(])(2160p|4K)(?:[\s\._\-\]\)]|$)", re.IGNORECASE), "2160p"),
+    (re.compile(r"(?:^|[\s\._\-\[\(])(1080p)(?:[\s\._\-\]\)]|$)", re.IGNORECASE), "1080p"),
+    (re.compile(r"(?:^|[\s\._\-\[\(])(720p)(?:[\s\._\-\]\)]|$)", re.IGNORECASE), "720p"),
+    (re.compile(r"(?:^|[\s\._\-\[\(])(480p)(?:[\s\._\-\]\)]|$)", re.IGNORECASE), "480p"),
+    (re.compile(r"(?:^|[\s\._\-\[\(])(8K)(?:[\s\._\-\]\)]|$)", re.IGNORECASE), "8K"),
+]
+
+_RELEASE_GROUPS = [
+    "BRHD",
+    "YTS",
+    "YIFY",
+    "RARBG",
+    "ETRG",
+    "PSA",
+    "AMIABLE",
+    "SPARKS",
+    "FLEET",
+    "ION10",
+    "CMRG",
+    "EVO",
+    "NTb",
+    "AMRAP",
+    "FGT",
+    "STUTTERSHIT",
+    "VYNDROS",
+    "MkvCage",
+    "GalaxyRG",
+    "DEFLATE",
+    "NOGRP",
+    "W4F",
+    "ETHEL",
+    "TOMMY",
+    "AFG",
+    "GECKOS",
+]
+_RE_RELEASE_GROUPS = [re.compile(rf"\b{g}\b", re.IGNORECASE) for g in _RELEASE_GROUPS]
+
+_RE_LANG_CODE = re.compile(r"\.([a-z]{2,3}(?:[-_][A-Z]{2})?)(?:\d)?(?:\.(forced|sdh|default))?\.(srt|ass|ssa|sub|vtt)$")
+_RE_LANG_SUFFIX = re.compile(r"\.[a-z]{2,3}(?:-[A-Z]{2})?$")
+_RE_LANG_PART = re.compile(r"^[a-z]{2,3}(?:[-_][A-Z]{2})?$")
+
+_RE_SE_ALT_PATTERNS = [
+    re.compile(
+        r"(?:Book|Volume|Vol|Part|Season|Temporada|Temp)\s*(\d{1,2})\s*[-\s]+(?:Episode|Episodio|Ep\.?|E)?\s*(\d{1,2})",
+        re.IGNORECASE,
+    ),
+    re.compile(r"T(?:emp)?\.?\s*(\d{1,2})\s*E(?:p)?\.?\s*(\d{1,2})", re.IGNORECASE),
+    re.compile(r"[\[\(\{]\s*(\d{1,2})x(\d{1,2})\s*[\]\)\}]", re.IGNORECASE),
+    re.compile(r"(?:Cap\.?|Ep\.?|E)\s*(\d{1,2})", re.IGNORECASE),
+    re.compile(r"[-\s](\d)(\d{2})(?:\D|$)", re.IGNORECASE),
+]
+
+
+# Subtitle quality scoring weights
+_QUALITY_BLOCK_WEIGHT = 10
+_QUALITY_LINE_WEIGHT = 2
+_QUALITY_TINY_FILE_PENALTY = 0.1
+_QUALITY_MIN_FILE_SIZE = 100  # bytes
+_QUALITY_TINY_THRESHOLD = 1024  # bytes
+
 
 def calculate_subtitle_quality(file_path: Path) -> float:
     """
@@ -46,8 +138,7 @@ def calculate_subtitle_quality(file_path: Path) -> float:
         # Verifica tamanho do arquivo
         file_size = file_path.stat().st_size
 
-        # Arquivo vazio ou muito pequeno (< 100 bytes) = pontuação 0
-        if file_size < 100:
+        if file_size < _QUALITY_MIN_FILE_SIZE:
             return 0.0
 
         # Lê o conteúdo
@@ -77,14 +168,13 @@ def calculate_subtitle_quality(file_path: Path) -> float:
         size_score = file_size / 1024
 
         # Bônus: número de blocos de legenda (mais blocos = mais completo)
-        blocks_score = subtitle_blocks * 10
+        blocks_score = subtitle_blocks * _QUALITY_BLOCK_WEIGHT
 
         # Bônus: número de linhas de texto
-        text_score = text_lines * 2
+        text_score = text_lines * _QUALITY_LINE_WEIGHT
 
-        # Penalidade para arquivos muito pequenos (< 1KB)
-        if file_size < 1024:
-            size_score *= 0.1  # Penaliza muito
+        if file_size < _QUALITY_TINY_THRESHOLD:
+            size_score *= _QUALITY_TINY_FILE_PENALTY
 
         total_score = size_score + blocks_score + text_score
 
@@ -135,10 +225,10 @@ def clean_filename(name: str) -> str:
         Nome limpo
     """
     # Substitui caracteres proibidos
-    cleaned = re.sub(FORBIDDEN_CHARS, '', name)
+    cleaned = _RE_FORBIDDEN.sub("", name)
 
     # Remove espaços extras
-    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+    cleaned = _RE_MULTI_SPACE.sub(" ", cleaned).strip()
 
     return cleaned
 
@@ -158,77 +248,51 @@ def normalize_spaces(name: str) -> str:
 
     # Remove colchetes com conteúdo de release (mas preserva ano)
     # Remove: [1080p], [BluRay], [HEVC], [DUAL], etc
-    name = re.sub(r'\[(?!19|20)\w+[\w\s\.\-]*\]', '', name)
+    name = _RE_BRACKET_RELEASE.sub("", name)
 
     # Remove parênteses que NÃO são ano (1900-2099)
     # Remove: (BluRay), (DUAL), etc, mas preserva (1999), (2024)
-    name = re.sub(r'\((?!19\d{2}|20\d{2})[^\)]*\)', '', name)
+    name = _RE_PAREN_NON_YEAR.sub("", name)
 
     # Remove ano solto (sem parênteses) quando está no meio/final do nome
     # Ex: "Matrix 1999 1080p" -> "Matrix 1080p"
     # Preserva apenas se estiver entre parênteses: (1999)
-    name = re.sub(r'\s+(19\d{2}|20\d{2})(?!\))\s*', ' ', name)
+    name = _RE_YEAR_LOOSE.sub(" ", name)
 
     # Remove informações de qualidade e release comuns (padrões específicos)
-    quality_patterns = [
-        # Resoluções
-        r'\b(1080p|720p|480p|2160p|4K|HD|UHD|FHD)\b',
-        # Formatos de vídeo (palavras específicas)
-        r'\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|CAMRip|TS|TC)\b',
-        # Codecs
-        r'\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC)\b',
-        # Plataformas de streaming
-        r'\b(Amazon|Netflix|Hulu|HBO|HMAX|Disney|Apple|Paramount|Peacock|Showtime|Starz)\b',
-        # Áudio (deve vir antes para pegar "Dual Audio" junto)
-        r'\b(Dual\.?Audio|DUAL)\b',
-        r'\b(Audio)\b',  # Remove "Audio" sozinho também
-        r'\b(AAC|AC3|E-?AC-?3|DTS|DD\+?|MP3|FLAC|Dolby|Atmos|TrueHD)\b',
-        r'\b(5\.1|7\.1|2\.0)\b',
-        # Edições especiais
-        r'\b(EXTENDED|UNRATED|REMASTERED|DIRECTORS?\.?CUT|DC|IMAX)\b',
-        # Sufixos técnicos comuns
-        r'\b(converted|rip|web|hdtv|bluray)\b',
-    ]
-
-    for pattern in quality_patterns:
-        name = re.sub(pattern, '', name, flags=re.IGNORECASE)
+    for pattern in _RE_QUALITY_PATTERNS:
+        name = pattern.sub("", name)
 
     # Remove APENAS padrões de canais de áudio (5.1, 7.1, 2.0 -> "5 1", "7 1", "2 0")
     # NÃO remove dígitos isolados para preservar títulos como "Super 8", "District 9"
-    name = re.sub(r'\b([257])\s+([01])\b', ' ', name)
+    name = _RE_AUDIO_CHANNELS.sub(" ", name)
 
     # Remove sufixos repetidos como "-converted-converted" (antes de remover grupos)
-    name = re.sub(r'(-\w+)\1+', r'\1', name)  # Remove repetições
-    name = re.sub(r'-converted', '', name, flags=re.IGNORECASE)
+    name = _RE_REPEATED_SUFFIX.sub(r"\1", name)  # Remove repetições
+    name = _RE_CONVERTED.sub("", name)
 
     # Remove grupo de release precedido por hífen (em qualquer posição)
     # Ex: -3LT0N, -YTS, -RARBG, -converted
-    name = re.sub(r'-[A-Z0-9]{2,}\b', '', name, flags=re.IGNORECASE)
+    name = _RE_RELEASE_GROUP_HYPHEN.sub("", name)
 
     # Remove grupos de release comuns que aparecem soltos (sem hífen)
     # Ex: BRHD, YTS, YIFY, RARBG, ETRG, etc.
-    release_groups = [
-        'BRHD', 'YTS', 'YIFY', 'RARBG', 'ETRG', 'PSA', 'AMIABLE',
-        'SPARKS', 'FLEET', 'ION10', 'CMRG', 'EVO', 'NTb', 'AMRAP',
-        'FGT', 'STUTTERSHIT', 'VYNDROS', 'MkvCage', 'GalaxyRG',
-        'DEFLATE', 'NOGRP', 'W4F', 'ETHEL', 'TOMMY', 'AFG', 'GECKOS'
-    ]
-    for group in release_groups:
-        name = re.sub(rf'\b{group}\b', '', name, flags=re.IGNORECASE)
+    for pattern in _RE_RELEASE_GROUPS:
+        name = pattern.sub("", name)
 
     # Remove palavras em MAIÚSCULAS de 2-6 letras isoladas no final (geralmente grupos de release)
     # Mas preserva palavras conhecidas como "HD", "4K", "DC" (que já foram removidas antes)
-    name = re.sub(r'\s+\b[A-Z]{2,6}\b\s*$', ' ', name)
+    name = _RE_TRAILING_UPPERCASE.sub(" ", name)
 
     # Remove espaços múltiplos
-    name = re.sub(r'\s+', ' ', name).strip()
+    name = _RE_MULTI_SPACE.sub(" ", name).strip()
 
     # Remove espaços antes de pontuação
-    name = re.sub(r'\s+([,\.!?;:])', r'\1', name)
+    name = _RE_SPACE_BEFORE_PUNCT.sub(r"\1", name)
 
     # Limpeza final: remove hífens, espaços e pontos isolados no final
-    name = re.sub(r'[\s\-\.]+$', '', name)
-    name = re.sub(r'^[\s\-\.]+', '', name)  # Remove também do início se houver
+    name = _RE_TRAILING_JUNK.sub("", name)
+    name = _RE_LEADING_JUNK.sub("", name)  # Remove também do início se houver
 
     return name.strip()
 
@@ -249,16 +313,8 @@ def extract_quality_tag(name: str) -> Optional[str]:
         Tag de qualidade ou None
     """
     # Resoluções (aceita word boundary OU underscore/ponto)
-    resolution_patterns = [
-        (r'(?:^|[\s\._\-\[\(])(2160p|4K)(?:[\s\._\-\]\)]|$)', '2160p'),  # 4K
-        (r'(?:^|[\s\._\-\[\(])(1080p)(?:[\s\._\-\]\)]|$)', '1080p'),
-        (r'(?:^|[\s\._\-\[\(])(720p)(?:[\s\._\-\]\)]|$)', '720p'),
-        (r'(?:^|[\s\._\-\[\(])(480p)(?:[\s\._\-\]\)]|$)', '480p'),
-        (r'(?:^|[\s\._\-\[\(])(8K)(?:[\s\._\-\]\)]|$)', '8K'),
-    ]
-
-    for pattern, tag in resolution_patterns:
-        match = re.search(pattern, name, re.IGNORECASE)
+    for pattern, tag in _RE_RESOLUTION_TAGS:
+        match = pattern.search(name)
         if match:
             return tag
 
@@ -326,7 +382,7 @@ def extract_year(name: str) -> Optional[int]:
         Ano extraído ou None
     """
     # Procura padrão (YYYY) ou YYYY
-    match = re.search(r'[\(\[]?(19\d{2}|20\d{2})[\)\]]?', name)
+    match = _RE_YEAR.search(name)
     if match:
         return int(match.group(1))
     return None
@@ -350,7 +406,7 @@ def extract_season_episode(name: str) -> Optional[tuple]:
         Tupla (season, episode_start, episode_end) ou None
     """
     # Padrão S01E01 ou s01e01
-    match = re.search(r'[Ss](\d{1,2})[Ee](\d{1,2})(?:-?[Ee](\d{1,2}))?', name)
+    match = _RE_SXXEXX.search(name)
     if match:
         season = int(match.group(1))
         ep_start = int(match.group(2))
@@ -358,11 +414,11 @@ def extract_season_episode(name: str) -> Optional[tuple]:
         return (season, ep_start, ep_end)
 
     # Padrão 1x01 (com word boundaries para não pegar anos como "2018" → "20x18")
-    match = re.search(r'\b(\d{1,2})x(\d{1,2})\b', name)
+    match = _RE_NxNN.search(name)
     if match:
         # Verifica se não é um ano (ex: "2018" não deve virar "20x18")
         # Anos válidos: 1900-2099
-        full_match = match.group(0)  # Ex: "20x18"
+        match.group(0)  # Ex: "20x18"
         # Se parece com ano, ignora
         potential_year = match.group(1) + match.group(2)  # Ex: "2018"
         if len(potential_year) == 4 and potential_year.isdigit():
@@ -376,21 +432,8 @@ def extract_season_episode(name: str) -> Optional[tuple]:
         return (season, episode, episode)
 
     # Padrões alternativos: Book 1 - 01, T01E01, [01x01], etc
-    patterns = [
-        # Book 1 - 01, Volume 2 - 05, Part 3 - 12, Season 1 Episode 01
-        r'(?:Book|Volume|Vol|Part|Season|Temporada|Temp)\s*(\d{1,2})\s*[-\s]+(?:Episode|Episodio|Ep\.?|E)?\s*(\d{1,2})',
-        # T01E01, T1E1, Temp01Ep01
-        r'T(?:emp)?\.?\s*(\d{1,2})\s*E(?:p)?\.?\s*(\d{1,2})',
-        # [01x01], (1x01), {1x01}
-        r'[\[\(\{]\s*(\d{1,2})x(\d{1,2})\s*[\]\)\}]',
-        # Cap 01, Ep 01, E01
-        r'(?:Cap\.?|Ep\.?|E)\s*(\d{1,2})',
-        # - 101, - 201 (temporada implícita: 1x01, 2x01)
-        r'[-\s](\d)(\d{2})(?:\D|$)',
-    ]
-
-    for pattern in patterns:
-        match = re.search(pattern, name, re.IGNORECASE)
+    for pattern in _RE_SE_ALT_PATTERNS:
+        match = pattern.search(name)
         if match:
             # Verifica se o match não está dentro de um ano
             # Ex: "Movie 2018" não deve ser S20E18 ou S2E01
@@ -514,7 +557,7 @@ def has_language_code(filename: str) -> Optional[str]:
 
     # Padrão: .LANG[NUMERO][.forced|.sdh|.default].EXTENSAO
     # Aceita 2-3 letras, com região opcional (-XX ou _XX)
-    match = re.search(r'\.([a-z]{2,3}(?:[-_][A-Z]{2})?)(?:\d)?(?:\.(forced|sdh|default))?\.(srt|ass|ssa|sub|vtt)$', filename.lower())
+    match = _RE_LANG_CODE.search(filename.lower())
     if match:
         lang_code = match.group(1)
         # Normaliza o código para 3 letras
@@ -539,7 +582,7 @@ def get_base_name(file_path: Path) -> str:
     name = file_path.stem
 
     # Remove código de idioma se presente
-    name = re.sub(r'\.[a-z]{2,3}(?:-[A-Z]{2})?$', '', name)
+    name = _RE_LANG_SUFFIX.sub("", name)
 
     return name
 
@@ -590,7 +633,7 @@ def parse_subtitle_filename(file_path: Path) -> dict:
         elif part_lower == 'sdh':
             info['sdh'] = True
         # Verifica código de idioma (2-3 letras, opcionalmente com região como pt-BR ou pt_BR)
-        elif re.match(r'^[a-z]{2,3}(?:[-_][A-Z]{2})?$', part_lower):
+        elif _RE_LANG_PART.match(part_lower):
             # Normaliza o código de idioma para 3 letras
             info['language'] = normalize_language_code(part_lower)
 

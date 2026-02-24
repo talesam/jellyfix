@@ -582,7 +582,7 @@ class InteractiveCLI:
                 key = self.config_manager.get_tmdb_api_key()
                 if key:
                     # Show only first and last 4 characters
-                    masked_key = f"{key[:4]}...{key[-4:]}" if len(key) > 8 else "***"
+                    masked_key = f"{key[:4]}..." if len(key) > 4 else "***"
                     console.print(f"\n[cyan]TMDB Key:[/cyan] {masked_key}")
                     console.print("\n[dim]" + _("File:") + f"[/dim] [cyan]{self.config_manager.get_config_path()}[/cyan]")
                 else:

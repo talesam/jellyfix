@@ -26,10 +26,9 @@ from ..utils.i18n import _
 from ..utils.config import get_config
 
 try:
-    from subliminal import download_best_subtitles, region, save_subtitles, scan_video
-    from subliminal import list_subtitles, AsyncProviderPool
-    from subliminal.video import Video, Movie, Episode
-    from subliminal.subtitle import Subtitle
+    from subliminal import download_best_subtitles, scan_video  # noqa: F401
+    from subliminal import list_subtitles, AsyncProviderPool  # noqa: F401
+    from subliminal.video import Video, Movie  # noqa: F401
     from babelfish import Language
     HAS_SUBLIMINAL = True
 except ImportError:
@@ -154,8 +153,8 @@ class SubtitleManager:
         # Convert to set of Language objects
         # Special handling for Portuguese: search both 'por' (Portugal) and 'pob' (Brazil)
         langs = set()
-        for l in languages:
-            if l == 'por':
+        for lang in languages:
+            if lang == "por":
                 # Add both Portuguese Portugal and Portuguese Brazil
                 langs.add(Language('por'))
                 try:
@@ -164,7 +163,7 @@ class SubtitleManager:
                 except Exception:
                     pass  # Some versions may not support country codes
             else:
-                langs.add(Language(l))
+                langs.add(Language(lang))
         
         self.logger.info(_("Searching subtitles for: %s (Languages: %s)") % 
                          (video_path.name, ", ".join(languages)))
@@ -187,7 +186,7 @@ class SubtitleManager:
                            ", ".join(missing_langs))
             
             # Convert missing languages to Language objects
-            missing_lang_objs = {Language(l) for l in missing_langs}
+            missing_lang_objs = {Language(lang) for lang in missing_langs}
             
             result2 = self._search_by_title(
                 video_path=video_path,
@@ -266,8 +265,8 @@ class SubtitleManager:
                     search_name = f"{title} ({year}).mkv"
                 else:
                     search_name = f"{title}.mkv"
-            
-            self.logger.info(f"Level 2 searching: '{search_name}' for {[l.alpha3 for l in langs]}")
+
+            self.logger.info(f"Level 2 searching: '{search_name}' for {[lg.alpha3 for lg in langs]}")
             video = Video.fromname(search_name)
             
             # Use list_subtitles to get all candidates (more control than download_best_subtitles)
@@ -332,9 +331,9 @@ class SubtitleManager:
                 lang = str(sub.language.alpha3)
                 # Prioritize pt-BR over pt-PT
                 if lang == 'por':
-                    lang_key = self._get_portuguese_variant(sub)
+                    self._get_portuguese_variant(sub)
                 else:
-                    lang_key = lang
+                    pass
                 
                 if lang not in best_by_lang:
                     best_by_lang[lang] = sub
@@ -577,15 +576,15 @@ class SubtitleManager:
         # Convert to set of Language objects
         # Special handling for Portuguese: search both 'por' (Portugal) and 'pob' (Brazil)
         langs = set()
-        for l in languages:
-            if l == 'por':
+        for lang in languages:
+            if lang == "por":
                 langs.add(Language('por'))
                 try:
                     langs.add(Language('por', 'BR'))  # pob = Portuguese Brazil
                 except Exception:
                     pass
             else:
-                langs.add(Language(l))
+                langs.add(Language(lang))
         
         try:
             # Create video from query
@@ -738,7 +737,7 @@ class SubtitleManager:
                 
                 # Always aim for 3-letter code (por, eng)
                 lang_alpha3 = str(sub.language.alpha3)
-                lang_alpha2 = str(sub.language.alpha2)
+                str(sub.language.alpha2)
                 
                 if lang_alpha3 not in result:
                     result[lang_alpha3] = []
