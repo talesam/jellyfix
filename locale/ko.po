@@ -2,433 +2,136 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the jellyfix package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: jellyfix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 14:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
-
-#
-# File: usr/share/jellyfix/cli/app.py, line: 54
-#: usr/share/jellyfix/cli/app.py:54
-msgid "Operation cancelled by user"
-msgstr "사용자에 의해 작업이 취소되었습니다."
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 552
-# File: usr/share/jellyfix/cli/app.py, line: 58
-#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
-#, python-format
-msgid "Unexpected error: %s"
-msgstr "예기치 않은 오류: %s"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "스캔 결과"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "카테고리"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 253
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "개수"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "비디오 파일"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 609
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "영화"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "에피소드"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "자막"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "변형"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "언어 없음"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "외국인"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "언어와 함께"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "이미지"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO 파일"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "기타"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "제안된 작업:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "자막 변형(.lang2, .lang3)을 처리할 수 있습니다."
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "언어 코드 없는 자막"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "외국 자막을 제거할 수 있습니다."
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "제안"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "작업이 필요 없습니다. 모든 것이 이미 정리되어 있습니다!"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 137
-#: usr/share/jellyfix/cli/display.py:139
-#, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "작업 미리보기 ({} 파일)"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
-#, python-brace-format
-msgid "and {} more groups"
-msgstr "및 {}개의 추가 그룹"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 189
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "이동 + 이름 바꾸기:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 194
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "이동:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 199
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "이름 바꾸기:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 204
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "제거:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 208
-# File: usr/share/jellyfix/cli/display.py, line: 225
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "요약"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 230
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "이동 + 이름 바꾸기"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "이동"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "이름 바꾸기"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "삭제"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 251
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ 실행 결과"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 252
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "작업"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "이름 변경됨"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 258
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "이동됨"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "삭제됨"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "정리된 폴더"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "실패"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 266
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "건너뜀"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 99
 # File: usr/share/jellyfix/cli/interactive.py, line: 421
 #: usr/share/jellyfix/cli/interactive.py:104
 #: usr/share/jellyfix/cli/interactive.py:548
 msgid "What would you like to do?"
 msgstr "무엇을 하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 101
 #: usr/share/jellyfix/cli/interactive.py:106
 msgid "📂 Scan library"
 msgstr "📂 스캔 라이브러리"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 102
 #: usr/share/jellyfix/cli/interactive.py:107
 msgid "🔧 Settings"
 msgstr "🔧 설정"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 103
 #: usr/share/jellyfix/cli/interactive.py:108
 msgid "🚀 Process files"
 msgstr "🚀 파일 처리"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 109
 #: usr/share/jellyfix/cli/interactive.py:109
 msgid "📥 Download subtitles"
 msgstr "📥 자막 다운로드"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: usr/share/jellyfix/cli/interactive.py:110
 msgid "ℹ️  Help"
 msgstr "ℹ️  도움말"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 105
 #: usr/share/jellyfix/cli/interactive.py:111
 msgid "❌ Exit"
 msgstr "❌ 종료"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 108
 #: usr/share/jellyfix/cli/interactive.py:114
 msgid "(Use arrow keys to navigate)"
 msgstr "(화살표 키를 사용하여 탐색)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 124
 #: usr/share/jellyfix/cli/interactive.py:124
 msgid "Subliminal library not found!"
 msgstr "서브리미널 라이브러리를 찾을 수 없습니다!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 125
 #: usr/share/jellyfix/cli/interactive.py:125
 msgid "Please install 'subliminal' to use this feature."
 msgstr "이 기능을 사용하려면 'subliminal'을 설치하십시오."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 135
 #: usr/share/jellyfix/cli/interactive.py:135
 #, python-format
 msgid "Scanning for videos: %s"
 msgstr "비디오 검색 중: %s"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 142
 #: usr/share/jellyfix/cli/interactive.py:142
 msgid "No videos found!"
 msgstr "비디오를 찾을 수 없습니다!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 160
 #: usr/share/jellyfix/cli/interactive.py:160
 msgid "Select videos to download subtitles for:"
 msgstr "자막을 다운로드할 비디오 선택:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 163
 #: usr/share/jellyfix/cli/interactive.py:163
 msgid "(SPACE to select, ENTER to confirm)"
 msgstr "(스페이스 키로 선택, 엔터 키로 확인)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/cli/interactive.py:170
 msgid "Selected:"
 msgstr "선택됨:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/cli/interactive.py:170
 #: usr/share/jellyfix/gui/windows/main_window.py:994
 #: usr/share/jellyfix/gui/windows/main_window.py:1014
 msgid "videos"
 msgstr "비디오"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 172
 #: usr/share/jellyfix/cli/interactive.py:172
 msgid "Start download?"
 msgstr "다운로드 시작하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 193
 #: usr/share/jellyfix/cli/interactive.py:193
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:366
 msgid "Downloading..."
 msgstr "다운로드 중..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 196
 #: usr/share/jellyfix/cli/interactive.py:196
 #, python-brace-format
 msgid "Downloading for: {}"
 msgstr "다운로드 중: {}"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 210
 #: usr/share/jellyfix/cli/interactive.py:210
 #, python-brace-format
 msgid "Downloaded {} subtitles for {} videos"
 msgstr "{} 비디오에 대해 {} 자막을 다운로드했습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 212
 #: usr/share/jellyfix/cli/interactive.py:212
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:337
 msgid "No subtitles found"
 msgstr "자막을 찾을 수 없습니다."
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 121
 # File: usr/share/jellyfix/cli/interactive.py, line: 141
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 59
@@ -438,10 +141,9 @@ msgstr "자막을 찾을 수 없습니다."
 #, python-format
 msgid "Scanning: %s"
 msgstr "스캔 중: %s"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 148
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 65
 #: usr/share/jellyfix/cli/interactive.py:251
@@ -449,30 +151,26 @@ msgstr "스캔 중: %s"
 #, python-format
 msgid "Found: %d videos, %d subtitles"
 msgstr "발견됨: %d 개의 비디오, %d 개의 자막"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 153
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 70
 #: usr/share/jellyfix/cli/interactive.py:256
 #: usr/share/jellyfix/cli/non_interactive.py:69
 msgid "Planning operations..."
 msgstr "작업 계획 중..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 158
 #: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "작업이 필요하지 않습니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
 #: usr/share/jellyfix/cli/interactive.py:270
 msgid "Execute these operations?"
 msgstr "이 작업을 실행하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 173
 # File: usr/share/jellyfix/cli/interactive.py, line: 450
 # File: usr/share/jellyfix/cli/interactive.py, line: 478
@@ -481,200 +179,169 @@ msgstr "이 작업을 실행하시겠습니까?"
 #: usr/share/jellyfix/cli/interactive.py:605
 msgid "Operation cancelled"
 msgstr "작업이 취소되었습니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 177
 #: usr/share/jellyfix/cli/interactive.py:280
 msgid "Executing operations..."
 msgstr "작업 실행 중..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 202
 #: usr/share/jellyfix/cli/interactive.py:305
 msgid "📂 Directory Browser"
 msgstr "📂 디렉토리 브라우저"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 203
 #: usr/share/jellyfix/cli/interactive.py:306
 msgid "Current:"
 msgstr "현재:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 211
 #: usr/share/jellyfix/cli/interactive.py:314
 msgid "✓ Select this directory"
 msgstr "✓ 이 디렉토리 선택"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 218
 #: usr/share/jellyfix/cli/interactive.py:321
 msgid "⬆️  .. (go back)"
 msgstr "⬆️  .. (뒤로 가기)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 229
 #: usr/share/jellyfix/cli/interactive.py:332
 msgid "⌨️  Type path manually"
 msgstr "⌨️  경로를 수동으로 입력하세요"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 235
 #: usr/share/jellyfix/cli/interactive.py:338
 msgid "❌ Cancel"
 msgstr "❌ 취소"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 241
 #: usr/share/jellyfix/cli/interactive.py:344
 msgid "Select directory:"
 msgstr "디렉토리 선택:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 253
 #: usr/share/jellyfix/cli/interactive.py:356
 msgid "Enter full directory path:"
 msgstr "전체 디렉터리 경로를 입력하세요:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 255
 #: usr/share/jellyfix/cli/interactive.py:358
 msgid "Path:"
 msgstr "경로:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 265
 #: usr/share/jellyfix/cli/interactive.py:368
 msgid "Directory not found!"
 msgstr "디렉터리를 찾을 수 없습니다!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 272
 #: usr/share/jellyfix/cli/interactive.py:375
 msgid "Permission denied"
 msgstr "권한 거부"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 281
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: usr/share/jellyfix/cli/interactive.py:384
 #: usr/share/jellyfix/gui/windows/help_window.py:137
 msgid "Settings"
 msgstr "설정"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 284
 #: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 287
 #: usr/share/jellyfix/cli/interactive.py:390
 msgid "What would you like to configure?"
 msgstr "어떤 설정을 원하십니까?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 289
 #: usr/share/jellyfix/cli/interactive.py:392
 msgid "Rename language variants (lang2→lang, lang3→lang)"
 msgstr "언어 변형 이름 바꾸기 (lang2→lang, lang3→lang)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 290
 #: usr/share/jellyfix/cli/interactive.py:393
 msgid "Remove duplicate variants (lang2, lang3)"
 msgstr "중복 변형 제거 (lang2, lang3)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 291
 #: usr/share/jellyfix/cli/interactive.py:394
 msgid "Add language code to subtitles"
 msgstr "자막에 언어 코드를 추가하세요"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 292
 #: usr/share/jellyfix/cli/interactive.py:395
 msgid "Remove foreign subtitles"
 msgstr "외국 자막 제거"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 293
 # File: usr/share/jellyfix/cli/interactive.py, line: 398
 #: usr/share/jellyfix/cli/interactive.py:396
 #: usr/share/jellyfix/cli/interactive.py:525
 msgid "Kept languages:"
 msgstr "보관된 언어:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 294
 #: usr/share/jellyfix/cli/interactive.py:397
 msgid "Organize in folders (Season XX)"
 msgstr "폴더에 정리하기 (시즌 XX)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 295
 #: usr/share/jellyfix/cli/interactive.py:398
 msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "메타데이터 가져오기 (TMDB/TVDB)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
 # File: usr/share/jellyfix/cli/interactive.py, line: 344
 #: usr/share/jellyfix/cli/interactive.py:399
 #: usr/share/jellyfix/cli/interactive.py:450
 msgid "Ask when multiple TMDB results"
 msgstr "여러 TMDB 결과가 있을 때 물어보기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: usr/share/jellyfix/cli/interactive.py:400
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "품질 태그 추가 (1080p, 720p 등)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 297
 #: usr/share/jellyfix/cli/interactive.py:401
 #: usr/share/jellyfix/cli/interactive.py:460
 msgid "Use ffprobe for quality detection"
 msgstr "ffprobe를 사용하여 품질 감지하기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 299
 # File: usr/share/jellyfix/cli/interactive.py, line: 360
 #: usr/share/jellyfix/cli/interactive.py:402
 #: usr/share/jellyfix/cli/interactive.py:465
 msgid "Rename NFO files to match video"
 msgstr "비디오에 맞게 NFO 파일 이름 바꾸기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 #: usr/share/jellyfix/cli/interactive.py:403
 msgid "Remove non-media files (keep only videos/subtitles)"
 msgstr "비미디어 파일 제거 (비디오/자막만 유지)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 301
 #: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
 msgstr "미라벨 파일 수정(.pt-BR.hi → .por)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "최소 포르투갈어 단어:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 299
 #: usr/share/jellyfix/cli/interactive.py:406
 #: usr/share/jellyfix/cli/interactive.py:495
 msgid "Configure APIs (TMDB/TVDB)"
 msgstr "API 구성 (TMDB/TVDB)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 # File: usr/share/jellyfix/cli/interactive.py, line: 306
 # File: usr/share/jellyfix/cli/interactive.py, line: 428
@@ -685,22 +352,19 @@ msgstr "API 구성 (TMDB/TVDB)"
 #: usr/share/jellyfix/cli/interactive.py:561
 msgid "Back"
 msgstr "뒤로"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 303
 # File: usr/share/jellyfix/cli/interactive.py, line: 431
 #: usr/share/jellyfix/cli/interactive.py:410
 #: usr/share/jellyfix/cli/interactive.py:558
 msgid "(Use ↑↓ and ENTER to select)"
 msgstr "(↑↓ 및 ENTER 키를 사용하여 선택)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 310
 #: usr/share/jellyfix/cli/interactive.py:417
 msgid "Rename language variants"
 msgstr "언어 변형 이름 바꾸기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 313
 # File: usr/share/jellyfix/cli/interactive.py, line: 318
 # File: usr/share/jellyfix/cli/interactive.py, line: 323
@@ -723,155 +387,131 @@ msgstr "언어 변형 이름 바꾸기"
 #: usr/share/jellyfix/cli/interactive.py:478
 msgid "Setting saved"
 msgstr "설정이 저장되었습니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 315
 #: usr/share/jellyfix/cli/interactive.py:422
 msgid "Remove duplicate variants"
 msgstr "중복 변형 제거"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 320
 #: usr/share/jellyfix/cli/interactive.py:427
 msgid "Add language code"
 msgstr "언어 코드 추가"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 325
 #: usr/share/jellyfix/cli/interactive.py:432
 msgid "Remove foreign"
 msgstr "외국어 제거"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 330
 #: usr/share/jellyfix/cli/interactive.py:437
 msgid "Kept languages"
 msgstr "유지된 언어"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 333
 #: usr/share/jellyfix/cli/interactive.py:440
 msgid "Organize in folders"
 msgstr "폴더에 정리하기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 338
 #: usr/share/jellyfix/cli/interactive.py:445
 msgid "Fetch metadata"
 msgstr "메타데이터 가져오기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 343
 #: usr/share/jellyfix/cli/interactive.py:455
 msgid "Add quality tags"
 msgstr "품질 태그 추가"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 366
 #: usr/share/jellyfix/cli/interactive.py:470
 msgid "Remove non-media files"
 msgstr "비미디어 파일 제거"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
 # File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
 #: usr/share/jellyfix/cli/interactive.py:475
 msgid "Fix Mirabel files"
 msgstr "미라벨 파일 수정"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: usr/share/jellyfix/cli/interactive.py:480
 msgid "Min Portuguese words"
 msgstr "최소 포르투갈어 단어"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 355
 #: usr/share/jellyfix/cli/interactive.py:482
 msgid "Minimum number of Portuguese words:"
 msgstr "최소 포르투갈어 단어 수:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 363
 #: usr/share/jellyfix/cli/interactive.py:490
 msgid "Setting saved to ~/.jellyfix/config.json"
 msgstr "설정이 ~/.jellyfix/config.json에 저장되었습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 365
 #: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "유효하지 않은 값!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
 #: usr/share/jellyfix/cli/interactive.py:502
 msgid "Language Selection"
 msgstr "언어 선택"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 376
 #: usr/share/jellyfix/cli/interactive.py:503
 msgid "Select languages to KEEP (will NOT be removed)"
 msgstr "유지할 언어 선택 (제거되지 않음)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 377
 #: usr/share/jellyfix/cli/interactive.py:504
 msgid "Use SPACE to check/uncheck, ENTER to confirm"
 msgstr "SPACE를 사용하여 선택/선택 해제하고, ENTER로 확인합니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 390
 #: usr/share/jellyfix/cli/interactive.py:517
 msgid "Select languages to KEEP:"
 msgstr "유지할 언어 선택:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 393
 #: usr/share/jellyfix/cli/interactive.py:520
 msgid "(SPACE = check/uncheck, ENTER = confirm)"
 msgstr "(스페이스 = 선택/선택 해제, 엔터 = 확인)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 402
 #: usr/share/jellyfix/cli/interactive.py:529
 msgid "Saved to ~/.jellyfix/config.json"
 msgstr "~/.jellyfix/config.json에 저장됨"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 411
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 38
 #: usr/share/jellyfix/cli/interactive.py:538
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:38
 msgid "API Configuration"
 msgstr "API 구성"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
 #: usr/share/jellyfix/cli/interactive.py:542
 msgid "Configured"
 msgstr "구성됨"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
 #: usr/share/jellyfix/cli/interactive.py:542
 msgid "Not configured"
 msgstr "구성되지 않음"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 418
 #: usr/share/jellyfix/cli/interactive.py:545
 msgid "Config file:"
 msgstr "구성 파일:"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 423
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 93
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 178
@@ -881,213 +521,189 @@ msgstr "구성 파일:"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:178
 msgid "Configure TMDB API Key"
 msgstr "TMDB API 키 구성"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 424
 #: usr/share/jellyfix/cli/interactive.py:551
 #: usr/share/jellyfix/cli/interactive.py:581
 msgid "View current key (TMDB)"
 msgstr "현재 키 보기 (TMDB)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 425
 # File: usr/share/jellyfix/cli/interactive.py, line: 482
 #: usr/share/jellyfix/cli/interactive.py:552
 #: usr/share/jellyfix/cli/interactive.py:609
 msgid "Test TMDB connection"
 msgstr "TMDB 연결 테스트"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 426
 # File: usr/share/jellyfix/cli/interactive.py, line: 466
 #: usr/share/jellyfix/cli/interactive.py:553
 #: usr/share/jellyfix/cli/interactive.py:593
 msgid "Remove TMDB key"
 msgstr "TMDB 키 제거"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 427
 #: usr/share/jellyfix/cli/interactive.py:554
 #: usr/share/jellyfix/cli/interactive.py:612
 msgid "How to get TMDB key"
 msgstr "TMDB 키를 얻는 방법"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 438
 #: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
 msgstr "TMDB API 키를 입력하세요:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 447
 #: usr/share/jellyfix/cli/interactive.py:574
 msgid "TMDB key saved to:"
 msgstr "TMDB 키가 저장되었습니다:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 460
 #: usr/share/jellyfix/cli/interactive.py:587
 msgid "File:"
 msgstr "파일:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 462
 #: usr/share/jellyfix/cli/interactive.py:589
 msgid "No key configured"
 msgstr "키가 구성되지 않았습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 468
 #: usr/share/jellyfix/cli/interactive.py:595
 msgid "Are you sure you want to remove the TMDB key?"
 msgstr "TMDB 키를 제거하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 476
 #: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "TMDB 키 제거됨"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
 #: usr/share/jellyfix/cli/interactive.py:619
 msgid "Testing TMDB connection..."
 msgstr "TMDB 연결 테스트 중..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 497
 #: usr/share/jellyfix/cli/interactive.py:624
 msgid "No API key configured!"
 msgstr "API 키가 구성되어 있지 않습니다!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 498
 #: usr/share/jellyfix/cli/interactive.py:625
 msgid "Configure a key first using 'Configure TMDB API Key'"
 msgstr "먼저 'TMDB API 키 구성'을 사용하여 키를 구성하십시오."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 504
 #: usr/share/jellyfix/cli/interactive.py:631
 #, python-format
 msgid "Invalid key! Has %d characters, should have 32."
 msgstr "유효하지 않은 키! %d자의 길이를 가지며, 32자여야 합니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 505
 #: usr/share/jellyfix/cli/interactive.py:632
 msgid "You may have copied the Token instead of the API Key!"
 msgstr "토큰을 복사했을 수 있습니다. API 키 대신!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 506
 #: usr/share/jellyfix/cli/interactive.py:633
 msgid "See 'How to get TMDB key' for details"
 msgstr "'TMDB 키 얻는 방법'을 참조하세요."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 514
 #: usr/share/jellyfix/cli/interactive.py:641
 msgid "Making test request..."
 msgstr "테스트 요청 중..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 523
 #: usr/share/jellyfix/cli/interactive.py:650
 msgid "Connection successful!"
 msgstr "연결 성공!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 524
 #: usr/share/jellyfix/cli/interactive.py:651
 msgid "Valid and working API key"
 msgstr "유효하고 작동하는 API 키"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 525
 #: usr/share/jellyfix/cli/interactive.py:652
 #, python-format
 msgid "Test search returned %d results"
 msgstr "테스트 검색 결과 %d개가 반환되었습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 529
 #: usr/share/jellyfix/cli/interactive.py:656
 msgid "Example:"
 msgstr "예:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 532
 #: usr/share/jellyfix/cli/interactive.py:659
 msgid "Invalid API key!"
 msgstr "유효하지 않은 API 키!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 533
 #: usr/share/jellyfix/cli/interactive.py:660
 msgid "The key was rejected by TMDB."
 msgstr "키가 TMDB에 의해 거부되었습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 534
 #: usr/share/jellyfix/cli/interactive.py:661
 msgid "Possible causes:"
 msgstr "가능한 원인:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 535
 #: usr/share/jellyfix/cli/interactive.py:662
 msgid "You copied the Reading Token instead of the API Key"
 msgstr "읽기 토큰을 API 키 대신 복사했습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 536
 #: usr/share/jellyfix/cli/interactive.py:663
 msgid "The key is incorrect or has been revoked"
 msgstr "키가 올바르지 않거나 취소되었습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 537
 #: usr/share/jellyfix/cli/interactive.py:664
 msgid "You copied only part of the key"
 msgstr "키의 일부만 복사했습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 538
 #: usr/share/jellyfix/cli/interactive.py:665
 msgid "See 'How to get TMDB key' for detailed instructions"
 msgstr "'TMDB 키 얻는 방법'을 참조하여 자세한 지침을 확인하세요."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 541
 #: usr/share/jellyfix/cli/interactive.py:668
 #, python-format
 msgid "Request error: HTTP %d"
 msgstr "요청 오류: HTTP %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 544
 #: usr/share/jellyfix/cli/interactive.py:671
 msgid "Timeout: Server did not respond in time"
 msgstr "시간 초과: 서버가 제때 응답하지 않았습니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 545
 # File: usr/share/jellyfix/cli/interactive.py, line: 549
 #: usr/share/jellyfix/cli/interactive.py:672
 #: usr/share/jellyfix/cli/interactive.py:676
 msgid "Check your internet connection"
 msgstr "인터넷 연결을 확인하세요"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 548
 #: usr/share/jellyfix/cli/interactive.py:675
 msgid "Connection error"
 msgstr "연결 오류"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 552
+# File: usr/share/jellyfix/cli/app.py, line: 58
+#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "예기치 않은 오류: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 560
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 154
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 320
@@ -1096,1187 +712,717 @@ msgstr "연결 오류"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:331
 msgid "How to Get TMDB API Key"
 msgstr "TMDB API 키 얻는 방법"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 562
 #: usr/share/jellyfix/cli/interactive.py:689
 msgid "Access:"
 msgstr "액세스:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 565
 #: usr/share/jellyfix/cli/interactive.py:692
 msgid "Login or create a FREE account"
 msgstr "로그인하거나 무료 계정을 생성하세요"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 567
 #: usr/share/jellyfix/cli/interactive.py:694
 msgid "Fill in your details"
 msgstr "세부 정보를 입력하세요"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 568
 #: usr/share/jellyfix/cli/interactive.py:695
 msgid "Confirm email"
 msgstr "이메일 확인"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 570
 #: usr/share/jellyfix/cli/interactive.py:697
 msgid "Request an API key:"
 msgstr "API 키 요청:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 571
 #: usr/share/jellyfix/cli/interactive.py:698
 msgid "Access"
 msgstr "액세스"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 572
 #: usr/share/jellyfix/cli/interactive.py:699
 msgid "Click 'Request an API Key'"
 msgstr "'API 키 요청'을 클릭하세요."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 573
 #: usr/share/jellyfix/cli/interactive.py:700
 msgid "Choose 'Developer' (personal use)"
 msgstr "'개발자' 선택 (개인용)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 574
 #: usr/share/jellyfix/cli/interactive.py:701
 msgid "Fill in"
 msgstr "채우기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 578
 #: usr/share/jellyfix/cli/interactive.py:705
 msgid "Accept terms of use"
 msgstr "이용 약관에 동의합니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 580
 #: usr/share/jellyfix/cli/interactive.py:707
 msgid "IMPORTANT - Which key to copy:"
 msgstr "중요 - 어떤 키를 복사할까요:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 581
 #: usr/share/jellyfix/cli/interactive.py:708
 msgid "You will see TWO keys on the page:"
 msgstr "페이지에서 두 개의 키를 볼 수 있습니다:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 582
 #: usr/share/jellyfix/cli/interactive.py:709
 msgid "API Read Access Token (long, starts with eyJ...)"
 msgstr "API 읽기 액세스 토큰 (길고, eyJ...로 시작)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 583
 #: usr/share/jellyfix/cli/interactive.py:710
 msgid "API Key (v3 auth) ← COPY THIS ONE!"
 msgstr "API 키 (v3 인증) ← 이 것을 복사하세요!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 585
 #: usr/share/jellyfix/cli/interactive.py:712
-msgid ""
-"The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
+msgid "The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
 msgstr "올바른 키는 32자입니다 (예: 611bc23b57add08a67b2e64ecb850be8)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 587
 #: usr/share/jellyfix/cli/interactive.py:714
 msgid "Configure in jellyfix:"
 msgstr "젤리픽스에서 구성:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 588
 #: usr/share/jellyfix/cli/interactive.py:715
 msgid "Return to menu and choose 'Configure TMDB API Key'"
 msgstr "메뉴로 돌아가서 'TMDB API 키 구성'을 선택하세요."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 589
 #: usr/share/jellyfix/cli/interactive.py:716
 msgid "Paste the API Key (32 characters)"
 msgstr "API 키를 붙여넣으세요 (32자)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 590
 #: usr/share/jellyfix/cli/interactive.py:717
 msgid "Use 'Test connection' to verify"
 msgstr "'연결 테스트'를 사용하여 확인하십시오."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 592
 #: usr/share/jellyfix/cli/interactive.py:719
 msgid "The key is free and does not expire!"
 msgstr "키는 무료이며 만료되지 않습니다!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 593
 #: usr/share/jellyfix/cli/interactive.py:720
 msgid "Allows up to 40 requests per 10 seconds"
 msgstr "10초당 최대 40개의 요청을 허용합니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 594
 #: usr/share/jellyfix/cli/interactive.py:721
 msgid "Enough to organize thousands of files!"
 msgstr "수천 개의 파일을 정리하기에 충분합니다!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 597
 #: usr/share/jellyfix/cli/interactive.py:724
 msgid "How to Get TMDB Key"
 msgstr "TMDB 키 얻는 방법"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 604
 #: usr/share/jellyfix/cli/interactive.py:731
 msgid "Help - jellyfix v"
 msgstr "도움말 - jellyfix v"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 606
 #: usr/share/jellyfix/cli/interactive.py:733
 msgid "What jellyfix does:"
 msgstr "젤리픽스가 하는 일:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
 #: usr/share/jellyfix/cli/interactive.py:735
 msgid "Renames files"
 msgstr "파일 이름 변경"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
 #: usr/share/jellyfix/cli/interactive.py:735
 msgid "to Jellyfin standard"
 msgstr "젤리핀 표준으로"
-
-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 609
+# File: usr/share/jellyfix/cli/display.py, line: 76
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
+msgid "Movies"
+msgstr "영화"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 #: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
 msgstr "영화 이름 (YYYY).mkv"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
 #: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series"
 msgstr "시리즈"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
 #: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series Name S01E01.mkv"
 msgstr "시리즈 이름 S01E01.mkv"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
 #: usr/share/jellyfix/cli/interactive.py:739
 msgid "Organizes subtitles"
 msgstr "자막 정리"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
 #: usr/share/jellyfix/cli/interactive.py:739
 msgid "(ALL languages)"
 msgstr "모든 언어"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 613
 #: usr/share/jellyfix/cli/interactive.py:740
 msgid "Renames variants"
 msgstr "변형 이름 바꾸기"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 614
 #: usr/share/jellyfix/cli/interactive.py:741
 msgid "Adds language code"
 msgstr "언어 코드를 추가합니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
 #: usr/share/jellyfix/cli/interactive.py:742
 msgid "Removes foreign subtitles"
 msgstr "외국 자막 제거"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
 #: usr/share/jellyfix/cli/interactive.py:742
 msgid "keeps por and eng by default"
 msgstr "기본적으로 포르투갈어와 영어를 유지합니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
 #: usr/share/jellyfix/cli/interactive.py:743
 msgid "Option to remove duplicates"
 msgstr "중복 제거 옵션"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
 #: usr/share/jellyfix/cli/interactive.py:743
 msgid "when eng exists"
 msgstr "영어가 존재할 때"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
 #: usr/share/jellyfix/cli/interactive.py:744
 msgid "NEVER"
 msgstr "절대"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
 #: usr/share/jellyfix/cli/interactive.py:744
 msgid "removes .forced.srt"
 msgstr ".강제.srt 제거"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 619
 #: usr/share/jellyfix/cli/interactive.py:746
 msgid "Folder structure"
 msgstr "폴더 구조"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 620
 #: usr/share/jellyfix/cli/interactive.py:747
 msgid "Creates folders Season 01, Season 02, etc"
 msgstr "폴더를 생성합니다 시즌 01, 시즌 02 등"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 621
 #: usr/share/jellyfix/cli/interactive.py:748
 msgid "Moves episodes to correct folders"
 msgstr "에피소드를 올바른 폴더로 이동합니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 623
 #: usr/share/jellyfix/cli/interactive.py:750
 msgid "Fetches metadata"
 msgstr "메타데이터를 가져옵니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 624
 #: usr/share/jellyfix/cli/interactive.py:751
 msgid "Searches year and IDs via TMDB/TVDB"
 msgstr "TMDB/TVDB를 통해 연도 및 ID 검색"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 625
 #: usr/share/jellyfix/cli/interactive.py:752
 msgid "Adds IDs to folders [tmdbid-12345]"
 msgstr "폴더에 ID 추가 [tmdbid-12345]"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 627
 #: usr/share/jellyfix/cli/interactive.py:754
 msgid "Quality detection"
 msgstr "품질 감지"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 628
 #: usr/share/jellyfix/cli/interactive.py:755
 msgid "Adds quality tags (1080p, 720p, etc) to filenames"
 msgstr "파일 이름에 품질 태그(1080p, 720p 등)를 추가합니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 629
 #: usr/share/jellyfix/cli/interactive.py:756
 msgid "Option to use ffprobe for accurate detection"
 msgstr "ffprobe를 사용하여 정확한 감지를 위한 옵션"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 631
 #: usr/share/jellyfix/cli/interactive.py:758
 msgid "Dry-Run Mode:"
 msgstr "드라이 런 모드:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 632
 #: usr/share/jellyfix/cli/interactive.py:759
 msgid "By default, jellyfix shows what will be done WITHOUT changing files."
 msgstr "기본적으로 jellyfix는 파일을 변경하지 않고 수행될 작업을 보여줍니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 633
 #: usr/share/jellyfix/cli/interactive.py:760
 msgid "You can review changes before applying."
 msgstr "적용하기 전에 변경 사항을 검토할 수 있습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
 #: usr/share/jellyfix/cli/interactive.py:762
 msgid "Tip:"
 msgstr "팁:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
 #: usr/share/jellyfix/cli/interactive.py:762
 msgid "Configure your TMDB key"
 msgstr "TMDB 키를 구성하세요"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: usr/share/jellyfix/cli/non_interactive.py:44
 msgid "Error: No working directory specified"
 msgstr "오류: 작업 디렉터리가 지정되지 않았습니다."
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 46
 #: usr/share/jellyfix/cli/non_interactive.py:45
 msgid "Use: --workdir /path/to/directory"
 msgstr "사용: --workdir /path/to/directory"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 51
 #: usr/share/jellyfix/cli/non_interactive.py:50
 #, python-format
 msgid "Error: Directory does not exist: %s"
 msgstr "오류: 디렉터리가 존재하지 않습니다: %s"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 75
 #: usr/share/jellyfix/cli/non_interactive.py:74
 #, python-format
 msgid "%d operations planned"
 msgstr "%d 작업 계획됨"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 78
 #: usr/share/jellyfix/cli/non_interactive.py:77
 msgid "Nothing to do"
 msgstr "할 일이 없습니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 85
 #: usr/share/jellyfix/cli/non_interactive.py:84
 msgid "DRY-RUN mode: No changes will be made"
 msgstr "DRY-RUN 모드: 변경 사항이 적용되지 않습니다"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 92
 #: usr/share/jellyfix/cli/non_interactive.py:91
 #, python-format
 msgid "Dry-run completed: %d operations planned"
 msgstr "건조 실행 완료: %d 작업 계획됨"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 95
 #: usr/share/jellyfix/cli/non_interactive.py:94
 msgid "Execution completed:"
 msgstr "실행 완료:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 97
 #: usr/share/jellyfix/cli/non_interactive.py:96
 #, python-format
 msgid "  Renamed: %d"
 msgstr "이름이 변경되었습니다: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 99
 #: usr/share/jellyfix/cli/non_interactive.py:98
 #, python-format
 msgid "  Moved: %d"
 msgstr "이동됨: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 101
 #: usr/share/jellyfix/cli/non_interactive.py:100
 #, python-format
 msgid "  Deleted: %d"
 msgstr "삭제됨: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 103
 #: usr/share/jellyfix/cli/non_interactive.py:102
 #, python-format
 msgid "  Cleaned folders: %d"
 msgstr "정리된 폴더: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 105
 #: usr/share/jellyfix/cli/non_interactive.py:104
 #, python-format
 msgid "  Failed: %d"
 msgstr "실패: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 107
 #: usr/share/jellyfix/cli/non_interactive.py:106
 #, python-format
 msgid "  Skipped: %d"
 msgstr "건너뛴: %d"
-
-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 64
+#: usr/share/jellyfix/cli/display.py:64
+msgid "Scan Results"
+msgstr "스캔 결과"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 71
+#: usr/share/jellyfix/cli/display.py:71
+msgid "Category"
+msgstr "카테고리"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 253
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
+msgid "Count"
+msgstr "개수"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 75
+#: usr/share/jellyfix/cli/display.py:75
+msgid "Video files"
+msgstr "비디오 파일"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 77
+#: usr/share/jellyfix/cli/display.py:77
+msgid "Episodes"
+msgstr "에피소드"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
+msgid "Subtitles"
+msgstr "자막"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 81
+#: usr/share/jellyfix/cli/display.py:81
+msgid "Variants"
+msgstr "변형"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 82
+#: usr/share/jellyfix/cli/display.py:82
+msgid "No language"
+msgstr "언어 없음"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 83
+#: usr/share/jellyfix/cli/display.py:83
+msgid "Foreign"
+msgstr "외국인"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 84
+#: usr/share/jellyfix/cli/display.py:84
+msgid "With language"
+msgstr "언어와 함께"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 87
+#: usr/share/jellyfix/cli/display.py:87
+msgid "Images"
+msgstr "이미지"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 90
+#: usr/share/jellyfix/cli/display.py:90
+msgid "NFO files"
+msgstr "NFO 파일"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 93
+#: usr/share/jellyfix/cli/display.py:93
+msgid "Other"
+msgstr "기타"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 100
+#: usr/share/jellyfix/cli/display.py:100
+msgid "Suggested actions:"
+msgstr "제안된 작업:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 103
+#: usr/share/jellyfix/cli/display.py:103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "자막 변형(.lang2, .lang3)을 처리할 수 있습니다."
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 106
+#: usr/share/jellyfix/cli/display.py:106
+msgid "subtitles without language code"
+msgstr "언어 코드 없는 자막"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 109
+#: usr/share/jellyfix/cli/display.py:109
+msgid "foreign subtitles can be removed"
+msgstr "외국 자막을 제거할 수 있습니다."
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 113
+#: usr/share/jellyfix/cli/display.py:113
+msgid "Suggestions"
+msgstr "제안"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "작업이 필요 없습니다. 모든 것이 이미 정리되어 있습니다!"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 137
+#: usr/share/jellyfix/cli/display.py:139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "작업 미리보기 ({} 파일)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:262
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "및 {}개의 추가 그룹"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 189
+#: usr/share/jellyfix/cli/display.py:276
+msgid "Move + Rename:"
+msgstr "이동 + 이름 바꾸기:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 194
+#: usr/share/jellyfix/cli/display.py:281
+msgid "Move:"
+msgstr "이동:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 199
+#: usr/share/jellyfix/cli/display.py:286
+msgid "Rename:"
+msgstr "이름 바꾸기:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 204
+#: usr/share/jellyfix/cli/display.py:291
+msgid "Remove:"
+msgstr "제거:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 208
+# File: usr/share/jellyfix/cli/display.py, line: 225
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
+msgid "Summary"
+msgstr "요약"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 230
+#: usr/share/jellyfix/cli/display.py:342
+msgid "Move + Rename"
+msgstr "이동 + 이름 바꾸기"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 231
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
+msgid "Move"
+msgstr "이동"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 232
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
+msgid "Rename"
+msgstr "이름 바꾸기"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 233
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
+msgid "Delete"
+msgstr "삭제"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 251
+#: usr/share/jellyfix/cli/display.py:363
+msgid "✅ Execution Results"
+msgstr "✅ 실행 결과"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 252
+#: usr/share/jellyfix/cli/display.py:364
+msgid "Action"
+msgstr "작업"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: usr/share/jellyfix/cli/display.py:368
+msgid "Renamed"
+msgstr "이름 변경됨"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 258
+#: usr/share/jellyfix/cli/display.py:370
+msgid "Moved"
+msgstr "이동됨"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: usr/share/jellyfix/cli/display.py:372
+msgid "Deleted"
+msgstr "삭제됨"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:374
+msgid "Cleaned folders"
+msgstr "정리된 폴더"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: usr/share/jellyfix/cli/display.py:376
+msgid "Failed"
+msgstr "실패"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 266
+#: usr/share/jellyfix/cli/display.py:378
+msgid "Skipped"
+msgstr "건너뜀"
+# 
+# File: usr/share/jellyfix/cli/app.py, line: 54
+#: usr/share/jellyfix/cli/app.py:54
+msgid "Operation cancelled by user"
+msgstr "사용자에 의해 작업이 취소되었습니다."
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 101
 #: usr/share/jellyfix/core/image_manager.py:101
 #, python-format
 msgid "Downloaded image: %s"
 msgstr "다운로드된 이미지: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 106
 #: usr/share/jellyfix/core/image_manager.py:106
 #, python-format
 msgid "Failed to download image: %s"
 msgstr "이미지를 다운로드하지 못했습니다: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 110
 #: usr/share/jellyfix/core/image_manager.py:110
 #, python-format
 msgid "Unexpected error downloading image: %s"
 msgstr "예기치 않은 오류로 이미지를 다운로드할 수 없습니다: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 216
 #: usr/share/jellyfix/core/image_manager.py:216
 msgid "Clearing image cache..."
 msgstr "이미지 캐시 지우는 중..."
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 218
 #: usr/share/jellyfix/core/image_manager.py:218
 msgid "Image cache cleared"
 msgstr "이미지 캐시가 지워졌습니다."
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
 #: usr/share/jellyfix/core/subtitle_manager.py:169
 #, python-format
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "%s에 대한 자막 검색 중: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
 #: usr/share/jellyfix/core/subtitle_manager.py:182
 #, python-format
 msgid "Level 1 (hash) found: %s"
 msgstr "레벨 1 (해시) 발견: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
 #: usr/share/jellyfix/core/subtitle_manager.py:186
 #, python-format
 msgid "Missing languages: %s - trying TMDB title search"
 msgstr "누락된 언어: %s - TMDB 제목 검색 시도 중"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
 #: usr/share/jellyfix/core/subtitle_manager.py:207
 #, python-format
 msgid "Level 2 (TMDB) found: %s"
 msgstr "레벨 2 (TMDB) 발견: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
 #: usr/share/jellyfix/core/subtitle_manager.py:210
 #, python-format
 msgid "Still missing: %s (try manual search)"
 msgstr "아직 누락됨: %s (수동 검색 시도)"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
 #: usr/share/jellyfix/core/subtitle_manager.py:213
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "%s에 대한 자막을 찾을 수 없습니다."
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237
 #, python-format
 msgid "Found %d subtitles by hash for: %s"
 msgstr "해시로 찾은 자막 %d개: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #: usr/share/jellyfix/core/subtitle_manager.py:343
 #, python-format
 msgid "Found %d validated subtitles by title for: %s"
 msgstr "제목에 대해 %d개의 검증된 자막을 찾았습니다: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
 #: usr/share/jellyfix/core/subtitle_manager.py:600
 #, python-format
 msgid "Manual search: %s"
 msgstr "수동 검색: %s"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
 #: usr/share/jellyfix/core/subtitle_manager.py:622
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
 msgid "Unknown release"
 msgstr "알 수 없는 릴리스"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
 #: usr/share/jellyfix/core/subtitle_manager.py:657
 #, python-format
 msgid "Found %d subtitles in manual search"
 msgstr "수동 검색에서 %d개의 자막을 찾았습니다."
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
 #: usr/share/jellyfix/core/subtitle_manager.py:707
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "다운로드한 자막: %s"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
-# File: usr/share/jellyfix/gui/app.py, line: 122
-#: usr/share/jellyfix/gui/app.py:142
-#: usr/share/jellyfix/gui/windows/main_window.py:51
-#: usr/share/jellyfix/gui/windows/main_window.py:98
-msgid "Jellyfix"
-msgstr "젤리픽스"
-
-#
-# File: usr/share/jellyfix/gui/app.py, line: 131
-#: usr/share/jellyfix/gui/app.py:151
-msgid "translator-credits"
-msgstr "번역가 크레딧"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "스캔할 디렉터리 선택"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "스캔 실패"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "확인"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "작업 생성 실패"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "실행 실패"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "젤리픽스에 오신 것을 환영합니다"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "여기에 폴더를 드롭하세요"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "또는 아래 버튼을 클릭하세요"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "라이브러리 추가"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "최근 라이브러리"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "최근 라이브러리 지우기"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "몇 주 전"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "일 전"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "몇 시간 전"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "방금"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "작업"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "검색..."
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "모두"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "모든 자막 다운로드"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "모든 나열된 비디오에 대한 자막 검색 및 다운로드"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "작업 없음"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "디렉토리를 스캔하여 작업을 생성합니다."
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "적용"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "이름 바꾸기"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "이동"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "삭제"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
-#, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "{}의 {} 작업 표시"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
-#, python-brace-format
-msgid "Total: {} operations"
-msgstr "총: {} 작업"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "선택 안 함"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "항목을 선택하여 미리보기"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "검색 제목"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "잘못된 제목인가요? 수동으로 검색하려면 클릭하세요."
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "자막 다운로드"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "자막을 자동으로 검색하고 다운로드합니다."
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "에서:"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "받는 사람:"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "이동"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "삭제"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "이동 + 이름 바꾸기"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "이름 바꾸기"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB 구성"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "영화 데이터베이스 API 키 구성"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ 구성됨"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ 구성되지 않음"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API 키"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "구성 파일"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "작업"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "TMDB API 키를 입력하세요"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "구성하다"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "현재 키 보기"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "마스킹된 API 키 표시"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "보기"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "TMDB 연결 테스트"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "API 키가 작동하는지 확인하십시오."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "테스트"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "TMDB 키 제거"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "저장된 API 키 삭제"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "제거"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
-#: usr/share/jellyfix/gui/windows/main_window.py:175
-msgid "Help"
-msgstr "도움말"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "단계별 튜토리얼"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "튜토리얼"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "아래에 TMDB API 키를 입력하세요"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "여기에 API 키를 붙여넣으세요"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "취소"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "저장"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API 키가 성공적으로 저장되었습니다."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "현재 TMDB API 키"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "마스킹된 키"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "전체 키가 저장됨"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "API 키 없음"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "아직 TMDB API 키가 구성되지 않았습니다."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "TMDB API 키를 먼저 구성해 주세요."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ 연결 성공"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
-#, python-brace-format
-msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr "TMDB API 키가 올바르게 작동하고 있습니다!"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ 연결 실패"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr "TMDB에서 데이터를 가져올 수 없습니다. API 키를 확인해 주세요."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ 연결 오류"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "연결 테스트 오류: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "API 키 제거하시겠습니까?"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid ""
-"This will delete your stored TMDB API key. You will need to configure it "
-"again."
-msgstr "이 작업은 저장된 TMDB API 키를 삭제합니다. 다시 구성해야 합니다."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API 키 제거됨"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-msgstr ""
-"TMDB API 키 받는 방법:\n"
-"\n"
-"1. https://www.themoviedb.org/signup으로 이동\n"
-"2. 무료 계정 만들기\n"
-"3. 설정 → API로 이동\n"
-"4. API 키 요청 ( \"개발자\" 옵션 선택)\n"
-"5. 필수 정보 입력\n"
-"6. API 키 복사 (v3 인증)\n"
-"7. Jellyfix에 붙여넣기\n"
-"\n"
-"API 키는 무료이며 다음을 허용합니다:\n"
-"• 영화 및 TV 프로그램 메타데이터 가져오기\n"
-"• 포스터 및 배경 다운로드\n"
-"• 정확한 제목 및 출시일 가져오기\n"
-"• TMDB ID로 라이브러리 정리하기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: usr/share/jellyfix/gui/windows/help_window.py:34
 msgid "Jellyfix Help"
 msgstr "젤리픽스 도움말"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
 #: usr/share/jellyfix/gui/windows/help_window.py:69
 msgid "Version"
 msgstr "버전"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
 #: usr/share/jellyfix/gui/windows/help_window.py:75
 msgid "Intelligent Jellyfin Library Organizer"
 msgstr "지능형 젤리핀 라이브러리 정리기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/help_window.py:84
 msgid "What Jellyfix Does"
 msgstr "젤리픽스의 기능"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/help_window.py:85
 #, fuzzy
 msgid ""
-"Jellyfix automatically organizes your media library following Jellyfin "
-"naming conventions:\n"
+"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
 "\n"
 "• <b>Renames files</b> to Jellyfin standard format\n"
 "• <b>Organizes episodes</b> into Season folders\n"
-"• <b>Manages subtitles</b>: renames, removes foreign languages, adds "
-"language codes\n"
+"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
 "• <b>Fetches metadata</b> from TMDB/TVDB\n"
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
 "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
 msgstr ""
-"Jellyfix는 Jellyfin 명명 규칙에 따라 미디어 라이브러리를 자동으로 정리합니"
-"다:\n"
+"Jellyfix는 Jellyfin 명명 규칙에 따라 미디어 라이브러리를 자동으로 정리합니다:\n"
 "\n"
 "• <b>파일 이름 변경</b>을 Jellyfin 표준 형식으로\n"
 "• <b>에피소드 정리</b>를 시즌 폴더로\n"
@@ -2284,14 +1430,12 @@ msgstr ""
 "• <b>메타데이터 가져오기</b> TMDB/TVDB에서\n"
 "• <b>품질 태그 감지 및 추가</b> (1080p, 720p 등)\n"
 "• <b>제공자 ID 추가</b>를 폴더 이름에 ([tmdbid-12345])"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: usr/share/jellyfix/gui/windows/help_window.py:96
 msgid "Examples"
 msgstr "예제"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: usr/share/jellyfix/gui/windows/help_window.py:97
 #, fuzzy
@@ -2302,8 +1446,7 @@ msgid ""
 "\n"
 "<b>TV Shows:</b>\n"
 "  Before: show.name.s01e05.720p.mkv\n"
-"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - "
-"720p.mkv\n"
+"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
 "\n"
 "<b>Subtitles:</b>\n"
 "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
@@ -2317,22 +1460,19 @@ msgstr ""
 "\n"
 "<b>TV 프로그램:</b>\n"
 "  이전: show.name.s01e05.720p.mkv\n"
-"  이후:  프로그램 이름 (2024) [tmdbid-67890]/시즌 01/프로그램 이름 S01E05 - "
-"720p.mkv\n"
+"  이후:  프로그램 이름 (2024) [tmdbid-67890]/시즌 01/프로그램 이름 S01E05 - 720p.mkv\n"
 "\n"
 "<b>자막:</b>\n"
 "  • 이름 변경: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
 "  • 언어 코드 추가: subtitle.srt → 영화 이름.por.srt\n"
 "  • 외국어 제거 (구성된 언어만 유지)\n"
 "  • <b>절대</b> .forced.srt 파일 제거하지 않음"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/help_window.py:113
 msgid "How to Use"
 msgstr "사용 방법"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/help_window.py:114
 #, fuzzy
@@ -2378,16 +1518,14 @@ msgstr ""
 "   파일이 이름이 변경되고 정리됩니다.\n"
 "\n"
 "<b>팁:</b> 실행하기 전에 항상 미리 보기를 검토하세요!"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: usr/share/jellyfix/gui/windows/help_window.py:138
 #, fuzzy
 msgid ""
 "Configure Jellyfix behavior:\n"
 "\n"
-"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove "
-"foreign\n"
+"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
 "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
 "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
@@ -2400,14 +1538,12 @@ msgstr ""
 "• <b>메타데이터:</b> TMDB 가져오기 활성화/비활성화\n"
 "• <b>품질 태그:</b> 파일 이름에 해상도 태그 추가\n"
 "• <b>ffprobe:</b> 정확한 품질 감지를 위해 ffprobe 사용"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: usr/share/jellyfix/gui/windows/help_window.py:148
 msgid "Important Notes"
 msgstr "중요한 참고 사항"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: usr/share/jellyfix/gui/windows/help_window.py:149
 #, fuzzy
@@ -2435,85 +1571,501 @@ msgstr ""
 "\n"
 "🌍 <b>유지할 언어 사용자 정의</b>\n"
 "환경 설정에서 유지할 자막 언어를 구성하세요."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
 #: usr/share/jellyfix/gui/windows/help_window.py:167
 msgid "Links"
 msgstr "링크"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
 #: usr/share/jellyfix/gui/windows/help_window.py:172
 msgid "Homepage"
 msgstr "홈페이지"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
 #: usr/share/jellyfix/gui/windows/help_window.py:178
 msgid "Report Issues"
 msgstr "문제 보고"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
 #: usr/share/jellyfix/gui/windows/help_window.py:184
 msgid "Get TMDB API Key"
 msgstr "TMDB API 키 가져오기"
-
-#
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "검색 제목"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "영화 또는 시리즈 이름을 입력하세요..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "검색"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "영화"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "TV 시리즈"
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
+msgid "Cancel"
+msgstr "취소"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
+msgid "Apply"
+msgstr "적용"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "검색 중..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB가 구성되지 않았습니다."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "결과가 없습니다"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "결과"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "자막 검색"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "다운로드"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "영화 또는 쇼 제목을 입력하세요..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "시즌"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "에피소드"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "자막 검색"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "제목을 입력하고 검색을 클릭하세요"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "결과 없음"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "다른 검색어를 시도해 보세요"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "{} 자막을 찾았습니다."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "오류: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "다운로드됨: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "다운로드 실패"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
+msgid "TMDB Configuration"
+msgstr "TMDB 구성"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
+msgid "Configure The Movie Database API key"
+msgstr "영화 데이터베이스 API 키 구성"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
+msgid "✓ Configured"
+msgstr "✓ 구성됨"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
+msgid "✗ Not configured"
+msgstr "✗ 구성되지 않음"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
+msgid "TMDB API Key"
+msgstr "TMDB API 키"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
+msgid "Config file"
+msgstr "구성 파일"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
+msgid "Actions"
+msgstr "작업"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
+msgid "Enter your TMDB API key"
+msgstr "TMDB API 키를 입력하세요"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
+msgid "Configure"
+msgstr "구성하다"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
+msgid "View Current Key"
+msgstr "현재 키 보기"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
+msgid "Show masked API key"
+msgstr "마스킹된 API 키 표시"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
+msgid "View"
+msgstr "보기"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
+msgid "Test TMDB Connection"
+msgstr "TMDB 연결 테스트"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
+msgid "Verify API key is working"
+msgstr "API 키가 작동하는지 확인하십시오."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
+msgid "Test"
+msgstr "테스트"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
+msgid "Remove TMDB Key"
+msgstr "TMDB 키 제거"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
+msgid "Delete stored API key"
+msgstr "저장된 API 키 삭제"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
+msgid "Remove"
+msgstr "제거"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
+#: usr/share/jellyfix/gui/windows/main_window.py:175
+msgid "Help"
+msgstr "도움말"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
+msgid "Step-by-step tutorial"
+msgstr "단계별 튜토리얼"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
+msgid "Tutorial"
+msgstr "튜토리얼"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
+msgid "Enter your TMDB API key below"
+msgstr "아래에 TMDB API 키를 입력하세요"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
+msgid "Paste API key here"
+msgstr "여기에 API 키를 붙여넣으세요"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
+msgid "Save"
+msgstr "저장"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
+msgid "API key saved successfully"
+msgstr "API 키가 성공적으로 저장되었습니다."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
+msgid "Current TMDB API Key"
+msgstr "현재 TMDB API 키"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Masked key"
+msgstr "마스킹된 키"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Full key stored in"
+msgstr "전체 키가 저장됨"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
+msgid "No API Key"
+msgstr "API 키 없음"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
+msgid "No TMDB API key configured yet"
+msgstr "아직 TMDB API 키가 구성되지 않았습니다."
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "확인"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
+msgid "Please configure TMDB API key first"
+msgstr "TMDB API 키를 먼저 구성해 주세요."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
+msgid "✓ Connection Successful"
+msgstr "✓ 연결 성공"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+msgstr "TMDB API 키가 올바르게 작동하고 있습니다!"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
+msgid "⚠ Connection Failed"
+msgstr "⚠ 연결 실패"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "TMDB에서 데이터를 가져올 수 없습니다. API 키를 확인해 주세요."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
+msgid "✗ Connection Error"
+msgstr "✗ 연결 오류"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
+#, python-brace-format
+msgid "Error testing connection: {}"
+msgstr "연결 테스트 오류: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
+msgid "Remove API Key?"
+msgstr "API 키 제거하시겠습니까?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
+msgid "This will delete your stored TMDB API key. You will need to configure it again."
+msgstr "이 작업은 저장된 TMDB API 키를 삭제합니다. 다시 구성해야 합니다."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
+msgid "API key removed"
+msgstr "API 키 제거됨"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"TMDB API 키 받는 방법:\n"
+"\n"
+"1. https://www.themoviedb.org/signup으로 이동\n"
+"2. 무료 계정 만들기\n"
+"3. 설정 → API로 이동\n"
+"4. API 키 요청 ( \"개발자\" 옵션 선택)\n"
+"5. 필수 정보 입력\n"
+"6. API 키 복사 (v3 인증)\n"
+"7. Jellyfix에 붙여넣기\n"
+"\n"
+"API 키는 무료이며 다음을 허용합니다:\n"
+"• 영화 및 TV 프로그램 메타데이터 가져오기\n"
+"• 포스터 및 배경 다운로드\n"
+"• 정확한 제목 및 출시일 가져오기\n"
+"• TMDB ID로 라이브러리 정리하기"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
+# File: usr/share/jellyfix/gui/app.py, line: 122
+#: usr/share/jellyfix/gui/app.py:142
+#: usr/share/jellyfix/gui/windows/main_window.py:51
+#: usr/share/jellyfix/gui/windows/main_window.py:98
+msgid "Jellyfix"
+msgstr "젤리픽스"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
 #: usr/share/jellyfix/gui/windows/main_window.py:169
 #: usr/share/jellyfix/gui/windows/preferences_window.py:44
 msgid "Preferences"
 msgstr "환경 설정"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/main_window.py:170
 msgid "Configure API Keys"
 msgstr "API 키 구성"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: usr/share/jellyfix/gui/windows/main_window.py:176
 msgid "About Jellyfix"
 msgstr "젤리픽스 정보"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
 #: usr/share/jellyfix/gui/windows/main_window.py:180
 msgid "Quit"
 msgstr "종료"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
 #: usr/share/jellyfix/gui/windows/main_window.py:248
 msgid "Scanning directory..."
 msgstr "디렉토리 스캔 중..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 276
 #: usr/share/jellyfix/gui/windows/main_window.py:360
 msgid "Generating operations..."
 msgstr "작업 생성 중..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 301
 #: usr/share/jellyfix/gui/windows/main_window.py:385
 #, python-brace-format
 msgid "{} operations ready"
 msgstr "{} 작업 준비 완료"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 326
 #: usr/share/jellyfix/gui/windows/main_window.py:511
 msgid "Apply Operations?"
 msgstr "작업 적용?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 367
 #: usr/share/jellyfix/gui/windows/main_window.py:512
@@ -2521,103 +2073,82 @@ msgstr "작업 적용?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "이 작업은 {} 파일의 이름을 변경합니다. 계속하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
 #: usr/share/jellyfix/gui/windows/main_window.py:545
 msgid "Execute Operations?"
 msgstr "작업 실행?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 372
 #: usr/share/jellyfix/gui/windows/main_window.py:551
 msgid "Execute"
 msgstr "실행"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 395
 #: usr/share/jellyfix/gui/windows/main_window.py:574
 #, python-brace-format
 msgid "Dry-run: {} operations previewed"
 msgstr "건조 실행: {} 작업 미리보기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 398
 #: usr/share/jellyfix/gui/windows/main_window.py:577
 #, python-brace-format
 msgid "{} operations completed"
 msgstr "{} 작업 완료"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 408
-#: usr/share/jellyfix/gui/windows/main_window.py:587
-msgid "Complete!"
-msgstr "완료!"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
 #: usr/share/jellyfix/gui/windows/main_window.py:721
 msgid "Feature Unavailable"
 msgstr "기능 사용 불가"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
 #: usr/share/jellyfix/gui/windows/main_window.py:722
 msgid ""
 "The 'subliminal' library is not installed.\n"
 "Please install it to use this feature."
-msgstr ""
-"'subliminal' 라이브러리가 설치되어 있지 않습니다. 이 기능을 사용하려면 설치"
-"해 주십시오."
-
-#
+msgstr "'subliminal' 라이브러리가 설치되어 있지 않습니다. 이 기능을 사용하려면 설치해 주십시오."
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
 #: usr/share/jellyfix/gui/windows/main_window.py:746
 msgid "Preparing..."
 msgstr "준비 중..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
 #: usr/share/jellyfix/gui/windows/main_window.py:954
 #, python-brace-format
 msgid "Searching subtitles ({}/{})"
 msgstr "자막 검색 중 ({}/{})"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
 #: usr/share/jellyfix/gui/windows/main_window.py:993
 #, fuzzy
 msgid "subtitle"
 msgstr "자막"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
 #: usr/share/jellyfix/gui/windows/main_window.py:993
 #, fuzzy
 msgid "subtitles"
 msgstr "자막"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/gui/windows/main_window.py:994
 #: usr/share/jellyfix/gui/windows/main_window.py:1014
 #, fuzzy
 msgid "video"
 msgstr "비디오"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
 #: usr/share/jellyfix/gui/windows/main_window.py:997
 msgid "No Subtitles Found"
 msgstr "자막을 찾을 수 없습니다."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
 #: usr/share/jellyfix/gui/windows/main_window.py:998
 msgid ""
@@ -2626,14 +2157,12 @@ msgid ""
 msgstr ""
 "자동으로 자막을 찾을 수 없습니다.  \n"
 "수동 검색을 시도하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
 #: usr/share/jellyfix/gui/windows/main_window.py:1002
 msgid "Partial Success"
 msgstr "부분 성공"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
 #: usr/share/jellyfix/gui/windows/main_window.py:1010
 #, fuzzy, python-brace-format
@@ -2647,8 +2176,7 @@ msgstr ""
 "\n"
 "누락된 언어: {}\n"
 "수동 검색을 시도하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
 #: usr/share/jellyfix/gui/windows/main_window.py:1015
 #, fuzzy, python-brace-format
@@ -2658,39 +2186,28 @@ msgid ""
 msgstr ""
 "{} 비디오 중 {}에 대한 {} 자막이 다운로드되었습니다.  \n"
 "누락된 항목에 대해 수동 검색을 시도하시겠습니까?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: usr/share/jellyfix/gui/windows/main_window.py:1020
 msgid "Download Complete"
 msgstr "다운로드 완료"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: usr/share/jellyfix/gui/windows/main_window.py:1021
 #, fuzzy, python-brace-format
 msgid "Downloaded {} {} for {} {} (all languages)."
 msgstr "{} 비디오에 대해 {} 자막을 다운로드했습니다 (모든 언어)."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
 #: usr/share/jellyfix/gui/windows/main_window.py:1034
 msgid "Manual Search"
 msgstr "수동 검색"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
-#: usr/share/jellyfix/gui/windows/main_window.py:1037
-msgid "Rescan Now"
-msgstr "지금 다시 스캔"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
 #: usr/share/jellyfix/gui/windows/main_window.py:1071
 msgid "Batch Error"
 msgstr "배치 오류"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
 #: usr/share/jellyfix/gui/windows/main_window.py:1072
 #, python-brace-format
@@ -2700,496 +2217,494 @@ msgid ""
 msgstr ""
 "배치 다운로드 중 오류가 발생했습니다:  \n"
 "{}"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
 #: usr/share/jellyfix/gui/windows/main_window.py:1154
 #, python-brace-format
 msgid "Subtitle downloaded: {}"
 msgstr "자막이 다운로드되었습니다: {}"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: usr/share/jellyfix/gui/windows/preferences_window.py:60
 msgid "Subtitle Handling"
 msgstr "자막 처리"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
 #: usr/share/jellyfix/gui/windows/preferences_window.py:61
 msgid "Configure how subtitles are processed"
 msgstr "자막 처리 방식을 구성합니다."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
 #: usr/share/jellyfix/gui/windows/preferences_window.py:66
 msgid "Rename Language Variants"
 msgstr "언어 변형 이름 바꾸기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
 #: usr/share/jellyfix/gui/windows/preferences_window.py:67
 msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
 msgstr ".por2.srt, .eng2.srt를 .por.srt, .eng.srt로 이름 변경"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
 #: usr/share/jellyfix/gui/windows/preferences_window.py:75
 msgid "Remove Duplicate Variants"
 msgstr "중복 변형 제거"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
 #: usr/share/jellyfix/gui/windows/preferences_window.py:76
 msgid "Remove .lang2, .lang3 files after renaming"
 msgstr "이름 변경 후 .lang2, .lang3 파일 제거"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/preferences_window.py:84
 msgid "Add Language Codes"
 msgstr "언어 코드 추가"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
 #: usr/share/jellyfix/gui/windows/preferences_window.py:85
 msgid "Add language codes to subtitles without them"
 msgstr "자막에 언어 코드를 추가하되, 언어 코드는 포함하지 마십시오."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
 #: usr/share/jellyfix/gui/windows/preferences_window.py:93
 msgid "Remove Foreign Subtitles"
 msgstr "외국 자막 제거"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
 #: usr/share/jellyfix/gui/windows/preferences_window.py:94
 msgid "Remove subtitles not in kept languages list"
 msgstr "보관된 언어 목록에 없는 자막 제거"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
 #: usr/share/jellyfix/gui/windows/preferences_window.py:102
 msgid "Minimum Portuguese Words"
 msgstr "최소 포르투갈어 단어 수"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
 #: usr/share/jellyfix/gui/windows/preferences_window.py:103
 msgid "Min words to detect Portuguese subtitles"
 msgstr "포르투갈어 자막을 감지하기 위한 최소 단어 수"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
 #: usr/share/jellyfix/gui/windows/preferences_window.py:112
 msgid "Kept Languages"
 msgstr "유지된 언어"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/preferences_window.py:113
 msgid "Subtitles in these languages will be kept"
 msgstr "이 언어의 자막은 유지됩니다."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
 #: usr/share/jellyfix/gui/windows/preferences_window.py:134
 msgid "Video"
 msgstr "비디오"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
 #: usr/share/jellyfix/gui/windows/preferences_window.py:140
 msgid "Video Handling"
 msgstr "비디오 처리"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
 #: usr/share/jellyfix/gui/windows/preferences_window.py:141
 msgid "Configure how videos are processed"
 msgstr "비디오 처리 방식을 구성합니다."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
 #: usr/share/jellyfix/gui/windows/preferences_window.py:146
 msgid "Organize in Folders"
 msgstr "폴더에 정리하기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
 #: usr/share/jellyfix/gui/windows/preferences_window.py:147
 msgid "Organize TV episodes in Season folders"
 msgstr "시즌 폴더에 TV 에피소드를 정리하기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
 #: usr/share/jellyfix/gui/windows/preferences_window.py:155
 msgid "Add Quality Tags"
 msgstr "품질 태그 추가"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
 #: usr/share/jellyfix/gui/windows/preferences_window.py:156
 msgid "Add resolution tags (1080p, 720p, etc) to filenames"
 msgstr "파일 이름에 해상도 태그(1080p, 720p 등)를 추가하세요"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
 #: usr/share/jellyfix/gui/windows/preferences_window.py:164
 msgid "Use ffprobe for Detection"
 msgstr "ffprobe를 사용하여 감지하기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
 #: usr/share/jellyfix/gui/windows/preferences_window.py:165
 msgid "More accurate but slower quality detection"
 msgstr "더 정확하지만 느린 품질 감지"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
 #: usr/share/jellyfix/gui/windows/preferences_window.py:177
 msgid "Metadata"
 msgstr "메타데이터"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/preferences_window.py:183
 msgid "Metadata Fetching"
 msgstr "메타데이터 가져오기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
 #: usr/share/jellyfix/gui/windows/preferences_window.py:184
 msgid "Configure metadata from TMDB"
 msgstr "TMDB에서 메타데이터 구성"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
 #: usr/share/jellyfix/gui/windows/preferences_window.py:189
 msgid "Fetch Metadata"
 msgstr "메타데이터 가져오기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
 #: usr/share/jellyfix/gui/windows/preferences_window.py:190
 msgid "Download metadata and posters from TMDB"
 msgstr "TMDB에서 메타데이터와 포스터 다운로드"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
 #: usr/share/jellyfix/gui/windows/preferences_window.py:202
 msgid "General"
 msgstr "일반"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
 #: usr/share/jellyfix/gui/windows/preferences_window.py:208
 msgid "Application"
 msgstr "애플리케이션"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
 #: usr/share/jellyfix/gui/windows/preferences_window.py:209
 msgid "General application settings"
 msgstr "일반 애플리케이션 설정"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
 #: usr/share/jellyfix/gui/windows/preferences_window.py:217
 msgid "Keep Recent Libraries"
 msgstr "최근 라이브러리 유지"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
 #: usr/share/jellyfix/gui/windows/preferences_window.py:218
 msgid "Remember recently scanned libraries between sessions"
 msgstr "세션 간 최근 스캔한 라이브러리 기억하기"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
 #: usr/share/jellyfix/gui/windows/preferences_window.py:228
 msgid "File Cleanup"
 msgstr "파일 정리"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
 #: usr/share/jellyfix/gui/windows/preferences_window.py:229
 msgid "Configure which files to remove"
 msgstr "제거할 파일 구성"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
 #: usr/share/jellyfix/gui/windows/preferences_window.py:234
 msgid "Remove Non-Media Files"
 msgstr "비미디어 파일 제거"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
 #: usr/share/jellyfix/gui/windows/preferences_window.py:235
 msgid "Remove all files that are not .srt or .mp4"
 msgstr ".srt 또는 .mp4가 아닌 모든 파일을 제거합니다."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
 #: usr/share/jellyfix/gui/windows/preferences_window.py:243
 msgid "Fix Mirabel Files"
 msgstr "미라벨 파일 수정"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
 #: usr/share/jellyfix/gui/windows/preferences_window.py:244
 msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 msgstr ".pt-BR.hi.srt, .br.hi.srt를 .por.srt로 이름 변경"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "스캔할 디렉터리 선택"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "스캔 실패"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "작업 생성 실패"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "실행 실패"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "선택 안 함"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "항목을 선택하여 미리보기"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
 msgstr "검색 제목"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "영화 또는 시리즈 이름을 입력하세요..."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "검색"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "영화"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "TV 시리즈"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "검색 중..."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB가 구성되지 않았습니다."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "결과가 없습니다"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "결과"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
-msgid "Search Subtitles"
-msgstr "자막 검색"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
-msgid "Download"
-msgstr "다운로드"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
-msgid "Enter movie or show title..."
-msgstr "영화 또는 쇼 제목을 입력하세요..."
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
-msgid "Season"
-msgstr "시즌"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
-msgid "Episode"
-msgstr "에피소드"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
-msgid "Search for Subtitles"
-msgstr "자막 검색"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
-msgid "Enter a title and click search"
-msgstr "제목을 입력하고 검색을 클릭하세요"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
-msgid "No Results"
-msgstr "결과 없음"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
-msgid "Try a different search term"
-msgstr "다른 검색어를 시도해 보세요"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "잘못된 제목인가요? 수동으로 검색하려면 클릭하세요."
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "자막 다운로드"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "자막을 자동으로 검색하고 다운로드합니다."
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "에서:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "받는 사람:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "이동"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "삭제"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "이동 + 이름 바꾸기"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "이름 바꾸기"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "젤리픽스에 오신 것을 환영합니다"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "여기에 폴더를 드롭하세요"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "또는 아래 버튼을 클릭하세요"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "라이브러리 추가"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "최근 라이브러리"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "최근 라이브러리 지우기"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "몇 주 전"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "일 전"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "몇 시간 전"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "방금"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "작업"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
+msgstr "검색..."
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "모두"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "모든 자막 다운로드"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "모든 나열된 비디오에 대한 자막 검색 및 다운로드"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "작업 없음"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "디렉토리를 스캔하여 작업을 생성합니다."
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "이름 바꾸기"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "이동"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "삭제"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Found {} subtitles"
-msgstr "{} 자막을 찾았습니다."
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+msgid "Showing {} of {} operations"
+msgstr "{}의 {} 작업 표시"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Error: {}"
-msgstr "오류: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
-#, python-brace-format
-msgid "Downloaded: {}"
-msgstr "다운로드됨: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
-msgid "Download failed"
-msgstr "다운로드 실패"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 120
-#~ msgid "Dashboard"
-#~ msgstr "대시보드"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 144
-#~ msgid "Library"
-#~ msgstr "라이브러리"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 155
-#~ msgid "Preview"
-#~ msgstr "미리보기"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
-#~ msgid "Applying operations..."
-#~ msgstr "작업 적용 중..."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
-#~ msgid "Downloading Subtitles"
-#~ msgstr "자막 다운로드 중"
-
-#
+msgid "Total: {} operations"
+msgstr "총: {} 작업"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "번역가 크레딧"
+# 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
-#~ msgid "Organize Folder with Jellyfix"
-#~ msgstr "젤리픽스와 함께 폴더 정리"
-
-#
+#: NEEDS WORK
+msgid "Organize Folder with Jellyfix"
+msgstr "젤리픽스와 함께 폴더 정리"
+# 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Folders with Jellyfix"
-#~ msgstr "젤리픽스와 함께 {0} 폴더 정리하기"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 95
-#~ msgid "Organize 1 Video and 1 Subtitle"
-#~ msgstr "1개의 비디오와 1개의 자막 정리하기"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 97
+msgid "Organize {0} Folders with Jellyfix"
+msgstr "젤리픽스와 함께 {0} 폴더 정리하기"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
+#: NEEDS WORK
+msgid "Organize 1 Video and 1 Subtitle"
+msgstr "1개의 비디오와 1개의 자막 정리하기"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize 1 Video and {0} Subtitles"
-#~ msgstr "1개의 비디오와 {0}개의 자막 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 99
+msgid "Organize 1 Video and {0} Subtitles"
+msgstr "1개의 비디오와 {0}개의 자막 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos and 1 Subtitle"
-#~ msgstr "{0} 비디오 및 1 자막 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 101
+msgid "Organize {0} Videos and 1 Subtitle"
+msgstr "{0} 비디오 및 1 자막 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos and {1} Subtitles"
-#~ msgstr "{0} 비디오 및 {1} 자막 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
-#~ msgid "Organize Video"
-#~ msgstr "비디오 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 107
+msgid "Organize {0} Videos and {1} Subtitles"
+msgstr "{0} 비디오 및 {1} 자막 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
+#: NEEDS WORK
+msgid "Organize Video"
+msgstr "비디오 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos"
-#~ msgstr "{0} 비디오 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 111
-#~ msgid "Organize Subtitle"
-#~ msgstr "자막 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 113
+msgid "Organize {0} Videos"
+msgstr "{0} 비디오 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
+#: NEEDS WORK
+msgid "Organize Subtitle"
+msgstr "자막 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Subtitles"
-#~ msgstr "{0} 자막 정리"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 173
-#~ msgid "No valid local files selected"
-#~ msgstr "유효한 로컬 파일이 선택되지 않았습니다."
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 174
-#~ msgid "Could not get the path for the selected files."
-#~ msgstr "선택한 파일의 경로를 가져올 수 없습니다."
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 189
-#~ msgid "Application Launch Error"
-#~ msgstr "애플리케이션 실행 오류"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 261
-#~ msgid "Application Not Found"
-#~ msgstr "응용 프로그램을 찾을 수 없습니다."
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 262
+msgid "Organize {0} Subtitles"
+msgstr "{0} 자막 정리"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
+#: NEEDS WORK
+msgid "No valid local files selected"
+msgstr "유효한 로컬 파일이 선택되지 않았습니다."
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
+#: NEEDS WORK
+msgid "Could not get the path for the selected files."
+msgstr "선택한 파일의 경로를 가져올 수 없습니다."
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
+#: NEEDS WORK
+msgid "Application Not Found"
+msgstr "응용 프로그램을 찾을 수 없습니다."
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Could not find '{0}'. Is Jellyfix installed?"
-#~ msgstr "'{0}'을(를) 찾을 수 없습니다. Jellyfix가 설치되어 있습니까?"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 190
+msgid "Could not find '{0}'. Is Jellyfix installed?"
+msgstr "'{0}'을(를) 찾을 수 없습니다. Jellyfix가 설치되어 있습니까?"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+#: NEEDS WORK
+msgid "Application Launch Error"
+msgstr "애플리케이션 실행 오류"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Failed to start Jellyfix: {0}"
-#~ msgstr "젤리픽스를 시작하지 못했습니다: {0}"
+msgid "Failed to start Jellyfix: {0}"
+msgstr "젤리픽스를 시작하지 못했습니다: {0}"

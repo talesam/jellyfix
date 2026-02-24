@@ -2,435 +2,136 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the jellyfix package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: jellyfix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 14:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
-
-#
-# File: usr/share/jellyfix/cli/app.py, line: 54
-#: usr/share/jellyfix/cli/app.py:54
-msgid "Operation cancelled by user"
-msgstr "Műveletet a felhasználó megszakította"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 552
-# File: usr/share/jellyfix/cli/app.py, line: 58
-#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
-#, python-format
-msgid "Unexpected error: %s"
-msgstr "Váratlan hiba: %s"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "Keresési Eredmények"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "Kategória"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 253
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "Számolás"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "Videofájlok"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 609
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "Filmek"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "Epizódok"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "Feliratok"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "Változatok"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "Nincs nyelv"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "Külföldi"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "Nyelvvel"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "Képek"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO fájlok"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "Egyéb"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "Javasolt műveletek:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "feliratozási változatok (.lang2, .lang3) feldolgozhatók"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "feliratok nyelvi kód nélkül"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "a külföldi feliratok eltávolíthatók"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "Javaslatok"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "Nincs szükség műveletekre. Minden már rendezve van!"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 137
-#: usr/share/jellyfix/cli/display.py:139
-#, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "Művelet előnézete ({} fájl)"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
-#, python-brace-format
-msgid "and {} more groups"
-msgstr "és {} további csoport"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 189
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "Áthelyezés + Átnevezés:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 194
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "Mozgás:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 199
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "Átnevezés:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 204
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "Eltávolítás:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 208
-# File: usr/share/jellyfix/cli/display.py, line: 225
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "Összefoglaló"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 230
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "Áthelyezés + Átnevezés"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "Mozgás"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "Átnevezés"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "Törlés"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 251
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ Végrehajtási Eredmények"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 252
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "Akció"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "Átnevezve"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 258
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "Áthelyezve"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "Törölve"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "Tisztított mappák"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "Sikertelen"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 266
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "Kihagyva"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 99
 # File: usr/share/jellyfix/cli/interactive.py, line: 421
 #: usr/share/jellyfix/cli/interactive.py:104
 #: usr/share/jellyfix/cli/interactive.py:548
 msgid "What would you like to do?"
 msgstr "Mit szeretnél csinálni?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 101
 #: usr/share/jellyfix/cli/interactive.py:106
 msgid "📂 Scan library"
 msgstr "📂 Könyvtár beolvasása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 102
 #: usr/share/jellyfix/cli/interactive.py:107
 msgid "🔧 Settings"
 msgstr "🔧 Beállítások"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 103
 #: usr/share/jellyfix/cli/interactive.py:108
 msgid "🚀 Process files"
 msgstr "🚀 Fájlok feldolgozása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 109
 #: usr/share/jellyfix/cli/interactive.py:109
 msgid "📥 Download subtitles"
 msgstr "📥 Feliratok letöltése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: usr/share/jellyfix/cli/interactive.py:110
 msgid "ℹ️  Help"
 msgstr "ℹ️  Súgó"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 105
 #: usr/share/jellyfix/cli/interactive.py:111
 msgid "❌ Exit"
 msgstr "Kilépés"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 108
 #: usr/share/jellyfix/cli/interactive.py:114
 msgid "(Use arrow keys to navigate)"
 msgstr "(Használja a nyílbillentyűket a navigáláshoz)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 124
 #: usr/share/jellyfix/cli/interactive.py:124
 msgid "Subliminal library not found!"
 msgstr "Subliminal könyvtár nem található!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 125
 #: usr/share/jellyfix/cli/interactive.py:125
 msgid "Please install 'subliminal' to use this feature."
-msgstr ""
-"Kérjük, telepítse a 'subliminal' alkalmazást ennek a funkciónak a "
-"használatához."
-
-#
+msgstr "Kérjük, telepítse a 'subliminal' alkalmazást ennek a funkciónak a használatához."
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 135
 #: usr/share/jellyfix/cli/interactive.py:135
 #, python-format
 msgid "Scanning for videos: %s"
 msgstr "Videók keresése: %s"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 142
 #: usr/share/jellyfix/cli/interactive.py:142
 msgid "No videos found!"
 msgstr "Nincsenek videók!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 160
 #: usr/share/jellyfix/cli/interactive.py:160
 msgid "Select videos to download subtitles for:"
 msgstr "Videók kiválasztása a feliratok letöltéséhez:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 163
 #: usr/share/jellyfix/cli/interactive.py:163
 msgid "(SPACE to select, ENTER to confirm)"
 msgstr "(SPACE a kiválasztáshoz, ENTER a megerősítéshez)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/cli/interactive.py:170
 msgid "Selected:"
 msgstr "Kiválasztva:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/cli/interactive.py:170
 #: usr/share/jellyfix/gui/windows/main_window.py:994
 #: usr/share/jellyfix/gui/windows/main_window.py:1014
 msgid "videos"
 msgstr "videók"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 172
 #: usr/share/jellyfix/cli/interactive.py:172
 msgid "Start download?"
 msgstr "Letöltés indítása?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 193
 #: usr/share/jellyfix/cli/interactive.py:193
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:366
 msgid "Downloading..."
 msgstr "Letöltés..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 196
 #: usr/share/jellyfix/cli/interactive.py:196
 #, python-brace-format
 msgid "Downloading for: {}"
 msgstr "Letöltés folyamatban: {}"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 210
 #: usr/share/jellyfix/cli/interactive.py:210
 #, python-brace-format
 msgid "Downloaded {} subtitles for {} videos"
 msgstr "Letöltött {} feliratot {} videóhoz"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 212
 #: usr/share/jellyfix/cli/interactive.py:212
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:337
 msgid "No subtitles found"
 msgstr "Nincsenek feliratok."
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 121
 # File: usr/share/jellyfix/cli/interactive.py, line: 141
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 59
@@ -440,10 +141,9 @@ msgstr "Nincsenek feliratok."
 #, python-format
 msgid "Scanning: %s"
 msgstr "Beolvasás: %s"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 148
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 65
 #: usr/share/jellyfix/cli/interactive.py:251
@@ -451,30 +151,26 @@ msgstr "Beolvasás: %s"
 #, python-format
 msgid "Found: %d videos, %d subtitles"
 msgstr "Található: %d videó, %d felirat"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 153
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 70
 #: usr/share/jellyfix/cli/interactive.py:256
 #: usr/share/jellyfix/cli/non_interactive.py:69
 msgid "Planning operations..."
 msgstr "Műveletek tervezése..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 158
 #: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "Nincs szükség műveletekre"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
 #: usr/share/jellyfix/cli/interactive.py:270
 msgid "Execute these operations?"
 msgstr "Ezeket a műveleteket végre kell hajtani?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 173
 # File: usr/share/jellyfix/cli/interactive.py, line: 450
 # File: usr/share/jellyfix/cli/interactive.py, line: 478
@@ -483,201 +179,169 @@ msgstr "Ezeket a műveleteket végre kell hajtani?"
 #: usr/share/jellyfix/cli/interactive.py:605
 msgid "Operation cancelled"
 msgstr "Művelet megszakítva"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 177
 #: usr/share/jellyfix/cli/interactive.py:280
 msgid "Executing operations..."
 msgstr "Műveletek végrehajtása..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 202
 #: usr/share/jellyfix/cli/interactive.py:305
 msgid "📂 Directory Browser"
 msgstr "📂 Könyvtárböngésző"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 203
 #: usr/share/jellyfix/cli/interactive.py:306
 msgid "Current:"
 msgstr "Aktuális:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 211
 #: usr/share/jellyfix/cli/interactive.py:314
 msgid "✓ Select this directory"
 msgstr "✓ Válaszd ki ezt a könyvtárat"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 218
 #: usr/share/jellyfix/cli/interactive.py:321
 msgid "⬆️  .. (go back)"
 msgstr "⬆️  .. (vissza)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 229
 #: usr/share/jellyfix/cli/interactive.py:332
 msgid "⌨️  Type path manually"
 msgstr "⌨️  Írja be az elérési utat manuálisan"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 235
 #: usr/share/jellyfix/cli/interactive.py:338
 msgid "❌ Cancel"
 msgstr "❌ Mégse"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 241
 #: usr/share/jellyfix/cli/interactive.py:344
 msgid "Select directory:"
 msgstr "Könyvtár kiválasztása:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 253
 #: usr/share/jellyfix/cli/interactive.py:356
 msgid "Enter full directory path:"
 msgstr "Adja meg a teljes könyvtár elérési útját:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 255
 #: usr/share/jellyfix/cli/interactive.py:358
 msgid "Path:"
 msgstr "Útvonal:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 265
 #: usr/share/jellyfix/cli/interactive.py:368
 msgid "Directory not found!"
 msgstr "A könyvtár nem található!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 272
 #: usr/share/jellyfix/cli/interactive.py:375
 msgid "Permission denied"
 msgstr "Hozzáférés megtagadva"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 281
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: usr/share/jellyfix/cli/interactive.py:384
 #: usr/share/jellyfix/gui/windows/help_window.py:137
 msgid "Settings"
 msgstr "Beállítások"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 284
 #: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 287
 #: usr/share/jellyfix/cli/interactive.py:390
 msgid "What would you like to configure?"
 msgstr "Mit szeretne konfigurálni?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 289
 #: usr/share/jellyfix/cli/interactive.py:392
 msgid "Rename language variants (lang2→lang, lang3→lang)"
 msgstr "Nyelvi változatok átnevezése (lang2→lang, lang3→lang)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 290
 #: usr/share/jellyfix/cli/interactive.py:393
 msgid "Remove duplicate variants (lang2, lang3)"
 msgstr "Törölje a duplikált változatokat (nyelv2, nyelv3)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 291
 #: usr/share/jellyfix/cli/interactive.py:394
 msgid "Add language code to subtitles"
 msgstr "Nyelvkód hozzáadása a feliratokhoz"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 292
 #: usr/share/jellyfix/cli/interactive.py:395
 msgid "Remove foreign subtitles"
 msgstr "Távolítsa el a külföldi feliratokat"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 293
 # File: usr/share/jellyfix/cli/interactive.py, line: 398
 #: usr/share/jellyfix/cli/interactive.py:396
 #: usr/share/jellyfix/cli/interactive.py:525
 msgid "Kept languages:"
 msgstr "Megőrzött nyelvek:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 294
 #: usr/share/jellyfix/cli/interactive.py:397
 msgid "Organize in folders (Season XX)"
 msgstr "Mappákba rendezés (XX. évad)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 295
 #: usr/share/jellyfix/cli/interactive.py:398
 msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "Metaadatok lekérése (TMDB/TVDB)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
 # File: usr/share/jellyfix/cli/interactive.py, line: 344
 #: usr/share/jellyfix/cli/interactive.py:399
 #: usr/share/jellyfix/cli/interactive.py:450
 msgid "Ask when multiple TMDB results"
 msgstr "Kérdezze meg, amikor több TMDB eredmény van"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: usr/share/jellyfix/cli/interactive.py:400
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "Minőségi címkék hozzáadása (1080p, 720p, stb.)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 297
 #: usr/share/jellyfix/cli/interactive.py:401
 #: usr/share/jellyfix/cli/interactive.py:460
 msgid "Use ffprobe for quality detection"
 msgstr "Használja a ffprobe-ot a minőségellenőrzéshez"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 299
 # File: usr/share/jellyfix/cli/interactive.py, line: 360
 #: usr/share/jellyfix/cli/interactive.py:402
 #: usr/share/jellyfix/cli/interactive.py:465
 msgid "Rename NFO files to match video"
 msgstr "NFO fájlok átnevezése a videóhoz való illesztéshez"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 #: usr/share/jellyfix/cli/interactive.py:403
 msgid "Remove non-media files (keep only videos/subtitles)"
-msgstr ""
-"Távolítsa el a nem médiafájlokat (csak videókat/feliratokat tartson meg)"
-
-#
+msgstr "Távolítsa el a nem médiafájlokat (csak videókat/feliratokat tartson meg)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 301
 #: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
 msgstr "Javítsa a Mirabel fájlokat (.pt-BR.hi → .por)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "Min portugál szavak:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 299
 #: usr/share/jellyfix/cli/interactive.py:406
 #: usr/share/jellyfix/cli/interactive.py:495
 msgid "Configure APIs (TMDB/TVDB)"
 msgstr "API-k konfigurálása (TMDB/TVDB)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 # File: usr/share/jellyfix/cli/interactive.py, line: 306
 # File: usr/share/jellyfix/cli/interactive.py, line: 428
@@ -688,22 +352,19 @@ msgstr "API-k konfigurálása (TMDB/TVDB)"
 #: usr/share/jellyfix/cli/interactive.py:561
 msgid "Back"
 msgstr "Vissza"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 303
 # File: usr/share/jellyfix/cli/interactive.py, line: 431
 #: usr/share/jellyfix/cli/interactive.py:410
 #: usr/share/jellyfix/cli/interactive.py:558
 msgid "(Use ↑↓ and ENTER to select)"
 msgstr "(Használja a ↑↓ és az ENTER billentyűt a kiválasztáshoz)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 310
 #: usr/share/jellyfix/cli/interactive.py:417
 msgid "Rename language variants"
 msgstr "Nyelvi változatok átnevezése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 313
 # File: usr/share/jellyfix/cli/interactive.py, line: 318
 # File: usr/share/jellyfix/cli/interactive.py, line: 323
@@ -726,156 +387,131 @@ msgstr "Nyelvi változatok átnevezése"
 #: usr/share/jellyfix/cli/interactive.py:478
 msgid "Setting saved"
 msgstr "Beállítás mentve"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 315
 #: usr/share/jellyfix/cli/interactive.py:422
 msgid "Remove duplicate variants"
 msgstr "Duplikált változatok eltávolítása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 320
 #: usr/share/jellyfix/cli/interactive.py:427
 msgid "Add language code"
 msgstr "Nyelvkód hozzáadása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 325
 #: usr/share/jellyfix/cli/interactive.py:432
 msgid "Remove foreign"
 msgstr "Idegen eltávolítása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 330
 #: usr/share/jellyfix/cli/interactive.py:437
 msgid "Kept languages"
 msgstr "Megőrzött nyelvek"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 333
 #: usr/share/jellyfix/cli/interactive.py:440
 msgid "Organize in folders"
 msgstr "Mappákba rendezés"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 338
 #: usr/share/jellyfix/cli/interactive.py:445
 msgid "Fetch metadata"
 msgstr "Metaadatok lekérése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 343
 #: usr/share/jellyfix/cli/interactive.py:455
 msgid "Add quality tags"
 msgstr "Minőségi címkék hozzáadása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 366
 #: usr/share/jellyfix/cli/interactive.py:470
 msgid "Remove non-media files"
 msgstr "Távolítsa el a nem médiafájlokat"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
 # File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
 #: usr/share/jellyfix/cli/interactive.py:475
 msgid "Fix Mirabel files"
 msgstr "Javítsa a Mirabel fájlokat"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: usr/share/jellyfix/cli/interactive.py:480
 msgid "Min Portuguese words"
 msgstr "Minimális portugál szavak"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 355
 #: usr/share/jellyfix/cli/interactive.py:482
 msgid "Minimum number of Portuguese words:"
 msgstr "Minimum számú portugál szó:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 363
 #: usr/share/jellyfix/cli/interactive.py:490
 msgid "Setting saved to ~/.jellyfix/config.json"
 msgstr "Beállítás mentve a ~/.jellyfix/config.json fájlba"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 365
 #: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "Érvénytelen érték!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
 #: usr/share/jellyfix/cli/interactive.py:502
 msgid "Language Selection"
 msgstr "Nyelvválasztás"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 376
 #: usr/share/jellyfix/cli/interactive.py:503
 msgid "Select languages to KEEP (will NOT be removed)"
 msgstr "Válassza ki a MEGŐRZENDŐ nyelveket (nem lesznek eltávolítva)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 377
 #: usr/share/jellyfix/cli/interactive.py:504
 msgid "Use SPACE to check/uncheck, ENTER to confirm"
-msgstr ""
-"Használja a SPACE-t a jelöléshez/eltávolításhoz, az ENTER-t a megerősítéshez"
-
-#
+msgstr "Használja a SPACE-t a jelöléshez/eltávolításhoz, az ENTER-t a megerősítéshez"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 390
 #: usr/share/jellyfix/cli/interactive.py:517
 msgid "Select languages to KEEP:"
 msgstr "Válassza ki a MEGTARTANDÓ nyelveket:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 393
 #: usr/share/jellyfix/cli/interactive.py:520
 msgid "(SPACE = check/uncheck, ENTER = confirm)"
 msgstr "(SPACE = jelölés/eltávolítás, ENTER = megerősítés)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 402
 #: usr/share/jellyfix/cli/interactive.py:529
 msgid "Saved to ~/.jellyfix/config.json"
 msgstr "Mentve a ~/.jellyfix/config.json fájlba"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 411
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 38
 #: usr/share/jellyfix/cli/interactive.py:538
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:38
 msgid "API Configuration"
 msgstr "API konfiguráció"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
 #: usr/share/jellyfix/cli/interactive.py:542
 msgid "Configured"
 msgstr "Beállítva"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
 #: usr/share/jellyfix/cli/interactive.py:542
 msgid "Not configured"
 msgstr "Nincs konfigurálva"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 418
 #: usr/share/jellyfix/cli/interactive.py:545
 msgid "Config file:"
 msgstr "Konfigurációs fájl:"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 423
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 93
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 178
@@ -885,215 +521,189 @@ msgstr "Konfigurációs fájl:"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:178
 msgid "Configure TMDB API Key"
 msgstr "TMDB API kulcs beállítása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 424
 #: usr/share/jellyfix/cli/interactive.py:551
 #: usr/share/jellyfix/cli/interactive.py:581
 msgid "View current key (TMDB)"
 msgstr "Jelenlegi kulcs megtekintése (TMDB)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 425
 # File: usr/share/jellyfix/cli/interactive.py, line: 482
 #: usr/share/jellyfix/cli/interactive.py:552
 #: usr/share/jellyfix/cli/interactive.py:609
 msgid "Test TMDB connection"
 msgstr "TMDB kapcsolat tesztelése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 426
 # File: usr/share/jellyfix/cli/interactive.py, line: 466
 #: usr/share/jellyfix/cli/interactive.py:553
 #: usr/share/jellyfix/cli/interactive.py:593
 msgid "Remove TMDB key"
 msgstr "TMDB kulcs eltávolítása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 427
 #: usr/share/jellyfix/cli/interactive.py:554
 #: usr/share/jellyfix/cli/interactive.py:612
 msgid "How to get TMDB key"
 msgstr "Hogyan lehet megszerezni a TMDB kulcsot"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 438
 #: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
 msgstr "Írd be a TMDB API kulcsodat:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 447
 #: usr/share/jellyfix/cli/interactive.py:574
 msgid "TMDB key saved to:"
 msgstr "TMDB kulcs mentve:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 460
 #: usr/share/jellyfix/cli/interactive.py:587
 msgid "File:"
 msgstr "Fájl:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 462
 #: usr/share/jellyfix/cli/interactive.py:589
 msgid "No key configured"
 msgstr "Nincs konfigurálva kulcs"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 468
 #: usr/share/jellyfix/cli/interactive.py:595
 msgid "Are you sure you want to remove the TMDB key?"
 msgstr "Biztos benne, hogy el akarja távolítani a TMDB kulcsot?"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 476
 #: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "TMDB kulcs eltávolítva"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
 #: usr/share/jellyfix/cli/interactive.py:619
 msgid "Testing TMDB connection..."
 msgstr "TMDB kapcsolat tesztelése..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 497
 #: usr/share/jellyfix/cli/interactive.py:624
 msgid "No API key configured!"
 msgstr "Nincs API kulcs konfigurálva!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 498
 #: usr/share/jellyfix/cli/interactive.py:625
 msgid "Configure a key first using 'Configure TMDB API Key'"
-msgstr ""
-"Először konfigurálj egy kulcsot a 'TMDB API kulcs konfigurálása' "
-"használatával."
-
-#
+msgstr "Először konfigurálj egy kulcsot a 'TMDB API kulcs konfigurálása' használatával."
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 504
 #: usr/share/jellyfix/cli/interactive.py:631
 #, python-format
 msgid "Invalid key! Has %d characters, should have 32."
 msgstr "Érvénytelen kulcs! %d karakterből áll, 32-nek kellene lennie."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 505
 #: usr/share/jellyfix/cli/interactive.py:632
 msgid "You may have copied the Token instead of the API Key!"
 msgstr "Lehet, hogy a Tokent másoltad ki az API kulcs helyett!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 506
 #: usr/share/jellyfix/cli/interactive.py:633
 msgid "See 'How to get TMDB key' for details"
 msgstr "Lásd: 'Hogyan szerezd meg a TMDB kulcsot' a részletekért"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 514
 #: usr/share/jellyfix/cli/interactive.py:641
 msgid "Making test request..."
 msgstr "Tesztkérés készítése..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 523
 #: usr/share/jellyfix/cli/interactive.py:650
 msgid "Connection successful!"
 msgstr "Kapcsolódás sikeres!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 524
 #: usr/share/jellyfix/cli/interactive.py:651
 msgid "Valid and working API key"
 msgstr "Érvényes és működő API kulcs"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 525
 #: usr/share/jellyfix/cli/interactive.py:652
 #, python-format
 msgid "Test search returned %d results"
 msgstr "A tesztkeresés %d találatot adott vissza"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 529
 #: usr/share/jellyfix/cli/interactive.py:656
 msgid "Example:"
 msgstr "kulcs"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 532
 #: usr/share/jellyfix/cli/interactive.py:659
 msgid "Invalid API key!"
 msgstr "Érvénytelen API kulcs!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 533
 #: usr/share/jellyfix/cli/interactive.py:660
 msgid "The key was rejected by TMDB."
 msgstr "A kulcsot a TMDB elutasította."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 534
 #: usr/share/jellyfix/cli/interactive.py:661
 msgid "Possible causes:"
 msgstr "Lehetséges okok:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 535
 #: usr/share/jellyfix/cli/interactive.py:662
 msgid "You copied the Reading Token instead of the API Key"
 msgstr "A Reading Tokent másoltad, nem az API kulcsot."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 536
 #: usr/share/jellyfix/cli/interactive.py:663
 msgid "The key is incorrect or has been revoked"
 msgstr "A kulcs helytelen, vagy visszavonták."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 537
 #: usr/share/jellyfix/cli/interactive.py:664
 msgid "You copied only part of the key"
 msgstr "Csak a kulcs egy részét másoltad."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 538
 #: usr/share/jellyfix/cli/interactive.py:665
 msgid "See 'How to get TMDB key' for detailed instructions"
 msgstr "Lásd: 'Hogyan szerezd meg a TMDB kulcsot' a részletes utasításokért"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 541
 #: usr/share/jellyfix/cli/interactive.py:668
 #, python-format
 msgid "Request error: HTTP %d"
 msgstr "Kérés hiba: HTTP %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 544
 #: usr/share/jellyfix/cli/interactive.py:671
 msgid "Timeout: Server did not respond in time"
 msgstr "Időtúllépés: A szerver nem válaszolt időben"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 545
 # File: usr/share/jellyfix/cli/interactive.py, line: 549
 #: usr/share/jellyfix/cli/interactive.py:672
 #: usr/share/jellyfix/cli/interactive.py:676
 msgid "Check your internet connection"
 msgstr "Ellenőrizze az internetkapcsolatát"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 548
 #: usr/share/jellyfix/cli/interactive.py:675
 msgid "Connection error"
 msgstr "Kapcsolati hiba"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 552
+# File: usr/share/jellyfix/cli/app.py, line: 58
+#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "Váratlan hiba: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 560
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 154
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 320
@@ -1102,1209 +712,731 @@ msgstr "Kapcsolati hiba"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:331
 msgid "How to Get TMDB API Key"
 msgstr "Hogyan szerezhetem meg a TMDB API kulcsot"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 562
 #: usr/share/jellyfix/cli/interactive.py:689
 msgid "Access:"
 msgstr "Hozzáférés:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 565
 #: usr/share/jellyfix/cli/interactive.py:692
 msgid "Login or create a FREE account"
 msgstr "Jelentkezzen be vagy hozzon létre egy INGYENES fiókot"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 567
 #: usr/share/jellyfix/cli/interactive.py:694
 msgid "Fill in your details"
 msgstr "Töltse ki adatait"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 568
 #: usr/share/jellyfix/cli/interactive.py:695
 msgid "Confirm email"
 msgstr "Email megerősítése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 570
 #: usr/share/jellyfix/cli/interactive.py:697
 msgid "Request an API key:"
 msgstr "API kulcs igénylése:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 571
 #: usr/share/jellyfix/cli/interactive.py:698
 msgid "Access"
 msgstr "Hozzáférés"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 572
 #: usr/share/jellyfix/cli/interactive.py:699
 msgid "Click 'Request an API Key'"
 msgstr "Kattintson a 'Kérjen API kulcsot' lehetőségre"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 573
 #: usr/share/jellyfix/cli/interactive.py:700
 msgid "Choose 'Developer' (personal use)"
 msgstr "Válaszd a 'Fejlesztő' (személyes használat) opciót"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 574
 #: usr/share/jellyfix/cli/interactive.py:701
 msgid "Fill in"
 msgstr "Kitöltés"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 578
 #: usr/share/jellyfix/cli/interactive.py:705
 msgid "Accept terms of use"
 msgstr "Elfogadom a felhasználási feltételeket"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 580
 #: usr/share/jellyfix/cli/interactive.py:707
 msgid "IMPORTANT - Which key to copy:"
 msgstr "FONTOS - Melyik kulcsot másolja:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 581
 #: usr/share/jellyfix/cli/interactive.py:708
 msgid "You will see TWO keys on the page:"
 msgstr "Két kulcsot fog látni az oldalon:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 582
 #: usr/share/jellyfix/cli/interactive.py:709
 msgid "API Read Access Token (long, starts with eyJ...)"
 msgstr "API Olvasási Hozzáférési Token (hosszú, eyJ...-val kezdődik)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 583
 #: usr/share/jellyfix/cli/interactive.py:710
 msgid "API Key (v3 auth) ← COPY THIS ONE!"
 msgstr "API kulcs (v3 hitelesítés) ← MÁSOLD EZT!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 585
 #: usr/share/jellyfix/cli/interactive.py:712
-msgid ""
-"The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
-msgstr ""
-"A helyes kulcs 32 karakterből áll (pl.: 611bc23b57add08a67b2e64ecb850be8)"
-
-#
+msgid "The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
+msgstr "A helyes kulcs 32 karakterből áll (pl.: 611bc23b57add08a67b2e64ecb850be8)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 587
 #: usr/share/jellyfix/cli/interactive.py:714
 msgid "Configure in jellyfix:"
 msgstr "Konfigurálás a jellyfix-ben:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 588
 #: usr/share/jellyfix/cli/interactive.py:715
 msgid "Return to menu and choose 'Configure TMDB API Key'"
-msgstr ""
-"Térjen vissza a menübe, és válassza a 'TMDB API kulcs konfigurálása' "
-"lehetőséget."
-
-#
+msgstr "Térjen vissza a menübe, és válassza a 'TMDB API kulcs konfigurálása' lehetőséget."
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 589
 #: usr/share/jellyfix/cli/interactive.py:716
 msgid "Paste the API Key (32 characters)"
 msgstr "Illessze be az API kulcsot (32 karakter)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 590
 #: usr/share/jellyfix/cli/interactive.py:717
 msgid "Use 'Test connection' to verify"
 msgstr "Használja a 'Kapcsolat tesztelése' lehetőséget az ellenőrzéshez"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 592
 #: usr/share/jellyfix/cli/interactive.py:719
 msgid "The key is free and does not expire!"
 msgstr "A kulcs ingyenes és nem jár le!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 593
 #: usr/share/jellyfix/cli/interactive.py:720
 msgid "Allows up to 40 requests per 10 seconds"
 msgstr "Legfeljebb 40 kérést engedélyez 10 másodpercenként"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 594
 #: usr/share/jellyfix/cli/interactive.py:721
 msgid "Enough to organize thousands of files!"
 msgstr "Elég ahhoz, hogy ezreket rendszerezzen!"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 597
 #: usr/share/jellyfix/cli/interactive.py:724
 msgid "How to Get TMDB Key"
 msgstr "Hogyan szerezhetem meg a TMDB kulcsot"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 604
 #: usr/share/jellyfix/cli/interactive.py:731
 msgid "Help - jellyfix v"
 msgstr "Súgó - jellyfix v"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 606
 #: usr/share/jellyfix/cli/interactive.py:733
 msgid "What jellyfix does:"
 msgstr "A jellyfix mit csinál:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
 #: usr/share/jellyfix/cli/interactive.py:735
 msgid "Renames files"
 msgstr "Fájlok átnevezése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
 #: usr/share/jellyfix/cli/interactive.py:735
 msgid "to Jellyfin standard"
 msgstr "Jellyfin szabványhoz"
-
-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 609
+# File: usr/share/jellyfix/cli/display.py, line: 76
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
+msgid "Movies"
+msgstr "Filmek"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 #: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
 msgstr "Film Cím (YYYY).mkv"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
 #: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series"
 msgstr "Sorozat"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
 #: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series Name S01E01.mkv"
 msgstr "Sorozat neve S01E01.mkv"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
 #: usr/share/jellyfix/cli/interactive.py:739
 msgid "Organizes subtitles"
 msgstr "Feliratozás rendszerezése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
 #: usr/share/jellyfix/cli/interactive.py:739
 msgid "(ALL languages)"
 msgstr "kulcs (minden nyelv)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 613
 #: usr/share/jellyfix/cli/interactive.py:740
 msgid "Renames variants"
 msgstr "Változatok átnevezése"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 614
 #: usr/share/jellyfix/cli/interactive.py:741
 msgid "Adds language code"
 msgstr "Nyelvkód hozzáadása"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
 #: usr/share/jellyfix/cli/interactive.py:742
 msgid "Removes foreign subtitles"
 msgstr "Eltávolítja a külföldi feliratokat"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
 #: usr/share/jellyfix/cli/interactive.py:742
 msgid "keeps por and eng by default"
 msgstr "alapértelmezés szerint megőrzi a por-t és az eng-t"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
 #: usr/share/jellyfix/cli/interactive.py:743
 msgid "Option to remove duplicates"
 msgstr "Duplikátok eltávolításának lehetősége"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
 #: usr/share/jellyfix/cli/interactive.py:743
 msgid "when eng exists"
 msgstr "amikor az angol létezik"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
 #: usr/share/jellyfix/cli/interactive.py:744
 msgid "NEVER"
 msgstr "SOHA"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
 #: usr/share/jellyfix/cli/interactive.py:744
 msgid "removes .forced.srt"
 msgstr "eltávolítja a .forced.srt fájlt"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 619
 #: usr/share/jellyfix/cli/interactive.py:746
 msgid "Folder structure"
 msgstr "Mappa struktúra"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 620
 #: usr/share/jellyfix/cli/interactive.py:747
 msgid "Creates folders Season 01, Season 02, etc"
 msgstr "Mappákat hoz létre: 01. évad, 02. évad, stb."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 621
 #: usr/share/jellyfix/cli/interactive.py:748
 msgid "Moves episodes to correct folders"
 msgstr "Áthelyezi az epizódokat a megfelelő mappákba"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 623
 #: usr/share/jellyfix/cli/interactive.py:750
 msgid "Fetches metadata"
 msgstr "Lekéri a metaadatokat"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 624
 #: usr/share/jellyfix/cli/interactive.py:751
 msgid "Searches year and IDs via TMDB/TVDB"
 msgstr "Év és azonosítók keresése a TMDB/TVDB-n keresztül"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 625
 #: usr/share/jellyfix/cli/interactive.py:752
 msgid "Adds IDs to folders [tmdbid-12345]"
 msgstr "ID-k hozzáadása mappákhoz [tmdbid-12345]"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 627
 #: usr/share/jellyfix/cli/interactive.py:754
 msgid "Quality detection"
 msgstr "Minőség-ellenőrzés"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 628
 #: usr/share/jellyfix/cli/interactive.py:755
 msgid "Adds quality tags (1080p, 720p, etc) to filenames"
 msgstr "Minőségi címkéket ad a fájlnevekhez (1080p, 720p stb.)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 629
 #: usr/share/jellyfix/cli/interactive.py:756
 msgid "Option to use ffprobe for accurate detection"
 msgstr "Lehetőség az ffprobe használatára a pontos észleléshez"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 631
 #: usr/share/jellyfix/cli/interactive.py:758
 msgid "Dry-Run Mode:"
 msgstr "Szárazfuttatás Mód:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 632
 #: usr/share/jellyfix/cli/interactive.py:759
 msgid "By default, jellyfix shows what will be done WITHOUT changing files."
-msgstr ""
-"Alapértelmezés szerint a jellyfix megmutatja, mi fog történni FÁJLOK "
-"MÓDOSÍTÁSA NÉLKÜL."
-
-#
+msgstr "Alapértelmezés szerint a jellyfix megmutatja, mi fog történni FÁJLOK MÓDOSÍTÁSA NÉLKÜL."
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 633
 #: usr/share/jellyfix/cli/interactive.py:760
 msgid "You can review changes before applying."
 msgstr "A módosításokat a alkalmazás előtt áttekintheti."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
 #: usr/share/jellyfix/cli/interactive.py:762
 msgid "Tip:"
 msgstr "Tipp:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
 #: usr/share/jellyfix/cli/interactive.py:762
 msgid "Configure your TMDB key"
 msgstr "Állítsa be a TMDB kulcsát"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: usr/share/jellyfix/cli/non_interactive.py:44
 msgid "Error: No working directory specified"
 msgstr "Hiba: Nincs megadva működő könyvtár"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 46
 #: usr/share/jellyfix/cli/non_interactive.py:45
 msgid "Use: --workdir /path/to/directory"
 msgstr "Használat: --workdir /út/a/könyvtárhoz"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 51
 #: usr/share/jellyfix/cli/non_interactive.py:50
 #, python-format
 msgid "Error: Directory does not exist: %s"
 msgstr "Hiba: A könyvtár nem létezik: %s"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 75
 #: usr/share/jellyfix/cli/non_interactive.py:74
 #, python-format
 msgid "%d operations planned"
 msgstr "%d tervezett művelet"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 78
 #: usr/share/jellyfix/cli/non_interactive.py:77
 msgid "Nothing to do"
 msgstr "Nincs teendő"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 85
 #: usr/share/jellyfix/cli/non_interactive.py:84
 msgid "DRY-RUN mode: No changes will be made"
 msgstr "DRY-RUN mód: Nincsenek végrehajtott változtatások"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 92
 #: usr/share/jellyfix/cli/non_interactive.py:91
 #, python-format
 msgid "Dry-run completed: %d operations planned"
 msgstr "Száraz futás befejezve: %d művelet tervezve"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 95
 #: usr/share/jellyfix/cli/non_interactive.py:94
 msgid "Execution completed:"
 msgstr "Végrehajtás befejezve:"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 97
 #: usr/share/jellyfix/cli/non_interactive.py:96
 #, python-format
 msgid "  Renamed: %d"
 msgstr "Átnevezve: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 99
 #: usr/share/jellyfix/cli/non_interactive.py:98
 #, python-format
 msgid "  Moved: %d"
 msgstr "Áthelyezve: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 101
 #: usr/share/jellyfix/cli/non_interactive.py:100
 #, python-format
 msgid "  Deleted: %d"
 msgstr "Törölve: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 103
 #: usr/share/jellyfix/cli/non_interactive.py:102
 #, python-format
 msgid "  Cleaned folders: %d"
 msgstr "Tisztított mappák: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 105
 #: usr/share/jellyfix/cli/non_interactive.py:104
 #, python-format
 msgid "  Failed: %d"
 msgstr "Sikertelen: %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 107
 #: usr/share/jellyfix/cli/non_interactive.py:106
 #, python-format
 msgid "  Skipped: %d"
 msgstr "Kihagyva: %d"
-
-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 64
+#: usr/share/jellyfix/cli/display.py:64
+msgid "Scan Results"
+msgstr "Keresési Eredmények"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 71
+#: usr/share/jellyfix/cli/display.py:71
+msgid "Category"
+msgstr "Kategória"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 253
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
+msgid "Count"
+msgstr "Számolás"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 75
+#: usr/share/jellyfix/cli/display.py:75
+msgid "Video files"
+msgstr "Videofájlok"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 77
+#: usr/share/jellyfix/cli/display.py:77
+msgid "Episodes"
+msgstr "Epizódok"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
+msgid "Subtitles"
+msgstr "Feliratok"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 81
+#: usr/share/jellyfix/cli/display.py:81
+msgid "Variants"
+msgstr "Változatok"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 82
+#: usr/share/jellyfix/cli/display.py:82
+msgid "No language"
+msgstr "Nincs nyelv"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 83
+#: usr/share/jellyfix/cli/display.py:83
+msgid "Foreign"
+msgstr "Külföldi"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 84
+#: usr/share/jellyfix/cli/display.py:84
+msgid "With language"
+msgstr "Nyelvvel"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 87
+#: usr/share/jellyfix/cli/display.py:87
+msgid "Images"
+msgstr "Képek"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 90
+#: usr/share/jellyfix/cli/display.py:90
+msgid "NFO files"
+msgstr "NFO fájlok"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 93
+#: usr/share/jellyfix/cli/display.py:93
+msgid "Other"
+msgstr "Egyéb"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 100
+#: usr/share/jellyfix/cli/display.py:100
+msgid "Suggested actions:"
+msgstr "Javasolt műveletek:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 103
+#: usr/share/jellyfix/cli/display.py:103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "feliratozási változatok (.lang2, .lang3) feldolgozhatók"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 106
+#: usr/share/jellyfix/cli/display.py:106
+msgid "subtitles without language code"
+msgstr "feliratok nyelvi kód nélkül"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 109
+#: usr/share/jellyfix/cli/display.py:109
+msgid "foreign subtitles can be removed"
+msgstr "a külföldi feliratok eltávolíthatók"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 113
+#: usr/share/jellyfix/cli/display.py:113
+msgid "Suggestions"
+msgstr "Javaslatok"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "Nincs szükség műveletekre. Minden már rendezve van!"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 137
+#: usr/share/jellyfix/cli/display.py:139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "Művelet előnézete ({} fájl)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:262
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "és {} további csoport"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 189
+#: usr/share/jellyfix/cli/display.py:276
+msgid "Move + Rename:"
+msgstr "Áthelyezés + Átnevezés:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 194
+#: usr/share/jellyfix/cli/display.py:281
+msgid "Move:"
+msgstr "Mozgás:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 199
+#: usr/share/jellyfix/cli/display.py:286
+msgid "Rename:"
+msgstr "Átnevezés:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 204
+#: usr/share/jellyfix/cli/display.py:291
+msgid "Remove:"
+msgstr "Eltávolítás:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 208
+# File: usr/share/jellyfix/cli/display.py, line: 225
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
+msgid "Summary"
+msgstr "Összefoglaló"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 230
+#: usr/share/jellyfix/cli/display.py:342
+msgid "Move + Rename"
+msgstr "Áthelyezés + Átnevezés"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 231
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
+msgid "Move"
+msgstr "Mozgás"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 232
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
+msgid "Rename"
+msgstr "Átnevezés"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 233
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
+msgid "Delete"
+msgstr "Törlés"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 251
+#: usr/share/jellyfix/cli/display.py:363
+msgid "✅ Execution Results"
+msgstr "✅ Végrehajtási Eredmények"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 252
+#: usr/share/jellyfix/cli/display.py:364
+msgid "Action"
+msgstr "Akció"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: usr/share/jellyfix/cli/display.py:368
+msgid "Renamed"
+msgstr "Átnevezve"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 258
+#: usr/share/jellyfix/cli/display.py:370
+msgid "Moved"
+msgstr "Áthelyezve"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: usr/share/jellyfix/cli/display.py:372
+msgid "Deleted"
+msgstr "Törölve"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:374
+msgid "Cleaned folders"
+msgstr "Tisztított mappák"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: usr/share/jellyfix/cli/display.py:376
+msgid "Failed"
+msgstr "Sikertelen"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 266
+#: usr/share/jellyfix/cli/display.py:378
+msgid "Skipped"
+msgstr "Kihagyva"
+# 
+# File: usr/share/jellyfix/cli/app.py, line: 54
+#: usr/share/jellyfix/cli/app.py:54
+msgid "Operation cancelled by user"
+msgstr "Műveletet a felhasználó megszakította"
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 101
 #: usr/share/jellyfix/core/image_manager.py:101
 #, python-format
 msgid "Downloaded image: %s"
 msgstr "Letöltött kép: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 106
 #: usr/share/jellyfix/core/image_manager.py:106
 #, python-format
 msgid "Failed to download image: %s"
 msgstr "Kép letöltése nem sikerült: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 110
 #: usr/share/jellyfix/core/image_manager.py:110
 #, python-format
 msgid "Unexpected error downloading image: %s"
 msgstr "Váratlan hiba történt a kép letöltésekor: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 216
 #: usr/share/jellyfix/core/image_manager.py:216
 msgid "Clearing image cache..."
 msgstr "Kép gyorsítótár törlése..."
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 218
 #: usr/share/jellyfix/core/image_manager.py:218
 msgid "Image cache cleared"
 msgstr "Kép gyorsítótár törölve"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
 #: usr/share/jellyfix/core/subtitle_manager.py:169
 #, python-format
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "Feliratok keresése: %s (Nyelvek: %s)"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
 #: usr/share/jellyfix/core/subtitle_manager.py:182
 #, python-format
 msgid "Level 1 (hash) found: %s"
 msgstr "1. szint (hash) megtalálva: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
 #: usr/share/jellyfix/core/subtitle_manager.py:186
 #, python-format
 msgid "Missing languages: %s - trying TMDB title search"
 msgstr "Hiányzó nyelvek: %s - TMDB címkeresés próbálkozás"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
 #: usr/share/jellyfix/core/subtitle_manager.py:207
 #, python-format
 msgid "Level 2 (TMDB) found: %s"
 msgstr "2. szint (TMDB) találva: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
 #: usr/share/jellyfix/core/subtitle_manager.py:210
 #, python-format
 msgid "Still missing: %s (try manual search)"
 msgstr "Még hiányzik: %s (próbálja meg a kézi keresést)"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
 #: usr/share/jellyfix/core/subtitle_manager.py:213
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "Nincsenek feliratok: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237
 #, python-format
 msgid "Found %d subtitles by hash for: %s"
 msgstr "Talált %d feliratot hash alapján: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #: usr/share/jellyfix/core/subtitle_manager.py:343
 #, python-format
 msgid "Found %d validated subtitles by title for: %s"
 msgstr "Talált %d érvényesített feliratot a cím alapján: %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
 #: usr/share/jellyfix/core/subtitle_manager.py:600
 #, python-format
 msgid "Manual search: %s"
 msgstr "Kézi keresés: %s"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
 #: usr/share/jellyfix/core/subtitle_manager.py:622
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
 msgid "Unknown release"
 msgstr "Ismeretlen kiadás"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
 #: usr/share/jellyfix/core/subtitle_manager.py:657
 #, python-format
 msgid "Found %d subtitles in manual search"
 msgstr "Talált %d feliratot manuális keresés során"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
 #: usr/share/jellyfix/core/subtitle_manager.py:707
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "Letöltött felirat: %s"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
-# File: usr/share/jellyfix/gui/app.py, line: 122
-#: usr/share/jellyfix/gui/app.py:142
-#: usr/share/jellyfix/gui/windows/main_window.py:51
-#: usr/share/jellyfix/gui/windows/main_window.py:98
-msgid "Jellyfix"
-msgstr "Jellyfix"
-
-#
-# File: usr/share/jellyfix/gui/app.py, line: 131
-#: usr/share/jellyfix/gui/app.py:151
-msgid "translator-credits"
-msgstr "fordító-jogosultságok"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Könyvtár kiválasztása a beolvasáshoz"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Szkennelés sikertelen"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "Rendben"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Művelet generálása sikertelen"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Végrehajtás meghiúsult"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "Üdvözöljük a Jellyfixben"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "Húzzon ide egy mappát"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "vagy kattintson az alábbi gombra"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "Könyvtár hozzáadása"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "Legutóbbi Könyvtárak"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "Tisztítsa meg a legutóbbi könyvtárakat"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "hetek ezelőtt"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "napja"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "órákkal ezelőtt"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "Most azonnal"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "Műveletek"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "Keresés..."
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "Összes"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "Minden felirat letöltése"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "Keresés és feliratok letöltése az összes felsorolt videóhoz"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "Nincs művelet"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "Mappa beolvasása műveletek generálásához"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "Alkalmazás"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "átnevezés"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "mozgat"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "törlés"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
-#, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "{} műveletből {} látható"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
-#, python-brace-format
-msgid "Total: {} operations"
-msgstr "Összesen: {} művelet"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "Nincs kiválasztás"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "Válasszon ki egy elemet az előnézethez"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "Keresési cím"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "Hibás cím? Kattintson a manuális kereséshez"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "Feliratok letöltése"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "Automatikus feliratkeresés és letöltés"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "Tól:"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "Címzett:"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "MOZGÁS"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "TÖRÖL"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "Áthelyezés + Átnevezés"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "Átnevezés"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB konfiguráció"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "Konfiguráld a Filmadatbázis API kulcsot"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ Beállítva"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ Nincs konfigurálva"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API kulcs"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "Konfigurációs fájl"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "Műveletek"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "Írd be a TMDB API kulcsodat"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "Konfigurálás"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "Aktuális kulcs megtekintése"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "Maszkírozott API-kulcs megjelenítése"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "Nézet"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "TMDB kapcsolat tesztelése"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "Ellenőrizze, hogy az API kulcs működik-e"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "Teszt"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "TMDB kulcs eltávolítása"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "Törölje a tárolt API kulcsot"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "Eltávolítás"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
-#: usr/share/jellyfix/gui/windows/main_window.py:175
-msgid "Help"
-msgstr "Súgó"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "Lépésről lépésre útmutató"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "Útmutató"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "Írd be az alábbi mezőbe a TMDB API kulcsodat"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "Illessze be az API kulcsot ide"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "Mégsem"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "Mentés"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API kulcs sikeresen mentve"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "Jelenlegi TMDB API kulcs"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "Álcázott kulcs"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "Teljes kulcs tárolva a"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "Nincs API kulcs"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "Még nincs konfigurálva TMDB API kulcs."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "Kérjük, először konfigurálja a TMDB API kulcsot."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ Kapcsolódás Sikeres"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
-#, python-brace-format
-msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr "A TMDB API kulcs helyesen működik!"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ Kapcsolódás sikertelen"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr ""
-"Nem sikerült adatokat lekérni a TMDB-ből. Kérjük, ellenőrizze az API kulcsát."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ Kapcsolati hiba"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "Hiba a kapcsolat tesztelésekor: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "API kulcs eltávolítása?"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid ""
-"This will delete your stored TMDB API key. You will need to configure it "
-"again."
-msgstr "Ez törölni fogja a tárolt TMDB API kulcsát. Újra be kell állítania."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API kulcs eltávolítva"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-msgstr ""
-"Hogyan szerezhetjük meg a TMDB API kulcsot:\n"
-"\n"
-"1. Látogasson el a https://www.themoviedb.org/signup oldalra\n"
-"2. Hozzon létre egy ingyenes fiókot\n"
-"3. Menjen a Beállítások → API menüpontra\n"
-"4. Kérjen egy API kulcsot (válassza a \"Fejlesztő\" lehetőséget)\n"
-"5. Töltse ki a szükséges információkat\n"
-"6. Másolja ki az API kulcsot (v3 hitelesítés)\n"
-"7. Illessze be a Jellyfixbe\n"
-"\n"
-"Az API kulcs ingyenes, és lehetővé teszi, hogy:\n"
-"• Film- és tévéműsor metaadatokat kérjen le\n"
-"• Töltsön le posztereket és háttérképeket\n"
-"• Pontos címeket és megjelenési dátumokat kapjon\n"
-"• Szervezze meg könyvtárát TMDB azonosítók segítségével"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: usr/share/jellyfix/gui/windows/help_window.py:34
 msgid "Jellyfix Help"
 msgstr "Jellyfix Súgó"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
 #: usr/share/jellyfix/gui/windows/help_window.py:69
 msgid "Version"
 msgstr "Verzió"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
 #: usr/share/jellyfix/gui/windows/help_window.py:75
 msgid "Intelligent Jellyfin Library Organizer"
 msgstr "Intelligens Jellyfin Könyvtárszervező"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/help_window.py:84
 msgid "What Jellyfix Does"
 msgstr "Mit csinál a Jellyfix"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/help_window.py:85
 #, fuzzy
 msgid ""
-"Jellyfix automatically organizes your media library following Jellyfin "
-"naming conventions:\n"
+"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
 "\n"
 "• <b>Renames files</b> to Jellyfin standard format\n"
 "• <b>Organizes episodes</b> into Season folders\n"
-"• <b>Manages subtitles</b>: renames, removes foreign languages, adds "
-"language codes\n"
+"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
 "• <b>Fetches metadata</b> from TMDB/TVDB\n"
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
 "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
 msgstr ""
-"A Jellyfix automatikusan rendszerezi a médiakönyvtáradat a Jellyfin "
-"elnevezési konvencióinak megfelelően:\n"
+"A Jellyfix automatikusan rendszerezi a médiakönyvtáradat a Jellyfin elnevezési konvencióinak "
+"megfelelően:\n"
 "\n"
 "• <b>Átnevezi a fájlokat</b> Jellyfin szabványformátumra\n"
 "• <b>Sorozatokat szervez</b> évad mappákba\n"
-"• <b>Feliratozást kezel</b>: átnevezi, eltávolítja a külföldi nyelveket, "
-"nyelvkódokat ad hozzá\n"
+"• <b>Feliratozást kezel</b>: átnevezi, eltávolítja a külföldi nyelveket, nyelvkódokat ad hozzá\n"
 "• <b>Metaadatokat kér le</b> a TMDB/TVDB-ből\n"
 "• <b>Minőségi címkéket észlel és ad hozzá</b> (1080p, 720p, stb.)\n"
 "• <b>Szolgáltató azonosítókat ad hozzá</b> a mappa nevéhez ([tmdbid-12345])"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: usr/share/jellyfix/gui/windows/help_window.py:96
 msgid "Examples"
 msgstr "Példák"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: usr/share/jellyfix/gui/windows/help_window.py:97
 #, fuzzy
@@ -2315,8 +1447,7 @@ msgid ""
 "\n"
 "<b>TV Shows:</b>\n"
 "  Before: show.name.s01e05.720p.mkv\n"
-"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - "
-"720p.mkv\n"
+"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
 "\n"
 "<b>Subtitles:</b>\n"
 "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
@@ -2330,22 +1461,19 @@ msgstr ""
 "\n"
 "<b>TV Műsorok:</b>\n"
 "  Előtte: show.name.s01e05.720p.mkv\n"
-"  Utána:  Műsor Cím (2024) [tmdbid-67890]/1. Évad/Műsor Cím S01E05 - "
-"720p.mkv\n"
+"  Utána:  Műsor Cím (2024) [tmdbid-67890]/1. Évad/Műsor Cím S01E05 - 720p.mkv\n"
 "\n"
 "<b>Feliratok:</b>\n"
 "  • Átnevezések: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
 "  • Nyelvkódok hozzáadása: subtitle.srt → Film Cím.por.srt\n"
 "  • Külföldi nyelvek eltávolítása (csak a konfigurált nyelvek megtartása)\n"
 "  • <b>SOHA</b> nem távolítja el a .forced.srt fájlokat"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/help_window.py:113
 msgid "How to Use"
 msgstr "Használati útmutató"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/help_window.py:114
 #, fuzzy
@@ -2391,16 +1519,14 @@ msgstr ""
 "   A fájlok átnevezésre és rendezésre kerülnek\n"
 "\n"
 "<b>Tip:</b> Mindig tekintse át az előnézetet a végrehajtás előtt!"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: usr/share/jellyfix/gui/windows/help_window.py:138
 #, fuzzy
 msgid ""
 "Configure Jellyfix behavior:\n"
 "\n"
-"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove "
-"foreign\n"
+"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
 "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
 "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
@@ -2408,20 +1534,17 @@ msgid ""
 msgstr ""
 "Jellyfix viselkedésének konfigurálása:\n"
 "\n"
-"• <b>Feliratkezelés:</b> Változatok átnevezése, nyelvkódok hozzáadása, "
-"idegenek eltávolítása\n"
+"• <b>Feliratkezelés:</b> Változatok átnevezése, nyelvkódok hozzáadása, idegenek eltávolítása\n"
 "• <b>Tartott nyelvek:</b> Válaszd ki, mely feliratnyelveket tartsd meg\n"
 "• <b>Metaadatok:</b> TMDB lekérdezés engedélyezése/letiltása\n"
 "• <b>Minőségi címkék:</b> Felbontási címkék hozzáadása a fájlnevekhez\n"
 "• <b>ffprobe:</b> Az ffprobe használata a pontos minőség-ellenőrzéshez"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: usr/share/jellyfix/gui/windows/help_window.py:148
 msgid "Important Notes"
 msgstr "Fontos megjegyzések"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: usr/share/jellyfix/gui/windows/help_window.py:149
 #, fuzzy
@@ -2445,90 +1568,505 @@ msgstr ""
 "Alaposan nézd át a művelet előnézetét.\n"
 "\n"
 "🔑 <b>TMDB API konfigurálása</b>\n"
-"A legjobb eredmények érdekében konfiguráld a TMDB API kulcsodat a "
-"Beállításokban.\n"
+"A legjobb eredmények érdekében konfiguráld a TMDB API kulcsodat a Beállításokban.\n"
 "\n"
 "🌍 <b>A megtartott nyelvek testreszabása</b>\n"
 "Állítsd be, hogy mely feliratnyelveket tartsd meg a Beállításokban."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
 #: usr/share/jellyfix/gui/windows/help_window.py:167
 msgid "Links"
 msgstr "Hivatkozások"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
 #: usr/share/jellyfix/gui/windows/help_window.py:172
 msgid "Homepage"
 msgstr "Főoldal"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
 #: usr/share/jellyfix/gui/windows/help_window.py:178
 msgid "Report Issues"
 msgstr "Jelentse a problémákat"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
 #: usr/share/jellyfix/gui/windows/help_window.py:184
 msgid "Get TMDB API Key"
 msgstr "Szerezd meg a TMDB API kulcsot"
-
-#
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "Keresési cím"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "Írja be a film vagy sorozat nevét..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "Keresés"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "TV Sorozat"
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
+msgid "Cancel"
+msgstr "Mégsem"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
+msgid "Apply"
+msgstr "Alkalmazás"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "Keresés..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB nincs konfigurálva"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "Nincs találat."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "eredmények"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "Feliratok keresése"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "Letöltés"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "Írja be a film vagy sorozat címét..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "Évad"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "Epizód"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "Feliratok keresése"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "Írja be a címet, majd kattintson a keresésre"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "Nincs találat"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "Próbálj meg egy másik keresési kifejezést"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "Találtunk {} feliratot"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Hiba: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Letöltve: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "Letöltés sikertelen"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
+msgid "TMDB Configuration"
+msgstr "TMDB konfiguráció"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
+msgid "Configure The Movie Database API key"
+msgstr "Konfiguráld a Filmadatbázis API kulcsot"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
+msgid "✓ Configured"
+msgstr "✓ Beállítva"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
+msgid "✗ Not configured"
+msgstr "✗ Nincs konfigurálva"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
+msgid "TMDB API Key"
+msgstr "TMDB API kulcs"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
+msgid "Config file"
+msgstr "Konfigurációs fájl"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
+msgid "Actions"
+msgstr "Műveletek"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
+msgid "Enter your TMDB API key"
+msgstr "Írd be a TMDB API kulcsodat"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
+msgid "Configure"
+msgstr "Konfigurálás"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
+msgid "View Current Key"
+msgstr "Aktuális kulcs megtekintése"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
+msgid "Show masked API key"
+msgstr "Maszkírozott API-kulcs megjelenítése"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
+msgid "View"
+msgstr "Nézet"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
+msgid "Test TMDB Connection"
+msgstr "TMDB kapcsolat tesztelése"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
+msgid "Verify API key is working"
+msgstr "Ellenőrizze, hogy az API kulcs működik-e"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
+msgid "Test"
+msgstr "Teszt"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
+msgid "Remove TMDB Key"
+msgstr "TMDB kulcs eltávolítása"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
+msgid "Delete stored API key"
+msgstr "Törölje a tárolt API kulcsot"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
+msgid "Remove"
+msgstr "Eltávolítás"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
+#: usr/share/jellyfix/gui/windows/main_window.py:175
+msgid "Help"
+msgstr "Súgó"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
+msgid "Step-by-step tutorial"
+msgstr "Lépésről lépésre útmutató"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
+msgid "Tutorial"
+msgstr "Útmutató"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
+msgid "Enter your TMDB API key below"
+msgstr "Írd be az alábbi mezőbe a TMDB API kulcsodat"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
+msgid "Paste API key here"
+msgstr "Illessze be az API kulcsot ide"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
+msgid "Save"
+msgstr "Mentés"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
+msgid "API key saved successfully"
+msgstr "API kulcs sikeresen mentve"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
+msgid "Current TMDB API Key"
+msgstr "Jelenlegi TMDB API kulcs"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Masked key"
+msgstr "Álcázott kulcs"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Full key stored in"
+msgstr "Teljes kulcs tárolva a"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
+msgid "No API Key"
+msgstr "Nincs API kulcs"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
+msgid "No TMDB API key configured yet"
+msgstr "Még nincs konfigurálva TMDB API kulcs."
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "Rendben"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
+msgid "Please configure TMDB API key first"
+msgstr "Kérjük, először konfigurálja a TMDB API kulcsot."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
+msgid "✓ Connection Successful"
+msgstr "✓ Kapcsolódás Sikeres"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+msgstr "A TMDB API kulcs helyesen működik!"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
+msgid "⚠ Connection Failed"
+msgstr "⚠ Kapcsolódás sikertelen"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "Nem sikerült adatokat lekérni a TMDB-ből. Kérjük, ellenőrizze az API kulcsát."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
+msgid "✗ Connection Error"
+msgstr "✗ Kapcsolati hiba"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
+#, python-brace-format
+msgid "Error testing connection: {}"
+msgstr "Hiba a kapcsolat tesztelésekor: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
+msgid "Remove API Key?"
+msgstr "API kulcs eltávolítása?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
+msgid "This will delete your stored TMDB API key. You will need to configure it again."
+msgstr "Ez törölni fogja a tárolt TMDB API kulcsát. Újra be kell állítania."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
+msgid "API key removed"
+msgstr "API kulcs eltávolítva"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"Hogyan szerezhetjük meg a TMDB API kulcsot:\n"
+"\n"
+"1. Látogasson el a https://www.themoviedb.org/signup oldalra\n"
+"2. Hozzon létre egy ingyenes fiókot\n"
+"3. Menjen a Beállítások → API menüpontra\n"
+"4. Kérjen egy API kulcsot (válassza a \"Fejlesztő\" lehetőséget)\n"
+"5. Töltse ki a szükséges információkat\n"
+"6. Másolja ki az API kulcsot (v3 hitelesítés)\n"
+"7. Illessze be a Jellyfixbe\n"
+"\n"
+"Az API kulcs ingyenes, és lehetővé teszi, hogy:\n"
+"• Film- és tévéműsor metaadatokat kérjen le\n"
+"• Töltsön le posztereket és háttérképeket\n"
+"• Pontos címeket és megjelenési dátumokat kapjon\n"
+"• Szervezze meg könyvtárát TMDB azonosítók segítségével"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
+# File: usr/share/jellyfix/gui/app.py, line: 122
+#: usr/share/jellyfix/gui/app.py:142
+#: usr/share/jellyfix/gui/windows/main_window.py:51
+#: usr/share/jellyfix/gui/windows/main_window.py:98
+msgid "Jellyfix"
+msgstr "Jellyfix"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
 #: usr/share/jellyfix/gui/windows/main_window.py:169
 #: usr/share/jellyfix/gui/windows/preferences_window.py:44
 msgid "Preferences"
 msgstr "Beállítások"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/main_window.py:170
 msgid "Configure API Keys"
 msgstr "API kulcsok konfigurálása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: usr/share/jellyfix/gui/windows/main_window.py:176
 msgid "About Jellyfix"
 msgstr "A Jellyfixról"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
 #: usr/share/jellyfix/gui/windows/main_window.py:180
 msgid "Quit"
 msgstr "Kilépés"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
 #: usr/share/jellyfix/gui/windows/main_window.py:248
 msgid "Scanning directory..."
 msgstr "Könyvtár beolvasása..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 276
 #: usr/share/jellyfix/gui/windows/main_window.py:360
 msgid "Generating operations..."
 msgstr "Műveletek generálása..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 301
 #: usr/share/jellyfix/gui/windows/main_window.py:385
 #, python-brace-format
 msgid "{} operations ready"
 msgstr "{} műveletek készen állnak"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 326
 #: usr/share/jellyfix/gui/windows/main_window.py:511
 msgid "Apply Operations?"
 msgstr "Műveletek alkalmazása?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 367
 #: usr/share/jellyfix/gui/windows/main_window.py:512
@@ -2536,103 +2074,82 @@ msgstr "Műveletek alkalmazása?"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Ez átnevezi a {} fájlt. Folytatja?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
 #: usr/share/jellyfix/gui/windows/main_window.py:545
 msgid "Execute Operations?"
 msgstr "Műveletek végrehajtása?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 372
 #: usr/share/jellyfix/gui/windows/main_window.py:551
 msgid "Execute"
 msgstr "Futtatás"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 395
 #: usr/share/jellyfix/gui/windows/main_window.py:574
 #, python-brace-format
 msgid "Dry-run: {} operations previewed"
 msgstr "Száraz futás: {} művelet előnézete"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 398
 #: usr/share/jellyfix/gui/windows/main_window.py:577
 #, python-brace-format
 msgid "{} operations completed"
 msgstr "{} művelet befejezve"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 408
-#: usr/share/jellyfix/gui/windows/main_window.py:587
-msgid "Complete!"
-msgstr "Kész!"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
 #: usr/share/jellyfix/gui/windows/main_window.py:721
 msgid "Feature Unavailable"
 msgstr "Funkció nem elérhető"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
 #: usr/share/jellyfix/gui/windows/main_window.py:722
 msgid ""
 "The 'subliminal' library is not installed.\n"
 "Please install it to use this feature."
-msgstr ""
-"A 'subliminal' könyvtár nincs telepítve. Kérjük, telepítse azt ennek a "
-"funkciónak a használatához."
-
-#
+msgstr "A 'subliminal' könyvtár nincs telepítve. Kérjük, telepítse azt ennek a funkciónak a használatához."
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
 #: usr/share/jellyfix/gui/windows/main_window.py:746
 msgid "Preparing..."
 msgstr "Előkészítés..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
 #: usr/share/jellyfix/gui/windows/main_window.py:954
 #, python-brace-format
 msgid "Searching subtitles ({}/{})"
 msgstr "Feliratok keresése ({}/{})"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
 #: usr/share/jellyfix/gui/windows/main_window.py:993
 #, fuzzy
 msgid "subtitle"
 msgstr "Feliratok"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
 #: usr/share/jellyfix/gui/windows/main_window.py:993
 #, fuzzy
 msgid "subtitles"
 msgstr "Feliratok"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/gui/windows/main_window.py:994
 #: usr/share/jellyfix/gui/windows/main_window.py:1014
 #, fuzzy
 msgid "video"
 msgstr "videók"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
 #: usr/share/jellyfix/gui/windows/main_window.py:997
 msgid "No Subtitles Found"
 msgstr "Nincsenek feliratok."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
 #: usr/share/jellyfix/gui/windows/main_window.py:998
 msgid ""
@@ -2641,14 +2158,12 @@ msgid ""
 msgstr ""
 "Nem sikerült automatikusan megtalálni a feliratokat.  \n"
 "Próbálja meg a manuális keresést?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
 #: usr/share/jellyfix/gui/windows/main_window.py:1002
 msgid "Partial Success"
 msgstr "Részleges siker"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
 #: usr/share/jellyfix/gui/windows/main_window.py:1010
 #, fuzzy, python-brace-format
@@ -2662,8 +2177,7 @@ msgstr ""
 "\n"
 "Hiányzó nyelvek: {}\n"
 "Próbálja meg a manuális keresést?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
 #: usr/share/jellyfix/gui/windows/main_window.py:1015
 #, fuzzy, python-brace-format
@@ -2673,39 +2187,28 @@ msgid ""
 msgstr ""
 "Letöltött {} feliratot {} {} videóból.  \n"
 "Próbálja meg a manuális keresést a hiányzóhoz?"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: usr/share/jellyfix/gui/windows/main_window.py:1020
 msgid "Download Complete"
 msgstr "Letöltés befejeződött"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: usr/share/jellyfix/gui/windows/main_window.py:1021
 #, fuzzy, python-brace-format
 msgid "Downloaded {} {} for {} {} (all languages)."
 msgstr "Letöltött {} feliratot {} videóhoz (minden nyelven)."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
 #: usr/share/jellyfix/gui/windows/main_window.py:1034
 msgid "Manual Search"
 msgstr "Kézi keresés"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
-#: usr/share/jellyfix/gui/windows/main_window.py:1037
-msgid "Rescan Now"
-msgstr "Újra beolvasás most"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
 #: usr/share/jellyfix/gui/windows/main_window.py:1071
 msgid "Batch Error"
 msgstr "Tömeghiba"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
 #: usr/share/jellyfix/gui/windows/main_window.py:1072
 #, python-brace-format
@@ -2715,497 +2218,494 @@ msgid ""
 msgstr ""
 "Hiba történt a csoportos letöltés során:  \n"
 "{}"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
 #: usr/share/jellyfix/gui/windows/main_window.py:1154
 #, python-brace-format
 msgid "Subtitle downloaded: {}"
 msgstr "Felirat letöltve: {}"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: usr/share/jellyfix/gui/windows/preferences_window.py:60
 msgid "Subtitle Handling"
 msgstr "Feliratkezelés"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
 #: usr/share/jellyfix/gui/windows/preferences_window.py:61
 msgid "Configure how subtitles are processed"
 msgstr "Állítsa be, hogyan történjen a feliratok feldolgozása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
 #: usr/share/jellyfix/gui/windows/preferences_window.py:66
 msgid "Rename Language Variants"
 msgstr "Nyelvi változatok átnevezése"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
 #: usr/share/jellyfix/gui/windows/preferences_window.py:67
 msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
 msgstr "Átnevezés .por2.srt, .eng2.srt fájlokra .por.srt, .eng.srt"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
 #: usr/share/jellyfix/gui/windows/preferences_window.py:75
 msgid "Remove Duplicate Variants"
 msgstr "Duplikált változatok eltávolítása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
 #: usr/share/jellyfix/gui/windows/preferences_window.py:76
 msgid "Remove .lang2, .lang3 files after renaming"
 msgstr "Távolítsa el a .lang2, .lang3 fájlokat az átnevezés után"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/preferences_window.py:84
 msgid "Add Language Codes"
 msgstr "Nyelvkódok hozzáadása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
 #: usr/share/jellyfix/gui/windows/preferences_window.py:85
 msgid "Add language codes to subtitles without them"
 msgstr "Adjon nyelvkódokat a feliratokhoz anélkül, hogy azok ott lennének."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
 #: usr/share/jellyfix/gui/windows/preferences_window.py:93
 msgid "Remove Foreign Subtitles"
 msgstr "Idegen Feliratok Eltávolítása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
 #: usr/share/jellyfix/gui/windows/preferences_window.py:94
 msgid "Remove subtitles not in kept languages list"
-msgstr ""
-"Távolítsa el a feliratokat, amelyek nincsenek a megtartott nyelvek listáján."
-
-#
+msgstr "Távolítsa el a feliratokat, amelyek nincsenek a megtartott nyelvek listáján."
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
 #: usr/share/jellyfix/gui/windows/preferences_window.py:102
 msgid "Minimum Portuguese Words"
 msgstr "Minimum portugál szavak"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
 #: usr/share/jellyfix/gui/windows/preferences_window.py:103
 msgid "Min words to detect Portuguese subtitles"
 msgstr "Min szavak a portugál feliratok észleléséhez"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
 #: usr/share/jellyfix/gui/windows/preferences_window.py:112
 msgid "Kept Languages"
 msgstr "Megőrzött nyelvek"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/preferences_window.py:113
 msgid "Subtitles in these languages will be kept"
 msgstr "A következő nyelveken a feliratok megmaradnak"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
 #: usr/share/jellyfix/gui/windows/preferences_window.py:134
 msgid "Video"
 msgstr "Videó"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
 #: usr/share/jellyfix/gui/windows/preferences_window.py:140
 msgid "Video Handling"
 msgstr "Videókezelés"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
 #: usr/share/jellyfix/gui/windows/preferences_window.py:141
 msgid "Configure how videos are processed"
 msgstr "Állítsa be, hogyan történjen a videók feldolgozása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
 #: usr/share/jellyfix/gui/windows/preferences_window.py:146
 msgid "Organize in Folders"
 msgstr "Mappákba rendezés"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
 #: usr/share/jellyfix/gui/windows/preferences_window.py:147
 msgid "Organize TV episodes in Season folders"
 msgstr "Rendezze a TV epizódokat évad mappákba"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
 #: usr/share/jellyfix/gui/windows/preferences_window.py:155
 msgid "Add Quality Tags"
 msgstr "Minőségi címkék hozzáadása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
 #: usr/share/jellyfix/gui/windows/preferences_window.py:156
 msgid "Add resolution tags (1080p, 720p, etc) to filenames"
 msgstr "Adjon felbontás címkéket (1080p, 720p stb.) a fájlnevekhez"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
 #: usr/share/jellyfix/gui/windows/preferences_window.py:164
 msgid "Use ffprobe for Detection"
 msgstr "Használja a ffprobe-ot a Detektáláshoz"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
 #: usr/share/jellyfix/gui/windows/preferences_window.py:165
 msgid "More accurate but slower quality detection"
 msgstr "Pontosabb, de lassabb minőség-ellenőrzés"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
 #: usr/share/jellyfix/gui/windows/preferences_window.py:177
 msgid "Metadata"
 msgstr "Metaadatok"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/preferences_window.py:183
 msgid "Metadata Fetching"
 msgstr "Metaadatok lekérése"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
 #: usr/share/jellyfix/gui/windows/preferences_window.py:184
 msgid "Configure metadata from TMDB"
 msgstr "TMDB-ből származó metaadatok konfigurálása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
 #: usr/share/jellyfix/gui/windows/preferences_window.py:189
 msgid "Fetch Metadata"
 msgstr "Metaadatok lekérése"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
 #: usr/share/jellyfix/gui/windows/preferences_window.py:190
 msgid "Download metadata and posters from TMDB"
 msgstr "Töltsd le a metaadatokat és a posztereket a TMDB-ből"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
 #: usr/share/jellyfix/gui/windows/preferences_window.py:202
 msgid "General"
 msgstr "Általános"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
 #: usr/share/jellyfix/gui/windows/preferences_window.py:208
 msgid "Application"
 msgstr "Alkalmazás"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
 #: usr/share/jellyfix/gui/windows/preferences_window.py:209
 msgid "General application settings"
 msgstr "Általános alkalmazásbeállítások"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
 #: usr/share/jellyfix/gui/windows/preferences_window.py:217
 msgid "Keep Recent Libraries"
 msgstr "Tartsa meg a legutóbbi könyvtárakat"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
 #: usr/share/jellyfix/gui/windows/preferences_window.py:218
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Emlékezzen a legutóbb beolvasott könyvtárakra a munkamenetek között"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
 #: usr/share/jellyfix/gui/windows/preferences_window.py:228
 msgid "File Cleanup"
 msgstr "Fájl Tisztítás"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
 #: usr/share/jellyfix/gui/windows/preferences_window.py:229
 msgid "Configure which files to remove"
 msgstr "Állítsa be, mely fájlokat távolítson el"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
 #: usr/share/jellyfix/gui/windows/preferences_window.py:234
 msgid "Remove Non-Media Files"
 msgstr "Nem médiához tartozó fájlok eltávolítása"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
 #: usr/share/jellyfix/gui/windows/preferences_window.py:235
 msgid "Remove all files that are not .srt or .mp4"
 msgstr "Távolítsa el az összes fájlt, amely nem .srt vagy .mp4."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
 #: usr/share/jellyfix/gui/windows/preferences_window.py:243
 msgid "Fix Mirabel Files"
 msgstr "Javítsa a Mirabel fájlokat"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
 #: usr/share/jellyfix/gui/windows/preferences_window.py:244
 msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 msgstr "Átnevezés .pt-BR.hi.srt, .br.hi.srt .por.srt-ra"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "Könyvtár kiválasztása a beolvasáshoz"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "Szkennelés sikertelen"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "Művelet generálása sikertelen"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "Végrehajtás meghiúsult"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "Nincs kiválasztás"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "Válasszon ki egy elemet az előnézethez"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
 msgstr "Keresési cím"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "Írja be a film vagy sorozat nevét..."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "Keresés"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "Film"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "TV Sorozat"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "Hibás cím? Kattintson a manuális kereséshez"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "Feliratok letöltése"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "Automatikus feliratkeresés és letöltés"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "Tól:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "Címzett:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "MOZGÁS"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "TÖRÖL"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "Áthelyezés + Átnevezés"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "Átnevezés"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "Üdvözöljük a Jellyfixben"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "Húzzon ide egy mappát"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "vagy kattintson az alábbi gombra"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "Könyvtár hozzáadása"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "Legutóbbi Könyvtárak"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "Tisztítsa meg a legutóbbi könyvtárakat"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "hetek ezelőtt"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "napja"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "órákkal ezelőtt"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "Most azonnal"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "Műveletek"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
 msgstr "Keresés..."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB nincs konfigurálva"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "Nincs találat."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "eredmények"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
-msgid "Search Subtitles"
-msgstr "Feliratok keresése"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
-msgid "Download"
-msgstr "Letöltés"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
-msgid "Enter movie or show title..."
-msgstr "Írja be a film vagy sorozat címét..."
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
-msgid "Season"
-msgstr "Évad"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
-msgid "Episode"
-msgstr "Epizód"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
-msgid "Search for Subtitles"
-msgstr "Feliratok keresése"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
-msgid "Enter a title and click search"
-msgstr "Írja be a címet, majd kattintson a keresésre"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
-msgid "No Results"
-msgstr "Nincs találat"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
-msgid "Try a different search term"
-msgstr "Próbálj meg egy másik keresési kifejezést"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "Összes"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "Minden felirat letöltése"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Keresés és feliratok letöltése az összes felsorolt videóhoz"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "Nincs művelet"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "Mappa beolvasása műveletek generálásához"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "átnevezés"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "mozgat"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "törlés"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Found {} subtitles"
-msgstr "Találtunk {} feliratot"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+msgid "Showing {} of {} operations"
+msgstr "{} műveletből {} látható"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Error: {}"
-msgstr "Hiba: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
-#, python-brace-format
-msgid "Downloaded: {}"
-msgstr "Letöltve: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
-msgid "Download failed"
-msgstr "Letöltés sikertelen"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 120
-#~ msgid "Dashboard"
-#~ msgstr "Irányítópult"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 144
-#~ msgid "Library"
-#~ msgstr "Könyvtár"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 155
-#~ msgid "Preview"
-#~ msgstr "Előnézet"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
-#~ msgid "Applying operations..."
-#~ msgstr "Műveletek alkalmazása..."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
-#~ msgid "Downloading Subtitles"
-#~ msgstr "Feliratok letöltése"
-
-#
+msgid "Total: {} operations"
+msgstr "Összesen: {} művelet"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "fordító-jogosultságok"
+# 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
-#~ msgid "Organize Folder with Jellyfix"
-#~ msgstr "Rendezze a mappát a Jellyfix segítségével"
-
-#
+#: NEEDS WORK
+msgid "Organize Folder with Jellyfix"
+msgstr "Rendezze a mappát a Jellyfix segítségével"
+# 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Folders with Jellyfix"
-#~ msgstr "Rendezd {0} mappát a Jellyfix segítségével"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 95
-#~ msgid "Organize 1 Video and 1 Subtitle"
-#~ msgstr "Rendezd 1 Videót és 1 Feliratot"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 97
+msgid "Organize {0} Folders with Jellyfix"
+msgstr "Rendezd {0} mappát a Jellyfix segítségével"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
+#: NEEDS WORK
+msgid "Organize 1 Video and 1 Subtitle"
+msgstr "Rendezd el 1 Videót és 1 Feliratot"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize 1 Video and {0} Subtitles"
-#~ msgstr "Rendezz 1 videót és {0} feliratot"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 99
+msgid "Organize 1 Video and {0} Subtitles"
+msgstr "Rendezd el az 1 videót és a {0} feliratot"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos and 1 Subtitle"
-#~ msgstr "Rendezd {0} videót és 1 feliratot"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 101
+msgid "Organize {0} Videos and 1 Subtitle"
+msgstr "Rendezd {0} videót és 1 feliratot"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos and {1} Subtitles"
-#~ msgstr "Rendezd {0} Videót és {1} Feliratot"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
-#~ msgid "Organize Video"
-#~ msgstr "Videó rendszerezése"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 107
+msgid "Organize {0} Videos and {1} Subtitles"
+msgstr "Rendezd {0} Videót és {1} Feliratot"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
+#: NEEDS WORK
+msgid "Organize Video"
+msgstr "Videó rendszerezése"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos"
-#~ msgstr "Rendezd {0} Videót"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 111
-#~ msgid "Organize Subtitle"
-#~ msgstr "Felirat rendezése"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 113
+msgid "Organize {0} Videos"
+msgstr "Rendezd {0} Videót"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
+#: NEEDS WORK
+msgid "Organize Subtitle"
+msgstr "Felirat rendezése"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Subtitles"
-#~ msgstr "Rendezze {0} feliratokat"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 173
-#~ msgid "No valid local files selected"
-#~ msgstr "Nincsenek érvényes helyi fájlok kiválasztva"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 174
-#~ msgid "Could not get the path for the selected files."
-#~ msgstr "Nem sikerült megszerezni a kiválasztott fájlok elérési útját."
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 189
-#~ msgid "Application Launch Error"
-#~ msgstr "Alkalmazásindítási hiba"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 261
-#~ msgid "Application Not Found"
-#~ msgstr "Alkalmazás nem található"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 262
+msgid "Organize {0} Subtitles"
+msgstr "Rendezze {0} feliratokat"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
+#: NEEDS WORK
+msgid "No valid local files selected"
+msgstr "Nincsenek érvényes helyi fájlok kiválasztva"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
+#: NEEDS WORK
+msgid "Could not get the path for the selected files."
+msgstr "Nem sikerült megszerezni a kiválasztott fájlok elérési útját."
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
+#: NEEDS WORK
+msgid "Application Not Found"
+msgstr "Alkalmazás nem található"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Could not find '{0}'. Is Jellyfix installed?"
-#~ msgstr "Nem található '{0}'. Telepítve van a Jellyfix?"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 190
+msgid "Could not find '{0}'. Is Jellyfix installed?"
+msgstr "Nem található '{0}'. Telepítve van a Jellyfix?"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+#: NEEDS WORK
+msgid "Application Launch Error"
+msgstr "Alkalmazásindítási hiba"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Failed to start Jellyfix: {0}"
-#~ msgstr "Jellyfix indítása nem sikerült: {0}"
+msgid "Failed to start Jellyfix: {0}"
+msgstr "Jellyfix indítása nem sikerült: {0}"

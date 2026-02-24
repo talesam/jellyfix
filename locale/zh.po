@@ -2,433 +2,136 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the jellyfix package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: jellyfix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 14:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
-
-#
-# File: usr/share/jellyfix/cli/app.py, line: 54
-#: usr/share/jellyfix/cli/app.py:54
-msgid "Operation cancelled by user"
-msgstr "操作已被用户取消"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 552
-# File: usr/share/jellyfix/cli/app.py, line: 58
-#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
-#, python-format
-msgid "Unexpected error: %s"
-msgstr "意外错误：%s"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "扫描结果"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "类别"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 253
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "计数"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "视频文件"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 609
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "电影"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "剧集"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "字幕"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "变体"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "无语言"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "外部"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "使用语言"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "图像"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO 文件"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "其他"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "建议的操作："
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "字幕变体（.lang2，.lang3）可以处理"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "无语言代码的字幕"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "可以移除外语字幕"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "建议"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "无需操作。一切都已整理好！"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 137
-#: usr/share/jellyfix/cli/display.py:139
-#, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "操作预览 ({} 个文件)"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
-#, python-brace-format
-msgid "and {} more groups"
-msgstr "和 {} 个更多组"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 189
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "移动 + 重命名："
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 194
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "移动："
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 199
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "重命名："
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 204
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "移除："
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 208
-# File: usr/share/jellyfix/cli/display.py, line: 225
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "摘要"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 230
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "移动 + 重命名"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "移动"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "重命名"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "删除"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 251
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ 执行结果"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 252
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "操作"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "重命名"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 258
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "移动"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "已删除"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "已清理的文件夹"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "失败"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 266
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "跳过"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 99
 # File: usr/share/jellyfix/cli/interactive.py, line: 421
 #: usr/share/jellyfix/cli/interactive.py:104
 #: usr/share/jellyfix/cli/interactive.py:548
 msgid "What would you like to do?"
 msgstr "你想做什么？"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 101
 #: usr/share/jellyfix/cli/interactive.py:106
 msgid "📂 Scan library"
 msgstr "📂 扫描库"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 102
 #: usr/share/jellyfix/cli/interactive.py:107
 msgid "🔧 Settings"
 msgstr "🔧 设置"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 103
 #: usr/share/jellyfix/cli/interactive.py:108
 msgid "🚀 Process files"
 msgstr "🚀 处理文件"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 109
 #: usr/share/jellyfix/cli/interactive.py:109
 msgid "📥 Download subtitles"
 msgstr "📥 下载字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 #: usr/share/jellyfix/cli/interactive.py:110
 msgid "ℹ️  Help"
 msgstr "ℹ️  帮助"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 105
 #: usr/share/jellyfix/cli/interactive.py:111
 msgid "❌ Exit"
 msgstr "❌ 退出"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 108
 #: usr/share/jellyfix/cli/interactive.py:114
 msgid "(Use arrow keys to navigate)"
 msgstr "（使用箭头键进行导航）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 124
 #: usr/share/jellyfix/cli/interactive.py:124
 msgid "Subliminal library not found!"
 msgstr "未找到潜意识库！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 125
 #: usr/share/jellyfix/cli/interactive.py:125
 msgid "Please install 'subliminal' to use this feature."
 msgstr "请安装'subliminal'以使用此功能。"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 135
 #: usr/share/jellyfix/cli/interactive.py:135
 #, python-format
 msgid "Scanning for videos: %s"
 msgstr "正在扫描视频：%s"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 142
 #: usr/share/jellyfix/cli/interactive.py:142
 msgid "No videos found!"
 msgstr "未找到视频！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 160
 #: usr/share/jellyfix/cli/interactive.py:160
 msgid "Select videos to download subtitles for:"
 msgstr "选择要下载字幕的视频："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 163
 #: usr/share/jellyfix/cli/interactive.py:163
 msgid "(SPACE to select, ENTER to confirm)"
 msgstr "（空格键选择，回车键确认）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/cli/interactive.py:170
 msgid "Selected:"
 msgstr "已选择："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/cli/interactive.py:170
 #: usr/share/jellyfix/gui/windows/main_window.py:994
 #: usr/share/jellyfix/gui/windows/main_window.py:1014
 msgid "videos"
 msgstr "视频"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 172
 #: usr/share/jellyfix/cli/interactive.py:172
 msgid "Start download?"
 msgstr "开始下载吗？"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 193
 #: usr/share/jellyfix/cli/interactive.py:193
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:366
 msgid "Downloading..."
 msgstr "下载中..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 196
 #: usr/share/jellyfix/cli/interactive.py:196
 #, python-brace-format
 msgid "Downloading for: {}"
 msgstr "正在下载：{}"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 210
 #: usr/share/jellyfix/cli/interactive.py:210
 #, python-brace-format
 msgid "Downloaded {} subtitles for {} videos"
 msgstr "下载了 {} 个视频的 {} 字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 212
 #: usr/share/jellyfix/cli/interactive.py:212
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:337
 msgid "No subtitles found"
 msgstr "未找到字幕"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 121
 # File: usr/share/jellyfix/cli/interactive.py, line: 141
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 59
@@ -438,10 +141,9 @@ msgstr "未找到字幕"
 #, python-format
 msgid "Scanning: %s"
 msgstr "扫描中：%s"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 148
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 65
 #: usr/share/jellyfix/cli/interactive.py:251
@@ -449,30 +151,26 @@ msgstr "扫描中：%s"
 #, python-format
 msgid "Found: %d videos, %d subtitles"
 msgstr "找到：%d 个视频，%d 个字幕"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 153
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 70
 #: usr/share/jellyfix/cli/interactive.py:256
 #: usr/share/jellyfix/cli/non_interactive.py:69
 msgid "Planning operations..."
 msgstr "规划操作..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 158
 #: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "无需操作"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
 #: usr/share/jellyfix/cli/interactive.py:270
 msgid "Execute these operations?"
 msgstr "执行这些操作吗？"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 173
 # File: usr/share/jellyfix/cli/interactive.py, line: 450
 # File: usr/share/jellyfix/cli/interactive.py, line: 478
@@ -481,200 +179,169 @@ msgstr "执行这些操作吗？"
 #: usr/share/jellyfix/cli/interactive.py:605
 msgid "Operation cancelled"
 msgstr "操作已取消"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 177
 #: usr/share/jellyfix/cli/interactive.py:280
 msgid "Executing operations..."
 msgstr "正在执行操作..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 202
 #: usr/share/jellyfix/cli/interactive.py:305
 msgid "📂 Directory Browser"
 msgstr "📂 目录浏览器"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 203
 #: usr/share/jellyfix/cli/interactive.py:306
 msgid "Current:"
 msgstr "当前："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 211
 #: usr/share/jellyfix/cli/interactive.py:314
 msgid "✓ Select this directory"
 msgstr "✓ 选择此目录"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 218
 #: usr/share/jellyfix/cli/interactive.py:321
 msgid "⬆️  .. (go back)"
 msgstr "⬆️  .. (返回)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 229
 #: usr/share/jellyfix/cli/interactive.py:332
 msgid "⌨️  Type path manually"
 msgstr "手动输入路径"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 235
 #: usr/share/jellyfix/cli/interactive.py:338
 msgid "❌ Cancel"
 msgstr "❌ 取消"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 241
 #: usr/share/jellyfix/cli/interactive.py:344
 msgid "Select directory:"
 msgstr "选择目录："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 253
 #: usr/share/jellyfix/cli/interactive.py:356
 msgid "Enter full directory path:"
 msgstr "输入完整目录路径："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 255
 #: usr/share/jellyfix/cli/interactive.py:358
 msgid "Path:"
 msgstr "路径："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 265
 #: usr/share/jellyfix/cli/interactive.py:368
 msgid "Directory not found!"
 msgstr "目录未找到！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 272
 #: usr/share/jellyfix/cli/interactive.py:375
 msgid "Permission denied"
 msgstr "权限被拒绝"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 281
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: usr/share/jellyfix/cli/interactive.py:384
 #: usr/share/jellyfix/gui/windows/help_window.py:137
 msgid "Settings"
 msgstr "设置"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 284
 #: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 287
 #: usr/share/jellyfix/cli/interactive.py:390
 msgid "What would you like to configure?"
 msgstr "您想配置什么？"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 289
 #: usr/share/jellyfix/cli/interactive.py:392
 msgid "Rename language variants (lang2→lang, lang3→lang)"
 msgstr "重命名语言变体（lang2→lang，lang3→lang）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 290
 #: usr/share/jellyfix/cli/interactive.py:393
 msgid "Remove duplicate variants (lang2, lang3)"
 msgstr "删除重复变体（lang2，lang3）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 291
 #: usr/share/jellyfix/cli/interactive.py:394
 msgid "Add language code to subtitles"
 msgstr "将语言代码添加到字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 292
 #: usr/share/jellyfix/cli/interactive.py:395
 msgid "Remove foreign subtitles"
 msgstr "移除外语字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 293
 # File: usr/share/jellyfix/cli/interactive.py, line: 398
 #: usr/share/jellyfix/cli/interactive.py:396
 #: usr/share/jellyfix/cli/interactive.py:525
 msgid "Kept languages:"
 msgstr "保留的语言："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 294
 #: usr/share/jellyfix/cli/interactive.py:397
 msgid "Organize in folders (Season XX)"
 msgstr "按文件夹组织（第XX季）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 295
 #: usr/share/jellyfix/cli/interactive.py:398
 msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "获取元数据（TMDB/TVDB）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
 # File: usr/share/jellyfix/cli/interactive.py, line: 344
 #: usr/share/jellyfix/cli/interactive.py:399
 #: usr/share/jellyfix/cli/interactive.py:450
 msgid "Ask when multiple TMDB results"
 msgstr "当有多个TMDB结果时询问"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 296
 #: usr/share/jellyfix/cli/interactive.py:400
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "添加质量标签（1080p、720p等）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 297
 #: usr/share/jellyfix/cli/interactive.py:401
 #: usr/share/jellyfix/cli/interactive.py:460
 msgid "Use ffprobe for quality detection"
 msgstr "使用 ffprobe 进行质量检测"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 299
 # File: usr/share/jellyfix/cli/interactive.py, line: 360
 #: usr/share/jellyfix/cli/interactive.py:402
 #: usr/share/jellyfix/cli/interactive.py:465
 msgid "Rename NFO files to match video"
 msgstr "重命名NFO文件以匹配视频"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 #: usr/share/jellyfix/cli/interactive.py:403
 msgid "Remove non-media files (keep only videos/subtitles)"
 msgstr "删除非媒体文件（仅保留视频/字幕）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 301
 #: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
 msgstr "修复 Mirabel 文件 (.pt-BR.hi → .por)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 298
 #: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "最小葡萄牙语单词："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 299
 #: usr/share/jellyfix/cli/interactive.py:406
 #: usr/share/jellyfix/cli/interactive.py:495
 msgid "Configure APIs (TMDB/TVDB)"
 msgstr "配置 API（TMDB/TVDB）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 # File: usr/share/jellyfix/cli/interactive.py, line: 306
 # File: usr/share/jellyfix/cli/interactive.py, line: 428
@@ -685,8 +352,7 @@ msgstr "配置 API（TMDB/TVDB）"
 #: usr/share/jellyfix/cli/interactive.py:561
 msgid "Back"
 msgstr "返回"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 303
 # File: usr/share/jellyfix/cli/interactive.py, line: 431
 #: usr/share/jellyfix/cli/interactive.py:410
@@ -696,14 +362,12 @@ msgstr ""
 "键（用于上下文）：（使用↑↓和ENTER进行选择）\n"
 "\n"
 "字符串翻译：（使用↑↓和ENTER进行选择）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 310
 #: usr/share/jellyfix/cli/interactive.py:417
 msgid "Rename language variants"
 msgstr "重命名语言变体"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 313
 # File: usr/share/jellyfix/cli/interactive.py, line: 318
 # File: usr/share/jellyfix/cli/interactive.py, line: 323
@@ -726,155 +390,131 @@ msgstr "重命名语言变体"
 #: usr/share/jellyfix/cli/interactive.py:478
 msgid "Setting saved"
 msgstr "设置已保存"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 315
 #: usr/share/jellyfix/cli/interactive.py:422
 msgid "Remove duplicate variants"
 msgstr "删除重复变体"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 320
 #: usr/share/jellyfix/cli/interactive.py:427
 msgid "Add language code"
 msgstr "添加语言代码"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 325
 #: usr/share/jellyfix/cli/interactive.py:432
 msgid "Remove foreign"
 msgstr "移除外部"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 330
 #: usr/share/jellyfix/cli/interactive.py:437
 msgid "Kept languages"
 msgstr "保留的语言"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 333
 #: usr/share/jellyfix/cli/interactive.py:440
 msgid "Organize in folders"
 msgstr "按文件夹组织"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 338
 #: usr/share/jellyfix/cli/interactive.py:445
 msgid "Fetch metadata"
 msgstr "获取元数据"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 343
 #: usr/share/jellyfix/cli/interactive.py:455
 msgid "Add quality tags"
 msgstr "添加质量标签"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 366
 #: usr/share/jellyfix/cli/interactive.py:470
 msgid "Remove non-media files"
 msgstr "删除非媒体文件"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
 # File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
 #: usr/share/jellyfix/cli/interactive.py:475
 msgid "Fix Mirabel files"
 msgstr "修复 Mirabel 文件"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
 #: usr/share/jellyfix/cli/interactive.py:480
 msgid "Min Portuguese words"
 msgstr "最小葡萄牙语单词"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 355
 #: usr/share/jellyfix/cli/interactive.py:482
 msgid "Minimum number of Portuguese words:"
 msgstr "最小葡萄牙语单词数："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 363
 #: usr/share/jellyfix/cli/interactive.py:490
 msgid "Setting saved to ~/.jellyfix/config.json"
 msgstr "设置已保存到 ~/.jellyfix/config.json"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 365
 #: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "无效的值！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
 #: usr/share/jellyfix/cli/interactive.py:502
 msgid "Language Selection"
 msgstr "语言选择"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 376
 #: usr/share/jellyfix/cli/interactive.py:503
 msgid "Select languages to KEEP (will NOT be removed)"
 msgstr "选择要保留的语言（将不会被移除）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 377
 #: usr/share/jellyfix/cli/interactive.py:504
 msgid "Use SPACE to check/uncheck, ENTER to confirm"
 msgstr "使用空格键进行选中/取消选中，按回车键确认"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 390
 #: usr/share/jellyfix/cli/interactive.py:517
 msgid "Select languages to KEEP:"
 msgstr "选择要保留的语言："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 393
 #: usr/share/jellyfix/cli/interactive.py:520
 msgid "(SPACE = check/uncheck, ENTER = confirm)"
 msgstr "（空格 = 选中/取消选中，回车 = 确认）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 402
 #: usr/share/jellyfix/cli/interactive.py:529
 msgid "Saved to ~/.jellyfix/config.json"
 msgstr "已保存到 ~/.jellyfix/config.json"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 411
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 38
 #: usr/share/jellyfix/cli/interactive.py:538
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:38
 msgid "API Configuration"
 msgstr "API 配置"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
 #: usr/share/jellyfix/cli/interactive.py:542
 msgid "Configured"
 msgstr "已配置"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
 #: usr/share/jellyfix/cli/interactive.py:542
 msgid "Not configured"
 msgstr "未配置"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 418
 #: usr/share/jellyfix/cli/interactive.py:545
 msgid "Config file:"
 msgstr "配置文件："
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 423
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 93
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 178
@@ -884,213 +524,189 @@ msgstr "配置文件："
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:178
 msgid "Configure TMDB API Key"
 msgstr "配置 TMDB API 密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 424
 #: usr/share/jellyfix/cli/interactive.py:551
 #: usr/share/jellyfix/cli/interactive.py:581
 msgid "View current key (TMDB)"
 msgstr "查看当前密钥（TMDB）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 425
 # File: usr/share/jellyfix/cli/interactive.py, line: 482
 #: usr/share/jellyfix/cli/interactive.py:552
 #: usr/share/jellyfix/cli/interactive.py:609
 msgid "Test TMDB connection"
 msgstr "测试 TMDB 连接"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 426
 # File: usr/share/jellyfix/cli/interactive.py, line: 466
 #: usr/share/jellyfix/cli/interactive.py:553
 #: usr/share/jellyfix/cli/interactive.py:593
 msgid "Remove TMDB key"
 msgstr "移除TMDB密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 427
 #: usr/share/jellyfix/cli/interactive.py:554
 #: usr/share/jellyfix/cli/interactive.py:612
 msgid "How to get TMDB key"
 msgstr "如何获取TMDB密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 438
 #: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
 msgstr "输入您的 TMDB API 密钥："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 447
 #: usr/share/jellyfix/cli/interactive.py:574
 msgid "TMDB key saved to:"
 msgstr "TMDB 密钥已保存至："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 460
 #: usr/share/jellyfix/cli/interactive.py:587
 msgid "File:"
 msgstr "文件："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 462
 #: usr/share/jellyfix/cli/interactive.py:589
 msgid "No key configured"
 msgstr "未配置密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 468
 #: usr/share/jellyfix/cli/interactive.py:595
 msgid "Are you sure you want to remove the TMDB key?"
 msgstr "您确定要删除TMDB密钥吗？"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 476
 #: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "TMDB 密钥已移除"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
 #: usr/share/jellyfix/cli/interactive.py:619
 msgid "Testing TMDB connection..."
 msgstr "测试TMDB连接..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 497
 #: usr/share/jellyfix/cli/interactive.py:624
 msgid "No API key configured!"
 msgstr "未配置API密钥！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 498
 #: usr/share/jellyfix/cli/interactive.py:625
 msgid "Configure a key first using 'Configure TMDB API Key'"
 msgstr "首先使用“配置 TMDB API 密钥”来配置一个密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 504
 #: usr/share/jellyfix/cli/interactive.py:631
 #, python-format
 msgid "Invalid key! Has %d characters, should have 32."
 msgstr "无效的密钥！有 %d 个字符，应该有 32 个。"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 505
 #: usr/share/jellyfix/cli/interactive.py:632
 msgid "You may have copied the Token instead of the API Key!"
 msgstr "您可能复制了令牌而不是API密钥！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 506
 #: usr/share/jellyfix/cli/interactive.py:633
 msgid "See 'How to get TMDB key' for details"
 msgstr "请参阅“如何获取TMDB密钥”以获取详细信息"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 514
 #: usr/share/jellyfix/cli/interactive.py:641
 msgid "Making test request..."
 msgstr "正在进行测试请求..."
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 523
 #: usr/share/jellyfix/cli/interactive.py:650
 msgid "Connection successful!"
 msgstr "连接成功！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 524
 #: usr/share/jellyfix/cli/interactive.py:651
 msgid "Valid and working API key"
 msgstr "有效且可用的API密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 525
 #: usr/share/jellyfix/cli/interactive.py:652
 #, python-format
 msgid "Test search returned %d results"
 msgstr "测试搜索返回了 %d 个结果"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 529
 #: usr/share/jellyfix/cli/interactive.py:656
 msgid "Example:"
 msgstr "示例："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 532
 #: usr/share/jellyfix/cli/interactive.py:659
 msgid "Invalid API key!"
 msgstr "无效的 API 密钥！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 533
 #: usr/share/jellyfix/cli/interactive.py:660
 msgid "The key was rejected by TMDB."
 msgstr "密钥被TMDB拒绝。"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 534
 #: usr/share/jellyfix/cli/interactive.py:661
 msgid "Possible causes:"
 msgstr "可能的原因："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 535
 #: usr/share/jellyfix/cli/interactive.py:662
 msgid "You copied the Reading Token instead of the API Key"
 msgstr "您复制了阅读令牌而不是API密钥。"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 536
 #: usr/share/jellyfix/cli/interactive.py:663
 msgid "The key is incorrect or has been revoked"
 msgstr "密钥不正确或已被撤销"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 537
 #: usr/share/jellyfix/cli/interactive.py:664
 msgid "You copied only part of the key"
 msgstr "您只复制了密钥的一部分"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 538
 #: usr/share/jellyfix/cli/interactive.py:665
 msgid "See 'How to get TMDB key' for detailed instructions"
 msgstr "请参阅“如何获取TMDB密钥”以获取详细说明"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 541
 #: usr/share/jellyfix/cli/interactive.py:668
 #, python-format
 msgid "Request error: HTTP %d"
 msgstr "请求错误：HTTP %d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 544
 #: usr/share/jellyfix/cli/interactive.py:671
 msgid "Timeout: Server did not respond in time"
 msgstr "超时：服务器未及时响应"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 545
 # File: usr/share/jellyfix/cli/interactive.py, line: 549
 #: usr/share/jellyfix/cli/interactive.py:672
 #: usr/share/jellyfix/cli/interactive.py:676
 msgid "Check your internet connection"
 msgstr "检查您的互联网连接"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 548
 #: usr/share/jellyfix/cli/interactive.py:675
 msgid "Connection error"
 msgstr "连接错误"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 552
+# File: usr/share/jellyfix/cli/app.py, line: 58
+#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "意外错误：%s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 560
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 154
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 320
@@ -1099,195 +715,171 @@ msgstr "连接错误"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:331
 msgid "How to Get TMDB API Key"
 msgstr "如何获取TMDB API密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 562
 #: usr/share/jellyfix/cli/interactive.py:689
 msgid "Access:"
 msgstr "访问："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 565
 #: usr/share/jellyfix/cli/interactive.py:692
 msgid "Login or create a FREE account"
 msgstr "登录或创建一个免费账户"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 567
 #: usr/share/jellyfix/cli/interactive.py:694
 msgid "Fill in your details"
 msgstr "填写您的详细信息"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 568
 #: usr/share/jellyfix/cli/interactive.py:695
 msgid "Confirm email"
 msgstr "确认电子邮件"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 570
 #: usr/share/jellyfix/cli/interactive.py:697
 msgid "Request an API key:"
 msgstr "请求API密钥："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 571
 #: usr/share/jellyfix/cli/interactive.py:698
 msgid "Access"
 msgstr "访问"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 572
 #: usr/share/jellyfix/cli/interactive.py:699
 msgid "Click 'Request an API Key'"
 msgstr "点击“请求API密钥”"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 573
 #: usr/share/jellyfix/cli/interactive.py:700
 msgid "Choose 'Developer' (personal use)"
 msgstr "选择“开发者”（个人使用）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 574
 #: usr/share/jellyfix/cli/interactive.py:701
 msgid "Fill in"
 msgstr "填写"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 578
 #: usr/share/jellyfix/cli/interactive.py:705
 msgid "Accept terms of use"
 msgstr "接受使用条款"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 580
 #: usr/share/jellyfix/cli/interactive.py:707
 msgid "IMPORTANT - Which key to copy:"
 msgstr "重要 - 复制哪个键："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 581
 #: usr/share/jellyfix/cli/interactive.py:708
 msgid "You will see TWO keys on the page:"
 msgstr "您将在页面上看到两个密钥："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 582
 #: usr/share/jellyfix/cli/interactive.py:709
 msgid "API Read Access Token (long, starts with eyJ...)"
 msgstr "API读取访问令牌（长，开始于eyJ...）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 583
 #: usr/share/jellyfix/cli/interactive.py:710
 msgid "API Key (v3 auth) ← COPY THIS ONE!"
 msgstr "API 密钥 (v3 认证) ← 复制此项！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 585
 #: usr/share/jellyfix/cli/interactive.py:712
-msgid ""
-"The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
+msgid "The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
 msgstr "正确的密钥有32个字符（例如：611bc23b57add08a67b2e64ecb850be8）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 587
 #: usr/share/jellyfix/cli/interactive.py:714
 msgid "Configure in jellyfix:"
 msgstr "在jellyfix中配置："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 588
 #: usr/share/jellyfix/cli/interactive.py:715
 msgid "Return to menu and choose 'Configure TMDB API Key'"
 msgstr "返回菜单并选择“配置TMDB API密钥”"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 589
 #: usr/share/jellyfix/cli/interactive.py:716
 msgid "Paste the API Key (32 characters)"
 msgstr "粘贴API密钥（32个字符）"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 590
 #: usr/share/jellyfix/cli/interactive.py:717
 msgid "Use 'Test connection' to verify"
 msgstr "使用“测试连接”进行验证"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 592
 #: usr/share/jellyfix/cli/interactive.py:719
 msgid "The key is free and does not expire!"
 msgstr "密钥是免费的，并且不会过期！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 593
 #: usr/share/jellyfix/cli/interactive.py:720
 msgid "Allows up to 40 requests per 10 seconds"
 msgstr "每10秒最多允许40个请求"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 594
 #: usr/share/jellyfix/cli/interactive.py:721
 msgid "Enough to organize thousands of files!"
 msgstr "足以组织数千个文件！"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 597
 #: usr/share/jellyfix/cli/interactive.py:724
 msgid "How to Get TMDB Key"
 msgstr "如何获取TMDB密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 604
 #: usr/share/jellyfix/cli/interactive.py:731
 msgid "Help - jellyfix v"
 msgstr "帮助 - jellyfix v"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 606
 #: usr/share/jellyfix/cli/interactive.py:733
 msgid "What jellyfix does:"
 msgstr "jellyfix 的功能："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
 #: usr/share/jellyfix/cli/interactive.py:735
 msgid "Renames files"
 msgstr "重命名文件"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
 #: usr/share/jellyfix/cli/interactive.py:735
 msgid "to Jellyfin standard"
 msgstr "符合 Jellyfin 标准"
-
-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 609
+# File: usr/share/jellyfix/cli/display.py, line: 76
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
+msgid "Movies"
+msgstr "电影"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 #: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
 msgstr "电影名称 (YYYY).mkv"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
 #: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series"
 msgstr "系列"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
 #: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series Name S01E01.mkv"
 msgstr "系列名称 S01E01.mkv"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
 #: usr/share/jellyfix/cli/interactive.py:739
 msgid "Organizes subtitles"
 msgstr "组织字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
 #: usr/share/jellyfix/cli/interactive.py:739
 msgid "(ALL languages)"
@@ -1295,991 +887,543 @@ msgstr ""
 "密钥 (用于上下文): (所有语言)\n"
 "\n"
 "字符串翻译: (所有语言)"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 613
 #: usr/share/jellyfix/cli/interactive.py:740
 msgid "Renames variants"
 msgstr "重命名变体"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 614
 #: usr/share/jellyfix/cli/interactive.py:741
 msgid "Adds language code"
 msgstr "添加语言代码"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
 #: usr/share/jellyfix/cli/interactive.py:742
 msgid "Removes foreign subtitles"
 msgstr "移除外语字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
 #: usr/share/jellyfix/cli/interactive.py:742
 msgid "keeps por and eng by default"
 msgstr "默认情况下保持葡萄牙语和英语"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
 #: usr/share/jellyfix/cli/interactive.py:743
 msgid "Option to remove duplicates"
 msgstr "删除重复项的选项"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
 #: usr/share/jellyfix/cli/interactive.py:743
 msgid "when eng exists"
 msgstr "当英语存在时"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
 #: usr/share/jellyfix/cli/interactive.py:744
 msgid "NEVER"
 msgstr "永不"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
 #: usr/share/jellyfix/cli/interactive.py:744
 msgid "removes .forced.srt"
 msgstr "移除 .forced.srt"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 619
 #: usr/share/jellyfix/cli/interactive.py:746
 msgid "Folder structure"
 msgstr "文件夹结构"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 620
 #: usr/share/jellyfix/cli/interactive.py:747
 msgid "Creates folders Season 01, Season 02, etc"
 msgstr "创建文件夹 第01季、第02季等"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 621
 #: usr/share/jellyfix/cli/interactive.py:748
 msgid "Moves episodes to correct folders"
 msgstr "将剧集移动到正确的文件夹"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 623
 #: usr/share/jellyfix/cli/interactive.py:750
 msgid "Fetches metadata"
 msgstr "获取元数据"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 624
 #: usr/share/jellyfix/cli/interactive.py:751
 msgid "Searches year and IDs via TMDB/TVDB"
 msgstr "通过 TMDB/TVDB 搜索年份和 ID"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 625
 #: usr/share/jellyfix/cli/interactive.py:752
 msgid "Adds IDs to folders [tmdbid-12345]"
 msgstr "将 ID 添加到文件夹 [tmdbid-12345]"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 627
 #: usr/share/jellyfix/cli/interactive.py:754
 msgid "Quality detection"
 msgstr "质量检测"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 628
 #: usr/share/jellyfix/cli/interactive.py:755
 msgid "Adds quality tags (1080p, 720p, etc) to filenames"
 msgstr "将质量标签（1080p、720p等）添加到文件名中"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 629
 #: usr/share/jellyfix/cli/interactive.py:756
 msgid "Option to use ffprobe for accurate detection"
 msgstr "使用 ffprobe 进行准确检测的选项"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 631
 #: usr/share/jellyfix/cli/interactive.py:758
 msgid "Dry-Run Mode:"
 msgstr "干运行模式："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 632
 #: usr/share/jellyfix/cli/interactive.py:759
 msgid "By default, jellyfix shows what will be done WITHOUT changing files."
 msgstr "默认情况下，jellyfix 显示将要执行的操作，而不更改文件。"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 633
 #: usr/share/jellyfix/cli/interactive.py:760
 msgid "You can review changes before applying."
 msgstr "您可以在应用之前查看更改。"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
 #: usr/share/jellyfix/cli/interactive.py:762
 msgid "Tip:"
 msgstr "提示："
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
 #: usr/share/jellyfix/cli/interactive.py:762
 msgid "Configure your TMDB key"
 msgstr "配置您的TMDB密钥"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: usr/share/jellyfix/cli/non_interactive.py:44
 msgid "Error: No working directory specified"
 msgstr "错误：未指定工作目录"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 46
 #: usr/share/jellyfix/cli/non_interactive.py:45
 msgid "Use: --workdir /path/to/directory"
 msgstr "使用：--workdir /path/to/directory"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 51
 #: usr/share/jellyfix/cli/non_interactive.py:50
 #, python-format
 msgid "Error: Directory does not exist: %s"
 msgstr "错误：目录不存在：%s"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 75
 #: usr/share/jellyfix/cli/non_interactive.py:74
 #, python-format
 msgid "%d operations planned"
 msgstr "计划了 %d 次操作"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 78
 #: usr/share/jellyfix/cli/non_interactive.py:77
 msgid "Nothing to do"
 msgstr "没有要做的事情"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 85
 #: usr/share/jellyfix/cli/non_interactive.py:84
 msgid "DRY-RUN mode: No changes will be made"
 msgstr "干运行模式：不会进行任何更改"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 92
 #: usr/share/jellyfix/cli/non_interactive.py:91
 #, python-format
 msgid "Dry-run completed: %d operations planned"
 msgstr "干运行完成：计划了 %d 个操作"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 95
 #: usr/share/jellyfix/cli/non_interactive.py:94
 msgid "Execution completed:"
 msgstr "执行完成："
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 97
 #: usr/share/jellyfix/cli/non_interactive.py:96
 #, python-format
 msgid "  Renamed: %d"
 msgstr "重命名：%d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 99
 #: usr/share/jellyfix/cli/non_interactive.py:98
 #, python-format
 msgid "  Moved: %d"
 msgstr "已移动：%d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 101
 #: usr/share/jellyfix/cli/non_interactive.py:100
 #, python-format
 msgid "  Deleted: %d"
 msgstr "已删除：%d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 103
 #: usr/share/jellyfix/cli/non_interactive.py:102
 #, python-format
 msgid "  Cleaned folders: %d"
 msgstr "已清理的文件夹：%d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 105
 #: usr/share/jellyfix/cli/non_interactive.py:104
 #, python-format
 msgid "  Failed: %d"
 msgstr "失败：%d"
-
-#
+# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 107
 #: usr/share/jellyfix/cli/non_interactive.py:106
 #, python-format
 msgid "  Skipped: %d"
 msgstr "跳过: %d"
-
-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 64
+#: usr/share/jellyfix/cli/display.py:64
+msgid "Scan Results"
+msgstr "扫描结果"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 71
+#: usr/share/jellyfix/cli/display.py:71
+msgid "Category"
+msgstr "类别"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 253
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
+msgid "Count"
+msgstr "计数"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 75
+#: usr/share/jellyfix/cli/display.py:75
+msgid "Video files"
+msgstr "视频文件"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 77
+#: usr/share/jellyfix/cli/display.py:77
+msgid "Episodes"
+msgstr "剧集"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
+msgid "Subtitles"
+msgstr "字幕"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 81
+#: usr/share/jellyfix/cli/display.py:81
+msgid "Variants"
+msgstr "变体"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 82
+#: usr/share/jellyfix/cli/display.py:82
+msgid "No language"
+msgstr "无语言"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 83
+#: usr/share/jellyfix/cli/display.py:83
+msgid "Foreign"
+msgstr "外部"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 84
+#: usr/share/jellyfix/cli/display.py:84
+msgid "With language"
+msgstr "使用语言"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 87
+#: usr/share/jellyfix/cli/display.py:87
+msgid "Images"
+msgstr "图像"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 90
+#: usr/share/jellyfix/cli/display.py:90
+msgid "NFO files"
+msgstr "NFO 文件"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 93
+#: usr/share/jellyfix/cli/display.py:93
+msgid "Other"
+msgstr "其他"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 100
+#: usr/share/jellyfix/cli/display.py:100
+msgid "Suggested actions:"
+msgstr "建议的操作："
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 103
+#: usr/share/jellyfix/cli/display.py:103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "字幕变体（.lang2，.lang3）可以处理"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 106
+#: usr/share/jellyfix/cli/display.py:106
+msgid "subtitles without language code"
+msgstr "无语言代码的字幕"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 109
+#: usr/share/jellyfix/cli/display.py:109
+msgid "foreign subtitles can be removed"
+msgstr "可以移除外语字幕"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 113
+#: usr/share/jellyfix/cli/display.py:113
+msgid "Suggestions"
+msgstr "建议"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "无需操作。一切都已整理好！"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 137
+#: usr/share/jellyfix/cli/display.py:139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "操作预览 ({} 个文件)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:262
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "和 {} 个更多组"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 189
+#: usr/share/jellyfix/cli/display.py:276
+msgid "Move + Rename:"
+msgstr "移动 + 重命名："
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 194
+#: usr/share/jellyfix/cli/display.py:281
+msgid "Move:"
+msgstr "移动："
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 199
+#: usr/share/jellyfix/cli/display.py:286
+msgid "Rename:"
+msgstr "重命名："
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 204
+#: usr/share/jellyfix/cli/display.py:291
+msgid "Remove:"
+msgstr "移除："
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 208
+# File: usr/share/jellyfix/cli/display.py, line: 225
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
+msgid "Summary"
+msgstr "摘要"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 230
+#: usr/share/jellyfix/cli/display.py:342
+msgid "Move + Rename"
+msgstr "移动 + 重命名"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 231
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
+msgid "Move"
+msgstr "移动"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 232
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
+msgid "Rename"
+msgstr "重命名"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 233
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
+msgid "Delete"
+msgstr "删除"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 251
+#: usr/share/jellyfix/cli/display.py:363
+msgid "✅ Execution Results"
+msgstr "✅ 执行结果"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 252
+#: usr/share/jellyfix/cli/display.py:364
+msgid "Action"
+msgstr "操作"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: usr/share/jellyfix/cli/display.py:368
+msgid "Renamed"
+msgstr "重命名"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 258
+#: usr/share/jellyfix/cli/display.py:370
+msgid "Moved"
+msgstr "移动"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: usr/share/jellyfix/cli/display.py:372
+msgid "Deleted"
+msgstr "已删除"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:374
+msgid "Cleaned folders"
+msgstr "已清理的文件夹"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: usr/share/jellyfix/cli/display.py:376
+msgid "Failed"
+msgstr "失败"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 266
+#: usr/share/jellyfix/cli/display.py:378
+msgid "Skipped"
+msgstr "跳过"
+# 
+# File: usr/share/jellyfix/cli/app.py, line: 54
+#: usr/share/jellyfix/cli/app.py:54
+msgid "Operation cancelled by user"
+msgstr "操作已被用户取消"
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 101
 #: usr/share/jellyfix/core/image_manager.py:101
 #, python-format
 msgid "Downloaded image: %s"
 msgstr "下载的图像：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 106
 #: usr/share/jellyfix/core/image_manager.py:106
 #, python-format
 msgid "Failed to download image: %s"
 msgstr "下载图像失败：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 110
 #: usr/share/jellyfix/core/image_manager.py:110
 #, python-format
 msgid "Unexpected error downloading image: %s"
 msgstr "下载图像时发生意外错误：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 216
 #: usr/share/jellyfix/core/image_manager.py:216
 msgid "Clearing image cache..."
 msgstr "清除图像缓存..."
-
-#
+# 
 # File: usr/share/jellyfix/core/image_manager.py, line: 218
 #: usr/share/jellyfix/core/image_manager.py:218
 msgid "Image cache cleared"
 msgstr "图像缓存已清除"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
 #: usr/share/jellyfix/core/subtitle_manager.py:169
 #, python-format
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "正在搜索字幕：%s（语言：%s）"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
 #: usr/share/jellyfix/core/subtitle_manager.py:182
 #, python-format
 msgid "Level 1 (hash) found: %s"
 msgstr "找到级别 1（哈希）：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
 #: usr/share/jellyfix/core/subtitle_manager.py:186
 #, python-format
 msgid "Missing languages: %s - trying TMDB title search"
 msgstr "缺失语言：%s - 尝试 TMDB 标题搜索"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
 #: usr/share/jellyfix/core/subtitle_manager.py:207
 #, python-format
 msgid "Level 2 (TMDB) found: %s"
 msgstr "找到级别 2 (TMDB): %s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
 #: usr/share/jellyfix/core/subtitle_manager.py:210
 #, python-format
 msgid "Still missing: %s (try manual search)"
 msgstr "仍然缺失：%s（尝试手动搜索）"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
 #: usr/share/jellyfix/core/subtitle_manager.py:213
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "未找到字幕：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237
 #, python-format
 msgid "Found %d subtitles by hash for: %s"
 msgstr "通过哈希找到 %d 个字幕：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
 #: usr/share/jellyfix/core/subtitle_manager.py:343
 #, python-format
 msgid "Found %d validated subtitles by title for: %s"
 msgstr "找到 %d 个经过验证的字幕，标题为：%s"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
 #: usr/share/jellyfix/core/subtitle_manager.py:600
 #, python-format
 msgid "Manual search: %s"
 msgstr "手动搜索：%s"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
 #: usr/share/jellyfix/core/subtitle_manager.py:622
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
 msgid "Unknown release"
 msgstr "未知版本"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
 #: usr/share/jellyfix/core/subtitle_manager.py:657
 #, python-format
 msgid "Found %d subtitles in manual search"
 msgstr "在手动搜索中找到 %d 个字幕"
-
-#
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
 #: usr/share/jellyfix/core/subtitle_manager.py:707
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "下载的字幕：%s"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
-# File: usr/share/jellyfix/gui/app.py, line: 122
-#: usr/share/jellyfix/gui/app.py:142
-#: usr/share/jellyfix/gui/windows/main_window.py:51
-#: usr/share/jellyfix/gui/windows/main_window.py:98
-msgid "Jellyfix"
-msgstr "果冻修复"
-
-#
-# File: usr/share/jellyfix/gui/app.py, line: 131
-#: usr/share/jellyfix/gui/app.py:151
-msgid "translator-credits"
-msgstr "翻译者致谢"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "选择要扫描的目录"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "扫描失败"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "好的"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "操作生成失败"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "执行失败"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "欢迎使用Jellyfix"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "将文件夹拖到此处"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "或点击下面的按钮"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "添加库"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "最近的库"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "清除最近的库"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "几周前"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "天前"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "小时前"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "刚刚"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "操作"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "搜索..."
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "所有"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "下载所有字幕"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "搜索并下载所有列出视频的字幕"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "无操作"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "扫描目录以生成操作"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "应用"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "重命名"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "移动"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "删除"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
-#, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "显示 {} 的 {} 个操作"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
-#, python-brace-format
-msgid "Total: {} operations"
-msgstr "总计：{} 操作"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "未选择"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "选择一个项目进行预览"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "搜索标题"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "标题错误？点击手动搜索"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "下载字幕"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "自动搜索和下载字幕"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "从："
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "收件人："
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "移动"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "删除"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "移动 + 重命名"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "重命名"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB 配置"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "配置电影数据库 API 密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ 已配置"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ 未配置"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API 密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "配置文件"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "操作"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "输入您的 TMDB API 密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "配置"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "查看当前密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "显示掩码API密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "视图"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "测试 TMDB 连接"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "验证API密钥是否正常工作"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "测试"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "移除 TMDB 密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "删除存储的API密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "移除"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
-#: usr/share/jellyfix/gui/windows/main_window.py:175
-msgid "Help"
-msgstr "帮助"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "逐步教程"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "教程"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "在下面输入您的 TMDB API 密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "在此粘贴API密钥"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "取消"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "保存"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API 密钥保存成功"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "当前 TMDB API 密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "掩码密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "完整密钥存储在"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "没有API密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "尚未配置TMDB API密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "请先配置TMDB API密钥"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ 连接成功"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
-#, python-brace-format
-msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr ""
-"TMDB API 密钥工作正常！\n"
-"\n"
-"测试搜索返回：{}"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ 连接失败"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr "无法从TMDB获取数据。请检查您的API密钥。"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ 连接错误"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "测试连接时出错: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "删除 API 密钥？"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid ""
-"This will delete your stored TMDB API key. You will need to configure it "
-"again."
-msgstr "这将删除您存储的TMDB API密钥。您需要重新配置它。"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API 密钥已移除"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-msgstr ""
-"如何获取TMDB API密钥：\n"
-"\n"
-"1. 访问 https://www.themoviedb.org/signup\n"
-"2. 创建一个免费账户\n"
-"3. 进入设置 → API\n"
-"4. 请求一个API密钥（选择“开发者”选项）\n"
-"5. 填写所需信息\n"
-"6. 复制API密钥（v3认证）\n"
-"7. 粘贴到Jellyfix中\n"
-"\n"
-"API密钥是免费的，允许您：\n"
-"• 获取电影和电视节目的元数据\n"
-"• 下载海报和背景图\n"
-"• 获取准确的标题和发布日期\n"
-"• 使用TMDB ID组织您的库"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: usr/share/jellyfix/gui/windows/help_window.py:34
 msgid "Jellyfix Help"
 msgstr "Jellyfix 帮助"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
 #: usr/share/jellyfix/gui/windows/help_window.py:69
 msgid "Version"
 msgstr "版本"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
 #: usr/share/jellyfix/gui/windows/help_window.py:75
 msgid "Intelligent Jellyfin Library Organizer"
 msgstr "智能 Jellyfin 库组织器"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/help_window.py:84
 msgid "What Jellyfix Does"
 msgstr "Jellyfix的功能"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/help_window.py:85
 #, fuzzy
 msgid ""
-"Jellyfix automatically organizes your media library following Jellyfin "
-"naming conventions:\n"
+"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
 "\n"
 "• <b>Renames files</b> to Jellyfin standard format\n"
 "• <b>Organizes episodes</b> into Season folders\n"
-"• <b>Manages subtitles</b>: renames, removes foreign languages, adds "
-"language codes\n"
+"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
 "• <b>Fetches metadata</b> from TMDB/TVDB\n"
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
 "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
@@ -2292,14 +1436,12 @@ msgstr ""
 "• <b>从 TMDB/TVDB 获取元数据</b>\n"
 "• <b>检测并添加质量标签</b>（1080p、720p 等）\n"
 "• <b>将提供者 ID 添加</b>到文件夹名称中（[tmdbid-12345]）"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: usr/share/jellyfix/gui/windows/help_window.py:96
 msgid "Examples"
 msgstr "示例"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: usr/share/jellyfix/gui/windows/help_window.py:97
 #, fuzzy
@@ -2310,8 +1452,7 @@ msgid ""
 "\n"
 "<b>TV Shows:</b>\n"
 "  Before: show.name.s01e05.720p.mkv\n"
-"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - "
-"720p.mkv\n"
+"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
 "\n"
 "<b>Subtitles:</b>\n"
 "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
@@ -2332,14 +1473,12 @@ msgstr ""
 "  • 添加语言代码：subtitle.srt → 电影名称.por.srt\n"
 "  • 移除外语（仅保留配置的语言）\n"
 "  • <b>绝对不</b> 移除 .forced.srt 文件"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/help_window.py:113
 msgid "How to Use"
 msgstr "如何使用"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/help_window.py:114
 #, fuzzy
@@ -2385,16 +1524,14 @@ msgstr ""
 "   文件将被重命名和整理\n"
 "\n"
 "<b>提示：</b> 执行前请始终查看预览！"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: usr/share/jellyfix/gui/windows/help_window.py:138
 #, fuzzy
 msgid ""
 "Configure Jellyfix behavior:\n"
 "\n"
-"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove "
-"foreign\n"
+"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
 "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
 "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
@@ -2407,14 +1544,12 @@ msgstr ""
 "• <b>元数据：</b>启用/禁用TMDB获取\n"
 "• <b>质量标签：</b>为文件名添加分辨率标签\n"
 "• <b>ffprobe：</b>使用ffprobe进行准确的质量检测"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: usr/share/jellyfix/gui/windows/help_window.py:148
 msgid "Important Notes"
 msgstr "重要说明"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: usr/share/jellyfix/gui/windows/help_window.py:149
 #, fuzzy
@@ -2442,85 +1577,504 @@ msgstr ""
 "\n"
 "🌍 <b>自定义保留语言</b>\n"
 "在首选项中配置要保留的字幕语言。"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
 #: usr/share/jellyfix/gui/windows/help_window.py:167
 msgid "Links"
 msgstr "链接"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
 #: usr/share/jellyfix/gui/windows/help_window.py:172
 msgid "Homepage"
 msgstr "主页"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
 #: usr/share/jellyfix/gui/windows/help_window.py:178
 msgid "Report Issues"
 msgstr "报告问题"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
 #: usr/share/jellyfix/gui/windows/help_window.py:184
 msgid "Get TMDB API Key"
 msgstr "获取 TMDB API 密钥"
-
-#
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "搜索标题"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "输入电影或系列名称..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "搜索"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "电影"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "电视剧"
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
+msgid "Cancel"
+msgstr "取消"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
+msgid "Apply"
+msgstr "应用"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "搜索中..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB未配置"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "未找到结果"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "结果"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "搜索字幕"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "下载"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "输入电影或节目标题..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "季节"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "剧集"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "搜索字幕"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "输入标题并点击搜索"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "没有结果"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "尝试不同的搜索词"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "找到 {} 字幕"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "错误：{}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "已下载：{}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "下载失败"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
+msgid "TMDB Configuration"
+msgstr "TMDB 配置"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
+msgid "Configure The Movie Database API key"
+msgstr "配置电影数据库 API 密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
+msgid "✓ Configured"
+msgstr "✓ 已配置"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
+msgid "✗ Not configured"
+msgstr "✗ 未配置"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
+msgid "TMDB API Key"
+msgstr "TMDB API 密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
+msgid "Config file"
+msgstr "配置文件"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
+msgid "Actions"
+msgstr "操作"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
+msgid "Enter your TMDB API key"
+msgstr "输入您的 TMDB API 密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
+msgid "Configure"
+msgstr "配置"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
+msgid "View Current Key"
+msgstr "查看当前密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
+msgid "Show masked API key"
+msgstr "显示掩码API密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
+msgid "View"
+msgstr "视图"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
+msgid "Test TMDB Connection"
+msgstr "测试 TMDB 连接"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
+msgid "Verify API key is working"
+msgstr "验证API密钥是否正常工作"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
+msgid "Test"
+msgstr "测试"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
+msgid "Remove TMDB Key"
+msgstr "移除 TMDB 密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
+msgid "Delete stored API key"
+msgstr "删除存储的API密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
+msgid "Remove"
+msgstr "移除"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
+#: usr/share/jellyfix/gui/windows/main_window.py:175
+msgid "Help"
+msgstr "帮助"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
+msgid "Step-by-step tutorial"
+msgstr "逐步教程"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
+msgid "Tutorial"
+msgstr "教程"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
+msgid "Enter your TMDB API key below"
+msgstr "在下面输入您的 TMDB API 密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
+msgid "Paste API key here"
+msgstr "在此粘贴API密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
+msgid "Save"
+msgstr "保存"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
+msgid "API key saved successfully"
+msgstr "API 密钥保存成功"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
+msgid "Current TMDB API Key"
+msgstr "当前 TMDB API 密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Masked key"
+msgstr "掩码密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Full key stored in"
+msgstr "完整密钥存储在"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
+msgid "No API Key"
+msgstr "没有API密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
+msgid "No TMDB API key configured yet"
+msgstr "尚未配置TMDB API密钥"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "好的"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
+msgid "Please configure TMDB API key first"
+msgstr "请先配置TMDB API密钥"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
+msgid "✓ Connection Successful"
+msgstr "✓ 连接成功"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+msgstr ""
+"TMDB API 密钥工作正常！\n"
+"\n"
+"测试搜索返回：{}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
+msgid "⚠ Connection Failed"
+msgstr "⚠ 连接失败"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "无法从TMDB获取数据。请检查您的API密钥。"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
+msgid "✗ Connection Error"
+msgstr "✗ 连接错误"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
+#, python-brace-format
+msgid "Error testing connection: {}"
+msgstr "测试连接时出错: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
+msgid "Remove API Key?"
+msgstr "删除 API 密钥？"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
+msgid "This will delete your stored TMDB API key. You will need to configure it again."
+msgstr "这将删除您存储的TMDB API密钥。您需要重新配置它。"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
+msgid "API key removed"
+msgstr "API 密钥已移除"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"如何获取TMDB API密钥：\n"
+"\n"
+"1. 访问 https://www.themoviedb.org/signup\n"
+"2. 创建一个免费账户\n"
+"3. 进入设置 → API\n"
+"4. 请求一个API密钥（选择“开发者”选项）\n"
+"5. 填写所需信息\n"
+"6. 复制API密钥（v3认证）\n"
+"7. 粘贴到Jellyfix中\n"
+"\n"
+"API密钥是免费的，允许您：\n"
+"• 获取电影和电视节目的元数据\n"
+"• 下载海报和背景图\n"
+"• 获取准确的标题和发布日期\n"
+"• 使用TMDB ID组织您的库"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
+# File: usr/share/jellyfix/gui/app.py, line: 122
+#: usr/share/jellyfix/gui/app.py:142
+#: usr/share/jellyfix/gui/windows/main_window.py:51
+#: usr/share/jellyfix/gui/windows/main_window.py:98
+msgid "Jellyfix"
+msgstr "果冻修复"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
 #: usr/share/jellyfix/gui/windows/main_window.py:169
 #: usr/share/jellyfix/gui/windows/preferences_window.py:44
 msgid "Preferences"
 msgstr "偏好设置"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/main_window.py:170
 msgid "Configure API Keys"
 msgstr "配置 API 密钥"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
 #: usr/share/jellyfix/gui/windows/main_window.py:176
 msgid "About Jellyfix"
 msgstr "关于 Jellyfix"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
 #: usr/share/jellyfix/gui/windows/main_window.py:180
 msgid "Quit"
 msgstr "退出"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
 #: usr/share/jellyfix/gui/windows/main_window.py:248
 msgid "Scanning directory..."
 msgstr "扫描目录..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 276
 #: usr/share/jellyfix/gui/windows/main_window.py:360
 msgid "Generating operations..."
 msgstr "生成操作..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 301
 #: usr/share/jellyfix/gui/windows/main_window.py:385
 #, python-brace-format
 msgid "{} operations ready"
 msgstr "{} 操作已准备好"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 326
 #: usr/share/jellyfix/gui/windows/main_window.py:511
 msgid "Apply Operations?"
 msgstr "应用操作？"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 367
 #: usr/share/jellyfix/gui/windows/main_window.py:512
@@ -2528,101 +2082,82 @@ msgstr "应用操作？"
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "这将重命名 {} 个文件。继续吗？"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
 #: usr/share/jellyfix/gui/windows/main_window.py:545
 msgid "Execute Operations?"
 msgstr "执行操作？"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 372
 #: usr/share/jellyfix/gui/windows/main_window.py:551
 msgid "Execute"
 msgstr "执行"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 395
 #: usr/share/jellyfix/gui/windows/main_window.py:574
 #, python-brace-format
 msgid "Dry-run: {} operations previewed"
 msgstr "干运行：{} 操作预览"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 398
 #: usr/share/jellyfix/gui/windows/main_window.py:577
 #, python-brace-format
 msgid "{} operations completed"
 msgstr "{} 操作完成"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 408
-#: usr/share/jellyfix/gui/windows/main_window.py:587
-msgid "Complete!"
-msgstr "完成！"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
 #: usr/share/jellyfix/gui/windows/main_window.py:721
 msgid "Feature Unavailable"
 msgstr "功能不可用"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
 #: usr/share/jellyfix/gui/windows/main_window.py:722
 msgid ""
 "The 'subliminal' library is not installed.\n"
 "Please install it to use this feature."
 msgstr "'subliminal'库未安装。请安装它以使用此功能。"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
 #: usr/share/jellyfix/gui/windows/main_window.py:746
 msgid "Preparing..."
 msgstr "准备中..."
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
 #: usr/share/jellyfix/gui/windows/main_window.py:954
 #, python-brace-format
 msgid "Searching subtitles ({}/{})"
 msgstr "搜索字幕（{}/{}）"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
 #: usr/share/jellyfix/gui/windows/main_window.py:993
 #, fuzzy
 msgid "subtitle"
 msgstr "字幕"
-
-#
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
+# 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
 #: usr/share/jellyfix/gui/windows/main_window.py:993
 #, fuzzy
 msgid "subtitles"
 msgstr "字幕"
-
-#
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
 #: usr/share/jellyfix/gui/windows/main_window.py:994
 #: usr/share/jellyfix/gui/windows/main_window.py:1014
 #, fuzzy
 msgid "video"
 msgstr "视频"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
 #: usr/share/jellyfix/gui/windows/main_window.py:997
 msgid "No Subtitles Found"
 msgstr "未找到字幕"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
 #: usr/share/jellyfix/gui/windows/main_window.py:998
 msgid ""
@@ -2631,14 +2166,12 @@ msgid ""
 msgstr ""
 "无法自动找到任何字幕。  \n"
 "尝试手动搜索？"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
 #: usr/share/jellyfix/gui/windows/main_window.py:1002
 msgid "Partial Success"
 msgstr "部分成功"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
 #: usr/share/jellyfix/gui/windows/main_window.py:1010
 #, fuzzy, python-brace-format
@@ -2652,8 +2185,7 @@ msgstr ""
 "\n"
 "缺失语言：{}\n"
 "尝试手动搜索？"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
 #: usr/share/jellyfix/gui/windows/main_window.py:1015
 #, fuzzy, python-brace-format
@@ -2663,39 +2195,28 @@ msgid ""
 msgstr ""
 "已下载 {} 个字幕，适用于 {} 个视频中的 {} 个。  \n"
 "尝试手动搜索缺失的？"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: usr/share/jellyfix/gui/windows/main_window.py:1020
 msgid "Download Complete"
 msgstr "下载完成"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: usr/share/jellyfix/gui/windows/main_window.py:1021
 #, fuzzy, python-brace-format
 msgid "Downloaded {} {} for {} {} (all languages)."
 msgstr "下载了 {} 个视频的 {} 字幕（所有语言）。"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
 #: usr/share/jellyfix/gui/windows/main_window.py:1034
 msgid "Manual Search"
 msgstr "手动搜索"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 889
-#: usr/share/jellyfix/gui/windows/main_window.py:1037
-msgid "Rescan Now"
-msgstr "立即重新扫描"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
 #: usr/share/jellyfix/gui/windows/main_window.py:1071
 msgid "Batch Error"
 msgstr "批处理错误"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
 #: usr/share/jellyfix/gui/windows/main_window.py:1072
 #, python-brace-format
@@ -2705,496 +2226,494 @@ msgid ""
 msgstr ""
 "在批量下载过程中发生错误：\n"
 "{}"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
 #: usr/share/jellyfix/gui/windows/main_window.py:1154
 #, python-brace-format
 msgid "Subtitle downloaded: {}"
 msgstr "字幕已下载：{}"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
 #: usr/share/jellyfix/gui/windows/preferences_window.py:60
 msgid "Subtitle Handling"
 msgstr "字幕处理"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
 #: usr/share/jellyfix/gui/windows/preferences_window.py:61
 msgid "Configure how subtitles are processed"
 msgstr "配置字幕处理方式"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
 #: usr/share/jellyfix/gui/windows/preferences_window.py:66
 msgid "Rename Language Variants"
 msgstr "重命名语言变体"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
 #: usr/share/jellyfix/gui/windows/preferences_window.py:67
 msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
 msgstr "将 .por2.srt 和 .eng2.srt 重命名为 .por.srt 和 .eng.srt"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
 #: usr/share/jellyfix/gui/windows/preferences_window.py:75
 msgid "Remove Duplicate Variants"
 msgstr "删除重复变体"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
 #: usr/share/jellyfix/gui/windows/preferences_window.py:76
 msgid "Remove .lang2, .lang3 files after renaming"
 msgstr "重命名后删除.lang2、.lang3文件"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
 #: usr/share/jellyfix/gui/windows/preferences_window.py:84
 msgid "Add Language Codes"
 msgstr "添加语言代码"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
 #: usr/share/jellyfix/gui/windows/preferences_window.py:85
 msgid "Add language codes to subtitles without them"
 msgstr "在字幕中添加语言代码而不包含它们"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
 #: usr/share/jellyfix/gui/windows/preferences_window.py:93
 msgid "Remove Foreign Subtitles"
 msgstr "移除外语字幕"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
 #: usr/share/jellyfix/gui/windows/preferences_window.py:94
 msgid "Remove subtitles not in kept languages list"
 msgstr "移除不在保留语言列表中的字幕"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
 #: usr/share/jellyfix/gui/windows/preferences_window.py:102
 msgid "Minimum Portuguese Words"
 msgstr "最少葡萄牙语单词"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
 #: usr/share/jellyfix/gui/windows/preferences_window.py:103
 msgid "Min words to detect Portuguese subtitles"
 msgstr "检测葡萄牙语字幕的最小单词数"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
 #: usr/share/jellyfix/gui/windows/preferences_window.py:112
 msgid "Kept Languages"
 msgstr "保留的语言"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
 #: usr/share/jellyfix/gui/windows/preferences_window.py:113
 msgid "Subtitles in these languages will be kept"
 msgstr "这些语言的字幕将被保留"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
 #: usr/share/jellyfix/gui/windows/preferences_window.py:134
 msgid "Video"
 msgstr "视频"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
 #: usr/share/jellyfix/gui/windows/preferences_window.py:140
 msgid "Video Handling"
 msgstr "视频处理"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
 #: usr/share/jellyfix/gui/windows/preferences_window.py:141
 msgid "Configure how videos are processed"
 msgstr "配置视频处理方式"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
 #: usr/share/jellyfix/gui/windows/preferences_window.py:146
 msgid "Organize in Folders"
 msgstr "按文件夹组织"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
 #: usr/share/jellyfix/gui/windows/preferences_window.py:147
 msgid "Organize TV episodes in Season folders"
 msgstr "将电视节目按季节文件夹组织"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
 #: usr/share/jellyfix/gui/windows/preferences_window.py:155
 msgid "Add Quality Tags"
 msgstr "添加质量标签"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
 #: usr/share/jellyfix/gui/windows/preferences_window.py:156
 msgid "Add resolution tags (1080p, 720p, etc) to filenames"
 msgstr "将分辨率标签（1080p、720p 等）添加到文件名中"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
 #: usr/share/jellyfix/gui/windows/preferences_window.py:164
 msgid "Use ffprobe for Detection"
 msgstr "使用 ffprobe 进行检测"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
 #: usr/share/jellyfix/gui/windows/preferences_window.py:165
 msgid "More accurate but slower quality detection"
 msgstr "更准确但更慢的质量检测"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
 #: usr/share/jellyfix/gui/windows/preferences_window.py:177
 msgid "Metadata"
 msgstr "元数据"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/preferences_window.py:183
 msgid "Metadata Fetching"
 msgstr "元数据提取"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
 #: usr/share/jellyfix/gui/windows/preferences_window.py:184
 msgid "Configure metadata from TMDB"
 msgstr "从TMDB配置元数据"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
 #: usr/share/jellyfix/gui/windows/preferences_window.py:189
 msgid "Fetch Metadata"
 msgstr "获取元数据"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
 #: usr/share/jellyfix/gui/windows/preferences_window.py:190
 msgid "Download metadata and posters from TMDB"
 msgstr "从TMDB下载元数据和海报"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
 #: usr/share/jellyfix/gui/windows/preferences_window.py:202
 msgid "General"
 msgstr "常规"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
 #: usr/share/jellyfix/gui/windows/preferences_window.py:208
 msgid "Application"
 msgstr "应用程序"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
 #: usr/share/jellyfix/gui/windows/preferences_window.py:209
 msgid "General application settings"
 msgstr "通用应用程序设置"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
 #: usr/share/jellyfix/gui/windows/preferences_window.py:217
 msgid "Keep Recent Libraries"
 msgstr "保持最近的库"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
 #: usr/share/jellyfix/gui/windows/preferences_window.py:218
 msgid "Remember recently scanned libraries between sessions"
 msgstr "记住会话之间最近扫描的库"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
 #: usr/share/jellyfix/gui/windows/preferences_window.py:228
 msgid "File Cleanup"
 msgstr "文件清理"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
 #: usr/share/jellyfix/gui/windows/preferences_window.py:229
 msgid "Configure which files to remove"
 msgstr "配置要删除的文件"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
 #: usr/share/jellyfix/gui/windows/preferences_window.py:234
 msgid "Remove Non-Media Files"
 msgstr "删除非媒体文件"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
 #: usr/share/jellyfix/gui/windows/preferences_window.py:235
 msgid "Remove all files that are not .srt or .mp4"
 msgstr "删除所有不是 .srt 或 .mp4 的文件"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
 #: usr/share/jellyfix/gui/windows/preferences_window.py:243
 msgid "Fix Mirabel Files"
 msgstr "修复 Mirabel 文件"
-
-#
+# 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
 #: usr/share/jellyfix/gui/windows/preferences_window.py:244
 msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 msgstr "将 .pt-BR.hi.srt 和 .br.hi.srt 重命名为 .por.srt"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "选择要扫描的目录"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "扫描失败"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "操作生成失败"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "执行失败"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "未选择"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "选择一个项目进行预览"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
 msgstr "搜索标题"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "输入电影或系列名称..."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "搜索"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "电影"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "电视剧"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "搜索中..."
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB未配置"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "未找到结果"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "结果"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
-msgid "Search Subtitles"
-msgstr "搜索字幕"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
-msgid "Download"
-msgstr "下载"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
-msgid "Enter movie or show title..."
-msgstr "输入电影或节目标题..."
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
-msgid "Season"
-msgstr "季节"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
-msgid "Episode"
-msgstr "剧集"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
-msgid "Search for Subtitles"
-msgstr "搜索字幕"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
-msgid "Enter a title and click search"
-msgstr "输入标题并点击搜索"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
-msgid "No Results"
-msgstr "没有结果"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
-msgid "Try a different search term"
-msgstr "尝试不同的搜索词"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "标题错误？点击手动搜索"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "下载字幕"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "自动搜索和下载字幕"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "从："
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "收件人："
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "移动"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "删除"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "移动 + 重命名"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "重命名"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "欢迎使用Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "将文件夹拖到此处"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "或点击下面的按钮"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "添加库"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "最近的库"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "清除最近的库"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "几周前"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "天前"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "小时前"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "刚刚"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "操作"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
+msgstr "搜索..."
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "所有"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "下载所有字幕"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "搜索并下载所有列出视频的字幕"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "无操作"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "扫描目录以生成操作"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "重命名"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "移动"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "删除"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Found {} subtitles"
-msgstr "找到 {} 字幕"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+msgid "Showing {} of {} operations"
+msgstr "显示 {} 的 {} 个操作"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Error: {}"
-msgstr "错误：{}"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
-#, python-brace-format
-msgid "Downloaded: {}"
-msgstr "已下载：{}"
-
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
-msgid "Download failed"
-msgstr "下载失败"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 120
-#~ msgid "Dashboard"
-#~ msgstr "仪表板"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 144
-#~ msgid "Library"
-#~ msgstr "库"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 155
-#~ msgid "Preview"
-#~ msgstr "预览"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
-#~ msgid "Applying operations..."
-#~ msgstr "正在应用操作..."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 764
-#~ msgid "Downloading Subtitles"
-#~ msgstr "下载字幕"
-
-#
+msgid "Total: {} operations"
+msgstr "总计：{} 操作"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "翻译者致谢"
+# 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
-#~ msgid "Organize Folder with Jellyfix"
-#~ msgstr "使用Jellyfix整理文件夹"
-
-#
+#: NEEDS WORK
+msgid "Organize Folder with Jellyfix"
+msgstr "使用Jellyfix整理文件夹"
+# 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Folders with Jellyfix"
-#~ msgstr "使用 Jellyfix 组织 {0} 个文件夹"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 95
-#~ msgid "Organize 1 Video and 1 Subtitle"
-#~ msgstr "组织 1 个视频和 1 个字幕"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 97
+msgid "Organize {0} Folders with Jellyfix"
+msgstr "使用 Jellyfix 组织 {0} 个文件夹"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
+#: NEEDS WORK
+msgid "Organize 1 Video and 1 Subtitle"
+msgstr "组织 1 个视频和 1 个字幕"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize 1 Video and {0} Subtitles"
-#~ msgstr "整理 1 个视频和 {0} 个字幕"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 99
+msgid "Organize 1 Video and {0} Subtitles"
+msgstr "整理 1 个视频和 {0} 个字幕"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos and 1 Subtitle"
-#~ msgstr "整理 {0} 个视频和 1 个字幕"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 101
+msgid "Organize {0} Videos and 1 Subtitle"
+msgstr "整理 {0} 个视频和 1 个字幕"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos and {1} Subtitles"
-#~ msgstr "整理 {0} 个视频和 {1} 个字幕"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
-#~ msgid "Organize Video"
-#~ msgstr "整理视频"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 107
+msgid "Organize {0} Videos and {1} Subtitles"
+msgstr "整理 {0} 个视频和 {1} 个字幕"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
+#: NEEDS WORK
+msgid "Organize Video"
+msgstr "整理视频"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Videos"
-#~ msgstr "整理 {0} 视频"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 111
-#~ msgid "Organize Subtitle"
-#~ msgstr "组织字幕"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 113
+msgid "Organize {0} Videos"
+msgstr "整理 {0} 视频"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
+#: NEEDS WORK
+msgid "Organize Subtitle"
+msgstr "整理字幕"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Organize {0} Subtitles"
-#~ msgstr "整理 {0} 字幕"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 173
-#~ msgid "No valid local files selected"
-#~ msgstr "未选择有效的本地文件"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 174
-#~ msgid "Could not get the path for the selected files."
-#~ msgstr "无法获取所选文件的路径。"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 189
-#~ msgid "Application Launch Error"
-#~ msgstr "应用启动错误"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 261
-#~ msgid "Application Not Found"
-#~ msgstr "未找到应用程序"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 262
+msgid "Organize {0} Subtitles"
+msgstr "整理 {0} 字幕"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
+#: NEEDS WORK
+msgid "No valid local files selected"
+msgstr "未选择有效的本地文件"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
+#: NEEDS WORK
+msgid "Could not get the path for the selected files."
+msgstr "无法获取所选文件的路径。"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
+#: NEEDS WORK
+msgid "Application Not Found"
+msgstr "未找到应用程序"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Could not find '{0}'. Is Jellyfix installed?"
-#~ msgstr "找不到'{0}'。Jellyfix已安装吗？"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 190
+msgid "Could not find '{0}'. Is Jellyfix installed?"
+msgstr "找不到'{0}'。Jellyfix已安装吗？"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+#: NEEDS WORK
+msgid "Application Launch Error"
+msgstr "应用启动错误"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
+#: NEEDS WORK
 #, python-brace-format
-#~ msgid "Failed to start Jellyfix: {0}"
-#~ msgstr "无法启动 Jellyfix: {0}"
+msgid "Failed to start Jellyfix: {0}"
+msgstr "启动 Jellyfix 失败：{0}"

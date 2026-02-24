@@ -8,392 +8,101 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jellyfix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 14:13-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#
-# File: usr/share/jellyfix/cli/app.py, line: 54
-#: usr/share/jellyfix/cli/app.py:54
-msgid "Operation cancelled by user"
-msgstr "Operation cancelled by user"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 679
-# File: usr/share/jellyfix/cli/app.py, line: 58
-#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
-#, python-format
-msgid "Unexpected error: %s"
-msgstr "Unexpected error: %s"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "Scan Results"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "Category"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 365
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "Count"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "Video files"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 736
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "Movies"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "Episodes"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "Subtitles"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "Variants"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "No language"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "Foreign"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "With language"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "Images"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO files"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "Other"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "Suggested actions:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "subtitle variants (.lang2, .lang3) can be processed"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "subtitles without language code"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "foreign subtitles can be removed"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "Suggestions"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 133
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "No operations needed. Everything is already organized!"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 139
-#: usr/share/jellyfix/cli/display.py:139
-#, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "Operation Preview ({} files)"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
-#, python-brace-format
-msgid "and {} more groups"
-msgstr "and {} more groups"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 276
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "Move + Rename:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 281
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "Move:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 286
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "Rename:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 291
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "Remove:"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 295
-# File: usr/share/jellyfix/cli/display.py, line: 337
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "Summary"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 342
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "Move + Rename"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 343
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 179
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "Move"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 344
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 173
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "Rename"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 345
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 185
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "Delete"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 363
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ Execution Results"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 364
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "Action"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 368
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "Renamed"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 370
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "Moved"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 372
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "Deleted"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 374
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "Cleaned folders"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 376
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "Failed"
-
-#
-# File: usr/share/jellyfix/cli/display.py, line: 378
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "Skipped"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
 # File: usr/share/jellyfix/cli/interactive.py, line: 548
-#: usr/share/jellyfix/cli/interactive.py:104
-#: usr/share/jellyfix/cli/interactive.py:548
 msgid "What would you like to do?"
 msgstr "What would you like to do?"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 106
-#: usr/share/jellyfix/cli/interactive.py:106
 msgid "📂 Scan library"
 msgstr "📂 Scan library"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 107
-#: usr/share/jellyfix/cli/interactive.py:107
 msgid "🔧 Settings"
 msgstr "🔧 Settings"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 108
-#: usr/share/jellyfix/cli/interactive.py:108
 msgid "🚀 Process files"
 msgstr "🚀 Process files"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 109
-#: usr/share/jellyfix/cli/interactive.py:109
 msgid "📥 Download subtitles"
 msgstr "📥 Download subtitles"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 110
-#: usr/share/jellyfix/cli/interactive.py:110
 msgid "ℹ️  Help"
 msgstr "ℹ️  Help"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 111
-#: usr/share/jellyfix/cli/interactive.py:111
 msgid "❌ Exit"
 msgstr "❌ Exit"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 114
-#: usr/share/jellyfix/cli/interactive.py:114
 msgid "(Use arrow keys to navigate)"
 msgstr "(Use arrow keys to navigate)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 124
-#: usr/share/jellyfix/cli/interactive.py:124
 msgid "Subliminal library not found!"
 msgstr "Subliminal library not found!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 125
-#: usr/share/jellyfix/cli/interactive.py:125
 msgid "Please install 'subliminal' to use this feature."
 msgstr "Please install 'subliminal' to use this feature."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 135
-#: usr/share/jellyfix/cli/interactive.py:135
 #, python-format
 msgid "Scanning for videos: %s"
 msgstr "Scanning for videos: %s"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 142
-#: usr/share/jellyfix/cli/interactive.py:142
 msgid "No videos found!"
 msgstr "No videos found!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 160
-#: usr/share/jellyfix/cli/interactive.py:160
 msgid "Select videos to download subtitles for:"
 msgstr "Select videos to download subtitles for:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 163
-#: usr/share/jellyfix/cli/interactive.py:163
 msgid "(SPACE to select, ENTER to confirm)"
 msgstr "(SPACE to select, ENTER to confirm)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
-#: usr/share/jellyfix/cli/interactive.py:170
 msgid "Selected:"
 msgstr "Selected:"
 
 #
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
 # File: usr/share/jellyfix/cli/interactive.py, line: 170
-#: usr/share/jellyfix/cli/interactive.py:170
-#: usr/share/jellyfix/gui/windows/main_window.py:994
-#: usr/share/jellyfix/gui/windows/main_window.py:1014
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 980
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1000
 msgid "videos"
 msgstr "videos"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 172
-#: usr/share/jellyfix/cli/interactive.py:172
 msgid "Start download?"
 msgstr "Start download?"
 
@@ -402,21 +111,17 @@ msgstr "Start download?"
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 193
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 366
-#: usr/share/jellyfix/cli/interactive.py:193
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:366
 msgid "Downloading..."
 msgstr "Downloading..."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 196
-#: usr/share/jellyfix/cli/interactive.py:196
 #, python-brace-format
 msgid "Downloading for: {}"
 msgstr "Downloading for: {}"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 210
-#: usr/share/jellyfix/cli/interactive.py:210
 #, python-brace-format
 msgid "Downloaded {} subtitles for {} videos"
 msgstr "Downloaded {} subtitles for {} videos"
@@ -426,8 +131,6 @@ msgstr "Downloaded {} subtitles for {} videos"
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 212
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 337
-#: usr/share/jellyfix/cli/interactive.py:212
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:337
 msgid "No subtitles found"
 msgstr "No subtitles found"
 
@@ -436,10 +139,7 @@ msgstr "No subtitles found"
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 224
 # File: usr/share/jellyfix/cli/interactive.py, line: 244
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 59
-#: usr/share/jellyfix/cli/interactive.py:224
-#: usr/share/jellyfix/cli/interactive.py:244
-#: usr/share/jellyfix/cli/non_interactive.py:58
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 58
 #, python-format
 msgid "Scanning: %s"
 msgstr "Scanning: %s"
@@ -448,9 +148,7 @@ msgstr "Scanning: %s"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 251
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 65
-#: usr/share/jellyfix/cli/interactive.py:251
-#: usr/share/jellyfix/cli/non_interactive.py:64
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 64
 #, python-format
 msgid "Found: %d videos, %d subtitles"
 msgstr "Found: %d videos, %d subtitles"
@@ -459,21 +157,17 @@ msgstr "Found: %d videos, %d subtitles"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 256
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 70
-#: usr/share/jellyfix/cli/interactive.py:256
-#: usr/share/jellyfix/cli/non_interactive.py:69
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 69
 msgid "Planning operations..."
 msgstr "Planning operations..."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 261
-#: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "No operations needed"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 270
-#: usr/share/jellyfix/cli/interactive.py:270
 msgid "Execute these operations?"
 msgstr "Execute these operations?"
 
@@ -481,81 +175,66 @@ msgstr "Execute these operations?"
 # File: usr/share/jellyfix/cli/interactive.py, line: 276
 # File: usr/share/jellyfix/cli/interactive.py, line: 577
 # File: usr/share/jellyfix/cli/interactive.py, line: 605
-#: usr/share/jellyfix/cli/interactive.py:276
-#: usr/share/jellyfix/cli/interactive.py:577
-#: usr/share/jellyfix/cli/interactive.py:605
 msgid "Operation cancelled"
 msgstr "Operation cancelled"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 280
-#: usr/share/jellyfix/cli/interactive.py:280
 msgid "Executing operations..."
 msgstr "Executing operations..."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 305
-#: usr/share/jellyfix/cli/interactive.py:305
 msgid "📂 Directory Browser"
 msgstr "📂 Directory Browser"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 306
-#: usr/share/jellyfix/cli/interactive.py:306
 msgid "Current:"
 msgstr "Current:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 314
-#: usr/share/jellyfix/cli/interactive.py:314
 msgid "✓ Select this directory"
 msgstr "✓ Select this directory"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 321
-#: usr/share/jellyfix/cli/interactive.py:321
 msgid "⬆️  .. (go back)"
 msgstr "⬆️  .. (go back)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 332
-#: usr/share/jellyfix/cli/interactive.py:332
 msgid "⌨️  Type path manually"
 msgstr "⌨️  Type path manually"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 338
-#: usr/share/jellyfix/cli/interactive.py:338
 msgid "❌ Cancel"
 msgstr "❌ Cancel"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 344
-#: usr/share/jellyfix/cli/interactive.py:344
 msgid "Select directory:"
 msgstr "Select directory:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 356
-#: usr/share/jellyfix/cli/interactive.py:356
 msgid "Enter full directory path:"
 msgstr "Enter full directory path:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 358
-#: usr/share/jellyfix/cli/interactive.py:358
 msgid "Path:"
 msgstr "Path:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 368
-#: usr/share/jellyfix/cli/interactive.py:368
 msgid "Directory not found!"
 msgstr "Directory not found!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
-#: usr/share/jellyfix/cli/interactive.py:375
 msgid "Permission denied"
 msgstr "Permission denied"
 
@@ -563,121 +242,97 @@ msgstr "Permission denied"
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 384
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
-#: usr/share/jellyfix/cli/interactive.py:384
-#: usr/share/jellyfix/gui/windows/help_window.py:137
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 151
 msgid "Settings"
 msgstr "Settings"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 387
-#: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 390
-#: usr/share/jellyfix/cli/interactive.py:390
 msgid "What would you like to configure?"
 msgstr "What would you like to configure?"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 392
-#: usr/share/jellyfix/cli/interactive.py:392
 msgid "Rename language variants (lang2→lang, lang3→lang)"
 msgstr "Rename language variants (lang2→lang, lang3→lang)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 393
-#: usr/share/jellyfix/cli/interactive.py:393
 msgid "Remove duplicate variants (lang2, lang3)"
 msgstr "Remove duplicate variants (lang2, lang3)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 394
-#: usr/share/jellyfix/cli/interactive.py:394
 msgid "Add language code to subtitles"
 msgstr "Add language code to subtitles"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 395
-#: usr/share/jellyfix/cli/interactive.py:395
 msgid "Remove foreign subtitles"
 msgstr "Remove foreign subtitles"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 396
 # File: usr/share/jellyfix/cli/interactive.py, line: 525
-#: usr/share/jellyfix/cli/interactive.py:396
-#: usr/share/jellyfix/cli/interactive.py:525
 msgid "Kept languages:"
 msgstr "Kept languages:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 397
-#: usr/share/jellyfix/cli/interactive.py:397
 msgid "Organize in folders (Season XX)"
 msgstr "Organize in folders (Season XX)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 398
-#: usr/share/jellyfix/cli/interactive.py:398
 msgid "Fetch metadata (TMDB/TVDB)"
 msgstr "Fetch metadata (TMDB/TVDB)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 399
 # File: usr/share/jellyfix/cli/interactive.py, line: 450
-#: usr/share/jellyfix/cli/interactive.py:399
-#: usr/share/jellyfix/cli/interactive.py:450
 msgid "Ask when multiple TMDB results"
 msgstr "Ask when multiple TMDB results"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 400
-#: usr/share/jellyfix/cli/interactive.py:400
 msgid "Add quality tags (1080p, 720p, etc)"
 msgstr "Add quality tags (1080p, 720p, etc)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 401
 # File: usr/share/jellyfix/cli/interactive.py, line: 460
-#: usr/share/jellyfix/cli/interactive.py:401
-#: usr/share/jellyfix/cli/interactive.py:460
 msgid "Use ffprobe for quality detection"
 msgstr "Use ffprobe for quality detection"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 402
 # File: usr/share/jellyfix/cli/interactive.py, line: 465
-#: usr/share/jellyfix/cli/interactive.py:402
-#: usr/share/jellyfix/cli/interactive.py:465
 msgid "Rename NFO files to match video"
 msgstr "Rename NFO files to match video"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 403
-#: usr/share/jellyfix/cli/interactive.py:403
 msgid "Remove non-media files (keep only videos/subtitles)"
 msgstr "Remove non-media files (keep only videos/subtitles)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 404
-#: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
 msgstr "Fix Mirabel files (.pt-BR.hi → .por)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 405
-#: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "Min Portuguese words:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 406
 # File: usr/share/jellyfix/cli/interactive.py, line: 495
-#: usr/share/jellyfix/cli/interactive.py:406
-#: usr/share/jellyfix/cli/interactive.py:495
 msgid "Configure APIs (TMDB/TVDB)"
 msgstr "Configure APIs (TMDB/TVDB)"
 
@@ -686,24 +341,17 @@ msgstr "Configure APIs (TMDB/TVDB)"
 # File: usr/share/jellyfix/cli/interactive.py, line: 413
 # File: usr/share/jellyfix/cli/interactive.py, line: 555
 # File: usr/share/jellyfix/cli/interactive.py, line: 561
-#: usr/share/jellyfix/cli/interactive.py:407
-#: usr/share/jellyfix/cli/interactive.py:413
-#: usr/share/jellyfix/cli/interactive.py:555
-#: usr/share/jellyfix/cli/interactive.py:561
 msgid "Back"
 msgstr "Back"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 410
 # File: usr/share/jellyfix/cli/interactive.py, line: 558
-#: usr/share/jellyfix/cli/interactive.py:410
-#: usr/share/jellyfix/cli/interactive.py:558
 msgid "(Use ↑↓ and ENTER to select)"
 msgstr "(Use ↑↓ and ENTER to select)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 417
-#: usr/share/jellyfix/cli/interactive.py:417
 msgid "Rename language variants"
 msgstr "Rename language variants"
 
@@ -720,132 +368,101 @@ msgstr "Rename language variants"
 # File: usr/share/jellyfix/cli/interactive.py, line: 468
 # File: usr/share/jellyfix/cli/interactive.py, line: 473
 # File: usr/share/jellyfix/cli/interactive.py, line: 478
-#: usr/share/jellyfix/cli/interactive.py:420
-#: usr/share/jellyfix/cli/interactive.py:425
-#: usr/share/jellyfix/cli/interactive.py:430
-#: usr/share/jellyfix/cli/interactive.py:435
-#: usr/share/jellyfix/cli/interactive.py:443
-#: usr/share/jellyfix/cli/interactive.py:448
-#: usr/share/jellyfix/cli/interactive.py:453
-#: usr/share/jellyfix/cli/interactive.py:458
-#: usr/share/jellyfix/cli/interactive.py:463
-#: usr/share/jellyfix/cli/interactive.py:468
-#: usr/share/jellyfix/cli/interactive.py:473
-#: usr/share/jellyfix/cli/interactive.py:478
 msgid "Setting saved"
 msgstr "Setting saved"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 422
-#: usr/share/jellyfix/cli/interactive.py:422
 msgid "Remove duplicate variants"
 msgstr "Remove duplicate variants"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 427
-#: usr/share/jellyfix/cli/interactive.py:427
 msgid "Add language code"
 msgstr "Add language code"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 432
-#: usr/share/jellyfix/cli/interactive.py:432
 msgid "Remove foreign"
 msgstr "Remove foreign"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 437
-#: usr/share/jellyfix/cli/interactive.py:437
 msgid "Kept languages"
 msgstr "Kept languages"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 440
-#: usr/share/jellyfix/cli/interactive.py:440
 msgid "Organize in folders"
 msgstr "Organize in folders"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 445
-#: usr/share/jellyfix/cli/interactive.py:445
 msgid "Fetch metadata"
 msgstr "Fetch metadata"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 455
-#: usr/share/jellyfix/cli/interactive.py:455
 msgid "Add quality tags"
 msgstr "Add quality tags"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 470
-#: usr/share/jellyfix/cli/interactive.py:470
 msgid "Remove non-media files"
 msgstr "Remove non-media files"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 475
-#: usr/share/jellyfix/cli/interactive.py:475
 msgid "Fix Mirabel files"
 msgstr "Fix Mirabel files"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 480
-#: usr/share/jellyfix/cli/interactive.py:480
 msgid "Min Portuguese words"
 msgstr "Min Portuguese words"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 482
-#: usr/share/jellyfix/cli/interactive.py:482
 msgid "Minimum number of Portuguese words:"
 msgstr "Minimum number of Portuguese words:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 490
-#: usr/share/jellyfix/cli/interactive.py:490
 msgid "Setting saved to ~/.jellyfix/config.json"
 msgstr "Setting saved to ~/.jellyfix/config.json"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
-#: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "Invalid value!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 502
-#: usr/share/jellyfix/cli/interactive.py:502
 msgid "Language Selection"
 msgstr "Language Selection"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 503
-#: usr/share/jellyfix/cli/interactive.py:503
 msgid "Select languages to KEEP (will NOT be removed)"
 msgstr "Select languages to KEEP (will NOT be removed)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 504
-#: usr/share/jellyfix/cli/interactive.py:504
 msgid "Use SPACE to check/uncheck, ENTER to confirm"
 msgstr "Use SPACE to check/uncheck, ENTER to confirm"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 517
-#: usr/share/jellyfix/cli/interactive.py:517
 msgid "Select languages to KEEP:"
 msgstr "Select languages to KEEP:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 520
-#: usr/share/jellyfix/cli/interactive.py:520
 msgid "(SPACE = check/uncheck, ENTER = confirm)"
 msgstr "(SPACE = check/uncheck, ENTER = confirm)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 529
-#: usr/share/jellyfix/cli/interactive.py:529
 msgid "Saved to ~/.jellyfix/config.json"
 msgstr "Saved to ~/.jellyfix/config.json"
 
@@ -854,26 +471,21 @@ msgstr "Saved to ~/.jellyfix/config.json"
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 538
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 38
-#: usr/share/jellyfix/cli/interactive.py:538
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:38
 msgid "API Configuration"
 msgstr "API Configuration"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 542
-#: usr/share/jellyfix/cli/interactive.py:542
 msgid "Configured"
 msgstr "Configured"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 542
-#: usr/share/jellyfix/cli/interactive.py:542
 msgid "Not configured"
 msgstr "Not configured"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 545
-#: usr/share/jellyfix/cli/interactive.py:545
 msgid "Config file:"
 msgstr "Config file:"
 
@@ -884,217 +496,185 @@ msgstr "Config file:"
 # File: usr/share/jellyfix/cli/interactive.py, line: 564
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 93
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 178
-#: usr/share/jellyfix/cli/interactive.py:550
-#: usr/share/jellyfix/cli/interactive.py:564
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:93
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:178
 msgid "Configure TMDB API Key"
 msgstr "Configure TMDB API Key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 551
 # File: usr/share/jellyfix/cli/interactive.py, line: 581
-#: usr/share/jellyfix/cli/interactive.py:551
-#: usr/share/jellyfix/cli/interactive.py:581
 msgid "View current key (TMDB)"
 msgstr "View current key (TMDB)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 552
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
-#: usr/share/jellyfix/cli/interactive.py:552
-#: usr/share/jellyfix/cli/interactive.py:609
 msgid "Test TMDB connection"
 msgstr "Test TMDB connection"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 553
 # File: usr/share/jellyfix/cli/interactive.py, line: 593
-#: usr/share/jellyfix/cli/interactive.py:553
-#: usr/share/jellyfix/cli/interactive.py:593
 msgid "Remove TMDB key"
 msgstr "Remove TMDB key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 554
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
-#: usr/share/jellyfix/cli/interactive.py:554
-#: usr/share/jellyfix/cli/interactive.py:612
 msgid "How to get TMDB key"
 msgstr "How to get TMDB key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 565
-#: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
 msgstr "Enter your TMDB API key:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 574
-#: usr/share/jellyfix/cli/interactive.py:574
 msgid "TMDB key saved to:"
 msgstr "TMDB key saved to:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 587
-#: usr/share/jellyfix/cli/interactive.py:587
 msgid "File:"
 msgstr "File:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 589
-#: usr/share/jellyfix/cli/interactive.py:589
 msgid "No key configured"
 msgstr "No key configured"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 595
-#: usr/share/jellyfix/cli/interactive.py:595
 msgid "Are you sure you want to remove the TMDB key?"
 msgstr "Are you sure you want to remove the TMDB key?"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 603
-#: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "TMDB key removed"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 619
-#: usr/share/jellyfix/cli/interactive.py:619
 msgid "Testing TMDB connection..."
 msgstr "Testing TMDB connection..."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 624
-#: usr/share/jellyfix/cli/interactive.py:624
 msgid "No API key configured!"
 msgstr "No API key configured!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 625
-#: usr/share/jellyfix/cli/interactive.py:625
 msgid "Configure a key first using 'Configure TMDB API Key'"
 msgstr "Configure a key first using 'Configure TMDB API Key'"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 631
-#: usr/share/jellyfix/cli/interactive.py:631
 #, python-format
 msgid "Invalid key! Has %d characters, should have 32."
 msgstr "Invalid key! Has %d characters, should have 32."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 632
-#: usr/share/jellyfix/cli/interactive.py:632
 msgid "You may have copied the Token instead of the API Key!"
 msgstr "You may have copied the Token instead of the API Key!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 633
-#: usr/share/jellyfix/cli/interactive.py:633
 msgid "See 'How to get TMDB key' for details"
 msgstr "See 'How to get TMDB key' for details"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 641
-#: usr/share/jellyfix/cli/interactive.py:641
 msgid "Making test request..."
 msgstr "Making test request..."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 650
-#: usr/share/jellyfix/cli/interactive.py:650
 msgid "Connection successful!"
 msgstr "Connection successful!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 651
-#: usr/share/jellyfix/cli/interactive.py:651
 msgid "Valid and working API key"
 msgstr "Valid and working API key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 652
-#: usr/share/jellyfix/cli/interactive.py:652
 #, python-format
 msgid "Test search returned %d results"
 msgstr "Test search returned %d results"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 656
-#: usr/share/jellyfix/cli/interactive.py:656
 msgid "Example:"
 msgstr "Example:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 659
-#: usr/share/jellyfix/cli/interactive.py:659
 msgid "Invalid API key!"
 msgstr "Invalid API key!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 660
-#: usr/share/jellyfix/cli/interactive.py:660
 msgid "The key was rejected by TMDB."
 msgstr "The key was rejected by TMDB."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 661
-#: usr/share/jellyfix/cli/interactive.py:661
 msgid "Possible causes:"
 msgstr "Possible causes:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 662
-#: usr/share/jellyfix/cli/interactive.py:662
 msgid "You copied the Reading Token instead of the API Key"
 msgstr "You copied the Reading Token instead of the API Key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 663
-#: usr/share/jellyfix/cli/interactive.py:663
 msgid "The key is incorrect or has been revoked"
 msgstr "The key is incorrect or has been revoked"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 664
-#: usr/share/jellyfix/cli/interactive.py:664
 msgid "You copied only part of the key"
 msgstr "You copied only part of the key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 665
-#: usr/share/jellyfix/cli/interactive.py:665
 msgid "See 'How to get TMDB key' for detailed instructions"
 msgstr "See 'How to get TMDB key' for detailed instructions"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 668
-#: usr/share/jellyfix/cli/interactive.py:668
 #, python-format
 msgid "Request error: HTTP %d"
 msgstr "Request error: HTTP %d"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 671
-#: usr/share/jellyfix/cli/interactive.py:671
 msgid "Timeout: Server did not respond in time"
 msgstr "Timeout: Server did not respond in time"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 672
 # File: usr/share/jellyfix/cli/interactive.py, line: 676
-#: usr/share/jellyfix/cli/interactive.py:672
-#: usr/share/jellyfix/cli/interactive.py:676
 msgid "Check your internet connection"
 msgstr "Check your internet connection"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 675
-#: usr/share/jellyfix/cli/interactive.py:675
 msgid "Connection error"
 msgstr "Connection error"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/cli/interactive.py, line: 679
+# File: usr/share/jellyfix/cli/app.py, line: 58
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "Unexpected error: %s"
 
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
@@ -1102,99 +682,81 @@ msgstr "Connection error"
 # File: usr/share/jellyfix/cli/interactive.py, line: 687
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 154
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
-#: usr/share/jellyfix/cli/interactive.py:687
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:154
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:331
 msgid "How to Get TMDB API Key"
 msgstr "How to Get TMDB API Key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 689
-#: usr/share/jellyfix/cli/interactive.py:689
 msgid "Access:"
 msgstr "Access:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 692
-#: usr/share/jellyfix/cli/interactive.py:692
 msgid "Login or create a FREE account"
 msgstr "Login or create a FREE account"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 694
-#: usr/share/jellyfix/cli/interactive.py:694
 msgid "Fill in your details"
 msgstr "Fill in your details"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 695
-#: usr/share/jellyfix/cli/interactive.py:695
 msgid "Confirm email"
 msgstr "Confirm email"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 697
-#: usr/share/jellyfix/cli/interactive.py:697
 msgid "Request an API key:"
 msgstr "Request an API key:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 698
-#: usr/share/jellyfix/cli/interactive.py:698
 msgid "Access"
 msgstr "Access"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 699
-#: usr/share/jellyfix/cli/interactive.py:699
 msgid "Click 'Request an API Key'"
 msgstr "Click 'Request an API Key'"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 700
-#: usr/share/jellyfix/cli/interactive.py:700
 msgid "Choose 'Developer' (personal use)"
 msgstr "Choose 'Developer' (personal use)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 701
-#: usr/share/jellyfix/cli/interactive.py:701
 msgid "Fill in"
 msgstr "Fill in"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 705
-#: usr/share/jellyfix/cli/interactive.py:705
 msgid "Accept terms of use"
 msgstr "Accept terms of use"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 707
-#: usr/share/jellyfix/cli/interactive.py:707
 msgid "IMPORTANT - Which key to copy:"
 msgstr "IMPORTANT - Which key to copy:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 708
-#: usr/share/jellyfix/cli/interactive.py:708
 msgid "You will see TWO keys on the page:"
 msgstr "You will see TWO keys on the page:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 709
-#: usr/share/jellyfix/cli/interactive.py:709
 msgid "API Read Access Token (long, starts with eyJ...)"
 msgstr "API Read Access Token (long, starts with eyJ...)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 710
-#: usr/share/jellyfix/cli/interactive.py:710
 msgid "API Key (v3 auth) ← COPY THIS ONE!"
 msgstr "API Key (v3 auth) ← COPY THIS ONE!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 712
-#: usr/share/jellyfix/cli/interactive.py:712
 msgid ""
 "The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
 msgstr ""
@@ -1202,423 +764,575 @@ msgstr ""
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 714
-#: usr/share/jellyfix/cli/interactive.py:714
 msgid "Configure in jellyfix:"
 msgstr "Configure in jellyfix:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 715
-#: usr/share/jellyfix/cli/interactive.py:715
 msgid "Return to menu and choose 'Configure TMDB API Key'"
 msgstr "Return to menu and choose 'Configure TMDB API Key'"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 716
-#: usr/share/jellyfix/cli/interactive.py:716
 msgid "Paste the API Key (32 characters)"
 msgstr "Paste the API Key (32 characters)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 717
-#: usr/share/jellyfix/cli/interactive.py:717
 msgid "Use 'Test connection' to verify"
 msgstr "Use 'Test connection' to verify"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 719
-#: usr/share/jellyfix/cli/interactive.py:719
 msgid "The key is free and does not expire!"
 msgstr "The key is free and does not expire!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 720
-#: usr/share/jellyfix/cli/interactive.py:720
 msgid "Allows up to 40 requests per 10 seconds"
 msgstr "Allows up to 40 requests per 10 seconds"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 721
-#: usr/share/jellyfix/cli/interactive.py:721
 msgid "Enough to organize thousands of files!"
 msgstr "Enough to organize thousands of files!"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 724
-#: usr/share/jellyfix/cli/interactive.py:724
 msgid "How to Get TMDB Key"
 msgstr "How to Get TMDB Key"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 731
-#: usr/share/jellyfix/cli/interactive.py:731
 msgid "Help - jellyfix v"
 msgstr "Help - jellyfix v"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 733
-#: usr/share/jellyfix/cli/interactive.py:733
 msgid "What jellyfix does:"
 msgstr "What jellyfix does:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 735
-#: usr/share/jellyfix/cli/interactive.py:735
 msgid "Renames files"
 msgstr "Renames files"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 735
-#: usr/share/jellyfix/cli/interactive.py:735
 msgid "to Jellyfin standard"
 msgstr "to Jellyfin standard"
 
 #
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
 # File: usr/share/jellyfix/cli/interactive.py, line: 736
-#: usr/share/jellyfix/cli/interactive.py:736
+# File: usr/share/jellyfix/cli/display.py, line: 76
+msgid "Movies"
+msgstr "Movies"
+
+#
+# File: usr/share/jellyfix/cli/interactive.py, line: 736
 msgid "Movie Name (YYYY).mkv"
 msgstr "Movie Name (YYYY).mkv"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 737
-#: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series"
 msgstr "Series"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 737
-#: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series Name S01E01.mkv"
 msgstr "Series Name S01E01.mkv"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 739
-#: usr/share/jellyfix/cli/interactive.py:739
 msgid "Organizes subtitles"
 msgstr "Organizes subtitles"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 739
-#: usr/share/jellyfix/cli/interactive.py:739
 msgid "(ALL languages)"
 msgstr "(ALL languages)"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 740
-#: usr/share/jellyfix/cli/interactive.py:740
 msgid "Renames variants"
 msgstr "Renames variants"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 741
-#: usr/share/jellyfix/cli/interactive.py:741
 msgid "Adds language code"
 msgstr "Adds language code"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 742
-#: usr/share/jellyfix/cli/interactive.py:742
 msgid "Removes foreign subtitles"
 msgstr "Removes foreign subtitles"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 742
-#: usr/share/jellyfix/cli/interactive.py:742
 msgid "keeps por and eng by default"
 msgstr "keeps por and eng by default"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 743
-#: usr/share/jellyfix/cli/interactive.py:743
 msgid "Option to remove duplicates"
 msgstr "Option to remove duplicates"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 743
-#: usr/share/jellyfix/cli/interactive.py:743
 msgid "when eng exists"
 msgstr "when eng exists"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 744
-#: usr/share/jellyfix/cli/interactive.py:744
 msgid "NEVER"
 msgstr "NEVER"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 744
-#: usr/share/jellyfix/cli/interactive.py:744
 msgid "removes .forced.srt"
 msgstr "removes .forced.srt"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 746
-#: usr/share/jellyfix/cli/interactive.py:746
 msgid "Folder structure"
 msgstr "Folder structure"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 747
-#: usr/share/jellyfix/cli/interactive.py:747
 msgid "Creates folders Season 01, Season 02, etc"
 msgstr "Creates folders Season 01, Season 02, etc"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 748
-#: usr/share/jellyfix/cli/interactive.py:748
 msgid "Moves episodes to correct folders"
 msgstr "Moves episodes to correct folders"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 750
-#: usr/share/jellyfix/cli/interactive.py:750
 msgid "Fetches metadata"
 msgstr "Fetches metadata"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 751
-#: usr/share/jellyfix/cli/interactive.py:751
 msgid "Searches year and IDs via TMDB/TVDB"
 msgstr "Searches year and IDs via TMDB/TVDB"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 752
-#: usr/share/jellyfix/cli/interactive.py:752
 msgid "Adds IDs to folders [tmdbid-12345]"
 msgstr "Adds IDs to folders [tmdbid-12345]"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 754
-#: usr/share/jellyfix/cli/interactive.py:754
 msgid "Quality detection"
 msgstr "Quality detection"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 755
-#: usr/share/jellyfix/cli/interactive.py:755
 msgid "Adds quality tags (1080p, 720p, etc) to filenames"
 msgstr "Adds quality tags (1080p, 720p, etc) to filenames"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 756
-#: usr/share/jellyfix/cli/interactive.py:756
 msgid "Option to use ffprobe for accurate detection"
 msgstr "Option to use ffprobe for accurate detection"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 758
-#: usr/share/jellyfix/cli/interactive.py:758
 msgid "Dry-Run Mode:"
 msgstr "Dry-Run Mode:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 759
-#: usr/share/jellyfix/cli/interactive.py:759
 msgid "By default, jellyfix shows what will be done WITHOUT changing files."
 msgstr "By default, jellyfix shows what will be done WITHOUT changing files."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 760
-#: usr/share/jellyfix/cli/interactive.py:760
 msgid "You can review changes before applying."
 msgstr "You can review changes before applying."
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 762
-#: usr/share/jellyfix/cli/interactive.py:762
 msgid "Tip:"
 msgstr "Tip:"
 
 #
 # File: usr/share/jellyfix/cli/interactive.py, line: 762
-#: usr/share/jellyfix/cli/interactive.py:762
 msgid "Configure your TMDB key"
 msgstr "Configure your TMDB key"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
-#: usr/share/jellyfix/cli/non_interactive.py:44
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 44
 msgid "Error: No working directory specified"
 msgstr "Error: No working directory specified"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
-#: usr/share/jellyfix/cli/non_interactive.py:45
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 msgid "Use: --workdir /path/to/directory"
 msgstr "Use: --workdir /path/to/directory"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 51
-#: usr/share/jellyfix/cli/non_interactive.py:50
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 50
 #, python-format
 msgid "Error: Directory does not exist: %s"
 msgstr "Error: Directory does not exist: %s"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
-#: usr/share/jellyfix/cli/non_interactive.py:74
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 74
 #, python-format
 msgid "%d operations planned"
 msgstr "%d operations planned"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
-#: usr/share/jellyfix/cli/non_interactive.py:77
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 77
 msgid "Nothing to do"
 msgstr "Nothing to do"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 85
-#: usr/share/jellyfix/cli/non_interactive.py:84
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 84
 msgid "DRY-RUN mode: No changes will be made"
 msgstr "DRY-RUN mode: No changes will be made"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 92
-#: usr/share/jellyfix/cli/non_interactive.py:91
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 91
 #, python-format
 msgid "Dry-run completed: %d operations planned"
 msgstr "Dry-run completed: %d operations planned"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
-#: usr/share/jellyfix/cli/non_interactive.py:94
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 94
 msgid "Execution completed:"
 msgstr "Execution completed:"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
-#: usr/share/jellyfix/cli/non_interactive.py:96
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 96
 #, python-format
 msgid "  Renamed: %d"
 msgstr "  Renamed: %d"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
-#: usr/share/jellyfix/cli/non_interactive.py:98
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 98
 #, python-format
 msgid "  Moved: %d"
 msgstr "  Moved: %d"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
-#: usr/share/jellyfix/cli/non_interactive.py:100
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 100
 #, python-format
 msgid "  Deleted: %d"
 msgstr "  Deleted: %d"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
-#: usr/share/jellyfix/cli/non_interactive.py:102
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 102
 #, python-format
 msgid "  Cleaned folders: %d"
 msgstr "  Cleaned folders: %d"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
-#: usr/share/jellyfix/cli/non_interactive.py:104
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 104
 #, python-format
 msgid "  Failed: %d"
 msgstr "  Failed: %d"
 
 #
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
-#: usr/share/jellyfix/cli/non_interactive.py:106
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 106
 #, python-format
 msgid "  Skipped: %d"
 msgstr "  Skipped: %d"
 
 #
+# File: usr/share/jellyfix/cli/display.py, line: 64
+msgid "Scan Results"
+msgstr "Scan Results"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 71
+msgid "Category"
+msgstr "Category"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 364
+msgid "Count"
+msgstr "Count"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 75
+msgid "Video files"
+msgstr "Video files"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 77
+msgid "Episodes"
+msgstr "Episodes"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+msgid "Subtitles"
+msgstr "Subtitles"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 81
+msgid "Variants"
+msgstr "Variants"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 82
+msgid "No language"
+msgstr "No language"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 83
+msgid "Foreign"
+msgstr "Foreign"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 84
+msgid "With language"
+msgstr "With language"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 87
+msgid "Images"
+msgstr "Images"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 90
+msgid "NFO files"
+msgstr "NFO files"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 93
+msgid "Other"
+msgstr "Other"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 100
+msgid "Suggested actions:"
+msgstr "Suggested actions:"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "subtitle variants (.lang2, .lang3) can be processed"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 106
+msgid "subtitles without language code"
+msgstr "subtitles without language code"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 109
+msgid "foreign subtitles can be removed"
+msgstr "foreign subtitles can be removed"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 113
+msgid "Suggestions"
+msgstr "Suggestions"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 133
+msgid "No operations needed. Everything is already organized!"
+msgstr "No operations needed. Everything is already organized!"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "Operation Preview ({} files)"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 261
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "and {} more groups"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 275
+msgid "Move + Rename:"
+msgstr "Move + Rename:"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 280
+msgid "Move:"
+msgstr "Move:"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 285
+msgid "Rename:"
+msgstr "Rename:"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 290
+msgid "Remove:"
+msgstr "Remove:"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 294
+# File: usr/share/jellyfix/cli/display.py, line: 336
+msgid "Summary"
+msgstr "Summary"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 341
+msgid "Move + Rename"
+msgstr "Move + Rename"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/cli/display.py, line: 342
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 178
+msgid "Move"
+msgstr "Move"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/cli/display.py, line: 343
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 172
+msgid "Rename"
+msgstr "Rename"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/cli/display.py, line: 344
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 184
+msgid "Delete"
+msgstr "Delete"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 362
+msgid "✅ Execution Results"
+msgstr "✅ Execution Results"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 363
+msgid "Action"
+msgstr "Action"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 367
+msgid "Renamed"
+msgstr "Renamed"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 369
+msgid "Moved"
+msgstr "Moved"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 371
+msgid "Deleted"
+msgstr "Deleted"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 373
+msgid "Cleaned folders"
+msgstr "Cleaned folders"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 375
+msgid "Failed"
+msgstr "Failed"
+
+#
+# File: usr/share/jellyfix/cli/display.py, line: 377
+msgid "Skipped"
+msgstr "Skipped"
+
+#
+# File: usr/share/jellyfix/cli/app.py, line: 54
+msgid "Operation cancelled by user"
+msgstr "Operation cancelled by user"
+
+#
 # File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: usr/share/jellyfix/core/image_manager.py:101
 #, python-format
 msgid "Downloaded image: %s"
 msgstr "Downloaded image: %s"
 
 #
 # File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: usr/share/jellyfix/core/image_manager.py:106
 #, python-format
 msgid "Failed to download image: %s"
 msgstr "Failed to download image: %s"
 
 #
 # File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: usr/share/jellyfix/core/image_manager.py:110
 #, python-format
 msgid "Unexpected error downloading image: %s"
 msgstr "Unexpected error downloading image: %s"
 
 #
 # File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: usr/share/jellyfix/core/image_manager.py:216
 msgid "Clearing image cache..."
 msgstr "Clearing image cache..."
 
 #
 # File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: usr/share/jellyfix/core/image_manager.py:218
 msgid "Image cache cleared"
 msgstr "Image cache cleared"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 170
-#: usr/share/jellyfix/core/subtitle_manager.py:169
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 168
 #, python-format
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "Searching subtitles for: %s (Languages: %s)"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
-#: usr/share/jellyfix/core/subtitle_manager.py:182
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 181
 #, python-format
 msgid "Level 1 (hash) found: %s"
 msgstr "Level 1 (hash) found: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
-#: usr/share/jellyfix/core/subtitle_manager.py:186
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 185
 #, python-format
 msgid "Missing languages: %s - trying TMDB title search"
 msgstr "Missing languages: %s - trying TMDB title search"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
-#: usr/share/jellyfix/core/subtitle_manager.py:207
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 206
 #, python-format
 msgid "Level 2 (TMDB) found: %s"
 msgstr "Level 2 (TMDB) found: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
-#: usr/share/jellyfix/core/subtitle_manager.py:210
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 209
 #, python-format
 msgid "Still missing: %s (try manual search)"
 msgstr "Still missing: %s (try manual search)"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 214
-#: usr/share/jellyfix/core/subtitle_manager.py:213
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 212
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "No subtitles found for: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
-#: usr/share/jellyfix/core/subtitle_manager.py:237
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 236
 #, python-format
 msgid "Found %d subtitles by hash for: %s"
 msgstr "Found %d subtitles by hash for: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
-#: usr/share/jellyfix/core/subtitle_manager.py:343
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 342
 #, python-format
 msgid "Found %d validated subtitles by title for: %s"
 msgstr "Found %d validated subtitles by title for: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
-#: usr/share/jellyfix/core/subtitle_manager.py:600
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 599
 #, python-format
 msgid "Manual search: %s"
 msgstr "Manual search: %s"
@@ -1626,669 +1340,45 @@ msgstr "Manual search: %s"
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 621
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
-#: usr/share/jellyfix/core/subtitle_manager.py:622
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
 msgid "Unknown release"
 msgstr "Unknown release"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
-#: usr/share/jellyfix/core/subtitle_manager.py:657
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 656
 #, python-format
 msgid "Found %d subtitles in manual search"
 msgstr "Found %d subtitles in manual search"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
-#: usr/share/jellyfix/core/subtitle_manager.py:707
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 706
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "Downloaded subtitle: %s"
 
 #
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 49
-# File: usr/share/jellyfix/gui/app.py, line: 142
-#: usr/share/jellyfix/gui/app.py:142
-#: usr/share/jellyfix/gui/windows/main_window.py:51
-#: usr/share/jellyfix/gui/windows/main_window.py:98
-msgid "Jellyfix"
-msgstr "Jellyfix"
-
-#
-# File: usr/share/jellyfix/gui/app.py, line: 151
-#: usr/share/jellyfix/gui/app.py:151
-msgid "translator-credits"
-msgstr "translator-credits"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 73
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Select Directory to Scan"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 174
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Scan Failed"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 235
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 249
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 277
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 334
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 622
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 755
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1030
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1066
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 177
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 251
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 450
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "OK"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 248
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Operation Generation Failed"
-
-#
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 447
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Execution Failed"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "Welcome to Jellyfix"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "Drop a folder here"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "or click the button below"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "Add Library"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "Recent Libraries"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "Clear recent libraries"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "weeks ago"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "days ago"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "hours ago"
-
-#
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "Just now"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 136
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 142
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "Operations"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 157
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "Search..."
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 167
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "All"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "Download Subtitles for All"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "Search and download subtitles for all listed videos"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 217
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "No Operations"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 218
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "Scan a directory to generate operations"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 235
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 541
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 248
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "Apply"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 419
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "rename"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 421
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "move"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 423
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "delete"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 426
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
-#, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "Showing {} of {} operations"
-
-#
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 428
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
-#, python-brace-format
-msgid "Total: {} operations"
-msgstr "Total: {} operations"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "No Selection"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "Select an item to preview"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "Search title"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "Wrong title? Click to search manually"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "Download Subtitles"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "Search and download subtitles automatically"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 150
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "From:"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 182
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "To:"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 263
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "MOVE"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 266
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "DELETE"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 273
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "MOVE + RENAME"
-
-#
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 276
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "RENAME"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB Configuration"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "Configure The Movie Database API key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 205
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ Configured"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 300
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ Not configured"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API Key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "Config file"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "Actions"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "Enter your TMDB API key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "Configure"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "View Current Key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "Show masked API key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "View"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "Test TMDB Connection"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "Verify API key is working"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "Test"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "Remove TMDB Key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "Delete stored API key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 288
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "Remove"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 198
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
-#: usr/share/jellyfix/gui/windows/main_window.py:175
-msgid "Help"
-msgstr "Help"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "Step-by-step tutorial"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "Tutorial"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "Enter your TMDB API key below"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "Paste API key here"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 231
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 287
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 540
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 582
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "Cancel"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "Save"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API key saved successfully"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 225
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "Current TMDB API Key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "Masked key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "Full key stored in"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 231
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "No API Key"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 232
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "No TMDB API key configured yet"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 247
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "Please configure TMDB API key first"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 261
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ Connection Successful"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
-#, python-brace-format
-msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ Connection Failed"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr "Could not fetch data from TMDB. Please check your API key."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 273
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ Connection Error"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 274
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "Error testing connection: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 284
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "Remove API Key?"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 285
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid ""
-"This will delete your stored TMDB API key. You will need to configure it "
-"again."
-msgstr ""
-"This will delete your stored TMDB API key. You will need to configure it "
-"again."
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 304
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API key removed"
-
-#
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 313
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-msgstr ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-
-#
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
-#: usr/share/jellyfix/gui/windows/help_window.py:34
 msgid "Jellyfix Help"
 msgstr "Jellyfix Help"
 
 #
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
-#: usr/share/jellyfix/gui/windows/help_window.py:69
 msgid "Version"
 msgstr "Version"
 
 #
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/help_window.py:75
 msgid "Intelligent Jellyfin Library Organizer"
 msgstr "Intelligent Jellyfin Library Organizer"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/help_window.py:84
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 86
 msgid "What Jellyfix Does"
 msgstr "What Jellyfix Does"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/help_window.py:85
-#, fuzzy
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 88
 msgid ""
 "Jellyfix automatically organizes your media library following Jellyfin "
 "naming conventions:\n"
@@ -2301,7 +1391,6 @@ msgid ""
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
 "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
 msgstr ""
-"\n"
 "Jellyfix automatically organizes your media library following Jellyfin "
 "naming conventions:\n"
 "\n"
@@ -2311,18 +1400,15 @@ msgstr ""
 "language codes\n"
 "• <b>Fetches metadata</b> from TMDB/TVDB\n"
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
-"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])\n"
+"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: usr/share/jellyfix/gui/windows/help_window.py:96
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 102
 msgid "Examples"
 msgstr "Examples"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: usr/share/jellyfix/gui/windows/help_window.py:97
-#, fuzzy
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 104
 msgid ""
 "<b>Movies:</b>\n"
 "  Before: movie.name.2023.1080p.bluray.mkv\n"
@@ -2339,7 +1425,6 @@ msgid ""
 "  • Removes foreign languages (keeps configured languages only)\n"
 "  • <b>NEVER</b> removes .forced.srt files"
 msgstr ""
-"\n"
 "<b>Movies:</b>\n"
 "  Before: movie.name.2023.1080p.bluray.mkv\n"
 "  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
@@ -2353,18 +1438,15 @@ msgstr ""
 "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
 "  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
 "  • Removes foreign languages (keeps configured languages only)\n"
-"  • <b>NEVER</b> removes .forced.srt files\n"
+"  • <b>NEVER</b> removes .forced.srt files"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/help_window.py:113
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 123
 msgid "How to Use"
 msgstr "How to Use"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/help_window.py:114
-#, fuzzy
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 125
 msgid ""
 "<b>1. Configure TMDB API Key (recommended)</b>\n"
 "   Menu → Configure API Keys → Follow the tutorial\n"
@@ -2387,7 +1469,6 @@ msgid ""
 "\n"
 "<b>Tip:</b> Always review the preview before executing!"
 msgstr ""
-"\n"
 "<b>1. Configure TMDB API Key (recommended)</b>\n"
 "   Menu → Configure API Keys → Follow the tutorial\n"
 "   This enables metadata fetching and poster downloads.\n"
@@ -2407,12 +1488,10 @@ msgstr ""
 "   Confirm the operation\n"
 "   Files will be renamed and organized\n"
 "\n"
-"<b>Tip:</b> Always review the preview before executing!\n"
+"<b>Tip:</b> Always review the preview before executing!"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
-#: usr/share/jellyfix/gui/windows/help_window.py:138
-#, fuzzy
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 153
 msgid ""
 "Configure Jellyfix behavior:\n"
 "\n"
@@ -2423,7 +1502,6 @@ msgid ""
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
 "• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
 msgstr ""
-"\n"
 "Configure Jellyfix behavior:\n"
 "\n"
 "• <b>Subtitle Handling:</b> Rename variants, add language codes, remove "
@@ -2431,18 +1509,15 @@ msgstr ""
 "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
 "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
-"• <b>ffprobe:</b> Use ffprobe for accurate quality detection\n"
+"• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: usr/share/jellyfix/gui/windows/help_window.py:148
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 166
 msgid "Important Notes"
 msgstr "Important Notes"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: usr/share/jellyfix/gui/windows/help_window.py:149
-#, fuzzy
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 168
 msgid ""
 "⚠️ <b>Dry-run is DEFAULT</b>\n"
 "Files are NOT modified unless you explicitly execute operations.\n"
@@ -2456,7 +1531,6 @@ msgid ""
 "🌍 <b>Customize kept languages</b>\n"
 "Configure which subtitle languages to keep in Preferences."
 msgstr ""
-"\n"
 "⚠️ <b>Dry-run is DEFAULT</b>\n"
 "Files are NOT modified unless you explicitly execute operations.\n"
 "\n"
@@ -2467,769 +1541,1124 @@ msgstr ""
 "For best results, configure your TMDB API key in Settings.\n"
 "\n"
 "🌍 <b>Customize kept languages</b>\n"
-"Configure which subtitle languages to keep in Preferences.\n"
+"Configure which subtitle languages to keep in Preferences."
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
-#: usr/share/jellyfix/gui/windows/help_window.py:167
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 187
 msgid "Links"
 msgstr "Links"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
-#: usr/share/jellyfix/gui/windows/help_window.py:172
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 192
 msgid "Homepage"
 msgstr "Homepage"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
-#: usr/share/jellyfix/gui/windows/help_window.py:178
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 198
 msgid "Report Issues"
 msgstr "Report Issues"
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/help_window.py:184
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 204
 msgid "Get TMDB API Key"
 msgstr "Get TMDB API Key"
 
 #
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
-#: usr/share/jellyfix/gui/windows/main_window.py:169
-#: usr/share/jellyfix/gui/windows/preferences_window.py:44
-msgid "Preferences"
-msgstr "Preferences"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
-#: usr/share/jellyfix/gui/windows/main_window.py:170
-msgid "Configure API Keys"
-msgstr "Configure API Keys"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 199
-#: usr/share/jellyfix/gui/windows/main_window.py:176
-msgid "About Jellyfix"
-msgstr "About Jellyfix"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 203
-#: usr/share/jellyfix/gui/windows/main_window.py:180
-msgid "Quit"
-msgstr "Quit"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 272
-#: usr/share/jellyfix/gui/windows/main_window.py:248
-msgid "Scanning directory..."
-msgstr "Scanning directory..."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 385
-#: usr/share/jellyfix/gui/windows/main_window.py:360
-msgid "Generating operations..."
-msgstr "Generating operations..."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 410
-#: usr/share/jellyfix/gui/windows/main_window.py:385
-#, python-brace-format
-msgid "{} operations ready"
-msgstr "{} operations ready"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 537
-#: usr/share/jellyfix/gui/windows/main_window.py:511
-msgid "Apply Operations?"
-msgstr "Apply Operations?"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 538
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 578
-#: usr/share/jellyfix/gui/windows/main_window.py:512
-#: usr/share/jellyfix/gui/windows/main_window.py:546
-#, python-brace-format
-msgid "This will rename {} files. Continue?"
-msgstr "This will rename {} files. Continue?"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 577
-#: usr/share/jellyfix/gui/windows/main_window.py:545
-msgid "Execute Operations?"
-msgstr "Execute Operations?"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 583
-#: usr/share/jellyfix/gui/windows/main_window.py:551
-msgid "Execute"
-msgstr "Execute"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 606
-#: usr/share/jellyfix/gui/windows/main_window.py:574
-#, python-brace-format
-msgid "Dry-run: {} operations previewed"
-msgstr "Dry-run: {} operations previewed"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 609
-#: usr/share/jellyfix/gui/windows/main_window.py:577
-#, python-brace-format
-msgid "{} operations completed"
-msgstr "{} operations completed"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 619
-#: usr/share/jellyfix/gui/windows/main_window.py:587
-msgid "Complete!"
-msgstr "Complete!"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
-#: usr/share/jellyfix/gui/windows/main_window.py:721
-msgid "Feature Unavailable"
-msgstr "Feature Unavailable"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 753
-#: usr/share/jellyfix/gui/windows/main_window.py:722
-msgid ""
-"The 'subliminal' library is not installed.\n"
-"Please install it to use this feature."
-msgstr ""
-"The 'subliminal' library is not installed.\n"
-"Please install it to use this feature."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 776
-#: usr/share/jellyfix/gui/windows/main_window.py:746
-msgid "Preparing..."
-msgstr "Preparing..."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 965
-#: usr/share/jellyfix/gui/windows/main_window.py:954
-#, python-brace-format
-msgid "Searching subtitles ({}/{})"
-msgstr "Searching subtitles ({}/{})"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/gui/windows/main_window.py:993
-#, fuzzy
-msgid "subtitle"
-msgstr "Subtitles"
-
-#
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/gui/windows/main_window.py:993
-#, fuzzy
-msgid "subtitles"
-msgstr "Subtitles"
-
-#
-# File: usr/share/jellyfix/cli/interactive.py, line: 170
-#: usr/share/jellyfix/gui/windows/main_window.py:994
-#: usr/share/jellyfix/gui/windows/main_window.py:1014
-#, fuzzy
-msgid "video"
-msgstr "videos"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
-#: usr/share/jellyfix/gui/windows/main_window.py:997
-msgid "No Subtitles Found"
-msgstr "No Subtitles Found"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
-#: usr/share/jellyfix/gui/windows/main_window.py:998
-msgid ""
-"Could not find any subtitles automatically.\n"
-"Try manual search?"
-msgstr ""
-"Could not find any subtitles automatically.\n"
-"Try manual search?"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
-#: usr/share/jellyfix/gui/windows/main_window.py:1002
-msgid "Partial Success"
-msgstr "Partial Success"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
-#: usr/share/jellyfix/gui/windows/main_window.py:1010
-#, fuzzy, python-brace-format
-msgid ""
-"Downloaded {} {}.\n"
-"\n"
-"Missing languages: {}\n"
-"Try manual search?"
-msgstr ""
-"Downloaded {} subtitles.\n"
-"\n"
-"Missing languages: {}\n"
-"Try manual search?"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
-#: usr/share/jellyfix/gui/windows/main_window.py:1015
-#, fuzzy, python-brace-format
-msgid ""
-"Downloaded {} {} for {} of {} {}.\n"
-"Try manual search for missing?"
-msgstr ""
-"Downloaded {} subtitles for {} of {} videos.\n"
-"Try manual search for missing?"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1014
-#: usr/share/jellyfix/gui/windows/main_window.py:1020
-msgid "Download Complete"
-msgstr "Download Complete"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
-#: usr/share/jellyfix/gui/windows/main_window.py:1021
-#, fuzzy, python-brace-format
-msgid "Downloaded {} {} for {} {} (all languages)."
-msgstr "Downloaded {} subtitles for {} videos (all languages)."
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
-#: usr/share/jellyfix/gui/windows/main_window.py:1034
-msgid "Manual Search"
-msgstr "Manual Search"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1029
-#: usr/share/jellyfix/gui/windows/main_window.py:1037
-msgid "Rescan Now"
-msgstr "Rescan Now"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1063
-#: usr/share/jellyfix/gui/windows/main_window.py:1071
-msgid "Batch Error"
-msgstr "Batch Error"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1064
-#: usr/share/jellyfix/gui/windows/main_window.py:1072
-#, python-brace-format
-msgid ""
-"An error occurred during batch download:\n"
-"{}"
-msgstr ""
-"An error occurred during batch download:\n"
-"{}"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
-#: usr/share/jellyfix/gui/windows/main_window.py:1154
-#, python-brace-format
-msgid "Subtitle downloaded: {}"
-msgstr "Subtitle downloaded: {}"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
-#: usr/share/jellyfix/gui/windows/preferences_window.py:60
-msgid "Subtitle Handling"
-msgstr "Subtitle Handling"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
-#: usr/share/jellyfix/gui/windows/preferences_window.py:61
-msgid "Configure how subtitles are processed"
-msgstr "Configure how subtitles are processed"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
-#: usr/share/jellyfix/gui/windows/preferences_window.py:66
-msgid "Rename Language Variants"
-msgstr "Rename Language Variants"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
-#: usr/share/jellyfix/gui/windows/preferences_window.py:67
-msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
-msgstr "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/preferences_window.py:75
-msgid "Remove Duplicate Variants"
-msgstr "Remove Duplicate Variants"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
-#: usr/share/jellyfix/gui/windows/preferences_window.py:76
-msgid "Remove .lang2, .lang3 files after renaming"
-msgstr "Remove .lang2, .lang3 files after renaming"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/preferences_window.py:84
-msgid "Add Language Codes"
-msgstr "Add Language Codes"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
-#: usr/share/jellyfix/gui/windows/preferences_window.py:85
-msgid "Add language codes to subtitles without them"
-msgstr "Add language codes to subtitles without them"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
-#: usr/share/jellyfix/gui/windows/preferences_window.py:93
-msgid "Remove Foreign Subtitles"
-msgstr "Remove Foreign Subtitles"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
-#: usr/share/jellyfix/gui/windows/preferences_window.py:94
-msgid "Remove subtitles not in kept languages list"
-msgstr "Remove subtitles not in kept languages list"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
-#: usr/share/jellyfix/gui/windows/preferences_window.py:102
-msgid "Minimum Portuguese Words"
-msgstr "Minimum Portuguese Words"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
-#: usr/share/jellyfix/gui/windows/preferences_window.py:103
-msgid "Min words to detect Portuguese subtitles"
-msgstr "Min words to detect Portuguese subtitles"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
-#: usr/share/jellyfix/gui/windows/preferences_window.py:112
-msgid "Kept Languages"
-msgstr "Kept Languages"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/preferences_window.py:113
-msgid "Subtitles in these languages will be kept"
-msgstr "Subtitles in these languages will be kept"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
-#: usr/share/jellyfix/gui/windows/preferences_window.py:134
-msgid "Video"
-msgstr "Video"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
-#: usr/share/jellyfix/gui/windows/preferences_window.py:140
-msgid "Video Handling"
-msgstr "Video Handling"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
-#: usr/share/jellyfix/gui/windows/preferences_window.py:141
-msgid "Configure how videos are processed"
-msgstr "Configure how videos are processed"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
-#: usr/share/jellyfix/gui/windows/preferences_window.py:146
-msgid "Organize in Folders"
-msgstr "Organize in Folders"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
-#: usr/share/jellyfix/gui/windows/preferences_window.py:147
-msgid "Organize TV episodes in Season folders"
-msgstr "Organize TV episodes in Season folders"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
-#: usr/share/jellyfix/gui/windows/preferences_window.py:155
-msgid "Add Quality Tags"
-msgstr "Add Quality Tags"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
-#: usr/share/jellyfix/gui/windows/preferences_window.py:156
-msgid "Add resolution tags (1080p, 720p, etc) to filenames"
-msgstr "Add resolution tags (1080p, 720p, etc) to filenames"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
-#: usr/share/jellyfix/gui/windows/preferences_window.py:164
-msgid "Use ffprobe for Detection"
-msgstr "Use ffprobe for Detection"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
-#: usr/share/jellyfix/gui/windows/preferences_window.py:165
-msgid "More accurate but slower quality detection"
-msgstr "More accurate but slower quality detection"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
-#: usr/share/jellyfix/gui/windows/preferences_window.py:177
-msgid "Metadata"
-msgstr "Metadata"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
-#: usr/share/jellyfix/gui/windows/preferences_window.py:183
-msgid "Metadata Fetching"
-msgstr "Metadata Fetching"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/preferences_window.py:184
-msgid "Configure metadata from TMDB"
-msgstr "Configure metadata from TMDB"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
-#: usr/share/jellyfix/gui/windows/preferences_window.py:189
-msgid "Fetch Metadata"
-msgstr "Fetch Metadata"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
-#: usr/share/jellyfix/gui/windows/preferences_window.py:190
-msgid "Download metadata and posters from TMDB"
-msgstr "Download metadata and posters from TMDB"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
-#: usr/share/jellyfix/gui/windows/preferences_window.py:202
-msgid "General"
-msgstr "General"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
-#: usr/share/jellyfix/gui/windows/preferences_window.py:208
-msgid "Application"
-msgstr "Application"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
-#: usr/share/jellyfix/gui/windows/preferences_window.py:209
-msgid "General application settings"
-msgstr "General application settings"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
-#: usr/share/jellyfix/gui/windows/preferences_window.py:217
-msgid "Keep Recent Libraries"
-msgstr "Keep Recent Libraries"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
-#: usr/share/jellyfix/gui/windows/preferences_window.py:218
-msgid "Remember recently scanned libraries between sessions"
-msgstr "Remember recently scanned libraries between sessions"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
-#: usr/share/jellyfix/gui/windows/preferences_window.py:228
-msgid "File Cleanup"
-msgstr "File Cleanup"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
-#: usr/share/jellyfix/gui/windows/preferences_window.py:229
-msgid "Configure which files to remove"
-msgstr "Configure which files to remove"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
-#: usr/share/jellyfix/gui/windows/preferences_window.py:234
-msgid "Remove Non-Media Files"
-msgstr "Remove Non-Media Files"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
-#: usr/share/jellyfix/gui/windows/preferences_window.py:235
-msgid "Remove all files that are not .srt or .mp4"
-msgstr "Remove all files that are not .srt or .mp4"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
-#: usr/share/jellyfix/gui/windows/preferences_window.py:243
-msgid "Fix Mirabel Files"
-msgstr "Fix Mirabel Files"
-
-#
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
-#: usr/share/jellyfix/gui/windows/preferences_window.py:244
-msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
-msgstr "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
-
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 129
 msgid "Search Title"
 msgstr "Search Title"
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 158
 msgid "Enter movie or series name..."
 msgstr "Enter movie or series name..."
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 162
 msgid "Search"
 msgstr "Search"
 
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 175
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
 msgid "Movie"
 msgstr "Movie"
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 180
 msgid "TV Series"
 msgstr "TV Series"
 
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 287
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 514
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 546
+msgid "Cancel"
+msgstr "Cancel"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 234
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 515
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 247
+msgid "Apply"
+msgstr "Apply"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 257
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 308
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
 msgid "Searching..."
 msgstr "Searching..."
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 268
 msgid "TMDB not configured"
 msgstr "TMDB not configured"
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 308
 msgid "No results found"
 msgstr "No results found"
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 311
 msgid "results"
 msgstr "results"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
 msgid "Search Subtitles"
 msgstr "Search Subtitles"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
 msgid "Download"
 msgstr "Download"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
 msgid "Enter movie or show title..."
 msgstr "Enter movie or show title..."
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
 msgid "Season"
 msgstr "Season"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
 msgid "Episode"
 msgstr "Episode"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
 msgid "Search for Subtitles"
 msgstr "Search for Subtitles"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
 msgid "Enter a title and click search"
 msgstr "Enter a title and click search"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
 msgid "No Results"
 msgstr "No Results"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
 msgid "Try a different search term"
 msgstr "Try a different search term"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
 #, python-brace-format
 msgid "Found {} subtitles"
 msgstr "Found {} subtitles"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
 #, python-brace-format
 msgid "Error: {}"
 msgstr "Error: {}"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
 #, python-brace-format
 msgid "Downloaded: {}"
 msgstr "Downloaded: {}"
 
 #
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
 msgid "Download failed"
 msgstr "Download failed"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 123
-#~ msgid "Dashboard"
-#~ msgstr "Dashboard"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+msgid "TMDB Configuration"
+msgstr "TMDB Configuration"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 148
-#~ msgid "Library"
-#~ msgstr "Library"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+msgid "Configure The Movie Database API key"
+msgstr "Configure The Movie Database API key"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 165
-#~ msgid "Preview"
-#~ msgstr "Preview"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 205
+msgid "✓ Configured"
+msgstr "✓ Configured"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 548
-#~ msgid "Applying operations..."
-#~ msgstr "Applying operations..."
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 300
+msgid "✗ Not configured"
+msgstr "✗ Not configured"
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 765
-#~ msgid "Downloading Subtitles"
-#~ msgstr "Downloading Subtitles"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+msgid "TMDB API Key"
+msgstr "TMDB API Key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+msgid "Config file"
+msgstr "Config file"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+msgid "Actions"
+msgstr "Actions"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+msgid "Enter your TMDB API key"
+msgstr "Enter your TMDB API key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+msgid "Configure"
+msgstr "Configure"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+msgid "View Current Key"
+msgstr "View Current Key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+msgid "Show masked API key"
+msgstr "Show masked API key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+msgid "View"
+msgstr "View"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+msgid "Test TMDB Connection"
+msgstr "Test TMDB Connection"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+msgid "Verify API key is working"
+msgstr "Verify API key is working"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+msgid "Test"
+msgstr "Test"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+msgid "Remove TMDB Key"
+msgstr "Remove TMDB Key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+msgid "Delete stored API key"
+msgstr "Delete stored API key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 288
+msgid "Remove"
+msgstr "Remove"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 175
+msgid "Help"
+msgstr "Help"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+msgid "Step-by-step tutorial"
+msgstr "Step-by-step tutorial"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+msgid "Tutorial"
+msgstr "Tutorial"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+msgid "Enter your TMDB API key below"
+msgstr "Enter your TMDB API key below"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+msgid "Paste API key here"
+msgstr "Paste API key here"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+msgid "Save"
+msgstr "Save"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 208
+msgid "API key saved successfully"
+msgstr "API key saved successfully"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 225
+msgid "Current TMDB API Key"
+msgstr "Current TMDB API Key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+msgid "Masked key"
+msgstr "Masked key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+msgid "Full key stored in"
+msgstr "Full key stored in"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 231
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 246
+msgid "No API Key"
+msgstr "No API Key"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 232
+msgid "No TMDB API key configured yet"
+msgstr "No TMDB API key configured yet"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 235
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 249
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 277
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 334
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 709
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1023
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1060
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 177
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 251
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 450
+msgid "OK"
+msgstr "OK"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 247
+msgid "Please configure TMDB API key first"
+msgstr "Please configure TMDB API key first"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 261
+msgid "✓ Connection Successful"
+msgstr "✓ Connection Successful"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+msgstr ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 267
+msgid "⚠ Connection Failed"
+msgstr "⚠ Connection Failed"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "Could not fetch data from TMDB. Please check your API key."
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 273
+msgid "✗ Connection Error"
+msgstr "✗ Connection Error"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 274
+#, python-brace-format
+msgid "Error testing connection: {}"
+msgstr "Error testing connection: {}"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 284
+msgid "Remove API Key?"
+msgstr "Remove API Key?"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 285
+msgid ""
+"This will delete your stored TMDB API key. You will need to configure it "
+"again."
+msgstr ""
+"This will delete your stored TMDB API key. You will need to configure it "
+"again."
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 304
+msgid "API key removed"
+msgstr "API key removed"
+
+#
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 51
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 98
+# File: usr/share/jellyfix/gui/app.py, line: 142
+msgid "Jellyfix"
+msgstr "Jellyfix"
+
+#
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 169
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
+msgid "Preferences"
+msgstr "Preferences"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 170
+msgid "Configure API Keys"
+msgstr "Configure API Keys"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 176
+msgid "About Jellyfix"
+msgstr "About Jellyfix"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 180
+msgid "Quit"
+msgstr "Quit"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
+msgid "Scanning directory..."
+msgstr "Scanning directory..."
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 360
+msgid "Generating operations..."
+msgstr "Generating operations..."
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 385
+#, python-brace-format
+msgid "{} operations ready"
+msgstr "{} operations ready"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 511
+msgid "Apply Operations?"
+msgstr "Apply Operations?"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 512
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 544
+#, python-brace-format
+msgid "This will rename {} files. Continue?"
+msgstr "This will rename {} files. Continue?"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 543
+msgid "Execute Operations?"
+msgstr "Execute Operations?"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 547
+msgid "Execute"
+msgstr "Execute"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 568
+#, python-brace-format
+msgid "Dry-run: {} operations previewed"
+msgstr "Dry-run: {} operations previewed"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 571
+#, python-brace-format
+msgid "{} operations completed"
+msgstr "{} operations completed"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 706
+msgid "Feature Unavailable"
+msgstr "Feature Unavailable"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 707
+msgid ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+msgstr ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 731
+msgid "Preparing..."
+msgstr "Preparing..."
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 940
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Searching subtitles ({}/{})"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 979
+msgid "subtitle"
+msgstr "subtitle"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 979
+msgid "subtitles"
+msgstr "subtitles"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 980
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1000
+msgid "video"
+msgstr "video"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 983
+msgid "No Subtitles Found"
+msgstr "No Subtitles Found"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 984
+msgid ""
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+msgstr ""
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 988
+msgid "Partial Success"
+msgstr "Partial Success"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 996
+#, python-brace-format
+msgid ""
+"Downloaded {} {}.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+msgstr ""
+"Downloaded {} {}.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1001
+#, python-brace-format
+msgid ""
+"Downloaded {} {} for {} of {} {}.\n"
+"Try manual search for missing?"
+msgstr ""
+"Downloaded {} {} for {} of {} {}.\n"
+"Try manual search for missing?"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1006
+msgid "Download Complete"
+msgstr "Download Complete"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1007
+#, python-brace-format
+msgid "Downloaded {} {} for {} {} (all languages)."
+msgstr "Downloaded {} {} for {} {} (all languages)."
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1020
+msgid "Manual Search"
+msgstr "Manual Search"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1057
+msgid "Batch Error"
+msgstr "Batch Error"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1058
+#, python-brace-format
+msgid ""
+"An error occurred during batch download:\n"
+"{}"
+msgstr ""
+"An error occurred during batch download:\n"
+"{}"
+
+#
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1140
+#, python-brace-format
+msgid "Subtitle downloaded: {}"
+msgstr "Subtitle downloaded: {}"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
+msgid "Subtitle Handling"
+msgstr "Subtitle Handling"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
+msgid "Configure how subtitles are processed"
+msgstr "Configure how subtitles are processed"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
+msgid "Rename Language Variants"
+msgstr "Rename Language Variants"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
+msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
+msgstr "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
+msgid "Remove Duplicate Variants"
+msgstr "Remove Duplicate Variants"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
+msgid "Remove .lang2, .lang3 files after renaming"
+msgstr "Remove .lang2, .lang3 files after renaming"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
+msgid "Add Language Codes"
+msgstr "Add Language Codes"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
+msgid "Add language codes to subtitles without them"
+msgstr "Add language codes to subtitles without them"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
+msgid "Remove Foreign Subtitles"
+msgstr "Remove Foreign Subtitles"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
+msgid "Remove subtitles not in kept languages list"
+msgstr "Remove subtitles not in kept languages list"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
+msgid "Minimum Portuguese Words"
+msgstr "Minimum Portuguese Words"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
+msgid "Min words to detect Portuguese subtitles"
+msgstr "Min words to detect Portuguese subtitles"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
+msgid "Kept Languages"
+msgstr "Kept Languages"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
+msgid "Subtitles in these languages will be kept"
+msgstr "Subtitles in these languages will be kept"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
+msgid "Video"
+msgstr "Video"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
+msgid "Video Handling"
+msgstr "Video Handling"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
+msgid "Configure how videos are processed"
+msgstr "Configure how videos are processed"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
+msgid "Organize in Folders"
+msgstr "Organize in Folders"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
+msgid "Organize TV episodes in Season folders"
+msgstr "Organize TV episodes in Season folders"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
+msgid "Add Quality Tags"
+msgstr "Add Quality Tags"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
+msgid "Add resolution tags (1080p, 720p, etc) to filenames"
+msgstr "Add resolution tags (1080p, 720p, etc) to filenames"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
+msgid "Use ffprobe for Detection"
+msgstr "Use ffprobe for Detection"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
+msgid "More accurate but slower quality detection"
+msgstr "More accurate but slower quality detection"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
+msgid "Metadata"
+msgstr "Metadata"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
+msgid "Metadata Fetching"
+msgstr "Metadata Fetching"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
+msgid "Configure metadata from TMDB"
+msgstr "Configure metadata from TMDB"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
+msgid "Fetch Metadata"
+msgstr "Fetch Metadata"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
+msgid "Download metadata and posters from TMDB"
+msgstr "Download metadata and posters from TMDB"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
+msgid "General"
+msgstr "General"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
+msgid "Application"
+msgstr "Application"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
+msgid "General application settings"
+msgstr "General application settings"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
+msgid "Keep Recent Libraries"
+msgstr "Keep Recent Libraries"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
+msgid "Remember recently scanned libraries between sessions"
+msgstr "Remember recently scanned libraries between sessions"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+msgid "File Cleanup"
+msgstr "File Cleanup"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+msgid "Configure which files to remove"
+msgstr "Configure which files to remove"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+msgid "Remove Non-Media Files"
+msgstr "Remove Non-Media Files"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Remove all files that are not .srt or .mp4"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+msgid "Fix Mirabel Files"
+msgstr "Fix Mirabel Files"
+
+#
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+
+#
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 73
+msgid "Select Directory to Scan"
+msgstr "Select Directory to Scan"
+
+#
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 174
+msgid "Scan Failed"
+msgstr "Scan Failed"
+
+#
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 248
+msgid "Operation Generation Failed"
+msgstr "Operation Generation Failed"
+
+#
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 447
+msgid "Execution Failed"
+msgstr "Execution Failed"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+msgid "No Selection"
+msgstr "No Selection"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+msgid "Select an item to preview"
+msgstr "Select an item to preview"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+msgid "Search title"
+msgstr "Search title"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+msgid "Wrong title? Click to search manually"
+msgstr "Wrong title? Click to search manually"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+msgid "Download Subtitles"
+msgstr "Download Subtitles"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+msgid "Search and download subtitles automatically"
+msgstr "Search and download subtitles automatically"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 150
+msgid "From:"
+msgstr "From:"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 182
+msgid "To:"
+msgstr "To:"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 263
+msgid "MOVE"
+msgstr "MOVE"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 266
+msgid "DELETE"
+msgstr "DELETE"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 273
+msgid "MOVE + RENAME"
+msgstr "MOVE + RENAME"
+
+#
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 276
+msgid "RENAME"
+msgstr "RENAME"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+msgid "Welcome to Jellyfix"
+msgstr "Welcome to Jellyfix"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+msgid "Drop a folder here"
+msgstr "Drop a folder here"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+msgid "or click the button below"
+msgstr "or click the button below"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+msgid "Add Library"
+msgstr "Add Library"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+msgid "Recent Libraries"
+msgstr "Recent Libraries"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+msgid "Clear recent libraries"
+msgstr "Clear recent libraries"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+msgid "weeks ago"
+msgstr "weeks ago"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+msgid "days ago"
+msgstr "days ago"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+msgid "hours ago"
+msgstr "hours ago"
+
+#
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+msgid "Just now"
+msgstr "Just now"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+msgid "Operations"
+msgstr "Operations"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 156
+msgid "Search..."
+msgstr "Search..."
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 166
+msgid "All"
+msgstr "All"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 195
+msgid "Download Subtitles for All"
+msgstr "Download Subtitles for All"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Search and download subtitles for all listed videos"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 216
+msgid "No Operations"
+msgstr "No Operations"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 217
+msgid "Scan a directory to generate operations"
+msgstr "Scan a directory to generate operations"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 418
+msgid "rename"
+msgstr "rename"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 420
+msgid "move"
+msgstr "move"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 422
+msgid "delete"
+msgstr "delete"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 425
+#, python-brace-format
+msgid "Showing {} of {} operations"
+msgstr "Showing {} of {} operations"
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 427
+#, python-brace-format
+msgid "Total: {} operations"
+msgstr "Total: {} operations"
+
+#
+# File: usr/share/jellyfix/gui/app.py, line: 151
+msgid "translator-credits"
+msgstr "translator-credits"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
-#~ msgid "Organize Folder with Jellyfix"
-#~ msgstr "Organize Folder with Jellyfix"
+msgid "Organize Folder with Jellyfix"
+msgstr "Organize Folder with Jellyfix"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
 #, python-brace-format
-#~ msgid "Organize {0} Folders with Jellyfix"
-#~ msgstr "Organize {0} Folders with Jellyfix"
+msgid "Organize {0} Folders with Jellyfix"
+msgstr "Organize {0} Folders with Jellyfix"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
-#~ msgid "Organize 1 Video and 1 Subtitle"
-#~ msgstr "Organize 1 Video and 1 Subtitle"
+msgid "Organize 1 Video and 1 Subtitle"
+msgstr "Organize 1 Video and 1 Subtitle"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
 #, python-brace-format
-#~ msgid "Organize 1 Video and {0} Subtitles"
-#~ msgstr "Organize 1 Video and {0} Subtitles"
+msgid "Organize 1 Video and {0} Subtitles"
+msgstr "Organize 1 Video and {0} Subtitles"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
 #, python-brace-format
-#~ msgid "Organize {0} Videos and 1 Subtitle"
-#~ msgstr "Organize {0} Videos and 1 Subtitle"
+msgid "Organize {0} Videos and 1 Subtitle"
+msgstr "Organize {0} Videos and 1 Subtitle"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
 #, python-brace-format
-#~ msgid "Organize {0} Videos and {1} Subtitles"
-#~ msgstr "Organize {0} Videos and {1} Subtitles"
+msgid "Organize {0} Videos and {1} Subtitles"
+msgstr "Organize {0} Videos and {1} Subtitles"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
-#~ msgid "Organize Video"
-#~ msgstr "Organize Video"
+msgid "Organize Video"
+msgstr "Organize Video"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
 #, python-brace-format
-#~ msgid "Organize {0} Videos"
-#~ msgstr "Organize {0} Videos"
+msgid "Organize {0} Videos"
+msgstr "Organize {0} Videos"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
-#~ msgid "Organize Subtitle"
-#~ msgstr "Organize Subtitle"
+msgid "Organize Subtitle"
+msgstr "Organize Subtitle"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
 #, python-brace-format
-#~ msgid "Organize {0} Subtitles"
-#~ msgstr "Organize {0} Subtitles"
+msgid "Organize {0} Subtitles"
+msgstr "Organize {0} Subtitles"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
-#~ msgid "No valid local files selected"
-#~ msgstr "No valid local files selected"
+msgid "No valid local files selected"
+msgstr "No valid local files selected"
 
 #
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
-#~ msgid "Could not get the path for the selected files."
-#~ msgstr "Could not get the path for the selected files."
+msgid "Could not get the path for the selected files."
+msgstr "Could not get the path for the selected files."
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 258
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 271
-#~ msgid "Application Launch Error"
-#~ msgstr "Application Launch Error"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
+msgid "Application Not Found"
+msgstr "Application Not Found"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 265
-#~ msgid "Application Not Found"
-#~ msgstr "Application Not Found"
-
-#
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 266
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
 #, python-brace-format
-#~ msgid "Could not find '{0}'. Is Jellyfix installed?"
-#~ msgstr "Could not find '{0}'. Is Jellyfix installed?"
+msgid "Could not find '{0}'. Is Jellyfix installed?"
+msgstr "Could not find '{0}'. Is Jellyfix installed?"
 
 #
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 272
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+msgid "Application Launch Error"
+msgstr "Application Launch Error"
+
+#
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
 #, python-brace-format
-#~ msgid "Failed to start Jellyfix: {0}"
-#~ msgstr "Failed to start Jellyfix: {0}"
+msgid "Failed to start Jellyfix: {0}"
+msgstr "Failed to start Jellyfix: {0}"
