@@ -34,6 +34,10 @@ try:
 except ImportError:
     HAS_SUBLIMINAL = False
 
+# Curated provider list: fast and reliable for multilingual subtitle search.
+# Excludes slow/niche providers (napiprojekt=Polish-only, subtitulamos=Spanish-only,
+# addic7ed=requires login, tvsubtitles=slow).
+DEFAULT_PROVIDERS = ["opensubtitlescom", "opensubtitles", "podnapisi", "gestdown"]
 
 # Language display names mapping (ISO 639-2 to human readable)
 LANGUAGE_NAMES = {
@@ -213,21 +217,142 @@ class SubtitleManager:
         
         return all_results
 
+    def download_subtitles_batch(
+        self,
+        video_paths: List[Path],
+        languages: Optional[List[str]] = None,
+        providers: Optional[List[str]] = None,
+        metadata_map: Optional[Dict[Path, dict]] = None,
+        min_score: int = 0,
+        progress_callback=None,
+    ) -> Dict[Path, Dict[str, List[Path]]]:
+        """
+        Batch download subtitles for multiple videos.
+
+        Opens provider connections once and reuses for all videos,
+        significantly faster than calling download_subtitles() per video.
+
+        Args:
+            video_paths: List of video file paths
+            languages: Languages to download (default: config kept_languages)
+            providers: Providers to use (default: DEFAULT_PROVIDERS)
+            metadata_map: Optional dict mapping Path -> {title, year, is_episode, season, episode}
+            min_score: Minimum score to accept
+            progress_callback: Optional callable(video_path, index, total) for progress updates
+
+        Returns:
+            Dict mapping video path to language->subtitle paths dict
+        """
+        if not self.is_available() or not video_paths:
+            return {}
+
+        if not languages:
+            languages = self.config.kept_languages or ["por", "eng"]
+
+        langs = set()
+        for lang in languages:
+            if lang == "por":
+                langs.add(Language("por"))
+                try:
+                    langs.add(Language("por", "BR"))
+                except Exception:
+                    pass
+            else:
+                langs.add(Language(lang))
+
+        use_providers = providers or DEFAULT_PROVIDERS
+        all_results: Dict[Path, Dict[str, List[Path]]] = {}
+        total = len(video_paths)
+
+        # Phase 1: Batch hash search — single pool for all videos
+        self.logger.info(_("Batch Level 1: scanning %d videos by hash...") % total)
+        scanned = {}
+        for vpath in video_paths:
+            if not vpath.exists():
+                continue
+            try:
+                scanned[vpath] = scan_video(vpath)
+            except Exception as e:
+                self.logger.debug(f"scan_video failed for {vpath.name}: {e}")
+
+        if scanned:
+            try:
+                hash_results = download_best_subtitles(
+                    set(scanned.values()),
+                    langs,
+                    providers=use_providers,
+                    pool_class=AsyncProviderPool,
+                    min_score=min_score,
+                )
+            except Exception as e:
+                self.logger.debug(f"Batch hash search failed: {e}")
+                hash_results = {}
+
+            # Map results back to paths and save subtitles
+            video_to_path = {v: p for p, v in scanned.items()}
+            for video_obj, subs in hash_results.items():
+                vpath = video_to_path.get(video_obj)
+                if vpath and subs:
+                    saved = self._save_subtitles(video_obj, vpath, subs)
+                    if saved:
+                        all_results[vpath] = saved
+                        self.logger.info(_("Level 1 (hash) found: %s for %s") % (", ".join(saved.keys()), vpath.name))
+
+        # Phase 2: Level 2 fallback for videos still missing languages
+        meta = metadata_map or {}
+        missing_videos = []
+        for idx, vpath in enumerate(video_paths):
+            if progress_callback:
+                progress_callback(vpath, idx, total)
+            found_langs = set(all_results.get(vpath, {}).keys())
+            still_need = set(languages) - found_langs
+            if still_need and vpath in meta and meta[vpath].get("title"):
+                missing_videos.append((vpath, still_need, meta[vpath]))
+
+        if missing_videos:
+            self.logger.info(_("Batch Level 2: title search for %d videos...") % len(missing_videos))
+            for vpath, need_langs, info in missing_videos:
+                lang_objs = {Language(code) for code in need_langs}
+                result2 = self._search_by_title(
+                    video_path=vpath,
+                    title=info["title"],
+                    year=info.get("year"),
+                    langs=lang_objs,
+                    providers=use_providers,
+                    is_episode=info.get("is_episode", False),
+                    season=info.get("season"),
+                    episode=info.get("episode"),
+                    min_score=min_score,
+                )
+                if result2:
+                    existing = all_results.get(vpath, {})
+                    existing.update(result2)
+                    all_results[vpath] = existing
+                    self.logger.info(_("Level 2 (TMDB) found: %s for %s") % (", ".join(result2.keys()), vpath.name))
+
+        return all_results
+
     def _search_by_hash(self, video_path: Path, langs: Set, 
                         providers: Optional[List[str]] = None,
                         min_score: int = 0) -> Dict[str, List[Path]]:
         """
         Level 1: Search subtitles by video file hash.
-        
+
         This provides the most accurate match since the hash uniquely identifies the video.
+        Uses AsyncProviderPool for parallel provider queries.
         """
         try:
             # Scan video for information (hash, size, etc.)
             video = scan_video(video_path)
-            
-            # Download best subtitles
-            subtitles = download_best_subtitles([video], langs, providers=providers,
-                                                 min_score=min_score)
+
+            # Download best subtitles using AsyncProviderPool for parallel queries
+            subtitles = download_best_subtitles(
+                {video},
+                langs,
+                providers=providers or DEFAULT_PROVIDERS,
+                pool_class=AsyncProviderPool,
+                min_score=min_score,
+            )
             
             if not subtitles or not subtitles[video]:
                 return {}
@@ -270,7 +395,7 @@ class SubtitleManager:
             video = Video.fromname(search_name)
             
             # Use list_subtitles to get all candidates (more control than download_best_subtitles)
-            with AsyncProviderPool(providers=providers) as pool:
+            with AsyncProviderPool(providers=providers or DEFAULT_PROVIDERS) as pool:
                 all_subtitles = pool.list_subtitles(video, langs)
             
             # Flatten results and validate each subtitle
@@ -600,7 +725,7 @@ class SubtitleManager:
             video = Video.fromname(search_name)
             
             # List all subtitles (not just best)
-            with AsyncProviderPool(providers=providers) as pool:
+            with AsyncProviderPool(providers=providers or DEFAULT_PROVIDERS) as pool:
                 all_subtitles = pool.list_subtitles(video, langs)
             
             # Create results from list
