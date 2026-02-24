@@ -249,15 +249,59 @@ msgstr "Odmowa dostępu"
 msgid "Settings"
 msgstr "Ustawienia"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 287
+#: usr/share/jellyfix/cli/interactive.py:390
+msgid "What would you like to configure?"
+msgstr "Co chciałbyś skonfigurować?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 381
+# File: usr/share/jellyfix/cli/interactive.py, line: 392
+# File: usr/share/jellyfix/cli/interactive.py, line: 404
+#: NEEDS WORK
+msgid "Subtitle Options"
+msgstr "Opcje napisów"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 382
+# File: usr/share/jellyfix/cli/interactive.py, line: 394
+# File: usr/share/jellyfix/cli/interactive.py, line: 468
+#: NEEDS WORK
+msgid "Metadata Options"
+msgstr "Opcje metadanych"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 383
+# File: usr/share/jellyfix/cli/interactive.py, line: 396
+# File: usr/share/jellyfix/cli/interactive.py, line: 500
+#: NEEDS WORK
+msgid "File Organization"
+msgstr "Organizacja plików"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+# File: usr/share/jellyfix/cli/interactive.py, line: 306
+# File: usr/share/jellyfix/cli/interactive.py, line: 428
+# File: usr/share/jellyfix/cli/interactive.py, line: 434
+#: usr/share/jellyfix/cli/interactive.py:407
+#: usr/share/jellyfix/cli/interactive.py:413
+#: usr/share/jellyfix/cli/interactive.py:555
+#: usr/share/jellyfix/cli/interactive.py:561
+msgid "Back"
+msgstr "Wstecz"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 303
+# File: usr/share/jellyfix/cli/interactive.py, line: 431
+#: usr/share/jellyfix/cli/interactive.py:410
+#: usr/share/jellyfix/cli/interactive.py:558
+msgid "(Use ↑↓ and ENTER to select)"
+msgstr "(Użyj ↑↓ i ENTER, aby wybrać)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 284
 #: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 287
-#: usr/share/jellyfix/cli/interactive.py:390
-msgid "What would you like to configure?"
-msgstr "Co chciałbyś skonfigurować?"
+# File: usr/share/jellyfix/cli/interactive.py, line: 409
+#: NEEDS WORK
+msgid "Subtitle settings:"
+msgstr "Ustawienia napisów:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 289
 #: usr/share/jellyfix/cli/interactive.py:392
@@ -286,46 +330,6 @@ msgstr "Usuń obce napisy"
 msgid "Kept languages:"
 msgstr "Zachowane języki:"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 294
-#: usr/share/jellyfix/cli/interactive.py:397
-msgid "Organize in folders (Season XX)"
-msgstr "Organizuj w folderach (Sezon XX)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 295
-#: usr/share/jellyfix/cli/interactive.py:398
-msgid "Fetch metadata (TMDB/TVDB)"
-msgstr "Pobierz metadane (TMDB/TVDB)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-# File: usr/share/jellyfix/cli/interactive.py, line: 344
-#: usr/share/jellyfix/cli/interactive.py:399
-#: usr/share/jellyfix/cli/interactive.py:450
-msgid "Ask when multiple TMDB results"
-msgstr "Zapytaj, gdy jest wiele wyników TMDB"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-#: usr/share/jellyfix/cli/interactive.py:400
-msgid "Add quality tags (1080p, 720p, etc)"
-msgstr "Dodaj tagi jakości (1080p, 720p itp)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 297
-#: usr/share/jellyfix/cli/interactive.py:401
-#: usr/share/jellyfix/cli/interactive.py:460
-msgid "Use ffprobe for quality detection"
-msgstr "Użyj ffprobe do wykrywania jakości"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-# File: usr/share/jellyfix/cli/interactive.py, line: 360
-#: usr/share/jellyfix/cli/interactive.py:402
-#: usr/share/jellyfix/cli/interactive.py:465
-msgid "Rename NFO files to match video"
-msgstr "Zmień nazwy plików NFO, aby pasowały do wideo"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 300
-#: usr/share/jellyfix/cli/interactive.py:403
-msgid "Remove non-media files (keep only videos/subtitles)"
-msgstr "Usuń pliki niebędące mediami (zachowaj tylko filmy/napisy)"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 301
 #: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
@@ -335,30 +339,6 @@ msgstr "Napraw pliki Mirabel (.pt-BR.hi → .por)"
 #: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "Min słów portugalskich:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-#: usr/share/jellyfix/cli/interactive.py:406
-#: usr/share/jellyfix/cli/interactive.py:495
-msgid "Configure APIs (TMDB/TVDB)"
-msgstr "Konfiguruj API (TMDB/TVDB)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 300
-# File: usr/share/jellyfix/cli/interactive.py, line: 306
-# File: usr/share/jellyfix/cli/interactive.py, line: 428
-# File: usr/share/jellyfix/cli/interactive.py, line: 434
-#: usr/share/jellyfix/cli/interactive.py:407
-#: usr/share/jellyfix/cli/interactive.py:413
-#: usr/share/jellyfix/cli/interactive.py:555
-#: usr/share/jellyfix/cli/interactive.py:561
-msgid "Back"
-msgstr "Wstecz"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 303
-# File: usr/share/jellyfix/cli/interactive.py, line: 431
-#: usr/share/jellyfix/cli/interactive.py:410
-#: usr/share/jellyfix/cli/interactive.py:558
-msgid "(Use ↑↓ and ENTER to select)"
-msgstr "(Użyj ↑↓ i ENTER, aby wybrać)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 310
 #: usr/share/jellyfix/cli/interactive.py:417
@@ -408,26 +388,6 @@ msgstr "Usuń obcy"
 msgid "Kept languages"
 msgstr "Zachowane języki"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 333
-#: usr/share/jellyfix/cli/interactive.py:440
-msgid "Organize in folders"
-msgstr "Organizuj w folderach"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 338
-#: usr/share/jellyfix/cli/interactive.py:445
-msgid "Fetch metadata"
-msgstr "Pobierz metadane"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 343
-#: usr/share/jellyfix/cli/interactive.py:455
-msgid "Add quality tags"
-msgstr "Dodaj tagi jakości"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 366
-#: usr/share/jellyfix/cli/interactive.py:470
-msgid "Remove non-media files"
-msgstr "Usuń pliki niebędące mediami"
-# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
@@ -455,6 +415,87 @@ msgstr "Ustawienia zapisane w ~/.jellyfix/config.json"
 #: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "Nieprawidłowa wartość!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 471
+#: NEEDS WORK
+msgid "Metadata settings:"
+msgstr "Ustawienia metadanych:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 295
+#: usr/share/jellyfix/cli/interactive.py:398
+msgid "Fetch metadata (TMDB/TVDB)"
+msgstr "Pobierz metadane (TMDB/TVDB)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: usr/share/jellyfix/cli/interactive.py:399
+#: usr/share/jellyfix/cli/interactive.py:450
+msgid "Ask when multiple TMDB results"
+msgstr "Zapytaj, gdy jest wiele wyników TMDB"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+#: usr/share/jellyfix/cli/interactive.py:406
+#: usr/share/jellyfix/cli/interactive.py:495
+msgid "Configure APIs (TMDB/TVDB)"
+msgstr "Konfiguruj API (TMDB/TVDB)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 338
+#: usr/share/jellyfix/cli/interactive.py:445
+msgid "Fetch metadata"
+msgstr "Pobierz metadane"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 492
+#: NEEDS WORK
+msgid "Configure APIs"
+msgstr "Konfiguruj interfejsy API"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 503
+#: NEEDS WORK
+msgid "File organization settings:"
+msgstr "Ustawienia organizacji plików:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 294
+#: usr/share/jellyfix/cli/interactive.py:397
+msgid "Organize in folders (Season XX)"
+msgstr "Organizuj w folderach (Sezon XX)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+#: usr/share/jellyfix/cli/interactive.py:400
+msgid "Add quality tags (1080p, 720p, etc)"
+msgstr "Dodaj tagi jakości (1080p, 720p itp)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 297
+#: usr/share/jellyfix/cli/interactive.py:401
+#: usr/share/jellyfix/cli/interactive.py:460
+msgid "Use ffprobe for quality detection"
+msgstr "Użyj ffprobe do wykrywania jakości"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+# File: usr/share/jellyfix/cli/interactive.py, line: 360
+#: usr/share/jellyfix/cli/interactive.py:402
+#: usr/share/jellyfix/cli/interactive.py:465
+msgid "Rename NFO files to match video"
+msgstr "Zmień nazwy plików NFO, aby pasowały do wideo"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: usr/share/jellyfix/cli/interactive.py:403
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Usuń pliki niebędące mediami (zachowaj tylko filmy/napisy)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 333
+#: usr/share/jellyfix/cli/interactive.py:440
+msgid "Organize in folders"
+msgstr "Organizuj w folderach"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 343
+#: usr/share/jellyfix/cli/interactive.py:455
+msgid "Add quality tags"
+msgstr "Dodaj tagi jakości"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: usr/share/jellyfix/cli/interactive.py:470
+msgid "Remove non-media files"
+msgstr "Usuń pliki niebędące mediami"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
 #: usr/share/jellyfix/cli/interactive.py:502
@@ -1349,6 +1390,30 @@ msgstr "Nadal brakuje: %s (spróbuj wyszukiwania ręcznego)"
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "Nie znaleziono napisów dla: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "Partia Poziom 1: skanowanie %d filmów według hasha..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "Poziom 1 (hash) znaleziony: %s dla %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "Partia Poziom 2: wyszukiwanie tytułów dla %d filmów..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "Poziom 2 (TMDB) znaleziono: %s dla %s"
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237

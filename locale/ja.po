@@ -249,15 +249,59 @@ msgstr "アクセスが拒否されました"
 msgid "Settings"
 msgstr "設定"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 287
+#: usr/share/jellyfix/cli/interactive.py:390
+msgid "What would you like to configure?"
+msgstr "何を設定しますか？"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 381
+# File: usr/share/jellyfix/cli/interactive.py, line: 392
+# File: usr/share/jellyfix/cli/interactive.py, line: 404
+#: NEEDS WORK
+msgid "Subtitle Options"
+msgstr "字幕オプション"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 382
+# File: usr/share/jellyfix/cli/interactive.py, line: 394
+# File: usr/share/jellyfix/cli/interactive.py, line: 468
+#: NEEDS WORK
+msgid "Metadata Options"
+msgstr "メタデータオプション"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 383
+# File: usr/share/jellyfix/cli/interactive.py, line: 396
+# File: usr/share/jellyfix/cli/interactive.py, line: 500
+#: NEEDS WORK
+msgid "File Organization"
+msgstr "ファイルの整理"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+# File: usr/share/jellyfix/cli/interactive.py, line: 306
+# File: usr/share/jellyfix/cli/interactive.py, line: 428
+# File: usr/share/jellyfix/cli/interactive.py, line: 434
+#: usr/share/jellyfix/cli/interactive.py:407
+#: usr/share/jellyfix/cli/interactive.py:413
+#: usr/share/jellyfix/cli/interactive.py:555
+#: usr/share/jellyfix/cli/interactive.py:561
+msgid "Back"
+msgstr "戻る"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 303
+# File: usr/share/jellyfix/cli/interactive.py, line: 431
+#: usr/share/jellyfix/cli/interactive.py:410
+#: usr/share/jellyfix/cli/interactive.py:558
+msgid "(Use ↑↓ and ENTER to select)"
+msgstr "(↑↓とENTERを使って選択)"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 284
 #: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 287
-#: usr/share/jellyfix/cli/interactive.py:390
-msgid "What would you like to configure?"
-msgstr "何を設定しますか？"
+# File: usr/share/jellyfix/cli/interactive.py, line: 409
+#: NEEDS WORK
+msgid "Subtitle settings:"
+msgstr "字幕設定："
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 289
 #: usr/share/jellyfix/cli/interactive.py:392
@@ -286,46 +330,6 @@ msgstr "外国の字幕を削除"
 msgid "Kept languages:"
 msgstr "保持された言語:"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 294
-#: usr/share/jellyfix/cli/interactive.py:397
-msgid "Organize in folders (Season XX)"
-msgstr "フォルダーに整理する（シーズンXX）"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 295
-#: usr/share/jellyfix/cli/interactive.py:398
-msgid "Fetch metadata (TMDB/TVDB)"
-msgstr "メタデータを取得 (TMDB/TVDB)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-# File: usr/share/jellyfix/cli/interactive.py, line: 344
-#: usr/share/jellyfix/cli/interactive.py:399
-#: usr/share/jellyfix/cli/interactive.py:450
-msgid "Ask when multiple TMDB results"
-msgstr "複数のTMDB結果がある場合は尋ねる"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-#: usr/share/jellyfix/cli/interactive.py:400
-msgid "Add quality tags (1080p, 720p, etc)"
-msgstr "品質タグを追加 (1080p、720pなど)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 297
-#: usr/share/jellyfix/cli/interactive.py:401
-#: usr/share/jellyfix/cli/interactive.py:460
-msgid "Use ffprobe for quality detection"
-msgstr "ffprobeを使用して品質検出を行います"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-# File: usr/share/jellyfix/cli/interactive.py, line: 360
-#: usr/share/jellyfix/cli/interactive.py:402
-#: usr/share/jellyfix/cli/interactive.py:465
-msgid "Rename NFO files to match video"
-msgstr "NFOファイルの名前を動画に合わせて変更"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 300
-#: usr/share/jellyfix/cli/interactive.py:403
-msgid "Remove non-media files (keep only videos/subtitles)"
-msgstr "メディアファイル以外を削除する（動画/字幕のみ保持）"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 301
 #: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
@@ -335,30 +339,6 @@ msgstr "Mirabelファイルを修正する（.pt-BR.hi → .por）"
 #: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "最小ポルトガル語の単語数:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-#: usr/share/jellyfix/cli/interactive.py:406
-#: usr/share/jellyfix/cli/interactive.py:495
-msgid "Configure APIs (TMDB/TVDB)"
-msgstr "APIを設定する（TMDB/TVDB）"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 300
-# File: usr/share/jellyfix/cli/interactive.py, line: 306
-# File: usr/share/jellyfix/cli/interactive.py, line: 428
-# File: usr/share/jellyfix/cli/interactive.py, line: 434
-#: usr/share/jellyfix/cli/interactive.py:407
-#: usr/share/jellyfix/cli/interactive.py:413
-#: usr/share/jellyfix/cli/interactive.py:555
-#: usr/share/jellyfix/cli/interactive.py:561
-msgid "Back"
-msgstr "戻る"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 303
-# File: usr/share/jellyfix/cli/interactive.py, line: 431
-#: usr/share/jellyfix/cli/interactive.py:410
-#: usr/share/jellyfix/cli/interactive.py:558
-msgid "(Use ↑↓ and ENTER to select)"
-msgstr "(↑↓とENTERを使って選択)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 310
 #: usr/share/jellyfix/cli/interactive.py:417
@@ -408,26 +388,6 @@ msgstr "外国を削除"
 msgid "Kept languages"
 msgstr "保持された言語"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 333
-#: usr/share/jellyfix/cli/interactive.py:440
-msgid "Organize in folders"
-msgstr "フォルダーに整理する"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 338
-#: usr/share/jellyfix/cli/interactive.py:445
-msgid "Fetch metadata"
-msgstr "メタデータを取得"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 343
-#: usr/share/jellyfix/cli/interactive.py:455
-msgid "Add quality tags"
-msgstr "品質タグを追加"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 366
-#: usr/share/jellyfix/cli/interactive.py:470
-msgid "Remove non-media files"
-msgstr "メディアファイル以外を削除"
-# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
@@ -455,6 +415,87 @@ msgstr "設定が ~/.jellyfix/config.json に保存されました"
 #: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "無効な値！"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 471
+#: NEEDS WORK
+msgid "Metadata settings:"
+msgstr "メタデータ設定:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 295
+#: usr/share/jellyfix/cli/interactive.py:398
+msgid "Fetch metadata (TMDB/TVDB)"
+msgstr "メタデータを取得 (TMDB/TVDB)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: usr/share/jellyfix/cli/interactive.py:399
+#: usr/share/jellyfix/cli/interactive.py:450
+msgid "Ask when multiple TMDB results"
+msgstr "複数のTMDB結果がある場合は尋ねる"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+#: usr/share/jellyfix/cli/interactive.py:406
+#: usr/share/jellyfix/cli/interactive.py:495
+msgid "Configure APIs (TMDB/TVDB)"
+msgstr "APIを設定する（TMDB/TVDB）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 338
+#: usr/share/jellyfix/cli/interactive.py:445
+msgid "Fetch metadata"
+msgstr "メタデータを取得"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 492
+#: NEEDS WORK
+msgid "Configure APIs"
+msgstr "APIを設定する"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 503
+#: NEEDS WORK
+msgid "File organization settings:"
+msgstr "ファイル整理設定:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 294
+#: usr/share/jellyfix/cli/interactive.py:397
+msgid "Organize in folders (Season XX)"
+msgstr "フォルダーに整理する（シーズンXX）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+#: usr/share/jellyfix/cli/interactive.py:400
+msgid "Add quality tags (1080p, 720p, etc)"
+msgstr "品質タグを追加 (1080p、720pなど)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 297
+#: usr/share/jellyfix/cli/interactive.py:401
+#: usr/share/jellyfix/cli/interactive.py:460
+msgid "Use ffprobe for quality detection"
+msgstr "ffprobeを使用して品質検出を行います"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+# File: usr/share/jellyfix/cli/interactive.py, line: 360
+#: usr/share/jellyfix/cli/interactive.py:402
+#: usr/share/jellyfix/cli/interactive.py:465
+msgid "Rename NFO files to match video"
+msgstr "NFOファイルの名前を動画に合わせて変更"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: usr/share/jellyfix/cli/interactive.py:403
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "メディアファイル以外を削除する（動画/字幕のみ保持）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 333
+#: usr/share/jellyfix/cli/interactive.py:440
+msgid "Organize in folders"
+msgstr "フォルダーに整理する"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 343
+#: usr/share/jellyfix/cli/interactive.py:455
+msgid "Add quality tags"
+msgstr "品質タグを追加"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: usr/share/jellyfix/cli/interactive.py:470
+msgid "Remove non-media files"
+msgstr "メディアファイル以外を削除"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
 #: usr/share/jellyfix/cli/interactive.py:502
@@ -1349,6 +1390,30 @@ msgstr "まだ見つかりません: %s（手動検索を試してください�
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "%sの字幕が見つかりませんでした。"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "バッチレベル 1: ハッシュによる %d 本のビデオをスキャン中..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "レベル 1 (ハッシュ) が見つかりました: %s の %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "バッチレベル2: %d本のビデオのタイトル検索..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "レベル 2 (TMDB) が見つかりました: %s の %s"
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237

@@ -249,15 +249,62 @@ msgstr "权限被拒绝"
 msgid "Settings"
 msgstr "设置"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 287
+#: usr/share/jellyfix/cli/interactive.py:390
+msgid "What would you like to configure?"
+msgstr "您想配置什么？"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 381
+# File: usr/share/jellyfix/cli/interactive.py, line: 392
+# File: usr/share/jellyfix/cli/interactive.py, line: 404
+#: NEEDS WORK
+msgid "Subtitle Options"
+msgstr "字幕选项"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 382
+# File: usr/share/jellyfix/cli/interactive.py, line: 394
+# File: usr/share/jellyfix/cli/interactive.py, line: 468
+#: NEEDS WORK
+msgid "Metadata Options"
+msgstr "元数据选项"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 383
+# File: usr/share/jellyfix/cli/interactive.py, line: 396
+# File: usr/share/jellyfix/cli/interactive.py, line: 500
+#: NEEDS WORK
+msgid "File Organization"
+msgstr "文件组织"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+# File: usr/share/jellyfix/cli/interactive.py, line: 306
+# File: usr/share/jellyfix/cli/interactive.py, line: 428
+# File: usr/share/jellyfix/cli/interactive.py, line: 434
+#: usr/share/jellyfix/cli/interactive.py:407
+#: usr/share/jellyfix/cli/interactive.py:413
+#: usr/share/jellyfix/cli/interactive.py:555
+#: usr/share/jellyfix/cli/interactive.py:561
+msgid "Back"
+msgstr "返回"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 303
+# File: usr/share/jellyfix/cli/interactive.py, line: 431
+#: usr/share/jellyfix/cli/interactive.py:410
+#: usr/share/jellyfix/cli/interactive.py:558
+msgid "(Use ↑↓ and ENTER to select)"
+msgstr ""
+"键（用于上下文）：（使用↑↓和ENTER进行选择）\n"
+"\n"
+"字符串翻译：（使用↑↓和ENTER进行选择）"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 284
 #: usr/share/jellyfix/cli/interactive.py:387
 msgid "none"
 msgstr "none"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 287
-#: usr/share/jellyfix/cli/interactive.py:390
-msgid "What would you like to configure?"
-msgstr "您想配置什么？"
+# File: usr/share/jellyfix/cli/interactive.py, line: 409
+#: NEEDS WORK
+msgid "Subtitle settings:"
+msgstr "字幕设置："
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 289
 #: usr/share/jellyfix/cli/interactive.py:392
@@ -286,46 +333,6 @@ msgstr "移除外语字幕"
 msgid "Kept languages:"
 msgstr "保留的语言："
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 294
-#: usr/share/jellyfix/cli/interactive.py:397
-msgid "Organize in folders (Season XX)"
-msgstr "按文件夹组织（第XX季）"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 295
-#: usr/share/jellyfix/cli/interactive.py:398
-msgid "Fetch metadata (TMDB/TVDB)"
-msgstr "获取元数据（TMDB/TVDB）"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-# File: usr/share/jellyfix/cli/interactive.py, line: 344
-#: usr/share/jellyfix/cli/interactive.py:399
-#: usr/share/jellyfix/cli/interactive.py:450
-msgid "Ask when multiple TMDB results"
-msgstr "当有多个TMDB结果时询问"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-#: usr/share/jellyfix/cli/interactive.py:400
-msgid "Add quality tags (1080p, 720p, etc)"
-msgstr "添加质量标签（1080p、720p等）"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 297
-#: usr/share/jellyfix/cli/interactive.py:401
-#: usr/share/jellyfix/cli/interactive.py:460
-msgid "Use ffprobe for quality detection"
-msgstr "使用 ffprobe 进行质量检测"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-# File: usr/share/jellyfix/cli/interactive.py, line: 360
-#: usr/share/jellyfix/cli/interactive.py:402
-#: usr/share/jellyfix/cli/interactive.py:465
-msgid "Rename NFO files to match video"
-msgstr "重命名NFO文件以匹配视频"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 300
-#: usr/share/jellyfix/cli/interactive.py:403
-msgid "Remove non-media files (keep only videos/subtitles)"
-msgstr "删除非媒体文件（仅保留视频/字幕）"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 301
 #: usr/share/jellyfix/cli/interactive.py:404
 msgid "Fix Mirabel files (.pt-BR.hi → .por)"
@@ -335,33 +342,6 @@ msgstr "修复 Mirabel 文件 (.pt-BR.hi → .por)"
 #: usr/share/jellyfix/cli/interactive.py:405
 msgid "Min Portuguese words:"
 msgstr "最小葡萄牙语单词："
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-#: usr/share/jellyfix/cli/interactive.py:406
-#: usr/share/jellyfix/cli/interactive.py:495
-msgid "Configure APIs (TMDB/TVDB)"
-msgstr "配置 API（TMDB/TVDB）"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 300
-# File: usr/share/jellyfix/cli/interactive.py, line: 306
-# File: usr/share/jellyfix/cli/interactive.py, line: 428
-# File: usr/share/jellyfix/cli/interactive.py, line: 434
-#: usr/share/jellyfix/cli/interactive.py:407
-#: usr/share/jellyfix/cli/interactive.py:413
-#: usr/share/jellyfix/cli/interactive.py:555
-#: usr/share/jellyfix/cli/interactive.py:561
-msgid "Back"
-msgstr "返回"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 303
-# File: usr/share/jellyfix/cli/interactive.py, line: 431
-#: usr/share/jellyfix/cli/interactive.py:410
-#: usr/share/jellyfix/cli/interactive.py:558
-msgid "(Use ↑↓ and ENTER to select)"
-msgstr ""
-"键（用于上下文）：（使用↑↓和ENTER进行选择）\n"
-"\n"
-"字符串翻译：（使用↑↓和ENTER进行选择）"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 310
 #: usr/share/jellyfix/cli/interactive.py:417
@@ -411,26 +391,6 @@ msgstr "移除外部"
 msgid "Kept languages"
 msgstr "保留的语言"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 333
-#: usr/share/jellyfix/cli/interactive.py:440
-msgid "Organize in folders"
-msgstr "按文件夹组织"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 338
-#: usr/share/jellyfix/cli/interactive.py:445
-msgid "Fetch metadata"
-msgstr "获取元数据"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 343
-#: usr/share/jellyfix/cli/interactive.py:455
-msgid "Add quality tags"
-msgstr "添加质量标签"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 366
-#: usr/share/jellyfix/cli/interactive.py:470
-msgid "Remove non-media files"
-msgstr "删除非媒体文件"
-# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
@@ -458,6 +418,87 @@ msgstr "设置已保存到 ~/.jellyfix/config.json"
 #: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "无效的值！"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 471
+#: NEEDS WORK
+msgid "Metadata settings:"
+msgstr "元数据设置："
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 295
+#: usr/share/jellyfix/cli/interactive.py:398
+msgid "Fetch metadata (TMDB/TVDB)"
+msgstr "获取元数据（TMDB/TVDB）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: usr/share/jellyfix/cli/interactive.py:399
+#: usr/share/jellyfix/cli/interactive.py:450
+msgid "Ask when multiple TMDB results"
+msgstr "当有多个TMDB结果时询问"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+#: usr/share/jellyfix/cli/interactive.py:406
+#: usr/share/jellyfix/cli/interactive.py:495
+msgid "Configure APIs (TMDB/TVDB)"
+msgstr "配置 API（TMDB/TVDB）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 338
+#: usr/share/jellyfix/cli/interactive.py:445
+msgid "Fetch metadata"
+msgstr "获取元数据"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 492
+#: NEEDS WORK
+msgid "Configure APIs"
+msgstr "配置API"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 503
+#: NEEDS WORK
+msgid "File organization settings:"
+msgstr "文件组织设置："
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 294
+#: usr/share/jellyfix/cli/interactive.py:397
+msgid "Organize in folders (Season XX)"
+msgstr "按文件夹组织（第XX季）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+#: usr/share/jellyfix/cli/interactive.py:400
+msgid "Add quality tags (1080p, 720p, etc)"
+msgstr "添加质量标签（1080p、720p等）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 297
+#: usr/share/jellyfix/cli/interactive.py:401
+#: usr/share/jellyfix/cli/interactive.py:460
+msgid "Use ffprobe for quality detection"
+msgstr "使用 ffprobe 进行质量检测"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+# File: usr/share/jellyfix/cli/interactive.py, line: 360
+#: usr/share/jellyfix/cli/interactive.py:402
+#: usr/share/jellyfix/cli/interactive.py:465
+msgid "Rename NFO files to match video"
+msgstr "重命名NFO文件以匹配视频"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: usr/share/jellyfix/cli/interactive.py:403
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "删除非媒体文件（仅保留视频/字幕）"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 333
+#: usr/share/jellyfix/cli/interactive.py:440
+msgid "Organize in folders"
+msgstr "按文件夹组织"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 343
+#: usr/share/jellyfix/cli/interactive.py:455
+msgid "Add quality tags"
+msgstr "添加质量标签"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: usr/share/jellyfix/cli/interactive.py:470
+msgid "Remove non-media files"
+msgstr "删除非媒体文件"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 375
 #: usr/share/jellyfix/cli/interactive.py:502
@@ -1355,6 +1396,30 @@ msgstr "仍然缺失：%s（尝试手动搜索）"
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "未找到字幕：%s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "批处理级别 1：通过哈希扫描 %d 个视频..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "找到级别 1（哈希）：%s 用于 %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "批处理级别 2：搜索 %d 个视频的标题..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "找到级别 2 (TMDB)：%s 用于 %s"
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237
