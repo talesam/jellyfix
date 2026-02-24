@@ -285,12 +285,8 @@ class Renamer:
             parent_folder = file_path.parent
 
             if parent_folder.name != expected_folder:
-                # Need to create/move to proper folder
-                if parent_folder == self.work_dir:
-                    # work_dir is the movie folder itself, create new folder in parent
-                    new_folder = self.work_dir.parent / expected_folder
-                else:
-                    new_folder = self.work_dir / expected_folder
+                # Create the organized folder inside the working directory
+                new_folder = self.work_dir / expected_folder
             else:
                 # Already in correct folder
                 new_folder = parent_folder
@@ -374,10 +370,8 @@ class Renamer:
 
         # Determine new series folder path
         if series_folder.name != expected_series_folder:
-            if series_folder == self.work_dir:
-                new_series_folder = self.work_dir.parent / expected_series_folder
-            else:
-                new_series_folder = self.work_dir / expected_series_folder
+            # Create the organized folder inside the working directory
+            new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
 
@@ -478,14 +472,8 @@ class Renamer:
 
         # Define destination
         if parent_folder != expected_folder:
-            # Check if work_dir IS the movie folder (file is directly inside work_dir)
-            # In this case, create the new folder in the PARENT of work_dir
-            if file_path.parent == self.work_dir:
-                # work_dir is the movie folder itself, create new folder in parent
-                new_folder = self.work_dir.parent / expected_folder
-            else:
-                # Normal case: create the organized folder in the working directory
-                new_folder = self.work_dir / expected_folder
+            # Create the organized folder inside the working directory
+            new_folder = self.work_dir / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
@@ -586,24 +574,8 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # Determina onde criar a nova pasta da série
-            # Caso 1: work_dir É a pasta da série → criar no parent do work_dir
-            # Caso 2: work_dir É uma pasta Season → criar no parent do parent do work_dir
-            # Caso 3: work_dir é uma pasta que contém séries → criar no work_dir
-
-            if series_folder == self.work_dir:
-                # Caso 1: usuário selecionou a pasta da série (ex: "Criminal Minds")
-                new_series_folder = self.work_dir.parent / expected_series_folder
-            elif self.work_dir.name.lower().startswith('season'):
-                # Caso 2: usuário selecionou uma pasta Season (ex: "Season 1")
-                # A nova pasta da série deve ficar no mesmo nível da pasta da série original
-                new_series_folder = series_folder.parent / expected_series_folder
-            elif series_folder.parent == self.work_dir:
-                # Caso 3: work_dir contém a pasta da série
-                new_series_folder = self.work_dir / expected_series_folder
-            else:
-                # Caso padrão: criar no work_dir
-                new_series_folder = self.work_dir / expected_series_folder
+            # Always create the organized folder inside work_dir
+            new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
 

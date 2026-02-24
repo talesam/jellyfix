@@ -98,6 +98,15 @@ msgstr "Selecionado:"
 msgid "videos"
 msgstr "vídeos"
 # 
+msgid "video"
+msgstr "vídeo"
+# 
+msgid "subtitle"
+msgstr "legenda"
+# 
+msgid "subtitles"
+msgstr "legendas"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 172
 #: NEEDS WORK
 msgid "Start download?"
@@ -1373,6 +1382,7 @@ msgid ""
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
 "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])\n"
 msgstr ""
+"\n"
 "Jellyfix organiza automaticamente sua biblioteca de mídia seguindo as convenções de nomenclatura do "
 "Jellyfin:\n"
 "\n"
@@ -1381,7 +1391,7 @@ msgstr ""
 "• <b>Gerencia legendas</b>: renomeia, remove idiomas estrangeiros, adiciona códigos de idioma\n"
 "• <b>Busca metadados</b> do TMDB/TVDB\n"
 "• <b>Detecta e adiciona tags de qualidade</b> (1080p, 720p, etc)\n"
-"• <b>Adiciona IDs de provedores</b> aos nomes das pastas ([tmdbid-12345])"
+"• <b>Adiciona IDs de provedores</b> aos nomes das pastas ([tmdbid-12345])\n"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
 #: NEEDS WORK
@@ -1406,6 +1416,7 @@ msgid ""
 "  • Removes foreign languages (keeps configured languages only)\n"
 "  • <b>NEVER</b> removes .forced.srt files\n"
 msgstr ""
+"\n"
 "<b>Filmes:</b>\n"
 "  Antes: filme.nome.2023.1080p.bluray.mkv\n"
 "  Depois:  Nome do Filme (2023) [tmdbid-12345]/Nome do Filme (2023) - 1080p.mkv\n"
@@ -1418,7 +1429,7 @@ msgstr ""
 "  • Renomeia: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
 "  • Adiciona códigos de idioma: legenda.srt → Nome do Filme.por.srt\n"
 "  • Remove idiomas estrangeiros (mantém apenas os idiomas configurados)\n"
-"  • <b>NUNCA</b> remove arquivos .forced.srt"
+"  • <b>NUNCA</b> remove arquivos .forced.srt\n"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
 #: NEEDS WORK
@@ -1450,6 +1461,7 @@ msgid ""
 "\n"
 "<b>Tip:</b> Always review the preview before executing!\n"
 msgstr ""
+"\n"
 "<b>1. Configurar Chave da API TMDB (recomendado)</b>\n"
 "   Menu → Configurar Chaves da API → Siga o tutorial\n"
 "   Isso habilita a busca de metadados e downloads de pôsteres.\n"
@@ -1469,7 +1481,7 @@ msgstr ""
 "   Confirme a operação\n"
 "   Os arquivos serão renomeados e organizados\n"
 "\n"
-"<b>Dica:</b> Sempre revise a pré-visualização antes de executar!"
+"<b>Dica:</b> Sempre revise a pré-visualização antes de executar!\n"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
 #: NEEDS WORK
@@ -1483,6 +1495,7 @@ msgid ""
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
 "• <b>ffprobe:</b> Use ffprobe for accurate quality detection\n"
 msgstr ""
+"\n"
 "Configurar o comportamento do Jellyfix:\n"
 "\n"
 "• <b>Tratamento de Legendas:</b> Renomear variantes, adicionar códigos de idioma, remover "
@@ -1490,7 +1503,7 @@ msgstr ""
 "• <b>Idiomas Mantidos:</b> Escolher quais idiomas de legenda manter\n"
 "• <b>Metadados:</b> Ativar/desativar busca no TMDB\n"
 "• <b>Tags de Qualidade:</b> Adicionar tags de resolução aos nomes dos arquivos\n"
-"• <b>ffprobe:</b> Usar ffprobe para detecção precisa de qualidade"
+"• <b>ffprobe:</b> Usar ffprobe para detecção precisa de qualidade\n"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
 #: NEEDS WORK
@@ -1513,6 +1526,7 @@ msgid ""
 "🌍 <b>Customize kept languages</b>\n"
 "Configure which subtitle languages to keep in Preferences.\n"
 msgstr ""
+"\n"
 "⚠️ <b>Execução de teste é o PADRÃO</b>\n"
 "Os arquivos NÃO são modificados a menos que você execute operações explicitamente.\n"
 "\n"
@@ -1523,7 +1537,7 @@ msgstr ""
 "Para melhores resultados, configure sua chave da API TMDB em Configurações.\n"
 "\n"
 "🌍 <b>Personalizar idiomas mantidos</b>\n"
-"Configure quais idiomas de legenda manter em Preferências."
+"Configure quais idiomas de legenda manter em Preferências.\n"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
 #: NEEDS WORK
@@ -2108,25 +2122,29 @@ msgstr "Sucesso Parcial"
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
-"Downloaded {} subtitles.\n"
+"Downloaded {} {}."
 "\n"
-"Missing languages: {}\n"
+"\n"
+"Missing languages: {}"
+"\n"
 "Try manual search?"
 msgstr ""
-"Legendas {} baixadas.\n"
+"Baixou {} {}."
 "\n"
-"Idiomas ausentes: {}\n"
+"\n"
+"Idiomas ausentes: {}"
+"\n"
 "Tentar busca manual?"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
-"Downloaded {} subtitles for {} of {} videos.\n"
+"Downloaded {} {} for {} of {} {}.\n"
 "Try manual search for missing?"
 msgstr ""
-"Baixados {} legendas para {} de {} vídeos.  \n"
-"Tente a busca manual para os ausentes?"
+"Baixou {} {} para {} de {} {}.\n"
+"Tentar busca manual para os ausentes?"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
 #: NEEDS WORK
@@ -2136,8 +2154,8 @@ msgstr "Download Completo"
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
 #: NEEDS WORK
 #, python-brace-format
-msgid "Downloaded {} subtitles for {} videos (all languages)."
-msgstr "Baixou {} legendas para {} vídeos (todos os idiomas)."
+msgid "Downloaded {} {} for {} {} (all languages)."
+msgstr "Baixou {} {} para {} {} (todos os idiomas)."
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
 #: NEEDS WORK

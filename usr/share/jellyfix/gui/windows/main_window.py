@@ -731,7 +731,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Let's creating a simple modal window.
         
         progress_window = Gtk.Window(transient_for=self, modal=True)
-        progress_window.set_title(_("Downloading Subtitles"))
+        progress_window.set_title("")
+        progress_window.set_titlebar(Gtk.Box())  # Hide title bar
         progress_window.set_default_size(400, 200)
         progress_window.set_resizable(False)
         
@@ -746,12 +747,20 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         status_label.set_wrap(True)
         status_label.set_justify(Gtk.Justification.CENTER)
         box.append(status_label)
-        
-        # Progress Bar
+
+        # Spinner for activity indication
+        spinner = Gtk.Spinner()
+        spinner.set_size_request(32, 32)
+        spinner.set_halign(Gtk.Align.CENTER)
+        spinner.start()
+        box.append(spinner)
+
+        # Progress bar (only visible for multiple files)
         progress_bar = Gtk.ProgressBar()
         progress_bar.set_fraction(0.0)
         progress_bar.set_show_text(True)
-        box.append(progress_bar)
+        if len(operations) > 1:
+            box.append(progress_bar)
         
         # Current file label
         file_label = Gtk.Label(label="")
@@ -765,21 +774,18 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         
         # Store for updating
         self.batch_progress = {
-            'window': progress_window,
-            'status': status_label,
-            'bar': progress_bar,
-            'file': file_label,
-            'total': len(operations),
-            'current': 0,
-            'success': 0,
-            'downloaded': 0,
-            'pulse_id': None
+            "window": progress_window,
+            "status": status_label,
+            "bar": progress_bar,
+            "spinner": spinner,
+            "file": file_label,
+            "total": len(operations),
+            "current": 0,
+            "success": 0,
+            "downloaded": 0,
+            "pulse_id": None,
         }
-        
-        # If single file, start pulsing for indeterminate progress
-        if len(operations) == 1:
-            self.batch_progress['pulse_id'] = GLib.timeout_add(100, self._pulse_progress)
-        
+
         def batch_task():
             """Background batch download task"""
             try:
@@ -791,8 +797,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 requested_langs = set(config.kept_languages) if config.kept_languages else {'por', 'eng'}
                 
                 for i, op in enumerate(operations):
-                    # Update progress UI
-                    GLib.idle_add(self._update_batch_progress, i, op.source.name)
+                    # Update status to show current file being processed
+                    GLib.idle_add(self._update_batch_status, i, op.source.name)
                     
                     # Extract TMDB info from destination path
                     dest_str = str(op.destination)
@@ -858,22 +864,41 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     
                     # Log what we're using for subtitle search
                     self.logger.info(f"TMDB info for subtitle search: title='{search_title}', year={tmdb_year}, episode={is_episode}")
-                    
+
+                    # Collect existing subtitle files before download
+                    existing_subs = set(
+                        f.name
+                        for f in op.source.parent.iterdir()
+                        if f.is_file()
+                        and f.suffix.lower() in (".srt", ".ass", ".ssa", ".sub", ".vtt")
+                    )
+
                     # Download with TMDB metadata
                     try:
                         results = self.subtitle_manager.download_subtitles(
                             op.source,
-                            tmdb_title=search_title,  # Use original title for better subtitle search
+                            tmdb_title=search_title,
                             tmdb_year=tmdb_year,
                             tmdb_id=tmdb_id,
                             is_episode=is_episode,
                             season=season,
-                            episode=episode_num
+                            episode=episode_num,
                         )
                         if results:
                             found_langs = set(results.keys())
-                            count = sum(len(paths) for paths in results.values())
-                            self.batch_progress['downloaded'] += count
+
+                            # Count only truly new subtitle files
+                            new_subs = (
+                                set(
+                                    f.name
+                                    for f in op.source.parent.iterdir()
+                                    if f.is_file()
+                                    and f.suffix.lower()
+                                    in (".srt", ".ass", ".ssa", ".sub", ".vtt")
+                                )
+                                - existing_subs
+                            )
+                            self.batch_progress["downloaded"] += len(new_subs)
                             
                             # Check if we got all requested languages
                             missing = requested_langs - found_langs
@@ -897,6 +922,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                             self.batch_progress['failed_ops'].append(op)
                     except Exception as e:
                         self.logger.error(f"Error downloading for {op.source.name}: {e}")
+
+                    # Update progress bar after each file is processed
+                    GLib.idle_add(self._update_batch_progress, i + 1)
                 
                 # Finish
                 GLib.idle_add(self._on_batch_complete)
@@ -917,25 +945,31 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             return True
         return False
 
-    def _update_batch_progress(self, index, filename):
-        """Update batch progress dialog"""
+    def _update_batch_status(self, index, filename):
+        """Update status text and current file label (before download)"""
         if not hasattr(self, 'batch_progress'):
             return
-            
+        total = self.batch_progress["total"]
+        self.batch_progress["status"].set_text(
+            _("Searching subtitles ({}/{})").format(index + 1, total)
+        )
+        self.batch_progress["file"].set_text(filename)
+
+    def _update_batch_progress(self, completed):
+        """Update progress bar after a file has been processed"""
+        if not hasattr(self, "batch_progress"):
+            return
         total = self.batch_progress['total']
-        
-        # Only update fraction for multiple files to avoid overriding pulse
-        if total > 1:
-            fraction = index / total
-            self.batch_progress['bar'].set_fraction(fraction)
-            self.batch_progress['bar'].set_text(f"{int(fraction * 100)}%")
-        
-        self.batch_progress['status'].set_text(_("Searching subtitles ({}/{})").format(index + 1, total))
-        self.batch_progress['file'].set_text(filename)
+        fraction = completed / total
+        self.batch_progress["bar"].set_fraction(fraction)
+        self.batch_progress["bar"].set_text(f"{int(fraction * 100)}%")
 
     def _on_batch_complete(self):
         """Handle batch completion"""
         if hasattr(self, 'batch_progress'):
+            # Stop spinner
+            self.batch_progress["spinner"].stop()
+
             # Stop pulsing if active
             if self.batch_progress.get('pulse_id'):
                 GLib.source_remove(self.batch_progress['pulse_id'])
@@ -956,6 +990,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             del self.batch_progress
             
             # Determine message and options based on results
+            sub_word = _("subtitle") if downloaded == 1 else _("subtitles")
+            vid_word = _("video") if success == 1 else _("videos")
+            
             if downloaded == 0:
                 heading = _("No Subtitles Found")
                 body = _("Could not find any subtitles automatically.\nTry manual search?")
@@ -970,17 +1007,20 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     for item in partial_ops:
                         missing_langs.update(item['missing'])
                     missing_str = ", ".join(sorted(missing_langs))
-                    body = _("Downloaded {} subtitles.\n\nMissing languages: {}\nTry manual search?").format(
-                        downloaded, missing_str
+                    body = _("Downloaded {} {}.\n\nMissing languages: {}\nTry manual search?").format(
+                        downloaded, sub_word, missing_str
                     )
                 else:
-                    body = _("Downloaded {} subtitles for {} of {} videos.\nTry manual search for missing?").format(
-                        downloaded, success, total
+                    total_word = _("video") if total == 1 else _("videos")
+                    body = _("Downloaded {} {} for {} of {} {}.\nTry manual search for missing?").format(
+                        downloaded, sub_word, success, total, total_word
                     )
                 show_manual = True
             else:
                 heading = _("Download Complete")
-                body = _("Downloaded {} subtitles for {} videos (all languages).").format(downloaded, success)
+                body = _("Downloaded {} {} for {} {} (all languages).").format(
+                    downloaded, sub_word, success, vid_word
+                )
                 show_manual = False
             
             # Show summary dialog

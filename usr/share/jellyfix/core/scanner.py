@@ -75,8 +75,11 @@ class LibraryScanner:
             if not file_path.is_file():
                 continue
 
-            # Ignora arquivos ocultos e pastas de sistema
+            # Hidden files (starting with '.') are only collected for removal
             if file_path.name.startswith('.'):
+                if self.config.remove_non_media:
+                    result.other_files.append(file_path)
+                    result.non_media_files.append(file_path)
                 continue
 
             # Categoriza por tipo
