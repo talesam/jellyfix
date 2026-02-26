@@ -58,7 +58,7 @@ class Renamer:
         self.operations = []
         self.planned_destinations = set()  # Rastreia destinos para evitar conflitos
         self.video_operations_map = {}  # Mapa: video_stem -> operação de vídeo
-        self.work_dir = directory  # Working directory for organizing files
+        self.work_dir = directory.resolve()  # Working directory for organizing files
 
         # Coleta todos os arquivos de legendas para processamento inteligente
         subtitle_files = []
@@ -136,7 +136,7 @@ class Renamer:
         self.operations = []
         self.planned_destinations = set()
         self.video_operations_map = {}
-        self.work_dir = video_path.parent
+        self.work_dir = video_path.parent.resolve()
 
         # Detecta tipo de mídia
         media_info = detect_media_type(video_path)
@@ -286,8 +286,19 @@ class Renamer:
             parent_folder = file_path.parent
 
             if parent_folder.name != expected_folder:
-                # Create the organized folder inside the working directory
-                new_folder = self.work_dir / expected_folder
+                # Determine if work_dir is a media folder or a container folder
+                if parent_folder.resolve() == self.work_dir:
+                    # Files are directly in work_dir
+                    if title.lower() in self.work_dir.name.lower():
+                        # Work dir IS the media folder (e.g., "Avatar (2009)/")
+                        # Create sibling folder (effectively renaming)
+                        new_folder = self.work_dir.parent / expected_folder
+                    else:
+                        # Work dir is a container (e.g., "Filmes/")
+                        # Create subfolder inside work_dir
+                        new_folder = self.work_dir / expected_folder
+                else:
+                    new_folder = self.work_dir / expected_folder
             else:
                 # Already in correct folder
                 new_folder = parent_folder
@@ -371,8 +382,17 @@ class Renamer:
 
         # Determine new series folder path
         if series_folder.name != expected_series_folder:
-            # Create the organized folder inside the working directory
-            new_series_folder = self.work_dir / expected_series_folder
+            # Determine if work_dir is a media folder or a container folder
+            if series_folder.resolve() == self.work_dir:
+                # Series folder IS the work_dir
+                if title.lower() in self.work_dir.name.lower():
+                    # Work dir IS the series folder (e.g., "Breaking Bad (2008)/")
+                    new_series_folder = self.work_dir.parent / expected_series_folder
+                else:
+                    # Work dir is a container
+                    new_series_folder = self.work_dir / expected_series_folder
+            else:
+                new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
 
@@ -473,8 +493,19 @@ class Renamer:
 
         # Define destination
         if parent_folder != expected_folder:
-            # Create the organized folder inside the working directory
-            new_folder = self.work_dir / expected_folder
+            # Determine if work_dir is a media folder or a container folder
+            if file_path.parent.resolve() == self.work_dir:
+                # Files are directly in work_dir
+                if title.lower() in self.work_dir.name.lower():
+                    # Work dir IS the media folder (e.g., "Avatar (2009)/")
+                    # Create sibling folder (effectively renaming)
+                    new_folder = self.work_dir.parent / expected_folder
+                else:
+                    # Work dir is a container (e.g., "Filmes/")
+                    # Create subfolder inside work_dir
+                    new_folder = self.work_dir / expected_folder
+            else:
+                new_folder = self.work_dir / expected_folder
             new_path = new_folder / new_name
         else:
             # Just rename
@@ -575,8 +606,17 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # Always create the organized folder inside work_dir
-            new_series_folder = self.work_dir / expected_series_folder
+            # Determine if work_dir is a media folder or a container folder
+            if series_folder.resolve() == self.work_dir:
+                # Series folder IS the work_dir
+                if title.lower() in self.work_dir.name.lower():
+                    # Work dir IS the series folder
+                    new_series_folder = self.work_dir.parent / expected_series_folder
+                else:
+                    # Work dir is a container
+                    new_series_folder = self.work_dir / expected_series_folder
+            else:
+                new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
 

@@ -194,8 +194,8 @@ def parse_args():
 
     # Execution mode
     mode_group = parser.add_mutually_exclusive_group()
-    mode_group.add_argument('--dry-run', action='store_true', default=True,
-                           help='Simulate only, do not modify files (default)')
+    mode_group.add_argument('--dry-run', action='store_true', default=False,
+                           help='Simulate only, do not modify files')
     mode_group.add_argument('--execute', action='store_true',
                            help='Execute operations for real')
 
@@ -248,10 +248,26 @@ def main():
     # Parse arguments
     args = parse_args()
 
+    # Determine dry_run mode:
+    # - --execute explicitly given → execute (dry_run=False)
+    # - --dry-run explicitly given → dry_run=True
+    # - Neither given + non-interactive → execute (dry_run=False)
+    # - Neither given + interactive → dry_run=True (interactive mode will ask)
+    if args.execute:
+        dry_run = False
+    elif args.dry_run:
+        dry_run = True
+    else:
+        # Neither flag given: non-interactive defaults to execute,
+        # interactive defaults to dry-run (will show preview and ask)
+        dry_run = not args.non_interactive
+
+    workdir_explicit = args.workdir is not None
+
     # Create configuration
     config = Config(
-        work_dir=Path(args.workdir) if args.workdir else Path.cwd(),
-        dry_run=not args.execute if hasattr(args, 'execute') else args.dry_run,
+        work_dir=Path(args.workdir).resolve() if args.workdir else Path.cwd(),
+        dry_run=dry_run,
         auto_confirm=args.yes,
         interactive=not args.non_interactive,
         verbose=args.verbose,
@@ -264,7 +280,8 @@ def main():
         remove_non_media=args.remove_non_media if hasattr(args, 'remove_non_media') else False,
         fetch_metadata=not args.no_metadata,
         add_quality_tag=not args.no_quality_tag if hasattr(args, 'no_quality_tag') else True,
-        use_ffprobe=args.use_ffprobe if hasattr(args, 'use_ffprobe') else False
+        use_ffprobe=args.use_ffprobe if hasattr(args, 'use_ffprobe') else False,
+        workdir_explicit=workdir_explicit,
     )
     config.load_persistent_settings()
 

@@ -93,6 +93,63 @@ class InteractiveCLI:
             elif choice == "exit":
                 break
 
+    def run_direct(self):
+        """Run direct processing on the configured workdir (when --workdir is provided)"""
+        workdir = Path(self.config.work_dir).resolve()
+
+        if not workdir.exists() or not workdir.is_dir():
+            show_error(_("Error: Directory does not exist: %s") % workdir)
+            return 1
+
+        show_banner()
+        show_info(_("Scanning: %s") % workdir)
+
+        # Scan
+        scanner = LibraryScanner()
+        result = scanner.scan(workdir)
+
+        self.logger.info(
+            _("Found: %d videos, %d subtitles") %
+            (len(result.video_files), len(result.subtitle_files))
+        )
+
+        # Plan operations
+        self.logger.info(_("Planning operations..."))
+        renamer = Renamer()
+        renamer.plan_operations(workdir, result)
+
+        if len(renamer.operations) == 0:
+            show_info(_("No operations needed. Everything is already organized!"))
+            return 0
+
+        # Show preview
+        show_operation_preview(renamer, limit=50)
+
+        if self.config.dry_run:
+            show_warning(_("DRY-RUN mode: No changes will be made"))
+            show_info(_("Use --execute to apply changes"))
+            return 0
+
+        # Ask for confirmation (unless --yes)
+        if not self.config.auto_confirm:
+            confirm = questionary.confirm(
+                _("Execute these operations?"),
+                default=False,
+                style=custom_style
+            ).ask()
+
+            if not confirm:
+                show_info(_("Operation cancelled"))
+                return 0
+
+        # Execute
+        self.logger.info(_("Executing operations..."))
+        stats = renamer.execute_operations(dry_run=False)
+
+        # Show results
+        show_execution_results(stats)
+        return 0
+
     def _main_menu(self) -> Optional[str]:
         """
         Display main menu and get user choice.
@@ -308,7 +365,8 @@ class InteractiveCLI:
             Selected directory or None if cancelled
         """
         if default is None:
-            default = Path.cwd()
+            # Use config work_dir instead of cwd
+            default = self.config.work_dir if self.config.work_dir else Path.cwd()
 
         current_dir = default.resolve()
 
