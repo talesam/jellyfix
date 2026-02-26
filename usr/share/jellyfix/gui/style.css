@@ -1,12 +1,12 @@
 /* Jellyfix GUI Styles */
 
-/* Ensure PreferencesGroup doesn't add extra spacing */
+/* PreferencesGroup default spacing */
 preferencesgroup {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-/* Status pages should center content */
+/* Status pages should centre content */
 statuspage {
     min-height: 200px;
 }
@@ -21,39 +21,59 @@ statuspage {
     font-size: 0.9em;
 }
 
-/* Remove separator line from navigation split view */
-navigationsplitview>separator {
-    background: transparent;
-    min-width: 0;
-    border: none;
+/* Pill button */
+.pill {
+    border-radius: 999px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
-/* Clean navigation pages - no borders */
-navigationpage {
-    border: none;
-}
-
-/* Ensure view switcher is compact */
-viewswitcher {
-    margin: 6px;
-}
-
-/* Drop zone styling */
-.drop-zone {
-    border: 2px dashed alpha(@borders, 0.5);
-    border-radius: 12px;
-    transition: all 200ms ease;
-}
-
-/* Drop zone active state (during drag) */
+/* Drop zone hover/drag state */
 .drop-active {
     border-color: @accent_bg_color;
     background-color: alpha(@accent_bg_color, 0.1);
 }
 
-/* Pill button style */
-.pill {
-    border-radius: 999px;
-    padding-left: 24px;
-    padding-right: 24px;
+/* Subtitle search result badges */
+.badge.warning {
+    background-color: alpha(@warning_color, 0.2);
+    color: @warning_fg_color;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.badge.accent {
+    background-color: alpha(@accent_bg_color, 0.3);
+    color: @accent_fg_color;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Subtitle language heading */
+.subtitle-lang-heading {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+/* Subtitle result row */
+.subtitle-result-row:selected {
+    background-color: alpha(@accent_bg_color, 0.15);
+}
+
+/* Caption text */
+.caption {
+    font-size: 0.85em;
+}
+
+/* Status icons in sidebar */
+.success {
+    color: @success_color;
+}
+
+.warning {
+    color: @warning_color;
 }

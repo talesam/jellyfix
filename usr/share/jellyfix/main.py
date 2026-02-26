@@ -21,9 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from jellyfix.utils.config import Config, set_config, APP_VERSION
 from jellyfix.cli import run_cli
 from rich.console import Console
-from rich.panel import Panel
 from rich.text import Text
-from rich import box
 
 
 def show_help():
@@ -92,6 +90,11 @@ def show_help():
     console.print("  [green]--no-rename-por2[/green]        Do NOT rename .por2.srt → .por.srt")
     console.print("  [green]--no-add-lang[/green]           Do NOT add language codes to subtitles")
     console.print("  [green]--no-remove-foreign[/green]     Do NOT remove foreign subtitles")
+    console.print()
+
+    # File Cleanup Options
+    console.print("[bold cyan]FILE CLEANUP OPTIONS[/bold cyan]")
+    console.print("  [green]--remove-non-media[/green]      Remove all files that are not .srt or .mp4")
     console.print()
 
     # Metadata Options
@@ -225,6 +228,10 @@ def parse_args():
     parser.add_argument('--no-remove-foreign', action='store_true',
                        help='Do not remove foreign subtitles')
 
+    # File cleanup
+    parser.add_argument('--remove-non-media', action='store_true',
+                       help='Remove all files that are not .srt or .mp4')
+
     # Metadata
     parser.add_argument('--no-metadata', action='store_true',
                        help='Disable metadata fetching from TMDB')
@@ -254,10 +261,12 @@ def main():
         rename_por2=not args.no_rename_por2,
         rename_no_lang=not args.no_add_lang,
         remove_foreign_subs=not args.no_remove_foreign,
+        remove_non_media=args.remove_non_media if hasattr(args, 'remove_non_media') else False,
         fetch_metadata=not args.no_metadata,
         add_quality_tag=not args.no_quality_tag if hasattr(args, 'no_quality_tag') else True,
         use_ffprobe=args.use_ffprobe if hasattr(args, 'use_ffprobe') else False
     )
+    config.load_persistent_settings()
 
     # Set global config
     set_config(config)

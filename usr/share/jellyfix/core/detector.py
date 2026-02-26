@@ -1,9 +1,19 @@
 """Detector de tipo de mídia (filme vs série)"""
 
+import re
 from pathlib import Path
 from enum import Enum
 from typing import Optional
 from ..utils.helpers import extract_season_episode, is_video_file
+
+# Pre-compiled patterns for title extraction
+_RE_TITLE_SXXEXX = re.compile(r"^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,2}")
+_RE_TITLE_NxNN = re.compile(r"^(.+?)\s*\d{1,2}x\d{1,2}")
+_RE_TITLE_BOOK_VOL = re.compile(
+    r"^(.+?)\s*(?:Book|Volume|Vol|Part|Season|Temporada|Cap\.?|Ep\.?)\s*\d{1,2}",
+    re.IGNORECASE,
+)
+_RE_DIGITS = re.compile(r"(\d+)")
 
 
 class MediaType(Enum):
@@ -34,56 +44,53 @@ class MediaInfo:
 
         filename = self.file_path.stem
 
-        # Tenta extrair informações de série
+        # Try to extract TV show info
         se_info = extract_season_episode(filename)
 
         if se_info:
-            # É uma série
+            # It's a TV show
             self.media_type = MediaType.TVSHOW
             self.season, self.episode_start, self.episode_end = se_info
 
-            # Extrai o título (tudo antes do padrão de season/episode)
-            import re
-
-            # Tenta padrão S01E01
-            match = re.search(r'^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,2}', filename)
+            # Extract title (everything before the season/episode pattern)
+            # Try S01E01 pattern
+            match = _RE_TITLE_SXXEXX.search(filename)
             if match:
                 self.title = match.group(1).strip()
             else:
-                # Tenta padrão 1x01
-                match = re.search(r'^(.+?)\s*\d{1,2}x\d{1,2}', filename)
+                # Try 1x01 pattern
+                match = _RE_TITLE_NxNN.search(filename)
                 if match:
                     self.title = match.group(1).strip()
                 else:
-                    # Tenta padrão Book/Volume/Part/Season
-                    match = re.search(r'^(.+?)\s*(?:Book|Volume|Vol|Part|Season|Temporada|Cap\.?|Ep\.?)\s*\d{1,2}', filename, re.IGNORECASE)
+                    # Try Book/Volume/Part/Season pattern
+                    match = _RE_TITLE_BOOK_VOL.search(filename)
                     if match:
                         self.title = match.group(1).strip()
                     else:
-                        # Fallback: usa o nome do arquivo sem extensão
+                        # Fallback: use filename without extension
                         self.title = filename
         else:
-            # Verifica se a estrutura de pastas indica série
+            # Check if folder structure indicates a TV show
             parent_folder = self.file_path.parent.name.lower()
 
             if parent_folder.startswith('season') or parent_folder.startswith('temporada'):
                 self.media_type = MediaType.TVSHOW
-                # Tenta extrair número da temporada da pasta
-                import re
-                match = re.search(r'(\d+)', parent_folder)
+                # Try to extract season number from folder name
+                match = _RE_DIGITS.search(parent_folder)
                 if match:
                     self.season = int(match.group(1))
             else:
-                # Provavelmente é um filme
+                # Probably a movie
                 self.media_type = MediaType.MOVIE
                 self.title = filename
 
     def is_movie(self) -> bool:
-        """Verifica se é um filme"""
+        """Check if it's a movie"""
         return self.media_type == MediaType.MOVIE
 
     def is_tvshow(self) -> bool:
-        """Verifica se é uma série"""
+        """Check if it's a TV show"""
         return self.media_type == MediaType.TVSHOW
 
     def __repr__(self):
@@ -95,28 +102,28 @@ class MediaInfo:
 
 def detect_media_type(file_path: Path) -> MediaInfo:
     """
-    Detecta o tipo de mídia de um arquivo.
+    Detect the media type of a file.
 
     Args:
-        file_path: Caminho do arquivo
+        file_path: Path to the file
 
     Returns:
-        MediaInfo com informações detectadas
+        MediaInfo with detected information
     """
     return MediaInfo(file_path)
 
 
 def is_movie_folder(folder_path: Path) -> bool:
     """
-    Verifica se uma pasta contém filmes.
+    Check if a folder contains movies.
 
     Args:
-        folder_path: Caminho da pasta
+        folder_path: Path to the folder
 
     Returns:
-        True se for pasta de filmes
+        True if it's a movie folder
     """
-    # Verifica se tem subpastas "Season" ou arquivos com S01E01
+    # Check for "Season" subfolders or files with S01E01
     has_season_folders = any(
         d.name.lower().startswith(('season', 'temporada'))
         for d in folder_path.iterdir()
@@ -126,14 +133,14 @@ def is_movie_folder(folder_path: Path) -> bool:
     if has_season_folders:
         return False
 
-    # Verifica arquivos de vídeo
+    # Check video files
     video_files = [f for f in folder_path.glob('*') if is_video_file(f)]
 
     if not video_files:
-        return True  # Pasta vazia, assume filme
+        return True  # Empty folder, assume movie
 
-    # Verifica se algum arquivo tem padrão de série
-    for video in video_files[:5]:  # Checa apenas primeiros 5 arquivos
+    # Check if any file has a TV show pattern
+    for video in video_files[:5]:  # Only check first 5 files
         if extract_season_episode(video.stem):
             return False
 
@@ -142,12 +149,12 @@ def is_movie_folder(folder_path: Path) -> bool:
 
 def is_tvshow_folder(folder_path: Path) -> bool:
     """
-    Verifica se uma pasta contém séries.
+    Check if a folder contains TV shows.
 
     Args:
-        folder_path: Caminho da pasta
+        folder_path: Path to the folder
 
     Returns:
-        True se for pasta de séries
+        True if it's a TV show folder
     """
     return not is_movie_folder(folder_path)

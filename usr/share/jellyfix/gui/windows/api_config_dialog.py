@@ -194,7 +194,12 @@ class APIConfigDialog(Adw.Window):
                 api_key = entry.get_text().strip()
                 if api_key:
                     self.config_manager.set_tmdb_api_key(api_key)
-                    self.logger.success(f"TMDB key saved")
+                    self.logger.success("TMDB key saved")
+
+                    # IMPORTANT: Update the config singleton in memory
+                    from ...utils.config import get_config
+                    config = get_config()
+                    config.tmdb_api_key = api_key
 
                     # Update status
                     self.status_row.set_subtitle(_("✓ Configured"))
@@ -286,6 +291,12 @@ class APIConfigDialog(Adw.Window):
         def on_response(dialog, response):
             if response == "remove":
                 self.config_manager.remove_tmdb_api_key()
+
+                # IMPORTANT: Update the config singleton in memory
+                from ...utils.config import get_config
+                config = get_config()
+                config.tmdb_api_key = ""
+
                 self.status_row.set_subtitle(_("✗ Not configured"))
                 self.logger.info("TMDB key removed")
 

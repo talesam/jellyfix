@@ -1,14 +1,14 @@
 """Scanner de arquivos e análise de bibliotecas"""
 
 from pathlib import Path
-from typing import List, Dict
+from typing import List
 from dataclasses import dataclass, field
 from ..utils.helpers import (
     is_video_file, is_subtitle_file, is_image_file,
     has_language_code, is_portuguese_subtitle
 )
 from ..utils.config import get_config
-from .detector import detect_media_type, MediaType
+from .detector import detect_media_type
 
 
 @dataclass
@@ -30,6 +30,7 @@ class ScanResult:
     # Arquivos indesejados
     unwanted_images: List[Path] = field(default_factory=list)
     nfo_files: List[Path] = field(default_factory=list)
+    non_media_files: List[Path] = field(default_factory=list)  # Arquivos que não são .srt ou .mp4
 
     # Estatísticas
     total_movies: int = 0
@@ -74,8 +75,11 @@ class LibraryScanner:
             if not file_path.is_file():
                 continue
 
-            # Ignora arquivos ocultos e pastas de sistema
+            # Hidden files (starting with '.') are only collected for removal
             if file_path.name.startswith('.'):
+                if self.config.remove_non_media:
+                    result.other_files.append(file_path)
+                    result.non_media_files.append(file_path)
                 continue
 
             # Categoriza por tipo
@@ -90,18 +94,32 @@ class LibraryScanner:
                     result.total_episodes += 1
 
             elif is_subtitle_file(file_path):
+                # Ignora legendas vazias ou muito pequenas (< 20 bytes)
+                # Uma legenda SRT válida tem no mínimo: número + timestamp + texto
+                if file_path.stat().st_size < 20:
+                    continue
+
                 result.subtitle_files.append(file_path)
                 self._categorize_subtitle(file_path, result)
 
             elif is_image_file(file_path):
                 result.image_files.append(file_path)
                 self._categorize_image(file_path, result)
+                # Marca imagens como non-media se configurado
+                if self.config.remove_non_media:
+                    result.non_media_files.append(file_path)
 
             elif file_path.suffix.lower() == '.nfo':
                 result.nfo_files.append(file_path)
+                # Marca NFO como non-media se configurado
+                if self.config.remove_non_media:
+                    result.non_media_files.append(file_path)
 
             else:
                 result.other_files.append(file_path)
+                # Marca arquivos que não são vídeos ou legendas para possível remoção
+                if self.config.remove_non_media:
+                    result.non_media_files.append(file_path)
 
         return result
 
@@ -121,11 +139,9 @@ class LibraryScanner:
         lang_code = has_language_code(filename)
 
         if lang_code:
+            # lang_code já vem normalizado para 3 letras pela função has_language_code
             # Verifica se é idioma mantido
-            lang_base = lang_code.split('-')[0]  # 'pt-BR' -> 'pt'
-            is_kept = (lang_base in self.config.kept_languages or
-                      lang_code in self.config.kept_languages or
-                      lang_code in ('pt', 'pt-BR', 'pt-PT', 'por'))
+            is_kept = lang_code in self.config.kept_languages
 
             if is_kept:
                 result.kept_subtitles.append(file_path)
@@ -145,7 +161,7 @@ class LibraryScanner:
 
     def _categorize_image(self, file_path: Path, result: ScanResult):
         """Categoriza um arquivo de imagem"""
-        filename = file_path.name.lower()
+        file_path.name.lower()
 
         # Imagens reconhecidas pelo Jellyfin
         jellyfin_images = {

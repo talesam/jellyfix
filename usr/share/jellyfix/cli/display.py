@@ -12,7 +12,7 @@ in the terminal using the Rich library for beautiful output.
 """
 
 from pathlib import Path
-from typing import List, Optional
+from typing import List
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
@@ -136,7 +136,7 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
     console.clear()
     console.print("\n")
     console.print(Panel.fit(
-        f"📋 " + _("Operation Preview ({} files)").format(total),
+        "📋 " + _("Operation Preview ({} files)").format(total),
         style="bold yellow",
         border_style="yellow"
     ))
@@ -146,7 +146,6 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
     RED = '\033[91m'
-    MAGENTA = '\033[95m'
     DIM = '\033[2m'
     BOLD = '\033[1m'
     RESET = '\033[0m'
@@ -259,7 +258,7 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
 
     # Show truncation notice
     if len(groups) > limit:
-        console.print(f"\n[dim]... " + _("and {} more groups").format(len(groups) - limit) + "[/dim]\n")
+        console.print("\n[dim]... " + _("and {} more groups").format(len(groups) - limit) + "[/dim]\n")
 
     # Group by operation type for summary
     renames = [op for op in operations if op.operation_type == 'rename']
@@ -273,22 +272,22 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
 
     if len(move_renames) > 0:
         summary.add_row(
-            f"[cyan]📦✏️  " + _("Move + Rename:") + "[/cyan]",
+            "[cyan]📦✏️  " + _("Move + Rename:") + "[/cyan]",
             f"[bold]{len(move_renames)}[/bold]"
         )
     if len(moves) > 0:
         summary.add_row(
-            f"[cyan]📦 " + _("Move:") + "[/cyan]",
+            "[cyan]📦 " + _("Move:") + "[/cyan]",
             f"[bold]{len(moves)}[/bold]"
         )
     if len(renames) > 0:
         summary.add_row(
-            f"[cyan]✏️  " + _("Rename:") + "[/cyan]",
+            "[cyan]✏️  " + _("Rename:") + "[/cyan]",
             f"[bold]{len(renames)}[/bold]"
         )
     if len(deletes) > 0:
         summary.add_row(
-            f"[cyan]🗑️  " + _("Remove:") + "[/cyan]",
+            "[cyan]🗑️  " + _("Remove:") + "[/cyan]",
             f"[bold red]{len(deletes)}[/bold red]"
         )
 

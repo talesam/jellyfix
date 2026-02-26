@@ -1,5 +1,6 @@
 """Sistema de logging com Rich"""
 
+import threading
 from rich.console import Console
 from rich.theme import Theme
 from rich.markup import escape
@@ -30,13 +31,15 @@ class Logger:
         self.verbose = verbose
         self.quiet = quiet
         self.console = console
+        self._lock = threading.Lock()
 
     def _write_to_file(self, message: str, level: str):
         """Escreve mensagem no arquivo de log"""
         if self.log_file:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            with open(self.log_file, "a", encoding="utf-8") as f:
-                f.write(f"[{timestamp}] [{level}] {message}\n")
+            with self._lock:
+                with open(self.log_file, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] [{level}] {message}\n")
 
     def info(self, message: str):
         """Mensagem informativa"""

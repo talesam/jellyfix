@@ -18,46 +18,126 @@ msgstr ""
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 99
 # File: usr/share/jellyfix/cli/interactive.py, line: 421
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:104
+#: usr/share/jellyfix/cli/interactive.py:548
 msgid "What would you like to do?"
 msgstr "Τι θα θέλατε να κάνετε;"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 101
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:106
 msgid "📂 Scan library"
 msgstr "📂 Σάρωση βιβλιοθήκης"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 102
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:107
 msgid "🔧 Settings"
 msgstr "🔧 Ρυθμίσεις"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 103
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:108
 msgid "🚀 Process files"
 msgstr "🚀 Επεξεργασία αρχείων"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 109
+#: usr/share/jellyfix/cli/interactive.py:109
+msgid "📥 Download subtitles"
+msgstr "📥 Κατεβάστε υπότιτλους"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 104
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:110
 msgid "ℹ️  Help"
 msgstr "ℹ️  Βοήθεια"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 105
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:111
 msgid "❌ Exit"
 msgstr "❌ Έξοδος"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 108
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:114
 msgid "(Use arrow keys to navigate)"
 msgstr "(Χρησιμοποιήστε τα βελάκια για πλοήγηση)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 124
+#: usr/share/jellyfix/cli/interactive.py:124
+msgid "Subliminal library not found!"
+msgstr "Η βιβλιοθήκη Subliminal δεν βρέθηκε!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 125
+#: usr/share/jellyfix/cli/interactive.py:125
+msgid "Please install 'subliminal' to use this feature."
+msgstr "Παρακαλώ εγκαταστήστε το 'subliminal' για να χρησιμοποιήσετε αυτή τη δυνατότητα."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 135
+#: usr/share/jellyfix/cli/interactive.py:135
+#, python-format
+msgid "Scanning for videos: %s"
+msgstr "Σάρωση για βίντεο: %s"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 142
+#: usr/share/jellyfix/cli/interactive.py:142
+msgid "No videos found!"
+msgstr "Δεν βρέθηκαν βίντεο!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 160
+#: usr/share/jellyfix/cli/interactive.py:160
+msgid "Select videos to download subtitles for:"
+msgstr "Επιλέξτε βίντεο για λήψη υποτίτλων:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 163
+#: usr/share/jellyfix/cli/interactive.py:163
+msgid "(SPACE to select, ENTER to confirm)"
+msgstr "(ΔΙΑΣΤΗΜΑ για επιλογή, ΕΙΣΑΓΩΓΗ για επιβεβαίωση)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: usr/share/jellyfix/cli/interactive.py:170
+msgid "Selected:"
+msgstr "Επιλεγμένο:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: usr/share/jellyfix/cli/interactive.py:170
+#: usr/share/jellyfix/gui/windows/main_window.py:994
+#: usr/share/jellyfix/gui/windows/main_window.py:1014
+msgid "videos"
+msgstr "βίντεο"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 172
+#: usr/share/jellyfix/cli/interactive.py:172
+msgid "Start download?"
+msgstr "Ξεκινήστε τη λήψη;"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 193
+#: usr/share/jellyfix/cli/interactive.py:193
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:366
+msgid "Downloading..."
+msgstr "Κατεβάζω..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 196
+#: usr/share/jellyfix/cli/interactive.py:196
+#, python-brace-format
+msgid "Downloading for: {}"
+msgstr "Κατεβάζω για: {}"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 210
+#: usr/share/jellyfix/cli/interactive.py:210
+#, python-brace-format
+msgid "Downloaded {} subtitles for {} videos"
+msgstr "Κατεβάσατε {} υπότιτλους για {} βίντεο"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 212
+#: usr/share/jellyfix/cli/interactive.py:212
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:337
+msgid "No subtitles found"
+msgstr "Δεν βρέθηκαν υπότιτλοι"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 121
 # File: usr/share/jellyfix/cli/interactive.py, line: 141
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 59
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:224
+#: usr/share/jellyfix/cli/interactive.py:244
+#: usr/share/jellyfix/cli/non_interactive.py:58
 #, python-format
 msgid "Scanning: %s"
 msgstr "Σάρωση: %s"
@@ -66,7 +146,8 @@ msgstr "Σάρωση: %s"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 148
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 65
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:251
+#: usr/share/jellyfix/cli/non_interactive.py:64
 #, python-format
 msgid "Found: %d videos, %d subtitles"
 msgstr "Βρέθηκαν: %d βίντεο, %d υπότιτλοι"
@@ -75,84 +156,87 @@ msgstr "Βρέθηκαν: %d βίντεο, %d υπότιτλοι"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 153
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 70
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:256
+#: usr/share/jellyfix/cli/non_interactive.py:69
 msgid "Planning operations..."
 msgstr "Σχεδίαση λειτουργιών..."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 158
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "Δεν απαιτούνται ενέργειες"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:270
 msgid "Execute these operations?"
 msgstr "Εκτελέστε αυτές τις ενέργειες;"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 173
 # File: usr/share/jellyfix/cli/interactive.py, line: 450
 # File: usr/share/jellyfix/cli/interactive.py, line: 478
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:276
+#: usr/share/jellyfix/cli/interactive.py:577
+#: usr/share/jellyfix/cli/interactive.py:605
 msgid "Operation cancelled"
 msgstr "Η λειτουργία ακυρώθηκε"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 177
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:280
 msgid "Executing operations..."
 msgstr "Εκτέλεση λειτουργιών..."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 202
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:305
 msgid "📂 Directory Browser"
 msgstr "📂 Περιηγητής Καταλόγων"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 203
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:306
 msgid "Current:"
 msgstr "Τρέχων:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 211
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:314
 msgid "✓ Select this directory"
 msgstr "✓ Επιλέξτε αυτόν τον φάκελο"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 218
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:321
 msgid "⬆️  .. (go back)"
 msgstr "⬆️  .. (πήγαινε πίσω)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 229
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:332
 msgid "⌨️  Type path manually"
 msgstr "⌨️  Πληκτρολογήστε τη διαδρομή χειροκίνητα"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 235
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:338
 msgid "❌ Cancel"
 msgstr "❌ Ακύρωση"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 241
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:344
 msgid "Select directory:"
 msgstr "Επιλέξτε φάκελο:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 253
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:356
 msgid "Enter full directory path:"
 msgstr "Εισάγετε πλήρη διαδρομή καταλόγου:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 255
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:358
 msgid "Path:"
 msgstr "Διαδρομή:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 265
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:368
 msgid "Directory not found!"
 msgstr "Ο κατάλογος δεν βρέθηκε!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 272
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:375
 msgid "Permission denied"
 msgstr "Άδεια απορρίφθηκε"
 # 
@@ -160,104 +244,104 @@ msgstr "Άδεια απορρίφθηκε"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 281
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:384
+#: usr/share/jellyfix/gui/windows/help_window.py:137
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 284
-#: NEEDS WORK
-msgid "none"
-msgstr "none"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 287
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:390
 msgid "What would you like to configure?"
 msgstr "Τι θα θέλατε να ρυθμίσετε;"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 289
+# File: usr/share/jellyfix/cli/interactive.py, line: 381
+# File: usr/share/jellyfix/cli/interactive.py, line: 392
+# File: usr/share/jellyfix/cli/interactive.py, line: 404
 #: NEEDS WORK
-msgid "Rename language variants (lang2→lang, lang3→lang)"
-msgstr "Μετονομασία παραλλαγών γλώσσας (lang2→γλώσσα, lang3→γλώσσα)"
+msgid "Subtitle Options"
+msgstr "Επιλογές Υποτίτλων"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 290
+# File: usr/share/jellyfix/cli/interactive.py, line: 382
+# File: usr/share/jellyfix/cli/interactive.py, line: 394
+# File: usr/share/jellyfix/cli/interactive.py, line: 468
 #: NEEDS WORK
-msgid "Remove duplicate variants (lang2, lang3)"
-msgstr "Αφαίρεση διπλών παραλλαγών (lang2, lang3)"
+msgid "Metadata Options"
+msgstr "Επιλογές Μεταδεδομένων"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 291
+# File: usr/share/jellyfix/cli/interactive.py, line: 383
+# File: usr/share/jellyfix/cli/interactive.py, line: 396
+# File: usr/share/jellyfix/cli/interactive.py, line: 500
 #: NEEDS WORK
-msgid "Add language code to subtitles"
-msgstr "Προσθέστε κωδικό γλώσσας στους υπότιτλους"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 292
-#: NEEDS WORK
-msgid "Remove foreign subtitles"
-msgstr "Αφαίρεση ξένων υποτίτλων"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 293
-# File: usr/share/jellyfix/cli/interactive.py, line: 398
-#: NEEDS WORK
-msgid "Kept languages:"
-msgstr "Διατηρούμενες γλώσσες:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 294
-#: NEEDS WORK
-msgid "Organize in folders (Season XX)"
-msgstr "Οργάνωση σε φακέλους (Σεζόν XX)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 295
-#: NEEDS WORK
-msgid "Fetch metadata (TMDB/TVDB)"
-msgstr "Ανάκτηση μεταδεδομένων (TMDB/TVDB)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-# File: usr/share/jellyfix/cli/interactive.py, line: 344
-#: NEEDS WORK
-msgid "Ask when multiple TMDB results"
-msgstr "Ρώτησε όταν υπάρχουν πολλαπλά αποτελέσματα TMDB"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 296
-#: NEEDS WORK
-msgid "Add quality tags (1080p, 720p, etc)"
-msgstr "Προσθέστε ετικέτες ποιότητας (1080p, 720p, κ.λπ.)"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 297
-#: NEEDS WORK
-msgid "Use ffprobe for quality detection"
-msgstr "Χρησιμοποιήστε το ffprobe για ανίχνευση ποιότητας"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-# File: usr/share/jellyfix/cli/interactive.py, line: 360
-#: NEEDS WORK
-msgid "Rename NFO files to match video"
-msgstr "Μετονομάστε τα αρχεία NFO ώστε να ταιριάζουν με το βίντεο"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 298
-#: NEEDS WORK
-msgid "Min Portuguese words:"
-msgstr "Ελάχιστες πορτογαλικές λέξεις:"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 299
-#: NEEDS WORK
-msgid "Configure APIs (TMDB/TVDB)"
-msgstr "Ρυθμίστε APIs (TMDB/TVDB)"
+msgid "File Organization"
+msgstr "Οργάνωση Αρχείων"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 300
 # File: usr/share/jellyfix/cli/interactive.py, line: 306
 # File: usr/share/jellyfix/cli/interactive.py, line: 428
 # File: usr/share/jellyfix/cli/interactive.py, line: 434
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:407
+#: usr/share/jellyfix/cli/interactive.py:413
+#: usr/share/jellyfix/cli/interactive.py:555
+#: usr/share/jellyfix/cli/interactive.py:561
 msgid "Back"
 msgstr "Πίσω"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 303
 # File: usr/share/jellyfix/cli/interactive.py, line: 431
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:410
+#: usr/share/jellyfix/cli/interactive.py:558
 msgid "(Use ↑↓ and ENTER to select)"
 msgstr "(Χρησιμοποιήστε ↑↓ και ENTER για να επιλέξετε)"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 310
+# File: usr/share/jellyfix/cli/interactive.py, line: 284
+#: usr/share/jellyfix/cli/interactive.py:387
+msgid "none"
+msgstr "none"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 409
 #: NEEDS WORK
+msgid "Subtitle settings:"
+msgstr "Ρυθμίσεις υπότιτλων:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 289
+#: usr/share/jellyfix/cli/interactive.py:392
+msgid "Rename language variants (lang2→lang, lang3→lang)"
+msgstr "Μετονομασία παραλλαγών γλώσσας (lang2→γλώσσα, lang3→γλώσσα)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 290
+#: usr/share/jellyfix/cli/interactive.py:393
+msgid "Remove duplicate variants (lang2, lang3)"
+msgstr "Αφαίρεση διπλών παραλλαγών (lang2, lang3)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 291
+#: usr/share/jellyfix/cli/interactive.py:394
+msgid "Add language code to subtitles"
+msgstr "Προσθέστε κωδικό γλώσσας στους υπότιτλους"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 292
+#: usr/share/jellyfix/cli/interactive.py:395
+msgid "Remove foreign subtitles"
+msgstr "Αφαίρεση ξένων υποτίτλων"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 293
+# File: usr/share/jellyfix/cli/interactive.py, line: 398
+#: usr/share/jellyfix/cli/interactive.py:396
+#: usr/share/jellyfix/cli/interactive.py:525
+msgid "Kept languages:"
+msgstr "Διατηρούμενες γλώσσες:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 301
+#: usr/share/jellyfix/cli/interactive.py:404
+msgid "Fix Mirabel files (.pt-BR.hi → .por)"
+msgstr "Διόρθωση αρχείων Mirabel (.pt-BR.hi → .por)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 298
+#: usr/share/jellyfix/cli/interactive.py:405
+msgid "Min Portuguese words:"
+msgstr "Ελάχιστες πορτογαλικές λέξεις:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 310
+#: usr/share/jellyfix/cli/interactive.py:417
 msgid "Rename language variants"
 msgstr "Μετονομασία παραλλαγών γλώσσας"
 # 
@@ -269,92 +353,177 @@ msgstr "Μετονομασία παραλλαγών γλώσσας"
 # File: usr/share/jellyfix/cli/interactive.py, line: 341
 # File: usr/share/jellyfix/cli/interactive.py, line: 346
 # File: usr/share/jellyfix/cli/interactive.py, line: 351
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:420
+#: usr/share/jellyfix/cli/interactive.py:425
+#: usr/share/jellyfix/cli/interactive.py:430
+#: usr/share/jellyfix/cli/interactive.py:435
+#: usr/share/jellyfix/cli/interactive.py:443
+#: usr/share/jellyfix/cli/interactive.py:448
+#: usr/share/jellyfix/cli/interactive.py:453
+#: usr/share/jellyfix/cli/interactive.py:458
+#: usr/share/jellyfix/cli/interactive.py:463
+#: usr/share/jellyfix/cli/interactive.py:468
+#: usr/share/jellyfix/cli/interactive.py:473
+#: usr/share/jellyfix/cli/interactive.py:478
 msgid "Setting saved"
 msgstr "Ρύθμιση αποθηκεύτηκε"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 315
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:422
 msgid "Remove duplicate variants"
 msgstr "Αφαίρεση διπλών παραλλαγών"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 320
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:427
 msgid "Add language code"
 msgstr "Προσθέστε κωδικό γλώσσας"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 325
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:432
 msgid "Remove foreign"
 msgstr "Αφαίρεση ξένου"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 330
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:437
 msgid "Kept languages"
 msgstr "Διατηρούμενες γλώσσες"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 333
-#: NEEDS WORK
-msgid "Organize in folders"
-msgstr "Οργάνωση σε φακέλους"
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 338
-#: NEEDS WORK
-msgid "Fetch metadata"
-msgstr "Ανάκτηση μεταδεδομένων"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 343
-#: NEEDS WORK
-msgid "Add quality tags"
-msgstr "Προσθέστε ετικέτες ποιότητας"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 192
+# File: usr/share/jellyfix/gui/windows/mirabel_dialog.py, line: 55
+#: usr/share/jellyfix/cli/interactive.py:475
+msgid "Fix Mirabel files"
+msgstr "Διόρθωση αρχείων Mirabel"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 353
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:480
 msgid "Min Portuguese words"
 msgstr "Ελάχιστες πορτογαλικές λέξεις"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 355
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:482
 msgid "Minimum number of Portuguese words:"
 msgstr "Ελάχιστος αριθμός πορτογαλικών λέξεων:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 363
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:490
 msgid "Setting saved to ~/.jellyfix/config.json"
 msgstr "Ρύθμιση αποθηκεύτηκε στο ~/.jellyfix/config.json"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 365
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:492
 msgid "Invalid value!"
 msgstr "Μη έγκυρη τιμή!"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 375
+# File: usr/share/jellyfix/cli/interactive.py, line: 471
 #: NEEDS WORK
+msgid "Metadata settings:"
+msgstr "Ρυθμίσεις μεταδεδομένων:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 295
+#: usr/share/jellyfix/cli/interactive.py:398
+msgid "Fetch metadata (TMDB/TVDB)"
+msgstr "Ανάκτηση μεταδεδομένων (TMDB/TVDB)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+# File: usr/share/jellyfix/cli/interactive.py, line: 344
+#: usr/share/jellyfix/cli/interactive.py:399
+#: usr/share/jellyfix/cli/interactive.py:450
+msgid "Ask when multiple TMDB results"
+msgstr "Ρώτησε όταν υπάρχουν πολλαπλά αποτελέσματα TMDB"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+#: usr/share/jellyfix/cli/interactive.py:406
+#: usr/share/jellyfix/cli/interactive.py:495
+msgid "Configure APIs (TMDB/TVDB)"
+msgstr "Ρυθμίστε APIs (TMDB/TVDB)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 338
+#: usr/share/jellyfix/cli/interactive.py:445
+msgid "Fetch metadata"
+msgstr "Ανάκτηση μεταδεδομένων"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 492
+#: NEEDS WORK
+msgid "Configure APIs"
+msgstr "Ρυθμίστε APIs"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 503
+#: NEEDS WORK
+msgid "File organization settings:"
+msgstr "Ρυθμίσεις οργάνωσης αρχείων:"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 294
+#: usr/share/jellyfix/cli/interactive.py:397
+msgid "Organize in folders (Season XX)"
+msgstr "Οργάνωση σε φακέλους (Σεζόν XX)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 296
+#: usr/share/jellyfix/cli/interactive.py:400
+msgid "Add quality tags (1080p, 720p, etc)"
+msgstr "Προσθέστε ετικέτες ποιότητας (1080p, 720p, κ.λπ.)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 297
+#: usr/share/jellyfix/cli/interactive.py:401
+#: usr/share/jellyfix/cli/interactive.py:460
+msgid "Use ffprobe for quality detection"
+msgstr "Χρησιμοποιήστε το ffprobe για ανίχνευση ποιότητας"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 299
+# File: usr/share/jellyfix/cli/interactive.py, line: 360
+#: usr/share/jellyfix/cli/interactive.py:402
+#: usr/share/jellyfix/cli/interactive.py:465
+msgid "Rename NFO files to match video"
+msgstr "Μετονομάστε τα αρχεία NFO ώστε να ταιριάζουν με το βίντεο"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 300
+#: usr/share/jellyfix/cli/interactive.py:403
+msgid "Remove non-media files (keep only videos/subtitles)"
+msgstr "Αφαίρεση μη-μέσων αρχείων (διατήρηση μόνο βίντεο/υπότιτλων)"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 333
+#: usr/share/jellyfix/cli/interactive.py:440
+msgid "Organize in folders"
+msgstr "Οργάνωση σε φακέλους"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 343
+#: usr/share/jellyfix/cli/interactive.py:455
+msgid "Add quality tags"
+msgstr "Προσθέστε ετικέτες ποιότητας"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 366
+#: usr/share/jellyfix/cli/interactive.py:470
+msgid "Remove non-media files"
+msgstr "Αφαίρεση μη-πολυμεσικών αρχείων"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 375
+#: usr/share/jellyfix/cli/interactive.py:502
 msgid "Language Selection"
 msgstr "Επιλογή Γλώσσας"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 376
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:503
 msgid "Select languages to KEEP (will NOT be removed)"
 msgstr "Επιλέξτε γλώσσες για ΔΙΑΤΗΡΗΣΗ (δεν θα αφαιρεθούν)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 377
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:504
 msgid "Use SPACE to check/uncheck, ENTER to confirm"
 msgstr "Χρησιμοποιήστε το SPACE για να επιλέξετε/αποεπιλέξετε, ENTER για να επιβεβαιώσετε"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 390
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:517
 msgid "Select languages to KEEP:"
 msgstr "Επιλέξτε γλώσσες για ΔΙΑΤΗΡΗΣΗ:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 393
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:520
 msgid "(SPACE = check/uncheck, ENTER = confirm)"
 msgstr "(ΔΙΑΣΤΗΜΑ = έλεγχος/ακύρωση, ΕΙΣΟΔΟΣ = επιβεβαίωση)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 402
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:529
 msgid "Saved to ~/.jellyfix/config.json"
 msgstr "Αποθηκεύτηκε στο ~/.jellyfix/config.json"
 # 
@@ -362,22 +531,23 @@ msgstr "Αποθηκεύτηκε στο ~/.jellyfix/config.json"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 411
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 38
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:538
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:38
 msgid "API Configuration"
 msgstr "Διαμόρφωση API"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:542
 msgid "Configured"
 msgstr "Ρυθμισμένο"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 415
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:542
 msgid "Not configured"
 msgstr "Μη ρυθμισμένο"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 418
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:545
 msgid "Config file:"
 msgstr "Αρχείο ρυθμίσεων:"
 # 
@@ -386,173 +556,181 @@ msgstr "Αρχείο ρυθμίσεων:"
 # File: usr/share/jellyfix/cli/interactive.py, line: 423
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 93
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 178
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:550
+#: usr/share/jellyfix/cli/interactive.py:564
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:93
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:178
 msgid "Configure TMDB API Key"
 msgstr "Ρυθμίστε το κλειδί API TMDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 424
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:551
+#: usr/share/jellyfix/cli/interactive.py:581
 msgid "View current key (TMDB)"
 msgstr "Προβολή τρέχοντος κλειδιού (TMDB)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 425
 # File: usr/share/jellyfix/cli/interactive.py, line: 482
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:552
+#: usr/share/jellyfix/cli/interactive.py:609
 msgid "Test TMDB connection"
 msgstr "Δοκιμή σύνδεσης TMDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 426
 # File: usr/share/jellyfix/cli/interactive.py, line: 466
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:553
+#: usr/share/jellyfix/cli/interactive.py:593
 msgid "Remove TMDB key"
 msgstr "Αφαίρεση κλειδιού TMDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 427
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:554
+#: usr/share/jellyfix/cli/interactive.py:612
 msgid "How to get TMDB key"
 msgstr "Πώς να αποκτήσετε το κλειδί TMDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 438
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
 msgstr "Εισάγετε το κλειδί API του TMDB σας:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 447
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:574
 msgid "TMDB key saved to:"
 msgstr "Η κλειδί TMDB αποθηκεύτηκε στο:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 460
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:587
 msgid "File:"
 msgstr "Αρχείο:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 462
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:589
 msgid "No key configured"
 msgstr "Δεν έχει ρυθμιστεί κλειδί"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 468
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:595
 msgid "Are you sure you want to remove the TMDB key?"
 msgstr "Είστε σίγουροι ότι θέλετε να αφαιρέσετε το κλειδί TMDB;"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 476
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "Η κλειδαριά TMDB αφαιρέθηκε"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:619
 msgid "Testing TMDB connection..."
 msgstr "Δοκιμή σύνδεσης TMDB..."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 497
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:624
 msgid "No API key configured!"
 msgstr "Δεν έχει ρυθμιστεί κλειδί API!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 498
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:625
 msgid "Configure a key first using 'Configure TMDB API Key'"
 msgstr "Ρυθμίστε πρώτα ένα κλειδί χρησιμοποιώντας 'Ρύθμιση κλειδιού TMDB API'"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 504
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:631
 #, python-format
 msgid "Invalid key! Has %d characters, should have 32."
 msgstr "Μη έγκυρο κλειδί! Έχει %d χαρακτήρες, θα έπρεπε να έχει 32."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 505
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:632
 msgid "You may have copied the Token instead of the API Key!"
 msgstr "Μπορεί να έχετε αντιγράψει το Token αντί για το API Key!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 506
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:633
 msgid "See 'How to get TMDB key' for details"
 msgstr "Δείτε 'Πώς να αποκτήσετε το κλειδί TMDB' για λεπτομέρειες"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 514
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:641
 msgid "Making test request..."
 msgstr "Δημιουργία δοκιμαστικού αιτήματος..."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 523
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:650
 msgid "Connection successful!"
 msgstr "Η σύνδεση ήταν επιτυχής!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 524
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:651
 msgid "Valid and working API key"
 msgstr "Έγκυρο και λειτουργικό κλειδί API"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 525
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:652
 #, python-format
 msgid "Test search returned %d results"
 msgstr "Η αναζήτηση δοκιμής επέστρεψε %d αποτελέσματα"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 529
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:656
 msgid "Example:"
 msgstr "Παράδειγμα:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 532
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:659
 msgid "Invalid API key!"
 msgstr "Μη έγκυρο κλειδί API!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 533
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:660
 msgid "The key was rejected by TMDB."
 msgstr "Το κλειδί απορρίφθηκε από το TMDB."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 534
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:661
 msgid "Possible causes:"
 msgstr "Πιθανές αιτίες:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 535
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:662
 msgid "You copied the Reading Token instead of the API Key"
 msgstr "Αντέγραψες το Reading Token αντί για το API Key"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 536
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:663
 msgid "The key is incorrect or has been revoked"
 msgstr "Το κλειδί είναι λανθασμένο ή έχει ανακληθεί."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 537
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:664
 msgid "You copied only part of the key"
 msgstr "Αντέγραψες μόνο μέρος του κλειδιού"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 538
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:665
 msgid "See 'How to get TMDB key' for detailed instructions"
 msgstr "Δείτε 'Πώς να αποκτήσετε το κλειδί TMDB' για λεπτομερείς οδηγίες"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 541
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:668
 #, python-format
 msgid "Request error: HTTP %d"
 msgstr "Σφάλμα αιτήματος: HTTP %d"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 544
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:671
 msgid "Timeout: Server did not respond in time"
 msgstr "Χρόνος λήξης: Ο διακομιστής δεν απάντησε εγκαίρως"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 545
 # File: usr/share/jellyfix/cli/interactive.py, line: 549
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:672
+#: usr/share/jellyfix/cli/interactive.py:676
 msgid "Check your internet connection"
 msgstr "Ελέγξτε τη σύνδεσή σας στο διαδίκτυο"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 548
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:675
 msgid "Connection error"
 msgstr "Σφάλμα σύνδεσης"
 # 
@@ -560,7 +738,7 @@ msgstr "Σφάλμα σύνδεσης"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 552
 # File: usr/share/jellyfix/cli/app.py, line: 58
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
 #, python-format
 msgid "Unexpected error: %s"
 msgstr "Αναπάντεχο σφάλμα: %s"
@@ -570,142 +748,144 @@ msgstr "Αναπάντεχο σφάλμα: %s"
 # File: usr/share/jellyfix/cli/interactive.py, line: 560
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 154
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 320
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:687
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:154
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:331
 msgid "How to Get TMDB API Key"
 msgstr "Πώς να αποκτήσετε το κλειδί API του TMDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 562
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:689
 msgid "Access:"
 msgstr "Πρόσβαση:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 565
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:692
 msgid "Login or create a FREE account"
 msgstr "Συνδεθείτε ή δημιουργήστε έναν ΔΩΡΕΑΝ λογαριασμό"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 567
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:694
 msgid "Fill in your details"
 msgstr "Συμπληρώστε τα στοιχεία σας"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 568
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:695
 msgid "Confirm email"
 msgstr "Επιβεβαίωση email"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 570
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:697
 msgid "Request an API key:"
 msgstr "Αίτημα για κλειδί API:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 571
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:698
 msgid "Access"
 msgstr "Πρόσβαση"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 572
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:699
 msgid "Click 'Request an API Key'"
 msgstr "Κάντε κλικ στο 'Αίτηση για API Key'"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 573
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:700
 msgid "Choose 'Developer' (personal use)"
 msgstr "Επιλέξτε 'Προγραμματιστής' (προσωπική χρήση)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 574
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:701
 msgid "Fill in"
 msgstr "Συμπλήρωση"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 578
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:705
 msgid "Accept terms of use"
 msgstr "Αποδοχή όρων χρήσης"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 580
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:707
 msgid "IMPORTANT - Which key to copy:"
 msgstr "ΣΗΜΑΝΤΙΚΟ - Ποιο κλειδί να αντιγράψετε:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 581
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:708
 msgid "You will see TWO keys on the page:"
 msgstr "Θα δείτε ΔΥΟ κλειδιά στη σελίδα:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 582
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:709
 msgid "API Read Access Token (long, starts with eyJ...)"
 msgstr "API Αναγνωριστικό Πρόσβασης Ανάγνωσης (μακρύ, ξεκινά με eyJ...)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 583
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:710
 msgid "API Key (v3 auth) ← COPY THIS ONE!"
 msgstr "Κλειδί API (αυθεντικοποίηση v3) ← ΑΝΤΙΓΡΑΨΤΕ ΑΥΤΟ!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 585
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:712
 msgid "The correct key has 32 characters (ex: 611bc23b57add08a67b2e64ecb850be8)"
 msgstr "Το σωστό κλειδί έχει 32 χαρακτήρες (π.χ.: 611bc23b57add08a67b2e64ecb850be8)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 587
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:714
 msgid "Configure in jellyfix:"
 msgstr "Ρυθμίστε στο jellyfix:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 588
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:715
 msgid "Return to menu and choose 'Configure TMDB API Key'"
 msgstr "Επιστροφή στο μενού και επιλέξτε 'Ρύθμιση Κλειδιού API TMDB'"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 589
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:716
 msgid "Paste the API Key (32 characters)"
 msgstr "Επικολλήστε το API Key (32 χαρακτήρες)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 590
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:717
 msgid "Use 'Test connection' to verify"
 msgstr "Χρησιμοποιήστε 'Δοκιμή σύνδεσης' για να επαληθεύσετε"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 592
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:719
 msgid "The key is free and does not expire!"
 msgstr "Το κλειδί είναι δωρεάν και δεν λήγει!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 593
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:720
 msgid "Allows up to 40 requests per 10 seconds"
 msgstr "Επιτρέπει έως 40 αιτήματα ανά 10 δευτερόλεπτα"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 594
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:721
 msgid "Enough to organize thousands of files!"
 msgstr "Αρκετό για να οργανώσει χιλιάδες αρχεία!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 597
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:724
 msgid "How to Get TMDB Key"
 msgstr "Πώς να αποκτήσετε το κλειδί TMDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 604
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:731
 msgid "Help - jellyfix v"
 msgstr "Βοήθεια - jellyfix v"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 606
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:733
 msgid "What jellyfix does:"
 msgstr "Τι κάνει το jellyfix:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:735
 msgid "Renames files"
 msgstr "Μετονομάζει αρχεία"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 608
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:735
 msgid "to Jellyfin standard"
 msgstr "στο πρότυπο Jellyfin"
 # 
@@ -713,32 +893,33 @@ msgstr "στο πρότυπο Jellyfin"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 # File: usr/share/jellyfix/cli/display.py, line: 76
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movies"
 msgstr "Ταινίες"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
 msgstr "Τίτλος Ταινίας (YYYY).mkv"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series"
 msgstr "Σειρά"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 610
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:737
 msgid "Series Name S01E01.mkv"
 msgstr "Όνομα Σειράς S01E01.mkv"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:739
 msgid "Organizes subtitles"
 msgstr "Οργανώνει υπότιτλους"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 612
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:739
 msgid "(ALL languages)"
 msgstr ""
 "κλειδί (χρησιμοποιείται για το πλαίσιο): (Όλες οι γλώσσες)\n"
@@ -746,217 +927,217 @@ msgstr ""
 "κείμενο προς μετάφραση: (Όλες οι γλώσσες)"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 613
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:740
 msgid "Renames variants"
 msgstr "Μετονομάζει παραλλαγές"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 614
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:741
 msgid "Adds language code"
 msgstr "Προσθέτει κωδικό γλώσσας"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:742
 msgid "Removes foreign subtitles"
 msgstr "Αφαιρεί ξένους υπότιτλους"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 615
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:742
 msgid "keeps por and eng by default"
 msgstr "διατηρεί πορ και αγγλικά ως προεπιλογή"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:743
 msgid "Option to remove duplicates"
 msgstr "Επιλογή για αφαίρεση διπλοτύπων"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 616
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:743
 msgid "when eng exists"
 msgstr "όταν υπάρχει αγγλικά"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:744
 msgid "NEVER"
 msgstr "ΠΟΤΕ"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 617
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:744
 msgid "removes .forced.srt"
 msgstr "αφαιρεί .forced.srt"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 619
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:746
 msgid "Folder structure"
 msgstr "Δομή φακέλων"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 620
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:747
 msgid "Creates folders Season 01, Season 02, etc"
 msgstr "Δημιουργεί φακέλους Σεζόν 01, Σεζόν 02, κ.λπ."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 621
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:748
 msgid "Moves episodes to correct folders"
 msgstr "Μετακινεί επεισόδια στους σωστούς φακέλους"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 623
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:750
 msgid "Fetches metadata"
 msgstr "Ανακτά μεταδεδομένα"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 624
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:751
 msgid "Searches year and IDs via TMDB/TVDB"
 msgstr "Αναζητήσεις έτους και ταυτοτήτων μέσω TMDB/TVDB"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 625
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:752
 msgid "Adds IDs to folders [tmdbid-12345]"
 msgstr "Προσθέτει αναγνωριστικά στους φακέλους [tmdbid-12345]"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 627
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:754
 msgid "Quality detection"
 msgstr "Ανίχνευση ποιότητας"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 628
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:755
 msgid "Adds quality tags (1080p, 720p, etc) to filenames"
 msgstr "Προσθέτει ετικέτες ποιότητας (1080p, 720p, κ.λπ.) στα ονόματα αρχείων"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 629
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:756
 msgid "Option to use ffprobe for accurate detection"
 msgstr "Επιλογή χρήσης του ffprobe για ακριβή ανίχνευση"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 631
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:758
 msgid "Dry-Run Mode:"
 msgstr "Λειτουργία Δοκιμής χωρίς Εκτέλεση:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 632
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:759
 msgid "By default, jellyfix shows what will be done WITHOUT changing files."
 msgstr "Από προεπιλογή, το jellyfix δείχνει τι θα γίνει ΧΩΡΙΣ να αλλάξει αρχεία."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 633
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:760
 msgid "You can review changes before applying."
 msgstr "Μπορείτε να ελέγξετε τις αλλαγές πριν από την εφαρμογή."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:762
 msgid "Tip:"
 msgstr "Συμβουλή:"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 635
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/interactive.py:762
 msgid "Configure your TMDB key"
 msgstr "Ρυθμίστε το κλειδί TMDB σας"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:44
 msgid "Error: No working directory specified"
 msgstr "Σφάλμα: Δεν έχει καθοριστεί λειτουργικός κατάλογος"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 46
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:45
 msgid "Use: --workdir /path/to/directory"
 msgstr "Χρησιμοποιήστε: --workdir /path/to/directory"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 51
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:50
 #, python-format
 msgid "Error: Directory does not exist: %s"
 msgstr "Σφάλμα: Ο φάκελος δεν υπάρχει: %s"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 75
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:74
 #, python-format
 msgid "%d operations planned"
 msgstr "%d προγραμματισμένες λειτουργίες"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 78
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:77
 msgid "Nothing to do"
 msgstr "Δεν υπάρχει τίποτα να κάνω"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 85
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:84
 msgid "DRY-RUN mode: No changes will be made"
 msgstr "Λειτουργία DRY-RUN: Δεν θα γίνουν αλλαγές"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 92
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:91
 #, python-format
 msgid "Dry-run completed: %d operations planned"
 msgstr "Η προσομοίωση ολοκληρώθηκε: %d προγραμματισμένες λειτουργίες"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 95
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:94
 msgid "Execution completed:"
 msgstr "Η εκτέλεση ολοκληρώθηκε:"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 97
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:96
 #, python-format
 msgid "  Renamed: %d"
 msgstr "Μετονομάστηκε: %d"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 99
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:98
 #, python-format
 msgid "  Moved: %d"
 msgstr "Μετακινήθηκε: %d"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 101
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:100
 #, python-format
 msgid "  Deleted: %d"
 msgstr "Διαγράφηκε: %d"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 103
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:102
 #, python-format
 msgid "  Cleaned folders: %d"
 msgstr "Καθαρισμένοι φάκελοι: %d"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 105
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:104
 #, python-format
 msgid "  Failed: %d"
 msgstr "Απέτυχε: %d"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 107
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/non_interactive.py:106
 #, python-format
 msgid "  Skipped: %d"
 msgstr "Παραλείφθηκε: %d"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 64
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:64
 msgid "Scan Results"
 msgstr "Αποτελέσματα Σάρωσης"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 71
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:71
 msgid "Category"
 msgstr "Κατηγορία"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 72
 # File: usr/share/jellyfix/cli/display.py, line: 253
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
 msgid "Count"
 msgstr "Μετρήστε"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 75
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:75
 msgid "Video files"
 msgstr "Αρχεία βίντεο"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 77
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:77
 msgid "Episodes"
 msgstr "Επεισόδια"
 # 
@@ -964,115 +1145,116 @@ msgstr "Επεισόδια"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 80
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
 msgid "Subtitles"
 msgstr "Υπότιτλοι"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 81
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:81
 msgid "Variants"
 msgstr "Παραλλαγές"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 82
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:82
 msgid "No language"
 msgstr "Καμία γλώσσα"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 83
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:83
 msgid "Foreign"
 msgstr "Ξένος"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 84
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:84
 msgid "With language"
 msgstr "Με γλώσσα"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 87
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:87
 msgid "Images"
 msgstr "Εικόνες"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 90
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:90
 msgid "NFO files"
 msgstr "Αρχεία NFO"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 93
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:93
 msgid "Other"
 msgstr "Άλλο"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 100
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:100
 msgid "Suggested actions:"
 msgstr "Προτεινόμενες ενέργειες:"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 103
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:103
 msgid "subtitle variants (.lang2, .lang3) can be processed"
 msgstr "οι παραλλαγές υποτίτλων (.lang2, .lang3) μπορούν να επεξεργαστούν"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 106
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:106
 msgid "subtitles without language code"
 msgstr "υπότιτλοι χωρίς κωδικό γλώσσας"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 109
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:109
 msgid "foreign subtitles can be removed"
 msgstr "μπορούν να αφαιρεθούν οι ξένες υπότιτλοι"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 113
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:113
 msgid "Suggestions"
 msgstr "Προτάσεις"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 131
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:133
 msgid "No operations needed. Everything is already organized!"
 msgstr "Δεν απαιτούνται ενέργειες. Όλα είναι ήδη οργανωμένα!"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 137
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:139
 #, python-brace-format
 msgid "Operation Preview ({} files)"
 msgstr "Προεπισκόπηση Λειτουργίας ({} αρχεία)"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 262
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:262
 #, python-brace-format
 msgid "and {} more groups"
 msgstr "και {} περισσότερες ομάδες"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 189
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:276
 msgid "Move + Rename:"
 msgstr "Μετακίνηση + Μετονομασία:"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 194
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:281
 msgid "Move:"
 msgstr "Μετακίνηση:"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 199
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:286
 msgid "Rename:"
 msgstr "Μετονομασία:"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 204
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:291
 msgid "Remove:"
 msgstr "Αφαίρεση:"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 208
 # File: usr/share/jellyfix/cli/display.py, line: 225
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
 msgid "Summary"
 msgstr "Περίληψη"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 230
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:342
 msgid "Move + Rename"
 msgstr "Μετακίνηση + Μετονομασία"
 # 
@@ -1080,7 +1262,8 @@ msgstr "Μετακίνηση + Μετονομασία"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 231
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
 msgid "Move"
 msgstr "Μετακίνηση"
 # 
@@ -1088,7 +1271,8 @@ msgstr "Μετακίνηση"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 232
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
 msgid "Rename"
 msgstr "Μετονομασία"
 # 
@@ -1096,107 +1280,207 @@ msgstr "Μετονομασία"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 233
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
 msgid "Delete"
 msgstr "Διαγραφή"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 251
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:363
 msgid "✅ Execution Results"
 msgstr "✅ Αποτελέσματα Εκτέλεσης"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 252
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:364
 msgid "Action"
 msgstr "Ενέργεια"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 256
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:368
 msgid "Renamed"
 msgstr "Μετονομασία"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 258
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:370
 msgid "Moved"
 msgstr "Μετακινήθηκε"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 260
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:372
 msgid "Deleted"
 msgstr "Διαγράφηκε"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 262
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:374
 msgid "Cleaned folders"
 msgstr "Καθαρισμένοι φάκελοι"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 264
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:376
 msgid "Failed"
 msgstr "Απέτυχε"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 266
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/display.py:378
 msgid "Skipped"
 msgstr "Παραλείφθηκε"
 # 
 # File: usr/share/jellyfix/cli/app.py, line: 54
-#: NEEDS WORK
+#: usr/share/jellyfix/cli/app.py:54
 msgid "Operation cancelled by user"
 msgstr "Η λειτουργία ακυρώθηκε από τον χρήστη"
 # 
 # File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: NEEDS WORK
+#: usr/share/jellyfix/core/image_manager.py:101
 #, python-format
 msgid "Downloaded image: %s"
 msgstr "Ληφθείσα εικόνα: %s"
 # 
 # File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: NEEDS WORK
+#: usr/share/jellyfix/core/image_manager.py:106
 #, python-format
 msgid "Failed to download image: %s"
 msgstr "Αποτυχία λήψης εικόνας: %s"
 # 
 # File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: NEEDS WORK
+#: usr/share/jellyfix/core/image_manager.py:110
 #, python-format
 msgid "Unexpected error downloading image: %s"
 msgstr "Αναπάντεχο σφάλμα κατά τη λήψη εικόνας: %s"
 # 
 # File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: NEEDS WORK
+#: usr/share/jellyfix/core/image_manager.py:216
 msgid "Clearing image cache..."
 msgstr "Καθαρισμός κρυφής μνήμης εικόνας..."
 # 
 # File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: NEEDS WORK
+#: usr/share/jellyfix/core/image_manager.py:218
 msgid "Image cache cleared"
 msgstr "Η μνήμη cache εικόνας εκκαθαρίστηκε"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: usr/share/jellyfix/core/subtitle_manager.py:169
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Αναζητώντας υπότιτλους για: %s (Γλώσσες: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: usr/share/jellyfix/core/subtitle_manager.py:182
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Επίπεδο 1 (hash) βρέθηκε: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: usr/share/jellyfix/core/subtitle_manager.py:186
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Λείπουν γλώσσες: %s - προσπαθώντας αναζήτηση τίτλου TMDB"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: usr/share/jellyfix/core/subtitle_manager.py:207
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Επίπεδο 2 (TMDB) βρέθηκε: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: usr/share/jellyfix/core/subtitle_manager.py:210
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Ακόμα λείπει: %s (δοκιμάστε χειροκίνητη αναζήτηση)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: usr/share/jellyfix/core/subtitle_manager.py:213
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Δεν βρέθηκαν υπότιτλοι για: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
 #: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "Μαζικό Επίπεδο 1: σάρωση %d βίντεο με βάση το hash..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "Επίπεδο 1 (hash) βρέθηκε: %s για %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "Μαζική Επίπεδο 2: αναζήτηση τίτλου για %d βίντεο..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "Επίπεδο 2 (TMDB) βρέθηκε: %s για %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
+#: usr/share/jellyfix/core/subtitle_manager.py:237
+#, python-format
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Βρέθηκαν %d υπότιτλοι με βάση το hash για: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
+#: usr/share/jellyfix/core/subtitle_manager.py:343
+#, python-format
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Βρέθηκαν %d επικυρωμένοι υπότιτλοι κατά τίτλο για: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: usr/share/jellyfix/core/subtitle_manager.py:600
+#, python-format
+msgid "Manual search: %s"
+msgstr "Χειροκίνητη αναζήτηση: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: usr/share/jellyfix/core/subtitle_manager.py:622
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
+msgid "Unknown release"
+msgstr "Άγνωστη έκδοση"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: usr/share/jellyfix/core/subtitle_manager.py:657
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Βρέθηκαν %d υπότιτλοι στην αυτόματη αναζήτηση"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: usr/share/jellyfix/core/subtitle_manager.py:707
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Ληφθείσα υπότιτλος: %s"
+# 
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
+#: usr/share/jellyfix/gui/windows/help_window.py:34
 msgid "Jellyfix Help"
 msgstr "Jellyfix Βοήθεια"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:69
 msgid "Version"
 msgstr "Έκδοση"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:75
 msgid "Intelligent Jellyfin Library Organizer"
 msgstr "Έξυπνος Οργανωτής Βιβλιοθήκης Jellyfin"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:84
 msgid "What Jellyfix Does"
 msgstr "Τι Κάνει το Jellyfix"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:85
+#, fuzzy
 msgid ""
-"\n"
 "Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
 "\n"
 "• <b>Renames files</b> to Jellyfin standard format\n"
@@ -1204,7 +1488,7 @@ msgid ""
 "• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
 "• <b>Fetches metadata</b> from TMDB/TVDB\n"
 "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
-"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])\n"
+"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
 msgstr ""
 "Το Jellyfix οργανώνει αυτόματα τη βιβλιοθήκη πολυμέσων σας ακολουθώντας τις συμβάσεις ονοματοδοσίας "
 "του Jellyfin:\n"
@@ -1217,14 +1501,14 @@ msgstr ""
 "• <b>Προσθέτει αναγνωριστικά παρόχων</b> στα ονόματα φακέλων ([tmdbid-12345])"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:96
 msgid "Examples"
 msgstr "Παραδείγματα"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:97
+#, fuzzy
 msgid ""
-"\n"
 "<b>Movies:</b>\n"
 "  Before: movie.name.2023.1080p.bluray.mkv\n"
 "  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
@@ -1237,7 +1521,7 @@ msgid ""
 "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
 "  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
 "  • Removes foreign languages (keeps configured languages only)\n"
-"  • <b>NEVER</b> removes .forced.srt files\n"
+"  • <b>NEVER</b> removes .forced.srt files"
 msgstr ""
 "<b>Ταινίες:</b>\n"
 "  Πριν: movie.name.2023.1080p.bluray.mkv\n"
@@ -1254,14 +1538,14 @@ msgstr ""
 "  • <b>ΠΟΤΕ</b> δεν αφαιρεί αρχεία .forced.srt"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:113
 msgid "How to Use"
 msgstr "Πώς να Χρησιμοποιήσετε"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:114
+#, fuzzy
 msgid ""
-"\n"
 "<b>1. Configure TMDB API Key (recommended)</b>\n"
 "   Menu → Configure API Keys → Follow the tutorial\n"
 "   This enables metadata fetching and poster downloads.\n"
@@ -1281,7 +1565,7 @@ msgid ""
 "   Confirm the operation\n"
 "   Files will be renamed and organized\n"
 "\n"
-"<b>Tip:</b> Always review the preview before executing!\n"
+"<b>Tip:</b> Always review the preview before executing!"
 msgstr ""
 "<b>1. Ρύθμιση Κλειδιού API TMDB (συνιστάται)</b>\n"
 "   Μενού → Ρύθμιση Κλειδιών API → Ακολουθήστε το tutorial\n"
@@ -1305,16 +1589,16 @@ msgstr ""
 "<b>Συμβουλή:</b> Πάντα να ελέγχετε την προεπισκόπηση πριν από την εκτέλεση!"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:138
+#, fuzzy
 msgid ""
-"\n"
 "Configure Jellyfix behavior:\n"
 "\n"
 "• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
 "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
 "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
 "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
-"• <b>ffprobe:</b> Use ffprobe for accurate quality detection\n"
+"• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
 msgstr ""
 "Ρυθμίστε τη συμπεριφορά του Jellyfix:\n"
 "\n"
@@ -1325,14 +1609,14 @@ msgstr ""
 "• <b>ffprobe:</b> Χρησιμοποιήστε το ffprobe για ακριβή ανίχνευση ποιότητας"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:148
 msgid "Important Notes"
 msgstr "Σημαντικές Σημειώσεις"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:149
+#, fuzzy
 msgid ""
-"\n"
 "⚠️ <b>Dry-run is DEFAULT</b>\n"
 "Files are NOT modified unless you explicitly execute operations.\n"
 "\n"
@@ -1343,7 +1627,7 @@ msgid ""
 "For best results, configure your TMDB API key in Settings.\n"
 "\n"
 "🌍 <b>Customize kept languages</b>\n"
-"Configure which subtitle languages to keep in Preferences.\n"
+"Configure which subtitle languages to keep in Preferences."
 msgstr ""
 "⚠️ <b>Η εκτέλεση δοκιμής είναι ΠΡΟΕΠΙΛΟΓΗ</b>\n"
 "Τα αρχεία ΔΕΝ τροποποιούνται εκτός αν εκτελέσετε ρητά τις ενέργειες.\n"
@@ -1358,47 +1642,48 @@ msgstr ""
 "Ρυθμίστε ποιες γλώσσες υποτίτλων να διατηρηθούν στις Προτιμήσεις."
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:167
 msgid "Links"
 msgstr "Σύνδεσμοι"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:172
 msgid "Homepage"
 msgstr "Αρχική σελίδα"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:178
 msgid "Report Issues"
 msgstr "Αναφορά Προβλημάτων"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/help_window.py:184
 msgid "Get TMDB API Key"
 msgstr "Αποκτήστε το κλειδί API του TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
 msgid "Search Title"
 msgstr "Αναζήτηση Τίτλου"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
 msgid "Enter movie or series name..."
 msgstr "Εισάγετε το όνομα ταινίας ή σειράς..."
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
 msgid "Search"
 msgstr "Αναζήτηση"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
 msgid "Movie"
 msgstr "Ταινία"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
 msgid "TV Series"
 msgstr "Τηλεοπτική Σειρά"
 # 
@@ -1408,7 +1693,11 @@ msgstr "Τηλεοπτική Σειρά"
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
 msgid "Cancel"
 msgstr "Ακύρωση"
 # 
@@ -1416,120 +1705,196 @@ msgstr "Ακύρωση"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
 msgid "Apply"
 msgstr "Εφαρμογή"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
 msgid "Searching..."
 msgstr "Αναζήτηση..."
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
 msgid "TMDB not configured"
 msgstr "Η TMDB δεν είναι ρυθμισμένη"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
 msgid "No results found"
 msgstr "Δεν βρέθηκαν αποτελέσματα"
 # 
 # File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
 msgid "results"
 msgstr "αποτελέσματα"
 # 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "Αναζήτηση Υποτίτλων"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "Λήψη"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "Εισάγετε τον τίτλο ταινίας ή εκπομπής..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "Σεζόν"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "Επεισόδιο"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "Αναζήτηση Υποτίτλων"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "Εισάγετε έναν τίτλο και κάντε κλικ στην αναζήτηση"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "Δοκιμάστε έναν διαφορετικό όρο αναζήτησης"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+#, python-brace-format
+msgid "Found {} subtitles"
+msgstr "Βρέθηκαν {} υπότιτλοι"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Σφάλμα: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Λήφθηκε: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "Η λήψη απέτυχε"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
 msgid "TMDB Configuration"
 msgstr "Ρυθμίσεις TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
 msgid "Configure The Movie Database API key"
 msgstr "Ρυθμίστε το κλειδί API της Βάσης Δεδομένων Ταινιών"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
 msgid "✓ Configured"
 msgstr "✓ Ρυθμισμένο"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
 msgid "✗ Not configured"
 msgstr "✗ Μη ρυθμισμένο"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
 msgid "TMDB API Key"
 msgstr "Κλειδί API TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
 msgid "Config file"
 msgstr "Αρχείο ρυθμίσεων"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
 msgid "Actions"
 msgstr "Ενέργειες"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
 msgid "Enter your TMDB API key"
 msgstr "Εισάγετε το κλειδί API του TMDB σας"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
 msgid "Configure"
 msgstr "Ρύθμιση"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
 msgid "View Current Key"
 msgstr "Προβολή Τρέχοντος Κλειδιού"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
 msgid "Show masked API key"
 msgstr "Εμφάνιση κρυμμένου κλειδιού API"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
 msgid "View"
 msgstr "Προβολή"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
 msgid "Test TMDB Connection"
 msgstr "Δοκιμή σύνδεσης TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
 msgid "Verify API key is working"
 msgstr "Επιβεβαιώστε ότι το API key λειτουργεί"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
 msgid "Test"
 msgstr "Δοκιμή"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
 msgid "Remove TMDB Key"
 msgstr "Αφαίρεση κλειδιού TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
 msgid "Delete stored API key"
 msgstr "Διαγραφή αποθηκευμένου κλειδιού API"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
 msgid "Remove"
 msgstr "Αφαίρεση"
 # 
@@ -1537,63 +1902,65 @@ msgstr "Αφαίρεση"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
+#: usr/share/jellyfix/gui/windows/main_window.py:175
 msgid "Help"
 msgstr "Βοήθεια"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
 msgid "Step-by-step tutorial"
 msgstr "Βήμα-προς-βήμα οδηγός"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
 msgid "Tutorial"
 msgstr "Οδηγός"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
 msgid "Enter your TMDB API key below"
 msgstr "Εισάγετε το κλειδί API TMDB παρακάτω"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
 msgid "Paste API key here"
 msgstr "Επικολλήστε το κλειδί API εδώ"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
 msgid "Save"
 msgstr "Αποθήκευση"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
 msgid "API key saved successfully"
 msgstr "Το κλειδί API αποθηκεύτηκε με επιτυχία"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
 msgid "Current TMDB API Key"
 msgstr "Τρέχων κωδικός API TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
 msgid "Masked key"
 msgstr "Μασκαρισμένο κλειδί"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
 msgid "Full key stored in"
 msgstr "Πλήρης κλειδί αποθηκευμένο σε"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
 msgid "No API Key"
 msgstr "Κανένα API Key"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
 msgid "No TMDB API key configured yet"
 msgstr "Δεν έχει ρυθμιστεί ακόμη κλειδί API TMDB"
 # 
@@ -1609,22 +1976,32 @@ msgstr "Δεν έχει ρυθμιστεί ακόμη κλειδί API TMDB"
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
 msgid "OK"
 msgstr "Εντάξει"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
 msgid "Please configure TMDB API key first"
 msgstr "Παρακαλώ ρυθμίστε πρώτα το κλειδί API του TMDB."
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
 msgid "✓ Connection Successful"
 msgstr "✓ Η σύνδεση ήταν επιτυχής"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
 #, python-brace-format
 msgid ""
 "TMDB API key is working correctly!\n"
@@ -1633,43 +2010,43 @@ msgid ""
 msgstr "Το κλειδί API του TMDB λειτουργεί σωστά!"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
 msgid "⚠ Connection Failed"
 msgstr "⚠ Αποτυχία Σύνδεσης"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
 msgid "Could not fetch data from TMDB. Please check your API key."
 msgstr "Δεν ήταν δυνατή η λήψη δεδομένων από το TMDB. Παρακαλώ ελέγξτε το API key σας."
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
 msgid "✗ Connection Error"
 msgstr "✗ Σφάλμα Σύνδεσης"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
 #, python-brace-format
 msgid "Error testing connection: {}"
 msgstr "Σφάλμα κατά τη δοκιμή σύνδεσης: {}"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
 msgid "Remove API Key?"
 msgstr "Αφαίρεση κλειδιού API;"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
 msgid "This will delete your stored TMDB API key. You will need to configure it again."
 msgstr "Αυτό θα διαγράψει το αποθηκευμένο κλειδί API TMDB σας. Θα χρειαστεί να το ρυθμίσετε ξανά."
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
 msgid "API key removed"
 msgstr "Κλειδί API αφαιρεθέν"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
 msgid ""
 "How to Get TMDB API Key:\n"
 "\n"
@@ -1707,451 +2084,605 @@ msgstr ""
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
 # File: usr/share/jellyfix/gui/app.py, line: 122
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/app.py:142
+#: usr/share/jellyfix/gui/windows/main_window.py:51
+#: usr/share/jellyfix/gui/windows/main_window.py:98
 msgid "Jellyfix"
 msgstr "Jellyfix"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 120
-#: NEEDS WORK
-msgid "Dashboard"
-msgstr "Πίνακας ελέγχου"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: NEEDS WORK
-msgid "Operations"
-msgstr "Λειτουργίες"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 144
-#: NEEDS WORK
-msgid "Library"
-msgstr "Βιβλιοθήκη"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 155
-#: NEEDS WORK
-msgid "Preview"
-msgstr "Προεπισκόπηση"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:169
+#: usr/share/jellyfix/gui/windows/preferences_window.py:44
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:170
 msgid "Configure API Keys"
 msgstr "Ρυθμίστε τα κλειδιά API"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:176
 msgid "About Jellyfix"
 msgstr "Σχετικά με το Jellyfix"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:180
 msgid "Quit"
 msgstr "Έξοδος"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:248
 msgid "Scanning directory..."
 msgstr "Σάρωση καταλόγου..."
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 276
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:360
 msgid "Generating operations..."
 msgstr "Δημιουργία λειτουργιών..."
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 301
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:385
 #, python-brace-format
 msgid "{} operations ready"
 msgstr "{} λειτουργίες έτοιμες"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 326
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:511
 msgid "Apply Operations?"
 msgstr "Εφαρμογή Λειτουργιών;"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 367
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:512
+#: usr/share/jellyfix/gui/windows/main_window.py:546
 #, python-brace-format
 msgid "This will rename {} files. Continue?"
 msgstr "Αυτό θα μετονομάσει {} αρχεία. Συνεχίσετε;"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 337
-#: NEEDS WORK
-msgid "Applying operations..."
-msgstr "Εφαρμογή λειτουργιών..."
-# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:545
 msgid "Execute Operations?"
 msgstr "Εκτέλεση Λειτουργιών;"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 372
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:551
 msgid "Execute"
 msgstr "Εκτέλεση"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 395
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:574
 #, python-brace-format
 msgid "Dry-run: {} operations previewed"
 msgstr "Προσομοίωση: {} λειτουργίες προεπισκοπημένες"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 398
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/main_window.py:577
 #, python-brace-format
 msgid "{} operations completed"
 msgstr "{} λειτουργίες ολοκληρώθηκαν"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 408
-#: NEEDS WORK
-msgid "Complete!"
-msgstr "Ολοκληρώθηκε!"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
+#: usr/share/jellyfix/gui/windows/main_window.py:721
+msgid "Feature Unavailable"
+msgstr "Η δυνατότητα δεν είναι διαθέσιμη"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
+#: usr/share/jellyfix/gui/windows/main_window.py:722
+msgid ""
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
+msgstr ""
+"Η βιβλιοθήκη 'subliminal' δεν είναι εγκατεστημένη. Παρακαλώ εγκαταστήστε την για να χρησιμοποιήσετε "
+"αυτή τη δυνατότητα."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
+#: usr/share/jellyfix/gui/windows/main_window.py:746
+msgid "Preparing..."
+msgstr "Ετοιμασία..."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
+#: usr/share/jellyfix/gui/windows/main_window.py:954
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Αναζητώντας υπότιτλους ({}/{})"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/gui/windows/main_window.py:993
+#, fuzzy
+msgid "subtitle"
+msgstr "Υπότιτλοι"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/gui/windows/main_window.py:993
+#, fuzzy
+msgid "subtitles"
+msgstr "Υπότιτλοι"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: usr/share/jellyfix/gui/windows/main_window.py:994
+#: usr/share/jellyfix/gui/windows/main_window.py:1014
+#, fuzzy
+msgid "video"
+msgstr "βίντεο"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
+#: usr/share/jellyfix/gui/windows/main_window.py:997
+msgid "No Subtitles Found"
+msgstr "Δεν βρέθηκαν υπότιτλοι"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
+#: usr/share/jellyfix/gui/windows/main_window.py:998
+msgid ""
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+msgstr ""
+"Δεν βρέθηκαν αυτόματα υπότιτλοι.  \n"
+"Δοκιμάστε αναζήτηση χειροκίνητα;"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
+#: usr/share/jellyfix/gui/windows/main_window.py:1002
+msgid "Partial Success"
+msgstr "Μερική Επιτυχία"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
+#: usr/share/jellyfix/gui/windows/main_window.py:1010
+#, fuzzy, python-brace-format
+msgid ""
+"Downloaded {} {}.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+msgstr "Ληφθέν {} υπότιτλοι."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
+#: usr/share/jellyfix/gui/windows/main_window.py:1015
+#, fuzzy, python-brace-format
+msgid ""
+"Downloaded {} {} for {} of {} {}.\n"
+"Try manual search for missing?"
+msgstr "Κατεβάσατε {} υπότιτλους για {} από {} βίντεο. Δοκιμάστε την αυτόματη αναζήτηση για τα λείποντα;"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
+#: usr/share/jellyfix/gui/windows/main_window.py:1020
+msgid "Download Complete"
+msgstr "Η λήψη ολοκληρώθηκε"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
+#: usr/share/jellyfix/gui/windows/main_window.py:1021
+#, fuzzy, python-brace-format
+msgid "Downloaded {} {} for {} {} (all languages)."
+msgstr "Κατεβάσατε {} υπότιτλους για {} βίντεο (όλες οι γλώσσες)."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
+#: usr/share/jellyfix/gui/windows/main_window.py:1034
+msgid "Manual Search"
+msgstr "Χειροκίνητη Αναζήτηση"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
+#: usr/share/jellyfix/gui/windows/main_window.py:1071
+msgid "Batch Error"
+msgstr "Σφάλμα Παρτίδας"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+#: usr/share/jellyfix/gui/windows/main_window.py:1072
+#, python-brace-format
+msgid ""
+"An error occurred during batch download:\n"
+"{}"
+msgstr ""
+"Παρουσιάστηκε σφάλμα κατά τη διάρκεια της μαζικής λήψης:  \n"
+"{}"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
+#: usr/share/jellyfix/gui/windows/main_window.py:1154
+#, python-brace-format
+msgid "Subtitle downloaded: {}"
+msgstr "Υπότιτλος κατεβασμένος: {}"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:60
 msgid "Subtitle Handling"
 msgstr "Διαχείριση Υποτίτλων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:61
 msgid "Configure how subtitles are processed"
 msgstr "Ρυθμίστε τον τρόπο επεξεργασίας των υποτίτλων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:66
 msgid "Rename Language Variants"
 msgstr "Μετονομασία Παραλλαγών Γλώσσας"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:67
 msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
 msgstr "Μετονομάστε .por2.srt, .eng2.srt σε .por.srt, .eng.srt"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:75
 msgid "Remove Duplicate Variants"
 msgstr "Αφαίρεση Διπλότυπων Παραλλαγών"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:76
 msgid "Remove .lang2, .lang3 files after renaming"
 msgstr "Αφαιρέστε τα αρχεία .lang2, .lang3 μετά την μετονομασία"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:84
 msgid "Add Language Codes"
 msgstr "Προσθήκη Κωδικών Γλώσσας"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:85
 msgid "Add language codes to subtitles without them"
 msgstr "Προσθέστε κωδικούς γλώσσας στους υπότιτλους χωρίς αυτούς"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:93
 msgid "Remove Foreign Subtitles"
 msgstr "Αφαίρεση Ξένων Υποτίτλων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:94
 msgid "Remove subtitles not in kept languages list"
 msgstr "Αφαίρεση υποτίτλων που δεν είναι στη λίστα των διατηρούμενων γλωσσών"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:102
 msgid "Minimum Portuguese Words"
 msgstr "Ελάχιστες Πορτογαλικές Λέξεις"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:103
 msgid "Min words to detect Portuguese subtitles"
 msgstr "Ελάχιστες λέξεις για ανίχνευση πορτογαλικών υποτίτλων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:112
 msgid "Kept Languages"
 msgstr "Διατηρούμενες Γλώσσες"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:113
 msgid "Subtitles in these languages will be kept"
 msgstr "Οι υπότιτλοι σε αυτές τις γλώσσες θα διατηρηθούν"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:134
 msgid "Video"
 msgstr "Βίντεο"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:140
 msgid "Video Handling"
 msgstr "Διαχείριση Βίντεο"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:141
 msgid "Configure how videos are processed"
 msgstr "Ρυθμίστε πώς επεξεργάζονται τα βίντεο"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:146
 msgid "Organize in Folders"
 msgstr "Οργάνωση σε Φακέλους"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:147
 msgid "Organize TV episodes in Season folders"
 msgstr "Οργανώστε τα επεισόδια της τηλεόρασης σε φακέλους Σεζόν"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:155
 msgid "Add Quality Tags"
 msgstr "Προσθήκη Ετικετών Ποιότητας"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:156
 msgid "Add resolution tags (1080p, 720p, etc) to filenames"
 msgstr "Προσθέστε ετικέτες ανάλυσης (1080p, 720p, κ.λπ.) στα ονόματα αρχείων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:164
 msgid "Use ffprobe for Detection"
 msgstr "Χρησιμοποιήστε το ffprobe για ανίχνευση"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:165
 msgid "More accurate but slower quality detection"
 msgstr "Πιο ακριβής αλλά πιο αργή ανίχνευση ποιότητας"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:177
 msgid "Metadata"
 msgstr "Μεταδεδομένα"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:183
 msgid "Metadata Fetching"
 msgstr "Ανάκτηση Μεταδεδομένων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:184
 msgid "Configure metadata from TMDB"
 msgstr "Ρυθμίστε τα μεταδεδομένα από το TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:189
 msgid "Fetch Metadata"
 msgstr "Ανάκτηση Μεταδεδομένων"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:190
 msgid "Download metadata and posters from TMDB"
 msgstr "Κατεβάστε μεταδεδομένα και αφίσες από το TMDB"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:202
 msgid "General"
 msgstr "Γενικά"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:208
 msgid "Application"
 msgstr "Εφαρμογή"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:209
 msgid "General application settings"
 msgstr "Γενικές ρυθμίσεις εφαρμογής"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:217
 msgid "Keep Recent Libraries"
 msgstr "Διατήρηση Πρόσφατων Βιβλιοθηκών"
 # 
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/windows/preferences_window.py:218
 msgid "Remember recently scanned libraries between sessions"
 msgstr "Θυμηθείτε τις πρόσφατα σαρωμένες βιβλιοθήκες μεταξύ των συνεδριών"
 # 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: usr/share/jellyfix/gui/windows/preferences_window.py:228
+msgid "File Cleanup"
+msgstr "Καθαρισμός Αρχείων"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: usr/share/jellyfix/gui/windows/preferences_window.py:229
+msgid "Configure which files to remove"
+msgstr "Ρυθμίστε ποια αρχεία να αφαιρεθούν"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: usr/share/jellyfix/gui/windows/preferences_window.py:234
+msgid "Remove Non-Media Files"
+msgstr "Αφαίρεση Μη-Μέσων Αρχείων"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: usr/share/jellyfix/gui/windows/preferences_window.py:235
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Αφαιρέστε όλα τα αρχεία που δεν είναι .srt ή .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: usr/share/jellyfix/gui/windows/preferences_window.py:243
+msgid "Fix Mirabel Files"
+msgstr "Διόρθωση Αρχείων Mirabel"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: usr/share/jellyfix/gui/windows/preferences_window.py:244
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Μετονομάστε .pt-BR.hi.srt, .br.hi.srt σε .por.srt"
+# 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/handlers/operations.py:73
 msgid "Select Directory to Scan"
 msgstr "Επιλέξτε Κατάλογο προς Σάρωση"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/handlers/operations.py:174
 msgid "Scan Failed"
 msgstr "Σάρωση Απέτυχε"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/handlers/operations.py:248
 msgid "Operation Generation Failed"
 msgstr "Αποτυχία Δημιουργίας Λειτουργίας"
 # 
 # File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/handlers/operations.py:447
 msgid "Execution Failed"
 msgstr "Αποτυχία Εκτέλεσης"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
 msgid "No Selection"
 msgstr "Καμία Επιλογή"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
 msgid "Select an item to preview"
 msgstr "Επιλέξτε ένα στοιχείο για προεπισκόπηση"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
 msgid "Search title"
 msgstr "Αναζήτηση τίτλου"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
 msgid "Wrong title? Click to search manually"
 msgstr "Λάθος τίτλος; Κάντε κλικ για να αναζητήσετε χειροκίνητα"
 # 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "Κατέβασμα Υποτίτλων"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "Αναζήτηση και αυτόματη λήψη υποτίτλων"
+# 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
 msgid "From:"
 msgstr "Από:"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
 msgid "To:"
 msgstr "Προς:"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
 msgid "MOVE"
 msgstr "ΜΕΤΑΚΙΝΗΣΗ"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
 msgid "DELETE"
 msgstr "ΔΙΑΓΡΑΦΗ"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
 msgid "MOVE + RENAME"
 msgstr "ΜΕΤΑΚΙΝΗΣΗ + ΜΕΤΟΝΟΜΑΣΙΑ"
 # 
 # File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
 msgid "RENAME"
 msgstr "Μετονομασία"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
 msgid "Welcome to Jellyfix"
 msgstr "Καλώς ήρθατε στο Jellyfix"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
 msgid "Drop a folder here"
 msgstr "Αφήστε έναν φάκελο εδώ"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
 msgid "or click the button below"
 msgstr "ή κάντε κλικ στο κουμπί παρακάτω"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
 msgid "Add Library"
 msgstr "Προσθήκη Βιβλιοθήκης"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
 msgid "Recent Libraries"
 msgstr "Πρόσφατες Βιβλιοθήκες"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
 msgid "Clear recent libraries"
 msgstr "Καθαρισμός πρόσφατων βιβλιοθηκών"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
 msgid "weeks ago"
 msgstr "εβδομάδες πριν"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
 msgid "days ago"
 msgstr "ημέρες πριν"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
 msgid "hours ago"
 msgstr "ώρες πριν"
 # 
 # File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
 msgid "Just now"
 msgstr "Μόλις τώρα"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "Λειτουργίες"
+# 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
 msgid "Search..."
 msgstr "Αναζήτηση..."
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
 msgid "All"
 msgstr "Όλα"
 # 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "Κατεβάστε Υπότιτλους για Όλους"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Αναζήτηση και λήψη υποτίτλων για όλα τα καταχωρημένα βίντεο"
+# 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
 msgid "No Operations"
 msgstr "Καμία Λειτουργία"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
 msgid "Scan a directory to generate operations"
 msgstr "Σάρωση ενός καταλόγου για τη δημιουργία λειτουργιών"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
 msgid "rename"
 msgstr "μετονομασία"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
 msgid "move"
 msgstr "μετακίνηση"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
 msgid "delete"
 msgstr "διαγραφή"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
 msgid "Showing {} of {} operations"
 msgstr "Εμφάνιση {} από {} λειτουργίες"
 # 
 # File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
 msgid "Total: {} operations"
 msgstr "Σύνολο: {} λειτουργίες"
 # 
 # File: usr/share/jellyfix/gui/app.py, line: 131
-#: NEEDS WORK
+#: usr/share/jellyfix/gui/app.py:151
 msgid "translator-credits"
 msgstr "πιστώσεις μεταφραστή"
 # 
@@ -2164,80 +2695,80 @@ msgstr "Οργάνωση Φακέλου με Jellyfix"
 #: NEEDS WORK
 #, python-brace-format
 msgid "Organize {0} Folders with Jellyfix"
-msgstr "Οργανώστε {0} Φακέλους με το Jellyfix"
+msgstr "Οργανώστε {0} Φάκελοι με το Jellyfix"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 95
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
 #: NEEDS WORK
 msgid "Organize 1 Video and 1 Subtitle"
 msgstr "Οργάνωση 1 Βίντεο και 1 Υπότιτλος"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 97
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
 #: NEEDS WORK
 #, python-brace-format
 msgid "Organize 1 Video and {0} Subtitles"
 msgstr "Οργάνωση 1 Βίντεο και {0} Υπότιτλοι"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 99
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
 #: NEEDS WORK
 #, python-brace-format
 msgid "Organize {0} Videos and 1 Subtitle"
 msgstr "Οργάνωση {0} Βίντεο και 1 Υπότιτλος"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 101
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
 #: NEEDS WORK
 #, python-brace-format
 msgid "Organize {0} Videos and {1} Subtitles"
 msgstr "Οργάνωση {0} Βίντεο και {1} Υποτίτλων"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
 #: NEEDS WORK
 msgid "Organize Video"
 msgstr "Οργάνωση Βίντεο"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 107
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
 #: NEEDS WORK
 #, python-brace-format
 msgid "Organize {0} Videos"
 msgstr "Οργάνωση {0} Βίντεο"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 111
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
 #: NEEDS WORK
 msgid "Organize Subtitle"
 msgstr "Οργάνωση Υπότιτλου"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 113
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
 #: NEEDS WORK
 #, python-brace-format
 msgid "Organize {0} Subtitles"
 msgstr "Οργάνωση {0} Υποτίτλων"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 173
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
 #: NEEDS WORK
 msgid "No valid local files selected"
 msgstr "Δεν έχουν επιλεγεί έγκυρα τοπικά αρχεία"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 174
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
 #: NEEDS WORK
 msgid "Could not get the path for the selected files."
 msgstr "Δεν ήταν δυνατή η λήψη της διαδρομής για τα επιλεγμένα αρχεία."
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 189
-#: NEEDS WORK
-msgid "Application Launch Error"
-msgstr "Σφάλμα εκκίνησης εφαρμογής"
-# 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 261
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
 #: NEEDS WORK
 msgid "Application Not Found"
 msgstr "Η εφαρμογή δεν βρέθηκε"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 262
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
 #: NEEDS WORK
 #, python-brace-format
 msgid "Could not find '{0}'. Is Jellyfix installed?"
 msgstr "Δεν μπόρεσα να βρω '{0}'. Είναι εγκατεστημένο το Jellyfix;"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 190
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+#: NEEDS WORK
+msgid "Application Launch Error"
+msgstr "Σφάλμα εκκίνησης εφαρμογής"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
 #: NEEDS WORK
 #, python-brace-format
 msgid "Failed to start Jellyfix: {0}"

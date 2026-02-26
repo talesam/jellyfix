@@ -17,7 +17,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, Gdk, Gio, GLib
+from gi.repository import Gtk, Adw, Gdk
 from pathlib import Path
 from datetime import datetime
 from ...utils.i18n import _
@@ -251,10 +251,10 @@ class DashboardView(Gtk.Box):
                 path = paths[0]
                 if path.is_dir():
                     # Single directory - scan it directly
-                    self._start_scan(path)
+                    self._start_scan(path, selected_paths=[path])
                 else:
-                    # Single file - scan its parent directory
-                    self._start_scan(path.parent)
+                    # Single file - scan its parent directory but select only this file
+                    self._start_scan(path.parent, selected_paths=[path])
                 return True
             else:
                 # Multiple items - find common parent directory
@@ -272,7 +272,7 @@ class DashboardView(Gtk.Box):
                 # Check if all parents are the same
                 if len(set(parents)) == 1:
                     # All items are in the same directory - scan that directory
-                    self._start_scan(parents[0])
+                    self._start_scan(parents[0], selected_paths=paths)
                 else:
                     # Items are in different directories
                     # Find the common ancestor
@@ -283,9 +283,9 @@ class DashboardView(Gtk.Box):
                             common_parent = common_parent.parent
                             if common_parent == Path('/'):
                                 # Reached root, scan first item's parent
-                                self._start_scan(parents[0])
+                                self._start_scan(parents[0], selected_paths=paths)
                                 return True
-                    self._start_scan(common_parent)
+                    self._start_scan(common_parent, selected_paths=paths)
                 return True
 
         return False
@@ -301,7 +301,7 @@ class DashboardView(Gtk.Box):
         if path.exists() and path.is_dir():
             self._start_scan(path)
 
-    def _start_scan(self, directory: Path):
+    def _start_scan(self, directory: Path, selected_paths=None):
         """Start scanning a directory"""
         # Add to recent libraries
         self.config_manager.add_recent_library(str(directory))
@@ -311,6 +311,7 @@ class DashboardView(Gtk.Box):
         if self.on_scan_clicked:
             # Create a fake event and pass directory info
             self.selected_directory = directory
+            self.selected_paths = selected_paths
             self.on_scan_clicked(self)
 
     def refresh_recent_libraries(self):

@@ -1,7 +1,7 @@
 """Busca de metadados via TMDB e TVDB"""
 
-from pathlib import Path
-from typing import Optional, Dict, List
+import time
+from typing import Optional, List
 from dataclasses import dataclass
 import re
 
@@ -34,6 +34,22 @@ class MetadataFetcher:
         self.logger = get_logger()
         self._tmdb = None
         self._tvdb = None
+        # Cache de escolhas interativas por (título, ano)
+        # Evita perguntar múltiplas vezes para arquivos do mesmo filme
+        self._interactive_choices_cache = {}
+        # Cache de buscas sem resultado para evitar re-pesquisa
+        self._failed_searches: set = set()
+        # Rate limiting: TMDB free tier = 40 req / 10 sec
+        self._last_request_time: float = 0.0
+        self._min_request_interval: float = 0.25  # 4 req/sec max
+
+    def _rate_limit(self) -> None:
+        """Enforce minimum interval between TMDB API requests."""
+        now = time.monotonic()
+        elapsed = now - self._last_request_time
+        if elapsed < self._min_request_interval:
+            time.sleep(self._min_request_interval - elapsed)
+        self._last_request_time = time.monotonic()
 
     def _init_tmdb(self):
         """Inicializa cliente TMDB"""
@@ -45,7 +61,7 @@ class MetadataFetcher:
             return None
 
         try:
-            from tmdbv3api import TMDb, Movie, TV
+            from tmdbv3api import TMDb, Movie, TV, Search
 
             tmdb = TMDb()
             tmdb.api_key = self.config.tmdb_api_key
@@ -54,7 +70,8 @@ class MetadataFetcher:
             self._tmdb = {
                 'client': tmdb,
                 'movie': Movie(),
-                'tv': TV()
+                'tv': TV(),
+                'search': Search()
             }
             return self._tmdb
 
@@ -81,6 +98,7 @@ class MetadataFetcher:
 
         try:
             # Busca diretamente pelo ID
+            self._rate_limit()
             movie = tmdb['movie'].details(tmdb_id)
 
             if not movie:
@@ -135,6 +153,7 @@ class MetadataFetcher:
 
         try:
             # Busca diretamente pelo ID
+            self._rate_limit()
             show = tmdb['tv'].details(tmdb_id)
 
             if not show:
@@ -172,15 +191,15 @@ class MetadataFetcher:
             self.logger.error(f"Erro ao buscar série por ID {tmdb_id}: {e}")
             return None
 
-    def _search_movie_with_fallback(self, movie_api, title: str, year: Optional[int] = None):
+    def _search_movie_with_fallback(self, search_api, title: str, year: Optional[int] = None):
         """
         Busca filme com fallback incremental.
         Se não encontrar, remove palavras do final até achar.
 
         Args:
-            movie_api: API do TMDB Movie
+            search_api: API do TMDB Search
             title: Título limpo
-            year: Ano (opcional)
+            year: Ano (opcional, melhora a precisão da busca)
 
         Returns:
             Resultados da busca ou None
@@ -196,7 +215,14 @@ class MetadataFetcher:
                 self.logger.debug(f"Tentando busca alternativa: '{current_title}'")
 
             try:
-                results = movie_api.search(current_title)
+                # Inclui o ano na busca se fornecido (melhora muito a precisão)
+                self._rate_limit()
+                if year:
+                    results = search_api.movies(current_title, year=year)
+                    if i == len(words):
+                        self.logger.debug(f"Buscando: '{current_title}' (ano: {year})")
+                else:
+                    results = search_api.movies(current_title)
 
                 # Se encontrou resultados, retorna
                 if results and hasattr(results, 'total_results') and results.total_results > 0:
@@ -234,6 +260,7 @@ class MetadataFetcher:
                 self.logger.debug(f"Tentando busca alternativa: '{current_title}'")
 
             try:
+                self._rate_limit()
                 results = tv_api.search(current_title)
 
                 # Se encontrou resultados, retorna
@@ -269,12 +296,32 @@ class MetadataFetcher:
             # Limpa o título
             clean_title = self._clean_search_title(title)
 
+            # Cria chave de cache para evitar perguntar múltiplas vezes
+            # quando há vários arquivos do mesmo filme (ex: vídeo + legendas)
+            cache_key = (clean_title.lower(), year)
+
+            # Verifica se já temos uma escolha em cache
+            if cache_key in self._interactive_choices_cache:
+                cached_choice = self._interactive_choices_cache[cache_key]
+                if cached_choice is None:
+                    # Usuário escolheu "pular" anteriormente
+                    return None
+                # Reutiliza a escolha anterior
+                self.logger.debug(f"Usando escolha em cache para '{clean_title}' ({year})")
+                return cached_choice
+
+            # Skip re-querying titles that already returned no results
+            if cache_key in self._failed_searches:
+                self.logger.debug(f"Busca já falhou anteriormente para '{clean_title}' ({year}), pulando")
+                return None
+
             # Busca incremental: tenta com título completo, depois vai removendo palavras do final
-            results = self._search_movie_with_fallback(tmdb['movie'], clean_title, year)
+            results = self._search_movie_with_fallback(tmdb['search'], clean_title, year)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:
                 self.logger.debug(f"Nenhum resultado para: {clean_title}")
+                self._failed_searches.add(cache_key)
                 return None
 
             # Se ano foi fornecido, filtra resultados
@@ -296,8 +343,10 @@ class MetadataFetcher:
 
             # Se modo interativo e múltiplos resultados, pede escolha
             if interactive and len(results) > 1 and self.config.ask_on_multiple_results:
-                movie = self._choose_movie_interactive(results, clean_title)
+                movie = self._choose_movie_interactive(results, clean_title, year)
                 if not movie:
+                    # Salva no cache que usuário pulou
+                    self._interactive_choices_cache[cache_key] = None
                     return None
             else:
                 # Pega o primeiro resultado (itera pois AsObj não suporta indexação)
@@ -323,7 +372,7 @@ class MetadataFetcher:
             poster_url = f"{base_url}/w500{poster_path}" if poster_path else None
             backdrop_url = f"{base_url}/w1280{backdrop_path}" if backdrop_path else None
 
-            return Metadata(
+            metadata = Metadata(
                 title=movie.title,
                 year=movie_year,
                 tmdb_id=movie.id,
@@ -335,6 +384,11 @@ class MetadataFetcher:
                 poster_url=poster_url,
                 backdrop_url=backdrop_url
             )
+
+            # Salva no cache para reutilizar em arquivos subsequentes do mesmo filme
+            self._interactive_choices_cache[cache_key] = metadata
+
+            return metadata
 
         except Exception as e:
             self.logger.error(f"Erro ao buscar filme '{title}': {e}")
@@ -360,18 +414,36 @@ class MetadataFetcher:
             # Limpa o título
             clean_title = self._clean_search_title(title)
 
+            # Cria chave de cache para evitar perguntar múltiplas vezes
+            cache_key = (clean_title.lower(), year)
+
+            # Verifica se já temos uma escolha em cache
+            if cache_key in self._interactive_choices_cache:
+                cached_choice = self._interactive_choices_cache[cache_key]
+                if cached_choice is None:
+                    return None
+                self.logger.debug(f"Usando escolha em cache para '{clean_title}' ({year})")
+                return cached_choice
+
+            # Skip re-querying titles that already returned no results
+            if cache_key in self._failed_searches:
+                self.logger.debug(f"Busca já falhou anteriormente para série '{clean_title}' ({year}), pulando")
+                return None
+
             # Busca incremental: tenta com título completo, depois vai removendo palavras do final
             results = self._search_tvshow_with_fallback(tmdb['tv'], clean_title)
 
             # Verifica se há resultados reais (total_results > 0)
             if not results or results.total_results == 0:
                 self.logger.debug(f"Nenhum resultado para série: {clean_title}")
+                self._failed_searches.add(cache_key)
                 return None
 
             # Se modo interativo e múltiplos resultados, pede escolha
             if interactive and len(results) > 1 and self.config.ask_on_multiple_results:
-                show = self._choose_tvshow_interactive(results, clean_title)
+                show = self._choose_tvshow_interactive(results, clean_title, year)
                 if not show:
+                    self._interactive_choices_cache[cache_key] = None
                     return None
             else:
                 # Pega o primeiro resultado (ou busca por ano se fornecido)
@@ -410,7 +482,7 @@ class MetadataFetcher:
             poster_url = f"{base_url}/w500{poster_path}" if poster_path else None
             backdrop_url = f"{base_url}/w1280{backdrop_path}" if backdrop_path else None
 
-            return Metadata(
+            metadata = Metadata(
                 title=show.name,
                 year=show_year,
                 tmdb_id=show.id,
@@ -421,6 +493,11 @@ class MetadataFetcher:
                 poster_url=poster_url,
                 backdrop_url=backdrop_url
             )
+
+            # Salva no cache para reutilizar em arquivos subsequentes
+            self._interactive_choices_cache[cache_key] = metadata
+
+            return metadata
 
         except Exception as e:
             self.logger.error(f"Erro ao buscar série '{title}': {e}")
@@ -516,13 +593,14 @@ class MetadataFetcher:
 
         return folder_name
 
-    def _choose_movie_interactive(self, results: List, search_title: str):
+    def _choose_movie_interactive(self, results: List, search_title: str, year: Optional[int] = None):
         """
         Permite escolher interativamente entre múltiplos resultados de filme.
 
         Args:
             results: Lista de resultados do TMDB
             search_title: Título da busca
+            year: Ano da busca (opcional, mostrado na mensagem)
 
         Returns:
             Resultado escolhido ou None
@@ -530,10 +608,11 @@ class MetadataFetcher:
         try:
             import questionary
             from rich.console import Console
-            from rich.table import Table
 
             console = Console()
-            console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_title}[/cyan]\n")
+            search_info = f"{search_title}" + (f" ({year})" if year else "")
+            console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_info}[/cyan]")
+            console.print("[dim]💡 Sua escolha será aplicada a todos os arquivos com este título[/dim]\n")
 
             # Prepara opções para seleção
             choices = []
@@ -599,13 +678,14 @@ class MetadataFetcher:
                 return result
             return None
 
-    def _choose_tvshow_interactive(self, results: List, search_title: str):
+    def _choose_tvshow_interactive(self, results: List, search_title: str, year: Optional[int] = None):
         """
         Permite escolher interativamente entre múltiplos resultados de série.
 
         Args:
             results: Lista de resultados do TMDB
             search_title: Título da busca
+            year: Ano da busca (opcional, mostrado na mensagem)
 
         Returns:
             Resultado escolhido ou None
@@ -615,7 +695,9 @@ class MetadataFetcher:
             from rich.console import Console
 
             console = Console()
-            console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_title}[/cyan]\n")
+            search_info = f"{search_title}" + (f" ({year})" if year else "")
+            console.print(f"\n[yellow]⚠️  Múltiplos resultados encontrados para:[/yellow] [cyan]{search_info}[/cyan]")
+            console.print("[dim]💡 Sua escolha será aplicada a todos os arquivos com este título[/dim]\n")
 
             # Prepara opções para seleção
             choices = []

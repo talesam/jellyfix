@@ -233,28 +233,10 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         try:
             cmd = [self.app_executable] + file_paths
             print(f"Jellyfix Extension: Launching command: {cmd}")
-            
-            # Use Popen with proper error handling
-            process = subprocess.Popen(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                start_new_session=True
-            )
-            
-            # Don't wait for process, just log if there's immediate failure
-            # Check if process started successfully
-            import time
-            time.sleep(0.5)
-            if process.poll() is not None:
-                # Process exited immediately - there was an error
-                _, stderr = process.communicate()
-                error_msg = stderr.decode('utf-8', errors='replace') if stderr else "Unknown error"
-                print(f"Jellyfix Extension: Process failed: {error_msg}")
-                self._show_error_notification(
-                    _("Application Launch Error"),
-                    error_msg[:200]
-                )
+
+            log_path = "/tmp/jellyfix-gui-debug.log"
+            with open(log_path, "w") as log_file:
+                subprocess.Popen(cmd, stdout=log_file, stderr=log_file, start_new_session=True)
                 
         except FileNotFoundError:
             print(f"Jellyfix Extension: Executable not found: {self.app_executable}")

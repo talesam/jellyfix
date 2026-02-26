@@ -60,7 +60,7 @@ class HelpWindow(Adw.Window):
 
         # Title
         title_label = Gtk.Label()
-        title_label.set_markup(f'<span size="xx-large" weight="bold">🎬 Jellyfix</span>')
+        title_label.set_markup('<span size="xx-large" weight="bold">🎬 Jellyfix</span>')
         title_label.set_halign(Gtk.Align.CENTER)
         content_box.append(title_label)
 
@@ -81,83 +81,103 @@ class HelpWindow(Adw.Window):
         content_box.append(separator)
 
         # What It Does section
-        self._add_section(content_box, _("What Jellyfix Does"), _("""
-Jellyfix automatically organizes your media library following Jellyfin naming conventions:
-
-• <b>Renames files</b> to Jellyfin standard format
-• <b>Organizes episodes</b> into Season folders
-• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes
-• <b>Fetches metadata</b> from TMDB/TVDB
-• <b>Detects and adds quality tags</b> (1080p, 720p, etc)
-• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])
-"""))
+        self._add_section(
+            content_box,
+            _("What Jellyfix Does"),
+            _(
+                "Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
+                "\n"
+                "• <b>Renames files</b> to Jellyfin standard format\n"
+                "• <b>Organizes episodes</b> into Season folders\n"
+                "• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
+                "• <b>Fetches metadata</b> from TMDB/TVDB\n"
+                "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
+                "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
+            ),
+        )
 
         # Examples section
-        self._add_section(content_box, _("Examples"), _("""
-<b>Movies:</b>
-  Before: movie.name.2023.1080p.bluray.mkv
-  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv
-
-<b>TV Shows:</b>
-  Before: show.name.s01e05.720p.mkv
-  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv
-
-<b>Subtitles:</b>
-  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt
-  • Adds language codes: subtitle.srt → Movie Name.por.srt
-  • Removes foreign languages (keeps configured languages only)
-  • <b>NEVER</b> removes .forced.srt files
-"""))
+        self._add_section(
+            content_box,
+            _("Examples"),
+            _(
+                "<b>Movies:</b>\n"
+                "  Before: movie.name.2023.1080p.bluray.mkv\n"
+                "  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
+                "\n"
+                "<b>TV Shows:</b>\n"
+                "  Before: show.name.s01e05.720p.mkv\n"
+                "  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
+                "\n"
+                "<b>Subtitles:</b>\n"
+                "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
+                "  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
+                "  • Removes foreign languages (keeps configured languages only)\n"
+                "  • <b>NEVER</b> removes .forced.srt files"
+            ),
+        )
 
         # How to Use section
-        self._add_section(content_box, _("How to Use"), _("""
-<b>1. Configure TMDB API Key (recommended)</b>
-   Menu → Configure API Keys → Follow the tutorial
-   This enables metadata fetching and poster downloads.
-
-<b>2. Scan Library</b>
-   Click "Scan Library" on Dashboard
-   Select your media folder
-   Review the scan results
-
-<b>3. Review Operations</b>
-   Switch to "Operations" tab
-   Preview what will be changed
-   Select operations to see details
-
-<b>4. Execute</b>
-   Click "Process Files"
-   Confirm the operation
-   Files will be renamed and organized
-
-<b>Tip:</b> Always review the preview before executing!
-"""))
+        self._add_section(
+            content_box,
+            _("How to Use"),
+            _(
+                "<b>1. Configure TMDB API Key (recommended)</b>\n"
+                "   Menu → Configure API Keys → Follow the tutorial\n"
+                "   This enables metadata fetching and poster downloads.\n"
+                "\n"
+                "<b>2. Scan Library</b>\n"
+                '   Click "Scan Library" on Dashboard\n'
+                "   Select your media folder\n"
+                "   Review the scan results\n"
+                "\n"
+                "<b>3. Review Operations</b>\n"
+                '   Switch to "Operations" tab\n'
+                "   Preview what will be changed\n"
+                "   Select operations to see details\n"
+                "\n"
+                "<b>4. Execute</b>\n"
+                '   Click "Process Files"\n'
+                "   Confirm the operation\n"
+                "   Files will be renamed and organized\n"
+                "\n"
+                "<b>Tip:</b> Always review the preview before executing!"
+            ),
+        )
 
         # Settings section
-        self._add_section(content_box, _("Settings"), _("""
-Configure Jellyfix behavior:
-
-• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign
-• <b>Kept Languages:</b> Choose which subtitle languages to keep
-• <b>Metadata:</b> Enable/disable TMDB fetching
-• <b>Quality Tags:</b> Add resolution tags to filenames
-• <b>ffprobe:</b> Use ffprobe for accurate quality detection
-"""))
+        self._add_section(
+            content_box,
+            _("Settings"),
+            _(
+                "Configure Jellyfix behavior:\n"
+                "\n"
+                "• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
+                "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
+                "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
+                "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
+                "• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
+            ),
+        )
 
         # Important Notes section
-        self._add_section(content_box, _("Important Notes"), _("""
-⚠️ <b>Dry-run is DEFAULT</b>
-Files are NOT modified unless you explicitly execute operations.
-
-✓ <b>Always review before executing</b>
-Check the operation preview carefully.
-
-🔑 <b>Configure TMDB API</b>
-For best results, configure your TMDB API key in Settings.
-
-🌍 <b>Customize kept languages</b>
-Configure which subtitle languages to keep in Preferences.
-"""))
+        self._add_section(
+            content_box,
+            _("Important Notes"),
+            _(
+                "⚠️ <b>Dry-run is DEFAULT</b>\n"
+                "Files are NOT modified unless you explicitly execute operations.\n"
+                "\n"
+                "✓ <b>Always review before executing</b>\n"
+                "Check the operation preview carefully.\n"
+                "\n"
+                "🔑 <b>Configure TMDB API</b>\n"
+                "For best results, configure your TMDB API key in Settings.\n"
+                "\n"
+                "🌍 <b>Customize kept languages</b>\n"
+                "Configure which subtitle languages to keep in Preferences."
+            ),
+        )
 
         # Links section
         links_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)

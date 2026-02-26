@@ -1,20 +1,19 @@
 """Sistema de renomeação de arquivos para padrão Jellyfin"""
 
 from pathlib import Path
-from typing import Optional, List, Dict, Tuple
+from typing import Optional, List, Dict
 from dataclasses import dataclass
 import re
 import shutil
 
 from ..utils.helpers import (
     clean_filename, normalize_spaces, extract_year,
-    extract_season_episode, format_season_folder,
-    is_video_file, is_subtitle_file, parse_subtitle_filename,
-    calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
+    format_season_folder,
+    is_video_file, is_subtitle_file, calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
 )
 from ..utils.config import get_config
 from ..utils.logger import get_logger
-from .detector import detect_media_type, MediaType
+from .detector import detect_media_type
 from .metadata import MetadataFetcher
 
 
@@ -35,18 +34,23 @@ class RenameOperation:
 class Renamer:
     """Gerenciador de renomeação de arquivos"""
 
-    def __init__(self):
+    def __init__(self, metadata_fetcher: Optional[MetadataFetcher] = None):
         self.config = get_config()
         self.logger = get_logger()
         self.operations: List[RenameOperation] = []
-        self.metadata_fetcher = MetadataFetcher() if self.config.fetch_metadata else None
+        # Usa o metadata_fetcher fornecido (com cache de escolhas) ou cria novo
+        if metadata_fetcher:
+            self.metadata_fetcher = metadata_fetcher
+        else:
+            self.metadata_fetcher = MetadataFetcher() if self.config.fetch_metadata else None
 
-    def plan_operations(self, directory: Path) -> List[RenameOperation]:
+    def plan_operations(self, directory: Path, scan_result=None) -> List[RenameOperation]:
         """
         Planeja todas as operações de renomeação.
 
         Args:
             directory: Diretório a processar
+            scan_result: ScanResult opcional (se fornecido, usa arquivos filtrados; caso contrário, escaneia o diretório)
 
         Returns:
             Lista de operações planejadas
@@ -60,20 +64,36 @@ class Renamer:
         subtitle_files = []
         video_files = []
 
-        for file_path in directory.rglob('*'):
-            if not file_path.is_file():
-                continue
+        if scan_result:
+            # Usa arquivos do ScanResult filtrado
+            self.logger.debug(
+                f"Using filtered ScanResult - videos: {len(scan_result.video_files)}, subtitles: {len(scan_result.subtitle_files)}"
+            )
+            video_files = scan_result.video_files
+            subtitle_files = scan_result.subtitle_files
+        else:
+            # Escaneia o diretório normalmente
+            for file_path in directory.rglob('*'):
+                if not file_path.is_file():
+                    continue
 
-            if file_path.name.startswith('.'):
-                continue
+                if file_path.name.startswith('.'):
+                    continue
 
-            # Processa vídeos
-            if is_video_file(file_path):
-                video_files.append(file_path)
+                # Processa vídeos
+                if is_video_file(file_path):
+                    video_files.append(file_path)
 
-            # Processa legendas
-            elif is_subtitle_file(file_path):
-                subtitle_files.append(file_path)
+                # Processa legendas
+                elif is_subtitle_file(file_path):
+                    # Ignora legendas vazias ou muito pequenas (< 20 bytes)
+                    if file_path.stat().st_size < 20:
+                        continue
+                    subtitle_files.append(file_path)
+
+        # Processa arquivos Mirabel se configurado (ANTES de processar vídeos)
+        if self.config.fix_mirabel_files:
+            subtitle_files = self._plan_mirabel_fixes(subtitle_files)
 
         # Processa vídeos
         for file_path in video_files:
@@ -88,10 +108,304 @@ class Renamer:
         remaining_subtitles = [s for s in subtitle_files if s not in processed_subtitles]
         self._plan_subtitle_variants(remaining_subtitles, directory)
 
+        # Remove arquivos não-mídia se configurado (ANTES de processar extras)
+        if self.config.remove_non_media and scan_result and scan_result.non_media_files:
+            self._plan_non_media_removal(scan_result.non_media_files)
+
         # Processa arquivos extras (NFO, imagens, etc) que devem acompanhar os vídeos
-        self._plan_extra_files(directory, video_files)
+        self._plan_extra_files(directory, video_files, scan_result)
 
         return self.operations
+
+    def replan_for_video_with_metadata(self, video_path: Path, metadata) -> List[RenameOperation]:
+        """
+        Re-planeja operações para um vídeo específico usando novo metadata fornecido manualmente.
+        Retorna lista de novas operações que devem substituir as antigas.
+
+        Args:
+            video_path: Caminho do arquivo de vídeo original
+            metadata: Novo metadata selecionado manualmente (objeto Metadata)
+
+        Returns:
+            Lista de novas operações (vídeo + legendas + extras) que substituirão as antigas
+        """
+        from ..utils.helpers import normalize_spaces, is_subtitle_file
+        import re
+
+        # Inicializa variáveis de controle
+        self.operations = []
+        self.planned_destinations = set()
+        self.video_operations_map = {}
+        self.work_dir = video_path.parent
+
+        # Detecta tipo de mídia
+        media_info = detect_media_type(video_path)
+
+        # Planeja operação do vídeo com o novo metadata
+        if media_info.is_movie():
+            new_video_op = self._plan_movie_rename_with_metadata(video_path, media_info, metadata)
+        elif media_info.is_tvshow():
+            new_video_op = self._plan_tvshow_rename_with_metadata(video_path, media_info, metadata)
+        else:
+            return []  # Não é filme nem série, não faz nada
+
+        if not new_video_op:
+            return []
+
+        # Encontra todos os arquivos relacionados ao vídeo original
+        video_stem_original = video_path.stem
+        video_normalized = normalize_spaces(video_stem_original)
+        related_files = []
+
+        # Busca legendas, NFO, e outros arquivos relacionados no mesmo diretório
+        for file_path in video_path.parent.iterdir():
+            if not file_path.is_file():
+                continue
+            if file_path == video_path:
+                continue
+
+            # Verifica se o arquivo está relacionado ao vídeo (mesmo base name)
+            file_stem = file_path.stem
+
+            # Para legendas, remove código de idioma antes de comparar
+            if is_subtitle_file(file_path):
+                base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', file_stem, re.IGNORECASE)
+                if base_match:
+                    file_base = base_match.group(1)
+                else:
+                    file_base = file_stem
+
+                if normalize_spaces(file_base) == video_normalized or file_base == video_stem_original:
+                    related_files.append(file_path)
+
+            # Para NFO e outros, compara nome completo
+            elif file_path.suffix.lower() in ['.nfo', '.jpg', '.png', '.jpeg']:
+                if normalize_spaces(file_stem) == video_normalized or file_stem == video_stem_original:
+                    related_files.append(file_path)
+
+        # Separa por tipo
+        subtitle_files = [f for f in related_files if is_subtitle_file(f)]
+        nfo_files = [f for f in related_files if f.suffix.lower() == '.nfo']
+        image_files = [f for f in related_files if f.suffix.lower() in ['.jpg', '.png', '.jpeg']]
+
+        # Configura mapa de operações de vídeo para _plan_subtitle_companion
+        self.video_operations_map[video_stem_original] = new_video_op
+        self.video_operations_map[video_normalized] = new_video_op
+
+        # Planeja legendas companheiras (remove estrangeiras, renomeia)
+        processed_subs = self._plan_subtitle_companion(subtitle_files, [video_path])
+
+        # Planeja variantes de legendas (escolhe melhor qualidade, remove duplicadas)
+        remaining_subs = [s for s in subtitle_files if s not in processed_subs]
+        if remaining_subs:
+            self._plan_subtitle_variants(remaining_subs, video_path.parent)
+
+        # Planeja arquivos NFO
+        if nfo_files and self.config.rename_nfo:
+            new_video_stem = new_video_op.destination.stem
+            new_video_folder = new_video_op.destination.parent
+
+            for nfo_path in nfo_files:
+                new_nfo_name = f"{new_video_stem}.nfo"
+                new_nfo_path = new_video_folder / new_nfo_name
+
+                if new_nfo_path != nfo_path:
+                    pasta_mudou = new_nfo_path.parent != nfo_path.parent
+                    nome_mudou = new_nfo_path.name != nfo_path.name
+
+                    if pasta_mudou and nome_mudou:
+                        op_type = 'move_rename'
+                    elif pasta_mudou:
+                        op_type = 'move'
+                    else:
+                        op_type = 'rename'
+
+                    self.operations.append(RenameOperation(
+                        source=nfo_path,
+                        destination=new_nfo_path,
+                        operation_type=op_type,
+                        reason=f"Acompanhar vídeo: {nfo_path.name} → {new_nfo_name}"
+                    ))
+
+        # Planeja arquivos de imagem
+        if image_files:
+            new_video_folder = new_video_op.destination.parent
+
+            for img_path in image_files:
+                new_img_path = new_video_folder / img_path.name
+
+                if new_img_path != img_path and new_img_path.parent != img_path.parent:
+                    self.operations.append(RenameOperation(
+                        source=img_path,
+                        destination=new_img_path,
+                        operation_type='move',
+                        reason="Acompanhar vídeo"
+                    ))
+
+        return self.operations
+
+    def _plan_movie_rename_with_metadata(self, file_path: Path, media_info, metadata) -> Optional[RenameOperation]:
+        """
+        Planeja renomeação de filme usando metadata fornecido (não busca TMDB).
+        Retorna a operação planejada ou None.
+        """
+        title = clean_filename(metadata.title)
+        year = metadata.year
+
+        # Build folder suffix with TMDB ID
+        folder_suffix = ""
+        if metadata.tmdb_id:
+            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
+        elif metadata.imdb_id:
+            folder_suffix = f" [imdbid-{metadata.imdb_id}]"
+
+        # Detect quality tag
+        quality_tag = None
+        if self.config.add_quality_tag:
+            quality_tag = extract_quality_tag(file_path.stem)
+            if not quality_tag and self.config.use_ffprobe:
+                quality_tag = detect_video_resolution(file_path)
+
+        # Build new name
+        if year:
+            base_name = f"{title} ({year})"
+        else:
+            base_name = f"{title}"
+
+        if quality_tag:
+            new_name = f"{base_name} - {quality_tag}{file_path.suffix}"
+        else:
+            new_name = f"{base_name}{file_path.suffix}"
+
+        # Expected folder name
+        expected_folder = f"{base_name}{folder_suffix}"
+
+        # Determine if we need to organize into folders
+        if self.config.organize_folders:
+            # Check current location
+            parent_folder = file_path.parent
+
+            if parent_folder.name != expected_folder:
+                # Create the organized folder inside the working directory
+                new_folder = self.work_dir / expected_folder
+            else:
+                # Already in correct folder
+                new_folder = parent_folder
+        else:
+            # Don't organize folders, keep in current location
+            new_folder = file_path.parent
+
+        new_path = new_folder / new_name
+
+        if new_path != file_path:
+            pasta_mudou = new_path.parent != file_path.parent
+            nome_mudou = new_path.name != file_path.name
+
+            if pasta_mudou and nome_mudou:
+                op_type = 'move_rename'
+            elif pasta_mudou:
+                op_type = 'move'
+            else:
+                op_type = 'rename'
+
+            op = RenameOperation(
+                source=file_path,
+                destination=new_path,
+                operation_type=op_type,
+                reason=f"Atualização manual: {metadata.title} ({metadata.year})"
+            )
+            self.operations.append(op)
+            return op
+
+        return None
+
+    def _plan_tvshow_rename_with_metadata(self, file_path: Path, media_info, metadata) -> Optional[RenameOperation]:
+        """
+        Planeja renomeação de série usando metadata fornecido (não busca TMDB).
+        Retorna a operação planejada ou None.
+        """
+        title = clean_filename(metadata.title)
+        year = metadata.year
+
+        # Build folder suffix with TMDB ID
+        folder_suffix = ""
+        if metadata.tmdb_id:
+            folder_suffix = f" [tmdbid-{metadata.tmdb_id}]"
+        elif metadata.tvdb_id:
+            folder_suffix = f" [tvdbid-{metadata.tvdb_id}]"
+        elif metadata.imdb_id:
+            folder_suffix = f" [imdbid-{metadata.imdb_id}]"
+
+        # Detect quality tag
+        quality_tag = None
+        if self.config.add_quality_tag:
+            quality_tag = extract_quality_tag(file_path.stem)
+            if not quality_tag and self.config.use_ffprobe:
+                quality_tag = detect_video_resolution(file_path)
+
+        # Format episode part
+        if media_info.episode_end and media_info.episode_end != media_info.episode_start:
+            episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
+        else:
+            episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
+
+        if quality_tag:
+            new_name = f"{title} {episode_part} - {quality_tag}{file_path.suffix}"
+        else:
+            new_name = f"{title} {episode_part}{file_path.suffix}"
+
+        # Determine series folder structure
+        season_folder_name = format_season_folder(media_info.season)
+
+        # Find series folder
+        if file_path.parent.name.lower().startswith('season'):
+            series_folder = file_path.parent.parent
+        else:
+            series_folder = file_path.parent
+
+        # Expected series folder name
+        if year:
+            expected_series_folder = f"{title} ({year}){folder_suffix}"
+        else:
+            expected_series_folder = f"{title}{folder_suffix}"
+
+        # Determine new series folder path
+        if series_folder.name != expected_series_folder:
+            # Create the organized folder inside the working directory
+            new_series_folder = self.work_dir / expected_series_folder
+        else:
+            new_series_folder = series_folder
+
+        # Full path
+        new_folder = new_series_folder / season_folder_name
+        new_path = new_folder / new_name
+
+        if new_path != file_path:
+            pasta_mudou = new_path.parent != file_path.parent
+            nome_mudou = new_path.name != file_path.name
+
+            if pasta_mudou and nome_mudou:
+                op_type = 'move_rename'
+            elif pasta_mudou:
+                op_type = 'move'
+            else:
+                op_type = 'rename'
+
+            if new_series_folder != series_folder:
+                reason = f"Atualização manual: {series_folder.name} → {expected_series_folder}"
+            else:
+                reason = f"Atualização manual: {file_path.name} → {new_name}"
+
+            op = RenameOperation(
+                source=file_path,
+                destination=new_path,
+                operation_type=op_type,
+                reason=reason
+            )
+            self.operations.append(op)
+            return op
+
+        return None
 
     def _plan_video_rename(self, file_path: Path):
         """Planeja renomeação de um arquivo de vídeo"""
@@ -159,7 +473,7 @@ class Renamer:
 
         # Define destination
         if parent_folder != expected_folder:
-            # Always create the organized folder in the working directory
+            # Create the organized folder inside the working directory
             new_folder = self.work_dir / expected_folder
             new_path = new_folder / new_name
         else:
@@ -261,12 +575,8 @@ class Renamer:
 
         # Verifica se a pasta da série precisa ser renomeada
         if series_folder.name != expected_series_folder:
-            # If series folder IS the work_dir itself, organize in parent directory
-            # Otherwise organize in work_dir
-            if series_folder == self.work_dir:
-                new_series_folder = self.work_dir.parent / expected_series_folder
-            else:
-                new_series_folder = self.work_dir / expected_series_folder
+            # Always create the organized folder inside work_dir
+            new_series_folder = self.work_dir / expected_series_folder
         else:
             new_series_folder = series_folder
 
@@ -308,7 +618,7 @@ class Renamer:
         Returns:
             Lista de legendas que foram processadas
         """
-        from ..utils.helpers import normalize_spaces, has_language_code, is_portuguese_subtitle
+        from ..utils.helpers import normalize_spaces, is_portuguese_subtitle
         import re
 
         processed_subtitles = []
@@ -329,24 +639,63 @@ class Renamer:
 
         # Processa cada legenda
         for subtitle_path in subtitle_files:
-            # Extrai base name da legenda (remove .LANG.srt)
-            subtitle_name = subtitle_path.stem
+            # Verifica se é arquivo Mirabel (já identificado em _plan_mirabel_fixes)
+            mirabel_data = getattr(self, 'mirabel_info', {}).get(subtitle_path)
 
-            # Remove código de idioma se presente
-            # Padrões: .por, .eng, .por.forced, .eng.forced, .por2, etc.
-            base_match = re.match(r'(.+?)\.([a-z]{2,3}\d?)(\.forced)?$', subtitle_name, re.IGNORECASE)
-            if base_match:
-                subtitle_base = base_match.group(1)
-                lang_code = base_match.group(2).lower()  # Normaliza para lowercase
-                # Remove dígito do código se tiver (por2 -> por)
-                lang_code_base = re.sub(r'\d+$', '', lang_code)
-                forced_suffix = base_match.group(3) or ''
+            if mirabel_data:
+                # Usa informações do Mirabel
+                subtitle_base = mirabel_data['base_name']
+                lang_code = mirabel_data['target_lang']
+                lang_code_base = mirabel_data['target_lang']
+                forced_suffix = '.forced' if mirabel_data['forced'] else ''
             else:
-                # Não tem código de idioma explícito
-                subtitle_base = subtitle_name
-                lang_code = None
-                lang_code_base = None
+                # Processamento normal para legendas não-Mirabel
+                # Extrai base name da legenda (remove .LANG.srt)
+                subtitle_name = subtitle_path.stem
+
+                # Primeiro, detecta se tem .forced (case-insensitive) em qualquer posição
                 forced_suffix = ''
+                subtitle_name_lower = subtitle_name.lower()
+                if '.forced' in subtitle_name_lower:
+                    forced_suffix = '.forced'
+                    # Remove .forced temporariamente para facilitar o parsing
+                    # Preserva o case original para o matching
+                    forced_pos = subtitle_name_lower.rfind('.forced')
+                    subtitle_name_no_forced = subtitle_name[:forced_pos] + subtitle_name[forced_pos+7:]
+                else:
+                    subtitle_name_no_forced = subtitle_name
+
+                # Remove código de idioma se presente
+                # Padrões: .por, .eng, .pt, .en, .pt-BR, .pt_BR, .por2, etc. (agora sem .forced porque já foi removido)
+                base_match = re.match(r'(.+?)\.([a-z]{2,3}(?:[-_][A-Z]{2})?\d?)$', subtitle_name_no_forced, re.IGNORECASE)
+                if base_match:
+                    from ..utils.helpers import normalize_language_code
+                    subtitle_base = base_match.group(1)
+                    lang_code_raw = base_match.group(2).lower()  # ex: "en2", "pt-br", "por"
+
+                    # Remove dígito do código se tiver (por2 -> por, en2 -> en)
+                    lang_code_no_digit = re.sub(r'\d+$', '', lang_code_raw)
+
+                    # Normaliza o código de idioma para 3 letras (en -> eng, pt -> por, pt-BR -> por)
+                    lang_code_base = normalize_language_code(lang_code_no_digit)
+
+                    # lang_code mantém o original com dígito se tiver (usado para detectar variantes)
+                    # mas normalizado (en2 -> eng2)
+                    if lang_code_raw != lang_code_no_digit:  # tem dígito
+                        lang_code = lang_code_base + lang_code_raw[-1]  # eng + 2 = eng2
+                    else:
+                        lang_code = lang_code_base
+                else:
+                    # Não tem código de idioma explícito
+                    subtitle_base = subtitle_name_no_forced
+                    lang_code = None
+                    lang_code_base = None
+
+                    # Se é .forced sem código de idioma, detecta pelo conteúdo
+                    if forced_suffix and self.config.rename_no_lang:
+                        if is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
+                            lang_code = 'por'
+                            lang_code_base = 'por'
 
             # Procura vídeo correspondente (primeiro tenta match exato, depois normalizado)
             matching_video_op = video_operations.get(subtitle_base)
@@ -465,12 +814,16 @@ class Renamer:
                 self._plan_subtitle_other_operations(file_path)
                 continue
 
-            # Detecta variações: .lang2.srt, .lang3.srt
-            variant_match = re.search(r'\.([a-z]{3})(\d)\.srt$', filename)
+            # Detecta variações: .lang2.srt, .lang3.srt (aceita 2-3 letras)
+            variant_match = re.search(r'\.([a-z]{2,3})(\d)\.srt$', filename)
             if variant_match:
-                lang_code = variant_match.group(1)
+                from ..utils.helpers import normalize_language_code
+                lang_code_raw = variant_match.group(1)
                 variant_num = int(variant_match.group(2))
                 base_name = file_path.name[:-(len(variant_match.group(0)))]
+
+                # Normaliza o código de idioma para 3 letras
+                lang_code = normalize_language_code(lang_code_raw)
 
                 key = (file_path.parent, base_name, lang_code)
                 grouped[key].append((variant_num, file_path))
@@ -629,7 +982,7 @@ class Renamer:
                         reason="Adicionar código de idioma português (.por)"
                     ))
 
-    def _plan_extra_files(self, directory: Path, video_files: List[Path]):
+    def _plan_extra_files(self, directory: Path, video_files: List[Path], scan_result=None):
         """
         Planeja movimentação e renomeação de arquivos extras (NFO, imagens, etc) que acompanham vídeos.
 
@@ -640,8 +993,26 @@ class Renamer:
         Args:
             directory: Diretório base
             video_files: Lista de arquivos de vídeo processados
+            scan_result: Resultado do scan (opcional) para filtrar arquivos permitidos
         """
         from ..utils.helpers import is_video_file, is_subtitle_file
+
+        # Se temos um scan_result (filtrado), cria um set de arquivos permitidos
+        allowed_files = None
+        if scan_result:
+            allowed_files = set()
+            allowed_files.update(scan_result.video_files)
+            allowed_files.update(scan_result.subtitle_files)
+            allowed_files.update(scan_result.image_files)
+            allowed_files.update(scan_result.nfo_files)
+            allowed_files.update(scan_result.other_files)
+            allowed_files.update(scan_result.non_media_files)
+            # Inclui também as listas categorizadas para garantir
+            allowed_files.update(scan_result.variant_subtitles)
+            allowed_files.update(scan_result.no_lang_subtitles)
+            allowed_files.update(scan_result.foreign_subtitles)
+            allowed_files.update(scan_result.kept_subtitles)
+            allowed_files.update(scan_result.unwanted_images)
 
         # Cria mapa de vídeos: pasta_original -> (nova_pasta, video_stem_antigo, video_stem_novo)
         video_folder_map = {}
@@ -671,6 +1042,10 @@ class Renamer:
             # Lista todos os arquivos na pasta antiga
             for file_path in old_folder.iterdir():
                 if not file_path.is_file():
+                    continue
+                
+                # Verifica se o arquivo é permitido (se houver filtro)
+                if allowed_files is not None and file_path not in allowed_files:
                     continue
 
                 # Ignora arquivos ocultos
@@ -766,7 +1141,7 @@ class Renamer:
 
                 # Verifica conflito
                 if new_tvshow_path.exists() and new_tvshow_path != tvshow_nfo:
-                    self.logger.warning(f"tvshow.nfo já existe no destino, pulando")
+                    self.logger.warning("tvshow.nfo já existe no destino, pulando")
                     continue
 
                 self.operations.append(RenameOperation(
@@ -775,6 +1150,27 @@ class Renamer:
                     operation_type='move',
                     reason="Mover tvshow.nfo para nova pasta da série"
                 ))
+
+    def _plan_non_media_removal(self, non_media_files: List[Path]):
+        """
+        Planeja remoção de arquivos que não sejam .srt ou .mp4.
+
+        Args:
+            non_media_files: Lista de arquivos não-mídia a serem removidos
+        """
+        for file_path in non_media_files:
+            # Verifica se o arquivo ainda não tem operação planejada
+            already_planned = any(op.source == file_path for op in self.operations)
+            if already_planned:
+                continue
+
+            # Adiciona operação de remoção
+            self.operations.append(RenameOperation(
+                source=file_path,
+                destination=file_path,  # Será deletado
+                operation_type='delete',
+                reason=f"Remover arquivo não-mídia: {file_path.suffix}"
+            ))
 
     def execute_operations(self, dry_run: bool = True) -> Dict[str, int]:
         """
@@ -798,6 +1194,9 @@ class Renamer:
         # Rastreia pastas de origem para limpeza posterior
         source_folders = set()
 
+        # Rollback log: stores completed operations for reversal on failure
+        completed_ops: List[RenameOperation] = []
+
         for operation in self.operations:
             try:
                 # Verifica se vai sobrescrever
@@ -820,6 +1219,7 @@ class Renamer:
                         operation.source.unlink()
                         self.logger.action(f"Removido: {operation.source.name}")
                         stats['deleted'] += 1
+                        completed_ops.append(operation)
 
                     elif operation.operation_type in ('move', 'move_rename'):
                         # Rastreia pasta de origem para limpeza posterior
@@ -840,6 +1240,7 @@ class Renamer:
                                 f"Movido: {operation.source} → {operation.destination}"
                             )
                             stats['moved'] += 1
+                        completed_ops.append(operation)
 
                     elif operation.operation_type == 'rename':
                         operation.source.rename(operation.destination)
@@ -847,10 +1248,21 @@ class Renamer:
                             f"Renomeado: {operation.source.name} → {operation.destination.name}"
                         )
                         stats['renamed'] += 1
+                        completed_ops.append(operation)
 
             except Exception as e:
                 self.logger.error(f"Erro ao processar {operation.source}: {e}")
-                stats['failed'] += 1
+                stats["failed"] += 1
+
+                # Rollback completed operations on failure
+                if completed_ops and not dry_run:
+                    self.logger.warning(f"Falha detectada, revertendo {len(completed_ops)} operações concluídas...")
+                    self._rollback(completed_ops)
+                    stats["failed"] += len(completed_ops)
+                    stats["renamed"] = 0
+                    stats["moved"] = 0
+                    stats["deleted"] = 0
+                    break
 
         # Remove pastas vazias após mover arquivos
         if not dry_run and source_folders:
@@ -879,3 +1291,108 @@ class Renamer:
                     self.logger.debug(f"Não foi possível remover pasta {folder}: {e}")
 
         return stats
+
+    def _rollback(self, completed_ops: List[RenameOperation]):
+        """Reverte operações concluídas em ordem inversa.
+
+        Move/rename operations are reversed (destination → source).
+        Delete operations cannot be reversed and are logged as warnings.
+        """
+        for op in reversed(completed_ops):
+            try:
+                if op.operation_type == "delete":
+                    self.logger.warning(f"Não é possível reverter exclusão: {op.source}")
+                    continue
+
+                if op.destination.exists():
+                    op.source.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.move(str(op.destination), str(op.source))
+                    self.logger.action(f"Revertido: {op.destination} → {op.source}")
+            except Exception as e:
+                self.logger.error(f"Falha ao reverter {op.destination}: {e}")
+
+    def _plan_mirabel_fixes(self, subtitle_files: List[Path]) -> List[Path]:
+        """
+        Identifica arquivos Mirabel e guarda informações para renomeação posterior.
+
+        NÃO cria operações aqui - apenas prepara as informações para que
+        _plan_subtitle_companion crie uma única operação direta do arquivo
+        original para o destino final.
+
+        Padrões reconhecidos:
+        - .pt-BR.hi.srt → .por.srt
+        - .br.hi.srt → .por.srt
+        - .pt-BR.hi.forced.srt → .por.forced.srt
+        - .br.hi.forced.srt → .por.forced.srt
+        - .en.hi.srt → .eng.srt
+        - .en.hi.forced.srt → .eng.forced.srt
+
+        Args:
+            subtitle_files: Lista de arquivos de legenda
+
+        Returns:
+            Lista de arquivos de legenda (paths originais, não modificados)
+        """
+        # Patterns para detectar arquivos Mirabel
+        # Grupo 1: base_name, Grupo 2: código do idioma, Grupo 3: .forced (opcional)
+        mirabel_patterns = [
+            # Português: pt-BR, br, pt_BR, etc → por
+            (re.compile(r'^(.+?)\.(pt-BR|pt-br|br|BR|pt_BR|pt_br)\.hi(\.forced)?\.srt$', re.IGNORECASE), 'por'),
+            # Inglês: en, EN → eng
+            (re.compile(r'^(.+?)\.(en|EN)\.hi(\.forced)?\.srt$', re.IGNORECASE), 'eng'),
+        ]
+
+        # Inicializa o mapa de informações Mirabel
+        self.mirabel_info = {}  # Mapa: old_path -> {base_name, target_lang, forced}
+
+        updated_subtitle_files = []
+        mirabel_count = 0
+
+        for file_path in subtitle_files:
+            matched = False
+            for pattern, target_lang in mirabel_patterns:
+                match = pattern.match(file_path.name)
+                if match:
+                    matched = True
+                    base_name = match.group(1)
+                    forced = match.group(3)  # '.forced' ou None
+
+                    # Constrói novo nome para verificar se já existe
+                    if forced:
+                        new_name = f"{base_name}.{target_lang}.forced.srt"
+                    else:
+                        new_name = f"{base_name}.{target_lang}.srt"
+
+                    new_path = file_path.parent / new_name
+
+                    # Verifica se destino já existe
+                    if new_path.exists() and new_path != file_path:
+                        # Destino existe - marca para deleção
+                        self.operations.append(RenameOperation(
+                            source=file_path,
+                            destination=file_path,
+                            operation_type='delete',
+                            reason=f"Mirabel duplicado: {new_name} já existe"
+                        ))
+                        self.logger.debug(f"Mirabel duplicado será deletado: {file_path.name}")
+                    else:
+                        # Guarda informações para renomeação posterior
+                        self.mirabel_info[file_path] = {
+                            'base_name': base_name,
+                            'target_lang': target_lang,
+                            'forced': bool(forced)
+                        }
+                        mirabel_count += 1
+                        # Mantém o path ORIGINAL na lista
+                        updated_subtitle_files.append(file_path)
+                        self.logger.debug(f"Mirabel identificado: {file_path.name} → {new_name}")
+                    break  # Sai do loop de patterns após match
+
+            if not matched:
+                # Não é arquivo Mirabel, mantém na lista
+                updated_subtitle_files.append(file_path)
+
+        if mirabel_count > 0:
+            self.logger.info(f"Encontrados {mirabel_count} arquivos Mirabel para correção")
+
+        return updated_subtitle_files

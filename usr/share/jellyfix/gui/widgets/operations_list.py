@@ -19,8 +19,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, Gio
-from pathlib import Path
+from gi.repository import Gtk, Adw
 from typing import Optional, Callable, List
 
 from ...utils.i18n import _
@@ -101,18 +100,21 @@ class OperationsListView(Gtk.Box):
     """Operations list view widget"""
 
     def __init__(self, on_operation_selected: Optional[Callable] = None,
-                 on_apply_clicked: Optional[Callable] = None):
+                 on_apply_clicked: Optional[Callable] = None,
+                 on_download_subs_clicked: Optional[Callable] = None):
         """
         Initialize operations list.
 
         Args:
             on_operation_selected: Callback when operation is selected
             on_apply_clicked: Callback when apply button is clicked
+            on_download_subs_clicked: Callback for batch subtitle download
         """
         super().__init__(orientation=Gtk.Orientation.VERTICAL)
 
         self.on_operation_selected = on_operation_selected
         self.on_apply_clicked = on_apply_clicked
+        self.on_download_subs_clicked = on_download_subs_clicked
         self.operations: List[RenameOperation] = []
         self.filtered_operations: List[RenameOperation] = []
         self.current_filter = "all"  # all, rename, move, delete
@@ -185,6 +187,17 @@ class OperationsListView(Gtk.Box):
         filter_box.append(self.filter_delete_btn)
 
         toolbar.append(filter_box)
+
+        # Download Subtitles Button
+        self.download_subs_btn = Gtk.Button()
+        dl_content = Adw.ButtonContent()
+        dl_content.set_icon_name("media-view-subtitles-symbolic")
+        dl_content.set_label(_("Download Subtitles for All"))
+        self.download_subs_btn.set_child(dl_content)
+        self.download_subs_btn.set_tooltip_text(_("Search and download subtitles for all listed videos"))
+        self.download_subs_btn.connect("clicked", self._on_download_batch_clicked)
+        toolbar.append(self.download_subs_btn)
+
         self.append(toolbar)
 
         # Scrolled window
@@ -245,6 +258,22 @@ class OperationsListView(Gtk.Box):
         if self.on_apply_clicked and self.operations:
             self.on_apply_clicked(self.operations)
 
+    def _on_download_batch_clicked(self, button):
+        """Handle download batch button click"""
+        if self.on_download_subs_clicked and self.operations:
+            # Pass all operations, or maybe just filtered ones?
+            # User probably expects what they see to be processed, or all available.
+            # Let's pass filtered operations to be consistent with "what I see is what I get"
+            # BUT, we only want video operations.
+            video_exts = {'.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.ts', '.mpg', '.mpeg'}
+            
+            videos = [
+                op for op in self.filtered_operations 
+                if op.source.suffix.lower() in video_exts
+            ]
+            
+            self.on_download_subs_clicked(videos)
+
     def set_operations(self, operations: List[RenameOperation]):
         """
         Set operations to display.
@@ -257,6 +286,9 @@ class OperationsListView(Gtk.Box):
 
         # Enable/disable apply button
         self.apply_button.set_sensitive(len(operations) > 0)
+        
+        # Enable/disable download button
+        self.download_subs_btn.set_sensitive(len(operations) > 0)
 
     def _apply_filters(self):
         """Apply current filters and search to operations"""

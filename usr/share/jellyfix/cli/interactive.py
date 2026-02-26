@@ -18,9 +18,10 @@ from questionary import Style
 
 from ..core.scanner import LibraryScanner
 from ..core.renamer import Renamer
+from ..core.subtitle_manager import SubtitleManager
 from ..utils.logger import get_logger
 from ..utils.config_manager import ConfigManager
-from ..utils.config import get_config, APP_VERSION
+from ..utils.config import APP_VERSION
 from ..utils.i18n import _
 from .display import (
     console, show_banner, show_scan_results,
@@ -77,6 +78,10 @@ class InteractiveCLI:
                 self._process_files()
                 console.clear()
                 show_banner()
+            elif choice == "subtitles":
+                self._download_subtitles_menu()
+                console.clear()
+                show_banner()
             elif choice == "settings":
                 self._settings_menu()
                 console.clear()
@@ -101,6 +106,7 @@ class InteractiveCLI:
                 questionary.Choice(_("📂 Scan library"), value="scan"),
                 questionary.Choice(_("🔧 Settings"), value="settings"),
                 questionary.Choice(_("🚀 Process files"), value="process"),
+                questionary.Choice(_("📥 Download subtitles"), value="subtitles"),
                 questionary.Choice(_("ℹ️  Help"), value="help"),
                 questionary.Choice(_("❌ Exit"), value="exit")
             ],
@@ -109,6 +115,122 @@ class InteractiveCLI:
         ).ask()
 
         return choice
+
+    def _download_subtitles_menu(self):
+        """Download subtitles menu"""
+        subtitle_manager = SubtitleManager()
+        
+        if not subtitle_manager.is_available():
+            show_error(_("Subliminal library not found!"))
+            console.print("[yellow]" + _("Please install 'subliminal' to use this feature.") + "[/yellow]")
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        # Select directory
+        workdir = self._select_directory()
+        if not workdir:
+            return
+
+        console.clear()
+        show_info(_("Scanning for videos: %s") % workdir)
+
+        # Scan
+        scanner = LibraryScanner()
+        result = scanner.scan(workdir)
+        
+        if not result.video_files:
+            show_warning(_("No videos found!"))
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        # Create choices for video files
+        choices = []
+        for video in sorted(result.video_files):
+            # Check if it already has subtitles (simplistic check)
+            has_sub = any(s.stem.startswith(video.stem) for s in result.subtitle_files)
+            status = "✓" if has_sub else "✗"
+            
+            choices.append(questionary.Choice(
+                title=f"{status} {video.name}",
+                value=video
+            ))
+            
+        # Select videos
+        selected_videos = questionary.checkbox(
+            _("Select videos to download subtitles for:"),
+            choices=choices,
+            style=custom_style,
+            instruction=_("(SPACE to select, ENTER to confirm)")
+        ).ask()
+        
+        if not selected_videos:
+            return
+            
+        # Confirm
+        console.print(f"\n[bold]{_('Selected:')} {len(selected_videos)} {_('videos')}[/bold]")
+        confirm = questionary.confirm(
+            _("Start download?"),
+            default=True,
+            style=custom_style
+        ).ask()
+        
+        if not confirm:
+            return
+
+        # Download using batch method (single provider connection for all videos)
+        import rich.progress
+        from ..core.detector import detect_media_type
+        from ..utils.helpers import extract_year
+
+        # Build metadata map for Level 2 fallback
+        metadata_map = {}
+        for video in selected_videos:
+            media_info = detect_media_type(video)
+            metadata_map[video] = {
+                "title": media_info.title or video.stem,
+                "year": media_info.year or extract_year(video.stem),
+                "is_episode": media_info.is_tvshow(),
+                "season": media_info.season,
+                "episode": media_info.episode_start,
+            }
+
+        with rich.progress.Progress(
+            rich.progress.SpinnerColumn(),
+            rich.progress.TextColumn("[progress.description]{task.description}"),
+            rich.progress.BarColumn(),
+            rich.progress.TaskProgressColumn(),
+            console=console,
+        ) as progress:
+            task_id = progress.add_task(_("Downloading..."), total=len(selected_videos))
+
+            def on_progress(vpath, idx, total):
+                progress.update(task_id, description=_("Downloading for: {}").format(vpath.name))
+                progress.update(task_id, completed=idx)
+
+            batch_results = subtitle_manager.download_subtitles_batch(
+                selected_videos,
+                metadata_map=metadata_map,
+                progress_callback=on_progress,
+            )
+
+            progress.update(task_id, completed=len(selected_videos))
+
+        # Count results
+        success_count = 0
+        total_subs = 0
+        for vpath, lang_map in batch_results.items():
+            count = sum(len(paths) for paths in lang_map.values())
+            total_subs += count
+            if count > 0:
+                success_count += 1
+
+        # Show results
+        if total_subs > 0:
+            show_success(_("Downloaded {} subtitles for {} videos").format(total_subs, success_count))
+        else:
+            show_warning(_("No subtitles found"))
+
+        questionary.press_any_key_to_continue().ask()
 
     def _scan_library(self):
         """Scan library and display results"""
@@ -144,15 +266,12 @@ class InteractiveCLI:
         scanner = LibraryScanner()
         result = scanner.scan(workdir)
 
-        self.logger.info(
-            _("Found: %d videos, %d subtitles") %
-            (len(result.video_files), len(result.subtitle_files))
-        )
+        self.logger.info(_("Found: %d videos, %d subtitles") % (len(result.video_files), len(result.subtitle_files)))
 
         # Plan operations
         self.logger.info(_("Planning operations..."))
         renamer = Renamer()
-        renamer.plan_operations(workdir)
+        renamer.plan_operations(workdir, result)
 
         if len(renamer.operations) == 0:
             show_warning(_("No operations needed"))
@@ -163,11 +282,7 @@ class InteractiveCLI:
         show_operation_preview(renamer, limit=50)
 
         # Confirm
-        confirm = questionary.confirm(
-            _("Execute these operations?"),
-            default=False,
-            style=custom_style
-        ).ask()
+        confirm = questionary.confirm(_("Execute these operations?"), default=False, style=custom_style).ask()
 
         if not confirm:
             show_info(_("Operation cancelled"))
@@ -200,48 +315,32 @@ class InteractiveCLI:
         while True:
             console.clear()
             console.print("\n[bold cyan]" + _("📂 Directory Browser") + "[/bold cyan]\n")
-            console.print(f"[dim]" + _("Current:") + f"[/dim] [yellow]{current_dir}[/yellow]\n")
+            console.print("[dim]" + _("Current:") + f"[/dim] [yellow]{current_dir}[/yellow]\n")
 
             # List directories
             try:
                 choices = []
 
                 # Add option to select current
-                choices.append(questionary.Choice(
-                    _("✓ Select this directory"),
-                    value="__select__"
-                ))
+                choices.append(questionary.Choice(_("✓ Select this directory"), value="__select__"))
 
                 # Add parent option
                 if current_dir.parent != current_dir:
-                    choices.append(questionary.Choice(
-                        _("⬆️  .. (go back)"),
-                        value="__parent__"
-                    ))
+                    choices.append(questionary.Choice(_("⬆️  .. (go back)"), value="__parent__"))
 
                 # Add subdirectories
-                dirs = sorted([d for d in current_dir.iterdir() if d.is_dir() and not d.name.startswith('.')])
+                dirs = sorted([d for d in current_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
                 for d in dirs:
                     choices.append(questionary.Choice(f"📁 {d.name}", value=str(d)))
 
                 # Add manual path entry
-                choices.append(questionary.Choice(
-                    _("⌨️  Type path manually"),
-                    value="__manual__"
-                ))
+                choices.append(questionary.Choice(_("⌨️  Type path manually"), value="__manual__"))
 
                 # Add cancel option
-                choices.append(questionary.Choice(
-                    _("❌ Cancel"),
-                    value="__cancel__"
-                ))
+                choices.append(questionary.Choice(_("❌ Cancel"), value="__cancel__"))
 
                 # Ask
-                choice = questionary.select(
-                    _("Select directory:"),
-                    choices=choices,
-                    style=custom_style
-                ).ask()
+                choice = questionary.select(_("Select directory:"), choices=choices, style=custom_style).ask()
 
                 if not choice or choice == "__cancel__":
                     return None
@@ -251,11 +350,7 @@ class InteractiveCLI:
                     current_dir = current_dir.parent
                 elif choice == "__manual__":
                     console.print("\n[cyan]" + _("Enter full directory path:") + "[/cyan]")
-                    path_str = questionary.text(
-                        _("Path:"),
-                        default=str(current_dir),
-                        style=custom_style
-                    ).ask()
+                    path_str = questionary.text(_("Path:"), default=str(current_dir), style=custom_style).ask()
 
                     if path_str:
                         new_path = Path(path_str).expanduser().resolve()
@@ -274,111 +369,173 @@ class InteractiveCLI:
                 current_dir = current_dir.parent
 
     def _settings_menu(self):
-        """Complete settings configuration menu"""
+        """Complete settings configuration menu with sub-categories"""
         while True:
             console.clear()
             show_banner()
             console.print("\n[bold blue]⚙️  " + _("Settings") + "[/bold blue]\n")
 
-            # Build dynamic choices with current values
-            kept_langs_str = ", ".join(self.config.kept_languages) if self.config.kept_languages else _("none")
-
             choice = questionary.select(
                 _("What would you like to configure?"),
                 choices=[
-                    f"{'✓' if self.config.rename_por2 else '✗'} " + _("Rename language variants (lang2→lang, lang3→lang)"),
-                    f"{'✓' if self.config.remove_language_variants else '✗'} " + _("Remove duplicate variants (lang2, lang3)"),
-                    f"{'✓' if self.config.rename_no_lang else '✗'} " + _("Add language code to subtitles"),
-                    f"{'✓' if self.config.remove_foreign_subs else '✗'} " + _("Remove foreign subtitles"),
-                    f"🌍 " + _("Kept languages:") + f" {kept_langs_str}",
-                    f"{'✓' if self.config.organize_folders else '✗'} " + _("Organize in folders (Season XX)"),
-                    f"{'✓' if self.config.fetch_metadata else '✗'} " + _("Fetch metadata (TMDB/TVDB)"),
-                    f"{'✓' if self.config.ask_on_multiple_results else '✗'} " + _("Ask when multiple TMDB results"),
-                    f"{'✓' if self.config.add_quality_tag else '✗'} " + _("Add quality tags (1080p, 720p, etc)"),
-                    f"{'✓' if self.config.use_ffprobe else '✗'} " + _("Use ffprobe for quality detection"),
-                    f"{'✓' if self.config.rename_nfo else '✗'} " + _("Rename NFO files to match video"),
-                    f"📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
-                    "🔑 " + _("Configure APIs (TMDB/TVDB)"),
-                    "← " + _("Back")
+                    "📝 " + _("Subtitle Options"),
+                    "🎬 " + _("Metadata Options"),
+                    "📂 " + _("File Organization"),
+                    "← " + _("Back"),
                 ],
                 style=custom_style,
-                instruction=_("(Use ↑↓ and ENTER to select)")
+                instruction=_("(Use ↑↓ and ENTER to select)"),
             ).ask()
 
             if not choice or _("Back") in choice:
                 break
+            elif _("Subtitle Options") in choice:
+                self._subtitle_settings_menu()
+            elif _("Metadata Options") in choice:
+                self._metadata_settings_menu()
+            elif _("File Organization") in choice:
+                self._file_org_settings_menu()
 
-            # Handle each setting
-            if _("Rename language variants") in choice:
+    def _subtitle_settings_menu(self):
+        """Subtitle-related settings"""
+        while True:
+            console.clear()
+            show_banner()
+            console.print("\n[bold blue]📝 " + _("Subtitle Options") + "[/bold blue]\n")
+
+            kept_langs_str = ", ".join(self.config.kept_languages) if self.config.kept_languages else _("none")
+
+            choice = questionary.select(
+                _("Subtitle settings:"),
+                choices=[
+                    f"{'✓' if self.config.rename_por2 else '✗'} "
+                    + _("Rename language variants (lang2→lang, lang3→lang)"),
+                    f"{'✓' if self.config.remove_language_variants else '✗'} "
+                    + _("Remove duplicate variants (lang2, lang3)"),
+                    f"{'✓' if self.config.rename_no_lang else '✗'} " + _("Add language code to subtitles"),
+                    f"{'✓' if self.config.remove_foreign_subs else '✗'} " + _("Remove foreign subtitles"),
+                    "🌍 " + _("Kept languages:") + f" {kept_langs_str}",
+                    f"{'✓' if self.config.fix_mirabel_files else '✗'} " + _("Fix Mirabel files (.pt-BR.hi → .por)"),
+                    "📊 " + _("Min Portuguese words:") + f" {self.config.min_pt_words}",
+                    "← " + _("Back"),
+                ],
+                style=custom_style,
+                instruction=_("(Use ↑↓ and ENTER to select)"),
+            ).ask()
+
+            if not choice or _("Back") in choice:
+                break
+            elif _("Rename language variants") in choice:
                 self.config.rename_por2 = not self.config.rename_por2
-                self.config_manager.set('rename_por2', self.config.rename_por2)
+                self.config_manager.set("rename_por2", self.config.rename_por2)
                 show_success(_("Setting saved"))
-
             elif _("Remove duplicate variants") in choice:
                 self.config.remove_language_variants = not self.config.remove_language_variants
-                self.config_manager.set('remove_language_variants', self.config.remove_language_variants)
+                self.config_manager.set("remove_language_variants", self.config.remove_language_variants)
                 show_success(_("Setting saved"))
-
             elif _("Add language code") in choice:
                 self.config.rename_no_lang = not self.config.rename_no_lang
-                self.config_manager.set('rename_no_lang', self.config.rename_no_lang)
+                self.config_manager.set("rename_no_lang", self.config.rename_no_lang)
                 show_success(_("Setting saved"))
-
             elif _("Remove foreign") in choice:
                 self.config.remove_foreign_subs = not self.config.remove_foreign_subs
-                self.config_manager.set('remove_foreign_subs', self.config.remove_foreign_subs)
+                self.config_manager.set("remove_foreign_subs", self.config.remove_foreign_subs)
                 show_success(_("Setting saved"))
-
             elif _("Kept languages") in choice:
                 self._language_selection_menu()
-
-            elif _("Organize in folders") in choice:
-                self.config.organize_folders = not self.config.organize_folders
-                self.config_manager.set('organize_folders', self.config.organize_folders)
+            elif _("Fix Mirabel files") in choice:
+                self.config.fix_mirabel_files = not self.config.fix_mirabel_files
+                self.config_manager.set("fix_mirabel_files", self.config.fix_mirabel_files)
                 show_success(_("Setting saved"))
-
-            elif _("Fetch metadata") in choice:
-                self.config.fetch_metadata = not self.config.fetch_metadata
-                self.config_manager.set('fetch_metadata', self.config.fetch_metadata)
-                show_success(_("Setting saved"))
-
-            elif _("Ask when multiple TMDB results") in choice:
-                self.config.ask_on_multiple_results = not self.config.ask_on_multiple_results
-                self.config_manager.set('ask_on_multiple_results', self.config.ask_on_multiple_results)
-                show_success(_("Setting saved"))
-
-            elif _("Add quality tags") in choice:
-                self.config.add_quality_tag = not self.config.add_quality_tag
-                self.config_manager.set('add_quality_tag', self.config.add_quality_tag)
-                show_success(_("Setting saved"))
-
-            elif _("Use ffprobe for quality detection") in choice:
-                self.config.use_ffprobe = not self.config.use_ffprobe
-                self.config_manager.set('use_ffprobe', self.config.use_ffprobe)
-                show_success(_("Setting saved"))
-
-            elif _("Rename NFO files to match video") in choice:
-                self.config.rename_nfo = not self.config.rename_nfo
-                self.config_manager.set('rename_nfo', self.config.rename_nfo)
-                show_success(_("Setting saved"))
-
             elif _("Min Portuguese words") in choice:
                 new_value = questionary.text(
-                    _("Minimum number of Portuguese words:"),
-                    default=str(self.config.min_pt_words),
-                    style=custom_style
+                    _("Minimum number of Portuguese words:"), default=str(self.config.min_pt_words), style=custom_style
                 ).ask()
                 try:
                     value = int(new_value)
                     self.config.min_pt_words = value
-                    self.config_manager.set('min_pt_words', value)
+                    self.config_manager.set("min_pt_words", value)
                     show_success(_("Setting saved to ~/.jellyfix/config.json"))
                 except ValueError:
                     show_error(_("Invalid value!"))
                 questionary.press_any_key_to_continue().ask()
 
-            elif _("Configure APIs (TMDB/TVDB)") in choice:
+    def _metadata_settings_menu(self):
+        """Metadata and API settings"""
+        while True:
+            console.clear()
+            show_banner()
+            console.print("\n[bold blue]🎬 " + _("Metadata Options") + "[/bold blue]\n")
+
+            choice = questionary.select(
+                _("Metadata settings:"),
+                choices=[
+                    f"{'✓' if self.config.fetch_metadata else '✗'} " + _("Fetch metadata (TMDB/TVDB)"),
+                    f"{'✓' if self.config.ask_on_multiple_results else '✗'} " + _("Ask when multiple TMDB results"),
+                    "🔑 " + _("Configure APIs (TMDB/TVDB)"),
+                    "← " + _("Back"),
+                ],
+                style=custom_style,
+                instruction=_("(Use ↑↓ and ENTER to select)"),
+            ).ask()
+
+            if not choice or _("Back") in choice:
+                break
+            elif _("Fetch metadata") in choice:
+                self.config.fetch_metadata = not self.config.fetch_metadata
+                self.config_manager.set("fetch_metadata", self.config.fetch_metadata)
+                show_success(_("Setting saved"))
+            elif _("Ask when multiple TMDB results") in choice:
+                self.config.ask_on_multiple_results = not self.config.ask_on_multiple_results
+                self.config_manager.set("ask_on_multiple_results", self.config.ask_on_multiple_results)
+                show_success(_("Setting saved"))
+            elif _("Configure APIs") in choice:
                 self._api_settings_menu()
+
+    def _file_org_settings_menu(self):
+        """File organization settings"""
+        while True:
+            console.clear()
+            show_banner()
+            console.print("\n[bold blue]📂 " + _("File Organization") + "[/bold blue]\n")
+
+            choice = questionary.select(
+                _("File organization settings:"),
+                choices=[
+                    f"{'✓' if self.config.organize_folders else '✗'} " + _("Organize in folders (Season XX)"),
+                    f"{'✓' if self.config.add_quality_tag else '✗'} " + _("Add quality tags (1080p, 720p, etc)"),
+                    f"{'✓' if self.config.use_ffprobe else '✗'} " + _("Use ffprobe for quality detection"),
+                    f"{'✓' if self.config.rename_nfo else '✗'} " + _("Rename NFO files to match video"),
+                    f"{'✓' if self.config.remove_non_media else '✗'} "
+                    + _("Remove non-media files (keep only videos/subtitles)"),
+                    "← " + _("Back"),
+                ],
+                style=custom_style,
+                instruction=_("(Use ↑↓ and ENTER to select)"),
+            ).ask()
+
+            if not choice or _("Back") in choice:
+                break
+            elif _("Organize in folders") in choice:
+                self.config.organize_folders = not self.config.organize_folders
+                self.config_manager.set("organize_folders", self.config.organize_folders)
+                show_success(_("Setting saved"))
+            elif _("Add quality tags") in choice:
+                self.config.add_quality_tag = not self.config.add_quality_tag
+                self.config_manager.set("add_quality_tag", self.config.add_quality_tag)
+                show_success(_("Setting saved"))
+            elif _("Use ffprobe for quality detection") in choice:
+                self.config.use_ffprobe = not self.config.use_ffprobe
+                self.config_manager.set("use_ffprobe", self.config.use_ffprobe)
+                show_success(_("Setting saved"))
+            elif _("Rename NFO files to match video") in choice:
+                self.config.rename_nfo = not self.config.rename_nfo
+                self.config_manager.set("rename_nfo", self.config.rename_nfo)
+                show_success(_("Setting saved"))
+            elif _("Remove non-media files") in choice:
+                self.config.remove_non_media = not self.config.remove_non_media
+                self.config_manager.set("remove_non_media", self.config.remove_non_media)
+                show_success(_("Setting saved"))
 
     def _language_selection_menu(self):
         """Language selection menu with checkbox"""
@@ -407,7 +564,7 @@ class InteractiveCLI:
 
         if selected is not None:
             self.config.kept_languages = selected
-            console.print(f"\n[green]✓ " + _("Kept languages:") + f" {', '.join(selected)}[/green]")
+            console.print("\n[green]✓ " + _("Kept languages:") + f" {', '.join(selected)}[/green]")
 
             # Save to config file
             self.config_manager.set('kept_languages', selected)
@@ -427,7 +584,7 @@ class InteractiveCLI:
             tmdb_status = "[green]✓ " + _("Configured") + "[/green]" if tmdb_key else "[red]✗ " + _("Not configured") + "[/red]"
 
             console.print(f"[bold]TMDB API Key:[/bold] {tmdb_status}")
-            console.print(f"[bold]" + _("Config file:") + f"[/bold] [cyan]{self.config_manager.get_config_path()}[/cyan]\n")
+            console.print("[bold]" + _("Config file:") + f"[/bold] [cyan]{self.config_manager.get_config_path()}[/cyan]\n")
 
             choice = questionary.select(
                 _("What would you like to do?"),
@@ -456,7 +613,7 @@ class InteractiveCLI:
                 if api_key and api_key.strip():
                     self.config_manager.set_tmdb_api_key(api_key.strip())
                     self.config.tmdb_api_key = api_key.strip()
-                    console.print(f"\n[green]✓ " + _("TMDB key saved to:") + "[/green]")
+                    console.print("\n[green]✓ " + _("TMDB key saved to:") + "[/green]")
                     console.print(f"  [cyan]{self.config_manager.get_config_path()}[/cyan]")
                 else:
                     show_warning(_("Operation cancelled"))
@@ -467,9 +624,9 @@ class InteractiveCLI:
                 key = self.config_manager.get_tmdb_api_key()
                 if key:
                     # Show only first and last 4 characters
-                    masked_key = f"{key[:4]}...{key[-4:]}" if len(key) > 8 else "***"
+                    masked_key = f"{key[:4]}..." if len(key) > 4 else "***"
                     console.print(f"\n[cyan]TMDB Key:[/cyan] {masked_key}")
-                    console.print(f"\n[dim]" + _("File:") + f"[/dim] [cyan]{self.config_manager.get_config_path()}[/cyan]")
+                    console.print("\n[dim]" + _("File:") + f"[/dim] [cyan]{self.config_manager.get_config_path()}[/cyan]")
                 else:
                     show_warning(_("No key configured"))
 
@@ -533,12 +690,12 @@ class InteractiveCLI:
                 total_results = data.get('total_results', 0)
 
                 show_success(_("Connection successful!"))
-                console.print(f"[green]• " + _("Valid and working API key") + "[/green]")
-                console.print(f"[green]• " + _("Test search returned %d results") % total_results + "[/green]")
+                console.print("[green]• " + _("Valid and working API key") + "[/green]")
+                console.print("[green]• " + _("Test search returned %d results") % total_results + "[/green]")
 
                 if total_results > 0:
                     first_movie = data['results'][0]
-                    console.print(f"\n[dim]" + _("Example:") + f" {first_movie.get('title')} ({first_movie.get('release_date', 'N/A')[:4]})[/dim]")
+                    console.print("\n[dim]" + _("Example:") + f" {first_movie.get('title')} ({first_movie.get('release_date', 'N/A')[:4]})[/dim]")
 
             elif response.status_code == 401:
                 show_error(_("Invalid API key!"))

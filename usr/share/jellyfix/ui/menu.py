@@ -4,16 +4,14 @@ from pathlib import Path
 from typing import Optional
 import questionary
 from questionary import Style
-from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 from rich.text import Text
 from rich.markup import escape
 from rich import box
 
-from ..core.scanner import scan_library, ScanResult
+from ..core.scanner import ScanResult
 from ..core.renamer import Renamer
-from ..core.metadata import MetadataFetcher
 from ..utils.config import Config, get_config, APP_VERSION
 from ..utils.logger import get_logger, console
 from ..utils.config_manager import ConfigManager
@@ -273,22 +271,22 @@ class InteractiveMenu:
 
         if len(move_renames) > 0:
             summary.add_row(
-                f"[cyan]📦✏️  Mover + Renomear:[/cyan]",
+                "[cyan]📦✏️  Mover + Renomear:[/cyan]",
                 f"[bold]{len(move_renames)}[/bold]"
             )
         if len(moves) > 0:
             summary.add_row(
-                f"[cyan]📦 Mover:[/cyan]",
+                "[cyan]📦 Mover:[/cyan]",
                 f"[bold]{len(moves)}[/bold]"
             )
         if len(renames) > 0:
             summary.add_row(
-                f"[cyan]✏️  Renomear:[/cyan]",
+                "[cyan]✏️  Renomear:[/cyan]",
                 f"[bold]{len(renames)}[/bold]"
             )
         if len(deletes) > 0:
             summary.add_row(
-                f"[cyan]🗑️  Remover:[/cyan]",
+                "[cyan]🗑️  Remover:[/cyan]",
                 f"[bold red]{len(deletes)}[/bold red]"
             )
 
@@ -324,6 +322,7 @@ class InteractiveMenu:
                     f"🌍 Idiomas mantidos: {kept_langs_str}",
                     f"{'✓' if config.organize_folders else '✗'} Organizar em pastas (Season XX)",
                     f"{'✓' if config.fetch_metadata else '✗'} Buscar metadados (TMDB/TVDB)",
+                    f"{'✓' if config.remove_non_media else '✗'} Remover arquivos não-mídia (.srt/.mp4)",
                     f"Min. palavras portuguesas: {config.min_pt_words}",
                     "🔑 Configurar APIs (TMDB/TVDB)",
                     "← Voltar"
@@ -360,6 +359,10 @@ class InteractiveMenu:
                 config.fetch_metadata = not config.fetch_metadata
                 config_mgr = ConfigManager()
                 config_mgr.set('fetch_metadata', config.fetch_metadata)
+            elif "não-mídia" in choice:
+                config.remove_non_media = not config.remove_non_media
+                config_mgr = ConfigManager()
+                config_mgr.set('remove_non_media', config.remove_non_media)
             elif "palavras portuguesas" in choice:
                 new_value = questionary.text(
                     "Número mínimo de palavras portuguesas:",
@@ -458,7 +461,7 @@ class InteractiveMenu:
                 total_results = data.get('total_results', 0)
 
                 self.console.print("\n[bold green]✓ Conexão bem-sucedida![/bold green]\n")
-                self.console.print(f"[green]• API Key válida e funcionando[/green]")
+                self.console.print("[green]• API Key válida e funcionando[/green]")
                 self.console.print(f"[green]• Teste de busca retornou {total_results} resultados[/green]")
 
                 if total_results > 0:
@@ -537,7 +540,7 @@ class InteractiveMenu:
                 if api_key and api_key.strip():
                     config_mgr.set_tmdb_api_key(api_key.strip())
                     config.tmdb_api_key = api_key.strip()
-                    self.console.print(f"\n[green]✓ Chave TMDB salva em:[/green]")
+                    self.console.print("\n[green]✓ Chave TMDB salva em:[/green]")
                     self.console.print(f"  [cyan]{config_mgr.get_config_path()}[/cyan]")
                 else:
                     self.console.print("\n[yellow]Operação cancelada.[/yellow]")
