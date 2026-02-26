@@ -76,36 +76,53 @@ class NonInteractiveCLI:
         if operations_count == 0:
             self.logger.info(_("Nothing to do"))
             return 0
+
+        # Show operations preview
+        if not self.config.quiet:
+            self._show_operations_preview(renamer.operations)
         
         # Determine if should execute
-        should_execute = not self.config.dry_run
-        
         if self.config.dry_run:
             self.logger.warning(_("DRY-RUN mode: No changes will be made"))
-        
+            self.logger.info(_("Use --execute to apply changes"))
+            return 0
+
         # Execute operations
-        stats = renamer.execute_operations(dry_run=not should_execute)
+        self.logger.info(_("Executing %d operations...") % operations_count)
+        stats = renamer.execute_operations(dry_run=False)
         
         # Show results
-        if self.config.dry_run:
-            self.logger.info(_("Dry-run completed: %d operations planned") % operations_count)
-        else:
-            self.logger.info("")
-            self.logger.info(_("Execution completed:"))
-            if stats['renamed'] > 0:
-                self.logger.info(_("  Renamed: %d") % stats['renamed'])
-            if stats['moved'] > 0:
-                self.logger.info(_("  Moved: %d") % stats['moved'])
-            if stats['deleted'] > 0:
-                self.logger.info(_("  Deleted: %d") % stats['deleted'])
-            if stats['cleaned'] > 0:
-                self.logger.info(_("  Cleaned folders: %d") % stats['cleaned'])
-            if stats['failed'] > 0:
-                self.logger.warning(_("  Failed: %d") % stats['failed'])
-            if stats['skipped'] > 0:
-                self.logger.warning(_("  Skipped: %d") % stats['skipped'])
+        self.logger.info("")
+        self.logger.info(_("Execution completed:"))
+        if stats['renamed'] > 0:
+            self.logger.info(_("  Renamed: %d") % stats['renamed'])
+        if stats['moved'] > 0:
+            self.logger.info(_("  Moved: %d") % stats['moved'])
+        if stats['deleted'] > 0:
+            self.logger.info(_("  Deleted: %d") % stats['deleted'])
+        if stats['cleaned'] > 0:
+            self.logger.info(_("  Cleaned folders: %d") % stats['cleaned'])
+        if stats['failed'] > 0:
+            self.logger.warning(_("  Failed: %d") % stats['failed'])
+        if stats['skipped'] > 0:
+            self.logger.warning(_("  Skipped: %d") % stats['skipped'])
         
         return 0
+
+    def _show_operations_preview(self, operations):
+        """Show compact operations preview"""
+        self.logger.info("")
+        self.logger.info(_("Operations:"))
+        for i, op in enumerate(operations, 1):
+            if op.operation_type == 'delete':
+                self.logger.info("  %d. [DELETE] %s" % (i, op.source.name))
+            else:
+                op_label = op.operation_type.upper().replace('_', '+')
+                self.logger.info("  %d. [%s]" % (i, op_label))
+                self.logger.info("     %s" % op.source.name)
+                if op.destination:
+                    self.logger.info("     → %s" % op.destination.name)
+        self.logger.info("")
     
     def _show_banner(self):
         """Show application banner"""

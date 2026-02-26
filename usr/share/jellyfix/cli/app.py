@@ -42,7 +42,12 @@ def run_cli():
             from .interactive import InteractiveCLI
             
             cli = InteractiveCLI(config)
-            cli.run()
+            if config.workdir_explicit:
+                # --workdir provided: go directly to processing
+                cli.run_direct()
+            else:
+                # No workdir: show main menu
+                cli.run()
         else:
             # Non-interactive scriptable mode
             from .non_interactive import NonInteractiveCLI

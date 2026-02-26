@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.7.7"
+APP_VERSION = "2.7.8"
 
 
 @dataclass
@@ -42,6 +42,7 @@ class Config:
     verbose: bool = False
     quiet: bool = False
     auto_confirm: bool = False
+    workdir_explicit: bool = False  # True when --workdir was explicitly provided
 
     # APIs
     tmdb_api_key: str = ""
