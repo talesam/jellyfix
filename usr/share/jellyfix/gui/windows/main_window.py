@@ -91,10 +91,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         header = Adw.HeaderBar()
         header.set_show_end_title_buttons(False)
 
-        app_icon = Gtk.Image.new_from_icon_name("jellyfix")
-        app_icon.set_pixel_size(20)
-        header.pack_start(app_icon)
-
         title_label = Gtk.Label(label=_("Jellyfix"))
         title_label.add_css_class("heading")
         header.set_title_widget(title_label)

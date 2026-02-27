@@ -146,6 +146,7 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
     RED = '\033[91m'
+    BLUE = "\033[94m"
     DIM = '\033[2m'
     BOLD = '\033[1m'
     RESET = '\033[0m'
@@ -213,10 +214,11 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
         other_op = group.get('other')
 
         if video_op:
-            # Video operation
+            # Video operation - color number by op type
+            op_color = _get_operation_color(video_op.operation_type)
             op_type_icon = _get_operation_icon(video_op.operation_type)
-            print(f"{BOLD}{CYAN}{i}.{RESET} 🎬 {op_type_icon}")
-            print(f"   {DIM}From:{RESET} {YELLOW}{op_op_path(video_op.source)}{RESET}")
+            print(f"{BOLD}{op_color}{i}.{RESET} 🎬 {op_type_icon}")
+            print(f"   {DIM}From:{RESET} {video_op.source.name}")
             print(f"   {DIM}To:{RESET}   {GREEN}{op_op_path(video_op.destination)}{RESET}")
             displayed += 1
 
@@ -224,21 +226,22 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
             for sub_op in subtitles:
                 sub_icon = _get_operation_icon(sub_op.operation_type)
                 if sub_op.operation_type == 'delete':
-                    print(f"      📄 {RED}DELETE:{RESET} {sub_op.source.name}")
+                    print(f"      📄 {RED}🗑️  DELETE:{RESET} {RED}{sub_op.source.name}{RESET}")
                 else:
                     print(f"      📄 {sub_icon}")
-                    print(f"         {DIM}From:{RESET} {YELLOW}{sub_op.source.name}{RESET}")
+                    print(f"         {DIM}From:{RESET} {sub_op.source.name}")
                     print(f"         {DIM}To:{RESET}   {GREEN}{sub_op.destination.name}{RESET}")
                 displayed += 1
 
         elif other_op:
             # Other file operation (NFO, images, etc.)
+            op_color = _get_operation_color(other_op.operation_type)
             op_type_icon = _get_operation_icon(other_op.operation_type)
             if other_op.operation_type == 'delete':
-                print(f"{BOLD}{CYAN}{i}.{RESET} 📁 {RED}DELETE:{RESET} {other_op.source.name}")
+                print(f"{BOLD}{op_color}{i}.{RESET} 📁 {RED}🗑️  DELETE:{RESET} {RED}{other_op.source.name}{RESET}")
             else:
-                print(f"{BOLD}{CYAN}{i}.{RESET} 📁 {op_type_icon}")
-                print(f"   {DIM}From:{RESET} {YELLOW}{op_op_path(other_op.source)}{RESET}")
+                print(f"{BOLD}{op_color}{i}.{RESET} 📁 {op_type_icon}")
+                print(f"   {DIM}From:{RESET} {other_op.source.name}")
                 print(f"   {DIM}To:{RESET}   {GREEN}{op_op_path(other_op.destination)}{RESET}")
             displayed += 1
 
@@ -246,11 +249,12 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
             # Orphan subtitles (no video parent)
             for sub_op in subtitles:
                 sub_icon = _get_operation_icon(sub_op.operation_type)
+                sub_color = _get_operation_color(sub_op.operation_type)
                 if sub_op.operation_type == 'delete':
-                    print(f"{BOLD}{CYAN}{i}.{RESET} 📄 {RED}DELETE:{RESET} {sub_op.source.name}")
+                    print(f"{BOLD}{sub_color}{i}.{RESET} 📄 {RED}🗑️  DELETE:{RESET} {RED}{sub_op.source.name}{RESET}")
                 else:
-                    print(f"{BOLD}{CYAN}{i}.{RESET} 📄 {sub_icon}")
-                    print(f"   {DIM}From:{RESET} {YELLOW}{op_op_path(sub_op.source)}{RESET}")
+                    print(f"{BOLD}{sub_color}{i}.{RESET} 📄 {sub_icon}")
+                    print(f"   {DIM}From:{RESET} {sub_op.source.name}")
                     print(f"   {DIM}To:{RESET}   {GREEN}{op_op_path(sub_op.destination)}{RESET}")
                 displayed += 1
 
@@ -272,42 +276,45 @@ def show_operation_preview(renamer: Renamer, limit: int = 50):
 
     if len(move_renames) > 0:
         summary.add_row(
-            "[cyan]📦✏️  " + _("Move + Rename:") + "[/cyan]",
-            f"[bold]{len(move_renames)}[/bold]"
+            "[yellow]\U0001f4e6\u270f\ufe0f  " + _("Move + Rename:") + "[/yellow]",
+            f"[bold yellow]{len(move_renames)}[/bold yellow]",
         )
     if len(moves) > 0:
-        summary.add_row(
-            "[cyan]📦 " + _("Move:") + "[/cyan]",
-            f"[bold]{len(moves)}[/bold]"
-        )
+        summary.add_row("[blue]\U0001f4e6 " + _("Move:") + "[/blue]", f"[bold blue]{len(moves)}[/bold blue]")
     if len(renames) > 0:
-        summary.add_row(
-            "[cyan]✏️  " + _("Rename:") + "[/cyan]",
-            f"[bold]{len(renames)}[/bold]"
-        )
+        summary.add_row("[green]\u270f\ufe0f  " + _("Rename:") + "[/green]", f"[bold green]{len(renames)}[/bold green]")
     if len(deletes) > 0:
-        summary.add_row(
-            "[cyan]🗑️  " + _("Remove:") + "[/cyan]",
-            f"[bold red]{len(deletes)}[/bold red]"
-        )
+        summary.add_row("[red]\U0001f5d1\ufe0f  " + _("Remove:") + "[/red]", f"[bold red]{len(deletes)}[/bold red]")
 
     console.print(Panel(summary, title=_("Summary"), border_style="cyan"))
 
 
 def _get_operation_icon(op_type: str) -> str:
     """Get colored operation icon based on type."""
-    MAGENTA = '\033[95m'
-    CYAN = '\033[96m'
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
     RED = '\033[91m'
     RESET = '\033[0m'
 
     icons = {
-        'move_rename': f'{MAGENTA}MOVE+RENAME{RESET}',
-        'move': f'{MAGENTA}MOVE{RESET}',
-        'rename': f'{CYAN}RENAME{RESET}',
-        'delete': f'{RED}DELETE{RESET}'
+        "move_rename": f"{YELLOW}\U0001f4e6\u270f\ufe0f  MOVE+RENAME{RESET}",
+        "move": f"{BLUE}\U0001f4e6 MOVE{RESET}",
+        "rename": f"{GREEN}\u270f\ufe0f  RENAME{RESET}",
+        "delete": f"{RED}\U0001f5d1\ufe0f  DELETE{RESET}",
     }
     return icons.get(op_type, op_type)
+
+
+def _get_operation_color(op_type: str) -> str:
+    """Get ANSI color code for operation type."""
+    colors = {
+        "move_rename": "\033[93m",  # Yellow/Orange
+        "move": "\033[94m",  # Blue
+        "rename": "\033[92m",  # Green
+        "delete": "\033[91m",  # Red
+    }
+    return colors.get(op_type, "\033[96m")
 
 
 def op_op_path(path: Path) -> str:
