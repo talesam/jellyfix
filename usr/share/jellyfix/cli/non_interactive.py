@@ -110,19 +110,41 @@ class NonInteractiveCLI:
         return 0
 
     def _show_operations_preview(self, operations):
-        """Show compact operations preview"""
-        self.logger.info("")
-        self.logger.info(_("Operations:"))
+        """Show compact operations preview with color-coded operation types"""
+        from rich.console import Console
+        from rich.text import Text
+
+        console = Console()
+
+        console.print()
+        console.print(_("Operations:"), style="bold cyan")
+        console.print()
+
+        # Color scheme per operation type
+        OP_STYLES = {
+            "delete": ("bold red", "🗑️  DELETE"),
+            "move_rename": ("bold yellow", "📦✏️  MOVE+RENAME"),
+            "move": ("bold blue", "📦 MOVE"),
+            "rename": ("bold green", "✏️  RENAME"),
+        }
+
         for i, op in enumerate(operations, 1):
+            style, label = OP_STYLES.get(op.operation_type, ("white", op.operation_type.upper()))
+
             if op.operation_type == 'delete':
-                self.logger.info("  %d. [DELETE] %s" % (i, op.source.name))
+                num = Text(f"  {i:>3}. ", style="bold white")
+                tag = Text(f"[{label}] ", style=style)
+                name = Text(str(op.source.name), style="red")
+                console.print(num + tag + name)
             else:
-                op_label = op.operation_type.upper().replace('_', '+')
-                self.logger.info("  %d. [%s]" % (i, op_label))
-                self.logger.info("     %s" % op.source.name)
+                num = Text(f"  {i:>3}. ", style="bold white")
+                tag = Text(f"[{label}]", style=style)
+                console.print(num + tag)
+                console.print(f"        {op.source.name}", style="dim")
                 if op.destination:
-                    self.logger.info("     → %s" % op.destination.name)
-        self.logger.info("")
+                    console.print(f"        → {op.destination.name}", style="green")
+
+        console.print()
     
     def _show_banner(self):
         """Show application banner"""
