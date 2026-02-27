@@ -16,6 +16,153 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
+#: usr/share/jellyfix/cli/non_interactive.py:44
+msgid "Error: No working directory specified"
+msgstr "Virhe: Ei määritettyä työskentelyhakemistoa"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
+#: usr/share/jellyfix/cli/non_interactive.py:45
+msgid "Use: --workdir /path/to/directory"
+msgstr "Käytä: --workdir /polku/kansioon"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 51
+#: usr/share/jellyfix/cli/non_interactive.py:50
+#, python-format
+msgid "Error: Directory does not exist: %s"
+msgstr "Virhe: Hakemistoa ei ole olemassa: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 121
+# File: usr/share/jellyfix/cli/interactive.py, line: 141
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 59
+#: usr/share/jellyfix/cli/interactive.py:224
+#: usr/share/jellyfix/cli/interactive.py:244
+#: usr/share/jellyfix/cli/non_interactive.py:58
+#, python-format
+msgid "Scanning: %s"
+msgstr "Skannaus: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 148
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 65
+#: usr/share/jellyfix/cli/interactive.py:251
+#: usr/share/jellyfix/cli/non_interactive.py:64
+#, python-format
+msgid "Found: %d videos, %d subtitles"
+msgstr "Löydetty: %d videota, %d tekstitystä"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 153
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 70
+#: usr/share/jellyfix/cli/interactive.py:256
+#: usr/share/jellyfix/cli/non_interactive.py:69
+msgid "Planning operations..."
+msgstr "Suunnitteluoperaatiot..."
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
+#: usr/share/jellyfix/cli/non_interactive.py:74
+#, python-format
+msgid "%d operations planned"
+msgstr "%d toimintoa suunniteltu"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
+#: usr/share/jellyfix/cli/non_interactive.py:77
+msgid "Nothing to do"
+msgstr "Ei mitään tehtävää"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 85
+#: usr/share/jellyfix/cli/non_interactive.py:84
+msgid "DRY-RUN mode: No changes will be made"
+msgstr "DRY-RUN-tila: Muutoksia ei tehdä"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 87
+# File: usr/share/jellyfix/cli/interactive.py, line: 130
+#: NEEDS WORK
+msgid "Use --execute to apply changes"
+msgstr "Käytä --execute-muuttujaa muutosten soveltamiseen"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 91
+#: NEEDS WORK
+#, python-format
+msgid "Executing %d operations..."
+msgstr "Suoritetaan %d toimintoa..."
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
+#: usr/share/jellyfix/cli/non_interactive.py:94
+msgid "Execution completed:"
+msgstr "Suoritus valmis:"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
+#: usr/share/jellyfix/cli/non_interactive.py:96
+#, python-format
+msgid "  Renamed: %d"
+msgstr "Nimetty: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
+#: usr/share/jellyfix/cli/non_interactive.py:98
+#, python-format
+msgid "  Moved: %d"
+msgstr "Siirretty: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
+#: usr/share/jellyfix/cli/non_interactive.py:100
+#, python-format
+msgid "  Deleted: %d"
+msgstr "Poistettu: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
+#: usr/share/jellyfix/cli/non_interactive.py:102
+#, python-format
+msgid "  Cleaned folders: %d"
+msgstr "Siivottuja kansioita: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
+#: usr/share/jellyfix/cli/non_interactive.py:104
+#, python-format
+msgid "  Failed: %d"
+msgstr "Epäonnistui: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
+#: usr/share/jellyfix/cli/non_interactive.py:106
+#, python-format
+msgid "  Skipped: %d"
+msgstr "Ohitettu: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 120
+#: NEEDS WORK
+msgid "Operations:"
+msgstr "Toiminnot:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "Ei toimenpiteitä tarvita. Kaikki on jo järjestetty!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 167
+#: usr/share/jellyfix/cli/interactive.py:270
+msgid "Execute these operations?"
+msgstr "Suorita nämä toiminnot?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 173
+# File: usr/share/jellyfix/cli/interactive.py, line: 450
+# File: usr/share/jellyfix/cli/interactive.py, line: 478
+#: usr/share/jellyfix/cli/interactive.py:276
+#: usr/share/jellyfix/cli/interactive.py:577
+#: usr/share/jellyfix/cli/interactive.py:605
+msgid "Operation cancelled"
+msgstr "Toiminto peruutettu"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 177
+#: usr/share/jellyfix/cli/interactive.py:280
+msgid "Executing operations..."
+msgstr "Suoritetaan toimintoja..."
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 99
 # File: usr/share/jellyfix/cli/interactive.py, line: 421
 #: usr/share/jellyfix/cli/interactive.py:104
@@ -130,60 +277,10 @@ msgstr "Ladattu {} tekstitystä {} videolle"
 msgid "No subtitles found"
 msgstr "Ei tekstityksiä löytynyt"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 121
-# File: usr/share/jellyfix/cli/interactive.py, line: 141
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 59
-#: usr/share/jellyfix/cli/interactive.py:224
-#: usr/share/jellyfix/cli/interactive.py:244
-#: usr/share/jellyfix/cli/non_interactive.py:58
-#, python-format
-msgid "Scanning: %s"
-msgstr "Skannaus: %s"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 148
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 65
-#: usr/share/jellyfix/cli/interactive.py:251
-#: usr/share/jellyfix/cli/non_interactive.py:64
-#, python-format
-msgid "Found: %d videos, %d subtitles"
-msgstr "Löydetty: %d videota, %d tekstitystä"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 153
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 70
-#: usr/share/jellyfix/cli/interactive.py:256
-#: usr/share/jellyfix/cli/non_interactive.py:69
-msgid "Planning operations..."
-msgstr "Suunnitteluoperaatiot..."
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 158
 #: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "Ei toimintoja tarvita"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 167
-#: usr/share/jellyfix/cli/interactive.py:270
-msgid "Execute these operations?"
-msgstr "Suorita nämä toiminnot?"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 173
-# File: usr/share/jellyfix/cli/interactive.py, line: 450
-# File: usr/share/jellyfix/cli/interactive.py, line: 478
-#: usr/share/jellyfix/cli/interactive.py:276
-#: usr/share/jellyfix/cli/interactive.py:577
-#: usr/share/jellyfix/cli/interactive.py:605
-msgid "Operation cancelled"
-msgstr "Toiminto peruutettu"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 177
-#: usr/share/jellyfix/cli/interactive.py:280
-msgid "Executing operations..."
-msgstr "Suoritetaan toimintoja..."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 202
 #: usr/share/jellyfix/cli/interactive.py:305
@@ -1033,85 +1130,6 @@ msgstr "Vinkki:"
 msgid "Configure your TMDB key"
 msgstr "Määritä TMDB-avainesi"
 # 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
-#: usr/share/jellyfix/cli/non_interactive.py:44
-msgid "Error: No working directory specified"
-msgstr "Virhe: Ei määritettyä työskentelyhakemistoa"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
-#: usr/share/jellyfix/cli/non_interactive.py:45
-msgid "Use: --workdir /path/to/directory"
-msgstr "Käytä: --workdir /polku/kansioon"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 51
-#: usr/share/jellyfix/cli/non_interactive.py:50
-#, python-format
-msgid "Error: Directory does not exist: %s"
-msgstr "Virhe: Hakemistoa ei ole olemassa: %s"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
-#: usr/share/jellyfix/cli/non_interactive.py:74
-#, python-format
-msgid "%d operations planned"
-msgstr "%d toimintoa suunniteltu"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
-#: usr/share/jellyfix/cli/non_interactive.py:77
-msgid "Nothing to do"
-msgstr "Ei mitään tehtävää"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 85
-#: usr/share/jellyfix/cli/non_interactive.py:84
-msgid "DRY-RUN mode: No changes will be made"
-msgstr "DRY-RUN-tila: Muutoksia ei tehdä"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 92
-#: usr/share/jellyfix/cli/non_interactive.py:91
-#, python-format
-msgid "Dry-run completed: %d operations planned"
-msgstr "Kuivajuoksu suoritettu: %d toimintoa suunniteltu"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
-#: usr/share/jellyfix/cli/non_interactive.py:94
-msgid "Execution completed:"
-msgstr "Suoritus valmis:"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
-#: usr/share/jellyfix/cli/non_interactive.py:96
-#, python-format
-msgid "  Renamed: %d"
-msgstr "Nimetty: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
-#: usr/share/jellyfix/cli/non_interactive.py:98
-#, python-format
-msgid "  Moved: %d"
-msgstr "Siirretty: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
-#: usr/share/jellyfix/cli/non_interactive.py:100
-#, python-format
-msgid "  Deleted: %d"
-msgstr "Poistettu: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
-#: usr/share/jellyfix/cli/non_interactive.py:102
-#, python-format
-msgid "  Cleaned folders: %d"
-msgstr "Siivottuja kansioita: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
-#: usr/share/jellyfix/cli/non_interactive.py:104
-#, python-format
-msgid "  Failed: %d"
-msgstr "Epäonnistui: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
-#: usr/share/jellyfix/cli/non_interactive.py:106
-#, python-format
-msgid "  Skipped: %d"
-msgstr "Ohitettu: %d"
-# 
 # File: usr/share/jellyfix/cli/display.py, line: 64
 #: usr/share/jellyfix/cli/display.py:64
 msgid "Scan Results"
@@ -1206,11 +1224,6 @@ msgstr "ulkomaalaiset tekstitykset voidaan poistaa"
 #: usr/share/jellyfix/cli/display.py:113
 msgid "Suggestions"
 msgstr "Ehdotukset"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "Ei toimenpiteitä tarvita. Kaikki on jo järjestetty!"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 137
 #: usr/share/jellyfix/cli/display.py:139
@@ -1327,375 +1340,43 @@ msgstr "Ohitettu"
 msgid "Operation cancelled by user"
 msgstr "Toiminto peruutettu käyttäjän toimesta"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: usr/share/jellyfix/core/image_manager.py:101
-#, python-format
-msgid "Downloaded image: %s"
-msgstr "Ladattu kuva: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: usr/share/jellyfix/core/image_manager.py:106
-#, python-format
-msgid "Failed to download image: %s"
-msgstr "Kuvan lataaminen epäonnistui: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: usr/share/jellyfix/core/image_manager.py:110
-#, python-format
-msgid "Unexpected error downloading image: %s"
-msgstr "Odottamaton virhe kuvan lataamisessa: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: usr/share/jellyfix/core/image_manager.py:216
-msgid "Clearing image cache..."
-msgstr "Tyhjennetään kuvavälimuisti..."
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: usr/share/jellyfix/core/image_manager.py:218
-msgid "Image cache cleared"
-msgstr "Kuvavälimuisti tyhjennetty"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
-#: usr/share/jellyfix/core/subtitle_manager.py:169
-#, python-format
-msgid "Searching subtitles for: %s (Languages: %s)"
-msgstr "Etsitään tekstityksiä: %s (Kielet: %s)"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
-#: usr/share/jellyfix/core/subtitle_manager.py:182
-#, python-format
-msgid "Level 1 (hash) found: %s"
-msgstr "Taso 1 (hash) löytyi: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
-#: usr/share/jellyfix/core/subtitle_manager.py:186
-#, python-format
-msgid "Missing languages: %s - trying TMDB title search"
-msgstr "Puuttuvat kielet: %s - yritetään TMDB-otsikkohakua"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
-#: usr/share/jellyfix/core/subtitle_manager.py:207
-#, python-format
-msgid "Level 2 (TMDB) found: %s"
-msgstr "Taso 2 (TMDB) löytyi: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
-#: usr/share/jellyfix/core/subtitle_manager.py:210
-#, python-format
-msgid "Still missing: %s (try manual search)"
-msgstr "Vielä puuttuu: %s (yritä manuaalista hakua)"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
-#: usr/share/jellyfix/core/subtitle_manager.py:213
-#, python-format
-msgid "No subtitles found for: %s"
-msgstr "Ei tekstityksiä löytynyt: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
-#: NEEDS WORK
-#, python-format
-msgid "Batch Level 1: scanning %d videos by hash..."
-msgstr "Erä Taso 1: skannataan %d videota hashin mukaan..."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
-#: NEEDS WORK
-#, python-format
-msgid "Level 1 (hash) found: %s for %s"
-msgstr "Taso 1 (hash) löytyi: %s varten %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
-#: NEEDS WORK
-#, python-format
-msgid "Batch Level 2: title search for %d videos..."
-msgstr "Erä Taso 2: otsikkohaku %d videolle..."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
-#: NEEDS WORK
-#, python-format
-msgid "Level 2 (TMDB) found: %s for %s"
-msgstr "Taso 2 (TMDB) löytyi: %s varten %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
-#: usr/share/jellyfix/core/subtitle_manager.py:237
-#, python-format
-msgid "Found %d subtitles by hash for: %s"
-msgstr "Löydettiin %d tekstitystä hashin perusteella: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
-#: usr/share/jellyfix/core/subtitle_manager.py:343
-#, python-format
-msgid "Found %d validated subtitles by title for: %s"
-msgstr "Löydettiin %d validoitua tekstitystä otsikon mukaan: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
-#: usr/share/jellyfix/core/subtitle_manager.py:600
-#, python-format
-msgid "Manual search: %s"
-msgstr "Manuaalinen haku: %s"
-# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
-#: usr/share/jellyfix/core/subtitle_manager.py:622
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
-msgid "Unknown release"
-msgstr "Tuntematon julkaisu"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "Toiminnot"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
-#: usr/share/jellyfix/core/subtitle_manager.py:657
-#, python-format
-msgid "Found %d subtitles in manual search"
-msgstr "Löydettiin %d tekstitystä manuaalisessa haussa"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
+msgstr "Hae..."
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
-#: usr/share/jellyfix/core/subtitle_manager.py:707
-#, python-format
-msgid "Downloaded subtitle: %s"
-msgstr "Ladattu tekstitys: %s"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "Kaikki"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
-#: usr/share/jellyfix/gui/windows/help_window.py:34
-msgid "Jellyfix Help"
-msgstr "Jellyfix Ohje"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "Lataa tekstitykset kaikille"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
-#: usr/share/jellyfix/gui/windows/help_window.py:69
-msgid "Version"
-msgstr "Versio"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Etsi ja lataa tekstitykset kaikille luetelluille videoille"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/help_window.py:75
-msgid "Intelligent Jellyfin Library Organizer"
-msgstr "Älykäs Jellyfin-kirjasto-organisaattori"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "Ei toimintoja"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/help_window.py:84
-msgid "What Jellyfix Does"
-msgstr "Mitä Jellyfix tekee"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/help_window.py:85
-#, fuzzy
-msgid ""
-"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
-"\n"
-"• <b>Renames files</b> to Jellyfin standard format\n"
-"• <b>Organizes episodes</b> into Season folders\n"
-"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
-"• <b>Fetches metadata</b> from TMDB/TVDB\n"
-"• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
-"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
-msgstr ""
-"Jellyfix järjestää mediasi kirjaston automaattisesti Jellyfinin nimeämiskäytäntöjen mukaisesti:\n"
-"\n"
-"• <b>Uudelleennimeää tiedostot</b> Jellyfinin standardimuotoon\n"
-"• <b>Järjestää jaksot</b> kausikansioihin\n"
-"• <b>Hallitsee tekstityksiä</b>: uudelleennimeää, poistaa vieraita kieliä, lisää kielikoodeja\n"
-"• <b>Hakee metatietoja</b> TMDB:stä/TVDB:stä\n"
-"• <b>Tunnistaa ja lisää laatutunnisteita</b> (1080p, 720p, jne)\n"
-"• <b>Lisää palveluntarjoajan ID:t</b> kansioiden nimiin ([tmdbid-12345])"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: usr/share/jellyfix/gui/windows/help_window.py:96
-msgid "Examples"
-msgstr "Esimerkit"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: usr/share/jellyfix/gui/windows/help_window.py:97
-#, fuzzy
-msgid ""
-"<b>Movies:</b>\n"
-"  Before: movie.name.2023.1080p.bluray.mkv\n"
-"  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
-"\n"
-"<b>TV Shows:</b>\n"
-"  Before: show.name.s01e05.720p.mkv\n"
-"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
-"\n"
-"<b>Subtitles:</b>\n"
-"  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
-"  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
-"  • Removes foreign languages (keeps configured languages only)\n"
-"  • <b>NEVER</b> removes .forced.srt files"
-msgstr ""
-"<b>Elokuvat:</b>\n"
-"  Ennen: elokuva.nimi.2023.1080p.bluray.mkv\n"
-"  Jälkeen:  Elokuvan Nimi (2023) [tmdbid-12345]/Elokuvan Nimi (2023) - 1080p.mkv\n"
-"\n"
-"<b>TV-ohjelmat:</b>\n"
-"  Ennen: show.nimi.s01e05.720p.mkv\n"
-"  Jälkeen:  Show Nimi (2024) [tmdbid-67890]/Kausi 01/Show Nimi S01E05 - 720p.mkv\n"
-"\n"
-"<b>Tekstitykset:</b>\n"
-"  • Nimeää: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
-"  • Lisää kielikoodit: tekstitys.srt → Elokuvan Nimi.por.srt\n"
-"  • Poistaa vieraita kieliä (pitää vain määritellyt kielet)\n"
-"  • <b>EI KOSKAAN</b> poista .forced.srt tiedostoja"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/help_window.py:113
-msgid "How to Use"
-msgstr "Kuinka käyttää"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/help_window.py:114
-#, fuzzy
-msgid ""
-"<b>1. Configure TMDB API Key (recommended)</b>\n"
-"   Menu → Configure API Keys → Follow the tutorial\n"
-"   This enables metadata fetching and poster downloads.\n"
-"\n"
-"<b>2. Scan Library</b>\n"
-"   Click \"Scan Library\" on Dashboard\n"
-"   Select your media folder\n"
-"   Review the scan results\n"
-"\n"
-"<b>3. Review Operations</b>\n"
-"   Switch to \"Operations\" tab\n"
-"   Preview what will be changed\n"
-"   Select operations to see details\n"
-"\n"
-"<b>4. Execute</b>\n"
-"   Click \"Process Files\"\n"
-"   Confirm the operation\n"
-"   Files will be renamed and organized\n"
-"\n"
-"<b>Tip:</b> Always review the preview before executing!"
-msgstr ""
-"<b>1. Määritä TMDB API-avain (suositeltavaa)</b>\n"
-"   Valikko → Määritä API-avaimet → Seuraa opasta\n"
-"   Tämä mahdollistaa metatietojen hakemisen ja julisteiden lataamisen.\n"
-"\n"
-"<b>2. Skannaa kirjasto</b>\n"
-"   Napsauta \"Skannaa kirjasto\" ohjauspaneelissa\n"
-"   Valitse mediasi kansio\n"
-"   Tarkista skannauksen tulokset\n"
-"\n"
-"<b>3. Tarkista toiminnot</b>\n"
-"   Vaihda \"Toiminnot\" välilehteen\n"
-"   Esikatsele, mitä tullaan muuttamaan\n"
-"   Valitse toiminnot nähdäksesi yksityiskohdat\n"
-"\n"
-"<b>4. Suorita</b>\n"
-"   Napsauta \"Käsittele tiedostoja\"\n"
-"   Vahvista toiminto\n"
-"   Tiedostot nimetään uudelleen ja järjestetään\n"
-"\n"
-"<b>Vinkki:</b> Tarkista aina esikatselu ennen suorittamista!"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
-#: usr/share/jellyfix/gui/windows/help_window.py:138
-#, fuzzy
-msgid ""
-"Configure Jellyfix behavior:\n"
-"\n"
-"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
-"• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
-"• <b>Metadata:</b> Enable/disable TMDB fetching\n"
-"• <b>Quality Tags:</b> Add resolution tags to filenames\n"
-"• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
-msgstr ""
-"Määritä Jellyfixin käyttäytyminen:\n"
-"\n"
-"• <b>Tekstityksen käsittely:</b> Nimeä variantit uudelleen, lisää kielikoodit, poista vieraat\n"
-"• <b>Säilytettävät kielet:</b> Valitse, mitkä tekstityskielet säilytetään\n"
-"• <b>Metatiedot:</b> Ota käyttöön/poista käytöstä TMDB:n hakeminen\n"
-"• <b>Laatutunnisteet:</b> Lisää resoluutiotunnisteet tiedostonimiin\n"
-"• <b>ffprobe:</b> Käytä ffprobea tarkan laadun havaitsemiseen"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: usr/share/jellyfix/gui/windows/help_window.py:148
-msgid "Important Notes"
-msgstr "Tärkeät Huomiot"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: usr/share/jellyfix/gui/windows/help_window.py:149
-#, fuzzy
-msgid ""
-"⚠️ <b>Dry-run is DEFAULT</b>\n"
-"Files are NOT modified unless you explicitly execute operations.\n"
-"\n"
-"✓ <b>Always review before executing</b>\n"
-"Check the operation preview carefully.\n"
-"\n"
-"🔑 <b>Configure TMDB API</b>\n"
-"For best results, configure your TMDB API key in Settings.\n"
-"\n"
-"🌍 <b>Customize kept languages</b>\n"
-"Configure which subtitle languages to keep in Preferences."
-msgstr ""
-"⚠️ <b>Kuivajuoksu on OLETUS</b>\n"
-"Tiedostoja EI muuteta, ellei toimenpiteitä suoriteta nimenomaisesti.\n"
-"\n"
-"✓ <b>Tarkista aina ennen suorittamista</b>\n"
-"Tarkista toimenpiteen esikatselu huolellisesti.\n"
-"\n"
-"🔑 <b>Määritä TMDB API</b>\n"
-"Parhaiden tulosten saavuttamiseksi määritä TMDB API -avain Asetuksissa.\n"
-"\n"
-"🌍 <b>Muokkaa säilytettäviä kieliä</b>\n"
-"Määritä, mitkä tekstityskielet säilytetään Asetuksissa."
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
-#: usr/share/jellyfix/gui/windows/help_window.py:167
-msgid "Links"
-msgstr "Linkit"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
-#: usr/share/jellyfix/gui/windows/help_window.py:172
-msgid "Homepage"
-msgstr "Etusivu"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
-#: usr/share/jellyfix/gui/windows/help_window.py:178
-msgid "Report Issues"
-msgstr "Ilmoita ongelmista"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/help_window.py:184
-msgid "Get TMDB API Key"
-msgstr "Hanki TMDB API -avain"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
-msgstr "Hakuotsikko"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "Syötä elokuvan tai sarjan nimi..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "Haku"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "Elokuva"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "TV-sarja"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "Peruuta"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "Skannaa hakemisto luodaksesi toimintoja"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1707,96 +1388,205 @@ msgstr "Peruuta"
 msgid "Apply"
 msgstr "Käytä"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "Etsitään..."
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "nimetä"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB ei ole konfiguroitu"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "siirrä"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "Ei tuloksia löytynyt"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "poista"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "tulokset"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
-msgid "Search Subtitles"
-msgstr "Etsi tekstityksiä"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
-msgid "Download"
-msgstr "Lataa"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
-msgid "Enter movie or show title..."
-msgstr "Syötä elokuvan tai sarjan nimi..."
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
-msgid "Season"
-msgstr "Kauden"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
-msgid "Episode"
-msgstr "Jakso"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
-msgid "Search for Subtitles"
-msgstr "Etsi tekstityksiä"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
-msgid "Enter a title and click search"
-msgstr "Syötä otsikko ja napsauta hakua"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
-msgid "No Results"
-msgstr "Ei tuloksia"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
-msgid "Try a different search term"
-msgstr "Kokeile toista hakusanaa"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Found {} subtitles"
-msgstr "Löydetty {} tekstitystä"
+msgid "Showing {} of {} operations"
+msgstr "Näytetään {} / {} toimintoa"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Error: {}"
-msgstr "Virhe: {}"
+msgid "Total: {} operations"
+msgstr "Yhteensä: {} toimintoa"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
-#, python-brace-format
-msgid "Downloaded: {}"
-msgstr "Ladattu: {}"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "Tervetuloa Jellyfixiin"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
-msgid "Download failed"
-msgstr "Lataus epäonnistui"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "Vedä kansio tähän"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "tai napsauta alla olevaa painiketta"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "Lisää kirjasto"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "Viimeisimmät kirjastot"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "Tyhjennä äskettäin käytetyt kirjastot"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "viikkoa sitten"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "päiviä sitten"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "tunteja sitten"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "Juuri nyt"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "Ei valintaa"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "Valitse esikatsottava kohde"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
+msgstr "Hakuotsikko"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "Väärä otsikko? Napsauta etsiäksesi manuaalisesti"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "Lataa tekstitykset"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "Etsi ja lataa tekstitykset automaattisesti"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "Alkaen:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "Vastaanottajalle:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "SIIRTYÄ"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "POISTA"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "SIIRRÄ + NIMEÄ UUDEN KERTOIMEN"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "NIMEÄ UUDEN KSI"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "Valitse skannattava hakemisto"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "Skannaus epäonnistui"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "OK"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "Toiminnon luonti epäonnistui"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "Suoritus epäonnistui"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
+# File: usr/share/jellyfix/gui/app.py, line: 122
+#: usr/share/jellyfix/gui/app.py:142
+#: usr/share/jellyfix/gui/windows/main_window.py:51
+#: usr/share/jellyfix/gui/windows/main_window.py:98
+msgid "Jellyfix"
+msgstr "Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "kääntäjä-tekstit"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
@@ -1923,6 +1713,20 @@ msgstr "Syötä TMDB API -avain alla"
 msgid "Paste API key here"
 msgstr "Liitä API-avain tähän"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
+msgid "Cancel"
+msgstr "Peruuta"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
 msgid "Save"
@@ -1959,32 +1763,6 @@ msgstr "Ei API-avainta"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
 msgid "No TMDB API key configured yet"
 msgstr "TMDB API -avainta ei ole vielä määritetty"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "OK"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
@@ -2075,16 +1853,6 @@ msgstr ""
 "• Ladata julisteita ja taustakuvia\n"
 "• Saada tarkkoja otsikoita ja julkaisupäiviä\n"
 "• Järjestää kirjastosi TMDB-ID:iden avulla"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
-# File: usr/share/jellyfix/gui/app.py, line: 122
-#: usr/share/jellyfix/gui/app.py:142
-#: usr/share/jellyfix/gui/windows/main_window.py:51
-#: usr/share/jellyfix/gui/windows/main_window.py:98
-msgid "Jellyfix"
-msgstr "Jellyfix"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -2480,207 +2248,452 @@ msgstr "Korjaa Mirabel-tiedostot"
 msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 msgstr "Nimeä .pt-BR.hi.srt, .br.hi.srt uudelleen muotoon .por.srt"
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Valitse skannattava hakemisto"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Skannaus epäonnistui"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Toiminnon luonti epäonnistui"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Suoritus epäonnistui"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "Ei valintaa"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "Valitse esikatsottava kohde"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
 msgstr "Hakuotsikko"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "Väärä otsikko? Napsauta etsiäksesi manuaalisesti"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "Syötä elokuvan tai sarjan nimi..."
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "Lataa tekstitykset"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "Haku"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "Etsi ja lataa tekstitykset automaattisesti"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "Elokuva"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "Alkaen:"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "TV-sarja"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "Vastaanottajalle:"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "Etsitään..."
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "SIIRTYÄ"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB ei ole konfiguroitu"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "POISTA"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "Ei tuloksia löytynyt"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "SIIRRÄ + NIMEÄ UUDEN KERTOIMEN"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "tulokset"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "NIMEÄ UUDEN KSI"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
+#: usr/share/jellyfix/gui/windows/help_window.py:34
+msgid "Jellyfix Help"
+msgstr "Jellyfix Ohje"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "Tervetuloa Jellyfixiin"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
+#: usr/share/jellyfix/gui/windows/help_window.py:69
+msgid "Version"
+msgstr "Versio"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "Vedä kansio tähän"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
+#: usr/share/jellyfix/gui/windows/help_window.py:75
+msgid "Intelligent Jellyfin Library Organizer"
+msgstr "Älykäs Jellyfin-kirjasto-organisaattori"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "tai napsauta alla olevaa painiketta"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/help_window.py:84
+msgid "What Jellyfix Does"
+msgstr "Mitä Jellyfix tekee"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "Lisää kirjasto"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/help_window.py:85
+#, fuzzy
+msgid ""
+"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
+"\n"
+"• <b>Renames files</b> to Jellyfin standard format\n"
+"• <b>Organizes episodes</b> into Season folders\n"
+"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
+"• <b>Fetches metadata</b> from TMDB/TVDB\n"
+"• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
+"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
+msgstr ""
+"Jellyfix järjestää mediasi kirjaston automaattisesti Jellyfinin nimeämiskäytäntöjen mukaisesti:\n"
+"\n"
+"• <b>Uudelleennimeää tiedostot</b> Jellyfinin standardimuotoon\n"
+"• <b>Järjestää jaksot</b> kausikansioihin\n"
+"• <b>Hallitsee tekstityksiä</b>: uudelleennimeää, poistaa vieraita kieliä, lisää kielikoodeja\n"
+"• <b>Hakee metatietoja</b> TMDB:stä/TVDB:stä\n"
+"• <b>Tunnistaa ja lisää laatutunnisteita</b> (1080p, 720p, jne)\n"
+"• <b>Lisää palveluntarjoajan ID:t</b> kansioiden nimiin ([tmdbid-12345])"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "Viimeisimmät kirjastot"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
+#: usr/share/jellyfix/gui/windows/help_window.py:96
+msgid "Examples"
+msgstr "Esimerkit"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "Tyhjennä äskettäin käytetyt kirjastot"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
+#: usr/share/jellyfix/gui/windows/help_window.py:97
+#, fuzzy
+msgid ""
+"<b>Movies:</b>\n"
+"  Before: movie.name.2023.1080p.bluray.mkv\n"
+"  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
+"\n"
+"<b>TV Shows:</b>\n"
+"  Before: show.name.s01e05.720p.mkv\n"
+"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
+"\n"
+"<b>Subtitles:</b>\n"
+"  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
+"  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
+"  • Removes foreign languages (keeps configured languages only)\n"
+"  • <b>NEVER</b> removes .forced.srt files"
+msgstr ""
+"<b>Elokuvat:</b>\n"
+"  Ennen: elokuva.nimi.2023.1080p.bluray.mkv\n"
+"  Jälkeen:  Elokuvan Nimi (2023) [tmdbid-12345]/Elokuvan Nimi (2023) - 1080p.mkv\n"
+"\n"
+"<b>TV-ohjelmat:</b>\n"
+"  Ennen: show.nimi.s01e05.720p.mkv\n"
+"  Jälkeen:  Show Nimi (2024) [tmdbid-67890]/Kausi 01/Show Nimi S01E05 - 720p.mkv\n"
+"\n"
+"<b>Tekstitykset:</b>\n"
+"  • Nimeää: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
+"  • Lisää kielikoodit: tekstitys.srt → Elokuvan Nimi.por.srt\n"
+"  • Poistaa vieraita kieliä (pitää vain määritellyt kielet)\n"
+"  • <b>EI KOSKAAN</b> poista .forced.srt tiedostoja"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "viikkoa sitten"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/help_window.py:113
+msgid "How to Use"
+msgstr "Kuinka käyttää"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "päiviä sitten"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/help_window.py:114
+#, fuzzy
+msgid ""
+"<b>1. Configure TMDB API Key (recommended)</b>\n"
+"   Menu → Configure API Keys → Follow the tutorial\n"
+"   This enables metadata fetching and poster downloads.\n"
+"\n"
+"<b>2. Scan Library</b>\n"
+"   Click \"Scan Library\" on Dashboard\n"
+"   Select your media folder\n"
+"   Review the scan results\n"
+"\n"
+"<b>3. Review Operations</b>\n"
+"   Switch to \"Operations\" tab\n"
+"   Preview what will be changed\n"
+"   Select operations to see details\n"
+"\n"
+"<b>4. Execute</b>\n"
+"   Click \"Process Files\"\n"
+"   Confirm the operation\n"
+"   Files will be renamed and organized\n"
+"\n"
+"<b>Tip:</b> Always review the preview before executing!"
+msgstr ""
+"<b>1. Määritä TMDB API-avain (suositeltavaa)</b>\n"
+"   Valikko → Määritä API-avaimet → Seuraa opasta\n"
+"   Tämä mahdollistaa metatietojen hakemisen ja julisteiden lataamisen.\n"
+"\n"
+"<b>2. Skannaa kirjasto</b>\n"
+"   Napsauta \"Skannaa kirjasto\" ohjauspaneelissa\n"
+"   Valitse mediasi kansio\n"
+"   Tarkista skannauksen tulokset\n"
+"\n"
+"<b>3. Tarkista toiminnot</b>\n"
+"   Vaihda \"Toiminnot\" välilehteen\n"
+"   Esikatsele, mitä tullaan muuttamaan\n"
+"   Valitse toiminnot nähdäksesi yksityiskohdat\n"
+"\n"
+"<b>4. Suorita</b>\n"
+"   Napsauta \"Käsittele tiedostoja\"\n"
+"   Vahvista toiminto\n"
+"   Tiedostot nimetään uudelleen ja järjestetään\n"
+"\n"
+"<b>Vinkki:</b> Tarkista aina esikatselu ennen suorittamista!"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "tunteja sitten"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
+#: usr/share/jellyfix/gui/windows/help_window.py:138
+#, fuzzy
+msgid ""
+"Configure Jellyfix behavior:\n"
+"\n"
+"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
+"• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
+"• <b>Metadata:</b> Enable/disable TMDB fetching\n"
+"• <b>Quality Tags:</b> Add resolution tags to filenames\n"
+"• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
+msgstr ""
+"Määritä Jellyfixin käyttäytyminen:\n"
+"\n"
+"• <b>Tekstityksen käsittely:</b> Nimeä variantit uudelleen, lisää kielikoodit, poista vieraat\n"
+"• <b>Säilytettävät kielet:</b> Valitse, mitkä tekstityskielet säilytetään\n"
+"• <b>Metatiedot:</b> Ota käyttöön/poista käytöstä TMDB:n hakeminen\n"
+"• <b>Laatutunnisteet:</b> Lisää resoluutiotunnisteet tiedostonimiin\n"
+"• <b>ffprobe:</b> Käytä ffprobea tarkan laadun havaitsemiseen"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "Juuri nyt"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
+#: usr/share/jellyfix/gui/windows/help_window.py:148
+msgid "Important Notes"
+msgstr "Tärkeät Huomiot"
+# 
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
+#: usr/share/jellyfix/gui/windows/help_window.py:149
+#, fuzzy
+msgid ""
+"⚠️ <b>Dry-run is DEFAULT</b>\n"
+"Files are NOT modified unless you explicitly execute operations.\n"
+"\n"
+"✓ <b>Always review before executing</b>\n"
+"Check the operation preview carefully.\n"
+"\n"
+"🔑 <b>Configure TMDB API</b>\n"
+"For best results, configure your TMDB API key in Settings.\n"
+"\n"
+"🌍 <b>Customize kept languages</b>\n"
+"Configure which subtitle languages to keep in Preferences."
+msgstr ""
+"⚠️ <b>Kuivajuoksu on OLETUS</b>\n"
+"Tiedostoja EI muuteta, ellei toimenpiteitä suoriteta nimenomaisesti.\n"
+"\n"
+"✓ <b>Tarkista aina ennen suorittamista</b>\n"
+"Tarkista toimenpiteen esikatselu huolellisesti.\n"
+"\n"
+"🔑 <b>Määritä TMDB API</b>\n"
+"Parhaiden tulosten saavuttamiseksi määritä TMDB API -avain Asetuksissa.\n"
+"\n"
+"🌍 <b>Muokkaa säilytettäviä kieliä</b>\n"
+"Määritä, mitkä tekstityskielet säilytetään Asetuksissa."
+# 
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
+#: usr/share/jellyfix/gui/windows/help_window.py:167
+msgid "Links"
+msgstr "Linkit"
+# 
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
+#: usr/share/jellyfix/gui/windows/help_window.py:172
+msgid "Homepage"
+msgstr "Etusivu"
+# 
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
+#: usr/share/jellyfix/gui/windows/help_window.py:178
+msgid "Report Issues"
+msgstr "Ilmoita ongelmista"
+# 
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
+#: usr/share/jellyfix/gui/windows/help_window.py:184
+msgid "Get TMDB API Key"
+msgstr "Hanki TMDB API -avain"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "Toiminnot"
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: usr/share/jellyfix/core/subtitle_manager.py:622
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
+msgid "Unknown release"
+msgstr "Tuntematon julkaisu"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "Hae..."
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "Etsi tekstityksiä"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "Kaikki"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "Lataa"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "Lataa tekstitykset kaikille"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "Syötä elokuvan tai sarjan nimi..."
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "Etsi ja lataa tekstitykset kaikille luetelluille videoille"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "Kauden"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "Ei toimintoja"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "Jakso"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "Skannaa hakemisto luodaksesi toimintoja"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "Etsi tekstityksiä"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "nimetä"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "Syötä otsikko ja napsauta hakua"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "siirrä"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "Ei tuloksia"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "poista"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "Kokeile toista hakusanaa"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
 #, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "Näytetään {} / {} toimintoa"
+msgid "Found {} subtitles"
+msgstr "Löydetty {} tekstitystä"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
 #, python-brace-format
-msgid "Total: {} operations"
-msgstr "Yhteensä: {} toimintoa"
+msgid "Error: {}"
+msgstr "Virhe: {}"
 # 
-# File: usr/share/jellyfix/gui/app.py, line: 131
-#: usr/share/jellyfix/gui/app.py:151
-msgid "translator-credits"
-msgstr "kääntäjä-tekstit"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Ladattu: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "Lataus epäonnistui"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: usr/share/jellyfix/core/subtitle_manager.py:169
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Etsitään tekstityksiä: %s (Kielet: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: usr/share/jellyfix/core/subtitle_manager.py:182
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Taso 1 (hash) löytyi: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: usr/share/jellyfix/core/subtitle_manager.py:186
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Puuttuvat kielet: %s - yritetään TMDB-otsikkohakua"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: usr/share/jellyfix/core/subtitle_manager.py:207
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Taso 2 (TMDB) löytyi: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: usr/share/jellyfix/core/subtitle_manager.py:210
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Vielä puuttuu: %s (yritä manuaalista hakua)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: usr/share/jellyfix/core/subtitle_manager.py:213
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Ei tekstityksiä löytynyt: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "Erä Taso 1: skannataan %d videota hashin mukaan..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "Taso 1 (hash) löytyi: %s varten %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "Erä Taso 2: otsikkohaku %d videolle..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "Taso 2 (TMDB) löytyi: %s varten %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
+#: usr/share/jellyfix/core/subtitle_manager.py:237
+#, python-format
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Löydettiin %d tekstitystä hashin perusteella: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
+#: usr/share/jellyfix/core/subtitle_manager.py:343
+#, python-format
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Löydettiin %d validoitua tekstitystä otsikon mukaan: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: usr/share/jellyfix/core/subtitle_manager.py:600
+#, python-format
+msgid "Manual search: %s"
+msgstr "Manuaalinen haku: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: usr/share/jellyfix/core/subtitle_manager.py:657
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Löydettiin %d tekstitystä manuaalisessa haussa"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: usr/share/jellyfix/core/subtitle_manager.py:707
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Ladattu tekstitys: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 101
+#: usr/share/jellyfix/core/image_manager.py:101
+#, python-format
+msgid "Downloaded image: %s"
+msgstr "Ladattu kuva: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 106
+#: usr/share/jellyfix/core/image_manager.py:106
+#, python-format
+msgid "Failed to download image: %s"
+msgstr "Kuvan lataaminen epäonnistui: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 110
+#: usr/share/jellyfix/core/image_manager.py:110
+#, python-format
+msgid "Unexpected error downloading image: %s"
+msgstr "Odottamaton virhe kuvan lataamisessa: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 216
+#: usr/share/jellyfix/core/image_manager.py:216
+msgid "Clearing image cache..."
+msgstr "Tyhjennetään kuvavälimuisti..."
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 218
+#: usr/share/jellyfix/core/image_manager.py:218
+msgid "Image cache cleared"
+msgstr "Kuvavälimuisti tyhjennetty"
 # 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
 #: NEEDS WORK

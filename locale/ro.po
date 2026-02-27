@@ -16,6 +16,153 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
+#: usr/share/jellyfix/cli/non_interactive.py:44
+msgid "Error: No working directory specified"
+msgstr "Eroare: Niciun director de lucru specificat"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
+#: usr/share/jellyfix/cli/non_interactive.py:45
+msgid "Use: --workdir /path/to/directory"
+msgstr "Utilizați: --workdir /cale/catre/director"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 51
+#: usr/share/jellyfix/cli/non_interactive.py:50
+#, python-format
+msgid "Error: Directory does not exist: %s"
+msgstr "Eroare: Directorul nu există: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 121
+# File: usr/share/jellyfix/cli/interactive.py, line: 141
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 59
+#: usr/share/jellyfix/cli/interactive.py:224
+#: usr/share/jellyfix/cli/interactive.py:244
+#: usr/share/jellyfix/cli/non_interactive.py:58
+#, python-format
+msgid "Scanning: %s"
+msgstr "Scanare: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 148
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 65
+#: usr/share/jellyfix/cli/interactive.py:251
+#: usr/share/jellyfix/cli/non_interactive.py:64
+#, python-format
+msgid "Found: %d videos, %d subtitles"
+msgstr "Găsite: %d videoclipuri, %d subtitrări"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 153
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 70
+#: usr/share/jellyfix/cli/interactive.py:256
+#: usr/share/jellyfix/cli/non_interactive.py:69
+msgid "Planning operations..."
+msgstr "Planificarea operațiunilor..."
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
+#: usr/share/jellyfix/cli/non_interactive.py:74
+#, python-format
+msgid "%d operations planned"
+msgstr "%d operațiuni planificate"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
+#: usr/share/jellyfix/cli/non_interactive.py:77
+msgid "Nothing to do"
+msgstr "Nimic de făcut"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 85
+#: usr/share/jellyfix/cli/non_interactive.py:84
+msgid "DRY-RUN mode: No changes will be made"
+msgstr "Modul DRY-RUN: Nu vor fi efectuate modificări"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 87
+# File: usr/share/jellyfix/cli/interactive.py, line: 130
+#: NEEDS WORK
+msgid "Use --execute to apply changes"
+msgstr "Utilizați --execute pentru a aplica modificările"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 91
+#: NEEDS WORK
+#, python-format
+msgid "Executing %d operations..."
+msgstr "Executarea a %d operațiuni..."
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
+#: usr/share/jellyfix/cli/non_interactive.py:94
+msgid "Execution completed:"
+msgstr "Execuție finalizată:"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
+#: usr/share/jellyfix/cli/non_interactive.py:96
+#, python-format
+msgid "  Renamed: %d"
+msgstr "Renamed: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
+#: usr/share/jellyfix/cli/non_interactive.py:98
+#, python-format
+msgid "  Moved: %d"
+msgstr "Mutat: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
+#: usr/share/jellyfix/cli/non_interactive.py:100
+#, python-format
+msgid "  Deleted: %d"
+msgstr "Șters: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
+#: usr/share/jellyfix/cli/non_interactive.py:102
+#, python-format
+msgid "  Cleaned folders: %d"
+msgstr "Foldere curățate: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
+#: usr/share/jellyfix/cli/non_interactive.py:104
+#, python-format
+msgid "  Failed: %d"
+msgstr "Eșuat: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
+#: usr/share/jellyfix/cli/non_interactive.py:106
+#, python-format
+msgid "  Skipped: %d"
+msgstr "Sărac: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 120
+#: NEEDS WORK
+msgid "Operations:"
+msgstr "Operațiuni:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "Nicio operațiune necesară. Totul este deja organizat!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 167
+#: usr/share/jellyfix/cli/interactive.py:270
+msgid "Execute these operations?"
+msgstr "Executați aceste operațiuni?"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 173
+# File: usr/share/jellyfix/cli/interactive.py, line: 450
+# File: usr/share/jellyfix/cli/interactive.py, line: 478
+#: usr/share/jellyfix/cli/interactive.py:276
+#: usr/share/jellyfix/cli/interactive.py:577
+#: usr/share/jellyfix/cli/interactive.py:605
+msgid "Operation cancelled"
+msgstr "Operațiune anulată"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 177
+#: usr/share/jellyfix/cli/interactive.py:280
+msgid "Executing operations..."
+msgstr "Executarea operațiunilor..."
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 99
 # File: usr/share/jellyfix/cli/interactive.py, line: 421
 #: usr/share/jellyfix/cli/interactive.py:104
@@ -130,60 +277,10 @@ msgstr "Descărcate {} subtitrări pentru {} videoclipuri"
 msgid "No subtitles found"
 msgstr "Nu au fost găsite subtitrări"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 121
-# File: usr/share/jellyfix/cli/interactive.py, line: 141
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 59
-#: usr/share/jellyfix/cli/interactive.py:224
-#: usr/share/jellyfix/cli/interactive.py:244
-#: usr/share/jellyfix/cli/non_interactive.py:58
-#, python-format
-msgid "Scanning: %s"
-msgstr "Scanare: %s"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 148
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 65
-#: usr/share/jellyfix/cli/interactive.py:251
-#: usr/share/jellyfix/cli/non_interactive.py:64
-#, python-format
-msgid "Found: %d videos, %d subtitles"
-msgstr "Găsite: %d videoclipuri, %d subtitrări"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 153
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 70
-#: usr/share/jellyfix/cli/interactive.py:256
-#: usr/share/jellyfix/cli/non_interactive.py:69
-msgid "Planning operations..."
-msgstr "Planificarea operațiunilor..."
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 158
 #: usr/share/jellyfix/cli/interactive.py:261
 msgid "No operations needed"
 msgstr "Nicio operațiune necesară"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 167
-#: usr/share/jellyfix/cli/interactive.py:270
-msgid "Execute these operations?"
-msgstr "Executați aceste operațiuni?"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 173
-# File: usr/share/jellyfix/cli/interactive.py, line: 450
-# File: usr/share/jellyfix/cli/interactive.py, line: 478
-#: usr/share/jellyfix/cli/interactive.py:276
-#: usr/share/jellyfix/cli/interactive.py:577
-#: usr/share/jellyfix/cli/interactive.py:605
-msgid "Operation cancelled"
-msgstr "Operațiune anulată"
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 177
-#: usr/share/jellyfix/cli/interactive.py:280
-msgid "Executing operations..."
-msgstr "Executarea operațiunilor..."
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 202
 #: usr/share/jellyfix/cli/interactive.py:305
@@ -1036,85 +1133,6 @@ msgstr "Sugestie:"
 msgid "Configure your TMDB key"
 msgstr "Configurează-ți cheia TMDB"
 # 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
-#: usr/share/jellyfix/cli/non_interactive.py:44
-msgid "Error: No working directory specified"
-msgstr "Eroare: Niciun director de lucru specificat"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
-#: usr/share/jellyfix/cli/non_interactive.py:45
-msgid "Use: --workdir /path/to/directory"
-msgstr "Utilizați: --workdir /cale/catre/director"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 51
-#: usr/share/jellyfix/cli/non_interactive.py:50
-#, python-format
-msgid "Error: Directory does not exist: %s"
-msgstr "Eroare: Directorul nu există: %s"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
-#: usr/share/jellyfix/cli/non_interactive.py:74
-#, python-format
-msgid "%d operations planned"
-msgstr "%d operațiuni planificate"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
-#: usr/share/jellyfix/cli/non_interactive.py:77
-msgid "Nothing to do"
-msgstr "Nimic de făcut"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 85
-#: usr/share/jellyfix/cli/non_interactive.py:84
-msgid "DRY-RUN mode: No changes will be made"
-msgstr "Modul DRY-RUN: Nu vor fi efectuate modificări"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 92
-#: usr/share/jellyfix/cli/non_interactive.py:91
-#, python-format
-msgid "Dry-run completed: %d operations planned"
-msgstr "Execuție de test finalizată: %d operațiuni planificate"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
-#: usr/share/jellyfix/cli/non_interactive.py:94
-msgid "Execution completed:"
-msgstr "Execuție finalizată:"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
-#: usr/share/jellyfix/cli/non_interactive.py:96
-#, python-format
-msgid "  Renamed: %d"
-msgstr "Renamed: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
-#: usr/share/jellyfix/cli/non_interactive.py:98
-#, python-format
-msgid "  Moved: %d"
-msgstr "Mutat: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
-#: usr/share/jellyfix/cli/non_interactive.py:100
-#, python-format
-msgid "  Deleted: %d"
-msgstr "Șters: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
-#: usr/share/jellyfix/cli/non_interactive.py:102
-#, python-format
-msgid "  Cleaned folders: %d"
-msgstr "Foldere curățate: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
-#: usr/share/jellyfix/cli/non_interactive.py:104
-#, python-format
-msgid "  Failed: %d"
-msgstr "Eșuat: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
-#: usr/share/jellyfix/cli/non_interactive.py:106
-#, python-format
-msgid "  Skipped: %d"
-msgstr "Sărac: %d"
-# 
 # File: usr/share/jellyfix/cli/display.py, line: 64
 #: usr/share/jellyfix/cli/display.py:64
 msgid "Scan Results"
@@ -1209,11 +1227,6 @@ msgstr "subtitrările străine pot fi eliminate"
 #: usr/share/jellyfix/cli/display.py:113
 msgid "Suggestions"
 msgstr "Sugestii"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "Nicio operațiune necesară. Totul este deja organizat!"
 # 
 # File: usr/share/jellyfix/cli/display.py, line: 137
 #: usr/share/jellyfix/cli/display.py:139
@@ -1330,375 +1343,43 @@ msgstr "Sărit"
 msgid "Operation cancelled by user"
 msgstr "Operațiune anulată de utilizator"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: usr/share/jellyfix/core/image_manager.py:101
-#, python-format
-msgid "Downloaded image: %s"
-msgstr "Imagine descărcată: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: usr/share/jellyfix/core/image_manager.py:106
-#, python-format
-msgid "Failed to download image: %s"
-msgstr "Eșec la descărcarea imaginii: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: usr/share/jellyfix/core/image_manager.py:110
-#, python-format
-msgid "Unexpected error downloading image: %s"
-msgstr "Eroare neașteptată la descărcarea imaginii: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: usr/share/jellyfix/core/image_manager.py:216
-msgid "Clearing image cache..."
-msgstr "Ștergerea cache-ului de imagini..."
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: usr/share/jellyfix/core/image_manager.py:218
-msgid "Image cache cleared"
-msgstr "Cache-ul de imagini a fost șters"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
-#: usr/share/jellyfix/core/subtitle_manager.py:169
-#, python-format
-msgid "Searching subtitles for: %s (Languages: %s)"
-msgstr "Căutare subtitrări pentru: %s (Limbi: %s)"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
-#: usr/share/jellyfix/core/subtitle_manager.py:182
-#, python-format
-msgid "Level 1 (hash) found: %s"
-msgstr "Nivel 1 (hash) găsit: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
-#: usr/share/jellyfix/core/subtitle_manager.py:186
-#, python-format
-msgid "Missing languages: %s - trying TMDB title search"
-msgstr "Limbaje lipsă: %s - încercând căutarea titlului TMDB"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
-#: usr/share/jellyfix/core/subtitle_manager.py:207
-#, python-format
-msgid "Level 2 (TMDB) found: %s"
-msgstr "Nivel 2 (TMDB) găsit: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
-#: usr/share/jellyfix/core/subtitle_manager.py:210
-#, python-format
-msgid "Still missing: %s (try manual search)"
-msgstr "Încă lipsă: %s (încearcă căutarea manuală)"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
-#: usr/share/jellyfix/core/subtitle_manager.py:213
-#, python-format
-msgid "No subtitles found for: %s"
-msgstr "Nu au fost găsite subtitrări pentru: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
-#: NEEDS WORK
-#, python-format
-msgid "Batch Level 1: scanning %d videos by hash..."
-msgstr "Nivel lot: scanare %d videoclipuri după hash..."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
-#: NEEDS WORK
-#, python-format
-msgid "Level 1 (hash) found: %s for %s"
-msgstr "Nivel 1 (hash) găsit: %s pentru %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
-#: NEEDS WORK
-#, python-format
-msgid "Batch Level 2: title search for %d videos..."
-msgstr "Nivel de lot 2: căutare titlu pentru %d videoclipuri..."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
-#: NEEDS WORK
-#, python-format
-msgid "Level 2 (TMDB) found: %s for %s"
-msgstr "Nivel 2 (TMDB) găsit: %s pentru %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
-#: usr/share/jellyfix/core/subtitle_manager.py:237
-#, python-format
-msgid "Found %d subtitles by hash for: %s"
-msgstr "Am găsit %d subtitrări după hash pentru: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
-#: usr/share/jellyfix/core/subtitle_manager.py:343
-#, python-format
-msgid "Found %d validated subtitles by title for: %s"
-msgstr "Am găsit %d subtitrări validate după titlu pentru: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
-#: usr/share/jellyfix/core/subtitle_manager.py:600
-#, python-format
-msgid "Manual search: %s"
-msgstr "Căutare manuală: %s"
-# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
-#: usr/share/jellyfix/core/subtitle_manager.py:622
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
-msgid "Unknown release"
-msgstr "Versiune necunoscută"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "Operațiuni"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
-#: usr/share/jellyfix/core/subtitle_manager.py:657
-#, python-format
-msgid "Found %d subtitles in manual search"
-msgstr "Am găsit %d subtitrări în căutarea manuală"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
+msgstr "Caută..."
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
-#: usr/share/jellyfix/core/subtitle_manager.py:707
-#, python-format
-msgid "Downloaded subtitle: %s"
-msgstr "Subtitrare descărcată: %s"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "Toate"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
-#: usr/share/jellyfix/gui/windows/help_window.py:34
-msgid "Jellyfix Help"
-msgstr "Jellyfix Ajutor"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "Descarcă subtitrări pentru toți"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
-#: usr/share/jellyfix/gui/windows/help_window.py:69
-msgid "Version"
-msgstr "Versiune"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Caută și descarcă subtitrări pentru toate videoclipurile listate"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/help_window.py:75
-msgid "Intelligent Jellyfin Library Organizer"
-msgstr "Organizator Inteligent al Bibliotecii Jellyfin"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "Nici o operațiune"
 # 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/help_window.py:84
-msgid "What Jellyfix Does"
-msgstr "Ce face Jellyfix"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/help_window.py:85
-#, fuzzy
-msgid ""
-"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
-"\n"
-"• <b>Renames files</b> to Jellyfin standard format\n"
-"• <b>Organizes episodes</b> into Season folders\n"
-"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
-"• <b>Fetches metadata</b> from TMDB/TVDB\n"
-"• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
-"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
-msgstr ""
-"Jellyfix organizează automat biblioteca ta media conform convențiilor de denumire Jellyfin:\n"
-"\n"
-"• <b>Renumește fișierele</b> în formatul standard Jellyfin\n"
-"• <b>Organizează episoadele</b> în foldere de Sezon\n"
-"• <b>Gestionează subtitrările</b>: renumește, elimină limbile străine, adaugă coduri de limbă\n"
-"• <b>Recuperează metadate</b> de la TMDB/TVDB\n"
-"• <b>Detectează și adaugă etichete de calitate</b> (1080p, 720p, etc)\n"
-"• <b>Adaugă ID-uri de furnizor</b> în numele folderelor ([tmdbid-12345])"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: usr/share/jellyfix/gui/windows/help_window.py:96
-msgid "Examples"
-msgstr "Exemple"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
-#: usr/share/jellyfix/gui/windows/help_window.py:97
-#, fuzzy
-msgid ""
-"<b>Movies:</b>\n"
-"  Before: movie.name.2023.1080p.bluray.mkv\n"
-"  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
-"\n"
-"<b>TV Shows:</b>\n"
-"  Before: show.name.s01e05.720p.mkv\n"
-"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
-"\n"
-"<b>Subtitles:</b>\n"
-"  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
-"  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
-"  • Removes foreign languages (keeps configured languages only)\n"
-"  • <b>NEVER</b> removes .forced.srt files"
-msgstr ""
-"<b>Filme:</b>\n"
-"  Înainte: movie.name.2023.1080p.bluray.mkv\n"
-"  După:  Numele Filmului (2023) [tmdbid-12345]/Numele Filmului (2023) - 1080p.mkv\n"
-"\n"
-"<b>Seriale TV:</b>\n"
-"  Înainte: show.name.s01e05.720p.mkv\n"
-"  După:  Numele Serialului (2024) [tmdbid-67890]/Sezonul 01/Numele Serialului S01E05 - 720p.mkv\n"
-"\n"
-"<b>Subtitrări:</b>\n"
-"  • Renumește: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
-"  • Adaugă coduri de limbă: subtitle.srt → Numele Filmului.por.srt\n"
-"  • Elimină limbile străine (păstrează doar limbile configurate)\n"
-"  • <b>NICIODATĂ</b> nu elimină fișierele .forced.srt"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/help_window.py:113
-msgid "How to Use"
-msgstr "Cum să folosești"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/help_window.py:114
-#, fuzzy
-msgid ""
-"<b>1. Configure TMDB API Key (recommended)</b>\n"
-"   Menu → Configure API Keys → Follow the tutorial\n"
-"   This enables metadata fetching and poster downloads.\n"
-"\n"
-"<b>2. Scan Library</b>\n"
-"   Click \"Scan Library\" on Dashboard\n"
-"   Select your media folder\n"
-"   Review the scan results\n"
-"\n"
-"<b>3. Review Operations</b>\n"
-"   Switch to \"Operations\" tab\n"
-"   Preview what will be changed\n"
-"   Select operations to see details\n"
-"\n"
-"<b>4. Execute</b>\n"
-"   Click \"Process Files\"\n"
-"   Confirm the operation\n"
-"   Files will be renamed and organized\n"
-"\n"
-"<b>Tip:</b> Always review the preview before executing!"
-msgstr ""
-"<b>1. Configurează cheia API TMDB (recomandat)</b>\n"
-"   Meniu → Configurează cheile API → Urmează tutorialul\n"
-"   Acest lucru permite obținerea de metadate și descărcarea posterelor.\n"
-"\n"
-"<b>2. Scanează biblioteca</b>\n"
-"   Fă clic pe \"Scanează biblioteca\" pe tabloul de bord\n"
-"   Selectează folderul tău media\n"
-"   Revizuiește rezultatele scanării\n"
-"\n"
-"<b>3. Revizuiește operațiunile</b>\n"
-"   Comută la tab-ul \"Operațiuni\"\n"
-"   Previziune a ceea ce va fi schimbat\n"
-"   Selectează operațiunile pentru a vedea detalii\n"
-"\n"
-"<b>4. Execută</b>\n"
-"   Fă clic pe \"Procesează fișiere\"\n"
-"   Confirmă operațiunea\n"
-"   Fișierele vor fi redenumite și organizate\n"
-"\n"
-"<b>Sfat:</b> Revizuiește întotdeauna previzualizarea înainte de a executa!"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
-#: usr/share/jellyfix/gui/windows/help_window.py:138
-#, fuzzy
-msgid ""
-"Configure Jellyfix behavior:\n"
-"\n"
-"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
-"• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
-"• <b>Metadata:</b> Enable/disable TMDB fetching\n"
-"• <b>Quality Tags:</b> Add resolution tags to filenames\n"
-"• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
-msgstr ""
-"Configure comportamentul Jellyfix:\n"
-"\n"
-"• <b>Gestionarea subtitrărilor:</b> Renumește variantele, adaugă coduri de limbă, elimină străine\n"
-"• <b>Limbile păstrate:</b> Alege ce limbi de subtitrare să păstrezi\n"
-"• <b>Metadate:</b> Activează/dezactivează obținerea TMDB\n"
-"• <b>Etichete de calitate:</b> Adaugă etichete de rezoluție la numele fișierelor\n"
-"• <b>ffprobe:</b> Folosește ffprobe pentru detectarea precisă a calității"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: usr/share/jellyfix/gui/windows/help_window.py:148
-msgid "Important Notes"
-msgstr "Note Importante"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
-#: usr/share/jellyfix/gui/windows/help_window.py:149
-#, fuzzy
-msgid ""
-"⚠️ <b>Dry-run is DEFAULT</b>\n"
-"Files are NOT modified unless you explicitly execute operations.\n"
-"\n"
-"✓ <b>Always review before executing</b>\n"
-"Check the operation preview carefully.\n"
-"\n"
-"🔑 <b>Configure TMDB API</b>\n"
-"For best results, configure your TMDB API key in Settings.\n"
-"\n"
-"🌍 <b>Customize kept languages</b>\n"
-"Configure which subtitle languages to keep in Preferences."
-msgstr ""
-"⚠️ <b>Execuția de test este IMPLICITĂ</b>\n"
-"Fișierele NU sunt modificate decât dacă executați explicit operațiunile.\n"
-"\n"
-"✓ <b>Revizuiți întotdeauna înainte de a executa</b>\n"
-"Verificați cu atenție previzualizarea operațiunii.\n"
-"\n"
-"🔑 <b>Configurează API-ul TMDB</b>\n"
-"Pentru cele mai bune rezultate, configurează cheia API TMDB în Setări.\n"
-"\n"
-"🌍 <b>Personalizează limbile păstrate</b>\n"
-"Configurează ce limbi de subtitrare să păstrezi în Preferințe."
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
-#: usr/share/jellyfix/gui/windows/help_window.py:167
-msgid "Links"
-msgstr "Linkuri"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
-#: usr/share/jellyfix/gui/windows/help_window.py:172
-msgid "Homepage"
-msgstr "Pagina principală"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
-#: usr/share/jellyfix/gui/windows/help_window.py:178
-msgid "Report Issues"
-msgstr "Raportați problemele"
-# 
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/help_window.py:184
-msgid "Get TMDB API Key"
-msgstr "Obțineți cheia API TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
-msgstr "Căutare Titlu"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "Introduceți numele filmului sau al serialului..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "Căutare"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "Film"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "Serii TV"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "Anulează"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "Scanează un director pentru a genera operațiuni"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1710,96 +1391,205 @@ msgstr "Anulează"
 msgid "Apply"
 msgstr "Aplică"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "Căutare..."
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "renumește"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB nu este configurat"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "mutare"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "Nu au fost găsite rezultate"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "șterge"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "rezultate"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
-msgid "Search Subtitles"
-msgstr "Caută Subtitrări"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
-msgid "Download"
-msgstr "Descarcă"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
-msgid "Enter movie or show title..."
-msgstr "Introduceți titlul filmului sau al emisiunii..."
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
-msgid "Season"
-msgstr "Sezon"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
-msgid "Episode"
-msgstr "Episod"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
-msgid "Search for Subtitles"
-msgstr "Caută subtitrări"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
-msgid "Enter a title and click search"
-msgstr "Introduceți un titlu și faceți clic pe căutare"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
-msgid "No Results"
-msgstr "Nu există rezultate"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
-msgid "Try a different search term"
-msgstr "Încercați un termen de căutare diferit"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Found {} subtitles"
-msgstr "Am găsit {} subtitrări"
+msgid "Showing {} of {} operations"
+msgstr "Afișare {} din {} operațiuni"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Error: {}"
-msgstr "Eroare: {}"
+msgid "Total: {} operations"
+msgstr "Total: {} operațiuni"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
-#, python-brace-format
-msgid "Downloaded: {}"
-msgstr "Descărcat: {}"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "Bine ați venit la Jellyfix"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
-msgid "Download failed"
-msgstr "Descărcare eșuată"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "Trageți un folder aici"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "sau faceți clic pe butonul de mai jos"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "Adaugă bibliotecă"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "Biblioteci recente"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "Șterge bibliotecile recente"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "acum câteva săptămâni"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "cu câteva zile în urmă"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "acum câteva ore"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "Chiar acum"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "Nicio selecție"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "Selectați un element pentru previzualizare"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
+msgstr "Căutare titlu"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "Titlu greșit? Faceți clic pentru a căuta manual"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "Descarcă subtitrări"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "Caută și descarcă subtitrări automat"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "De:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "Către:"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "MUTARE"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "Șterge"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "MUTARE + RENUMIRE"
+# 
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "RENUMEȘTE"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "Selectați directorul de scanare"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "Scan eșuat"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "OK"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "Generarea operațiunii a eșuat"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "Execuție eșuată"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
+# File: usr/share/jellyfix/gui/app.py, line: 122
+#: usr/share/jellyfix/gui/app.py:142
+#: usr/share/jellyfix/gui/windows/main_window.py:51
+#: usr/share/jellyfix/gui/windows/main_window.py:98
+msgid "Jellyfix"
+msgstr "Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "creditul traducătorului"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
@@ -1926,6 +1716,20 @@ msgstr "Introduceți cheia API TMDB mai jos"
 msgid "Paste API key here"
 msgstr "Introduceți cheia API aici"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
+msgid "Cancel"
+msgstr "Anulează"
+# 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
 msgid "Save"
@@ -1962,32 +1766,6 @@ msgstr "Fără cheie API"
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
 msgid "No TMDB API key configured yet"
 msgstr "Nu a fost configurat încă un cheie API TMDB."
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "OK"
 # 
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
 #: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
@@ -2078,16 +1856,6 @@ msgstr ""
 "• Descarci postere și fundaluri\n"
 "• Obții titluri și date de lansare precise\n"
 "• Organizezi biblioteca ta cu ID-uri TMDB"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 46
-# File: usr/share/jellyfix/gui/app.py, line: 122
-#: usr/share/jellyfix/gui/app.py:142
-#: usr/share/jellyfix/gui/windows/main_window.py:51
-#: usr/share/jellyfix/gui/windows/main_window.py:98
-msgid "Jellyfix"
-msgstr "Jellyfix"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -2483,207 +2251,452 @@ msgstr "Reparare fișierele Mirabel"
 msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 msgstr "Renumește .pt-BR.hi.srt, .br.hi.srt în .por.srt"
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Selectați directorul de scanare"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "Căutare Titlu"
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Scan eșuat"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "Introduceți numele filmului sau al serialului..."
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Generarea operațiunii a eșuat"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "Căutare"
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Execuție eșuată"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "Film"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "Nicio selecție"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "Serii TV"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "Selectați un element pentru previzualizare"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "Căutare..."
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "Căutare titlu"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB nu este configurat"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "Titlu greșit? Faceți clic pentru a căuta manual"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "Nu au fost găsite rezultate"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "Descarcă subtitrări"
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "rezultate"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "Caută și descarcă subtitrări automat"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
+#: usr/share/jellyfix/gui/windows/help_window.py:34
+msgid "Jellyfix Help"
+msgstr "Jellyfix Ajutor"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "De:"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
+#: usr/share/jellyfix/gui/windows/help_window.py:69
+msgid "Version"
+msgstr "Versiune"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "Către:"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
+#: usr/share/jellyfix/gui/windows/help_window.py:75
+msgid "Intelligent Jellyfin Library Organizer"
+msgstr "Organizator Inteligent al Bibliotecii Jellyfin"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "MUTARE"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/help_window.py:84
+msgid "What Jellyfix Does"
+msgstr "Ce face Jellyfix"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "Șterge"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/help_window.py:85
+#, fuzzy
+msgid ""
+"Jellyfix automatically organizes your media library following Jellyfin naming conventions:\n"
+"\n"
+"• <b>Renames files</b> to Jellyfin standard format\n"
+"• <b>Organizes episodes</b> into Season folders\n"
+"• <b>Manages subtitles</b>: renames, removes foreign languages, adds language codes\n"
+"• <b>Fetches metadata</b> from TMDB/TVDB\n"
+"• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
+"• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
+msgstr ""
+"Jellyfix organizează automat biblioteca ta media conform convențiilor de denumire Jellyfin:\n"
+"\n"
+"• <b>Renumește fișierele</b> în formatul standard Jellyfin\n"
+"• <b>Organizează episoadele</b> în foldere de Sezon\n"
+"• <b>Gestionează subtitrările</b>: renumește, elimină limbile străine, adaugă coduri de limbă\n"
+"• <b>Recuperează metadate</b> de la TMDB/TVDB\n"
+"• <b>Detectează și adaugă etichete de calitate</b> (1080p, 720p, etc)\n"
+"• <b>Adaugă ID-uri de furnizor</b> în numele folderelor ([tmdbid-12345])"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "MUTARE + RENUMIRE"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
+#: usr/share/jellyfix/gui/windows/help_window.py:96
+msgid "Examples"
+msgstr "Exemple"
 # 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "RENUMEȘTE"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 96
+#: usr/share/jellyfix/gui/windows/help_window.py:97
+#, fuzzy
+msgid ""
+"<b>Movies:</b>\n"
+"  Before: movie.name.2023.1080p.bluray.mkv\n"
+"  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - 1080p.mkv\n"
+"\n"
+"<b>TV Shows:</b>\n"
+"  Before: show.name.s01e05.720p.mkv\n"
+"  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
+"\n"
+"<b>Subtitles:</b>\n"
+"  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
+"  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
+"  • Removes foreign languages (keeps configured languages only)\n"
+"  • <b>NEVER</b> removes .forced.srt files"
+msgstr ""
+"<b>Filme:</b>\n"
+"  Înainte: movie.name.2023.1080p.bluray.mkv\n"
+"  După:  Numele Filmului (2023) [tmdbid-12345]/Numele Filmului (2023) - 1080p.mkv\n"
+"\n"
+"<b>Seriale TV:</b>\n"
+"  Înainte: show.name.s01e05.720p.mkv\n"
+"  După:  Numele Serialului (2024) [tmdbid-67890]/Sezonul 01/Numele Serialului S01E05 - 720p.mkv\n"
+"\n"
+"<b>Subtitrări:</b>\n"
+"  • Renumește: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
+"  • Adaugă coduri de limbă: subtitle.srt → Numele Filmului.por.srt\n"
+"  • Elimină limbile străine (păstrează doar limbile configurate)\n"
+"  • <b>NICIODATĂ</b> nu elimină fișierele .forced.srt"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "Bine ați venit la Jellyfix"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/help_window.py:113
+msgid "How to Use"
+msgstr "Cum să folosești"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "Trageți un folder aici"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/help_window.py:114
+#, fuzzy
+msgid ""
+"<b>1. Configure TMDB API Key (recommended)</b>\n"
+"   Menu → Configure API Keys → Follow the tutorial\n"
+"   This enables metadata fetching and poster downloads.\n"
+"\n"
+"<b>2. Scan Library</b>\n"
+"   Click \"Scan Library\" on Dashboard\n"
+"   Select your media folder\n"
+"   Review the scan results\n"
+"\n"
+"<b>3. Review Operations</b>\n"
+"   Switch to \"Operations\" tab\n"
+"   Preview what will be changed\n"
+"   Select operations to see details\n"
+"\n"
+"<b>4. Execute</b>\n"
+"   Click \"Process Files\"\n"
+"   Confirm the operation\n"
+"   Files will be renamed and organized\n"
+"\n"
+"<b>Tip:</b> Always review the preview before executing!"
+msgstr ""
+"<b>1. Configurează cheia API TMDB (recomandat)</b>\n"
+"   Meniu → Configurează cheile API → Urmează tutorialul\n"
+"   Acest lucru permite obținerea de metadate și descărcarea posterelor.\n"
+"\n"
+"<b>2. Scanează biblioteca</b>\n"
+"   Fă clic pe \"Scanează biblioteca\" pe tabloul de bord\n"
+"   Selectează folderul tău media\n"
+"   Revizuiește rezultatele scanării\n"
+"\n"
+"<b>3. Revizuiește operațiunile</b>\n"
+"   Comută la tab-ul \"Operațiuni\"\n"
+"   Previziune a ceea ce va fi schimbat\n"
+"   Selectează operațiunile pentru a vedea detalii\n"
+"\n"
+"<b>4. Execută</b>\n"
+"   Fă clic pe \"Procesează fișiere\"\n"
+"   Confirmă operațiunea\n"
+"   Fișierele vor fi redenumite și organizate\n"
+"\n"
+"<b>Sfat:</b> Revizuiește întotdeauna previzualizarea înainte de a executa!"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "sau faceți clic pe butonul de mai jos"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 137
+#: usr/share/jellyfix/gui/windows/help_window.py:138
+#, fuzzy
+msgid ""
+"Configure Jellyfix behavior:\n"
+"\n"
+"• <b>Subtitle Handling:</b> Rename variants, add language codes, remove foreign\n"
+"• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
+"• <b>Metadata:</b> Enable/disable TMDB fetching\n"
+"• <b>Quality Tags:</b> Add resolution tags to filenames\n"
+"• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
+msgstr ""
+"Configure comportamentul Jellyfix:\n"
+"\n"
+"• <b>Gestionarea subtitrărilor:</b> Renumește variantele, adaugă coduri de limbă, elimină străine\n"
+"• <b>Limbile păstrate:</b> Alege ce limbi de subtitrare să păstrezi\n"
+"• <b>Metadate:</b> Activează/dezactivează obținerea TMDB\n"
+"• <b>Etichete de calitate:</b> Adaugă etichete de rezoluție la numele fișierelor\n"
+"• <b>ffprobe:</b> Folosește ffprobe pentru detectarea precisă a calității"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "Adaugă bibliotecă"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
+#: usr/share/jellyfix/gui/windows/help_window.py:148
+msgid "Important Notes"
+msgstr "Note Importante"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "Biblioteci recente"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 148
+#: usr/share/jellyfix/gui/windows/help_window.py:149
+#, fuzzy
+msgid ""
+"⚠️ <b>Dry-run is DEFAULT</b>\n"
+"Files are NOT modified unless you explicitly execute operations.\n"
+"\n"
+"✓ <b>Always review before executing</b>\n"
+"Check the operation preview carefully.\n"
+"\n"
+"🔑 <b>Configure TMDB API</b>\n"
+"For best results, configure your TMDB API key in Settings.\n"
+"\n"
+"🌍 <b>Customize kept languages</b>\n"
+"Configure which subtitle languages to keep in Preferences."
+msgstr ""
+"⚠️ <b>Execuția de test este IMPLICITĂ</b>\n"
+"Fișierele NU sunt modificate decât dacă executați explicit operațiunile.\n"
+"\n"
+"✓ <b>Revizuiți întotdeauna înainte de a executa</b>\n"
+"Verificați cu atenție previzualizarea operațiunii.\n"
+"\n"
+"🔑 <b>Configurează API-ul TMDB</b>\n"
+"Pentru cele mai bune rezultate, configurează cheia API TMDB în Setări.\n"
+"\n"
+"🌍 <b>Personalizează limbile păstrate</b>\n"
+"Configurează ce limbi de subtitrare să păstrezi în Preferințe."
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "Șterge bibliotecile recente"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 167
+#: usr/share/jellyfix/gui/windows/help_window.py:167
+msgid "Links"
+msgstr "Linkuri"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "acum câteva săptămâni"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 172
+#: usr/share/jellyfix/gui/windows/help_window.py:172
+msgid "Homepage"
+msgstr "Pagina principală"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "cu câteva zile în urmă"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 178
+#: usr/share/jellyfix/gui/windows/help_window.py:178
+msgid "Report Issues"
+msgstr "Raportați problemele"
 # 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "acum câteva ore"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "Chiar acum"
+# File: usr/share/jellyfix/gui/windows/help_window.py, line: 184
+#: usr/share/jellyfix/gui/windows/help_window.py:184
+msgid "Get TMDB API Key"
+msgstr "Obțineți cheia API TMDB"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "Operațiuni"
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 623
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: usr/share/jellyfix/core/subtitle_manager.py:622
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:79
+msgid "Unknown release"
+msgstr "Versiune necunoscută"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "Caută..."
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "Caută Subtitrări"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "Toate"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "Descarcă"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "Descarcă subtitrări pentru toți"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "Introduceți titlul filmului sau al emisiunii..."
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "Caută și descarcă subtitrări pentru toate videoclipurile listate"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "Sezon"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "Nici o operațiune"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "Episod"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "Scanează un director pentru a genera operațiuni"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "Caută subtitrări"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "renumește"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "Introduceți un titlu și faceți clic pe căutare"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "mutare"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "Nu există rezultate"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "șterge"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "Încercați un termen de căutare diferit"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
 #, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "Afișare {} din {} operațiuni"
+msgid "Found {} subtitles"
+msgstr "Am găsit {} subtitrări"
 # 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
 #, python-brace-format
-msgid "Total: {} operations"
-msgstr "Total: {} operațiuni"
+msgid "Error: {}"
+msgstr "Eroare: {}"
 # 
-# File: usr/share/jellyfix/gui/app.py, line: 131
-#: usr/share/jellyfix/gui/app.py:151
-msgid "translator-credits"
-msgstr "creditul traducătorului"
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Descărcat: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "Descărcare eșuată"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: usr/share/jellyfix/core/subtitle_manager.py:169
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Căutare subtitrări pentru: %s (Limbi: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: usr/share/jellyfix/core/subtitle_manager.py:182
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Nivel 1 (hash) găsit: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: usr/share/jellyfix/core/subtitle_manager.py:186
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Limbaje lipsă: %s - încercând căutarea titlului TMDB"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: usr/share/jellyfix/core/subtitle_manager.py:207
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Nivel 2 (TMDB) găsit: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: usr/share/jellyfix/core/subtitle_manager.py:210
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Încă lipsă: %s (încearcă căutarea manuală)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: usr/share/jellyfix/core/subtitle_manager.py:213
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Nu au fost găsite subtitrări pentru: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "Nivel lot: scanare %d videoclipuri după hash..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "Nivel 1 (hash) găsit: %s pentru %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "Nivel de lot 2: căutare titlu pentru %d videoclipuri..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "Nivel 2 (TMDB) găsit: %s pentru %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
+#: usr/share/jellyfix/core/subtitle_manager.py:237
+#, python-format
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Am găsit %d subtitrări după hash pentru: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
+#: usr/share/jellyfix/core/subtitle_manager.py:343
+#, python-format
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Am găsit %d subtitrări validate după titlu pentru: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: usr/share/jellyfix/core/subtitle_manager.py:600
+#, python-format
+msgid "Manual search: %s"
+msgstr "Căutare manuală: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: usr/share/jellyfix/core/subtitle_manager.py:657
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Am găsit %d subtitrări în căutarea manuală"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: usr/share/jellyfix/core/subtitle_manager.py:707
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Subtitrare descărcată: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 101
+#: usr/share/jellyfix/core/image_manager.py:101
+#, python-format
+msgid "Downloaded image: %s"
+msgstr "Imagine descărcată: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 106
+#: usr/share/jellyfix/core/image_manager.py:106
+#, python-format
+msgid "Failed to download image: %s"
+msgstr "Eșec la descărcarea imaginii: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 110
+#: usr/share/jellyfix/core/image_manager.py:110
+#, python-format
+msgid "Unexpected error downloading image: %s"
+msgstr "Eroare neașteptată la descărcarea imaginii: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 216
+#: usr/share/jellyfix/core/image_manager.py:216
+msgid "Clearing image cache..."
+msgstr "Ștergerea cache-ului de imagini..."
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 218
+#: usr/share/jellyfix/core/image_manager.py:218
+msgid "Image cache cleared"
+msgstr "Cache-ul de imagini a fost șters"
 # 
 # File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
 #: NEEDS WORK
