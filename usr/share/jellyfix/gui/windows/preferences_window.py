@@ -40,6 +40,9 @@ class PreferencesWindow(Adw.PreferencesWindow):
         self.logger = get_logger()
         self.config = get_config()
 
+        from ...utils.config_manager import ConfigManager
+        self.config_manager = ConfigManager()
+
         # Window properties
         self.set_title(_("Preferences"))
         self.set_default_size(650, 730)
@@ -210,9 +213,6 @@ class PreferencesWindow(Adw.PreferencesWindow):
         )
 
         # Keep recent libraries
-        from ...utils.config_manager import ConfigManager
-        self.config_manager = ConfigManager()
-
         self.keep_recent_row = Adw.SwitchRow(
             title=_("Keep Recent Libraries"),
             subtitle=_("Remember recently scanned libraries between sessions")
@@ -254,26 +254,31 @@ class PreferencesWindow(Adw.PreferencesWindow):
     def _on_rename_variants_changed(self, switch, param):
         """Handle rename variants toggle"""
         self.config.rename_por2 = switch.get_active()
+        self.config_manager.set('rename_por2', self.config.rename_por2)
         self.logger.debug(f"Rename variants: {self.config.rename_por2}")
 
     def _on_remove_duplicates_changed(self, switch, param):
         """Handle remove duplicate variants toggle"""
         self.config.remove_language_variants = switch.get_active()
+        self.config_manager.set('remove_language_variants', self.config.remove_language_variants)
         self.logger.debug(f"Remove duplicate variants: {self.config.remove_language_variants}")
 
     def _on_add_lang_changed(self, switch, param):
         """Handle add language codes toggle"""
         self.config.rename_no_lang = switch.get_active()
+        self.config_manager.set('rename_no_lang', self.config.rename_no_lang)
         self.logger.debug(f"Add language codes: {switch.get_active()}")
 
     def _on_remove_foreign_changed(self, switch, param):
         """Handle remove foreign subtitles toggle"""
         self.config.remove_foreign_subs = switch.get_active()
+        self.config_manager.set('remove_foreign_subs', self.config.remove_foreign_subs)
         self.logger.debug(f"Remove foreign subtitles: {self.config.remove_foreign_subs}")
 
     def _on_min_words_changed(self, spin, param):
         """Handle min Portuguese words change"""
         self.config.min_pt_words = int(spin.get_value())
+        self.config_manager.set('min_pt_words', self.config.min_pt_words)
         self.logger.debug(f"Min Portuguese words: {self.config.min_pt_words}")
 
     def _on_language_changed(self, switch, param, lang_code: str):
@@ -292,26 +297,31 @@ class PreferencesWindow(Adw.PreferencesWindow):
             if lang_code in self.config.kept_languages:
                 self.config.kept_languages.remove(lang_code)
 
+        self.config_manager.set('kept_languages', self.config.kept_languages)
         self.logger.debug(f"Kept languages: {self.config.kept_languages}")
 
     def _on_organize_folders_changed(self, switch, param):
         """Handle organize folders toggle"""
         self.config.organize_folders = switch.get_active()
+        self.config_manager.set('organize_folders', self.config.organize_folders)
         self.logger.debug(f"Organize folders: {self.config.organize_folders}")
 
     def _on_quality_tag_changed(self, switch, param):
         """Handle quality tag toggle"""
         self.config.add_quality_tag = switch.get_active()
+        self.config_manager.set('add_quality_tag', self.config.add_quality_tag)
         self.logger.debug(f"Add quality tag: {self.config.add_quality_tag}")
 
     def _on_ffprobe_changed(self, switch, param):
         """Handle ffprobe toggle"""
         self.config.use_ffprobe = switch.get_active()
+        self.config_manager.set('use_ffprobe', self.config.use_ffprobe)
         self.logger.debug(f"Use ffprobe: {self.config.use_ffprobe}")
 
     def _on_fetch_metadata_changed(self, switch, param):
         """Handle fetch metadata toggle"""
         self.config.fetch_metadata = switch.get_active()
+        self.config_manager.set('fetch_metadata', self.config.fetch_metadata)
         self.logger.debug(f"Fetch metadata: {self.config.fetch_metadata}")
 
     def _on_keep_recent_changed(self, switch, param):
