@@ -1306,27 +1306,24 @@ class Renamer:
 
         # Remove pastas vazias após mover arquivos
         if not dry_run and source_folders:
-            for folder in sorted(source_folders, key=lambda p: len(str(p)), reverse=True):
+            # Collect parent folders too (climb up hierarchy)
+            folders_to_check = set()
+            for folder in source_folders:
+                current = folder
+                while current and current != current.parent:
+                    folders_to_check.add(current)
+                    current = current.parent
+                    # Don't go above work_dir parent
+                    if self.work_dir and current == self.work_dir.parent:
+                        break
+
+            for folder in sorted(folders_to_check, key=lambda p: len(str(p)), reverse=True):
                 try:
                     if folder.exists() and folder.is_dir():
-                        # Verifica se a pasta está vazia (incluindo subpastas)
                         if not any(folder.iterdir()):
                             folder.rmdir()
                             self.logger.action(f"Removida pasta vazia: {folder}")
                             stats['cleaned'] += 1
-                        else:
-                            # Verifica subpastas vazias também
-                            for subfolder in folder.rglob('*'):
-                                if subfolder.is_dir() and not any(subfolder.iterdir()):
-                                    subfolder.rmdir()
-                                    self.logger.action(f"Removida pasta vazia: {subfolder}")
-                                    stats['cleaned'] += 1
-
-                            # Tenta remover a pasta principal novamente
-                            if not any(folder.iterdir()):
-                                folder.rmdir()
-                                self.logger.action(f"Removida pasta vazia: {folder}")
-                                stats['cleaned'] += 1
                 except Exception as e:
                     self.logger.debug(f"Não foi possível remover pasta {folder}: {e}")
 
