@@ -196,6 +196,24 @@ class Renamer:
                 if normalize_spaces(file_stem) == video_normalized or file_stem == video_stem_original:
                     related_files.append(file_path)
 
+        # Coleta TODOS os arquivos extras da pasta (Jellyfin convention: backdrop.jpg, folder.jpg, etc.)
+        # que não correspondem ao stem do vídeo mas devem acompanhar a mudança de pasta
+        from ..utils.helpers import is_video_file, is_image_file
+
+        folder_extras = []
+        for file_path in video_path.parent.iterdir():
+            if not file_path.is_file():
+                continue
+            if file_path == video_path:
+                continue
+            if file_path.name.startswith("."):
+                continue
+            if is_video_file(file_path) or is_subtitle_file(file_path):
+                continue
+            if file_path in related_files:
+                continue
+            folder_extras.append(file_path)
+
         # Separa por tipo
         subtitle_files = [f for f in related_files if is_subtitle_file(f)]
         nfo_files = [f for f in related_files if f.suffix.lower() == '.nfo']
@@ -240,7 +258,7 @@ class Renamer:
                         reason=f"Acompanhar vídeo: {nfo_path.name} → {new_nfo_name}"
                     ))
 
-        # Planeja arquivos de imagem
+        # Planeja arquivos de imagem (com mesmo stem do vídeo)
         if image_files:
             new_video_folder = new_video_op.destination.parent
 
@@ -254,6 +272,37 @@ class Renamer:
                         operation_type='move',
                         reason="Acompanhar vídeo"
                     ))
+
+        # Handle extras (backdrop.jpg, folder.jpg, logo.png, movie.nfo, etc.)
+        # that don't match video stem but belong to the same folder
+        new_video_folder = new_video_op.destination.parent
+        if new_video_folder != video_path.parent:
+            for extra_path in folder_extras:
+                already_planned = any(op.source == extra_path for op in self.operations)
+                if already_planned:
+                    continue
+                if self.config.remove_non_media:
+                    # Non-media files should be deleted, not moved
+                    self.operations.append(
+                        RenameOperation(
+                            source=extra_path,
+                            destination=extra_path,
+                            operation_type="delete",
+                            reason=f"Remover arquivo não-mídia: {extra_path.suffix}",
+                        )
+                    )
+                else:
+                    new_extra_path = new_video_folder / extra_path.name
+                    if new_extra_path.exists() and new_extra_path != extra_path:
+                        continue
+                    self.operations.append(
+                        RenameOperation(
+                            source=extra_path,
+                            destination=new_extra_path,
+                            operation_type="move",
+                            reason=f"Mover arquivo extra junto com vídeo: {extra_path.name}",
+                        )
+                    )
 
         return self.operations
 
