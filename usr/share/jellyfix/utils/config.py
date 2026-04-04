@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.8.2"
+APP_VERSION = "2.8.3"
 
 
 @dataclass

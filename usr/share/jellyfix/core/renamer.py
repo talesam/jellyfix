@@ -303,7 +303,8 @@ class Renamer:
                 if parent_folder.resolve() == self.work_dir:
                     # Files are directly in work_dir
                     original_title = media_info.title if media_info else None
-                    if self._is_workdir_media_folder(original_title, title):
+                    tmdb_original = metadata.original_title if metadata else None
+                    if self._is_workdir_media_folder(original_title, title, tmdb_original):
                         # Work dir IS the media folder (e.g., "Avatar (2009)/")
                         # Create sibling folder (effectively renaming)
                         new_folder = self.work_dir.parent / expected_folder
@@ -367,7 +368,7 @@ class Renamer:
         else:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
 
-        new_name = f"{title} {episode_part}{file_path.suffix}"
+        new_name = f"{title} - {episode_part}{file_path.suffix}"
 
         # Determine series folder structure
         season_folder_name = format_season_folder(media_info.season)
@@ -390,7 +391,8 @@ class Renamer:
             if series_folder.resolve() == self.work_dir:
                 # Series folder IS the work_dir
                 original_title = media_info.title if media_info else None
-                if self._is_workdir_media_folder(original_title, title):
+                tmdb_original = metadata.original_title if metadata else None
+                if self._is_workdir_media_folder(original_title, title, tmdb_original):
                     # Work dir IS the series folder (e.g., "Breaking Bad (2008)/")
                     new_series_folder = self.work_dir.parent / expected_series_folder
                 else:
@@ -453,6 +455,7 @@ class Renamer:
 
         # Fetch metadata if configured
         folder_suffix = ""
+        metadata = None
         if self.metadata_fetcher and self.config.fetch_metadata:
             self.logger.info(f"🔍 Searching: {title}")
             metadata = self.metadata_fetcher.search_movie(title, year, interactive=self.config.interactive)
@@ -502,7 +505,8 @@ class Renamer:
             # Determine if work_dir is a media folder or a container folder
             if file_path.parent.resolve() == self.work_dir:
                 # Files are directly in work_dir
-                if self._is_workdir_media_folder(original_title, title):
+                tmdb_original = metadata.original_title if metadata else None
+                if self._is_workdir_media_folder(original_title, title, tmdb_original):
                     # Work dir IS the media folder (e.g., "Avatar (2009)/")
                     # Create sibling folder (effectively renaming)
                     new_folder = self.work_dir.parent / expected_folder
@@ -550,6 +554,7 @@ class Renamer:
         # Busca metadados se configurado
         folder_suffix = ""
         year = None
+        metadata = None
         if self.metadata_fetcher and self.config.fetch_metadata:
             self.logger.info(f"🔍 Buscando série: {title}")
             metadata = self.metadata_fetcher.search_tvshow(title, interactive=self.config.interactive)
@@ -570,15 +575,14 @@ class Renamer:
             else:
                 self.logger.warning(f"✗ Não encontrado: {title}")
 
-        # Formato Jellyfin: "Nome da Série S01E01.ext"
-        # IMPORTANTE: NÃO usar hífen antes de S01E01, apenas ESPAÇO! O Jellyfin não reconhece com hífen.
-        # Séries não incluem tag de qualidade no nome (diferente de filmes)
+        # Jellyfin format: "Series Name - S01E01.ext"
+        # Ref: https://jellyfin.org/docs/general/server/media/shows
         if media_info.episode_end and media_info.episode_end != media_info.episode_start:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
         else:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
 
-        new_name = f"{title} {episode_part}{file_path.suffix}"
+        new_name = f"{title} - {episode_part}{file_path.suffix}"
 
         # Verifica estrutura de pastas
         # Esperado: SeriesFolder/Season XX/episode.mkv
@@ -604,7 +608,8 @@ class Renamer:
             # Determine if work_dir is a media folder or a container folder
             if series_folder.resolve() == self.work_dir:
                 # Series folder IS the work_dir
-                if self._is_workdir_media_folder(original_title, title):
+                tmdb_original = metadata.original_title if metadata else None
+                if self._is_workdir_media_folder(original_title, title, tmdb_original):
                     # Work dir IS the series folder
                     new_series_folder = self.work_dir.parent / expected_series_folder
                 else:

@@ -107,7 +107,7 @@ class HelpWindow(Adw.Window):
                 "\n"
                 "<b>TV Shows:</b>\n"
                 "  Before: show.name.s01e05.720p.mkv\n"
-                "  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 - 720p.mkv\n"
+                "  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name - S01E05 - 720p.mkv\n"
                 "\n"
                 "<b>Subtitles:</b>\n"
                 "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"

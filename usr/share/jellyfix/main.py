@@ -141,7 +141,7 @@ def show_help():
     console.print()
     console.print("  [bold green]TV Shows:[/bold green]")
     console.print("    [dim]Before:[/dim] show.name.s01e05.720p.mkv")
-    console.print("    [dim]After:[/dim]  Show Name/Season 01/Show Name S01E05 [720p].mkv")
+    console.print("    [dim]After:[/dim]  Show Name/Season 01/Show Name - S01E05 [720p].mkv")
     console.print()
     console.print("  [bold green]Subtitles:[/bold green]")
     console.print("    • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt")
