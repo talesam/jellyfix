@@ -1337,28 +1337,31 @@ msgid   "Downloaded image: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 156
-msgid   "Search..."
+# File: usr/share/jellyfix/core/image_manager.py, line: 106
+#, python-format
+msgid   "Failed to download image: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 166
-msgid   "All"
+# File: usr/share/jellyfix/core/image_manager.py, line: 110
+#, python-format
+msgid   "Unexpected error downloading image: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 195
-msgid   "Download Subtitles for All"
+# File: usr/share/jellyfix/core/image_manager.py, line: 216
+msgid   "Clearing image cache..."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 197
-msgid   "Search and download subtitles for all listed videos"
+# File: usr/share/jellyfix/core/image_manager.py, line: 218
+msgid   "Image cache cleared"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 216
-msgid   "No Operations"
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 172
+#, python-format
+msgid   "Searching subtitles for: %s (Languages: %s)"
 msgstr  ""
 
 #
@@ -1459,8 +1462,8 @@ msgid   "Select Directory to Scan"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 158
-msgid   "Enter movie or series name..."
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 174
+msgid   "Scan Failed"
 msgstr  ""
 
 #
@@ -1487,222 +1490,154 @@ msgid   "Operation Generation Failed"
 msgstr  ""
 
 #
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 175
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 241
-msgid   "Movie"
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 447
+msgid   "Execution Failed"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 180
-msgid   "TV Series"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+msgid   "No Selection"
 msgstr  ""
 
 #
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 257
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 308
-msgid   "Searching..."
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+msgid   "Select an item to preview"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 268
-msgid   "TMDB not configured"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+msgid   "Search title"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 308
-msgid   "No results found"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+msgid   "Wrong title? Click to search manually"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 311
-msgid   "results"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+msgid   "Download Subtitles"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
-msgid   "Jellyfix Help"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+msgid   "Search and download subtitles automatically"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 69
-msgid   "Version"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 150
+msgid   "From:"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 75
-msgid   "Intelligent Jellyfin Library Organizer"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 182
+msgid   "To:"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 86
-msgid   "What Jellyfix Does"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 263
+msgid   "MOVE"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 88
-msgid   "Jellyfix automatically organizes your media library following "
-        "Jellyfin naming conventions:\n"
-        "\n"
-        "• <b>Renames files</b> to Jellyfin standard format\n"
-        "• <b>Organizes episodes</b> into Season folders\n"
-        "• <b>Manages subtitles</b>: renames, removes foreign languages, adds "
-        "language codes\n"
-        "• <b>Fetches metadata</b> from TMDB/TVDB\n"
-        "• <b>Detects and adds quality tags</b> (1080p, 720p, etc)\n"
-        "• <b>Adds provider IDs</b> to folder names ([tmdbid-12345])"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 266
+msgid   "DELETE"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 102
-msgid   "Examples"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 273
+msgid   "MOVE + RENAME"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 104
-msgid   "<b>Movies:</b>\n"
-        "  Before: movie.name.2023.1080p.bluray.mkv\n"
-        "  After:  Movie Name (2023) [tmdbid-12345]/Movie Name (2023) - "
-        "1080p.mkv\n"
-        "\n"
-        "<b>TV Shows:</b>\n"
-        "  Before: show.name.s01e05.720p.mkv\n"
-        "  After:  Show Name (2024) [tmdbid-67890]/Season 01/Show Name S01E05 "
-        "- 720p.mkv\n"
-        "\n"
-        "<b>Subtitles:</b>\n"
-        "  • Renames: .por2.srt → .por.srt, .eng3.srt → .eng.srt\n"
-        "  • Adds language codes: subtitle.srt → Movie Name.por.srt\n"
-        "  • Removes foreign languages (keeps configured languages only)\n"
-        "  • <b>NEVER</b> removes .forced.srt files"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 276
+msgid   "RENAME"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 123
-msgid   "How to Use"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+msgid   "Welcome to Jellyfix"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 125
-msgid   "<b>1. Configure TMDB API Key (recommended)</b>\n"
-        "   Menu → Configure API Keys → Follow the tutorial\n"
-        "   This enables metadata fetching and poster downloads.\n"
-        "\n"
-        "<b>2. Scan Library</b>\n"
-        "   Click \"Scan Library\" on Dashboard\n"
-        "   Select your media folder\n"
-        "   Review the scan results\n"
-        "\n"
-        "<b>3. Review Operations</b>\n"
-        "   Switch to \"Operations\" tab\n"
-        "   Preview what will be changed\n"
-        "   Select operations to see details\n"
-        "\n"
-        "<b>4. Execute</b>\n"
-        "   Click \"Process Files\"\n"
-        "   Confirm the operation\n"
-        "   Files will be renamed and organized\n"
-        "\n"
-        "<b>Tip:</b> Always review the preview before executing!"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+msgid   "Drop a folder here"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 153
-msgid   "Configure Jellyfix behavior:\n"
-        "\n"
-        "• <b>Subtitle Handling:</b> Rename variants, add language codes, "
-        "remove foreign\n"
-        "• <b>Kept Languages:</b> Choose which subtitle languages to keep\n"
-        "• <b>Metadata:</b> Enable/disable TMDB fetching\n"
-        "• <b>Quality Tags:</b> Add resolution tags to filenames\n"
-        "• <b>ffprobe:</b> Use ffprobe for accurate quality detection"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+msgid   "or click the button below"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 166
-msgid   "Important Notes"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+msgid   "Add Library"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 168
-msgid   "⚠️ <b>Dry-run is DEFAULT</b>\n"
-        "Files are NOT modified unless you explicitly execute operations.\n"
-        "\n"
-        "✓ <b>Always review before executing</b>\n"
-        "Check the operation preview carefully.\n"
-        "\n"
-        "🔑 <b>Configure TMDB API</b>\n"
-        "For best results, configure your TMDB API key in Settings.\n"
-        "\n"
-        "🌍 <b>Customize kept languages</b>\n"
-        "Configure which subtitle languages to keep in Preferences."
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+msgid   "Recent Libraries"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 187
-msgid   "Links"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+msgid   "Clear recent libraries"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 192
-msgid   "Homepage"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+msgid   "weeks ago"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 198
-msgid   "Report Issues"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+msgid   "days ago"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 204
-msgid   "Get TMDB API Key"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+msgid   "hours ago"
 msgstr  ""
 
 #
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-#
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 746
-msgid   "Unknown release"
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+msgid   "Just now"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-msgid   "Search Subtitles"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+msgid   "Operations"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-msgid   "Download"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 156
+msgid   "Search..."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-msgid   "Enter movie or show title..."
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 166
+msgid   "All"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-msgid   "Season"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 195
+msgid   "Download Subtitles for All"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-msgid   "Episode"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 197
+msgid   "Search and download subtitles for all listed videos"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-msgid   "Search for Subtitles"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 216
+msgid   "No Operations"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-msgid   "Enter a title and click search"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 217
+msgid   "Scan a directory to generate operations"
 msgstr  ""
 
 #
@@ -1722,20 +1657,25 @@ msgid   "rename"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-msgid   "Try a different search term"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 420
+msgid   "move"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#, python-brace-format
-msgid   "Found {} subtitles"
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 422
+msgid   "delete"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 425
 #, python-brace-format
-msgid   "Error: {}"
+msgid   "Showing {} of {} operations"
+msgstr  ""
+
+#
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 427
+#, python-brace-format
+msgid   "Total: {} operations"
 msgstr  ""
 
 #
