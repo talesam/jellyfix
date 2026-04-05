@@ -796,8 +796,10 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     # Remove quality tags
                     dest_name = re.sub(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', '', dest_name)
                     
-                    # Check if it's an episode (S01E01 pattern)
-                    episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
+                    # Check if it's an episode (S01E01 pattern, with optional ' - ' separator)
+                    episode_match = re.search(r'(.+?)\s+-\s+S(\d+)E(\d+)', dest_name)
+                    if not episode_match:
+                        episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
                     year_match = re.search(r'\((\d{4})\)', dest_name)
                     
                     tmdb_title = None
@@ -1091,8 +1093,10 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Remove quality tags
         dest_name = re.sub(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', '', dest_name)
         
-        # Check if it's an episode
-        episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
+        # Check if it's an episode (with optional ' - ' separator)
+        episode_match = re.search(r'(.+?)\s+-\s+S(\d+)E(\d+)', dest_name)
+        if not episode_match:
+            episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
         year_match = re.search(r'\((\d{4})\)', dest_name)
         
         if episode_match:
@@ -1268,6 +1272,14 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 # For NFO and image files, compare full stem
                 elif op.source.suffix.lower() in ['.nfo', '.jpg', '.png', '.jpeg']:
                     if normalize_spaces(file_stem) == video_normalized or file_stem == video_stem_original:
+                        related_indices.append(i)
+
+                # Convention files in the same folder (backdrop.jpg, folder.jpg, etc.)
+                # that don't match video stem — they're handled by replan_for_video_with_metadata
+                if op.source.parent == video_source.parent and i not in related_indices:
+                    from ...utils.helpers import is_video_file, is_image_file
+
+                    if not is_video_file(op.source) and not is_subtitle_file(op.source):
                         related_indices.append(i)
 
         if video_index is None:

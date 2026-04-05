@@ -834,7 +834,7 @@ class InteractiveCLI:
 
 • [green]{_("Renames files")}[/green] {_("to Jellyfin standard")}
   - {_("Movies")}: [dim]{_("Movie Name (YYYY).mkv")}[/dim]
-  - {_("Series")}: [dim]{_("Series Name S01E01.mkv")}[/dim]
+  - {_("Series")}: [dim]{_("Series Name - S01E01.mkv")}[/dim]
 
 • [green]{_("Organizes subtitles")}[/green] {_("(ALL languages)")}
   - {_("Renames variants")}: por2→por, eng2→eng, spa3→spa

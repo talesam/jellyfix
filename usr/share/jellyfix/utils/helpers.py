@@ -224,8 +224,11 @@ def clean_filename(name: str) -> str:
     Returns:
         Nome limpo
     """
+    # Substitui ':' por ' -' (Jellyfin não suporta dois pontos)
+    cleaned = name.replace(":", " -")
+
     # Substitui caracteres proibidos
-    cleaned = _RE_FORBIDDEN.sub("", name)
+    cleaned = _RE_FORBIDDEN.sub("", cleaned)
 
     # Remove espaços extras
     cleaned = _RE_MULTI_SPACE.sub(" ", cleaned).strip()

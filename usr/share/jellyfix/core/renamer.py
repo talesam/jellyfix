@@ -196,6 +196,24 @@ class Renamer:
                 if normalize_spaces(file_stem) == video_normalized or file_stem == video_stem_original:
                     related_files.append(file_path)
 
+        # Coleta TODOS os arquivos extras da pasta (Jellyfin convention: backdrop.jpg, folder.jpg, etc.)
+        # que não correspondem ao stem do vídeo mas devem acompanhar a mudança de pasta
+        from ..utils.helpers import is_video_file, is_image_file
+
+        folder_extras = []
+        for file_path in video_path.parent.iterdir():
+            if not file_path.is_file():
+                continue
+            if file_path == video_path:
+                continue
+            if file_path.name.startswith("."):
+                continue
+            if is_video_file(file_path) or is_subtitle_file(file_path):
+                continue
+            if file_path in related_files:
+                continue
+            folder_extras.append(file_path)
+
         # Separa por tipo
         subtitle_files = [f for f in related_files if is_subtitle_file(f)]
         nfo_files = [f for f in related_files if f.suffix.lower() == '.nfo']
@@ -240,7 +258,7 @@ class Renamer:
                         reason=f"Acompanhar vídeo: {nfo_path.name} → {new_nfo_name}"
                     ))
 
-        # Planeja arquivos de imagem
+        # Planeja arquivos de imagem (com mesmo stem do vídeo)
         if image_files:
             new_video_folder = new_video_op.destination.parent
 
@@ -254,6 +272,37 @@ class Renamer:
                         operation_type='move',
                         reason="Acompanhar vídeo"
                     ))
+
+        # Handle extras (backdrop.jpg, folder.jpg, logo.png, movie.nfo, etc.)
+        # that don't match video stem but belong to the same folder
+        new_video_folder = new_video_op.destination.parent
+        if new_video_folder != video_path.parent:
+            for extra_path in folder_extras:
+                already_planned = any(op.source == extra_path for op in self.operations)
+                if already_planned:
+                    continue
+                if self.config.remove_non_media:
+                    # Non-media files should be deleted, not moved
+                    self.operations.append(
+                        RenameOperation(
+                            source=extra_path,
+                            destination=extra_path,
+                            operation_type="delete",
+                            reason=f"Remover arquivo não-mídia: {extra_path.suffix}",
+                        )
+                    )
+                else:
+                    new_extra_path = new_video_folder / extra_path.name
+                    if new_extra_path.exists() and new_extra_path != extra_path:
+                        continue
+                    self.operations.append(
+                        RenameOperation(
+                            source=extra_path,
+                            destination=new_extra_path,
+                            operation_type="move",
+                            reason=f"Mover arquivo extra junto com vídeo: {extra_path.name}",
+                        )
+                    )
 
         return self.operations
 
@@ -303,7 +352,8 @@ class Renamer:
                 if parent_folder.resolve() == self.work_dir:
                     # Files are directly in work_dir
                     original_title = media_info.title if media_info else None
-                    if self._is_workdir_media_folder(original_title, title):
+                    tmdb_original = metadata.original_title if metadata else None
+                    if self._is_workdir_media_folder(original_title, title, tmdb_original):
                         # Work dir IS the media folder (e.g., "Avatar (2009)/")
                         # Create sibling folder (effectively renaming)
                         new_folder = self.work_dir.parent / expected_folder
@@ -367,7 +417,7 @@ class Renamer:
         else:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
 
-        new_name = f"{title} {episode_part}{file_path.suffix}"
+        new_name = f"{title} - {episode_part}{file_path.suffix}"
 
         # Determine series folder structure
         season_folder_name = format_season_folder(media_info.season)
@@ -390,7 +440,8 @@ class Renamer:
             if series_folder.resolve() == self.work_dir:
                 # Series folder IS the work_dir
                 original_title = media_info.title if media_info else None
-                if self._is_workdir_media_folder(original_title, title):
+                tmdb_original = metadata.original_title if metadata else None
+                if self._is_workdir_media_folder(original_title, title, tmdb_original):
                     # Work dir IS the series folder (e.g., "Breaking Bad (2008)/")
                     new_series_folder = self.work_dir.parent / expected_series_folder
                 else:
@@ -453,6 +504,7 @@ class Renamer:
 
         # Fetch metadata if configured
         folder_suffix = ""
+        metadata = None
         if self.metadata_fetcher and self.config.fetch_metadata:
             self.logger.info(f"🔍 Searching: {title}")
             metadata = self.metadata_fetcher.search_movie(title, year, interactive=self.config.interactive)
@@ -502,7 +554,8 @@ class Renamer:
             # Determine if work_dir is a media folder or a container folder
             if file_path.parent.resolve() == self.work_dir:
                 # Files are directly in work_dir
-                if self._is_workdir_media_folder(original_title, title):
+                tmdb_original = metadata.original_title if metadata else None
+                if self._is_workdir_media_folder(original_title, title, tmdb_original):
                     # Work dir IS the media folder (e.g., "Avatar (2009)/")
                     # Create sibling folder (effectively renaming)
                     new_folder = self.work_dir.parent / expected_folder
@@ -550,6 +603,7 @@ class Renamer:
         # Busca metadados se configurado
         folder_suffix = ""
         year = None
+        metadata = None
         if self.metadata_fetcher and self.config.fetch_metadata:
             self.logger.info(f"🔍 Buscando série: {title}")
             metadata = self.metadata_fetcher.search_tvshow(title, interactive=self.config.interactive)
@@ -570,15 +624,14 @@ class Renamer:
             else:
                 self.logger.warning(f"✗ Não encontrado: {title}")
 
-        # Formato Jellyfin: "Nome da Série S01E01.ext"
-        # IMPORTANTE: NÃO usar hífen antes de S01E01, apenas ESPAÇO! O Jellyfin não reconhece com hífen.
-        # Séries não incluem tag de qualidade no nome (diferente de filmes)
+        # Jellyfin format: "Series Name - S01E01.ext"
+        # Ref: https://jellyfin.org/docs/general/server/media/shows
         if media_info.episode_end and media_info.episode_end != media_info.episode_start:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
         else:
             episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
 
-        new_name = f"{title} {episode_part}{file_path.suffix}"
+        new_name = f"{title} - {episode_part}{file_path.suffix}"
 
         # Verifica estrutura de pastas
         # Esperado: SeriesFolder/Season XX/episode.mkv
@@ -604,7 +657,8 @@ class Renamer:
             # Determine if work_dir is a media folder or a container folder
             if series_folder.resolve() == self.work_dir:
                 # Series folder IS the work_dir
-                if self._is_workdir_media_folder(original_title, title):
+                tmdb_original = metadata.original_title if metadata else None
+                if self._is_workdir_media_folder(original_title, title, tmdb_original):
                     # Work dir IS the series folder
                     new_series_folder = self.work_dir.parent / expected_series_folder
                 else:
@@ -1301,27 +1355,24 @@ class Renamer:
 
         # Remove pastas vazias após mover arquivos
         if not dry_run and source_folders:
-            for folder in sorted(source_folders, key=lambda p: len(str(p)), reverse=True):
+            # Collect parent folders too (climb up hierarchy)
+            folders_to_check = set()
+            for folder in source_folders:
+                current = folder
+                while current and current != current.parent:
+                    folders_to_check.add(current)
+                    current = current.parent
+                    # Don't go above work_dir parent
+                    if self.work_dir and current == self.work_dir.parent:
+                        break
+
+            for folder in sorted(folders_to_check, key=lambda p: len(str(p)), reverse=True):
                 try:
                     if folder.exists() and folder.is_dir():
-                        # Verifica se a pasta está vazia (incluindo subpastas)
                         if not any(folder.iterdir()):
                             folder.rmdir()
                             self.logger.action(f"Removida pasta vazia: {folder}")
                             stats['cleaned'] += 1
-                        else:
-                            # Verifica subpastas vazias também
-                            for subfolder in folder.rglob('*'):
-                                if subfolder.is_dir() and not any(subfolder.iterdir()):
-                                    subfolder.rmdir()
-                                    self.logger.action(f"Removida pasta vazia: {subfolder}")
-                                    stats['cleaned'] += 1
-
-                            # Tenta remover a pasta principal novamente
-                            if not any(folder.iterdir()):
-                                folder.rmdir()
-                                self.logger.action(f"Removida pasta vazia: {folder}")
-                                stats['cleaned'] += 1
                 except Exception as e:
                     self.logger.debug(f"Não foi possível remover pasta {folder}: {e}")
 
