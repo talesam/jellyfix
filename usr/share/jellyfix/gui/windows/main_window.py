@@ -1030,9 +1030,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                         self._open_manual_subtitle_search(self._last_failed_ops[0])
                     else:
                         self._open_manual_subtitle_search()
-                # Always rescan the previously processed files to pick up new subtitles
+                # Rescan to pick up new subtitles; preserve original selection
+                # so non-media delete ops are not lost
                 if hasattr(self, "_batch_source_files") and self._batch_source_files:
-                    self.selected_files = list(self._batch_source_files)
                     del self._batch_source_files
                     if hasattr(self.operations_handler, "current_directory"):
                         self._start_scan(self.operations_handler.current_directory)
