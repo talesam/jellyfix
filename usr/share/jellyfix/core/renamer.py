@@ -51,7 +51,8 @@ class Renamer:
         original filename-derived title and the TMDB title so that translated
         names don't cause false negatives.
         """
-        folder_name = self.work_dir.name.lower()
+        # normalize dots/underscores → spaces so "The.Crown.S03..." matches "The Crown"
+        folder_name = normalize_spaces(self.work_dir.name).lower()
         for t in titles:
             if t and t.lower() in folder_name:
                 return True
