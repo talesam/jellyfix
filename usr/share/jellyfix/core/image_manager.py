@@ -93,7 +93,8 @@ class ImageManager:
         try:
             self.logger.debug(f"Downloading image: {url}")
 
-            response = requests.get(url, timeout=10)
+            from ..utils.config import get_config
+            response = requests.get(url, timeout=get_config().image_download_timeout)
             response.raise_for_status()
 
             # Save to cache

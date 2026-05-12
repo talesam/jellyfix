@@ -18,6 +18,7 @@ def mock_config():
     config.kept_languages = ["por", "eng"]
     config.remove_non_media = False
     config.min_pt_words = 5
+    config.min_subtitle_bytes = 20
     return config
 
 

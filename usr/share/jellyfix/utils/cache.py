@@ -29,7 +29,10 @@ from pathlib import Path
 from typing import Optional, Dict, Any
 import json
 import hashlib
+import logging
 from datetime import datetime, timedelta
+
+_log = logging.getLogger(__name__)
 
 
 class CacheManager:
@@ -59,8 +62,8 @@ class CacheManager:
             try:
                 with open(self.index_file, 'r', encoding='utf-8') as f:
                     self.index = json.load(f)
-            except (json.JSONDecodeError, IOError):
-                # Corrupted index, start fresh
+            except (json.JSONDecodeError, OSError) as e:
+                _log.warning("Cache index %s unreadable (%s) — starting fresh", self.index_file, e)
                 self.index = {}
         else:
             self.index = {}
@@ -70,8 +73,8 @@ class CacheManager:
         try:
             with open(self.index_file, 'w', encoding='utf-8') as f:
                 json.dump(self.index, f, indent=2, ensure_ascii=False)
-        except IOError:
-            pass  # Fail silently if we can't save index
+        except OSError as e:
+            _log.warning("Could not save cache index %s: %s", self.index_file, e)
 
     def _cleanup_expired(self):
         """Remove expired cache entries"""

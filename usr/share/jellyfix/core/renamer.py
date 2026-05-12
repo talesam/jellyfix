@@ -100,8 +100,8 @@ class Renamer:
 
                 # Processa legendas
                 elif is_subtitle_file(file_path):
-                    # Ignora legendas vazias ou muito pequenas (< 20 bytes)
-                    if file_path.stat().st_size < 20:
+                    # Ignora legendas vazias ou muito pequenas
+                    if file_path.stat().st_size < self.config.min_subtitle_bytes:
                         continue
                     subtitle_files.append(file_path)
 
@@ -152,11 +152,17 @@ class Renamer:
         self.video_operations_map = {}
         self.work_dir = video_path.parent.resolve()
 
-        # Detecta tipo de mídia
+        # Detecta tipo de mídia pelo nome do arquivo (fallback)
         media_info = detect_media_type(video_path)
 
-        # Planeja operação do vídeo com o novo metadata
-        if media_info.is_movie():
+        # Quando o metadata traz media_type explícito (escolha manual do usuário),
+        # ele tem prioridade sobre a detecção por filename — caso contrário um filme
+        # com "2" no título pode bater com um padrão de episódio.
+        if metadata.media_type == "movie":
+            new_video_op = self._plan_movie_rename_with_metadata(video_path, media_info, metadata)
+        elif metadata.media_type == "tvshow":
+            new_video_op = self._plan_tvshow_rename_with_metadata(video_path, media_info, metadata)
+        elif media_info.is_movie():
             new_video_op = self._plan_movie_rename_with_metadata(video_path, media_info, metadata)
         elif media_info.is_tvshow():
             new_video_op = self._plan_tvshow_rename_with_metadata(video_path, media_info, metadata)
@@ -278,9 +284,9 @@ class Renamer:
         # that don't match video stem but belong to the same folder
         new_video_folder = new_video_op.destination.parent
         if new_video_folder != video_path.parent:
+            planned_sources = {op.source for op in self.operations}
             for extra_path in folder_extras:
-                already_planned = any(op.source == extra_path for op in self.operations)
-                if already_planned:
+                if extra_path in planned_sources:
                     continue
                 if self.config.remove_non_media:
                     # Non-media files should be deleted, not moved
@@ -828,10 +834,10 @@ class Renamer:
                     if not lang_code:
                         # Verifica se é legenda portuguesa e deve adicionar código
                         if self.config.rename_no_lang and is_portuguese_subtitle(subtitle_path, self.config.min_pt_words):
-                            # Esta legenda receberia código .por
-                            # Mas NÃO processa aqui - deixa para _plan_subtitle_variants
-                            # para comparar qualidade com .por2.srt, .por3.srt, etc.
-                            pass  # Será tratada depois
+                            # Esta legenda receberia código .por — não processa aqui,
+                            # deixa para _plan_subtitle_variants comparar qualidade
+                            # com .por2.srt, .por3.srt, etc. Não marca como processada
+                            # para que _plan_subtitle_variants a veja.
                             continue
                     
                     processed_subtitles.append(subtitle_path)
@@ -944,8 +950,11 @@ class Renamer:
             # Calcula qualidade de cada variação
             scored_variants = []
             for num, path in variants:
-                quality = calculate_subtitle_quality(path)
-                file_size = path.stat().st_size
+                try:
+                    file_size = path.stat().st_size
+                except OSError:
+                    file_size = 0
+                quality = calculate_subtitle_quality(path, file_size=file_size)
                 scored_variants.append((quality, num, path, file_size))
 
                 # Log de debug (apenas em modo verbose)
@@ -1128,12 +1137,13 @@ class Renamer:
                     video_rename_map[old_stem] = (old_stem, new_folder)
 
         # Para cada pasta que está sendo esvaziada, move os arquivos extras
+        planned_sources = {op.source for op in self.operations}
         for old_folder, new_folder in video_folder_map.items():
             # Lista todos os arquivos na pasta antiga
             for file_path in old_folder.iterdir():
                 if not file_path.is_file():
                     continue
-                
+
                 # Verifica se o arquivo é permitido (se houver filtro)
                 if allowed_files is not None and file_path not in allowed_files:
                     continue
@@ -1147,8 +1157,7 @@ class Renamer:
                     continue
 
                 # Verifica se o arquivo já tem uma operação planejada
-                already_planned = any(op.source == file_path for op in self.operations)
-                if already_planned:
+                if file_path in planned_sources:
                     continue
 
                 # Verifica se é arquivo NFO e se deve renomear
@@ -1186,8 +1195,9 @@ class Renamer:
                             operation_type=op_type,
                             reason=f"Renomear NFO para corresponder ao vídeo: {file_path.name} → {new_name}"
                         ))
+                        planned_sources.add(file_path)
                         continue
-                
+
                 # Move o arquivo extra para a nova pasta (sem renomear)
                 new_path = new_folder / file_path.name
 
@@ -1202,6 +1212,7 @@ class Renamer:
                     operation_type='move',
                     reason=f"Mover arquivo extra junto com vídeo: {file_path.name}"
                 ))
+                planned_sources.add(file_path)
 
         # Processar tvshow.nfo de séries
         # Para séries, o tvshow.nfo fica na pasta raiz (ex: /Serie/tvshow.nfo)
@@ -1223,8 +1234,7 @@ class Renamer:
 
             if tvshow_nfo.exists() and tvshow_nfo.is_file():
                 # Verifica se já tem operação planejada
-                already_planned = any(op.source == tvshow_nfo for op in self.operations)
-                if already_planned:
+                if tvshow_nfo in planned_sources:
                     continue
 
                 new_tvshow_path = new_series_root / 'tvshow.nfo'
@@ -1240,6 +1250,7 @@ class Renamer:
                     operation_type='move',
                     reason="Mover tvshow.nfo para nova pasta da série"
                 ))
+                planned_sources.add(tvshow_nfo)
 
     def _plan_non_media_removal(self, non_media_files: List[Path]):
         """
@@ -1248,10 +1259,10 @@ class Renamer:
         Args:
             non_media_files: Lista de arquivos não-mídia a serem removidos
         """
+        planned_sources = {op.source for op in self.operations}
         for file_path in non_media_files:
             # Verifica se o arquivo ainda não tem operação planejada
-            already_planned = any(op.source == file_path for op in self.operations)
-            if already_planned:
+            if file_path in planned_sources:
                 continue
 
             # Adiciona operação de remoção
@@ -1261,6 +1272,7 @@ class Renamer:
                 operation_type='delete',
                 reason=f"Remover arquivo não-mídia: {file_path.suffix}"
             ))
+            planned_sources.add(file_path)
 
     def execute_operations(self, dry_run: bool = True) -> Dict[str, int]:
         """

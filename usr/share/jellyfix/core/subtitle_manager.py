@@ -16,6 +16,7 @@ Implements a 3-level search strategy:
   3. Manual search with user query (last resort)
 """
 
+import os
 from pathlib import Path
 from typing import List, Dict, Optional, Set, Any, Tuple
 from dataclasses import dataclass
@@ -266,14 +267,20 @@ class SubtitleManager:
 
         # Phase 1: Batch hash search — single pool for all videos
         self.logger.info(_("Batch Level 1: scanning %d videos by hash...") % total)
-        scanned = {}
-        for vpath in video_paths:
-            if not vpath.exists():
-                continue
-            try:
-                scanned[vpath] = scan_video(vpath)
-            except Exception as e:
-                self.logger.debug(f"scan_video failed for {vpath.name}: {e}")
+        existing_videos = [vpath for vpath in video_paths if vpath.exists()]
+        scanned: Dict[Path, Any] = {}
+        if existing_videos:
+            # ffprobe/hashing is I/O-bound — parallelize across cores
+            from concurrent.futures import ThreadPoolExecutor
+            max_workers = min(8, max(2, (os.cpu_count() or 4)))
+            with ThreadPoolExecutor(max_workers=max_workers) as pool:
+                future_to_path = {pool.submit(scan_video, vp): vp for vp in existing_videos}
+                for future in future_to_path:
+                    vp = future_to_path[future]
+                    try:
+                        scanned[vp] = future.result()
+                    except Exception as e:
+                        self.logger.info(f"scan_video failed for {vp.name}: {e}")
 
         if scanned:
             try:
@@ -285,7 +292,7 @@ class SubtitleManager:
                     min_score=min_score,
                 )
             except Exception as e:
-                self.logger.debug(f"Batch hash search failed: {e}")
+                self.logger.warning(f"Batch hash search failed: {e}")
                 hash_results = {}
 
             # Map results back to paths and save subtitles
@@ -364,7 +371,7 @@ class SubtitleManager:
             return self._save_subtitles(video, video_path, downloaded_subs)
 
         except Exception as e:
-            self.logger.debug(f"Hash search failed: {e}")
+            self.logger.info(f"Hash search failed for {video_path.name}: {e}")
             return {}
 
     def _search_by_title(self, video_path: Path, title: str, year: Optional[int],
@@ -411,10 +418,11 @@ class SubtitleManager:
                 provider = getattr(sub, 'provider_name', 'unknown')
                 
                 # Get subtitle release info for validation
-                release_info = (
-                    getattr(sub, 'release_info', '') or 
-                    getattr(sub, 'releases', [''])[0] if hasattr(sub, 'releases') else ''
-                )
+                release_info = getattr(sub, 'release_info', '') or ''
+                if not release_info:
+                    releases = getattr(sub, 'releases', None) or []
+                    if releases:
+                        release_info = releases[0] or ''
                 movie_name = getattr(sub, 'movie_name', '') or getattr(sub, 'series', '') or ''
                 sub_year = getattr(sub, 'year', None)
                 
@@ -502,9 +510,9 @@ class SubtitleManager:
                     return False
                 return True
             
-            # Use similarity ratio for fuzzy matching (lowered threshold)
+            # Use similarity ratio for fuzzy matching (config-tunable)
             similarity = self._title_similarity(title_clean, sub_name_clean)
-            if similarity >= 0.5:  # Lowered from 0.8 to be more permissive
+            if similarity >= get_config().title_similarity_threshold:
                 if year and sub_year and abs(year - sub_year) > 1:
                     return False
                 return True
@@ -570,10 +578,12 @@ class SubtitleManager:
         Detect if Portuguese subtitle is pt-BR or pt-PT.
         Returns 'por-br' or 'por-pt' for prioritization.
         """
-        release_info = (
-            getattr(sub, 'release_info', '') or 
-            getattr(sub, 'releases', [''])[0] if hasattr(sub, 'releases') else ''
-        ).lower()
+        release_info = getattr(sub, 'release_info', '') or ''
+        if not release_info:
+            releases = getattr(sub, 'releases', None) or []
+            if releases:
+                release_info = releases[0] or ''
+        release_info = release_info.lower()
         
         # Check for Brazilian Portuguese indicators
         br_indicators = ['brazil', 'brasileiro', 'br', 'pt-br', 'ptbr', 'bra']

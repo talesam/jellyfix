@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.8.7"
+APP_VERSION = "2.8.8"
 
 
 @dataclass
@@ -35,6 +35,12 @@ class Config:
 
     # Detecção de português
     min_pt_words: int = 5
+
+    # Network / API tunables
+    image_download_timeout: int = 10  # seconds for poster/backdrop HTTP requests
+    max_search_results: int = 10  # max TMDB/subtitle results shown in pickers
+    title_similarity_threshold: float = 0.5  # min ratio for fuzzy title matching
+    min_subtitle_bytes: int = 20  # files smaller than this are skipped as junk
 
     # Modos de execução
     dry_run: bool = True

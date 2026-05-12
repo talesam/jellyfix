@@ -83,9 +83,11 @@ class SearchResultItem(Gtk.FlowBoxChild):
     
     def _load_poster_async(self, url: str):
         """Load poster image asynchronously"""
+        from ...utils.config import get_config
+        timeout = get_config().image_download_timeout
         def do_load():
             try:
-                with urllib.request.urlopen(url, timeout=10) as response:
+                with urllib.request.urlopen(url, timeout=timeout) as response:
                     data = response.read()
                     # Save to temp file
                     with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as f:
@@ -142,11 +144,10 @@ class SearchDialog(Adw.Dialog):
         main_box.set_margin_start(16)
         main_box.set_margin_end(16)
         
-        # Header bar with close button
-        header = Adw.HeaderBar()
-        header.set_show_end_title_buttons(True)
-        main_box.append(header)
-        
+        # Removida a Adw.HeaderBar (que renderizava a barra escura com o título
+        # "Search Title"). O Adw.Dialog já permite fechar via Esc e o botão
+        # Cancelar do rodapé. Layout fica mais limpo, focado na busca.
+
         # Search entry
         search_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         search_box.set_spacing(8)
@@ -203,7 +204,9 @@ class SearchDialog(Adw.Dialog):
         self.results_flowbox.set_min_children_per_line(2)
         self.results_flowbox.set_selection_mode(Gtk.SelectionMode.SINGLE)
         self.results_flowbox.set_homogeneous(True)
-        self.results_flowbox.connect("child-activated", self._on_result_selected)
+        # Single-click selects; double-click / Enter activates and auto-applies
+        self.results_flowbox.connect("selected-children-changed", self._on_selection_changed)
+        self.results_flowbox.connect("child-activated", self._on_result_activated)
         
         scrolled.set_child(self.results_flowbox)
         main_box.append(scrolled)
@@ -268,16 +271,25 @@ class SearchDialog(Adw.Dialog):
                     GLib.idle_add(self._show_error, _("TMDB not configured"))
                     return
                 
+                # Usa o mesmo padrão de metadata.py: Search.movies() para filmes
+                # e TV.search() para séries. Movie().search() retorna o JSON cru,
+                # cuja iteração devolve nomes de chave (strings) — não objetos.
                 if self.is_movie:
-                    results = tmdb['movie'].search(query)
+                    results = tmdb['search'].movies(query)
                 else:
                     results = tmdb['tv'].search(query)
-                
-                # Convert to list
+
+                # Convert to list (iteração explícita pois AsObj não suporta enumerate em slice)
                 result_list = []
-                for i, r in enumerate(results):
-                    if i >= 20:  # Limit to 20 results
+                count = 0
+                for r in results:
+                    if count >= 20:  # Limit to 20 results
                         break
+                    count += 1
+                    # Defensivo: se por algum motivo o item não tiver atributos
+                    # esperados (ex: API mudar formato), pula em vez de quebrar.
+                    if not hasattr(r, 'id'):
+                        continue
                     result_list.append({
                         'id': r.id,
                         'title': getattr(r, 'title', None) or getattr(r, 'name', 'Unknown'),
@@ -318,17 +330,28 @@ class SearchDialog(Adw.Dialog):
         """Show error message"""
         self.spinner.stop()
         self.spinner.set_visible(False)
-        self.status_label.set_text(f"❌ {message}")
+        self.status_label.set_text(_("Error: {}").format(message))
     
-    def _on_result_selected(self, flowbox, child):
-        """Handle result selection"""
-        self.select_button.set_sensitive(True)
-        
-        # Get the selected result
-        if isinstance(child, SearchResultItem):
-            self.selected_result = child.result
+    def _on_selection_changed(self, flowbox):
+        """Handle selection change (single-click)."""
+        selected = flowbox.get_selected_children()
+        if selected and isinstance(selected[0], SearchResultItem):
+            self.selected_result = selected[0].result
+            self.select_button.set_sensitive(True)
         else:
             self.selected_result = None
+            self.select_button.set_sensitive(False)
+
+    def _on_result_activated(self, flowbox, child):
+        """Handle result activation (double-click / Enter): only select.
+
+        Antes aplicava imediatamente, mas isso fazia o diálogo fechar sem o
+        usuário revisar. Agora apenas seleciona e habilita o botão Aplicar.
+        """
+        if isinstance(child, SearchResultItem):
+            self.selected_result = child.result
+            self.select_button.set_sensitive(True)
+            flowbox.select_child(child)
     
     def _on_select_clicked(self, button):
         """Handle select button click"""
@@ -353,6 +376,7 @@ class SearchDialog(Adw.Dialog):
             overview=result.get('overview'),
             poster_path=poster_path,
             poster_url=poster_url,
+            media_type="movie" if self.is_movie else "tvshow",
         )
         
         self.selected_metadata = metadata

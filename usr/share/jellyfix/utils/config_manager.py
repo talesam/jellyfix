@@ -1,13 +1,12 @@
 """Gerenciador de configuração persistente em JSON"""
 
 import json
-import logging
 import os
 import shutil
 from pathlib import Path
 from typing import Optional, Dict, Any
 
-_log = logging.getLogger(__name__)
+from .logger import get_logger
 
 
 class ConfigManager:
@@ -36,10 +35,10 @@ class ConfigManager:
             with open(self.config_file, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except json.JSONDecodeError as e:
-            _log.warning("Config file corrupted (%s): %s — using defaults", self.config_file, e)
+            get_logger().warning(f"Config file corrupted ({self.config_file}): {e} — using defaults")
             return {}
         except OSError as e:
-            _log.warning("Config file unreadable (%s): %s — using defaults", self.config_file, e)
+            get_logger().warning(f"Config file unreadable ({self.config_file}): {e} — using defaults")
             return {}
 
     def save(self, config: Dict[str, Any]):
@@ -206,21 +205,23 @@ class ConfigManager:
         """Clear all recent libraries"""
         self.set('recent_libraries', [])
 
-    def get_clear_recent_on_start(self) -> bool:
-        """Get whether to clear recent libraries on startup (default: True)"""
-        return self.get('clear_recent_on_start', True)
-
-    def set_clear_recent_on_start(self, value: bool):
-        """Set whether to clear recent libraries on startup"""
-        self.set('clear_recent_on_start', value)
-
     def get_keep_recent_libraries(self) -> bool:
-        """Get whether to keep recent libraries (inverse of clear_on_start for UI)"""
-        return not self.get_clear_recent_on_start()
+        """Get whether to keep recent libraries across sessions (default: False)."""
+        config = self.load()
+        if 'keep_recent_libraries' in config:
+            return bool(config['keep_recent_libraries'])
+        # Migration from legacy inverse key
+        if 'clear_recent_on_start' in config:
+            return not bool(config['clear_recent_on_start'])
+        return False
 
     def set_keep_recent_libraries(self, value: bool):
-        """Set whether to keep recent libraries"""
-        self.set_clear_recent_on_start(not value)
+        """Set whether to keep recent libraries across sessions."""
+        config = self.load()
+        config['keep_recent_libraries'] = bool(value)
+        # Drop legacy inverse key if present
+        config.pop('clear_recent_on_start', None)
+        self.save(config)
 
     def get_last_directory(self) -> Optional[str]:
         """Get last opened directory for file chooser"""

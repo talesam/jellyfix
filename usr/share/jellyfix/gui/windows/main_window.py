@@ -19,6 +19,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
 import os
+import threading
 from pathlib import Path
 
 from gi.repository import Adw, GLib, Gtk, Pango
@@ -47,6 +48,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.logger = get_logger()
         self.subtitle_manager = SubtitleManager()
 
+        # Flag for background threads to bail out after window close
+        self._destroyed = False
+
         # Window properties
         self.set_title(_("Jellyfix"))
         self.set_default_size(1200, 800)
@@ -60,12 +64,19 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Build UI
         self._build_ui()
 
+        self.connect("close-request", self._on_close_request)
+
+    def _on_close_request(self, *_args):
+        """Mark window as destroyed so background threads can short-circuit."""
+        self._destroyed = True
+        return False
+
     def _check_clear_recent_on_start(self):
-        """Clear recent libraries on startup if configured"""
+        """Clear recent libraries on startup unless the user opted to keep them."""
         from ...utils.config_manager import ConfigManager
 
         config_manager = ConfigManager()
-        if config_manager.get_clear_recent_on_start():
+        if not config_manager.get_keep_recent_libraries():
             config_manager.clear_recent_libraries()
             self.logger.debug("Cleared recent libraries on startup")
 
@@ -587,6 +598,33 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         # Try to fetch and show poster if it's a movie
         self._try_fetch_poster(operation)
 
+    def _fetch_poster_from_metadata(self, metadata):
+        """
+        Baixa e exibe o poster a partir de um Metadata já resolvido (escolha
+        manual do usuário). Diferente de _try_fetch_poster, não re-pesquisa
+        pelo nome do arquivo — usa diretamente metadata.poster_path/tmdb_id.
+        """
+        if not self.operations_handler.image_manager:
+            return
+        if not getattr(metadata, 'poster_path', None) or not getattr(metadata, 'tmdb_id', None):
+            # Sem poster — limpa a imagem para não mostrar o anterior errado
+            GLib.idle_add(self.preview_panel.poster_image.set_visible, False)
+            return
+
+        def fetch_task():
+            try:
+                if self._destroyed:
+                    return
+                poster_path = self.operations_handler.image_manager.download_poster(
+                    metadata, size='medium'
+                )
+                if poster_path and not self._destroyed:
+                    GLib.idle_add(self.preview_panel.load_poster, poster_path)
+            except Exception as e:
+                self.logger.error(f"Erro ao baixar poster: {e}")
+
+        threading.Thread(target=fetch_task, daemon=True).start()
+
     def _try_fetch_poster(self, operation):
         """
         Try to fetch and display poster for operation.
@@ -628,6 +666,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         def fetch_task():
             """Background poster fetch"""
             try:
+                if self._destroyed:
+                    return
                 metadata = None
                 is_movie = media_info.media_type == MediaType.MOVIE
 
@@ -657,6 +697,9 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                         self.logger.info(f"Searching TV show: {title}")
                         metadata = self.operations_handler.metadata_fetcher.search_tvshow(title, year)
 
+                if self._destroyed:
+                    return
+
                 if metadata:
                     self.logger.debug(f"Got metadata: {metadata}")
                     if self.operations_handler.image_manager:
@@ -664,10 +707,10 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                         poster_path = self.operations_handler.image_manager.download_poster(
                             metadata, size='medium'
                         )
-                        if poster_path:
+                        if poster_path and not self._destroyed:
                             self.logger.info(f"Poster downloaded: {poster_path}")
                             GLib.idle_add(self.preview_panel.load_poster, poster_path)
-                        else:
+                        elif not poster_path:
                             self.logger.warning("Poster download returned None")
                     else:
                         self.logger.warning("No image manager available")
@@ -774,56 +817,28 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 import re
 
                 from ...utils.config import get_config
-                
+
                 config = get_config()
                 requested_langs = set(config.kept_languages) if config.kept_languages else {'por', 'eng'}
-                
+
                 for i, op in enumerate(operations):
+                    if self._destroyed:
+                        return
                     # Update status to show current file being processed
                     GLib.idle_add(self._update_batch_status, i, op.source.name)
                     
-                    # Extract TMDB info from destination path
-                    dest_str = str(op.destination)
-                    
-                    # Extract TMDB ID
-                    tmdb_match = re.search(r'\[tmdbid-(\d+)\]', dest_str)
+                    from ...utils.helpers import parse_destination_for_search
+
+                    # Extract TMDB ID from path
+                    tmdb_match = re.search(r'\[tmdbid-(\d+)\]', str(op.destination))
                     tmdb_id = int(tmdb_match.group(1)) if tmdb_match else None
-                    
-                    # Extract title and year from destination
-                    # Pattern: "Title (Year)" or episode "Title S01E01"
-                    dest_name = op.destination.stem
-                    
-                    # Remove quality tags
-                    dest_name = re.sub(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', '', dest_name)
-                    
-                    # Check if it's an episode (S01E01 pattern, with optional ' - ' separator)
-                    episode_match = re.search(r'(.+?)\s+-\s+S(\d+)E(\d+)', dest_name)
-                    if not episode_match:
-                        episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
-                    year_match = re.search(r'\((\d{4})\)', dest_name)
-                    
-                    tmdb_title = None
-                    tmdb_year = None
-                    is_episode = False
-                    season = None
-                    episode_num = None
-                    
-                    if episode_match:
-                        # TV Episode
-                        tmdb_title = episode_match.group(1).strip()
-                        season = int(episode_match.group(2))
-                        episode_num = int(episode_match.group(3))
-                        is_episode = True
-                        # Try to get year from folder
-                        folder_year = re.search(r'\((\d{4})\)', str(op.destination.parent))
-                        if folder_year:
-                            tmdb_year = int(folder_year.group(1))
-                    elif year_match:
-                        # Movie
-                        tmdb_year = int(year_match.group(1))
-                        tmdb_title = dest_name[:year_match.start()].strip()
-                    else:
-                        tmdb_title = dest_name.strip()
+
+                    parsed = parse_destination_for_search(op.destination)
+                    tmdb_title = parsed['title']
+                    tmdb_year = parsed['year']
+                    is_episode = parsed['is_episode']
+                    season = parsed['season']
+                    episode_num = parsed['episode']
                     
                     # IMPORTANT: Use original title from TMDB for subtitle search
                     # Subtitle providers index by original (usually English) title
@@ -882,40 +897,46 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                                 )
                                 - existing_subs
                             )
-                            self.batch_progress["downloaded"] += len(new_subs)
-                            
+                            bp = getattr(self, "batch_progress", None)
+                            if bp is None:
+                                return  # Window closed mid-batch
+                            bp["downloaded"] += len(new_subs)
+
                             # Check if we got all requested languages
                             missing = requested_langs - found_langs
                             if missing:
                                 # Partial success - save for manual search
-                                if 'partial_ops' not in self.batch_progress:
-                                    self.batch_progress['partial_ops'] = []
-                                self.batch_progress['partial_ops'].append({
+                                bp.setdefault('partial_ops', []).append({
                                     'op': op,
                                     'missing': missing,
                                     'found': found_langs
                                 })
-                                self.batch_progress['partial'] = self.batch_progress.get('partial', 0) + 1
+                                bp['partial'] = bp.get('partial', 0) + 1
                             else:
                                 # Full success
-                                self.batch_progress['success'] += 1
+                                bp['success'] += 1
                         else:
                             # No subtitles found at all
-                            if 'failed_ops' not in self.batch_progress:
-                                self.batch_progress['failed_ops'] = []
-                            self.batch_progress['failed_ops'].append(op)
+                            bp = getattr(self, "batch_progress", None)
+                            if bp is None:
+                                return
+                            bp.setdefault('failed_ops', []).append(op)
                     except Exception as e:
                         self.logger.error(f"Error downloading for {op.source.name}: {e}")
 
                     # Update progress bar after each file is processed
+                    if self._destroyed:
+                        return
                     GLib.idle_add(self._update_batch_progress, i + 1)
-                
+
                 # Finish
-                GLib.idle_add(self._on_batch_complete)
-                
+                if not self._destroyed:
+                    GLib.idle_add(self._on_batch_complete)
+
             except Exception as e:
                 self.logger.error(f"Batch download failed: {e}")
-                GLib.idle_add(self._on_batch_error, str(e))
+                if not self._destroyed:
+                    GLib.idle_add(self._on_batch_error, str(e))
                 
         # Run in background thread
         import threading
@@ -931,47 +952,69 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
     def _update_batch_status(self, index, filename):
         """Update status text and current file label (before download)"""
-        if not hasattr(self, 'batch_progress'):
+        bp = getattr(self, 'batch_progress', None)
+        if not bp:
             return
-        total = self.batch_progress["total"]
-        self.batch_progress["status"].set_text(
-            _("Searching subtitles ({}/{})").format(index + 1, total)
-        )
-        self.batch_progress["file"].set_text(filename)
+        try:
+            total = bp["total"]
+            bp["status"].set_text(
+                _("Searching subtitles ({}/{})").format(index + 1, total)
+            )
+            bp["file"].set_text(filename)
+        except (KeyError, AttributeError):
+            # Window was closed between idle_add scheduling and execution
+            return
 
     def _update_batch_progress(self, completed):
         """Update progress bar after a file has been processed"""
-        if not hasattr(self, "batch_progress"):
+        bp = getattr(self, "batch_progress", None)
+        if not bp:
             return
-        total = self.batch_progress['total']
-        fraction = completed / total
-        self.batch_progress["bar"].set_fraction(fraction)
-        self.batch_progress["bar"].set_text(f"{int(fraction * 100)}%")
+        try:
+            total = bp['total']
+            fraction = completed / total if total else 0
+            bp["bar"].set_fraction(fraction)
+            bp["bar"].set_text(f"{int(fraction * 100)}%")
+        except (KeyError, AttributeError, ZeroDivisionError):
+            return
 
     def _on_batch_complete(self):
         """Handle batch completion"""
-        if hasattr(self, 'batch_progress'):
+        bp = getattr(self, 'batch_progress', None)
+        if bp:
             # Stop spinner
-            self.batch_progress["spinner"].stop()
+            try:
+                bp["spinner"].stop()
+            except (KeyError, AttributeError):
+                pass
 
             # Stop pulsing if active
-            if self.batch_progress.get('pulse_id'):
-                GLib.source_remove(self.batch_progress['pulse_id'])
-                
-            self.batch_progress['window'].close()
+            if bp.get('pulse_id'):
+                try:
+                    GLib.source_remove(bp['pulse_id'])
+                except Exception:
+                    pass
+
+            try:
+                bp['window'].close()
+            except (KeyError, AttributeError):
+                pass
             
-            total = self.batch_progress['total']
-            success = self.batch_progress['success']
-            downloaded = self.batch_progress['downloaded']
-            partial = self.batch_progress.get('partial', 0)
-            partial_ops = self.batch_progress.get('partial_ops', [])
-            failed_ops = self.batch_progress.get('failed_ops', [])
-            
+            total = bp.get('total', 0)
+            success = bp.get('success', 0)
+            downloaded = bp.get('downloaded', 0)
+            partial = bp.get('partial', 0)
+            partial_ops = bp.get('partial_ops', [])
+            failed_ops = bp.get('failed_ops', [])
+
             # Store for manual search
             self._last_partial_ops = partial_ops
             self._last_failed_ops = failed_ops
-            
-            del self.batch_progress
+
+            try:
+                del self.batch_progress
+            except AttributeError:
+                pass
             
             # Determine message and options based on results
             sub_word = _("subtitle") if downloaded == 1 else _("subtitles")
@@ -1042,13 +1085,21 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
 
     def _on_batch_error(self, error_msg):
         """Handle batch error"""
-        if hasattr(self, 'batch_progress'):
-            # Stop pulsing if active
-            if self.batch_progress.get('pulse_id'):
-                GLib.source_remove(self.batch_progress['pulse_id'])
-                
-            self.batch_progress['window'].close()
-            del self.batch_progress
+        bp = getattr(self, 'batch_progress', None)
+        if bp:
+            if bp.get('pulse_id'):
+                try:
+                    GLib.source_remove(bp['pulse_id'])
+                except Exception:
+                    pass
+            try:
+                bp['window'].close()
+            except (KeyError, AttributeError):
+                pass
+            try:
+                del self.batch_progress
+            except AttributeError:
+                pass
             
         dialog = Adw.MessageDialog(
             transient_for=self,
@@ -1071,64 +1122,31 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
     def _open_manual_subtitle_search(self, operation=None):
         """
         Open manual subtitle search dialog.
-        
+
         Args:
             operation: Optional RenameOperation to search for. If None, uses current selection.
         """
-        import re
-
         from .subtitle_search_dialog import SubtitleSearchDialog
-        
+        from ...utils.helpers import parse_destination_for_search
+
         # Get operation from current selection if not provided
         if operation is None:
             operation = self.preview_panel.current_operation
-        
+
         if operation is None:
             self.logger.warning("No operation selected for manual subtitle search")
             return
-        
-        # Extract info from destination
-        dest_name = operation.destination.stem
-        
-        # Remove quality tags
-        dest_name = re.sub(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', '', dest_name)
-        
-        # Check if it's an episode (with optional ' - ' separator)
-        episode_match = re.search(r'(.+?)\s+-\s+S(\d+)E(\d+)', dest_name)
-        if not episode_match:
-            episode_match = re.search(r'(.+?)\s+S(\d+)E(\d+)', dest_name)
-        year_match = re.search(r'\((\d{4})\)', dest_name)
-        
-        if episode_match:
-            query = episode_match.group(1).strip()
-            season = int(episode_match.group(2))
-            episode_num = int(episode_match.group(3))
-            is_episode = True
-            # Try to get year from folder
-            folder_year = re.search(r'\((\d{4})\)', str(operation.destination.parent))
-            year = int(folder_year.group(1)) if folder_year else None
-        elif year_match:
-            year = int(year_match.group(1))
-            query = dest_name[:year_match.start()].strip()
-            is_episode = False
-            season = None
-            episode_num = None
-        else:
-            query = dest_name.strip()
-            year = None
-            is_episode = False
-            season = None
-            episode_num = None
-        
-        # Open dialog
+
+        parsed = parse_destination_for_search(operation.destination)
+
         dialog = SubtitleSearchDialog(
             parent=self,
             video_path=operation.source,
-            initial_query=query,
-            is_episode=is_episode,
-            season=season,
-            episode=episode_num,
-            year=year,
+            initial_query=parsed['title'],
+            is_episode=parsed['is_episode'],
+            season=parsed['season'],
+            episode=parsed['episode'],
+            year=parsed['year'],
             on_download=lambda path: self._on_manual_subtitle_downloaded(path)
         )
         dialog.present()
@@ -1141,85 +1159,6 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             toast.set_timeout(3)
             self.toast_overlay.add_toast(toast)
 
-
-    def _fetch_metadata_and_poster(self, operation, media_info, title, year):
-        """
-        Fetch metadata and poster for operation.
-
-        Args:
-            operation: RenameOperation instance
-            media_info: MediaInfo instance
-            title: Extracted title
-            year: Extracted year
-        """
-        from ...core.detector import MediaType
-
-        def fetch_task():
-            """Background metadata fetch"""
-            try:
-                metadata = None
-
-                # Search for movie or TV show
-                if media_info.media_type == MediaType.MOVIE:
-                    metadata = self.operations_handler.metadata_fetcher.search_movie(
-                        title, year
-                    )
-                elif media_info.media_type == MediaType.EPISODE:
-                    # For episodes, extract show title
-                    show_title = title  # TODO: Better extraction
-                    metadata = self.operations_handler.metadata_fetcher.search_tvshow(
-                        show_title, year
-                    )
-
-                if metadata:
-                    # Update preview on main thread
-                    GLib.idle_add(self._update_preview_with_metadata, metadata)
-
-            except Exception as e:
-                self.logger.error(f"Metadata fetch failed: {e}")
-
-        # Run in background if metadata fetcher is available
-        if self.operations_handler.metadata_fetcher:
-            import threading
-            thread = threading.Thread(target=fetch_task, daemon=True)
-            thread.start()
-
-    def _update_preview_with_metadata(self, metadata):
-        """
-        Update preview panel with fetched metadata.
-
-        Args:
-            metadata: Metadata instance
-        """
-        # Update preview with full metadata
-        self.preview_panel.set_metadata(
-            title=metadata.title,
-            year=metadata.year,
-            original_title=metadata.original_title,
-            overview=metadata.overview,
-            quality=None  # Keep existing quality
-        )
-
-        # Download poster
-        if metadata.poster_path:
-            self.operations_handler.download_poster(
-                metadata,
-                callback=self._on_poster_downloaded
-            )
-
-        return False  # Remove from GLib idle queue
-
-    def _on_poster_downloaded(self, poster_path):
-        """
-        Handle poster download completion.
-
-        Args:
-            poster_path: Path to downloaded poster (or None)
-        """
-        if poster_path:
-            self.preview_panel.load_poster(poster_path)
-
-        return False  # Remove from GLib idle queue
 
     def _on_metadata_changed(self, operation, metadata):
         """
@@ -1327,8 +1266,11 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         if new_operations:
             self.preview_panel.show_operation(new_operations[0])
 
-            # Fetch new poster
-            self._try_fetch_poster(new_operations[0])
+            # Baixa o poster diretamente do metadata escolhido pelo usuário.
+            # Não chamamos _try_fetch_poster aqui porque ele re-detecta o tipo
+            # e re-pesquisa pelo nome do arquivo original (ex: "Escape 2 Africa"),
+            # ignorando a escolha manual. O metadata já tem poster_path e tmdb_id.
+            self._fetch_poster_from_metadata(metadata)
 
         # Show success toast with count of operations
         toast = Adw.Toast(title=f"Updated: {metadata.title} ({metadata.year}) - {len(new_operations)} operations")

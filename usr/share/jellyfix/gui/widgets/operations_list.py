@@ -119,6 +119,8 @@ class OperationsListView(Gtk.Box):
         self.filtered_operations: List[RenameOperation] = []
         self.current_filter = "all"  # all, rename, move, delete
         self.search_text = ""
+        # Tracks (row, handler_id) so we can disconnect on every rebuild.
+        self._row_handlers: List = []
 
         # Set expansion - CRITICAL for layout
         self.set_vexpand(True)
@@ -157,44 +159,55 @@ class OperationsListView(Gtk.Box):
         self.search_entry.connect("search-changed", self._on_search_changed)
         toolbar.append(self.search_entry)
 
-        # Filter buttons
+        # Filter buttons — cores semânticas por tipo de operação.
         filter_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        filter_box.set_spacing(6)
+        filter_box.set_spacing(4)
         filter_box.set_homogeneous(True)
+        filter_box.add_css_class("filter-bar")
+        filter_box.add_css_class("linked")
 
-        # All button
+        # All button (neutro)
         self.filter_all_btn = Gtk.ToggleButton(label=_("All"))
         self.filter_all_btn.set_active(True)
+        self.filter_all_btn.add_css_class("filter-all")
+        self.filter_all_btn.add_css_class("flat")
         self.filter_all_btn.connect("toggled", self._on_filter_changed, "all")
         filter_box.append(self.filter_all_btn)
 
-        # Rename button
+        # Rename (accent)
         self.filter_rename_btn = Gtk.ToggleButton(label=_("Rename"))
         self.filter_rename_btn.set_group(self.filter_all_btn)
+        self.filter_rename_btn.add_css_class("filter-rename")
+        self.filter_rename_btn.add_css_class("flat")
         self.filter_rename_btn.connect("toggled", self._on_filter_changed, "rename")
         filter_box.append(self.filter_rename_btn)
 
-        # Move button
+        # Move (success)
         self.filter_move_btn = Gtk.ToggleButton(label=_("Move"))
         self.filter_move_btn.set_group(self.filter_all_btn)
+        self.filter_move_btn.add_css_class("filter-move")
+        self.filter_move_btn.add_css_class("flat")
         self.filter_move_btn.connect("toggled", self._on_filter_changed, "move")
         filter_box.append(self.filter_move_btn)
 
-        # Delete button
+        # Delete (destructive)
         self.filter_delete_btn = Gtk.ToggleButton(label=_("Delete"))
         self.filter_delete_btn.set_group(self.filter_all_btn)
+        self.filter_delete_btn.add_css_class("filter-delete")
+        self.filter_delete_btn.add_css_class("flat")
         self.filter_delete_btn.connect("toggled", self._on_filter_changed, "delete")
         filter_box.append(self.filter_delete_btn)
 
         toolbar.append(filter_box)
 
-        # Download Subtitles Button
+        # Download Subtitles Button — visual de ação destacada, mas não primária.
         self.download_subs_btn = Gtk.Button()
         dl_content = Adw.ButtonContent()
         dl_content.set_icon_name("media-view-subtitles-symbolic")
         dl_content.set_label(_("Download Subtitles for All"))
         self.download_subs_btn.set_child(dl_content)
         self.download_subs_btn.set_tooltip_text(_("Search and download subtitles for all listed videos"))
+        self.download_subs_btn.add_css_class("batch-action")
         self.download_subs_btn.connect("clicked", self._on_download_batch_clicked)
         toolbar.append(self.download_subs_btn)
 
@@ -322,6 +335,16 @@ class OperationsListView(Gtk.Box):
         """Update the display with filtered operations, grouped by video"""
         operations = self.filtered_operations
 
+        # Disconnect handlers from previous rows before the old group is dropped,
+        # so we don't leave stale connections holding references to `self`.
+        for row, handler_id in self._row_handlers:
+            try:
+                row.disconnect(handler_id)
+            except (TypeError, RuntimeError):
+                # Row already destroyed by GTK — handler is gone too.
+                pass
+        self._row_handlers = []
+
         # Clear existing rows - rebuild the group instead of removing children
         # Remove old group from operations_box
         self.operations_box.remove(self.operations_group)
@@ -400,8 +423,9 @@ class OperationsListView(Gtk.Box):
         for i, (operation, is_subtitle) in enumerate(grouped_operations):
             row = OperationRow(operation, i, is_subtitle=is_subtitle)
 
-            # Connect activation signal
-            row.connect("activated", self._on_row_activated)
+            # Connect activation signal and track it for future disconnect.
+            handler_id = row.connect("activated", self._on_row_activated)
+            self._row_handlers.append((row, handler_id))
 
             self.operations_group.add(row)
 
