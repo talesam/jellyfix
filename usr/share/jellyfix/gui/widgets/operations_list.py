@@ -121,6 +121,10 @@ class OperationsListView(Gtk.Box):
         self.search_text = ""
         # Tracks (row, handler_id) so we can disconnect on every rebuild.
         self._row_handlers: List = []
+        # Linha atualmente selecionada — recebe a classe CSS .row-selected
+        # para feedback visual ao usuário (Adw.ActionRow não mantém estado
+        # selecionado nativamente em PreferencesGroup).
+        self._selected_row: Optional[OperationRow] = None
 
         # Set expansion - CRITICAL for layout
         self.set_vexpand(True)
@@ -344,6 +348,8 @@ class OperationsListView(Gtk.Box):
                 # Row already destroyed by GTK — handler is gone too.
                 pass
         self._row_handlers = []
+        # As linhas antigas vão ser descartadas; esquece a seleção anterior.
+        self._selected_row = None
 
         # Clear existing rows - rebuild the group instead of removing children
         # Remove old group from operations_box
@@ -462,6 +468,16 @@ class OperationsListView(Gtk.Box):
         Args:
             row: Activated row
         """
+        # Remove o destaque da linha anterior antes de aplicar na nova.
+        if self._selected_row is not None and self._selected_row is not row:
+            try:
+                self._selected_row.remove_css_class("row-selected")
+            except (RuntimeError, TypeError):
+                # Linha antiga já foi destruída pelo GTK
+                pass
+        row.add_css_class("row-selected")
+        self._selected_row = row
+
         if self.on_operation_selected:
             self.on_operation_selected(row.operation, row.index)
 

@@ -145,6 +145,17 @@ row.subtitle-row {
     background-color: alpha(@view_bg_color, 0.4);
 }
 
+/* Linha clicada na lista de operações — destaque persistente até o próximo
+   clique. Adw.ActionRow não mantém estado "selecionado" por padrão. */
+row.row-selected {
+    background-color: alpha(@accent_bg_color, 0.25);
+    border-left: 3px solid @accent_bg_color;
+}
+
+row.row-selected:hover {
+    background-color: alpha(@accent_bg_color, 0.35);
+}
+
 /* ===== Preview action buttons row ===== */
 .preview-actions {
     margin-top: 8px;
