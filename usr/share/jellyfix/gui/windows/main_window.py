@@ -1216,7 +1216,7 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 # Convention files in the same folder (backdrop.jpg, folder.jpg, etc.)
                 # that don't match video stem — they're handled by replan_for_video_with_metadata
                 if op.source.parent == video_source.parent and i not in related_indices:
-                    from ...utils.helpers import is_video_file, is_image_file
+                    from ...utils.helpers import is_video_file
 
                     if not is_video_file(op.source) and not is_subtitle_file(op.source):
                         related_indices.append(i)

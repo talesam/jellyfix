@@ -10,3 +10,4 @@ ignore = ["E501", "W293", "W291", "W292"]
 # GTK/GI files require gi.require_version() before gi.repository imports
 "usr/share/jellyfix/gui/**/*.py" = ["E402"]
 "usr/share/jellyfix/jellyfix-gui.py" = ["E402"]
+"usr/share/nautilus-python/extensions/jellyfix_extension.py" = ["E402"]

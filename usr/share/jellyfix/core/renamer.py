@@ -205,7 +205,7 @@ class Renamer:
 
         # Coleta TODOS os arquivos extras da pasta (Jellyfin convention: backdrop.jpg, folder.jpg, etc.)
         # que não correspondem ao stem do vídeo mas devem acompanhar a mudança de pasta
-        from ..utils.helpers import is_video_file, is_image_file
+        from ..utils.helpers import is_video_file
 
         folder_extras = []
         for file_path in video_path.parent.iterdir():
@@ -1299,7 +1299,14 @@ class Renamer:
         # Rollback log: stores completed operations for reversal on failure
         completed_ops: List[RenameOperation] = []
 
-        for operation in self.operations:
+        # Irreversible deletes run last. If a reversible operation fails, abort
+        # before deleting anything.
+        ordered_operations = sorted(
+            self.operations,
+            key=lambda op: op.operation_type == "delete"
+        )
+
+        for operation in ordered_operations:
             try:
                 # Verifica se vai sobrescrever
                 if operation.will_overwrite:
@@ -1321,7 +1328,6 @@ class Renamer:
                         operation.source.unlink()
                         self.logger.action(f"Removido: {operation.source.name}")
                         stats['deleted'] += 1
-                        completed_ops.append(operation)
 
                     elif operation.operation_type in ('move', 'move_rename'):
                         # Rastreia pasta de origem para limpeza posterior
@@ -1356,15 +1362,15 @@ class Renamer:
                 self.logger.error(f"Erro ao processar {operation.source}: {e}")
                 stats["failed"] += 1
 
-                # Rollback completed operations on failure
-                if completed_ops and not dry_run:
+                # Rollback reversible operations on failure. Deletes are last and
+                # cannot be restored, so a delete failure only aborts the tail.
+                if operation.operation_type != "delete" and completed_ops and not dry_run:
                     self.logger.warning(f"Falha detectada, revertendo {len(completed_ops)} operações concluídas...")
                     self._rollback(completed_ops)
                     stats["failed"] += len(completed_ops)
                     stats["renamed"] = 0
                     stats["moved"] = 0
-                    stats["deleted"] = 0
-                    break
+                break
 
         # Remove pastas vazias após mover arquivos
         if not dry_run and source_folders:

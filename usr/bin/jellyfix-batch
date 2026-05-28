@@ -105,6 +105,11 @@ done
 # Restaurar argumentos posicionais
 set -- "${POSITIONAL_ARGS[@]}"
 
+if ! [[ "$MAX_JOBS" =~ ^[1-9][0-9]*$ ]]; then
+    echo -e "${RED}Erro: --jobs deve ser um número inteiro positivo${NC}" >&2
+    exit 1
+fi
+
 # Verificar se tem argumentos
 if [ $# -eq 0 ]; then
     echo -e "${RED}Erro: Nenhuma pasta especificada${NC}" >&2
@@ -186,33 +191,34 @@ fi
 # Função para processar uma pasta
 process_dir() {
     local dir="$1"
-    local basename_dir=$(basename "$dir")
+    local basename_dir
+    basename_dir="$(basename "$dir")"
     local log_file="$LOG_DIR/$(date +%Y%m%d_%H%M%S)_${basename_dir}.log"
 
     # Construir comando jellyfix
-    local cmd="jellyfix --workdir '$dir' --non-interactive --yes"
+    local cmd=(jellyfix --workdir "$dir" --non-interactive --yes)
 
     # Adicionar flags
     if [ "$DRY_RUN" = true ]; then
-        cmd="$cmd --dry-run"
+        cmd+=(--dry-run)
     else
-        cmd="$cmd --execute"
+        cmd+=(--execute)
     fi
 
     if [ "$VERBOSE" = true ]; then
-        cmd="$cmd --verbose"
+        cmd+=(--verbose)
     fi
 
     if [ "$USE_FFPROBE" = true ]; then
-        cmd="$cmd --use-ffprobe"
+        cmd+=(--use-ffprobe)
     fi
 
-    cmd="$cmd --log '$log_file'"
+    cmd+=(--log "$log_file")
 
     # Executar
     echo -e "${BLUE}▶${NC}  Iniciando: ${BOLD}$basename_dir${NC}"
 
-    if eval $cmd > /dev/null 2>&1; then
+    if "${cmd[@]}" > /dev/null 2>&1; then
         echo -e "${GREEN}✅${NC} Concluído: ${BOLD}$basename_dir${NC} → Log: $log_file"
         return 0
     else
@@ -238,8 +244,8 @@ if command -v parallel &> /dev/null; then
     # Usar GNU Parallel
     echo -e "${CYAN}ℹ${NC}  Usando GNU Parallel"
 
-    printf '%s\n' "${VALID_DIRS[@]}" | \
-        parallel -j "$MAX_JOBS" --line-buffer process_dir {}
+    printf '%s\0' "${VALID_DIRS[@]}" | \
+        parallel -0 -j "$MAX_JOBS" --line-buffer process_dir
 
     PARALLEL_EXIT=$?
 else

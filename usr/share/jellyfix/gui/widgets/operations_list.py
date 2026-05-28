@@ -19,11 +19,15 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw
+from gi.repository import Gtk, Adw, GLib
 from typing import Optional, Callable, List
 
 from ...utils.i18n import _
 from ...core.renamer import RenameOperation
+
+
+def _markup_escape(value) -> str:
+    return GLib.markup_escape_text(str(value))
 
 
 class OperationRow(Adw.ActionRow):
@@ -44,7 +48,7 @@ class OperationRow(Adw.ActionRow):
         self.index = index
 
         # Set title to source filename
-        self.set_title(operation.source.name)
+        self.set_title(_markup_escape(operation.source.name))
 
         # Set subtitle to destination
         dest_name = operation.destination.name
@@ -52,7 +56,7 @@ class OperationRow(Adw.ActionRow):
             # Different folder, show relative path
             dest_name = f"{operation.destination.parent.name}/{dest_name}"
 
-        self.set_subtitle(f"→ {dest_name}")
+        self.set_subtitle(f"→ {_markup_escape(dest_name)}")
 
         # Determine file type and icon based on extension
         ext = operation.source.suffix.lower()
