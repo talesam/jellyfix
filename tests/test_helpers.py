@@ -155,8 +155,10 @@ class TestFileTypeDetection:
 
 class TestCleanFilename:
     def test_removes_forbidden_chars(self):
-        # ':' is rewritten to ' -' so the result is portable to Jellyfin on Windows
-        assert clean_filename('Movie: The "Sequel"') == "Movie - The Sequel"
+        # ':' is rewritten to a space (not a dash): ':' is reserved on Jellyfin,
+        # and a dash would collide with the "Series Name - S01E01" episode
+        # separator, making Jellyfin read only the text before it as the title.
+        assert clean_filename('Movie: The "Sequel"') == "Movie The Sequel"
 
     def test_removes_question_mark(self):
         assert clean_filename("What?") == "What"

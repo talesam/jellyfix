@@ -233,8 +233,12 @@ def clean_filename(name: str) -> str:
     Returns:
         Nome limpo
     """
-    # Substitui ':' por ' -' (Jellyfin não suporta dois pontos)
-    cleaned = name.replace(":", " -")
+    # Substitui ':' por espaço (Jellyfin não suporta dois pontos; ':' é
+    # caractere reservado). Não usamos hífen porque ' - ' é o separador de
+    # título de episódio do Jellyfin ("Series Name - S01E01"); um hífen no
+    # meio do título faria o Jellyfin ler só o texto antes dele como nome
+    # da série. Espaços extras são colapsados logo abaixo.
+    cleaned = name.replace(":", " ")
 
     # Substitui caracteres proibidos
     cleaned = _RE_FORBIDDEN.sub("", cleaned)
