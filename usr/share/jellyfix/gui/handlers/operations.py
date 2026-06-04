@@ -333,18 +333,19 @@ class OperationsHandler:
             try:
                 import shutil
 
-                # Execute operations
+                # Execute irreversible deletes last.
+                ordered_ops = sorted(
+                    ops,
+                    key=lambda op: getattr(op, 'operation_type', '') == 'delete'
+                )
                 results = []
                 errors = []
                 source_folders = set()  # Track source folders for cleanup
 
-                for i, op in enumerate(ops):
+                for i, op in enumerate(ordered_ops):
                     try:
                         source = op.source
                         destination = op.destination
-
-                        # Track source folder for cleanup
-                        source_folders.add(source.parent)
 
                         # Handle delete operations
                         if getattr(op, 'operation_type', '') == 'delete':
@@ -352,6 +353,9 @@ class OperationsHandler:
                             self.logger.success(f"Deleted: {source.name}")
                             results.append(op)
                             continue
+
+                        # Track source folder for cleanup
+                        source_folders.add(source.parent)
 
                         # Create parent directory if needed
                         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -365,10 +369,11 @@ class OperationsHandler:
                     except Exception as e:
                         self.logger.error(f"Failed to rename {op.source.name}: {e}")
                         errors.append((op, str(e)))
+                        break
 
                     # Report progress
                     if progress_callback:
-                        GLib.idle_add(progress_callback, i + 1, len(ops))
+                        GLib.idle_add(progress_callback, i + 1, len(ordered_ops))
 
                 # Clean up empty folders after moving files
                 self._cleanup_empty_folders(source_folders)

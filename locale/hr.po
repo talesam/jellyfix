@@ -16,224 +16,107 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "Rezultati skeniranja"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
+#: NEEDS WORK
+msgid "Organize Folder with Jellyfix"
+msgstr "Organiziraj mapu s Jellyfixom"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "Kategorija"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 253
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "Broj"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "Video datoteke"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 609
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "Filmovi"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "Epizode"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "Titlovi"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "Varijante"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "Nema jezika"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "Strani"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "S jezikom"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "Slike"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO datoteke"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "Ostalo"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "Predložene radnje:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "varijante titlova (.lang2, .lang3) mogu se obraditi"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "titlovi bez jezične oznake"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "strane titlove je moguće ukloniti"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "Prijedlozi"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "Nema potrebnih operacija. Sve je već organizirano!"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 137
-#: usr/share/jellyfix/cli/display.py:139
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
+#: NEEDS WORK
 #, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "Pregled operacije ({} datoteka)"
+msgid "Organize {0} Folders with Jellyfix"
+msgstr "Organizirajte {0} mape s Jellyfixom"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
+#: NEEDS WORK
+msgid "Organize 1 Video and 1 Subtitle"
+msgstr "Organiziraj 1 video i 1 titl"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
+#: NEEDS WORK
 #, python-brace-format
-msgid "and {} more groups"
-msgstr "i {} više grupa"
+msgid "Organize 1 Video and {0} Subtitles"
+msgstr "Organiziraj 1 video i {0} titlova"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 189
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "Premjesti + Preimenuj:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Videos and 1 Subtitle"
+msgstr "Organiziraj {0} videozapisa i 1 titl"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 194
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "Premjesti:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Videos and {1} Subtitles"
+msgstr "Organiziraj {0} videozapisa i {1} titlova"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 199
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "Preimenuj:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
+#: NEEDS WORK
+msgid "Organize Video"
+msgstr "Organiziraj video"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 204
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "Ukloni:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Videos"
+msgstr "Organiziraj {0} videozapisa"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 208
-# File: usr/share/jellyfix/cli/display.py, line: 225
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "Sažetak"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
+#: NEEDS WORK
+msgid "Organize Subtitle"
+msgstr "Organiziraj titlove"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 230
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "Premjesti + Preimenuj"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Subtitles"
+msgstr "Organiziraj {0} titlove"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
+#: NEEDS WORK
+msgid "No valid local files selected"
+msgstr "Nema odabranih valjanih lokalnih datoteka"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
+#: NEEDS WORK
+msgid "Could not get the path for the selected files."
+msgstr "Nije moguće dobiti putanju za odabrane datoteke."
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
+#: NEEDS WORK
+msgid "Application Not Found"
+msgstr "Aplikacija nije pronađena"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Could not find '{0}'. Is Jellyfix installed?"
+msgstr "Nije moguće pronaći '{0}'. Je li Jellyfix instaliran?"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+#: NEEDS WORK
+msgid "Application Launch Error"
+msgstr "Pogreška pri pokretanju aplikacije"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
+#: NEEDS WORK
+#, python-brace-format
+msgid "Failed to start Jellyfix: {0}"
+msgstr "Neuspješno pokretanje Jellyfixa: {0}"
+# 
+# File: usr/share/jellyfix/cli/app.py, line: 54
+#: usr/share/jellyfix/cli/app.py:54
+msgid "Operation cancelled by user"
+msgstr "Operacija otkazana od strane korisnika"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "Premjesti"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "Preimenuj"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "Izbriši"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 251
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ Rezultati izvršenja"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 252
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "Akcija"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "Preimenovano"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 258
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "Premješteno"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "Izbrisano"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "Očistiti mape"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "Neuspjeh"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 266
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "Preskočeno"
+# File: usr/share/jellyfix/cli/interactive.py, line: 552
+# File: usr/share/jellyfix/cli/app.py, line: 58
+#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "Neočekivana greška: %s"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: usr/share/jellyfix/cli/non_interactive.py:44
@@ -358,19 +241,10 @@ msgstr "Preskočeno: %d"
 msgid "Operations:"
 msgstr "Operacije:"
 # 
-# File: usr/share/jellyfix/cli/app.py, line: 54
-#: usr/share/jellyfix/cli/app.py:54
-msgid "Operation cancelled by user"
-msgstr "Operacija otkazana od strane korisnika"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 552
-# File: usr/share/jellyfix/cli/app.py, line: 58
-#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
-#, python-format
-msgid "Unexpected error: %s"
-msgstr "Neočekivana greška: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "Nema potrebnih operacija. Sve je već organizirano!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
 #: usr/share/jellyfix/cli/interactive.py:270
@@ -914,6 +788,37 @@ msgstr "Ukloni TMDB ključ"
 msgid "How to get TMDB key"
 msgstr "Kako dobiti TMDB ključ"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 660
+# File: usr/share/jellyfix/cli/interactive.py, line: 672
+#: NEEDS WORK
+msgid "Configure OpenSubtitles login"
+msgstr "Konfiguriraj OpenSubtitles prijavu"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 661
+# File: usr/share/jellyfix/cli/interactive.py, line: 675
+#: NEEDS WORK
+msgid "Test OpenSubtitles login"
+msgstr "Testiranje prijave na OpenSubtitles"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 662
+# File: usr/share/jellyfix/cli/interactive.py, line: 678
+#: NEEDS WORK
+msgid "Remove OpenSubtitles login"
+msgstr "Ukloni OpenSubtitles prijavu"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 680
+#: NEEDS WORK
+msgid "Remove stored OpenSubtitles login?"
+msgstr "Ukloni pohranjeni OpenSubtitles prijavu?"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 688
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 358
+#: NEEDS WORK
+msgid "OpenSubtitles login removed"
+msgstr "Uklanjanje prijave za OpenSubtitles"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 438
 #: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
@@ -943,6 +848,74 @@ msgstr "Jeste li sigurni da želite ukloniti TMDB ključ?"
 #: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "TMDB ključ uklonjen"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 746
+#: NEEDS WORK
+msgid "OpenSubtitles login (needed to download subtitles)."
+msgstr "Prijava na OpenSubtitles (potrebna za preuzimanje titlova)."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 747
+#: NEEDS WORK
+msgid "Create a free account at https://www.opensubtitles.com/newuser"
+msgstr "Kreirajte besplatan račun na https://www.opensubtitles.com/newuser"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 748
+#: NEEDS WORK
+msgid "Use your USERNAME, not your e-mail address."
+msgstr "Koristite svoje KORISNIČKO IME, a ne svoju e-mail adresu."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 750
+#: NEEDS WORK
+msgid "Username (not e-mail):"
+msgstr "Korisničko ime (ne e-mail):"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 753
+#: NEEDS WORK
+msgid "Password:"
+msgstr "Lozinka:"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 762
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 329
+#: NEEDS WORK
+msgid "OpenSubtitles login saved"
+msgstr "Spremi prijavu za OpenSubtitles"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 764
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 232
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
+#: NEEDS WORK
+msgid "Username and password are both required"
+msgstr "Korisničko ime i lozinka su obavezni"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 772
+#: NEEDS WORK
+msgid "Testing OpenSubtitles login..."
+msgstr "Testiranje prijave na OpenSubtitles..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 776
+#: NEEDS WORK
+msgid "No OpenSubtitles login configured!"
+msgstr "Nema konfigurirane OpenSubtitles prijave!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 777
+#: NEEDS WORK
+msgid "Configure it first using 'Configure OpenSubtitles login'"
+msgstr "Prvo ga konfigurirajte koristeći 'Konfiguriraj OpenSubtitles prijavu'"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 787
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 384
+#: NEEDS WORK
+#, python-format
+msgid "Login failed: %s"
+msgstr "Prijava nije uspjela: %s"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
 #: usr/share/jellyfix/cli/interactive.py:619
@@ -1205,6 +1178,15 @@ msgstr "Preimenuje datoteke"
 msgid "to Jellyfin standard"
 msgstr "na Jellyfin standard"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 609
+# File: usr/share/jellyfix/cli/display.py, line: 76
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
+msgid "Movies"
+msgstr "Filmovi"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 #: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
@@ -1340,33 +1322,231 @@ msgstr "Savjet:"
 msgid "Configure your TMDB key"
 msgstr "Konfigurirajte svoj TMDB ključ"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: usr/share/jellyfix/core/image_manager.py:101
-#, python-format
-msgid "Downloaded image: %s"
-msgstr "Preuzeta slika: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 64
+#: usr/share/jellyfix/cli/display.py:64
+msgid "Scan Results"
+msgstr "Rezultati skeniranja"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: usr/share/jellyfix/core/image_manager.py:106
-#, python-format
-msgid "Failed to download image: %s"
-msgstr "Preuzimanje slike nije uspjelo: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 71
+#: usr/share/jellyfix/cli/display.py:71
+msgid "Category"
+msgstr "Kategorija"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: usr/share/jellyfix/core/image_manager.py:110
-#, python-format
-msgid "Unexpected error downloading image: %s"
-msgstr "Neočekivana greška prilikom preuzimanja slike: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 253
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
+msgid "Count"
+msgstr "Broj"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: usr/share/jellyfix/core/image_manager.py:216
-msgid "Clearing image cache..."
-msgstr "Čišćenje predmemorije slika..."
+# File: usr/share/jellyfix/cli/display.py, line: 75
+#: usr/share/jellyfix/cli/display.py:75
+msgid "Video files"
+msgstr "Video datoteke"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: usr/share/jellyfix/core/image_manager.py:218
-msgid "Image cache cleared"
-msgstr "Keš slike očišćen"
+# File: usr/share/jellyfix/cli/display.py, line: 77
+#: usr/share/jellyfix/cli/display.py:77
+msgid "Episodes"
+msgstr "Epizode"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
+msgid "Subtitles"
+msgstr "Titlovi"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 81
+#: usr/share/jellyfix/cli/display.py:81
+msgid "Variants"
+msgstr "Varijante"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 82
+#: usr/share/jellyfix/cli/display.py:82
+msgid "No language"
+msgstr "Nema jezika"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 83
+#: usr/share/jellyfix/cli/display.py:83
+msgid "Foreign"
+msgstr "Strani"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 84
+#: usr/share/jellyfix/cli/display.py:84
+msgid "With language"
+msgstr "S jezikom"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 87
+#: usr/share/jellyfix/cli/display.py:87
+msgid "Images"
+msgstr "Slike"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 90
+#: usr/share/jellyfix/cli/display.py:90
+msgid "NFO files"
+msgstr "NFO datoteke"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 93
+#: usr/share/jellyfix/cli/display.py:93
+msgid "Other"
+msgstr "Ostalo"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 100
+#: usr/share/jellyfix/cli/display.py:100
+msgid "Suggested actions:"
+msgstr "Predložene radnje:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 103
+#: usr/share/jellyfix/cli/display.py:103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "varijante titlova (.lang2, .lang3) mogu se obraditi"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 106
+#: usr/share/jellyfix/cli/display.py:106
+msgid "subtitles without language code"
+msgstr "titlovi bez jezične oznake"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 109
+#: usr/share/jellyfix/cli/display.py:109
+msgid "foreign subtitles can be removed"
+msgstr "strane titlove je moguće ukloniti"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 113
+#: usr/share/jellyfix/cli/display.py:113
+msgid "Suggestions"
+msgstr "Prijedlozi"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 137
+#: usr/share/jellyfix/cli/display.py:139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "Pregled operacije ({} datoteka)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:262
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "i {} više grupa"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 189
+#: usr/share/jellyfix/cli/display.py:276
+msgid "Move + Rename:"
+msgstr "Premjesti + Preimenuj:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 194
+#: usr/share/jellyfix/cli/display.py:281
+msgid "Move:"
+msgstr "Premjesti:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 199
+#: usr/share/jellyfix/cli/display.py:286
+msgid "Rename:"
+msgstr "Preimenuj:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 204
+#: usr/share/jellyfix/cli/display.py:291
+msgid "Remove:"
+msgstr "Ukloni:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 208
+# File: usr/share/jellyfix/cli/display.py, line: 225
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
+msgid "Summary"
+msgstr "Sažetak"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 230
+#: usr/share/jellyfix/cli/display.py:342
+msgid "Move + Rename"
+msgstr "Premjesti + Preimenuj"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 231
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
+msgid "Move"
+msgstr "Premjesti"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 232
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
+msgid "Rename"
+msgstr "Preimenuj"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 233
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
+msgid "Delete"
+msgstr "Izbriši"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 251
+#: usr/share/jellyfix/cli/display.py:363
+msgid "✅ Execution Results"
+msgstr "✅ Rezultati izvršenja"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 252
+#: usr/share/jellyfix/cli/display.py:364
+msgid "Action"
+msgstr "Akcija"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: usr/share/jellyfix/cli/display.py:368
+msgid "Renamed"
+msgstr "Preimenovano"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 258
+#: usr/share/jellyfix/cli/display.py:370
+msgid "Moved"
+msgstr "Premješteno"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: usr/share/jellyfix/cli/display.py:372
+msgid "Deleted"
+msgstr "Izbrisano"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:374
+msgid "Cleaned folders"
+msgstr "Očistiti mape"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: usr/share/jellyfix/cli/display.py:376
+msgid "Failed"
+msgstr "Neuspjeh"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 266
+#: usr/share/jellyfix/cli/display.py:378
+msgid "Skipped"
+msgstr "Preskočeno"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 262
+#: NEEDS WORK
+msgid "Login OK — subtitles can be downloaded"
+msgstr "Prijava uspješna — titlovi se mogu preuzeti"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 270
+#: NEEDS WORK
+msgid "Use your username, not your e-mail address."
+msgstr "Koristite svoje korisničko ime, a ne svoju e-mail adresu."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 285
+#: NEEDS WORK
+msgid ""
+"opensubtitles.com requires a free account to download subtitles. Set "
+"opensubtitles_username/opensubtitles_password in ~/.jellyfix/config.json (or the "
+"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD environment variables)."
+msgstr ""
+"opensubtitles.com zahtijeva besplatni račun za preuzimanje titlova. Postavite "
+"opensubtitles_username/opensubtitles_password u ~/.jellyfix/config.json (ili varijable okruženja "
+"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD)."
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
 #: usr/share/jellyfix/core/subtitle_manager.py:169
@@ -1428,6 +1608,12 @@ msgstr "Batch razina 2: pretraživanje naslova za %d videozapisa..."
 msgid "Level 2 (TMDB) found: %s for %s"
 msgstr "Razina 2 (TMDB) pronađena: %s za %s"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 525
+#: NEEDS WORK
+#, python-format
+msgid "Level 3 (fallback %s) found: %s for %s"
+msgstr "Razina 3 (rezervni %s) pronađena: %s za %s"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237
 #, python-format
@@ -1446,6 +1632,12 @@ msgstr "Pronađeno %d potvrđenih titlova po naslovu za: %s"
 msgid "Manual search: %s"
 msgstr "Ručno pretraživanje: %s"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 923
+#: NEEDS WORK
+#, python-format
+msgid "No results from primary providers, trying: %s"
+msgstr "Nema rezultata od primarnih pružatelja, pokušavam: %s"
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 746
@@ -1460,448 +1652,45 @@ msgstr "Nepoznato izdanje"
 msgid "Found %d subtitles in manual search"
 msgstr "Pronađeno %d titlova u ručnom pretraživanju"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1013
+#: NEEDS WORK
+#, python-format
+msgid "Failed to download subtitle content. %s"
+msgstr "Preuzimanje sadržaja titlova nije uspjelo. %s"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
 #: usr/share/jellyfix/core/subtitle_manager.py:707
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "Preuzeti titl: %s"
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Odaberite direktorij za skeniranje"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Skeniranje nije uspjelo"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "U redu"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Generiranje operacije nije uspjelo"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Izvršenje nije uspjelo"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "Nema odabira"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "Odaberite stavku za pregled"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "Pretraži naslov"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "Pogrešan naslov? Kliknite za ručno pretraživanje"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "Preuzmi titlove"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "Automatski pretraži i preuzmi titlove"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "Od:"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "Za:"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "POMAKNI"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "IZBACI"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "PRESLIJEDI + PREIMENUJ"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "PREIMENUJTE"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "Dobrodošli u Jellyfix"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "Ovdje ispustite mapu"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "ili kliknite gumb ispod"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "Dodaj knjižnicu"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "Nedavne biblioteke"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "Izbriši nedavne biblioteke"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "prije tjedan dana"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "prije dana"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "prije sati"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "Upravo sada"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "Operacije"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "Pretraži..."
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "Sve"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "Preuzmi titlove za sve"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "Pretraži i preuzmi titlove za sve navedene videozapise"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "Nema operacija"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "Skenirajte direktorij za generiranje operacija"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "Primijeni"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "preimenuj"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "premjesti"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "izbriši"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
-#, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "Prikazivanje {} od {} operacija"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
-#, python-brace-format
-msgid "Total: {} operations"
-msgstr "Ukupno: {} operacija"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
-#: usr/share/jellyfix/gui/windows/main_window.py:169
-#: usr/share/jellyfix/gui/windows/preferences_window.py:44
-msgid "Preferences"
-msgstr "Postavke"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
-#: usr/share/jellyfix/gui/windows/preferences_window.py:60
-msgid "Subtitle Handling"
-msgstr "Rukovanje titlovima"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
-#: usr/share/jellyfix/gui/windows/preferences_window.py:61
-msgid "Configure how subtitles are processed"
-msgstr "Konfigurirajte kako se titlovi obrađuju"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
-#: usr/share/jellyfix/gui/windows/preferences_window.py:66
-msgid "Rename Language Variants"
-msgstr "Preimenuj varijante jezika"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
-#: usr/share/jellyfix/gui/windows/preferences_window.py:67
-msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
-msgstr "Preimenuj .por2.srt, .eng2.srt u .por.srt, .eng.srt"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/preferences_window.py:75
-msgid "Remove Duplicate Variants"
-msgstr "Ukloni duplicirane varijante"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
-#: usr/share/jellyfix/gui/windows/preferences_window.py:76
-msgid "Remove .lang2, .lang3 files after renaming"
-msgstr "Ukloni .lang2, .lang3 datoteke nakon preimenovanja"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/preferences_window.py:84
-msgid "Add Language Codes"
-msgstr "Dodaj kodove jezika"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
-#: usr/share/jellyfix/gui/windows/preferences_window.py:85
-msgid "Add language codes to subtitles without them"
-msgstr "Dodajte jezične kodove titlovima bez njih"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
-#: usr/share/jellyfix/gui/windows/preferences_window.py:93
-msgid "Remove Foreign Subtitles"
-msgstr "Ukloni strane titlove"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
-#: usr/share/jellyfix/gui/windows/preferences_window.py:94
-msgid "Remove subtitles not in kept languages list"
-msgstr "Ukloni titlove koji nisu na popisu zadržanih jezika"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
-#: usr/share/jellyfix/gui/windows/preferences_window.py:102
-msgid "Minimum Portuguese Words"
-msgstr "Minimalni portugalski izrazi"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
-#: usr/share/jellyfix/gui/windows/preferences_window.py:103
-msgid "Min words to detect Portuguese subtitles"
-msgstr "Min. riječi za otkrivanje portugalskih titlova"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
-#: usr/share/jellyfix/gui/windows/preferences_window.py:112
-msgid "Kept Languages"
-msgstr "Zadržane jezike"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/preferences_window.py:113
-msgid "Subtitles in these languages will be kept"
-msgstr "Titlovi na ovim jezicima će biti sačuvani"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
-#: usr/share/jellyfix/gui/windows/preferences_window.py:134
-msgid "Video"
-msgstr "Video"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
-#: usr/share/jellyfix/gui/windows/preferences_window.py:140
-msgid "Video Handling"
-msgstr "Rukovanje videom"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
-#: usr/share/jellyfix/gui/windows/preferences_window.py:141
-msgid "Configure how videos are processed"
-msgstr "Konfigurirajte kako se videozapisi obrađuju"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
-#: usr/share/jellyfix/gui/windows/preferences_window.py:146
-msgid "Organize in Folders"
-msgstr "Organiziraj u mape"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
-#: usr/share/jellyfix/gui/windows/preferences_window.py:147
-msgid "Organize TV episodes in Season folders"
-msgstr "Organizirajte TV epizode u mape sezone"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
-#: usr/share/jellyfix/gui/windows/preferences_window.py:155
-msgid "Add Quality Tags"
-msgstr "Dodaj oznake kvalitete"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
-#: usr/share/jellyfix/gui/windows/preferences_window.py:156
-msgid "Add resolution tags (1080p, 720p, etc) to filenames"
-msgstr "Dodajte oznake rezolucije (1080p, 720p, itd.) u nazive datoteka"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
-#: usr/share/jellyfix/gui/windows/preferences_window.py:164
-msgid "Use ffprobe for Detection"
-msgstr "Koristite ffprobe za otkrivanje"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
-#: usr/share/jellyfix/gui/windows/preferences_window.py:165
-msgid "More accurate but slower quality detection"
-msgstr "Točnija, ali sporija detekcija kvalitete"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
-#: usr/share/jellyfix/gui/windows/preferences_window.py:177
-msgid "Metadata"
-msgstr "Metapodaci"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
-#: usr/share/jellyfix/gui/windows/preferences_window.py:183
-msgid "Metadata Fetching"
-msgstr "Dohvaćanje metapodataka"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/preferences_window.py:184
-msgid "Configure metadata from TMDB"
-msgstr "Konfigurirajte metapodatke iz TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
-#: usr/share/jellyfix/gui/windows/preferences_window.py:189
-msgid "Fetch Metadata"
-msgstr "Preuzmi metapodatke"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
-#: usr/share/jellyfix/gui/windows/preferences_window.py:190
-msgid "Download metadata and posters from TMDB"
-msgstr "Preuzmi metapodatke i plakate s TMDB-a"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
-#: usr/share/jellyfix/gui/windows/preferences_window.py:202
-msgid "General"
-msgstr "Općenito"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
-#: usr/share/jellyfix/gui/windows/preferences_window.py:208
-msgid "Application"
-msgstr "Aplikacija"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
-#: usr/share/jellyfix/gui/windows/preferences_window.py:209
-msgid "General application settings"
-msgstr "Opća postavka aplikacije"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
-#: usr/share/jellyfix/gui/windows/preferences_window.py:217
-msgid "Keep Recent Libraries"
-msgstr "Zadrži nedavne biblioteke"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
-#: usr/share/jellyfix/gui/windows/preferences_window.py:218
-msgid "Remember recently scanned libraries between sessions"
-msgstr "Zapamti nedavno skenirane biblioteke između sesija"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
-#: usr/share/jellyfix/gui/windows/preferences_window.py:228
-msgid "File Cleanup"
-msgstr "Čišćenje datoteka"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
-#: usr/share/jellyfix/gui/windows/preferences_window.py:229
-msgid "Configure which files to remove"
-msgstr "Konfigurirajte koje datoteke ukloniti"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
-#: usr/share/jellyfix/gui/windows/preferences_window.py:234
-msgid "Remove Non-Media Files"
-msgstr "Ukloni ne-medijske datoteke"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
-#: usr/share/jellyfix/gui/windows/preferences_window.py:235
-msgid "Remove all files that are not .srt or .mp4"
-msgstr "Ukloni sve datoteke koje nisu .srt ili .mp4"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
-#: usr/share/jellyfix/gui/windows/preferences_window.py:243
-msgid "Fix Mirabel Files"
-msgstr "Popravi Mirabel datoteke"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
-#: usr/share/jellyfix/gui/windows/preferences_window.py:244
-msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
-msgstr "Preimenujte .pt-BR.hi.srt, .br.hi.srt u .por.srt"
+# File: usr/share/jellyfix/core/image_manager.py, line: 101
+#: usr/share/jellyfix/core/image_manager.py:101
+#, python-format
+msgid "Downloaded image: %s"
+msgstr "Preuzeta slika: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 106
+#: usr/share/jellyfix/core/image_manager.py:106
+#, python-format
+msgid "Failed to download image: %s"
+msgstr "Preuzimanje slike nije uspjelo: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 110
+#: usr/share/jellyfix/core/image_manager.py:110
+#, python-format
+msgid "Unexpected error downloading image: %s"
+msgstr "Neočekivana greška prilikom preuzimanja slike: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 216
+#: usr/share/jellyfix/core/image_manager.py:216
+msgid "Clearing image cache..."
+msgstr "Čišćenje predmemorije slika..."
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 218
+#: usr/share/jellyfix/core/image_manager.py:218
+msgid "Image cache cleared"
+msgstr "Keš slike očišćen"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1912,6 +1701,20 @@ msgstr "Preimenujte .pt-BR.hi.srt, .br.hi.srt u .por.srt"
 #: usr/share/jellyfix/gui/windows/main_window.py:98
 msgid "Jellyfix"
 msgstr "Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "priznanje prevoditelju"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
+#: usr/share/jellyfix/gui/windows/main_window.py:169
+#: usr/share/jellyfix/gui/windows/preferences_window.py:44
+msgid "Preferences"
+msgstr "Postavke"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/main_window.py:170
@@ -1980,6 +1783,16 @@ msgstr "Ovo će preimenovati {} datoteka. Nastaviti?"
 msgid "Cancel"
 msgstr "Otkaži"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
+msgid "Apply"
+msgstr "Primijeni"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
 #: usr/share/jellyfix/gui/windows/main_window.py:545
 msgid "Execute Operations?"
@@ -2013,6 +1826,32 @@ msgid ""
 "The 'subliminal' library is not installed.\n"
 "Please install it to use this feature."
 msgstr "Biblioteka 'subliminal' nije instalirana. Molimo instalirajte je da biste koristili ovu značajku."
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "U redu"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
 #: usr/share/jellyfix/gui/windows/main_window.py:746
@@ -2129,296 +1968,6 @@ msgstr ""
 #, python-brace-format
 msgid "Subtitle downloaded: {}"
 msgstr "Preuzeti titl: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB Konfiguracija"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "Konfiguriraj API ključ za filmsku bazu podataka"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ Konfigurirano"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ Nije konfigurirano"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "Konfiguracijska datoteka"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "Radnje"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "Unesite svoj TMDB API ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "Konfiguriraj"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "Pogledaj trenutačni ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "Prikaži maskirani API ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "Pogled"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "Testiraj TMDB vezu"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "Provjerite radi li API ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "Testiranje"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "Ukloni TMDB ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "Izbriši pohranjeni API ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "Ukloni"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "Upute korak po korak"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "Vodič"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "Unesite svoj TMDB API ključ u nastavku"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "Zalijepite API ključ ovdje"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "Spremi"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API ključ je uspješno spremljen"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "Trenutni TMDB API ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "Maskirani ključ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "Puna ključ pohranjen u"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "Nema API ključa"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "Još nije konfiguriran TMDB API ključ."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "Molimo konfigurirajte TMDB API ključ prvo"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ Veza uspješna"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
-#, python-brace-format
-msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr "TMDB API ključ ispravno radi!"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ Povezivanje nije uspjelo"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr "Nije moguće preuzeti podatke s TMDB-a. Molimo provjerite svoj API ključ."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ Greška u vezi"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "Greška prilikom testiranja veze: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "Ukloni API ključ?"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid "This will delete your stored TMDB API key. You will need to configure it again."
-msgstr "Ovo će izbrisati vaš pohranjeni TMDB API ključ. Morat ćete ga ponovno konfigurirati."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API ključ uklonjen"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-msgstr ""
-"Kako dobiti TMDB API ključ:\n"
-"\n"
-"1. Idite na https://www.themoviedb.org/signup\n"
-"2. Kreirajte besplatan račun\n"
-"3. Idite na Postavke → API\n"
-"4. Zatražite API ključ (odaberite opciju \"Developer\")\n"
-"5. Ispunite tražene informacije\n"
-"6. Kopirajte API ključ (v3 auth)\n"
-"7. Zalijepite ga u Jellyfix\n"
-"\n"
-"API ključ je besplatan i omogućuje vam:\n"
-"• Dohvaćanje metapodataka o filmovima i TV emisijama\n"
-"• Preuzimanje plakata i pozadina\n"
-"• Dobivanje točnih naslova i datuma izlaska\n"
-"• Organiziranje vaše biblioteke s TMDB ID-ima"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
-msgstr "Pretraži naslov"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "Unesite naziv filma ili serije..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "Pretraži"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "Film"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "TV serije"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "Traženje..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB nije konfiguriran"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "Nema pronađenih rezultata"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "rezultati"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: usr/share/jellyfix/gui/windows/help_window.py:34
@@ -2622,6 +2171,614 @@ msgstr "Prijavite probleme"
 msgid "Get TMDB API Key"
 msgstr "Dobijte TMDB API ključ"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "Pretraži naslov"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "Unesite naziv filma ili serije..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "Pretraži"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "TV serije"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "Traženje..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB nije konfiguriran"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "Nema pronađenih rezultata"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "rezultati"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Greška: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
+#: usr/share/jellyfix/gui/windows/preferences_window.py:60
+msgid "Subtitle Handling"
+msgstr "Rukovanje titlovima"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
+#: usr/share/jellyfix/gui/windows/preferences_window.py:61
+msgid "Configure how subtitles are processed"
+msgstr "Konfigurirajte kako se titlovi obrađuju"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
+#: usr/share/jellyfix/gui/windows/preferences_window.py:66
+msgid "Rename Language Variants"
+msgstr "Preimenuj varijante jezika"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
+#: usr/share/jellyfix/gui/windows/preferences_window.py:67
+msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
+msgstr "Preimenuj .por2.srt, .eng2.srt u .por.srt, .eng.srt"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
+#: usr/share/jellyfix/gui/windows/preferences_window.py:75
+msgid "Remove Duplicate Variants"
+msgstr "Ukloni duplicirane varijante"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
+#: usr/share/jellyfix/gui/windows/preferences_window.py:76
+msgid "Remove .lang2, .lang3 files after renaming"
+msgstr "Ukloni .lang2, .lang3 datoteke nakon preimenovanja"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/preferences_window.py:84
+msgid "Add Language Codes"
+msgstr "Dodaj kodove jezika"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
+#: usr/share/jellyfix/gui/windows/preferences_window.py:85
+msgid "Add language codes to subtitles without them"
+msgstr "Dodajte jezične kodove titlovima bez njih"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
+#: usr/share/jellyfix/gui/windows/preferences_window.py:93
+msgid "Remove Foreign Subtitles"
+msgstr "Ukloni strane titlove"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
+#: usr/share/jellyfix/gui/windows/preferences_window.py:94
+msgid "Remove subtitles not in kept languages list"
+msgstr "Ukloni titlove koji nisu na popisu zadržanih jezika"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
+#: usr/share/jellyfix/gui/windows/preferences_window.py:102
+msgid "Minimum Portuguese Words"
+msgstr "Minimalni portugalski izrazi"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
+#: usr/share/jellyfix/gui/windows/preferences_window.py:103
+msgid "Min words to detect Portuguese subtitles"
+msgstr "Min. riječi za otkrivanje portugalskih titlova"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
+#: usr/share/jellyfix/gui/windows/preferences_window.py:112
+msgid "Kept Languages"
+msgstr "Zadržane jezike"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/preferences_window.py:113
+msgid "Subtitles in these languages will be kept"
+msgstr "Titlovi na ovim jezicima će biti sačuvani"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
+#: usr/share/jellyfix/gui/windows/preferences_window.py:134
+msgid "Video"
+msgstr "Video"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
+#: usr/share/jellyfix/gui/windows/preferences_window.py:140
+msgid "Video Handling"
+msgstr "Rukovanje videom"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
+#: usr/share/jellyfix/gui/windows/preferences_window.py:141
+msgid "Configure how videos are processed"
+msgstr "Konfigurirajte kako se videozapisi obrađuju"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
+#: usr/share/jellyfix/gui/windows/preferences_window.py:146
+msgid "Organize in Folders"
+msgstr "Organiziraj u mape"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
+#: usr/share/jellyfix/gui/windows/preferences_window.py:147
+msgid "Organize TV episodes in Season folders"
+msgstr "Organizirajte TV epizode u mape sezone"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
+#: usr/share/jellyfix/gui/windows/preferences_window.py:155
+msgid "Add Quality Tags"
+msgstr "Dodaj oznake kvalitete"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
+#: usr/share/jellyfix/gui/windows/preferences_window.py:156
+msgid "Add resolution tags (1080p, 720p, etc) to filenames"
+msgstr "Dodajte oznake rezolucije (1080p, 720p, itd.) u nazive datoteka"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
+#: usr/share/jellyfix/gui/windows/preferences_window.py:164
+msgid "Use ffprobe for Detection"
+msgstr "Koristite ffprobe za otkrivanje"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
+#: usr/share/jellyfix/gui/windows/preferences_window.py:165
+msgid "More accurate but slower quality detection"
+msgstr "Točnija, ali sporija detekcija kvalitete"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
+#: usr/share/jellyfix/gui/windows/preferences_window.py:177
+msgid "Metadata"
+msgstr "Metapodaci"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
+#: usr/share/jellyfix/gui/windows/preferences_window.py:183
+msgid "Metadata Fetching"
+msgstr "Dohvaćanje metapodataka"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
+#: usr/share/jellyfix/gui/windows/preferences_window.py:184
+msgid "Configure metadata from TMDB"
+msgstr "Konfigurirajte metapodatke iz TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
+#: usr/share/jellyfix/gui/windows/preferences_window.py:189
+msgid "Fetch Metadata"
+msgstr "Preuzmi metapodatke"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
+#: usr/share/jellyfix/gui/windows/preferences_window.py:190
+msgid "Download metadata and posters from TMDB"
+msgstr "Preuzmi metapodatke i plakate s TMDB-a"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
+#: usr/share/jellyfix/gui/windows/preferences_window.py:202
+msgid "General"
+msgstr "Općenito"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
+#: usr/share/jellyfix/gui/windows/preferences_window.py:208
+msgid "Application"
+msgstr "Aplikacija"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
+#: usr/share/jellyfix/gui/windows/preferences_window.py:209
+msgid "General application settings"
+msgstr "Opća postavka aplikacije"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
+#: usr/share/jellyfix/gui/windows/preferences_window.py:217
+msgid "Keep Recent Libraries"
+msgstr "Zadrži nedavne biblioteke"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
+#: usr/share/jellyfix/gui/windows/preferences_window.py:218
+msgid "Remember recently scanned libraries between sessions"
+msgstr "Zapamti nedavno skenirane biblioteke između sesija"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: usr/share/jellyfix/gui/windows/preferences_window.py:228
+msgid "File Cleanup"
+msgstr "Čišćenje datoteka"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: usr/share/jellyfix/gui/windows/preferences_window.py:229
+msgid "Configure which files to remove"
+msgstr "Konfigurirajte koje datoteke ukloniti"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: usr/share/jellyfix/gui/windows/preferences_window.py:234
+msgid "Remove Non-Media Files"
+msgstr "Ukloni ne-medijske datoteke"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: usr/share/jellyfix/gui/windows/preferences_window.py:235
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Ukloni sve datoteke koje nisu .srt ili .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: usr/share/jellyfix/gui/windows/preferences_window.py:243
+msgid "Fix Mirabel Files"
+msgstr "Popravi Mirabel datoteke"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: usr/share/jellyfix/gui/windows/preferences_window.py:244
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Preimenujte .pt-BR.hi.srt, .br.hi.srt u .por.srt"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
+msgid "TMDB Configuration"
+msgstr "TMDB Konfiguracija"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
+msgid "Configure The Movie Database API key"
+msgstr "Konfiguriraj API ključ za filmsku bazu podataka"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
+msgid "✓ Configured"
+msgstr "✓ Konfigurirano"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
+msgid "✗ Not configured"
+msgstr "✗ Nije konfigurirano"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
+msgid "TMDB API Key"
+msgstr "TMDB API ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
+msgid "Config file"
+msgstr "Konfiguracijska datoteka"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: NEEDS WORK
+msgid "OpenSubtitles Login"
+msgstr "Prijava na OpenSubtitles"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 89
+#: NEEDS WORK
+msgid "A free opensubtitles.com account is required to download subtitles (searching works without it)"
+msgstr "Za preuzimanje titlova potreban je besplatan opensubtitles.com račun (pretraživanje radi bez njega)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 328
+#: NEEDS WORK
+#, python-format
+msgid "✓ Configured (%s)"
+msgstr "✓ Konfigurirano (%s)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 96
+#: NEEDS WORK
+msgid "Account"
+msgstr "Račun"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 103
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 285
+#: NEEDS WORK
+msgid "Configure OpenSubtitles Login"
+msgstr "Konfiguriraj OpenSubtitles prijavu"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 104
+#: NEEDS WORK
+msgid "Enter your username and password"
+msgstr "Unesite svoje korisničko ime i lozinku"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
+msgid "Configure"
+msgstr "Konfiguriraj"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 114
+#: NEEDS WORK
+msgid "Test OpenSubtitles Login"
+msgstr "Test OpenSubtitles Prijava"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 115
+#: NEEDS WORK
+msgid "Verify your credentials actually work"
+msgstr "Provjerite da vaši podaci za prijavu zapravo rade"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
+msgid "Test"
+msgstr "Testiranje"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: NEEDS WORK
+msgid "Remove OpenSubtitles Login"
+msgstr "Ukloni OpenSubtitles prijavu"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 125
+#: NEEDS WORK
+msgid "Delete stored credentials"
+msgstr "Izbriši pohranjene vjerodajnice"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
+msgid "Remove"
+msgstr "Ukloni"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 135
+#: NEEDS WORK
+msgid "Create a free account"
+msgstr "Kreirajte besplatan račun"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 138
+#: NEEDS WORK
+msgid "Open"
+msgstr "Otvoreno"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
+msgid "Actions"
+msgstr "Radnje"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
+msgid "Enter your TMDB API key"
+msgstr "Unesite svoj TMDB API ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
+msgid "View Current Key"
+msgstr "Pogledaj trenutačni ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
+msgid "Show masked API key"
+msgstr "Prikaži maskirani API ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
+msgid "View"
+msgstr "Pogled"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
+msgid "Test TMDB Connection"
+msgstr "Testiraj TMDB vezu"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
+msgid "Verify API key is working"
+msgstr "Provjerite radi li API ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
+msgid "Remove TMDB Key"
+msgstr "Ukloni TMDB ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
+msgid "Delete stored API key"
+msgstr "Izbriši pohranjeni API ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
+msgid "Step-by-step tutorial"
+msgstr "Upute korak po korak"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
+msgid "Tutorial"
+msgstr "Vodič"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
+msgid "Enter your TMDB API key below"
+msgstr "Unesite svoj TMDB API ključ u nastavku"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
+msgid "Paste API key here"
+msgstr "Zalijepite API ključ ovdje"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
+msgid "Save"
+msgstr "Spremi"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
+msgid "API key saved successfully"
+msgstr "API ključ je uspješno spremljen"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 286
+#: NEEDS WORK
+msgid ""
+"Enter your opensubtitles.com username and password.\n"
+"⚠ Use your USERNAME, not your e-mail address."
+msgstr ""
+"Unesite svoje korisničko ime i lozinku za opensubtitles.com.  \n"
+"⚠ Koristite svoje KORISNIČKO IME, a ne svoju e-mail adresu."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 294
+#: NEEDS WORK
+msgid "Username (not e-mail)"
+msgstr "Korisničko ime (ne e-mail)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 299
+#: NEEDS WORK
+msgid "Password"
+msgstr "Lozinka"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 306
+#: NEEDS WORK
+msgid "Show password"
+msgstr "Prikaži lozinku"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 340
+#: NEEDS WORK
+msgid "Remove OpenSubtitles Login?"
+msgstr "Ukloni OpenSubtitles prijavu?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 341
+#: NEEDS WORK
+msgid ""
+"This will delete your stored credentials. You will not be able to download from opensubtitles.com "
+"until you configure it again."
+msgstr ""
+"Ovo će izbrisati vaše pohranjene vjerodajnice. Nećete moći preuzeti s opensubtitles.com dok ga "
+"ponovo ne konfigurirate."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 371
+#: NEEDS WORK
+msgid "Configure your login first"
+msgstr "Prvo konfigurirajte svoj prijavu"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 374
+#: NEEDS WORK
+msgid "Testing login…"
+msgstr "Testiranje prijave…"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 380
+#: NEEDS WORK
+#, python-format
+msgid "✓ Login OK (%s)"
+msgstr "✓ Prijava u redu (%s)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
+msgid "Current TMDB API Key"
+msgstr "Trenutni TMDB API ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Masked key"
+msgstr "Maskirani ključ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Full key stored in"
+msgstr "Puna ključ pohranjen u"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
+msgid "No API Key"
+msgstr "Nema API ključa"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
+msgid "No TMDB API key configured yet"
+msgstr "Još nije konfiguriran TMDB API ključ."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
+msgid "Please configure TMDB API key first"
+msgstr "Molimo konfigurirajte TMDB API ključ prvo"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
+msgid "✓ Connection Successful"
+msgstr "✓ Veza uspješna"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+msgstr "TMDB API ključ ispravno radi!"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
+msgid "⚠ Connection Failed"
+msgstr "⚠ Povezivanje nije uspjelo"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "Nije moguće preuzeti podatke s TMDB-a. Molimo provjerite svoj API ključ."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
+msgid "✗ Connection Error"
+msgstr "✗ Greška u vezi"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
+#, python-brace-format
+msgid "Error testing connection: {}"
+msgstr "Greška prilikom testiranja veze: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
+msgid "Remove API Key?"
+msgstr "Ukloni API ključ?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
+msgid "This will delete your stored TMDB API key. You will need to configure it again."
+msgstr "Ovo će izbrisati vaš pohranjeni TMDB API ključ. Morat ćete ga ponovno konfigurirati."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
+msgid "API key removed"
+msgstr "API ključ uklonjen"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"Kako dobiti TMDB API ključ:\n"
+"\n"
+"1. Idite na https://www.themoviedb.org/signup\n"
+"2. Kreirajte besplatan račun\n"
+"3. Idite na Postavke → API\n"
+"4. Zatražite API ključ (odaberite opciju \"Developer\")\n"
+"5. Ispunite tražene informacije\n"
+"6. Kopirajte API ključ (v3 auth)\n"
+"7. Zalijepite ga u Jellyfix\n"
+"\n"
+"API ključ je besplatan i omogućuje vam:\n"
+"• Dohvaćanje metapodataka o filmovima i TV emisijama\n"
+"• Preuzimanje plakata i pozadina\n"
+"• Dobivanje točnih naslova i datuma izlaska\n"
+"• Organiziranje vaše biblioteke s TMDB ID-ima"
+# 
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
 msgid "Search Subtitles"
@@ -2675,12 +2832,6 @@ msgstr "Pokušajte s drugim pojmom za pretraživanje"
 msgid "Found {} subtitles"
 msgstr "Pronađeno {} titlova"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
-#, python-brace-format
-msgid "Error: {}"
-msgstr "Greška: {}"
-# 
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
 #, python-brace-format
@@ -2692,95 +2843,199 @@ msgstr "Preuzeto: {}"
 msgid "Download failed"
 msgstr "Preuzimanje nije uspjelo"
 # 
-# File: usr/share/jellyfix/gui/app.py, line: 151
-#: NEEDS WORK
-msgid "translator-credits"
-msgstr "priznanje prevoditelju"
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "Odaberite direktorij za skeniranje"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
-#: NEEDS WORK
-msgid "Organize Folder with Jellyfix"
-msgstr "Organiziraj mapu s Jellyfixom"
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "Skeniranje nije uspjelo"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
-#: NEEDS WORK
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "Generiranje operacije nije uspjelo"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "Izvršenje nije uspjelo"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "Operacije"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
+msgstr "Pretraži..."
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "Sve"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "Preuzmi titlove za sve"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Pretraži i preuzmi titlove za sve navedene videozapise"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "Nema operacija"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "Skenirajte direktorij za generiranje operacija"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "preimenuj"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "premjesti"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "izbriši"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Organize {0} Folders with Jellyfix"
-msgstr "Organizirajte {0} mape s Jellyfixom"
+msgid "Showing {} of {} operations"
+msgstr "Prikazivanje {} od {} operacija"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
-#: NEEDS WORK
-msgid "Organize 1 Video and 1 Subtitle"
-msgstr "Organiziraj 1 video i 1 titl"
-# 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
-#: NEEDS WORK
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Organize 1 Video and {0} Subtitles"
-msgstr "Organiziraj 1 video i {0} titlova"
+msgid "Total: {} operations"
+msgstr "Ukupno: {} operacija"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Videos and 1 Subtitle"
-msgstr "Organiziraj {0} videozapisa i 1 titl"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "Nema odabira"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Videos and {1} Subtitles"
-msgstr "Organiziraj {0} videozapisa i {1} titlova"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "Odaberite stavku za pregled"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
-#: NEEDS WORK
-msgid "Organize Video"
-msgstr "Organiziraj video"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
+msgstr "Pretraži naslov"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Videos"
-msgstr "Organiziraj {0} videozapisa"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "Pogrešan naslov? Kliknite za ručno pretraživanje"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
-#: NEEDS WORK
-msgid "Organize Subtitle"
-msgstr "Organiziraj titlove"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "Preuzmi titlove"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Subtitles"
-msgstr "Organiziraj {0} titlove"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "Automatski pretraži i preuzmi titlove"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
-#: NEEDS WORK
-msgid "No valid local files selected"
-msgstr "Nema odabranih valjanih lokalnih datoteka"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "Od:"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
-#: NEEDS WORK
-msgid "Could not get the path for the selected files."
-msgstr "Nije moguće dobiti putanju za odabrane datoteke."
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "Za:"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
-#: NEEDS WORK
-msgid "Application Not Found"
-msgstr "Aplikacija nije pronađena"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "POMAKNI"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Could not find '{0}'. Is Jellyfix installed?"
-msgstr "Nije moguće pronaći '{0}'. Je li Jellyfix instaliran?"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "IZBACI"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
-#: NEEDS WORK
-msgid "Application Launch Error"
-msgstr "Pogreška pri pokretanju aplikacije"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "PRESLIJEDI + PREIMENUJ"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to start Jellyfix: {0}"
-msgstr "Neuspješno pokretanje Jellyfixa: {0}"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "PREIMENUJTE"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "Dobrodošli u Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "Ovdje ispustite mapu"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "ili kliknite gumb ispod"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "Dodaj knjižnicu"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "Nedavne biblioteke"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "Izbriši nedavne biblioteke"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "prije tjedan dana"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "prije dana"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "prije sati"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "Upravo sada"

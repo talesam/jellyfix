@@ -277,10 +277,10 @@ def main():
         rename_por2=not args.no_rename_por2,
         rename_no_lang=not args.no_add_lang,
         remove_foreign_subs=not args.no_remove_foreign,
-        remove_non_media=args.remove_non_media if hasattr(args, 'remove_non_media') else False,
+        remove_non_media=args.remove_non_media,
         fetch_metadata=not args.no_metadata,
-        add_quality_tag=not args.no_quality_tag if hasattr(args, 'no_quality_tag') else True,
-        use_ffprobe=args.use_ffprobe if hasattr(args, 'use_ffprobe') else False,
+        add_quality_tag=not args.no_quality_tag,
+        use_ffprobe=args.use_ffprobe,
         workdir_explicit=workdir_explicit,
     )
     config.load_persistent_settings()

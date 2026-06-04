@@ -16,224 +16,107 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "Результати сканування"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
+#: NEEDS WORK
+msgid "Organize Folder with Jellyfix"
+msgstr "Організувати папку з Jellyfix"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "Категорія"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 253
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "Count"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "Відеофайли"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 609
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "Фільми"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "Episodess"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "Undertitles"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "Variants"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "No language"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "Зарубіжний"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "З мовою"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "Зображення"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO файли"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "Інше"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "Запропоновані дії:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "можна обробляти варіанти субтитрів (.lang2, .lang3)"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "субтитри без мовного коду"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "іноземні субтитри можна видалити"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "Сприяння"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "Ніяких операцій не потрібно. Усе вже організовано!"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 137
-#: usr/share/jellyfix/cli/display.py:139
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
+#: NEEDS WORK
 #, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "Огляд операції ({} файлів)"
+msgid "Organize {0} Folders with Jellyfix"
+msgstr "Організуйте {0} папок за допомогою Jellyfix"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
+#: NEEDS WORK
+msgid "Organize 1 Video and 1 Subtitle"
+msgstr "Organise 1 Video and 1 Subtitle"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
+#: NEEDS WORK
 #, python-brace-format
-msgid "and {} more groups"
-msgstr "та іще {} групи"
+msgid "Organize 1 Video and {0} Subtitles"
+msgstr "Організувати 1 відео та {0} субтитри"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 189
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "Перемістити + перейменувати:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Videos and 1 Subtitle"
+msgstr "Організувати {0} відео та 1 субтитр"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 194
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "Перемістити:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Videos and {1} Subtitles"
+msgstr "Організувати {0} відео та {1} субтитри"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 199
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "Rename:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
+#: NEEDS WORK
+msgid "Organize Video"
+msgstr "Organise Video"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 204
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "Видалити:"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Videos"
+msgstr "Organise {0} Videos"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 208
-# File: usr/share/jellyfix/cli/display.py, line: 225
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "Резюме"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
+#: NEEDS WORK
+msgid "Organize Subtitle"
+msgstr "Організувати субтитри"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 230
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "Перемістити + Перейменувати"
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
+#: NEEDS WORK
+#, python-brace-format
+msgid "Organize {0} Subtitles"
+msgstr "Організувати {0} субтитри"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
+#: NEEDS WORK
+msgid "No valid local files selected"
+msgstr "Немає вибраних дійсних локальних файлів"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
+#: NEEDS WORK
+msgid "Could not get the path for the selected files."
+msgstr "Could not get the path for the selected files."
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
+#: NEEDS WORK
+msgid "Application Not Found"
+msgstr "Застосунок не знайдено"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Could not find '{0}'. Is Jellyfix installed?"
+msgstr "Не вдалося знайти '{0}'. Чи встановлено Jellyfix?"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
+#: NEEDS WORK
+msgid "Application Launch Error"
+msgstr "Помилка запуску програми"
+# 
+# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
+#: NEEDS WORK
+#, python-brace-format
+msgid "Failed to start Jellyfix: {0}"
+msgstr "Не вдалося запустити Jellyfix: {0}"
+# 
+# File: usr/share/jellyfix/cli/app.py, line: 54
+#: usr/share/jellyfix/cli/app.py:54
+msgid "Operation cancelled by user"
+msgstr "Операція скасована користувачем"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "Move"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "Rename"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "Delete"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 251
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ Результати виконання"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 252
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "Дія"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "Перейменовано"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 258
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "Переміщено"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "Deleted"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "Очищені папки"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "Не вдалося"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 266
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "Omitted"
+# File: usr/share/jellyfix/cli/interactive.py, line: 552
+# File: usr/share/jellyfix/cli/app.py, line: 58
+#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "Несподівана помилка: %s"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 45
 #: usr/share/jellyfix/cli/non_interactive.py:44
@@ -358,19 +241,10 @@ msgstr "Пропущено: %d"
 msgid "Operations:"
 msgstr "Операції:"
 # 
-# File: usr/share/jellyfix/cli/app.py, line: 54
-#: usr/share/jellyfix/cli/app.py:54
-msgid "Operation cancelled by user"
-msgstr "Операція скасована користувачем"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 552
-# File: usr/share/jellyfix/cli/app.py, line: 58
-#: usr/share/jellyfix/cli/app.py:58 usr/share/jellyfix/cli/interactive.py:679
-#, python-format
-msgid "Unexpected error: %s"
-msgstr "Несподівана помилка: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "Ніяких операцій не потрібно. Усе вже організовано!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
 #: usr/share/jellyfix/cli/interactive.py:270
@@ -914,6 +788,37 @@ msgstr "Видалити ключ TMDB"
 msgid "How to get TMDB key"
 msgstr "Як отримати ключ TMDB"
 # 
+# File: usr/share/jellyfix/cli/interactive.py, line: 660
+# File: usr/share/jellyfix/cli/interactive.py, line: 672
+#: NEEDS WORK
+msgid "Configure OpenSubtitles login"
+msgstr "Налаштувати вхід до OpenSubtitles"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 661
+# File: usr/share/jellyfix/cli/interactive.py, line: 675
+#: NEEDS WORK
+msgid "Test OpenSubtitles login"
+msgstr "Тестування входу в OpenSubtitles"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 662
+# File: usr/share/jellyfix/cli/interactive.py, line: 678
+#: NEEDS WORK
+msgid "Remove OpenSubtitles login"
+msgstr "Видалити вхід до OpenSubtitles"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 680
+#: NEEDS WORK
+msgid "Remove stored OpenSubtitles login?"
+msgstr "Видалити збережений вхід OpenSubtitles?"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 688
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 358
+#: NEEDS WORK
+msgid "OpenSubtitles login removed"
+msgstr "OpenSubtitles вхід видалено"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 438
 #: usr/share/jellyfix/cli/interactive.py:565
 msgid "Enter your TMDB API key:"
@@ -943,6 +848,74 @@ msgstr "Are you sure you want to remove the TMDB key?"
 #: usr/share/jellyfix/cli/interactive.py:603
 msgid "TMDB key removed"
 msgstr "TMDB ключ видалено"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 746
+#: NEEDS WORK
+msgid "OpenSubtitles login (needed to download subtitles)."
+msgstr "OpenSubtitles вхід (необхідно для завантаження субтитрів)."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 747
+#: NEEDS WORK
+msgid "Create a free account at https://www.opensubtitles.com/newuser"
+msgstr "Створіть безкоштовний обліковий запис на https://www.opensubtitles.com/newuser"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 748
+#: NEEDS WORK
+msgid "Use your USERNAME, not your e-mail address."
+msgstr "Використовуйте своє ІМ'Я КОРИСТУВАЧА, а не адресу електронної пошти."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 750
+#: NEEDS WORK
+msgid "Username (not e-mail):"
+msgstr "Ім'я користувача (не електронна пошта):"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 753
+#: NEEDS WORK
+msgid "Password:"
+msgstr "Пароль:"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 762
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 329
+#: NEEDS WORK
+msgid "OpenSubtitles login saved"
+msgstr "Збережено вхідні дані OpenSubtitles"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 764
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 232
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
+#: NEEDS WORK
+msgid "Username and password are both required"
+msgstr "Username and password are both required"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 772
+#: NEEDS WORK
+msgid "Testing OpenSubtitles login..."
+msgstr "Тестування входу в OpenSubtitles..."
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 776
+#: NEEDS WORK
+msgid "No OpenSubtitles login configured!"
+msgstr "Немає налаштування для входу в OpenSubtitles!"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 777
+#: NEEDS WORK
+msgid "Configure it first using 'Configure OpenSubtitles login'"
+msgstr "Спочатку налаштуйте його, використовуючи 'Налаштувати вхід OpenSubtitles'"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 787
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 384
+#: NEEDS WORK
+#, python-format
+msgid "Login failed: %s"
+msgstr "Вхід не вдався: %s"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 492
 #: usr/share/jellyfix/cli/interactive.py:619
@@ -1205,6 +1178,15 @@ msgstr "Перейменовує файли"
 msgid "to Jellyfin standard"
 msgstr "до стандарту Jellyfin"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 609
+# File: usr/share/jellyfix/cli/display.py, line: 76
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
+msgid "Movies"
+msgstr "Фільми"
+# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 #: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
@@ -1342,33 +1324,231 @@ msgstr "Порада:"
 msgid "Configure your TMDB key"
 msgstr "Налаштуйте свій ключ TMDB"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: usr/share/jellyfix/core/image_manager.py:101
-#, python-format
-msgid "Downloaded image: %s"
-msgstr "Завантажене зображення: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 64
+#: usr/share/jellyfix/cli/display.py:64
+msgid "Scan Results"
+msgstr "Результати сканування"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: usr/share/jellyfix/core/image_manager.py:106
-#, python-format
-msgid "Failed to download image: %s"
-msgstr "Не вдалося завантажити зображення: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 71
+#: usr/share/jellyfix/cli/display.py:71
+msgid "Category"
+msgstr "Категорія"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: usr/share/jellyfix/core/image_manager.py:110
-#, python-format
-msgid "Unexpected error downloading image: %s"
-msgstr "Несподівана помилка під час завантаження зображення: %s"
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 253
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
+msgid "Count"
+msgstr "Count"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: usr/share/jellyfix/core/image_manager.py:216
-msgid "Clearing image cache..."
-msgstr "Очищення кешу зображень..."
+# File: usr/share/jellyfix/cli/display.py, line: 75
+#: usr/share/jellyfix/cli/display.py:75
+msgid "Video files"
+msgstr "Відеофайли"
 # 
-# File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: usr/share/jellyfix/core/image_manager.py:218
-msgid "Image cache cleared"
-msgstr "Кеш зображень очищено"
+# File: usr/share/jellyfix/cli/display.py, line: 77
+#: usr/share/jellyfix/cli/display.py:77
+msgid "Episodes"
+msgstr "Episodess"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
+msgid "Subtitles"
+msgstr "Undertitles"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 81
+#: usr/share/jellyfix/cli/display.py:81
+msgid "Variants"
+msgstr "Variants"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 82
+#: usr/share/jellyfix/cli/display.py:82
+msgid "No language"
+msgstr "No language"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 83
+#: usr/share/jellyfix/cli/display.py:83
+msgid "Foreign"
+msgstr "Зарубіжний"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 84
+#: usr/share/jellyfix/cli/display.py:84
+msgid "With language"
+msgstr "З мовою"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 87
+#: usr/share/jellyfix/cli/display.py:87
+msgid "Images"
+msgstr "Зображення"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 90
+#: usr/share/jellyfix/cli/display.py:90
+msgid "NFO files"
+msgstr "NFO файли"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 93
+#: usr/share/jellyfix/cli/display.py:93
+msgid "Other"
+msgstr "Інше"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 100
+#: usr/share/jellyfix/cli/display.py:100
+msgid "Suggested actions:"
+msgstr "Запропоновані дії:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 103
+#: usr/share/jellyfix/cli/display.py:103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "можна обробляти варіанти субтитрів (.lang2, .lang3)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 106
+#: usr/share/jellyfix/cli/display.py:106
+msgid "subtitles without language code"
+msgstr "субтитри без мовного коду"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 109
+#: usr/share/jellyfix/cli/display.py:109
+msgid "foreign subtitles can be removed"
+msgstr "іноземні субтитри можна видалити"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 113
+#: usr/share/jellyfix/cli/display.py:113
+msgid "Suggestions"
+msgstr "Сприяння"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 137
+#: usr/share/jellyfix/cli/display.py:139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "Огляд операції ({} файлів)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:262
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "та іще {} групи"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 189
+#: usr/share/jellyfix/cli/display.py:276
+msgid "Move + Rename:"
+msgstr "Перемістити + перейменувати:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 194
+#: usr/share/jellyfix/cli/display.py:281
+msgid "Move:"
+msgstr "Перемістити:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 199
+#: usr/share/jellyfix/cli/display.py:286
+msgid "Rename:"
+msgstr "Rename:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 204
+#: usr/share/jellyfix/cli/display.py:291
+msgid "Remove:"
+msgstr "Видалити:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 208
+# File: usr/share/jellyfix/cli/display.py, line: 225
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
+msgid "Summary"
+msgstr "Резюме"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 230
+#: usr/share/jellyfix/cli/display.py:342
+msgid "Move + Rename"
+msgstr "Перемістити + Перейменувати"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 231
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
+msgid "Move"
+msgstr "Move"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 232
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
+msgid "Rename"
+msgstr "Rename"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 233
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
+msgid "Delete"
+msgstr "Delete"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 251
+#: usr/share/jellyfix/cli/display.py:363
+msgid "✅ Execution Results"
+msgstr "✅ Результати виконання"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 252
+#: usr/share/jellyfix/cli/display.py:364
+msgid "Action"
+msgstr "Дія"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: usr/share/jellyfix/cli/display.py:368
+msgid "Renamed"
+msgstr "Перейменовано"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 258
+#: usr/share/jellyfix/cli/display.py:370
+msgid "Moved"
+msgstr "Переміщено"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: usr/share/jellyfix/cli/display.py:372
+msgid "Deleted"
+msgstr "Deleted"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:374
+msgid "Cleaned folders"
+msgstr "Очищені папки"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: usr/share/jellyfix/cli/display.py:376
+msgid "Failed"
+msgstr "Не вдалося"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 266
+#: usr/share/jellyfix/cli/display.py:378
+msgid "Skipped"
+msgstr "Omitted"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 262
+#: NEEDS WORK
+msgid "Login OK — subtitles can be downloaded"
+msgstr "Вхід успішний — субтитри можна завантажити"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 270
+#: NEEDS WORK
+msgid "Use your username, not your e-mail address."
+msgstr "Використовуйте своє ім'я користувача, а не адресу електронної пошти."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 285
+#: NEEDS WORK
+msgid ""
+"opensubtitles.com requires a free account to download subtitles. Set "
+"opensubtitles_username/opensubtitles_password in ~/.jellyfix/config.json (or the "
+"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD environment variables)."
+msgstr ""
+"opensubtitles.com потребує безкоштовного облікового запису для завантаження субтитрів. Встановіть "
+"opensubtitles_username/opensubtitles_password у ~/.jellyfix/config.json (або змінні середовища "
+"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD)."
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
 #: usr/share/jellyfix/core/subtitle_manager.py:169
@@ -1430,6 +1610,12 @@ msgstr "Batch Level 2: пошук за назвою для %d відео..."
 msgid "Level 2 (TMDB) found: %s for %s"
 msgstr "Level 2 (TMDB) found: %s for %s"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 525
+#: NEEDS WORK
+#, python-format
+msgid "Level 3 (fallback %s) found: %s for %s"
+msgstr "Рівень 3 (резервний %s) знайдено: %s для %s"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
 #: usr/share/jellyfix/core/subtitle_manager.py:237
 #, python-format
@@ -1448,6 +1634,12 @@ msgstr "Знайдено %d перевірених субтитрів за на�
 msgid "Manual search: %s"
 msgstr "Ручний пошук: %s"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 923
+#: NEEDS WORK
+#, python-format
+msgid "No results from primary providers, trying: %s"
+msgstr "Немає результатів від основних постачальників, намагаємось: %s"
+# 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 746
@@ -1462,448 +1654,45 @@ msgstr "Невідомий реліз"
 msgid "Found %d subtitles in manual search"
 msgstr "Знайдено %d субтитрів у ручному пошуку"
 # 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1013
+#: NEEDS WORK
+#, python-format
+msgid "Failed to download subtitle content. %s"
+msgstr "Не вдалося завантажити вміст субтитрів. %s"
+# 
 # File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
 #: usr/share/jellyfix/core/subtitle_manager.py:707
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "Завантажені субтитри: %s"
 # 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Select Directory to Scan"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Сканування не вдалося"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
-#: usr/share/jellyfix/gui/handlers/operations.py:177
-#: usr/share/jellyfix/gui/handlers/operations.py:251
-#: usr/share/jellyfix/gui/handlers/operations.py:450
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
-#: usr/share/jellyfix/gui/windows/main_window.py:590
-#: usr/share/jellyfix/gui/windows/main_window.py:724
-#: usr/share/jellyfix/gui/windows/main_window.py:1038
-#: usr/share/jellyfix/gui/windows/main_window.py:1074
-msgid "OK"
-msgstr "ОК"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Операція генерації не вдалася"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Виконання не вдалося"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
-msgid "No Selection"
-msgstr "No Selection"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
-msgid "Select an item to preview"
-msgstr "Виберіть елемент для попереднього перегляду"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
-msgid "Search title"
-msgstr "Пошук заголовка"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
-msgid "Wrong title? Click to search manually"
-msgstr "Неправильний заголовок? Натисніть, щоб шукати вручну"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
-msgid "Download Subtitles"
-msgstr "Завантажити субтитри"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
-msgid "Search and download subtitles automatically"
-msgstr "Автоматичний пошук та завантаження субтитрів"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
-msgid "From:"
-msgstr "З:"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
-msgid "To:"
-msgstr "To:"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
-msgid "MOVE"
-msgstr "РУХАТИ"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
-msgid "DELETE"
-msgstr "DELETE"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
-msgid "MOVE + RENAME"
-msgstr "移動 + 重命名"
-# 
-# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
-#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
-msgid "RENAME"
-msgstr "Rename"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
-#: usr/share/jellyfix/gui/widgets/dashboard.py:79
-msgid "Welcome to Jellyfix"
-msgstr "Вітаємо у Jellyfix"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
-#: usr/share/jellyfix/gui/widgets/dashboard.py:107
-msgid "Drop a folder here"
-msgstr "Перетягніть папку сюди"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
-#: usr/share/jellyfix/gui/widgets/dashboard.py:108
-msgid "or click the button below"
-msgstr "або натисніть кнопку нижче"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
-#: usr/share/jellyfix/gui/widgets/dashboard.py:115
-#: usr/share/jellyfix/gui/widgets/dashboard.py:124
-msgid "Add Library"
-msgstr "Додати бібліотеку"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
-#: usr/share/jellyfix/gui/widgets/dashboard.py:146
-msgid "Recent Libraries"
-msgstr "Останні бібліотеки"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
-#: usr/share/jellyfix/gui/widgets/dashboard.py:179
-msgid "Clear recent libraries"
-msgstr "Очистити недавні бібліотеки"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
-#: usr/share/jellyfix/gui/widgets/dashboard.py:202
-msgid "weeks ago"
-msgstr "weeks ago"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
-#: usr/share/jellyfix/gui/widgets/dashboard.py:204
-msgid "days ago"
-msgstr "днів тому"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
-#: usr/share/jellyfix/gui/widgets/dashboard.py:206
-msgid "hours ago"
-msgstr "годин тому"
-# 
-# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
-#: usr/share/jellyfix/gui/widgets/dashboard.py:208
-msgid "Just now"
-msgstr "Тільки що"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
-#: usr/share/jellyfix/gui/widgets/operations_list.py:141
-msgid "Operations"
-msgstr "Операції"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
-#: usr/share/jellyfix/gui/widgets/operations_list.py:156
-msgid "Search..."
-msgstr "Пошук..."
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
-#: usr/share/jellyfix/gui/widgets/operations_list.py:166
-msgid "All"
-msgstr "Усі"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
-#: usr/share/jellyfix/gui/widgets/operations_list.py:195
-msgid "Download Subtitles for All"
-msgstr "Завантажити субтитри для всіх"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
-#: usr/share/jellyfix/gui/widgets/operations_list.py:197
-msgid "Search and download subtitles for all listed videos"
-msgstr "Шукати та завантажувати субтитри для всіх вказаних відео"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
-#: usr/share/jellyfix/gui/widgets/operations_list.py:216
-msgid "No Operations"
-msgstr "Немає операцій"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
-#: usr/share/jellyfix/gui/widgets/operations_list.py:217
-msgid "Scan a directory to generate operations"
-msgstr "Сканувати каталог для генерації операцій"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "Застосувати"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
-#: usr/share/jellyfix/gui/widgets/operations_list.py:418
-msgid "rename"
-msgstr "rename"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
-#: usr/share/jellyfix/gui/widgets/operations_list.py:420
-msgid "move"
-msgstr "перемістити"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
-#: usr/share/jellyfix/gui/widgets/operations_list.py:422
-msgid "delete"
-msgstr "delete"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
-#: usr/share/jellyfix/gui/widgets/operations_list.py:425
-#, python-brace-format
-msgid "Showing {} of {} operations"
-msgstr "Showing {} of {} operations"
-# 
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
-#: usr/share/jellyfix/gui/widgets/operations_list.py:427
-#, python-brace-format
-msgid "Total: {} operations"
-msgstr "Total: {} операцій"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
-#: usr/share/jellyfix/gui/windows/main_window.py:169
-#: usr/share/jellyfix/gui/windows/preferences_window.py:44
-msgid "Preferences"
-msgstr "Налаштування"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
-#: usr/share/jellyfix/gui/windows/preferences_window.py:60
-msgid "Subtitle Handling"
-msgstr "Обробка субтитрів"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
-#: usr/share/jellyfix/gui/windows/preferences_window.py:61
-msgid "Configure how subtitles are processed"
-msgstr "Налаштуйте, як обробляються субтитри"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
-#: usr/share/jellyfix/gui/windows/preferences_window.py:66
-msgid "Rename Language Variants"
-msgstr "Rename Language Variants"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
-#: usr/share/jellyfix/gui/windows/preferences_window.py:67
-msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
-msgstr "Přejmenujte .por2.srt, .eng2.srt na .por.srt, .eng.srt"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/preferences_window.py:75
-msgid "Remove Duplicate Variants"
-msgstr "Видалити дублікати варіантів"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
-#: usr/share/jellyfix/gui/windows/preferences_window.py:76
-msgid "Remove .lang2, .lang3 files after renaming"
-msgstr "Видалити файли .lang2, .lang3 після перейменування"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/preferences_window.py:84
-msgid "Add Language Codes"
-msgstr "Додати коди мов"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
-#: usr/share/jellyfix/gui/windows/preferences_window.py:85
-msgid "Add language codes to subtitles without them"
-msgstr "Додати мовні коди до субтитрів без них"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
-#: usr/share/jellyfix/gui/windows/preferences_window.py:93
-msgid "Remove Foreign Subtitles"
-msgstr "Видалити іноземні субтитри"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
-#: usr/share/jellyfix/gui/windows/preferences_window.py:94
-msgid "Remove subtitles not in kept languages list"
-msgstr "Видалити субтитри, які не входять до списку збережених мов"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
-#: usr/share/jellyfix/gui/windows/preferences_window.py:102
-msgid "Minimum Portuguese Words"
-msgstr "Mínimo de Palavras em Português"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
-#: usr/share/jellyfix/gui/windows/preferences_window.py:103
-msgid "Min words to detect Portuguese subtitles"
-msgstr "Min. слів для виявлення португальських субтитрів"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
-#: usr/share/jellyfix/gui/windows/preferences_window.py:112
-msgid "Kept Languages"
-msgstr "Збережені мови"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/preferences_window.py:113
-msgid "Subtitles in these languages will be kept"
-msgstr "Subtitles in these languages will be retained"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
-#: usr/share/jellyfix/gui/windows/preferences_window.py:134
-msgid "Video"
-msgstr "Відео"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
-#: usr/share/jellyfix/gui/windows/preferences_window.py:140
-msgid "Video Handling"
-msgstr "Відео обробка"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
-#: usr/share/jellyfix/gui/windows/preferences_window.py:141
-msgid "Configure how videos are processed"
-msgstr "Налаштуйте, як обробляються відео"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
-#: usr/share/jellyfix/gui/windows/preferences_window.py:146
-msgid "Organize in Folders"
-msgstr "Організувати в папках"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
-#: usr/share/jellyfix/gui/windows/preferences_window.py:147
-msgid "Organize TV episodes in Season folders"
-msgstr "Організуйте епізоди телевізійних шоу в папках сезону"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
-#: usr/share/jellyfix/gui/windows/preferences_window.py:155
-msgid "Add Quality Tags"
-msgstr "Додати теги якості"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
-#: usr/share/jellyfix/gui/windows/preferences_window.py:156
-msgid "Add resolution tags (1080p, 720p, etc) to filenames"
-msgstr "Додати теги роздільної здатності (1080p, 720p тощо) до імен файлів"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
-#: usr/share/jellyfix/gui/windows/preferences_window.py:164
-msgid "Use ffprobe for Detection"
-msgstr "Використовуйте ffprobe для виявлення"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
-#: usr/share/jellyfix/gui/windows/preferences_window.py:165
-msgid "More accurate but slower quality detection"
-msgstr "Більш точне, але повільніше виявлення якості"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
-#: usr/share/jellyfix/gui/windows/preferences_window.py:177
-msgid "Metadata"
-msgstr "Метадані"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
-#: usr/share/jellyfix/gui/windows/preferences_window.py:183
-msgid "Metadata Fetching"
-msgstr "Витягування метаданих"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/preferences_window.py:184
-msgid "Configure metadata from TMDB"
-msgstr "Налаштувати метадані з TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
-#: usr/share/jellyfix/gui/windows/preferences_window.py:189
-msgid "Fetch Metadata"
-msgstr "Завантажити метадані"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
-#: usr/share/jellyfix/gui/windows/preferences_window.py:190
-msgid "Download metadata and posters from TMDB"
-msgstr "Завантажити метадані та постери з TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
-#: usr/share/jellyfix/gui/windows/preferences_window.py:202
-msgid "General"
-msgstr "Загальний"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
-#: usr/share/jellyfix/gui/windows/preferences_window.py:208
-msgid "Application"
-msgstr "Застосунок"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
-#: usr/share/jellyfix/gui/windows/preferences_window.py:209
-msgid "General application settings"
-msgstr "Загальні налаштування програми"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
-#: usr/share/jellyfix/gui/windows/preferences_window.py:217
-msgid "Keep Recent Libraries"
-msgstr "Зберігати нещодавні бібліотеки"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
-#: usr/share/jellyfix/gui/windows/preferences_window.py:218
-msgid "Remember recently scanned libraries between sessions"
-msgstr "Запам'ятати нещодавно відскановані бібліотеки між сесіями"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
-#: usr/share/jellyfix/gui/windows/preferences_window.py:228
-msgid "File Cleanup"
-msgstr "File Cleanup"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
-#: usr/share/jellyfix/gui/windows/preferences_window.py:229
-msgid "Configure which files to remove"
-msgstr "Налаштувати, які файли видалити"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
-#: usr/share/jellyfix/gui/windows/preferences_window.py:234
-msgid "Remove Non-Media Files"
-msgstr "Remove Non-Media Files"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
-#: usr/share/jellyfix/gui/windows/preferences_window.py:235
-msgid "Remove all files that are not .srt or .mp4"
-msgstr "Видалити всі файли, які не є .srt або .mp4"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
-#: usr/share/jellyfix/gui/windows/preferences_window.py:243
-msgid "Fix Mirabel Files"
-msgstr "Виправити файли Mirabel"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
-#: usr/share/jellyfix/gui/windows/preferences_window.py:244
-msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
-msgstr "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+# File: usr/share/jellyfix/core/image_manager.py, line: 101
+#: usr/share/jellyfix/core/image_manager.py:101
+#, python-format
+msgid "Downloaded image: %s"
+msgstr "Завантажене зображення: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 106
+#: usr/share/jellyfix/core/image_manager.py:106
+#, python-format
+msgid "Failed to download image: %s"
+msgstr "Не вдалося завантажити зображення: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 110
+#: usr/share/jellyfix/core/image_manager.py:110
+#, python-format
+msgid "Unexpected error downloading image: %s"
+msgstr "Несподівана помилка під час завантаження зображення: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 216
+#: usr/share/jellyfix/core/image_manager.py:216
+msgid "Clearing image cache..."
+msgstr "Очищення кешу зображень..."
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 218
+#: usr/share/jellyfix/core/image_manager.py:218
+msgid "Image cache cleared"
+msgstr "Кеш зображень очищено"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1914,6 +1703,20 @@ msgstr "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 #: usr/share/jellyfix/gui/windows/main_window.py:98
 msgid "Jellyfix"
 msgstr "Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/app.py, line: 131
+#: usr/share/jellyfix/gui/app.py:151
+msgid "translator-credits"
+msgstr "перекладач-автори"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
+#: usr/share/jellyfix/gui/windows/main_window.py:169
+#: usr/share/jellyfix/gui/windows/preferences_window.py:44
+msgid "Preferences"
+msgstr "Налаштування"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
 #: usr/share/jellyfix/gui/windows/main_window.py:170
@@ -1982,6 +1785,16 @@ msgstr "Це перейменує {} файлів. Продовжити?"
 msgid "Cancel"
 msgstr "Cancel"
 # 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
+msgid "Apply"
+msgstr "Застосувати"
+# 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
 #: usr/share/jellyfix/gui/windows/main_window.py:545
 msgid "Execute Operations?"
@@ -2017,6 +1830,32 @@ msgid ""
 msgstr ""
 "La bibliothèque 'subliminal' n'est pas installée. Veuillez l'installer pour utiliser cette "
 "fonctionnalité."
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 230
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 244
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 272
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 323
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 411
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 163
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 232
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 431
+#: usr/share/jellyfix/gui/handlers/operations.py:177
+#: usr/share/jellyfix/gui/handlers/operations.py:251
+#: usr/share/jellyfix/gui/handlers/operations.py:450
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:235
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:249
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:277
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:334
+#: usr/share/jellyfix/gui/windows/main_window.py:590
+#: usr/share/jellyfix/gui/windows/main_window.py:724
+#: usr/share/jellyfix/gui/windows/main_window.py:1038
+#: usr/share/jellyfix/gui/windows/main_window.py:1074
+msgid "OK"
+msgstr "ОК"
 # 
 # File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
 #: usr/share/jellyfix/gui/windows/main_window.py:746
@@ -2131,299 +1970,6 @@ msgstr ""
 #, python-brace-format
 msgid "Subtitle downloaded: {}"
 msgstr "Субтитри завантажено: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB Конфігурація"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "Налаштувати ключ API бази даних фільмів"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ Налаштовано"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ Не налаштовано"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API Key"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "Конфігураційний файл"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "Дії"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "Введіть свій API-ключ TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "Налаштувати"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "Переглянути поточний ключ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "Показати замаскований API-ключ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "Вигляд"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "Перевірка з'єднання з TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "Перевірте, чи працює API-ключ."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "Тест"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "Видалити ключ TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "Видалити збережений API-ключ"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "Видалити"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "Покрокове керівництво"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "Посібник"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "Введіть свій API-ключ TMDB нижче"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "Вставте API-ключ сюди"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "Зберегти"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API ключ успішно збережено"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "Поточний ключ API TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "Masked key"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "Повний ключ збережено в"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "Немає API ключа"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "Ще не налаштовано ключ API TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "Будь ласка, спочатку налаштуйте ключ API TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ З'єднання успішне"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
-#, python-brace-format
-msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr ""
-"TMDB API ключ працює правильно!\n"
-"\n"
-"Тестовий пошук повернув: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ З'єднання не вдалося"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr "Could not fetch data from TMDB. Please check your API key."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ Помилка з'єднання"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "Помилка під час перевірки з'єднання: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "Видалити API-ключ?"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid "This will delete your stored TMDB API key. You will need to configure it again."
-msgstr "Це видалить ваш збережений API-ключ TMDB. Вам потрібно буде налаштувати його знову."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API ключ видалено"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
-msgstr ""
-"Як отримати ключ API TMDB:\n"
-"\n"
-"1. Перейдіть на https://www.themoviedb.org/signup\n"
-"2. Створіть безкоштовний обліковий запис\n"
-"3. Перейдіть до Налаштування → API\n"
-"4. Запросіть ключ API (оберіть опцію \"Розробник\")\n"
-"5. Заповніть необхідну інформацію\n"
-"6. Скопіюйте ключ API (v3 auth)\n"
-"7. Вставте його в Jellyfix\n"
-"\n"
-"Ключ API безкоштовний і дозволяє вам:\n"
-"• Отримувати метадані фільмів та телевізійних шоу\n"
-"• Завантажувати постери та фони\n"
-"• Отримувати точні назви та дати виходу\n"
-"• Організовувати вашу бібліотеку за допомогою ID TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
-msgstr "Пошук заголовка"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "Введіть назву фільму або серіалу..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "Search"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "Фільм"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "Телевізійний серіал"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "Пошук..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB не налаштовано"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "Немає знайдених результатів"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "результати"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: usr/share/jellyfix/gui/windows/help_window.py:34
@@ -2627,6 +2173,619 @@ msgstr "Report Issues"
 msgid "Get TMDB API Key"
 msgstr "Отримати ключ API TMDB"
 # 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "Пошук заголовка"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "Введіть назву фільму або серіалу..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "Search"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "Фільм"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "Телевізійний серіал"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "Пошук..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB не налаштовано"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "Немає знайдених результатів"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "результати"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Помилка: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
+#: usr/share/jellyfix/gui/windows/preferences_window.py:60
+msgid "Subtitle Handling"
+msgstr "Обробка субтитрів"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
+#: usr/share/jellyfix/gui/windows/preferences_window.py:61
+msgid "Configure how subtitles are processed"
+msgstr "Налаштуйте, як обробляються субтитри"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
+#: usr/share/jellyfix/gui/windows/preferences_window.py:66
+msgid "Rename Language Variants"
+msgstr "Rename Language Variants"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
+#: usr/share/jellyfix/gui/windows/preferences_window.py:67
+msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
+msgstr "Přejmenujte .por2.srt, .eng2.srt na .por.srt, .eng.srt"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
+#: usr/share/jellyfix/gui/windows/preferences_window.py:75
+msgid "Remove Duplicate Variants"
+msgstr "Видалити дублікати варіантів"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
+#: usr/share/jellyfix/gui/windows/preferences_window.py:76
+msgid "Remove .lang2, .lang3 files after renaming"
+msgstr "Видалити файли .lang2, .lang3 після перейменування"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/preferences_window.py:84
+msgid "Add Language Codes"
+msgstr "Додати коди мов"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
+#: usr/share/jellyfix/gui/windows/preferences_window.py:85
+msgid "Add language codes to subtitles without them"
+msgstr "Додати мовні коди до субтитрів без них"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
+#: usr/share/jellyfix/gui/windows/preferences_window.py:93
+msgid "Remove Foreign Subtitles"
+msgstr "Видалити іноземні субтитри"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
+#: usr/share/jellyfix/gui/windows/preferences_window.py:94
+msgid "Remove subtitles not in kept languages list"
+msgstr "Видалити субтитри, які не входять до списку збережених мов"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
+#: usr/share/jellyfix/gui/windows/preferences_window.py:102
+msgid "Minimum Portuguese Words"
+msgstr "Mínimo de Palavras em Português"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
+#: usr/share/jellyfix/gui/windows/preferences_window.py:103
+msgid "Min words to detect Portuguese subtitles"
+msgstr "Min. слів для виявлення португальських субтитрів"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
+#: usr/share/jellyfix/gui/windows/preferences_window.py:112
+msgid "Kept Languages"
+msgstr "Збережені мови"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/preferences_window.py:113
+msgid "Subtitles in these languages will be kept"
+msgstr "Subtitles in these languages will be retained"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
+#: usr/share/jellyfix/gui/windows/preferences_window.py:134
+msgid "Video"
+msgstr "Відео"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
+#: usr/share/jellyfix/gui/windows/preferences_window.py:140
+msgid "Video Handling"
+msgstr "Відео обробка"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
+#: usr/share/jellyfix/gui/windows/preferences_window.py:141
+msgid "Configure how videos are processed"
+msgstr "Налаштуйте, як обробляються відео"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
+#: usr/share/jellyfix/gui/windows/preferences_window.py:146
+msgid "Organize in Folders"
+msgstr "Організувати в папках"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
+#: usr/share/jellyfix/gui/windows/preferences_window.py:147
+msgid "Organize TV episodes in Season folders"
+msgstr "Організуйте епізоди телевізійних шоу в папках сезону"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
+#: usr/share/jellyfix/gui/windows/preferences_window.py:155
+msgid "Add Quality Tags"
+msgstr "Додати теги якості"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
+#: usr/share/jellyfix/gui/windows/preferences_window.py:156
+msgid "Add resolution tags (1080p, 720p, etc) to filenames"
+msgstr "Додати теги роздільної здатності (1080p, 720p тощо) до імен файлів"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
+#: usr/share/jellyfix/gui/windows/preferences_window.py:164
+msgid "Use ffprobe for Detection"
+msgstr "Використовуйте ffprobe для виявлення"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
+#: usr/share/jellyfix/gui/windows/preferences_window.py:165
+msgid "More accurate but slower quality detection"
+msgstr "Більш точне, але повільніше виявлення якості"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
+#: usr/share/jellyfix/gui/windows/preferences_window.py:177
+msgid "Metadata"
+msgstr "Метадані"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
+#: usr/share/jellyfix/gui/windows/preferences_window.py:183
+msgid "Metadata Fetching"
+msgstr "Витягування метаданих"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
+#: usr/share/jellyfix/gui/windows/preferences_window.py:184
+msgid "Configure metadata from TMDB"
+msgstr "Налаштувати метадані з TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
+#: usr/share/jellyfix/gui/windows/preferences_window.py:189
+msgid "Fetch Metadata"
+msgstr "Завантажити метадані"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
+#: usr/share/jellyfix/gui/windows/preferences_window.py:190
+msgid "Download metadata and posters from TMDB"
+msgstr "Завантажити метадані та постери з TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
+#: usr/share/jellyfix/gui/windows/preferences_window.py:202
+msgid "General"
+msgstr "Загальний"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
+#: usr/share/jellyfix/gui/windows/preferences_window.py:208
+msgid "Application"
+msgstr "Застосунок"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
+#: usr/share/jellyfix/gui/windows/preferences_window.py:209
+msgid "General application settings"
+msgstr "Загальні налаштування програми"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
+#: usr/share/jellyfix/gui/windows/preferences_window.py:217
+msgid "Keep Recent Libraries"
+msgstr "Зберігати нещодавні бібліотеки"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
+#: usr/share/jellyfix/gui/windows/preferences_window.py:218
+msgid "Remember recently scanned libraries between sessions"
+msgstr "Запам'ятати нещодавно відскановані бібліотеки між сесіями"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: usr/share/jellyfix/gui/windows/preferences_window.py:228
+msgid "File Cleanup"
+msgstr "File Cleanup"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: usr/share/jellyfix/gui/windows/preferences_window.py:229
+msgid "Configure which files to remove"
+msgstr "Налаштувати, які файли видалити"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: usr/share/jellyfix/gui/windows/preferences_window.py:234
+msgid "Remove Non-Media Files"
+msgstr "Remove Non-Media Files"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: usr/share/jellyfix/gui/windows/preferences_window.py:235
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Видалити всі файли, які не є .srt або .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: usr/share/jellyfix/gui/windows/preferences_window.py:243
+msgid "Fix Mirabel Files"
+msgstr "Виправити файли Mirabel"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: usr/share/jellyfix/gui/windows/preferences_window.py:244
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
+msgid "TMDB Configuration"
+msgstr "TMDB Конфігурація"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
+msgid "Configure The Movie Database API key"
+msgstr "Налаштувати ключ API бази даних фільмів"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
+msgid "✓ Configured"
+msgstr "✓ Налаштовано"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
+msgid "✗ Not configured"
+msgstr "✗ Не налаштовано"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
+msgid "TMDB API Key"
+msgstr "TMDB API Key"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
+msgid "Config file"
+msgstr "Конфігураційний файл"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: NEEDS WORK
+msgid "OpenSubtitles Login"
+msgstr "OpenSubtitles Log In"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 89
+#: NEEDS WORK
+msgid "A free opensubtitles.com account is required to download subtitles (searching works without it)"
+msgstr ""
+"Для завантаження субтитрів потрібен безкоштовний обліковий запис opensubtitles.com (пошук працює "
+"без нього)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 328
+#: NEEDS WORK
+#, python-format
+msgid "✓ Configured (%s)"
+msgstr "✓ Налаштовано (%s)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 96
+#: NEEDS WORK
+msgid "Account"
+msgstr "Рахунок"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 103
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 285
+#: NEEDS WORK
+msgid "Configure OpenSubtitles Login"
+msgstr "Налаштувати вхід до OpenSubtitles"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 104
+#: NEEDS WORK
+msgid "Enter your username and password"
+msgstr "Введіть своє ім'я користувача та пароль"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
+msgid "Configure"
+msgstr "Налаштувати"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 114
+#: NEEDS WORK
+msgid "Test OpenSubtitles Login"
+msgstr "Тест Увійти до OpenSubtitles"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 115
+#: NEEDS WORK
+msgid "Verify your credentials actually work"
+msgstr "Перевірте, чи ваші облікові дані дійсно працюють"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
+msgid "Test"
+msgstr "Тест"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: NEEDS WORK
+msgid "Remove OpenSubtitles Login"
+msgstr "Видалити вхід до OpenSubtitles"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 125
+#: NEEDS WORK
+msgid "Delete stored credentials"
+msgstr "Видалити збережені облікові дані"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
+msgid "Remove"
+msgstr "Видалити"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 135
+#: NEEDS WORK
+msgid "Create a free account"
+msgstr "Створити безкоштовний обліковий запис"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 138
+#: NEEDS WORK
+msgid "Open"
+msgstr "Відкрити"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
+msgid "Actions"
+msgstr "Дії"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
+msgid "Enter your TMDB API key"
+msgstr "Введіть свій API-ключ TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
+msgid "View Current Key"
+msgstr "Переглянути поточний ключ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
+msgid "Show masked API key"
+msgstr "Показати замаскований API-ключ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
+msgid "View"
+msgstr "Вигляд"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
+msgid "Test TMDB Connection"
+msgstr "Перевірка з'єднання з TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
+msgid "Verify API key is working"
+msgstr "Перевірте, чи працює API-ключ."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
+msgid "Remove TMDB Key"
+msgstr "Видалити ключ TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
+msgid "Delete stored API key"
+msgstr "Видалити збережений API-ключ"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
+msgid "Step-by-step tutorial"
+msgstr "Покрокове керівництво"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
+msgid "Tutorial"
+msgstr "Посібник"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
+msgid "Enter your TMDB API key below"
+msgstr "Введіть свій API-ключ TMDB нижче"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
+msgid "Paste API key here"
+msgstr "Вставте API-ключ сюди"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
+msgid "Save"
+msgstr "Зберегти"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
+msgid "API key saved successfully"
+msgstr "API ключ успішно збережено"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 286
+#: NEEDS WORK
+msgid ""
+"Enter your opensubtitles.com username and password.\n"
+"⚠ Use your USERNAME, not your e-mail address."
+msgstr ""
+"Введіть своє ім'я користувача та пароль opensubtitles.com.  \n"
+"⚠ Використовуйте своє ІМ'Я КОРИСТУВАЧА, а не адресу електронної пошти."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 294
+#: NEEDS WORK
+msgid "Username (not e-mail)"
+msgstr "Користувач (не електронна пошта)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 299
+#: NEEDS WORK
+msgid "Password"
+msgstr "Пароль"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 306
+#: NEEDS WORK
+msgid "Show password"
+msgstr "Показати пароль"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 340
+#: NEEDS WORK
+msgid "Remove OpenSubtitles Login?"
+msgstr "Видалити вхід в OpenSubtitles?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 341
+#: NEEDS WORK
+msgid ""
+"This will delete your stored credentials. You will not be able to download from opensubtitles.com "
+"until you configure it again."
+msgstr ""
+"Це видалить ваші збережені облікові дані. Ви не зможете завантажувати з opensubtitles.com, поки не "
+"налаштуєте це знову."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 371
+#: NEEDS WORK
+msgid "Configure your login first"
+msgstr "Спочатку налаштуйте свій вхід."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 374
+#: NEEDS WORK
+msgid "Testing login…"
+msgstr "Тестування входу…"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 380
+#: NEEDS WORK
+#, python-format
+msgid "✓ Login OK (%s)"
+msgstr "✓ Увійти успішно (%s)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
+msgid "Current TMDB API Key"
+msgstr "Поточний ключ API TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Masked key"
+msgstr "Masked key"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Full key stored in"
+msgstr "Повний ключ збережено в"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
+msgid "No API Key"
+msgstr "Немає API ключа"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
+msgid "No TMDB API key configured yet"
+msgstr "Ще не налаштовано ключ API TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
+msgid "Please configure TMDB API key first"
+msgstr "Будь ласка, спочатку налаштуйте ключ API TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
+msgid "✓ Connection Successful"
+msgstr "✓ З'єднання успішне"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
+"\n"
+"Test search returned: {}"
+msgstr ""
+"TMDB API ключ працює правильно!\n"
+"\n"
+"Тестовий пошук повернув: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
+msgid "⚠ Connection Failed"
+msgstr "⚠ З'єднання не вдалося"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "Could not fetch data from TMDB. Please check your API key."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
+msgid "✗ Connection Error"
+msgstr "✗ Помилка з'єднання"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
+#, python-brace-format
+msgid "Error testing connection: {}"
+msgstr "Помилка під час перевірки з'єднання: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
+msgid "Remove API Key?"
+msgstr "Видалити API-ключ?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
+msgid "This will delete your stored TMDB API key. You will need to configure it again."
+msgstr "Це видалить ваш збережений API-ключ TMDB. Вам потрібно буде налаштувати його знову."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
+msgid "API key removed"
+msgstr "API ключ видалено"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"Як отримати ключ API TMDB:\n"
+"\n"
+"1. Перейдіть на https://www.themoviedb.org/signup\n"
+"2. Створіть безкоштовний обліковий запис\n"
+"3. Перейдіть до Налаштування → API\n"
+"4. Запросіть ключ API (оберіть опцію \"Розробник\")\n"
+"5. Заповніть необхідну інформацію\n"
+"6. Скопіюйте ключ API (v3 auth)\n"
+"7. Вставте його в Jellyfix\n"
+"\n"
+"Ключ API безкоштовний і дозволяє вам:\n"
+"• Отримувати метадані фільмів та телевізійних шоу\n"
+"• Завантажувати постери та фони\n"
+"• Отримувати точні назви та дати виходу\n"
+"• Організовувати вашу бібліотеку за допомогою ID TMDB"
+# 
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
 msgid "Search Subtitles"
@@ -2680,12 +2839,6 @@ msgstr "Спробуйте інший пошуковий запит"
 msgid "Found {} subtitles"
 msgstr "Знайдено {} субтитрів"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
-#, python-brace-format
-msgid "Error: {}"
-msgstr "Помилка: {}"
-# 
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
 #: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
 #, python-brace-format
@@ -2697,95 +2850,199 @@ msgstr "Завантажено: {}"
 msgid "Download failed"
 msgstr "Завантаження не вдалося"
 # 
-# File: usr/share/jellyfix/gui/app.py, line: 151
-#: NEEDS WORK
-msgid "translator-credits"
-msgstr "перекладач-автори"
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "Select Directory to Scan"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 103
-#: NEEDS WORK
-msgid "Organize Folder with Jellyfix"
-msgstr "Організувати папку з Jellyfix"
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "Сканування не вдалося"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 105
-#: NEEDS WORK
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "Операція генерації не вдалася"
+# 
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "Виконання не вдалося"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 132
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 116
+#: usr/share/jellyfix/gui/widgets/operations_list.py:141
+msgid "Operations"
+msgstr "Операції"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 131
+#: usr/share/jellyfix/gui/widgets/operations_list.py:156
+msgid "Search..."
+msgstr "Пошук..."
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 141
+#: usr/share/jellyfix/gui/widgets/operations_list.py:166
+msgid "All"
+msgstr "Усі"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 196
+#: usr/share/jellyfix/gui/widgets/operations_list.py:195
+msgid "Download Subtitles for All"
+msgstr "Завантажити субтитри для всіх"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 198
+#: usr/share/jellyfix/gui/widgets/operations_list.py:197
+msgid "Search and download subtitles for all listed videos"
+msgstr "Шукати та завантажувати субтитри для всіх вказаних відео"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 180
+#: usr/share/jellyfix/gui/widgets/operations_list.py:216
+msgid "No Operations"
+msgstr "Немає операцій"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 181
+#: usr/share/jellyfix/gui/widgets/operations_list.py:217
+msgid "Scan a directory to generate operations"
+msgstr "Сканувати каталог для генерації операцій"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 304
+#: usr/share/jellyfix/gui/widgets/operations_list.py:418
+msgid "rename"
+msgstr "rename"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 306
+#: usr/share/jellyfix/gui/widgets/operations_list.py:420
+msgid "move"
+msgstr "перемістити"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 308
+#: usr/share/jellyfix/gui/widgets/operations_list.py:422
+msgid "delete"
+msgstr "delete"
+# 
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 311
+#: usr/share/jellyfix/gui/widgets/operations_list.py:425
 #, python-brace-format
-msgid "Organize {0} Folders with Jellyfix"
-msgstr "Організуйте {0} папок за допомогою Jellyfix"
+msgid "Showing {} of {} operations"
+msgstr "Showing {} of {} operations"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 150
-#: NEEDS WORK
-msgid "Organize 1 Video and 1 Subtitle"
-msgstr "Organise 1 Video and 1 Subtitle"
-# 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 152
-#: NEEDS WORK
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 313
+#: usr/share/jellyfix/gui/widgets/operations_list.py:427
 #, python-brace-format
-msgid "Organize 1 Video and {0} Subtitles"
-msgstr "Організувати 1 відео та {0} субтитри"
+msgid "Total: {} operations"
+msgstr "Total: {} операцій"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 154
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Videos and 1 Subtitle"
-msgstr "Організувати {0} відео та 1 субтитр"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 65
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:65
+msgid "No Selection"
+msgstr "No Selection"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 156
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Videos and {1} Subtitles"
-msgstr "Організувати {0} відео та {1} субтитри"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 66
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:66
+msgid "Select an item to preview"
+msgstr "Виберіть елемент для попереднього перегляду"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 160
-#: NEEDS WORK
-msgid "Organize Video"
-msgstr "Organise Video"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 106
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:106
+msgid "Search title"
+msgstr "Пошук заголовка"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 162
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Videos"
-msgstr "Organise {0} Videos"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 110
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:110
+msgid "Wrong title? Click to search manually"
+msgstr "Неправильний заголовок? Натисніть, щоб шукати вручну"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 166
-#: NEEDS WORK
-msgid "Organize Subtitle"
-msgstr "Організувати субтитри"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 121
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:121
+msgid "Download Subtitles"
+msgstr "Завантажити субтитри"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 168
-#: NEEDS WORK
-#, python-brace-format
-msgid "Organize {0} Subtitles"
-msgstr "Організувати {0} субтитри"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 125
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:125
+msgid "Search and download subtitles automatically"
+msgstr "Автоматичний пошук та завантаження субтитрів"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 228
-#: NEEDS WORK
-msgid "No valid local files selected"
-msgstr "Немає вибраних дійсних локальних файлів"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 115
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:150
+msgid "From:"
+msgstr "З:"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 229
-#: NEEDS WORK
-msgid "Could not get the path for the selected files."
-msgstr "Could not get the path for the selected files."
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 147
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:182
+msgid "To:"
+msgstr "To:"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 244
-#: NEEDS WORK
-msgid "Application Not Found"
-msgstr "Застосунок не знайдено"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 215
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:263
+msgid "MOVE"
+msgstr "РУХАТИ"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Could not find '{0}'. Is Jellyfix installed?"
-msgstr "Не вдалося знайти '{0}'. Чи встановлено Jellyfix?"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 218
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:266
+msgid "DELETE"
+msgstr "DELETE"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 250
-#: NEEDS WORK
-msgid "Application Launch Error"
-msgstr "Помилка запуску програми"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 225
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:273
+msgid "MOVE + RENAME"
+msgstr "移動 + 重命名"
 # 
-# File: usr/share/nautilus-python/extensions/jellyfix_extension.py, line: 251
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to start Jellyfix: {0}"
-msgstr "Не вдалося запустити Jellyfix: {0}"
+# File: usr/share/jellyfix/gui/widgets/preview_panel.py, line: 228
+#: usr/share/jellyfix/gui/widgets/preview_panel.py:276
+msgid "RENAME"
+msgstr "Rename"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 79
+#: usr/share/jellyfix/gui/widgets/dashboard.py:79
+msgid "Welcome to Jellyfix"
+msgstr "Вітаємо у Jellyfix"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 107
+#: usr/share/jellyfix/gui/widgets/dashboard.py:107
+msgid "Drop a folder here"
+msgstr "Перетягніть папку сюди"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 108
+#: usr/share/jellyfix/gui/widgets/dashboard.py:108
+msgid "or click the button below"
+msgstr "або натисніть кнопку нижче"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 115
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 124
+#: usr/share/jellyfix/gui/widgets/dashboard.py:115
+#: usr/share/jellyfix/gui/widgets/dashboard.py:124
+msgid "Add Library"
+msgstr "Додати бібліотеку"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 146
+#: usr/share/jellyfix/gui/widgets/dashboard.py:146
+msgid "Recent Libraries"
+msgstr "Останні бібліотеки"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 179
+#: usr/share/jellyfix/gui/widgets/dashboard.py:179
+msgid "Clear recent libraries"
+msgstr "Очистити недавні бібліотеки"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 202
+#: usr/share/jellyfix/gui/widgets/dashboard.py:202
+msgid "weeks ago"
+msgstr "weeks ago"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 204
+#: usr/share/jellyfix/gui/widgets/dashboard.py:204
+msgid "days ago"
+msgstr "днів тому"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 206
+#: usr/share/jellyfix/gui/widgets/dashboard.py:206
+msgid "hours ago"
+msgstr "годин тому"
+# 
+# File: usr/share/jellyfix/gui/widgets/dashboard.py, line: 208
+#: usr/share/jellyfix/gui/widgets/dashboard.py:208
+msgid "Just now"
+msgstr "Тільки що"

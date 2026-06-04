@@ -1,8 +1,11 @@
 """Funções auxiliares e utilitários"""
 
+import logging
 import re
 from pathlib import Path
 from typing import Optional
+
+_log = logging.getLogger(__name__)
 
 # Palavras comuns em português para detecção
 PORTUGUESE_WORDS = [
@@ -123,20 +126,24 @@ _QUALITY_MIN_FILE_SIZE = 100  # bytes
 _QUALITY_TINY_THRESHOLD = 1024  # bytes
 
 
-def calculate_subtitle_quality(file_path: Path) -> float:
+def calculate_subtitle_quality(file_path: Path, file_size: Optional[int] = None) -> float:
     """
     Calcula a "qualidade" de um arquivo de legenda baseado em:
     - Tamanho do arquivo
     - Número de blocos de legenda
     - Número de linhas de texto
 
+    Args:
+        file_path: Path to subtitle file.
+        file_size: Optional pre-computed size in bytes (avoids redundant stat()).
+
     Returns:
         Pontuação de qualidade (maior = melhor)
         0 = arquivo vazio ou inválido
     """
     try:
-        # Verifica tamanho do arquivo
-        file_size = file_path.stat().st_size
+        if file_size is None:
+            file_size = file_path.stat().st_size
 
         if file_size < _QUALITY_MIN_FILE_SIZE:
             return 0.0
@@ -180,7 +187,8 @@ def calculate_subtitle_quality(file_path: Path) -> float:
 
         return total_score
 
-    except Exception:
+    except (OSError, UnicodeDecodeError) as e:
+        _log.debug("calculate_subtitle_quality(%s) failed: %s", file_path, e)
         return 0.0
 
 
@@ -210,7 +218,8 @@ def is_portuguese_subtitle(file_path: Path, min_words: int = 5) -> bool:
 
         return word_count >= min_words
 
-    except Exception:
+    except (OSError, UnicodeDecodeError) as e:
+        _log.debug("is_portuguese_subtitle(%s) failed: %s", file_path, e)
         return False
 
 
@@ -224,8 +233,12 @@ def clean_filename(name: str) -> str:
     Returns:
         Nome limpo
     """
-    # Substitui ':' por ' -' (Jellyfin não suporta dois pontos)
-    cleaned = name.replace(":", " -")
+    # Substitui ':' por espaço (Jellyfin não suporta dois pontos; ':' é
+    # caractere reservado). Não usamos hífen porque ' - ' é o separador de
+    # título de episódio do Jellyfin ("Series Name - S01E01"); um hífen no
+    # meio do título faria o Jellyfin ler só o texto antes dele como nome
+    # da série. Espaços extras são colapsados logo abaixo.
+    cleaned = name.replace(":", " ")
 
     # Substitui caracteres proibidos
     cleaned = _RE_FORBIDDEN.sub("", cleaned)
@@ -641,3 +654,65 @@ def parse_subtitle_filename(file_path: Path) -> dict:
             info['language'] = normalize_language_code(part_lower)
 
     return info
+
+
+_RE_QUALITY_TAG_TRAILING = re.compile(r'\s*-\s*(2160p|1080p|720p|480p|4K).*', re.IGNORECASE)
+_RE_EPISODE_DASH = re.compile(r'(.+?)\s+-\s+S(\d+)E(\d+)', re.IGNORECASE)
+_RE_EPISODE_PLAIN = re.compile(r'(.+?)\s+S(\d+)E(\d+)', re.IGNORECASE)
+_RE_PAREN_YEAR = re.compile(r'\((\d{4})\)')
+
+
+def parse_destination_for_search(destination: Path) -> dict:
+    """
+    Parse a renamed destination Path into the components needed for a metadata or
+    subtitle search.
+
+    Recognized patterns:
+      - "Title (YYYY) - 1080p" → movie with title + year
+      - "Title (YYYY) - S01E01" or "Title S01E01" → episode (year may come from parent folder)
+
+    Args:
+        destination: Path to the planned destination file (operation.destination).
+
+    Returns:
+        Dict with keys: title (str), year (Optional[int]), is_episode (bool),
+        season (Optional[int]), episode (Optional[int]).
+    """
+    dest_name = destination.stem
+    # Strip trailing quality tags so they don't get glued onto the title.
+    dest_name = _RE_QUALITY_TAG_TRAILING.sub('', dest_name)
+
+    episode_match = _RE_EPISODE_DASH.search(dest_name) or _RE_EPISODE_PLAIN.search(dest_name)
+    year_match = _RE_PAREN_YEAR.search(dest_name)
+
+    if episode_match:
+        title = episode_match.group(1).strip()
+        season = int(episode_match.group(2))
+        episode = int(episode_match.group(3))
+        # Episodes usually omit the year — try the parent folder ("Show (YYYY)/Season XX").
+        folder_year_match = _RE_PAREN_YEAR.search(str(destination.parent))
+        year = int(folder_year_match.group(1)) if folder_year_match else None
+        return {
+            'title': title,
+            'year': year,
+            'is_episode': True,
+            'season': season,
+            'episode': episode,
+        }
+
+    if year_match:
+        return {
+            'title': dest_name[: year_match.start()].strip(),
+            'year': int(year_match.group(1)),
+            'is_episode': False,
+            'season': None,
+            'episode': None,
+        }
+
+    return {
+        'title': dest_name.strip(),
+        'year': None,
+        'is_episode': False,
+        'season': None,
+        'episode': None,
+    }

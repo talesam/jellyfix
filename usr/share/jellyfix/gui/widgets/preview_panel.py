@@ -97,35 +97,38 @@ class PreviewPanel(Gtk.Box):
         self.poster_image.set_visible(False)
         self.preview_content.append(self.poster_image)
         
-        # Search button for manual title correction
+        # Linha horizontal com os dois botões de ação (corrigir título + baixar legendas).
+        # Antes ficavam empilhados verticalmente, ocupando espaço e parecendo desconexos.
+        self.actions_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        self.actions_row.set_halign(Gtk.Align.CENTER)
+        self.actions_row.set_spacing(8)
+        self.actions_row.add_css_class("preview-actions")
+
+        # Search title — cor warning (chama atenção: "talvez precise corrigir")
         self.search_button = Gtk.Button()
-        self.search_button.set_halign(Gtk.Align.CENTER)
-        search_content = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
-        search_icon = Gtk.Image.new_from_icon_name("system-search-symbolic")
-        search_content.append(search_icon)
-        search_label = Gtk.Label(label=_("Search title"))
-        search_content.append(search_label)
+        search_content = Adw.ButtonContent()
+        search_content.set_icon_name("system-search-symbolic")
+        search_content.set_label(_("Search title"))
         self.search_button.set_child(search_content)
-        self.search_button.add_css_class("suggested-action")  # Purple/accent color
+        self.search_button.add_css_class("preview-action-search")
         self.search_button.set_tooltip_text(_("Wrong title? Click to search manually"))
         self.search_button.connect("clicked", self._on_search_clicked)
         self.search_button.set_visible(False)
-        self.preview_content.append(self.search_button)
+        self.actions_row.append(self.search_button)
 
-        # Download subtitles button
+        # Download subtitles — accent (ação positiva/principal)
         self.download_subs_button = Gtk.Button()
-        self.download_subs_button.set_halign(Gtk.Align.CENTER)
-        subs_content = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
-        subs_icon = Gtk.Image.new_from_icon_name("media-view-subtitles-symbolic")
-        subs_content.append(subs_icon)
-        subs_label = Gtk.Label(label=_("Download Subtitles"))
-        subs_content.append(subs_label)
+        subs_content = Adw.ButtonContent()
+        subs_content.set_icon_name("media-view-subtitles-symbolic")
+        subs_content.set_label(_("Download Subtitles"))
         self.download_subs_button.set_child(subs_content)
-        self.download_subs_button.add_css_class("suggested-action")
+        self.download_subs_button.add_css_class("preview-action-subs")
         self.download_subs_button.set_tooltip_text(_("Search and download subtitles automatically"))
         self.download_subs_button.connect("clicked", self._on_download_subs_clicked)
         self.download_subs_button.set_visible(False)
-        self.preview_content.append(self.download_subs_button)
+        self.actions_row.append(self.download_subs_button)
+
+        self.preview_content.append(self.actions_row)
         
         # Store current operation for search callback
         self.current_operation = None
@@ -135,6 +138,7 @@ class PreviewPanel(Gtk.Box):
         # From/To card
         self.operation_card = Gtk.Frame()
         self.operation_card.add_css_class("card")
+        self.operation_card.add_css_class("preview-card")
         
         card_content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         card_content.set_spacing(12)
@@ -308,14 +312,24 @@ class PreviewPanel(Gtk.Box):
     def _on_search_clicked(self, button):
         """Handle search button click - open manual search dialog"""
         from ..windows.search_dialog import SearchDialog
-        
+        import re
+
         # Get parent window
         parent = self.get_root()
-        
+
+        # Detecta o tipo (filme vs série) a partir da operação atual:
+        # se o destino planejado contiver "SxxExx" assumimos série; caso
+        # contrário tratamos como filme.
+        is_movie = True
+        if self.current_operation is not None:
+            dest_name = self.current_operation.destination.name
+            if re.search(r'[Ss]\d{1,2}[Ee]\d{1,3}', dest_name):
+                is_movie = False
+
         # Create and show dialog
         dialog = SearchDialog(
             parent=parent,
-            is_movie=True,  # Default to movie; could detect from operation
+            is_movie=is_movie,
             on_select=self._on_metadata_selected
         )
         dialog.present(parent)

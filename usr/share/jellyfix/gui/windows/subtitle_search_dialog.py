@@ -350,8 +350,9 @@ class SubtitleSearchDialog(Adw.Window):
         self.status_label.set_text(_("Error: {}").format(message))
     
     def _on_result_selected(self, listbox, row):
-        """Handle result selection"""
-        if row:
+        """Handle result selection. Guards against None row (deselect) and
+        against non-result rows (e.g. placeholder)."""
+        if isinstance(row, SubtitleResultRow):
             self.selected_result = row.result
             self.download_btn.set_sensitive(True)
         else:

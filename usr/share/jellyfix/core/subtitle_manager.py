@@ -16,6 +16,7 @@ Implements a 3-level search strategy:
   3. Manual search with user query (last resort)
 """
 
+import os
 from pathlib import Path
 from typing import List, Dict, Optional, Set, Any, Tuple
 from dataclasses import dataclass
@@ -34,10 +35,52 @@ try:
 except ImportError:
     HAS_SUBLIMINAL = False
 
+_CACHE_CONFIGURED = False
+
+
+def _configure_subliminal_cache() -> None:
+    """Configure subliminal's dogpile cache region — required for downloads.
+
+    Subliminal caches provider auth tokens (notably opensubtitles.com's session
+    token) in a dogpile cache region that the *host application* must configure.
+    If it is never configured, every download raises ``RegionNotConfigured`` and
+    silently fails — subtitles are found but never written. We set it up once,
+    persisting to ~/.jellyfix/cache so the token survives between runs, and fall
+    back to an in-memory region if the on-disk backend can't be created.
+    """
+    global _CACHE_CONFIGURED
+    if not HAS_SUBLIMINAL or _CACHE_CONFIGURED:
+        return
+    try:
+        from subliminal.cache import region
+        if getattr(region, 'is_configured', False):
+            _CACHE_CONFIGURED = True
+            return
+        cache_dir = Path.home() / ".jellyfix" / "cache"
+        try:
+            cache_dir.mkdir(parents=True, exist_ok=True)
+            region.configure(
+                'dogpile.cache.dbm',
+                arguments={'filename': str(cache_dir / "subliminal.dbm")},
+            )
+        except Exception:
+            # On-disk backend failed — use an in-memory region for this run
+            region.configure('dogpile.cache.memory')
+        _CACHE_CONFIGURED = True
+    except Exception:
+        pass
+
 # Curated provider list: fast and reliable for multilingual subtitle search.
-# Excludes slow/niche providers (napiprojekt=Polish-only, subtitulamos=Spanish-only,
-# addic7ed=requires login, tvsubtitles=slow).
-DEFAULT_PROVIDERS = ["opensubtitlescom", "opensubtitles", "podnapisi", "gestdown"]
+# NOTE: the legacy "opensubtitles" XML-RPC provider was intentionally dropped —
+# OpenSubtitles.org disabled that API and it now only raises Unauthorized,
+# wasting a round-trip on every search. Use "opensubtitlescom" (the REST API).
+# Excludes slow/niche providers (napiprojekt=Polish-only, subtitulamos=Spanish-only).
+DEFAULT_PROVIDERS = ["opensubtitlescom", "podnapisi", "gestdown"]
+
+# Fallback providers, only queried when the primary list returns nothing.
+# Login-free on purpose (bsplayer = movies+TV, tvsubtitles = TV) so the fallback
+# works without any account, unlike addic7ed which requires login.
+DEFAULT_EXTRA_PROVIDERS = ["bsplayer", "tvsubtitles"]
 
 # Language display names mapping (ISO 639-2 to human readable)
 LANGUAGE_NAMES = {
@@ -99,13 +142,152 @@ class SubtitleManager:
         """Initialize subtitle manager"""
         self.logger = get_logger()
         self.config = get_config()
-        
+
         if not HAS_SUBLIMINAL:
             self.logger.warning("Subliminal library not found. Subtitle downloading disabled.")
+        else:
+            _configure_subliminal_cache()
 
     def is_available(self) -> bool:
         """Check if subtitle downloading is available (libraries installed)"""
         return HAS_SUBLIMINAL
+
+    # ------------------------------------------------------------------
+    # Shared helpers (single source of truth for languages / providers)
+    # ------------------------------------------------------------------
+
+    def _build_languages(self, languages: Optional[List[str]]) -> Set:
+        """Convert ISO 639-2 codes into a set of babelfish Language objects.
+
+        Portuguese is special-cased: OpenSubtitles.com only returns results for
+        the country-qualified variants (pt-BR / pt-PT), never the bare 'pt', so
+        we always request the Brazilian variant alongside generic Portuguese.
+        """
+        if not languages:
+            languages = self.config.kept_languages or ['por', 'eng']
+
+        langs: Set = set()
+        for lang in languages:
+            if lang == "por":
+                langs.add(Language('por'))
+                try:
+                    langs.add(Language('por', 'BR'))
+                    langs.add(Language('por', 'PT'))
+                except Exception:
+                    pass  # Some babelfish versions may not support country codes
+            else:
+                langs.add(Language(lang))
+        return langs
+
+    def _get_providers(self) -> List[str]:
+        """Primary providers, from config with a safe default."""
+        return list(getattr(self.config, 'subtitle_providers', None) or DEFAULT_PROVIDERS)
+
+    def _get_extra_providers(self) -> List[str]:
+        """Fallback providers, queried only when the primaries find nothing."""
+        return list(getattr(self.config, 'subtitle_extra_providers', None) or DEFAULT_EXTRA_PROVIDERS)
+
+    def _get_provider_configs(self) -> Dict[str, Dict[str, Any]]:
+        """Build per-provider tuning passed to subliminal.
+
+        Crucially bounds opensubtitles.com pagination: the default (unbounded)
+        recurses through every result page and the API answers HTTP 400 on deep
+        pages for anonymous clients, which both slows searches to ~20s and makes
+        them return zero subtitles. Logging in (if configured) lifts the strict
+        anonymous rate/download limits.
+        """
+        max_pages = int(getattr(self.config, 'subtitle_max_pages', 1) or 1)
+        timeout = int(getattr(self.config, 'subtitle_timeout', 15) or 15)
+
+        oscom: Dict[str, Any] = {
+            'max_result_pages': max_pages,
+            'timeout': timeout,
+        }
+        username = getattr(self.config, 'opensubtitles_username', '') or ''
+        password = getattr(self.config, 'opensubtitles_password', '') or ''
+        apikey = getattr(self.config, 'opensubtitles_apikey', '') or ''
+        if username and password:
+            oscom['username'] = username
+            oscom['password'] = password
+        if apikey:
+            oscom['apikey'] = apikey
+
+        return {'opensubtitlescom': oscom}
+
+    def _has_opensubtitles_login(self) -> bool:
+        """Whether opensubtitles.com credentials are configured."""
+        return bool(
+            (getattr(self.config, 'opensubtitles_username', '') or '')
+            and (getattr(self.config, 'opensubtitles_password', '') or '')
+        )
+
+    def test_opensubtitles_login(self, username: str, password: str) -> Tuple[bool, str]:
+        """Verify opensubtitles.com credentials, returning (ok, message).
+
+        Calls the login endpoint directly so we can surface the API's real error
+        message (subliminal collapses everything to "Bad Request"). The most
+        common failure is using the account e-mail instead of the username.
+        """
+        if not username or not password:
+            return False, _("Username and password are both required")
+
+        try:
+            import requests
+            try:
+                from subliminal.providers.opensubtitlescom import (
+                    OPENSUBTITLESCOM_API_KEY, OpenSubtitlesComProvider,
+                )
+                default_key = OPENSUBTITLESCOM_API_KEY
+                user_agent = OpenSubtitlesComProvider.user_agent
+            except Exception:
+                default_key = 'mij33pjc3kOlup1qOKxnWWxvle2kFbMH'
+                user_agent = 'Subliminal'
+
+            apikey = (getattr(self.config, 'opensubtitles_apikey', '') or '') or default_key
+            timeout = int(getattr(self.config, 'subtitle_timeout', 15) or 15)
+
+            r = requests.post(
+                "https://api.opensubtitles.com/api/v1/login",
+                json={'username': username, 'password': password},
+                headers={
+                    'Api-Key': apikey,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'User-Agent': user_agent,
+                },
+                timeout=timeout,
+            )
+
+            if r.status_code == 200:
+                return True, _("Login OK — subtitles can be downloaded")
+
+            # Surface the real API message (e.g. "use your username, not e-mail")
+            try:
+                api_msg = r.json().get('message', '') or r.reason
+            except Exception:
+                api_msg = r.reason
+            if '@' in username and r.status_code == 400:
+                api_msg = _("Use your username, not your e-mail address.")
+            return False, api_msg
+
+        except Exception as e:
+            return False, str(e)
+
+    def _download_failure_hint(self, provider: str) -> str:
+        """Return a helpful hint when a content download yields nothing.
+
+        opensubtitles.com requires a logged-in account to download (search is
+        anonymous). Without credentials, subliminal swallows the AuthenticationError
+        and we just get empty content — so surface an actionable message instead.
+        """
+        if provider == 'opensubtitlescom' and not self._has_opensubtitles_login():
+            return _(
+                "opensubtitles.com requires a free account to download subtitles. "
+                "Set opensubtitles_username/opensubtitles_password in "
+                "~/.jellyfix/config.json (or the OPENSUBTITLES_USERNAME/"
+                "OPENSUBTITLES_PASSWORD environment variables)."
+            )
+        return ""
 
     def download_subtitles(self, video_path: Path, languages: Optional[List[str]] = None, 
                            providers: Optional[List[str]] = None,
@@ -154,22 +336,10 @@ class SubtitleManager:
             else:
                 languages = ['por', 'eng']
 
-        # Convert to set of Language objects
-        # Special handling for Portuguese: search both 'por' (Portugal) and 'pob' (Brazil)
-        langs = set()
-        for lang in languages:
-            if lang == "por":
-                # Add both Portuguese Portugal and Portuguese Brazil
-                langs.add(Language('por'))
-                try:
-                    # pob = Portuguese (Brazil) in OpenSubtitles
-                    langs.add(Language('por', 'BR'))
-                except Exception:
-                    pass  # Some versions may not support country codes
-            else:
-                langs.add(Language(lang))
-        
-        self.logger.info(_("Searching subtitles for: %s (Languages: %s)") % 
+        # Convert to set of Language objects (see _build_languages for pt-BR handling)
+        langs = self._build_languages(languages)
+
+        self.logger.info(_("Searching subtitles for: %s (Languages: %s)") %
                          (video_path.name, ", ".join(languages)))
 
         all_results = {}
@@ -249,31 +419,29 @@ class SubtitleManager:
         if not languages:
             languages = self.config.kept_languages or ["por", "eng"]
 
-        langs = set()
-        for lang in languages:
-            if lang == "por":
-                langs.add(Language("por"))
-                try:
-                    langs.add(Language("por", "BR"))
-                except Exception:
-                    pass
-            else:
-                langs.add(Language(lang))
+        langs = self._build_languages(languages)
 
-        use_providers = providers or DEFAULT_PROVIDERS
+        use_providers = providers or self._get_providers()
+        provider_configs = self._get_provider_configs()
         all_results: Dict[Path, Dict[str, List[Path]]] = {}
         total = len(video_paths)
 
         # Phase 1: Batch hash search — single pool for all videos
         self.logger.info(_("Batch Level 1: scanning %d videos by hash...") % total)
-        scanned = {}
-        for vpath in video_paths:
-            if not vpath.exists():
-                continue
-            try:
-                scanned[vpath] = scan_video(vpath)
-            except Exception as e:
-                self.logger.debug(f"scan_video failed for {vpath.name}: {e}")
+        existing_videos = [vpath for vpath in video_paths if vpath.exists()]
+        scanned: Dict[Path, Any] = {}
+        if existing_videos:
+            # ffprobe/hashing is I/O-bound — parallelize across cores
+            from concurrent.futures import ThreadPoolExecutor
+            max_workers = min(8, max(2, (os.cpu_count() or 4)))
+            with ThreadPoolExecutor(max_workers=max_workers) as pool:
+                future_to_path = {pool.submit(scan_video, vp): vp for vp in existing_videos}
+                for future in future_to_path:
+                    vp = future_to_path[future]
+                    try:
+                        scanned[vp] = future.result()
+                    except Exception as e:
+                        self.logger.info(f"scan_video failed for {vp.name}: {e}")
 
         if scanned:
             try:
@@ -281,11 +449,12 @@ class SubtitleManager:
                     set(scanned.values()),
                     langs,
                     providers=use_providers,
+                    provider_configs=provider_configs,
                     pool_class=AsyncProviderPool,
                     min_score=min_score,
                 )
             except Exception as e:
-                self.logger.debug(f"Batch hash search failed: {e}")
+                self.logger.warning(f"Batch hash search failed: {e}")
                 hash_results = {}
 
             # Map results back to paths and save subtitles
@@ -330,6 +499,32 @@ class SubtitleManager:
                     all_results[vpath] = existing
                     self.logger.info(_("Level 2 (TMDB) found: %s for %s") % (", ".join(result2.keys()), vpath.name))
 
+        # Phase 3: fallback to extra providers for videos that found nothing at all
+        extra_providers = [p for p in self._get_extra_providers() if p not in use_providers]
+        if extra_providers:
+            for vpath in video_paths:
+                if all_results.get(vpath):
+                    continue  # already found something
+                info = meta.get(vpath)
+                if not info or not info.get("title"):
+                    continue
+                lang_objs = self._build_languages(languages)
+                result3 = self._search_by_title(
+                    video_path=vpath,
+                    title=info["title"],
+                    year=info.get("year"),
+                    langs=lang_objs,
+                    providers=extra_providers,
+                    is_episode=info.get("is_episode", False),
+                    season=info.get("season"),
+                    episode=info.get("episode"),
+                    min_score=min_score,
+                )
+                if result3:
+                    all_results[vpath] = result3
+                    self.logger.info(_("Level 3 (fallback %s) found: %s for %s")
+                                     % (", ".join(extra_providers), ", ".join(result3.keys()), vpath.name))
+
         return all_results
 
     def _search_by_hash(self, video_path: Path, langs: Set, 
@@ -349,11 +544,12 @@ class SubtitleManager:
             subtitles = download_best_subtitles(
                 {video},
                 langs,
-                providers=providers or DEFAULT_PROVIDERS,
+                providers=providers or self._get_providers(),
+                provider_configs=self._get_provider_configs(),
                 pool_class=AsyncProviderPool,
                 min_score=min_score,
             )
-            
+
             if not subtitles or not subtitles[video]:
                 return {}
 
@@ -364,7 +560,7 @@ class SubtitleManager:
             return self._save_subtitles(video, video_path, downloaded_subs)
 
         except Exception as e:
-            self.logger.debug(f"Hash search failed: {e}")
+            self.logger.info(f"Hash search failed for {video_path.name}: {e}")
             return {}
 
     def _search_by_title(self, video_path: Path, title: str, year: Optional[int],
@@ -393,9 +589,10 @@ class SubtitleManager:
 
             self.logger.info(f"Level 2 searching: '{search_name}' for {[lg.alpha3 for lg in langs]}")
             video = Video.fromname(search_name)
-            
+
             # Use list_subtitles to get all candidates (more control than download_best_subtitles)
-            with AsyncProviderPool(providers=providers or DEFAULT_PROVIDERS) as pool:
+            with AsyncProviderPool(providers=providers or self._get_providers(),
+                                   provider_configs=self._get_provider_configs()) as pool:
                 all_subtitles = pool.list_subtitles(video, langs)
             
             # Flatten results and validate each subtitle
@@ -411,10 +608,11 @@ class SubtitleManager:
                 provider = getattr(sub, 'provider_name', 'unknown')
                 
                 # Get subtitle release info for validation
-                release_info = (
-                    getattr(sub, 'release_info', '') or 
-                    getattr(sub, 'releases', [''])[0] if hasattr(sub, 'releases') else ''
-                )
+                release_info = getattr(sub, 'release_info', '') or ''
+                if not release_info:
+                    releases = getattr(sub, 'releases', None) or []
+                    if releases:
+                        release_info = releases[0] or ''
                 movie_name = getattr(sub, 'movie_name', '') or getattr(sub, 'series', '') or ''
                 sub_year = getattr(sub, 'year', None)
                 
@@ -502,9 +700,9 @@ class SubtitleManager:
                     return False
                 return True
             
-            # Use similarity ratio for fuzzy matching (lowered threshold)
+            # Use similarity ratio for fuzzy matching (config-tunable)
             similarity = self._title_similarity(title_clean, sub_name_clean)
-            if similarity >= 0.5:  # Lowered from 0.8 to be more permissive
+            if similarity >= get_config().title_similarity_threshold:
                 if year and sub_year and abs(year - sub_year) > 1:
                     return False
                 return True
@@ -570,10 +768,12 @@ class SubtitleManager:
         Detect if Portuguese subtitle is pt-BR or pt-PT.
         Returns 'por-br' or 'por-pt' for prioritization.
         """
-        release_info = (
-            getattr(sub, 'release_info', '') or 
-            getattr(sub, 'releases', [''])[0] if hasattr(sub, 'releases') else ''
-        ).lower()
+        release_info = getattr(sub, 'release_info', '') or ''
+        if not release_info:
+            releases = getattr(sub, 'releases', None) or []
+            if releases:
+                release_info = releases[0] or ''
+        release_info = release_info.lower()
         
         # Check for Brazilian Portuguese indicators
         br_indicators = ['brazil', 'brasileiro', 'br', 'pt-br', 'ptbr', 'bra']
@@ -691,26 +891,9 @@ class SubtitleManager:
         if not self.is_available():
             return []
 
-        # Default languages if not provided
-        if not languages:
-            if self.config.kept_languages:
-                languages = self.config.kept_languages
-            else:
-                languages = ['por', 'eng']
+        # Convert to set of Language objects (see _build_languages for pt-BR handling)
+        langs = self._build_languages(languages)
 
-        # Convert to set of Language objects
-        # Special handling for Portuguese: search both 'por' (Portugal) and 'pob' (Brazil)
-        langs = set()
-        for lang in languages:
-            if lang == "por":
-                langs.add(Language('por'))
-                try:
-                    langs.add(Language('por', 'BR'))  # pob = Portuguese Brazil
-                except Exception:
-                    pass
-            else:
-                langs.add(Language(lang))
-        
         try:
             # Create video from query
             if is_episode and season is not None and episode is not None:
@@ -720,14 +903,29 @@ class SubtitleManager:
                     search_name = f"{query} ({year}).mkv"
                 else:
                     search_name = f"{query}.mkv"
-            
+
             self.logger.info(_("Manual search: %s") % search_name)
             video = Video.fromname(search_name)
-            
-            # List all subtitles (not just best)
-            with AsyncProviderPool(providers=providers or DEFAULT_PROVIDERS) as pool:
+
+            provider_configs = self._get_provider_configs()
+
+            # List all subtitles (not just best). If the primary providers return
+            # nothing, retry with the extra/fallback providers (user request:
+            # "search elsewhere when OpenSubtitles has nothing").
+            primary = providers or self._get_providers()
+            with AsyncProviderPool(providers=primary,
+                                   provider_configs=provider_configs) as pool:
                 all_subtitles = pool.list_subtitles(video, langs)
-            
+
+            if not all_subtitles and not providers:
+                extra = [p for p in self._get_extra_providers() if p not in primary]
+                if extra:
+                    self.logger.info(_("No results from primary providers, trying: %s")
+                                     % ", ".join(extra))
+                    with AsyncProviderPool(providers=extra,
+                                           provider_configs=provider_configs) as pool:
+                        all_subtitles = pool.list_subtitles(video, langs)
+
             # Create results from list
             # Note: list_subtitles returns a list of Subtitle objects, not a dict
             results = []
@@ -804,15 +1002,19 @@ class SubtitleManager:
             
         try:
             sub = subtitle_result.subtitle_obj
-            
-            # Download subtitle content
+
+            # Download subtitle content (pass provider_configs so login/quota apply)
             from subliminal import download_subtitles
-            download_subtitles([sub])
+            download_subtitles([sub], provider_configs=self._get_provider_configs())
             
             if not sub.content:
-                self.logger.error("Failed to download subtitle content")
+                hint = self._download_failure_hint(subtitle_result.provider)
+                if hint:
+                    self.logger.error(_("Failed to download subtitle content. %s") % hint)
+                else:
+                    self.logger.error("Failed to download subtitle content")
                 return None
-            
+
             # Save to file
             lang = subtitle_result.language
             subtitle_path = video_path.with_suffix(f".{lang}.srt")
@@ -847,14 +1049,15 @@ class SubtitleManager:
         thinks the video is (which may be wrong for Level 2 virtual videos).
         """
         from subliminal import download_subtitles as subliminal_download
-        
+
+        provider_configs = self._get_provider_configs()
         result = {}
-        
+
         for sub in downloaded_subs:
             try:
                 # Download subtitle content if not already downloaded
                 if not sub.content:
-                    subliminal_download([sub])
+                    subliminal_download([sub], provider_configs=provider_configs)
                 
                 if not sub.content:
                     self.logger.warning(f"Failed to download subtitle content for {sub}")

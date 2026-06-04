@@ -24,6 +24,9 @@ class Metadata:
     backdrop_path: Optional[str] = None    # Relative path (e.g., '/xyz789.jpg')
     poster_url: Optional[str] = None       # Full CDN URL
     backdrop_url: Optional[str] = None     # Full CDN URL
+    # "movie" or "tvshow" — set when source is unambiguous (manual user choice
+    # or TMDB endpoint type). When None, callers fall back to filename detection.
+    media_type: Optional[str] = None
 
 
 class MetadataFetcher:
@@ -466,6 +469,11 @@ class MetadataFetcher:
                     for result in results:
                         show = result
                         break
+
+            if not show:
+                # Nenhum resultado iterável retornou objeto válido
+                self._interactive_choices_cache[cache_key] = None
+                return None
 
             # Extrai ano
             show_year = None

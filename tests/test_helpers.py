@@ -21,6 +21,7 @@ from jellyfix.utils.helpers import (
     is_video_file,
     normalize_language_code,
     normalize_spaces,
+    parse_destination_for_search,
     parse_subtitle_filename,
     get_base_name,
     format_season_folder,
@@ -154,8 +155,10 @@ class TestFileTypeDetection:
 
 class TestCleanFilename:
     def test_removes_forbidden_chars(self):
-        # Note: ':' is allowed on Linux (removed from FORBIDDEN_CHARS)
-        assert clean_filename('Movie: The "Sequel"') == "Movie: The Sequel"
+        # ':' is rewritten to a space (not a dash): ':' is reserved on Jellyfin,
+        # and a dash would collide with the "Series Name - S01E01" episode
+        # separator, making Jellyfin read only the text before it as the title.
+        assert clean_filename('Movie: The "Sequel"') == "Movie The Sequel"
 
     def test_removes_question_mark(self):
         assert clean_filename("What?") == "What"
@@ -381,3 +384,46 @@ class TestFormatSeasonFolder:
 
     def test_double_digit(self):
         assert format_season_folder(12) == "Season 12"
+
+
+# ─── parse_destination_for_search ─────────────────────────────────────
+
+class TestParseDestinationForSearch:
+    def test_movie_with_year_and_quality(self):
+        dest = Path("/lib/Matrix (1999) [tmdbid-603]/The Matrix (1999) - 1080p.mkv")
+        info = parse_destination_for_search(dest)
+        assert info["title"] == "The Matrix"
+        assert info["year"] == 1999
+        assert info["is_episode"] is False
+        assert info["season"] is None
+        assert info["episode"] is None
+
+    def test_episode_with_dash_separator(self):
+        dest = Path("/lib/Show (2010) [tmdbid-1]/Season 01/Show - S01E05 - 720p.mkv")
+        info = parse_destination_for_search(dest)
+        assert info["title"] == "Show"
+        assert info["is_episode"] is True
+        assert info["season"] == 1
+        assert info["episode"] == 5
+        # Year is read from parent folder
+        assert info["year"] == 2010
+
+    def test_episode_without_dash(self):
+        dest = Path("/lib/Show (2010)/Season 02/Show S02E10.mkv")
+        info = parse_destination_for_search(dest)
+        assert info["is_episode"] is True
+        assert info["season"] == 2
+        assert info["episode"] == 10
+
+    def test_movie_no_year(self):
+        dest = Path("/lib/Untitled.mkv")
+        info = parse_destination_for_search(dest)
+        assert info["title"] == "Untitled"
+        assert info["year"] is None
+        assert info["is_episode"] is False
+
+    def test_episode_without_folder_year(self):
+        dest = Path("/lib/Show/Season 01/Show S01E01.mkv")
+        info = parse_destination_for_search(dest)
+        assert info["is_episode"] is True
+        assert info["year"] is None

@@ -641,7 +641,12 @@ class InteractiveCLI:
             tmdb_key = self.config_manager.get_tmdb_api_key()
             tmdb_status = "[green]✓ " + _("Configured") + "[/green]" if tmdb_key else "[red]✗ " + _("Not configured") + "[/red]"
 
+            os_user, os_pass = self.config_manager.get_opensubtitles_credentials()
+            os_status = ("[green]✓ " + _("Configured") + f" ({os_user})[/green]"
+                         if (os_user and os_pass) else "[red]✗ " + _("Not configured") + "[/red]")
+
             console.print(f"[bold]TMDB API Key:[/bold] {tmdb_status}")
+            console.print(f"[bold]OpenSubtitles:[/bold] {os_status}")
             console.print("[bold]" + _("Config file:") + f"[/bold] [cyan]{self.config_manager.get_config_path()}[/cyan]\n")
 
             choice = questionary.select(
@@ -652,6 +657,9 @@ class InteractiveCLI:
                     "✓ " + _("Test TMDB connection"),
                     "🗑️  " + _("Remove TMDB key"),
                     "ℹ️  " + _("How to get TMDB key"),
+                    "🎬 " + _("Configure OpenSubtitles login"),
+                    "🔌 " + _("Test OpenSubtitles login"),
+                    "🗑️  " + _("Remove OpenSubtitles login"),
                     "← " + _("Back")
                 ],
                 style=custom_style,
@@ -660,6 +668,27 @@ class InteractiveCLI:
 
             if not choice or _("Back") in choice:
                 break
+
+            elif _("Configure OpenSubtitles login") in choice:
+                self._configure_opensubtitles_login()
+
+            elif _("Test OpenSubtitles login") in choice:
+                self._test_opensubtitles_login()
+
+            elif _("Remove OpenSubtitles login") in choice:
+                confirm = questionary.confirm(
+                    _("Remove stored OpenSubtitles login?"),
+                    default=False,
+                    style=custom_style
+                ).ask()
+                if confirm:
+                    self.config_manager.remove_opensubtitles_credentials()
+                    self.config.opensubtitles_username = ""
+                    self.config.opensubtitles_password = ""
+                    show_success(_("OpenSubtitles login removed"))
+                else:
+                    show_warning(_("Operation cancelled"))
+                questionary.press_any_key_to_continue().ask()
 
             elif _("Configure TMDB API Key") in choice:
                 console.print("\n[cyan]" + _("Enter your TMDB API key:") + "[/cyan]")
@@ -711,6 +740,53 @@ class InteractiveCLI:
 
             elif _("How to get TMDB key") in choice:
                 self._show_tmdb_help()
+
+    def _configure_opensubtitles_login(self):
+        """Prompt for and store opensubtitles.com credentials."""
+        console.print("\n[cyan]" + _("OpenSubtitles login (needed to download subtitles).") + "[/cyan]")
+        console.print("[dim]" + _("Create a free account at https://www.opensubtitles.com/newuser") + "[/dim]")
+        console.print("[yellow]⚠ " + _("Use your USERNAME, not your e-mail address.") + "[/yellow]\n")
+
+        username = questionary.text(_("Username (not e-mail):"), style=custom_style).ask()
+        if username is None:
+            return
+        password = questionary.password(_("Password:"), style=custom_style).ask()
+        if password is None:
+            return
+
+        username = username.strip()
+        if username and password:
+            self.config_manager.set_opensubtitles_credentials(username, password)
+            self.config.opensubtitles_username = username
+            self.config.opensubtitles_password = password
+            show_success(_("OpenSubtitles login saved"))
+        else:
+            show_warning(_("Username and password are both required"))
+
+        questionary.press_any_key_to_continue().ask()
+
+    def _test_opensubtitles_login(self):
+        """Log in to opensubtitles.com to confirm the stored credentials work."""
+        console.clear()
+        show_banner()
+        console.print("\n[bold cyan]🔌 " + _("Testing OpenSubtitles login...") + "[/bold cyan]\n")
+
+        user, pw = self.config_manager.get_opensubtitles_credentials()
+        if not (user and pw):
+            show_error(_("No OpenSubtitles login configured!"))
+            console.print("\n[yellow]" + _("Configure it first using 'Configure OpenSubtitles login'") + "[/yellow]")
+            questionary.press_any_key_to_continue().ask()
+            return
+
+        from ..core.subtitle_manager import SubtitleManager
+        ok, message = SubtitleManager().test_opensubtitles_login(user, pw)
+
+        if ok:
+            show_success(message + f" ({user})")
+        else:
+            show_error(_("Login failed: %s") % message)
+
+        questionary.press_any_key_to_continue().ask()
 
     def _test_tmdb_connection(self):
         """Test TMDB API connection"""

@@ -17,11 +17,15 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Adw, Gdk
+from gi.repository import Gtk, Adw, Gdk, GLib
 from pathlib import Path
 from datetime import datetime
 from ...utils.i18n import _
 from ...utils.config_manager import ConfigManager
+
+
+def _markup_escape(value) -> str:
+    return GLib.markup_escape_text(str(value))
 
 
 class DashboardView(Gtk.Box):
@@ -155,8 +159,8 @@ class DashboardView(Gtk.Box):
             time_text = self._format_time_ago(timestamp)
 
             row = Adw.ActionRow(
-                title=Path(path).name,
-                subtitle=path,
+                title=_markup_escape(Path(path).name),
+                subtitle=_markup_escape(path),
                 activatable=True
             )
             row.add_prefix(Gtk.Image.new_from_icon_name("folder-symbolic"))

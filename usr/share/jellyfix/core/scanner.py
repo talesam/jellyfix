@@ -68,10 +68,8 @@ class LibraryScanner:
         if not directory.exists() or not directory.is_dir():
             return result
 
-        # Escaneia recursivamente
-        all_files = list(directory.rglob('*'))
-
-        for file_path in all_files:
+        # Escaneia recursivamente (lazy — não materializa toda a árvore em memória)
+        for file_path in directory.rglob('*'):
             if not file_path.is_file():
                 continue
 
@@ -94,9 +92,8 @@ class LibraryScanner:
                     result.total_episodes += 1
 
             elif is_subtitle_file(file_path):
-                # Ignora legendas vazias ou muito pequenas (< 20 bytes)
-                # Uma legenda SRT válida tem no mínimo: número + timestamp + texto
-                if file_path.stat().st_size < 20:
+                # Ignora legendas vazias ou muito pequenas
+                if file_path.stat().st_size < self.config.min_subtitle_bytes:
                     continue
 
                 result.subtitle_files.append(file_path)
@@ -161,8 +158,6 @@ class LibraryScanner:
 
     def _categorize_image(self, file_path: Path, result: ScanResult):
         """Categoriza um arquivo de imagem"""
-        file_path.name.lower()
-
         # Imagens reconhecidas pelo Jellyfin
         jellyfin_images = {
             'poster', 'fanart', 'backdrop', 'logo', 'banner',
