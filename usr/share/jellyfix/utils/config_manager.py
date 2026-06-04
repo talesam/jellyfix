@@ -123,6 +123,25 @@ class ConfigManager:
         """Remove chave da API TVDB"""
         self.remove('tvdb_api_key')
 
+    def get_opensubtitles_credentials(self) -> tuple:
+        """Return (username, password) for opensubtitles.com, or ('', '')."""
+        return (self.get('opensubtitles_username') or '',
+                self.get('opensubtitles_password') or '')
+
+    def set_opensubtitles_credentials(self, username: str, password: str):
+        """Persist opensubtitles.com login (needed to download subtitles)."""
+        config = self.load()
+        config['opensubtitles_username'] = username
+        config['opensubtitles_password'] = password
+        self.save(config)
+
+    def remove_opensubtitles_credentials(self):
+        """Delete stored opensubtitles.com login."""
+        config = self.load()
+        config.pop('opensubtitles_username', None)
+        config.pop('opensubtitles_password', None)
+        self.save(config)
+
     def get_min_pt_words(self) -> int:
         """Obtém número mínimo de palavras portuguesas"""
         return self.get('min_pt_words', 5)

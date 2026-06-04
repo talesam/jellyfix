@@ -54,6 +54,28 @@ class Config:
     tmdb_api_key: str = ""
     tvdb_api_key: str = ""
 
+    # Subtitle download (subliminal)
+    # Primary providers, queried in parallel for every search.
+    subtitle_providers: list = field(
+        default_factory=lambda: ["opensubtitlescom", "podnapisi", "gestdown"]
+    )
+    # Fallback providers, queried only when the primary ones return nothing.
+    # Kept login-free on purpose so downloads work without any account
+    # (bsplayer = movies+TV, tvsubtitles = TV). addic7ed is great but needs login.
+    subtitle_extra_providers: list = field(
+        default_factory=lambda: ["bsplayer", "tvsubtitles"]
+    )
+    # Max result pages to fetch per provider. The opensubtitles.com API rejects
+    # deep/unbounded pagination (HTTP 400) for anonymous clients, so keep this low.
+    subtitle_max_pages: int = 1
+    # Per-request network timeout for subtitle providers (seconds).
+    subtitle_timeout: int = 15
+    # OpenSubtitles.com credentials. Anonymous search works, but logging in is
+    # required to actually download subtitle content beyond a tiny daily quota.
+    opensubtitles_username: str = ""
+    opensubtitles_password: str = ""
+    opensubtitles_apikey: str = ""
+
     # Subtitle languages to KEEP (will NOT be removed)
     # Default: Portuguese and English
     kept_languages: list = field(default_factory=lambda: ["por", "eng"])
@@ -147,6 +169,29 @@ class Config:
         saved_min_pt = config_mgr.get('min_pt_words')
         if saved_min_pt is not None:
             self.min_pt_words = saved_min_pt
+
+        # Subtitle download settings (file > env var > default)
+        for key in ['subtitle_providers', 'subtitle_extra_providers',
+                    'subtitle_max_pages', 'subtitle_timeout']:
+            saved_value = config_mgr.get(key)
+            if saved_value is not None:
+                setattr(self, key, saved_value)
+
+        if not self.opensubtitles_username:
+            self.opensubtitles_username = (
+                config_mgr.get('opensubtitles_username')
+                or os.getenv("OPENSUBTITLES_USERNAME", "")
+            )
+        if not self.opensubtitles_password:
+            self.opensubtitles_password = (
+                config_mgr.get('opensubtitles_password')
+                or os.getenv("OPENSUBTITLES_PASSWORD", "")
+            )
+        if not self.opensubtitles_apikey:
+            self.opensubtitles_apikey = (
+                config_mgr.get('opensubtitles_apikey')
+                or os.getenv("OPENSUBTITLES_APIKEY", "")
+            )
 
 
 # Configuração global (singleton pattern)
