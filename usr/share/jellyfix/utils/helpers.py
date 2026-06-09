@@ -113,8 +113,14 @@ _RE_SE_ALT_PATTERNS = [
     ),
     re.compile(r"T(?:emp)?\.?\s*(\d{1,2})\s*E(?:p)?\.?\s*(\d{1,2})", re.IGNORECASE),
     re.compile(r"[\[\(\{]\s*(\d{1,2})x(\d{1,2})\s*[\]\)\}]", re.IGNORECASE),
-    re.compile(r"(?:Cap\.?|Ep\.?|E)\s*(\d{1,2})", re.IGNORECASE),
-    re.compile(r"[-\s](\d)(\d{2})(?:\D|$)", re.IGNORECASE),
+    # Apenas marcadores EXPLÍCITOS de episódio (Cap/Capítulo/Ep/Episódio).
+    # NÃO incluir "E" sozinho: o "e" de "Grease 2", "Blade 2" casava com " 2" e
+    # classificava o FILME como série (S02E02). Exige fronteira de palavra.
+    re.compile(r"\b(?:Cap(?:[íi]tulo)?|Ep(?:is[óo]dio)?)\.?\s*(\d{1,2})\b", re.IGNORECASE),
+    # Episódio compacto "- 101" (=S01E01). Guardas para não pegar resolução
+    # (720p/480p) nem ano (2015): não seguido de p/k/i nem de mais dígitos,
+    # e não precedido por dígito (parte de número maior).
+    re.compile(r"(?<!\d)[-\s](\d)(\d{2})(?![\dpPkKiI])(?:\D|$)"),
 ]
 
 

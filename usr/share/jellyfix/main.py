@@ -22,27 +22,23 @@ from jellyfix.utils.config import Config, set_config, APP_VERSION
 from jellyfix.cli import run_cli
 from rich.console import Console
 from rich.text import Text
+from rich.panel import Panel
+from rich.box import DOUBLE
 
 
 def show_help():
     """Display colorful and detailed help using Rich"""
     console = Console()
 
-    # Title banner
+    # Title banner — let Rich draw the box so the borders stay aligned
+    # regardless of how the terminal renders the emoji widths.
     console.print()
     title = Text()
-    title.append("╔══════════════════════════════════════════════════════════╗\n", style="bold blue")
-    title.append("║          ", style="bold blue")
-    title.append("         🎬  JELLYFIX  🎬", style="bold magenta")
-    title.append("                       ║\n", style="bold blue")
-    title.append("║     ", style="bold blue")
-    title.append("Intelligent Jellyfin Library Organizer", style="cyan")
-    title.append("           ║\n", style="bold blue")
-    title.append("║                    ", style="bold blue")
+    title.append("🎬  JELLYFIX  🎬\n", style="bold magenta")
+    title.append("Intelligent Jellyfin Library Organizer\n", style="cyan")
     title.append(f"v{APP_VERSION}", style="dim")
-    title.append("                           ║\n", style="bold blue")
-    title.append("╚══════════════════════════════════════════════════════════╝", style="bold blue")
-    console.print(title)
+    title.justify = "center"
+    console.print(Panel(title, box=DOUBLE, style="bold blue", width=60, padding=(0, 1)))
     console.print()
 
     # Usage

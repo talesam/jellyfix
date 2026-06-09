@@ -40,6 +40,10 @@ class Config:
     image_download_timeout: int = 10  # seconds for poster/backdrop HTTP requests
     max_search_results: int = 10  # max TMDB/subtitle results shown in pickers
     title_similarity_threshold: float = 0.5  # min ratio for fuzzy title matching
+    # Confiança mínima (similaridade de título PT/original x proximidade de ano)
+    # para aceitar um match do TMDB no modo não-interativo. Abaixo disso o
+    # jellyfix NÃO renomeia (evita match errado) e registra p/ revisão manual.
+    match_confidence_threshold: float = 0.55
     min_subtitle_bytes: int = 20  # files smaller than this are skipped as junk
 
     # Modos de execução

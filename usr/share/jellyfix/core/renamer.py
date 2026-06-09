@@ -494,10 +494,38 @@ class Renamer:
         """Planeja renomeação de um arquivo de vídeo"""
         media_info = detect_media_type(file_path)
 
+        # TRAVA ANTI-MISCLASSIFICAÇÃO: se a pasta tem [tmdbid-N] fixado, é um
+        # filme já identificado — força o caminho de filme mesmo que o detector
+        # ache "série" por causa de número no nome (ex.: "Grease 2" virava
+        # S02E02 e ia parar dentro de uma série). O id fixado é a fonte da
+        # verdade. (Não vale para pastas com subpastas Season, que são séries
+        # de verdade — essas têm o arquivo dentro de uma pasta Season/Temporada.)
+        in_season_folder = file_path.parent.name.lower().startswith(("season", "temporada"))
+        if self._extract_pinned_tmdbid(file_path) is not None and not in_season_folder:
+            self._plan_movie_rename(file_path, media_info)
+            return
+
         if media_info.is_movie():
             self._plan_movie_rename(file_path, media_info)
         elif media_info.is_tvshow():
             self._plan_tvshow_rename(file_path, media_info)
+
+    @staticmethod
+    def _extract_pinned_tmdbid(file_path: Path) -> Optional[int]:
+        """Extrai um tmdbid fixado na pasta-pai (ex.: 'Filme (2020) [tmdbid-603]').
+
+        Verifica também a pasta avó, caso o arquivo esteja um nível abaixo.
+        Retorna o id como int, ou None se não houver.
+        """
+        import re as _re
+        for parent in (file_path.parent, file_path.parent.parent):
+            try:
+                m = _re.search(r"\[tmdbid-(\d+)\]", parent.name)
+            except Exception:
+                m = None
+            if m:
+                return int(m.group(1))
+        return None
 
     def _plan_movie_rename(self, file_path: Path, media_info):
         """Plan movie file rename"""
@@ -513,8 +541,19 @@ class Renamer:
         folder_suffix = ""
         metadata = None
         if self.metadata_fetcher and self.config.fetch_metadata:
-            self.logger.info(f"🔍 Searching: {title}")
-            metadata = self.metadata_fetcher.search_movie(title, year, interactive=self.config.interactive)
+            # IDEMPOTÊNCIA / CORREÇÃO MANUAL: se a pasta já tem [tmdbid-N],
+            # confia nesse id (busca direta) em vez de re-pesquisar por título.
+            # Evita "consertar" uma pasta certa pro id errado e respeita ids
+            # corrigidos na mão; também é mais rápido.
+            pinned_id = self._extract_pinned_tmdbid(file_path)
+            if pinned_id is not None:
+                self.logger.info(f"📌 ID fixado na pasta: tmdbid-{pinned_id} (pulando busca)")
+                metadata = self.metadata_fetcher.get_movie_by_id(pinned_id)
+                if not metadata:
+                    self.logger.warning(f"✗ tmdbid-{pinned_id} não resolveu; caindo p/ busca por título")
+            if metadata is None:
+                self.logger.info(f"🔍 Searching: {title}")
+                metadata = self.metadata_fetcher.search_movie(title, year, interactive=self.config.interactive)
 
             if metadata:
                 # Use title and year from metadata
