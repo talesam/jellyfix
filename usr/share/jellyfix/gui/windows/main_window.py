@@ -1160,27 +1160,19 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             self.toast_overlay.add_toast(toast)
 
 
-    def _on_metadata_changed(self, operation, metadata):
+    def _replan_video_ops(self, operations, video_source, metadata, renamer):
         """
-        Handle metadata change from SearchDialog.
-        Re-plans all operations for the video using the new metadata, respecting all config settings.
+        Re-planeja as operações de UM vídeo (e arquivos relacionados) com o
+        metadata escolhido, substituindo as operações antigas na lista in-place.
 
-        Args:
-            operation: RenameOperation to update
-            metadata: New Metadata selected by user
+        Returns:
+            Lista das novas operações (vazia se o vídeo não foi encontrado
+            ou o re-planejamento falhou).
         """
         import re
 
-        from ...core.renamer import Renamer
-        from ...utils.helpers import is_subtitle_file, normalize_spaces
+        from ...utils.helpers import is_subtitle_file, is_video_file, normalize_spaces
 
-        self.logger.info(f"Re-planning operations with new metadata: {metadata.title} ({metadata.year})")
-
-        # Get current operations list
-        operations = self.operations_handler.operations
-
-        # Find video operation and all related operations
-        video_source = operation.source
         video_stem_original = video_source.stem
         video_normalized = normalize_spaces(video_stem_original)
 
@@ -1216,17 +1208,12 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                 # Convention files in the same folder (backdrop.jpg, folder.jpg, etc.)
                 # that don't match video stem — they're handled by replan_for_video_with_metadata
                 if op.source.parent == video_source.parent and i not in related_indices:
-                    from ...utils.helpers import is_video_file
-
                     if not is_video_file(op.source) and not is_subtitle_file(op.source):
                         related_indices.append(i)
 
         if video_index is None:
-            self.logger.warning("Video operation not found in list")
-            return
-
-        # Create a Renamer instance with the current metadata_fetcher (preserves cache)
-        renamer = Renamer(metadata_fetcher=self.operations_handler.metadata_fetcher)
+            self.logger.warning(f"Video operation not found in list: {video_source.name}")
+            return []
 
         # Re-plan operations for this video with the new metadata
         # This will respect ALL config settings (remove_foreign_subs, organize_folders, etc.)
@@ -1236,8 +1223,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         )
 
         if not new_operations:
-            self.logger.warning("Failed to re-plan operations")
-            return
+            self.logger.warning(f"Failed to re-plan operations for {video_source.name}")
+            return []
 
         # Remove old related operations (in reverse order to maintain indices)
         for i in sorted(related_indices, reverse=True):
@@ -1256,6 +1243,75 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             else:
                 self.logger.info(f"  - {new_op.operation_type.upper()}: {new_op.source.name} → {new_op.destination.name}")
 
+        return new_operations
+
+    def _find_same_series_videos(self, operations, video_source):
+        """
+        Encontra os OUTROS vídeos da lista de operações que pertencem à mesma
+        série do vídeo dado (mesmo título de show detectado no nome do arquivo).
+
+        Assim, corrigir o título de UM episódio pelo SearchDialog corrige a
+        série inteira de uma vez, em vez de exigir um clique por episódio.
+        """
+        from ...core.detector import detect_media_type
+        from ...utils.helpers import is_video_file, normalize_spaces
+
+        ref = detect_media_type(video_source)
+        ref_title = normalize_spaces(ref.title or '').lower()
+        if not ref_title:
+            return []
+
+        siblings = []
+        seen = set()
+        for op in operations:
+            src = op.source
+            if src == video_source or src in seen or not is_video_file(src):
+                continue
+            seen.add(src)
+            mi = detect_media_type(src)
+            if not mi.is_tvshow():
+                continue
+            if normalize_spaces(mi.title or '').lower() == ref_title:
+                siblings.append(src)
+        return siblings
+
+    def _on_metadata_changed(self, operation, metadata):
+        """
+        Handle metadata change from SearchDialog.
+        Re-plans all operations for the video using the new metadata, respecting all config settings.
+        Para séries, aplica o mesmo metadata a TODOS os episódios da série.
+
+        Args:
+            operation: RenameOperation to update
+            metadata: New Metadata selected by user
+        """
+        from ...core.renamer import Renamer
+
+        self.logger.info(f"Re-planning operations with new metadata: {metadata.title} ({metadata.year})")
+
+        # Get current operations list
+        operations = self.operations_handler.operations
+        video_source = operation.source
+
+        # Create a Renamer instance with the current metadata_fetcher (preserves cache)
+        renamer = Renamer(metadata_fetcher=self.operations_handler.metadata_fetcher)
+
+        new_operations = self._replan_video_ops(operations, video_source, metadata, renamer)
+        if not new_operations:
+            return
+
+        # SÉRIE: propaga a escolha para os demais episódios da mesma série.
+        # Sem isso o usuário tinha que abrir o SearchDialog episódio por episódio.
+        episodes_updated = 0
+        if metadata.media_type == "tvshow":
+            for sibling in self._find_same_series_videos(operations, video_source):
+                if self._replan_video_ops(operations, sibling, metadata, renamer):
+                    episodes_updated += 1
+            if episodes_updated:
+                self.logger.info(
+                    f"Série: metadata aplicado também a {episodes_updated} outro(s) episódio(s)"
+                )
+
         # Update the operations handler
         self.operations_handler.operations = operations
 
@@ -1263,16 +1319,21 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
         self.operations_list.set_operations(operations)
 
         # Update preview with the first new operation (the video)
-        if new_operations:
-            self.preview_panel.show_operation(new_operations[0])
+        self.preview_panel.show_operation(new_operations[0])
 
-            # Baixa o poster diretamente do metadata escolhido pelo usuário.
-            # Não chamamos _try_fetch_poster aqui porque ele re-detecta o tipo
-            # e re-pesquisa pelo nome do arquivo original (ex: "Escape 2 Africa"),
-            # ignorando a escolha manual. O metadata já tem poster_path e tmdb_id.
-            self._fetch_poster_from_metadata(metadata)
+        # Baixa o poster diretamente do metadata escolhido pelo usuário.
+        # Não chamamos _try_fetch_poster aqui porque ele re-detecta o tipo
+        # e re-pesquisa pelo nome do arquivo original (ex: "Escape 2 Africa"),
+        # ignorando a escolha manual. O metadata já tem poster_path e tmdb_id.
+        self._fetch_poster_from_metadata(metadata)
 
         # Show success toast with count of operations
-        toast = Adw.Toast(title=f"Updated: {metadata.title} ({metadata.year}) - {len(new_operations)} operations")
+        if episodes_updated:
+            title = _("Updated: {title} ({year}) - applied to {count} episodes").format(
+                title=metadata.title, year=metadata.year, count=episodes_updated + 1
+            )
+        else:
+            title = f"Updated: {metadata.title} ({metadata.year}) - {len(new_operations)} operations"
+        toast = Adw.Toast(title=title)
         toast.set_timeout(3)
         self.toast_overlay.add_toast(toast)

@@ -111,8 +111,11 @@ class MetadataFetcher:
             self._title_match_ratio(query_title, cand_title),
             self._title_match_ratio(query_title, cand_orig),
         )
+        return title_sim * self._year_factor(query_year, cand)
 
-        # Componente de ano
+    @staticmethod
+    def _year_factor(query_year, cand) -> float:
+        """Fator 0..1 de proximidade entre o ano da busca e o do candidato."""
         cand_year = None
         date_attr = getattr(cand, "release_date", None) or getattr(cand, "first_air_date", None)
         if date_attr:
@@ -121,19 +124,15 @@ class MetadataFetcher:
                 cand_year = int(m.group(1))
 
         if not query_year or cand_year is None:
-            year_factor = 0.85  # sem ano p/ comparar: neutro-levemente-cauteloso
-        else:
-            diff = abs(cand_year - query_year)
-            if diff == 0:
-                year_factor = 1.0
-            elif diff == 1:
-                year_factor = 0.9
-            elif diff <= 2:
-                year_factor = 0.5
-            else:
-                year_factor = 0.15  # ano muito diferente: quase certamente errado
-
-        return title_sim * year_factor
+            return 0.85  # sem ano p/ comparar: neutro-levemente-cauteloso
+        diff = abs(cand_year - query_year)
+        if diff == 0:
+            return 1.0
+        if diff == 1:
+            return 0.9
+        if diff <= 2:
+            return 0.5
+        return 0.15  # ano muito diferente: quase certamente errado
 
     def _best_candidate(self, results, query_title: str, query_year, limit: int = 10):
         """Itera os candidatos, pontua cada um e devolve (melhor, score)."""
@@ -147,6 +146,76 @@ class MetadataFetcher:
             if score > best_score:
                 best, best_score = cand, score
         return best, best_score
+
+    def _alt_title_rescue(self, tmdb, results, query_title: str, query_year, threshold: float):
+        """
+        Segunda chance para o gate de confiança usando TÍTULOS ALTERNATIVOS.
+
+        Arquivos costumam usar o título de lançamento internacional (ex.:
+        "Like Stars on Earth"), mas o resultado da busca só expõe o título
+        pt-BR ("Como Estrelas na Terra") e o original ("Taare Zameen Par") —
+        a similaridade fica baixa e o gate rejeitaria um match CORRETO.
+
+        Para os melhores candidatos cujo ano bate (±1), consulta
+        /movie/{id}/alternative_titles e re-pontua. Só aceita se atingir o
+        threshold — então o gate continua barrando matches realmente ruins.
+
+        Returns:
+            (candidato, score) se algum candidato passar; senão (None, 0.0).
+        """
+        # Rankeia os candidatos e guarda o year_factor de cada um
+        scored = []
+        count = 0
+        for cand in results:
+            if count >= 10:
+                break
+            count += 1
+            scored.append((self._score_candidate(query_title, query_year, cand), cand))
+        scored.sort(key=lambda t: t[0], reverse=True)
+
+        checked = 0
+        for base_score, cand in scored:
+            if checked >= 3:  # no máximo 3 chamadas extras à API
+                break
+            yf = self._year_factor(query_year, cand)
+            if yf < 0.85:  # só vale a pena se o ano bate (±1) ou é desconhecido
+                continue
+            cand_id = getattr(cand, "id", None)
+            if not cand_id:
+                continue
+            checked += 1
+            try:
+                self._rate_limit()
+                alts = tmdb['movie'].alternative_titles(cand_id)
+                # AsObj/dict: a lista fica em 'titles'
+                titles_obj = None
+                if isinstance(alts, dict):
+                    titles_obj = alts.get('titles')
+                else:
+                    titles_obj = getattr(alts, 'titles', None) or alts
+                alt_titles = []
+                for item in (titles_obj or []):
+                    t = item.get('title') if isinstance(item, dict) else getattr(item, 'title', None)
+                    if t:
+                        alt_titles.append(t)
+            except Exception as e:
+                self.logger.debug(f"alternative_titles({cand_id}) falhou: {e}")
+                continue
+
+            best_alt_sim = max(
+                (self._title_match_ratio(query_title, t) for t in alt_titles),
+                default=0.0,
+            )
+            alt_score = best_alt_sim * yf
+            if alt_score >= threshold:
+                self.logger.info(
+                    f"✓ Resgate por título alternativo ({alt_score:.2f}): "
+                    f"'{query_title}' ({query_year}) → "
+                    f"'{getattr(cand, 'title', '?')}' [id {cand_id}]"
+                )
+                return cand, alt_score
+
+        return None, 0.0
 
     def _record_low_confidence(self, query_title, query_year, cand, score) -> None:
         """Registra um match de baixa confiança para revisão manual posterior.
@@ -465,16 +534,25 @@ class MetadataFetcher:
 
                 threshold = getattr(self.config, "match_confidence_threshold", 0.55)
                 if score < threshold:
-                    self.logger.warning(
-                        f"✗ Baixa confiança ({score:.2f} < {threshold:.2f}) para "
-                        f"'{clean_title}' ({year}) → melhor candidato: "
-                        f"'{getattr(movie, 'title', '?')}' "
-                        f"({getattr(movie, 'release_date', '?')[:4] if getattr(movie, 'release_date', None) else '?'}) "
-                        f"[id {getattr(movie, 'id', '?')}]. Pulando (revisar manualmente)."
+                    # Segunda chance: o arquivo pode usar um título alternativo
+                    # (lançamento internacional) que não aparece no resultado
+                    # da busca — re-pontua com /alternative_titles antes de desistir.
+                    rescued, rescued_score = self._alt_title_rescue(
+                        tmdb, results, clean_title, year, threshold
                     )
-                    self._record_low_confidence(clean_title, year, movie, score)
-                    self._interactive_choices_cache[cache_key] = None
-                    return None
+                    if rescued is not None:
+                        movie, score = rescued, rescued_score
+                    else:
+                        self.logger.warning(
+                            f"✗ Baixa confiança ({score:.2f} < {threshold:.2f}) para "
+                            f"'{clean_title}' ({year}) → melhor candidato: "
+                            f"'{getattr(movie, 'title', '?')}' "
+                            f"({getattr(movie, 'release_date', '?')[:4] if getattr(movie, 'release_date', None) else '?'}) "
+                            f"[id {getattr(movie, 'id', '?')}]. Pulando (revisar manualmente)."
+                        )
+                        self._record_low_confidence(clean_title, year, movie, score)
+                        self._interactive_choices_cache[cache_key] = None
+                        return None
                 self.logger.debug(
                     f"✓ Match confiável ({score:.2f}) '{clean_title}' ({year}) → "
                     f"'{getattr(movie, 'title', '?')}' [id {getattr(movie, 'id', '?')}]"

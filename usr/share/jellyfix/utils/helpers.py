@@ -124,12 +124,39 @@ _RE_SE_ALT_PATTERNS = [
 ]
 
 
+# Detecção de português por PALAVRA INTEIRA (\b). Substring dava falso
+# positivo em inglês ("por" em "important", "ele" em "element"...).
+_RE_PT_WORDS = re.compile(r"\b(?:" + "|".join(PORTUGUESE_WORDS) + r")\b")
+
 # Subtitle quality scoring weights
 _QUALITY_BLOCK_WEIGHT = 10
 _QUALITY_LINE_WEIGHT = 2
 _QUALITY_TINY_FILE_PENALTY = 0.1
 _QUALITY_MIN_FILE_SIZE = 100  # bytes
 _QUALITY_TINY_THRESHOLD = 1024  # bytes
+
+
+def read_subtitle_text(file_path: Path, max_bytes: int = 512 * 1024) -> str:
+    """
+    Lê o texto de uma legenda lidando com os encodings comuns.
+
+    Muitas legendas antigas são ISO-8859-1/Windows-1252 (não UTF-8). Ler com
+    utf-8 + errors='ignore' DESTRÓI as palavras acentuadas ("não" vira "no",
+    "está" vira "est"), o que quebrava a detecção de idioma por conteúdo.
+
+    Ordem: BOM (UTF-8/UTF-16) → UTF-8 estrito → Latin-1 (nunca falha).
+    """
+    with open(file_path, 'rb') as f:
+        raw = f.read(max_bytes)
+
+    if raw.startswith(b'\xef\xbb\xbf'):
+        return raw.decode('utf-8-sig', errors='replace')
+    if raw.startswith((b'\xff\xfe', b'\xfe\xff')):
+        return raw.decode('utf-16', errors='replace')
+    try:
+        return raw.decode('utf-8')
+    except UnicodeDecodeError:
+        return raw.decode('latin-1', errors='replace')
 
 
 def calculate_subtitle_quality(file_path: Path, file_size: Optional[int] = None) -> float:
@@ -154,9 +181,8 @@ def calculate_subtitle_quality(file_path: Path, file_size: Optional[int] = None)
         if file_size < _QUALITY_MIN_FILE_SIZE:
             return 0.0
 
-        # Lê o conteúdo
-        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-            content = f.read()
+        # Lê o conteúdo (com detecção de encoding)
+        content = read_subtitle_text(file_path)
 
         lines = content.strip().split('\n')
 
@@ -213,14 +239,14 @@ def is_portuguese_subtitle(file_path: Path, min_words: int = 5) -> bool:
         return False
 
     try:
-        # Lê as primeiras 100 linhas
-        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-            lines = [f.readline() for _ in range(100)]
+        # Lê o arquivo INTEIRO (até 512KB) com detecção de encoding.
+        # Antes lia só 100 linhas com utf-8/ignore: legendas Latin-1 perdiam
+        # os acentos e arquivos que começam com créditos/nomes próprios não
+        # acumulavam palavras suficientes → português não era detectado.
+        content = read_subtitle_text(file_path).lower()
 
-        content = ' '.join(lines).lower()
-
-        # Conta quantas palavras portuguesas aparecem
-        word_count = sum(1 for word in PORTUGUESE_WORDS if word in content)
+        # Conta palavras portuguesas DISTINTAS, por palavra inteira (\b).
+        word_count = len(set(_RE_PT_WORDS.findall(content)))
 
         return word_count >= min_words
 
