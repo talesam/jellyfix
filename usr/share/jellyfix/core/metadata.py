@@ -42,6 +42,8 @@ class MetadataFetcher:
         self._interactive_choices_cache = {}
         # Cache de buscas sem resultado para evitar re-pesquisa
         self._failed_searches: set = set()
+        # Matches de baixa confiança registrados nesta execução (revisão manual)
+        self._low_confidence: list = []
         # Rate limiting: TMDB free tier = 40 req / 10 sec
         self._last_request_time: float = 0.0
         self._min_request_interval: float = 0.25  # 4 req/sec max
@@ -53,6 +55,193 @@ class MetadataFetcher:
         if elapsed < self._min_request_interval:
             time.sleep(self._min_request_interval - elapsed)
         self._last_request_time = time.monotonic()
+
+    # ------------------------------------------------------------------
+    # Verificação de match (anti-erro): similaridade de título + ano
+    # ------------------------------------------------------------------
+    @staticmethod
+    def _normalize_for_match(text: str) -> str:
+        """Normaliza p/ comparação: minúsculas, sem acento, sem pontuação."""
+        if not text:
+            return ""
+        import unicodedata
+        text = unicodedata.normalize("NFKD", text)
+        text = "".join(c for c in text if not unicodedata.combining(c))
+        text = text.lower()
+        # Remove pontuação, mas PRESERVA letras não-latinas (CJK, cirílico…).
+        # Se removêssemos tudo que não é [a-z0-9], um título como "1989放暑假"
+        # viraria só "1989" e casaria falsamente com qualquer filme de 1989.
+        # Mantemos qualquer caractere >= U+0080 (acentos latinos já foram
+        # decompostos e removidos acima, então sobram só scripts estrangeiros).
+        kept = []
+        for ch in text:
+            if ch.isalnum() or ord(ch) >= 0x80:
+                kept.append(ch)
+            else:
+                kept.append(" ")
+        text = "".join(kept)
+        return re.sub(r"\s+", " ", text).strip()
+
+    @classmethod
+    def _title_match_ratio(cls, a: str, b: str) -> float:
+        """Similaridade 0..1 entre dois títulos (char + token), robusta a ordem."""
+        na, nb = cls._normalize_for_match(a), cls._normalize_for_match(b)
+        if not na or not nb:
+            return 0.0
+        if na == nb:
+            return 1.0
+        from difflib import SequenceMatcher
+        char_ratio = SequenceMatcher(None, na, nb).ratio()
+        wa, wb = set(na.split()), set(nb.split())
+        token_ratio = len(wa & wb) / len(wa | wb) if (wa | wb) else 0.0
+        # Bônus se um título contém o outro (ex.: original vs PT com subtítulo)
+        contains = 1.0 if (na in nb or nb in na) else 0.0
+        return max(char_ratio, token_ratio, contains * 0.9)
+
+    def _score_candidate(self, query_title: str, query_year, cand) -> float:
+        """
+        Pontua um candidato do TMDB 0..1 combinando similaridade de título
+        (melhor entre título PT e título original) e proximidade de ano.
+        Penaliza forte quando o ano não bate (a guarda de ano sozinha falhava
+        quando o filme errado tinha o mesmo ano — aqui o título desempata).
+        """
+        cand_title = getattr(cand, "title", "") or getattr(cand, "name", "")
+        cand_orig = getattr(cand, "original_title", "") or getattr(cand, "original_name", "")
+        title_sim = max(
+            self._title_match_ratio(query_title, cand_title),
+            self._title_match_ratio(query_title, cand_orig),
+        )
+        return title_sim * self._year_factor(query_year, cand)
+
+    @staticmethod
+    def _year_factor(query_year, cand) -> float:
+        """Fator 0..1 de proximidade entre o ano da busca e o do candidato."""
+        cand_year = None
+        date_attr = getattr(cand, "release_date", None) or getattr(cand, "first_air_date", None)
+        if date_attr:
+            m = re.search(r"^(\d{4})", date_attr)
+            if m:
+                cand_year = int(m.group(1))
+
+        if not query_year or cand_year is None:
+            return 0.85  # sem ano p/ comparar: neutro-levemente-cauteloso
+        diff = abs(cand_year - query_year)
+        if diff == 0:
+            return 1.0
+        if diff == 1:
+            return 0.9
+        if diff <= 2:
+            return 0.5
+        return 0.15  # ano muito diferente: quase certamente errado
+
+    def _best_candidate(self, results, query_title: str, query_year, limit: int = 10):
+        """Itera os candidatos, pontua cada um e devolve (melhor, score)."""
+        best, best_score = None, -1.0
+        count = 0
+        for cand in results:
+            if count >= limit:
+                break
+            count += 1
+            score = self._score_candidate(query_title, query_year, cand)
+            if score > best_score:
+                best, best_score = cand, score
+        return best, best_score
+
+    def _alt_title_rescue(self, tmdb, results, query_title: str, query_year, threshold: float):
+        """
+        Segunda chance para o gate de confiança usando TÍTULOS ALTERNATIVOS.
+
+        Arquivos costumam usar o título de lançamento internacional (ex.:
+        "Like Stars on Earth"), mas o resultado da busca só expõe o título
+        pt-BR ("Como Estrelas na Terra") e o original ("Taare Zameen Par") —
+        a similaridade fica baixa e o gate rejeitaria um match CORRETO.
+
+        Para os melhores candidatos cujo ano bate (±1), consulta
+        /movie/{id}/alternative_titles e re-pontua. Só aceita se atingir o
+        threshold — então o gate continua barrando matches realmente ruins.
+
+        Returns:
+            (candidato, score) se algum candidato passar; senão (None, 0.0).
+        """
+        # Rankeia os candidatos e guarda o year_factor de cada um
+        scored = []
+        count = 0
+        for cand in results:
+            if count >= 10:
+                break
+            count += 1
+            scored.append((self._score_candidate(query_title, query_year, cand), cand))
+        scored.sort(key=lambda t: t[0], reverse=True)
+
+        checked = 0
+        for base_score, cand in scored:
+            if checked >= 3:  # no máximo 3 chamadas extras à API
+                break
+            yf = self._year_factor(query_year, cand)
+            if yf < 0.85:  # só vale a pena se o ano bate (±1) ou é desconhecido
+                continue
+            cand_id = getattr(cand, "id", None)
+            if not cand_id:
+                continue
+            checked += 1
+            try:
+                self._rate_limit()
+                alts = tmdb['movie'].alternative_titles(cand_id)
+                # AsObj/dict: a lista fica em 'titles'
+                titles_obj = None
+                if isinstance(alts, dict):
+                    titles_obj = alts.get('titles')
+                else:
+                    titles_obj = getattr(alts, 'titles', None) or alts
+                alt_titles = []
+                for item in (titles_obj or []):
+                    t = item.get('title') if isinstance(item, dict) else getattr(item, 'title', None)
+                    if t:
+                        alt_titles.append(t)
+            except Exception as e:
+                self.logger.debug(f"alternative_titles({cand_id}) falhou: {e}")
+                continue
+
+            best_alt_sim = max(
+                (self._title_match_ratio(query_title, t) for t in alt_titles),
+                default=0.0,
+            )
+            alt_score = best_alt_sim * yf
+            if alt_score >= threshold:
+                self.logger.info(
+                    f"✓ Resgate por título alternativo ({alt_score:.2f}): "
+                    f"'{query_title}' ({query_year}) → "
+                    f"'{getattr(cand, 'title', '?')}' [id {cand_id}]"
+                )
+                return cand, alt_score
+
+        return None, 0.0
+
+    def _record_low_confidence(self, query_title, query_year, cand, score) -> None:
+        """Registra um match de baixa confiança para revisão manual posterior.
+
+        Grava em ~/.jellyfix/review_pendente.txt e mantém em memória. Assim,
+        em vez de renomear errado silenciosamente, os casos duvidosos ficam
+        visíveis para o usuário decidir.
+        """
+        try:
+            cand_title = getattr(cand, "title", None) or getattr(cand, "name", "?")
+            cand_id = getattr(cand, "id", "?")
+            cand_date = getattr(cand, "release_date", None) or getattr(cand, "first_air_date", "") or ""
+            cand_year = cand_date[:4] if cand_date else "?"
+            line = (
+                f"BAIXA_CONFIANCA score={score:.2f} | busca='{query_title}' ({query_year}) "
+                f"| melhor_palpite='{cand_title}' ({cand_year}) [tmdbid-{cand_id}] "
+                f"https://www.themoviedb.org/movie/{cand_id}"
+            )
+            self._low_confidence.append(line)
+            from pathlib import Path
+            review = Path.home() / ".jellyfix" / "review_pendente.txt"
+            review.parent.mkdir(parents=True, exist_ok=True)
+            with review.open("a", encoding="utf-8") as fh:
+                fh.write(line + "\n")
+        except Exception as e:  # nunca deixar o relatório quebrar a execução
+            self.logger.debug(f"Falha ao registrar baixa confiança: {e}")
 
     def _init_tmdb(self):
         """Inicializa cliente TMDB"""
@@ -327,23 +516,6 @@ class MetadataFetcher:
                 self._failed_searches.add(cache_key)
                 return None
 
-            # Se ano foi fornecido, filtra resultados
-            if year:
-                filtered_results = []
-                # Itera diretamente (sem slice, pois AsObj não suporta)
-                count = 0
-                for result in results:
-                    if count >= 10:  # Verifica os 10 primeiros apenas
-                        break
-                    count += 1
-                    if hasattr(result, 'release_date') and result.release_date:
-                        match = re.search(r'^(\d{4})', result.release_date)
-                        if match and int(match.group(1)) == year:
-                            filtered_results.append(result)
-                # Se encontrou filmes do ano, usa eles; senão usa todos os resultados
-                if filtered_results:
-                    results = filtered_results
-
             # Se modo interativo e múltiplos resultados, pede escolha
             if interactive and len(results) > 1 and self.config.ask_on_multiple_results:
                 movie = self._choose_movie_interactive(results, clean_title, year)
@@ -352,13 +524,39 @@ class MetadataFetcher:
                     self._interactive_choices_cache[cache_key] = None
                     return None
             else:
-                # Pega o primeiro resultado (itera pois AsObj não suporta indexação)
-                movie = None
-                for result in results:
-                    movie = result
-                    break
+                # ANTI-ERRO: em vez de "pega o primeiro", rankeia os candidatos
+                # por similaridade de título (PT + original) combinada com a
+                # proximidade de ano, e exige confiança mínima — senão NÃO chuta.
+                movie, score = self._best_candidate(results, clean_title, year)
                 if not movie:
+                    self._failed_searches.add(cache_key)
                     return None
+
+                threshold = getattr(self.config, "match_confidence_threshold", 0.55)
+                if score < threshold:
+                    # Segunda chance: o arquivo pode usar um título alternativo
+                    # (lançamento internacional) que não aparece no resultado
+                    # da busca — re-pontua com /alternative_titles antes de desistir.
+                    rescued, rescued_score = self._alt_title_rescue(
+                        tmdb, results, clean_title, year, threshold
+                    )
+                    if rescued is not None:
+                        movie, score = rescued, rescued_score
+                    else:
+                        self.logger.warning(
+                            f"✗ Baixa confiança ({score:.2f} < {threshold:.2f}) para "
+                            f"'{clean_title}' ({year}) → melhor candidato: "
+                            f"'{getattr(movie, 'title', '?')}' "
+                            f"({getattr(movie, 'release_date', '?')[:4] if getattr(movie, 'release_date', None) else '?'}) "
+                            f"[id {getattr(movie, 'id', '?')}]. Pulando (revisar manualmente)."
+                        )
+                        self._record_low_confidence(clean_title, year, movie, score)
+                        self._interactive_choices_cache[cache_key] = None
+                        return None
+                self.logger.debug(
+                    f"✓ Match confiável ({score:.2f}) '{clean_title}' ({year}) → "
+                    f"'{getattr(movie, 'title', '?')}' [id {getattr(movie, 'id', '?')}]"
+                )
 
             # Extrai ano do release_date
             movie_year = None
@@ -537,11 +735,26 @@ class MetadataFetcher:
 
         # HEURÍSTICA 1: Se tem ano (1900-2099), pega apenas até o ano
         # Ex: "Movie Name 2020 1080p BluRay" -> "Movie Name 2020"
-        year_match = re.search(r'\b(19\d{2}|20\d{2})\b', title)
-        if year_match:
+        # IMPORTANTE: só trunca num ano que tenha TÍTULO antes dele. Arquivos
+        # com o ano no começo ("1989 Sexta 13 Parte VIII ...") truncariam para
+        # só "1989" e casariam com qualquer filme daquele ano (bug real visto
+        # com um filme chinês). Nesses casos, remove o ano inicial e segue.
+        year_iters = list(re.finditer(r'\b(19\d{2}|20\d{2})\b', title))
+        chosen_year = None
+        for ym in year_iters:
+            if len(title[:ym.start()].strip()) >= 2:  # há texto real antes do ano
+                chosen_year = ym
+                break
+        if chosen_year:
             # Pega tudo até o final do ano
-            title = title[:year_match.end()].strip()
+            title = title[:chosen_year.end()].strip()
+        elif year_iters:
+            # Ano(s) só no início: remove os anos iniciais e limpa o resto abaixo
+            title = re.sub(r'^\s*(?:19\d{2}|20\d{2})\b\s*', '', title).strip()
+            year_match = None
         else:
+            year_match = None
+        if not chosen_year:
             # HEURÍSTICA 2: Se não tem ano, detecta onde começa a parte técnica
             # Procura pela primeira ocorrência de padrões técnicos
             technical_start = None
@@ -564,13 +777,28 @@ class MetadataFetcher:
             if technical_start is not None and technical_start > 0:
                 title = title[:technical_start].strip()
 
+        # Remove parênteses/colchetes soltos que sobraram (ex.: "Frozen (2013"
+        # ficava com um '(' órfão e poluía a busca no TMDB).
+        title = re.sub(r'[\(\)\[\]]', ' ', title)
+
         # Remove espaços múltiplos
         title = re.sub(r'\s+', ' ', title).strip()
 
         # Se ficou muito curto (< 2 palavras), usa o original limpo
         if len(title.split()) < 2:
-            title = original.replace('.', ' ').replace('_', ' ')
-            title = re.sub(r'\s+', ' ', title).strip()
+            fallback = original.replace('.', ' ').replace('_', ' ')
+            fallback = re.sub(r'[\(\)\[\]]', ' ', fallback)
+            fallback = re.sub(r'\s+', ' ', fallback).strip()
+            if fallback:  # restaura mesmo se 1 palavra (ex.: "1917", "1984")
+                title = fallback
+
+        # O ANO vai SEPARADO no parâmetro year= da API. Mantê-lo como texto na
+        # string de busca distorce os resultados (ex.: "Frozen 2013" não retorna
+        # o Frozen da Disney; "Frozen" retorna). Remove o ano do texto da busca.
+        title_no_year = re.sub(r'\b(?:19\d{2}|20\d{2})\b', ' ', title)
+        title_no_year = re.sub(r'\s+', ' ', title_no_year).strip()
+        if title_no_year:  # não deixa vazio (caso o "título" fosse só o ano)
+            title = title_no_year
 
         return title
 
