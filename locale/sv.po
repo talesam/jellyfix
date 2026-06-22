@@ -104,6 +104,182 @@ msgstr "Applikationsstartfel"
 msgid "Failed to start Jellyfix: {0}"
 msgstr "Misslyckades med att starta Jellyfix: {0}"
 # 
+# File: usr/share/jellyfix/core/image_manager.py, line: 101
+#: usr/share/jellyfix/core/image_manager.py:101
+#, python-format
+msgid "Downloaded image: %s"
+msgstr "Nedladdad bild: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 106
+#: usr/share/jellyfix/core/image_manager.py:106
+#, python-format
+msgid "Failed to download image: %s"
+msgstr "Misslyckades med att ladda ner bilden: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 110
+#: usr/share/jellyfix/core/image_manager.py:110
+#, python-format
+msgid "Unexpected error downloading image: %s"
+msgstr "Oväntat fel vid nedladdning av bild: %s"
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 216
+#: usr/share/jellyfix/core/image_manager.py:216
+msgid "Clearing image cache..."
+msgstr "Rensar bildcache..."
+# 
+# File: usr/share/jellyfix/core/image_manager.py, line: 218
+#: usr/share/jellyfix/core/image_manager.py:218
+msgid "Image cache cleared"
+msgstr "Bildcache rensad"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 764
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 232
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
+#: NEEDS WORK
+msgid "Username and password are both required"
+msgstr "Användarnamn och lösenord krävs båda"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 262
+#: NEEDS WORK
+msgid "Login OK — subtitles can be downloaded"
+msgstr "Inloggning OK — undertexter kan laddas ner"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 270
+#: NEEDS WORK
+msgid "Use your username, not your e-mail address."
+msgstr "Använd ditt användarnamn, inte din e-postadress."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 285
+#: NEEDS WORK
+msgid ""
+"opensubtitles.com requires a free account to download subtitles. Set "
+"opensubtitles_username/opensubtitles_password in ~/.jellyfix/config.json (or the "
+"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD environment variables)."
+msgstr ""
+"opensubtitles.com kräver ett gratis konto för att ladda ner undertexter. Ställ in "
+"opensubtitles_username/opensubtitles_password i ~/.jellyfix/config.json (eller miljövariablerna "
+"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD)."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
+#: usr/share/jellyfix/core/subtitle_manager.py:169
+#, python-format
+msgid "Searching subtitles for: %s (Languages: %s)"
+msgstr "Söker efter undertexter för: %s (Språk: %s)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
+#: usr/share/jellyfix/core/subtitle_manager.py:182
+#, python-format
+msgid "Level 1 (hash) found: %s"
+msgstr "Nivå 1 (hash) hittad: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
+#: usr/share/jellyfix/core/subtitle_manager.py:186
+#, python-format
+msgid "Missing languages: %s - trying TMDB title search"
+msgstr "Saknade språk: %s - försöker TMDB titel sökning"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
+#: usr/share/jellyfix/core/subtitle_manager.py:207
+#, python-format
+msgid "Level 2 (TMDB) found: %s"
+msgstr "Nivå 2 (TMDB) hittad: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
+#: usr/share/jellyfix/core/subtitle_manager.py:210
+#, python-format
+msgid "Still missing: %s (try manual search)"
+msgstr "Saknas fortfarande: %s (försök med manuell sökning)"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
+#: usr/share/jellyfix/core/subtitle_manager.py:213
+#, python-format
+msgid "No subtitles found for: %s"
+msgstr "Inga undertexter hittades för: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 1: scanning %d videos by hash..."
+msgstr "Batchnivå 1: skannar %d videor med hash..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+#: NEEDS WORK
+#, python-format
+msgid "Level 1 (hash) found: %s for %s"
+msgstr "Nivå 1 (hash) hittad: %s för %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
+#: NEEDS WORK
+#, python-format
+msgid "Batch Level 2: title search for %d videos..."
+msgstr "Batchnivå 2: titelsökning för %d videor..."
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
+#: NEEDS WORK
+#, python-format
+msgid "Level 2 (TMDB) found: %s for %s"
+msgstr "Nivå 2 (TMDB) hittad: %s för %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 525
+#: NEEDS WORK
+#, python-format
+msgid "Level 3 (fallback %s) found: %s for %s"
+msgstr "Nivå 3 (fallback %s) hittad: %s för %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
+#: usr/share/jellyfix/core/subtitle_manager.py:237
+#, python-format
+msgid "Found %d subtitles by hash for: %s"
+msgstr "Hittade %d undertexter med hash för: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
+#: usr/share/jellyfix/core/subtitle_manager.py:343
+#, python-format
+msgid "Found %d validated subtitles by title for: %s"
+msgstr "Hittade %d validerade undertexter efter titel för: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
+#: usr/share/jellyfix/core/subtitle_manager.py:600
+#, python-format
+msgid "Manual search: %s"
+msgstr "Manuell sökning: %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 923
+#: NEEDS WORK
+#, python-format
+msgid "No results from primary providers, trying: %s"
+msgstr "Inga resultat från primära leverantörer, försöker: %s"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 746
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
+#: NEEDS WORK
+msgid "Unknown release"
+msgstr "Okänd version"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
+#: usr/share/jellyfix/core/subtitle_manager.py:657
+#, python-format
+msgid "Found %d subtitles in manual search"
+msgstr "Hittade %d undertexter i manuell sökning"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1013
+#: NEEDS WORK
+#, python-format
+msgid "Failed to download subtitle content. %s"
+msgstr "Misslyckades med att ladda ner undertextinnehåll. %s"
+# 
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
+#: usr/share/jellyfix/core/subtitle_manager.py:707
+#, python-format
+msgid "Downloaded subtitle: %s"
+msgstr "Nedladdad undertext: %s"
+# 
 # File: usr/share/jellyfix/cli/app.py, line: 54
 #: usr/share/jellyfix/cli/app.py:54
 msgid "Operation cancelled by user"
@@ -118,15 +294,224 @@ msgstr "Åtgärd avbruten av användaren"
 msgid "Unexpected error: %s"
 msgstr "Oväntat fel: %s"
 # 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
-#: usr/share/jellyfix/cli/non_interactive.py:44
-msgid "Error: No working directory specified"
-msgstr "Fel: Ingen arbetskatalog angiven"
+# File: usr/share/jellyfix/cli/display.py, line: 64
+#: usr/share/jellyfix/cli/display.py:64
+msgid "Scan Results"
+msgstr "Skanningsresultat"
 # 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
-#: usr/share/jellyfix/cli/non_interactive.py:45
-msgid "Use: --workdir /path/to/directory"
-msgstr "Använd: --workdir /sökväg/till/katalog"
+# File: usr/share/jellyfix/cli/display.py, line: 71
+#: usr/share/jellyfix/cli/display.py:71
+msgid "Category"
+msgstr "Kategori"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 72
+# File: usr/share/jellyfix/cli/display.py, line: 253
+#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
+msgid "Count"
+msgstr "Räkna"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 75
+#: usr/share/jellyfix/cli/display.py:75
+msgid "Video files"
+msgstr "Videofiler"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 609
+# File: usr/share/jellyfix/cli/display.py, line: 76
+#: usr/share/jellyfix/cli/display.py:76
+#: usr/share/jellyfix/cli/interactive.py:736
+msgid "Movies"
+msgstr "Filmer"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 77
+#: usr/share/jellyfix/cli/display.py:77
+msgid "Episodes"
+msgstr "Avsnitt"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/cli/display.py:80
+#: usr/share/jellyfix/gui/windows/preferences_window.py:54
+msgid "Subtitles"
+msgstr "Undertexter"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 81
+#: usr/share/jellyfix/cli/display.py:81
+msgid "Variants"
+msgstr "Varianter"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 82
+#: usr/share/jellyfix/cli/display.py:82
+msgid "No language"
+msgstr "Ingen språk"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 83
+#: usr/share/jellyfix/cli/display.py:83
+msgid "Foreign"
+msgstr "Utländsk"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 84
+#: usr/share/jellyfix/cli/display.py:84
+msgid "With language"
+msgstr "Med språk"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 87
+#: usr/share/jellyfix/cli/display.py:87
+msgid "Images"
+msgstr "Bilder"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 90
+#: usr/share/jellyfix/cli/display.py:90
+msgid "NFO files"
+msgstr "NFO-filer"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 93
+#: usr/share/jellyfix/cli/display.py:93
+msgid "Other"
+msgstr "Övrig"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 100
+#: usr/share/jellyfix/cli/display.py:100
+msgid "Suggested actions:"
+msgstr "Föreslagna åtgärder:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 103
+#: usr/share/jellyfix/cli/display.py:103
+msgid "subtitle variants (.lang2, .lang3) can be processed"
+msgstr "undertextvarianter (.lang2, .lang3) kan bearbetas"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 106
+#: usr/share/jellyfix/cli/display.py:106
+msgid "subtitles without language code"
+msgstr "undertexter utan språkkod"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 109
+#: usr/share/jellyfix/cli/display.py:109
+msgid "foreign subtitles can be removed"
+msgstr "utländska undertexter kan tas bort"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 113
+#: usr/share/jellyfix/cli/display.py:113
+msgid "Suggestions"
+msgstr "Förslag"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 131
+#: usr/share/jellyfix/cli/display.py:133
+msgid "No operations needed. Everything is already organized!"
+msgstr "Inga åtgärder behövs. Allt är redan organiserat!"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 137
+#: usr/share/jellyfix/cli/display.py:139
+#, python-brace-format
+msgid "Operation Preview ({} files)"
+msgstr "Operation Förhandsgranskning ({} filer)"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:262
+#, python-brace-format
+msgid "and {} more groups"
+msgstr "och {} fler grupper"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 189
+#: usr/share/jellyfix/cli/display.py:276
+msgid "Move + Rename:"
+msgstr "Flytta + Byt namn:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 194
+#: usr/share/jellyfix/cli/display.py:281
+msgid "Move:"
+msgstr "Flytta:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 199
+#: usr/share/jellyfix/cli/display.py:286
+msgid "Rename:"
+msgstr "Byt namn:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 204
+#: usr/share/jellyfix/cli/display.py:291
+msgid "Remove:"
+msgstr "Ta bort:"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 208
+# File: usr/share/jellyfix/cli/display.py, line: 225
+#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
+msgid "Summary"
+msgstr "Sammanfattning"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 230
+#: usr/share/jellyfix/cli/display.py:342
+msgid "Move + Rename"
+msgstr "Flytta + Byt namn"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 231
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
+#: usr/share/jellyfix/cli/display.py:343
+#: usr/share/jellyfix/gui/widgets/operations_list.py:178
+msgid "Move"
+msgstr "Flytta"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 232
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
+#: usr/share/jellyfix/cli/display.py:344
+#: usr/share/jellyfix/gui/widgets/operations_list.py:172
+msgid "Rename"
+msgstr "Byt namn"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 233
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
+#: usr/share/jellyfix/cli/display.py:345
+#: usr/share/jellyfix/gui/widgets/operations_list.py:184
+msgid "Delete"
+msgstr "Ta bort"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 251
+#: usr/share/jellyfix/cli/display.py:363
+msgid "✅ Execution Results"
+msgstr "✅ Utföranderesultat"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 252
+#: usr/share/jellyfix/cli/display.py:364
+msgid "Action"
+msgstr "Åtgärd"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 256
+#: usr/share/jellyfix/cli/display.py:368
+msgid "Renamed"
+msgstr "Omdöpt"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 258
+#: usr/share/jellyfix/cli/display.py:370
+msgid "Moved"
+msgstr "Flyttad"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 260
+#: usr/share/jellyfix/cli/display.py:372
+msgid "Deleted"
+msgstr "Borttagen"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 262
+#: usr/share/jellyfix/cli/display.py:374
+msgid "Cleaned folders"
+msgstr "Rensade mappar"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 264
+#: usr/share/jellyfix/cli/display.py:376
+msgid "Failed"
+msgstr "Misslyckades"
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 266
+#: usr/share/jellyfix/cli/display.py:378
+msgid "Skipped"
+msgstr "Hoppa över"
 # 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 51
 #: usr/share/jellyfix/cli/non_interactive.py:50
@@ -165,17 +550,6 @@ msgstr "Hittade: %d videor, %d undertexter"
 msgid "Planning operations..."
 msgstr "Planerar operationer..."
 # 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
-#: usr/share/jellyfix/cli/non_interactive.py:74
-#, python-format
-msgid "%d operations planned"
-msgstr "%d operationer planerade"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
-#: usr/share/jellyfix/cli/non_interactive.py:77
-msgid "Nothing to do"
-msgstr "Inget att göra"
-# 
 # File: usr/share/jellyfix/cli/non_interactive.py, line: 85
 #: usr/share/jellyfix/cli/non_interactive.py:84
 msgid "DRY-RUN mode: No changes will be made"
@@ -188,63 +562,6 @@ msgstr "DRY-RUN-läge: Inga ändringar kommer att göras"
 #: NEEDS WORK
 msgid "Use --execute to apply changes"
 msgstr "Använd --execute för att tillämpa ändringar"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 91
-#: NEEDS WORK
-#, python-format
-msgid "Executing %d operations..."
-msgstr "Utför %d operationer..."
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
-#: usr/share/jellyfix/cli/non_interactive.py:94
-msgid "Execution completed:"
-msgstr "Körning slutförd:"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
-#: usr/share/jellyfix/cli/non_interactive.py:96
-#, python-format
-msgid "  Renamed: %d"
-msgstr "Omdöpt: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
-#: usr/share/jellyfix/cli/non_interactive.py:98
-#, python-format
-msgid "  Moved: %d"
-msgstr "Flyttad: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
-#: usr/share/jellyfix/cli/non_interactive.py:100
-#, python-format
-msgid "  Deleted: %d"
-msgstr "Borttagen: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
-#: usr/share/jellyfix/cli/non_interactive.py:102
-#, python-format
-msgid "  Cleaned folders: %d"
-msgstr "Rensade mappar: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
-#: usr/share/jellyfix/cli/non_interactive.py:104
-#, python-format
-msgid "  Failed: %d"
-msgstr "Misslyckades: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
-#: usr/share/jellyfix/cli/non_interactive.py:106
-#, python-format
-msgid "  Skipped: %d"
-msgstr "Hoppa över: %d"
-# 
-# File: usr/share/jellyfix/cli/non_interactive.py, line: 120
-#: NEEDS WORK
-msgid "Operations:"
-msgstr "Operationer:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 131
-#: usr/share/jellyfix/cli/display.py:133
-msgid "No operations needed. Everything is already organized!"
-msgstr "Inga åtgärder behövs. Allt är redan organiserat!"
 # 
 # File: usr/share/jellyfix/cli/interactive.py, line: 167
 #: usr/share/jellyfix/cli/interactive.py:270
@@ -882,17 +1199,6 @@ msgstr "Lösenord:"
 msgid "OpenSubtitles login saved"
 msgstr "OpenSubtitles-inloggning sparad"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 764
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 232
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
-#: NEEDS WORK
-msgid "Username and password are both required"
-msgstr "Användarnamn och lösenord krävs båda"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 772
 #: NEEDS WORK
 msgid "Testing OpenSubtitles login..."
@@ -1178,15 +1484,6 @@ msgstr "Byter namn på filer"
 msgid "to Jellyfin standard"
 msgstr "till Jellyfin-standard"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/interactive.py, line: 609
-# File: usr/share/jellyfix/cli/display.py, line: 76
-#: usr/share/jellyfix/cli/display.py:76
-#: usr/share/jellyfix/cli/interactive.py:736
-msgid "Movies"
-msgstr "Filmer"
-# 
 # File: usr/share/jellyfix/cli/interactive.py, line: 609
 #: usr/share/jellyfix/cli/interactive.py:736
 msgid "Movie Name (YYYY).mkv"
@@ -1325,375 +1622,78 @@ msgstr "Tips:"
 msgid "Configure your TMDB key"
 msgstr "Konfigurera din TMDB-nyckel"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 64
-#: usr/share/jellyfix/cli/display.py:64
-msgid "Scan Results"
-msgstr "Skanningsresultat"
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 45
+#: usr/share/jellyfix/cli/non_interactive.py:44
+msgid "Error: No working directory specified"
+msgstr "Fel: Ingen arbetskatalog angiven"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 71
-#: usr/share/jellyfix/cli/display.py:71
-msgid "Category"
-msgstr "Kategori"
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 46
+#: usr/share/jellyfix/cli/non_interactive.py:45
+msgid "Use: --workdir /path/to/directory"
+msgstr "Använd: --workdir /sökväg/till/katalog"
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 72
-# File: usr/share/jellyfix/cli/display.py, line: 253
-#: usr/share/jellyfix/cli/display.py:72 usr/share/jellyfix/cli/display.py:365
-msgid "Count"
-msgstr "Räkna"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 75
-#: usr/share/jellyfix/cli/display.py:75
-msgid "Video files"
-msgstr "Videofiler"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 77
-#: usr/share/jellyfix/cli/display.py:77
-msgid "Episodes"
-msgstr "Avsnitt"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/cli/display.py:80
-#: usr/share/jellyfix/gui/windows/preferences_window.py:54
-msgid "Subtitles"
-msgstr "Undertexter"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 81
-#: usr/share/jellyfix/cli/display.py:81
-msgid "Variants"
-msgstr "Varianter"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 82
-#: usr/share/jellyfix/cli/display.py:82
-msgid "No language"
-msgstr "Ingen språk"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 83
-#: usr/share/jellyfix/cli/display.py:83
-msgid "Foreign"
-msgstr "Utländsk"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 84
-#: usr/share/jellyfix/cli/display.py:84
-msgid "With language"
-msgstr "Med språk"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 87
-#: usr/share/jellyfix/cli/display.py:87
-msgid "Images"
-msgstr "Bilder"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 90
-#: usr/share/jellyfix/cli/display.py:90
-msgid "NFO files"
-msgstr "NFO-filer"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 93
-#: usr/share/jellyfix/cli/display.py:93
-msgid "Other"
-msgstr "Övrig"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 100
-#: usr/share/jellyfix/cli/display.py:100
-msgid "Suggested actions:"
-msgstr "Föreslagna åtgärder:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 103
-#: usr/share/jellyfix/cli/display.py:103
-msgid "subtitle variants (.lang2, .lang3) can be processed"
-msgstr "undertextvarianter (.lang2, .lang3) kan bearbetas"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 106
-#: usr/share/jellyfix/cli/display.py:106
-msgid "subtitles without language code"
-msgstr "undertexter utan språkkod"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 109
-#: usr/share/jellyfix/cli/display.py:109
-msgid "foreign subtitles can be removed"
-msgstr "utländska undertexter kan tas bort"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 113
-#: usr/share/jellyfix/cli/display.py:113
-msgid "Suggestions"
-msgstr "Förslag"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 137
-#: usr/share/jellyfix/cli/display.py:139
-#, python-brace-format
-msgid "Operation Preview ({} files)"
-msgstr "Operation Förhandsgranskning ({} filer)"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:262
-#, python-brace-format
-msgid "and {} more groups"
-msgstr "och {} fler grupper"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 189
-#: usr/share/jellyfix/cli/display.py:276
-msgid "Move + Rename:"
-msgstr "Flytta + Byt namn:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 194
-#: usr/share/jellyfix/cli/display.py:281
-msgid "Move:"
-msgstr "Flytta:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 199
-#: usr/share/jellyfix/cli/display.py:286
-msgid "Rename:"
-msgstr "Byt namn:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 204
-#: usr/share/jellyfix/cli/display.py:291
-msgid "Remove:"
-msgstr "Ta bort:"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 208
-# File: usr/share/jellyfix/cli/display.py, line: 225
-#: usr/share/jellyfix/cli/display.py:295 usr/share/jellyfix/cli/display.py:337
-msgid "Summary"
-msgstr "Sammanfattning"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 230
-#: usr/share/jellyfix/cli/display.py:342
-msgid "Move + Rename"
-msgstr "Flytta + Byt namn"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 231
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 153
-#: usr/share/jellyfix/cli/display.py:343
-#: usr/share/jellyfix/gui/widgets/operations_list.py:178
-msgid "Move"
-msgstr "Flytta"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 232
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 147
-#: usr/share/jellyfix/cli/display.py:344
-#: usr/share/jellyfix/gui/widgets/operations_list.py:172
-msgid "Rename"
-msgstr "Byt namn"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 233
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 159
-#: usr/share/jellyfix/cli/display.py:345
-#: usr/share/jellyfix/gui/widgets/operations_list.py:184
-msgid "Delete"
-msgstr "Ta bort"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 251
-#: usr/share/jellyfix/cli/display.py:363
-msgid "✅ Execution Results"
-msgstr "✅ Utföranderesultat"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 252
-#: usr/share/jellyfix/cli/display.py:364
-msgid "Action"
-msgstr "Åtgärd"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 256
-#: usr/share/jellyfix/cli/display.py:368
-msgid "Renamed"
-msgstr "Omdöpt"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 258
-#: usr/share/jellyfix/cli/display.py:370
-msgid "Moved"
-msgstr "Flyttad"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 260
-#: usr/share/jellyfix/cli/display.py:372
-msgid "Deleted"
-msgstr "Borttagen"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 262
-#: usr/share/jellyfix/cli/display.py:374
-msgid "Cleaned folders"
-msgstr "Rensade mappar"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 264
-#: usr/share/jellyfix/cli/display.py:376
-msgid "Failed"
-msgstr "Misslyckades"
-# 
-# File: usr/share/jellyfix/cli/display.py, line: 266
-#: usr/share/jellyfix/cli/display.py:378
-msgid "Skipped"
-msgstr "Hoppa över"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 262
-#: NEEDS WORK
-msgid "Login OK — subtitles can be downloaded"
-msgstr "Inloggning OK — undertexter kan laddas ner"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 270
-#: NEEDS WORK
-msgid "Use your username, not your e-mail address."
-msgstr "Använd ditt användarnamn, inte din e-postadress."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 285
-#: NEEDS WORK
-msgid ""
-"opensubtitles.com requires a free account to download subtitles. Set "
-"opensubtitles_username/opensubtitles_password in ~/.jellyfix/config.json (or the "
-"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD environment variables)."
-msgstr ""
-"opensubtitles.com kräver ett gratis konto för att ladda ner undertexter. Ställ in "
-"opensubtitles_username/opensubtitles_password i ~/.jellyfix/config.json (eller miljövariablerna "
-"OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD)."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 80
-#: usr/share/jellyfix/core/subtitle_manager.py:169
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 75
+#: usr/share/jellyfix/cli/non_interactive.py:74
 #, python-format
-msgid "Searching subtitles for: %s (Languages: %s)"
-msgstr "Söker efter undertexter för: %s (Språk: %s)"
+msgid "%d operations planned"
+msgstr "%d operationer planerade"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 183
-#: usr/share/jellyfix/core/subtitle_manager.py:182
-#, python-format
-msgid "Level 1 (hash) found: %s"
-msgstr "Nivå 1 (hash) hittad: %s"
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 78
+#: usr/share/jellyfix/cli/non_interactive.py:77
+msgid "Nothing to do"
+msgstr "Inget att göra"
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 187
-#: usr/share/jellyfix/core/subtitle_manager.py:186
-#, python-format
-msgid "Missing languages: %s - trying TMDB title search"
-msgstr "Saknade språk: %s - försöker TMDB titel sökning"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 208
-#: usr/share/jellyfix/core/subtitle_manager.py:207
-#, python-format
-msgid "Level 2 (TMDB) found: %s"
-msgstr "Nivå 2 (TMDB) hittad: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 211
-#: usr/share/jellyfix/core/subtitle_manager.py:210
-#, python-format
-msgid "Still missing: %s (try manual search)"
-msgstr "Saknas fortfarande: %s (försök med manuell sökning)"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 91
-#: usr/share/jellyfix/core/subtitle_manager.py:213
-#, python-format
-msgid "No subtitles found for: %s"
-msgstr "Inga undertexter hittades för: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 268
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 91
 #: NEEDS WORK
 #, python-format
-msgid "Batch Level 1: scanning %d videos by hash..."
-msgstr "Batchnivå 1: skannar %d videor med hash..."
+msgid "Executing %d operations..."
+msgstr "Utför %d operationer..."
 # 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 299
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 95
+#: usr/share/jellyfix/cli/non_interactive.py:94
+msgid "Execution completed:"
+msgstr "Körning slutförd:"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 97
+#: usr/share/jellyfix/cli/non_interactive.py:96
+#, python-format
+msgid "  Renamed: %d"
+msgstr "Omdöpt: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 99
+#: usr/share/jellyfix/cli/non_interactive.py:98
+#, python-format
+msgid "  Moved: %d"
+msgstr "Flyttad: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 101
+#: usr/share/jellyfix/cli/non_interactive.py:100
+#, python-format
+msgid "  Deleted: %d"
+msgstr "Borttagen: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 103
+#: usr/share/jellyfix/cli/non_interactive.py:102
+#, python-format
+msgid "  Cleaned folders: %d"
+msgstr "Rensade mappar: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 105
+#: usr/share/jellyfix/cli/non_interactive.py:104
+#, python-format
+msgid "  Failed: %d"
+msgstr "Misslyckades: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 107
+#: usr/share/jellyfix/cli/non_interactive.py:106
+#, python-format
+msgid "  Skipped: %d"
+msgstr "Hoppa över: %d"
+# 
+# File: usr/share/jellyfix/cli/non_interactive.py, line: 120
 #: NEEDS WORK
-#, python-format
-msgid "Level 1 (hash) found: %s for %s"
-msgstr "Nivå 1 (hash) hittad: %s för %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 313
-#: NEEDS WORK
-#, python-format
-msgid "Batch Level 2: title search for %d videos..."
-msgstr "Batchnivå 2: titelsökning för %d videor..."
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 331
-#: NEEDS WORK
-#, python-format
-msgid "Level 2 (TMDB) found: %s for %s"
-msgstr "Nivå 2 (TMDB) hittad: %s för %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 525
-#: NEEDS WORK
-#, python-format
-msgid "Level 3 (fallback %s) found: %s for %s"
-msgstr "Nivå 3 (fallback %s) hittad: %s för %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 238
-#: usr/share/jellyfix/core/subtitle_manager.py:237
-#, python-format
-msgid "Found %d subtitles by hash for: %s"
-msgstr "Hittade %d undertexter med hash för: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 344
-#: usr/share/jellyfix/core/subtitle_manager.py:343
-#, python-format
-msgid "Found %d validated subtitles by title for: %s"
-msgstr "Hittade %d validerade undertexter efter titel för: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 601
-#: usr/share/jellyfix/core/subtitle_manager.py:600
-#, python-format
-msgid "Manual search: %s"
-msgstr "Manuell sökning: %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 923
-#: NEEDS WORK
-#, python-format
-msgid "No results from primary providers, trying: %s"
-msgstr "Inga resultat från primära leverantörer, försöker: %s"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 746
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
-#: NEEDS WORK
-msgid "Unknown release"
-msgstr "Okänd version"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 658
-#: usr/share/jellyfix/core/subtitle_manager.py:657
-#, python-format
-msgid "Found %d subtitles in manual search"
-msgstr "Hittade %d undertexter i manuell sökning"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1013
-#: NEEDS WORK
-#, python-format
-msgid "Failed to download subtitle content. %s"
-msgstr "Misslyckades med att ladda ner undertextinnehåll. %s"
-# 
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 708
-#: usr/share/jellyfix/core/subtitle_manager.py:707
-#, python-format
-msgid "Downloaded subtitle: %s"
-msgstr "Nedladdad undertext: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 101
-#: usr/share/jellyfix/core/image_manager.py:101
-#, python-format
-msgid "Downloaded image: %s"
-msgstr "Nedladdad bild: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 106
-#: usr/share/jellyfix/core/image_manager.py:106
-#, python-format
-msgid "Failed to download image: %s"
-msgstr "Misslyckades med att ladda ner bilden: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 110
-#: usr/share/jellyfix/core/image_manager.py:110
-#, python-format
-msgid "Unexpected error downloading image: %s"
-msgstr "Oväntat fel vid nedladdning av bild: %s"
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 216
-#: usr/share/jellyfix/core/image_manager.py:216
-msgid "Clearing image cache..."
-msgstr "Rensar bildcache..."
-# 
-# File: usr/share/jellyfix/core/image_manager.py, line: 218
-#: usr/share/jellyfix/core/image_manager.py:218
-msgid "Image cache cleared"
-msgstr "Bildcache rensad"
+msgid "Operations:"
+msgstr "Operationer:"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1710,127 +1710,15 @@ msgstr "Jellyfix"
 msgid "translator-credits"
 msgstr "översättar-erkännanden"
 # 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
+#: usr/share/jellyfix/gui/handlers/operations.py:73
+msgid "Select Directory to Scan"
+msgstr "Välj katalog att skanna"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
-#: usr/share/jellyfix/gui/windows/main_window.py:169
-#: usr/share/jellyfix/gui/windows/preferences_window.py:44
-msgid "Preferences"
-msgstr "Inställningar"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
-#: usr/share/jellyfix/gui/windows/main_window.py:170
-msgid "Configure API Keys"
-msgstr "Konfigurera API-nycklar"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
-#: usr/share/jellyfix/gui/windows/main_window.py:175
-msgid "Help"
-msgstr "Hjälp"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
-#: usr/share/jellyfix/gui/windows/main_window.py:176
-msgid "About Jellyfix"
-msgstr "Om Jellyfix"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
-#: usr/share/jellyfix/gui/windows/main_window.py:180
-msgid "Quit"
-msgstr "Avsluta"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
-#: usr/share/jellyfix/gui/windows/main_window.py:248
-msgid "Scanning directory..."
-msgstr "Skannar katalog..."
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 276
-#: usr/share/jellyfix/gui/windows/main_window.py:360
-msgid "Generating operations..."
-msgstr "Genererar operationer..."
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 301
-#: usr/share/jellyfix/gui/windows/main_window.py:385
-#, python-brace-format
-msgid "{} operations ready"
-msgstr "{} operationer klara"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 326
-#: usr/share/jellyfix/gui/windows/main_window.py:511
-msgid "Apply Operations?"
-msgstr "Tillämpa åtgärder?"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 367
-#: usr/share/jellyfix/gui/windows/main_window.py:512
-#: usr/share/jellyfix/gui/windows/main_window.py:546
-#, python-brace-format
-msgid "This will rename {} files. Continue?"
-msgstr "Detta kommer att döpa om {} filer. Fortsätta?"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
-#: usr/share/jellyfix/gui/windows/main_window.py:514
-#: usr/share/jellyfix/gui/windows/main_window.py:550
-#: usr/share/jellyfix/gui/windows/search_dialog.py:230
-msgid "Cancel"
-msgstr "Avbryt"
-# 
-# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
-# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
-#: usr/share/jellyfix/gui/widgets/operations_list.py:247
-#: usr/share/jellyfix/gui/windows/main_window.py:515
-#: usr/share/jellyfix/gui/windows/search_dialog.py:234
-msgid "Apply"
-msgstr "Tillämpa"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
-#: usr/share/jellyfix/gui/windows/main_window.py:545
-msgid "Execute Operations?"
-msgstr "Utför operationer?"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 372
-#: usr/share/jellyfix/gui/windows/main_window.py:551
-msgid "Execute"
-msgstr "Kör"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 395
-#: usr/share/jellyfix/gui/windows/main_window.py:574
-#, python-brace-format
-msgid "Dry-run: {} operations previewed"
-msgstr "Torrkörning: {} operationer förhandsgranskade"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 398
-#: usr/share/jellyfix/gui/windows/main_window.py:577
-#, python-brace-format
-msgid "{} operations completed"
-msgstr "{} operationer slutförda"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
-#: usr/share/jellyfix/gui/windows/main_window.py:721
-msgid "Feature Unavailable"
-msgstr "Funktionen är inte tillgänglig"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
-#: usr/share/jellyfix/gui/windows/main_window.py:722
-msgid ""
-"The 'subliminal' library is not installed.\n"
-"Please install it to use this feature."
-msgstr ""
-"Biblioteket 'subliminal' är inte installerat. Vänligen installera det för att använda denna "
-"funktion."
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
+#: usr/share/jellyfix/gui/handlers/operations.py:174
+msgid "Scan Failed"
+msgstr "Skanning misslyckades"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
@@ -1858,115 +1746,729 @@ msgstr ""
 msgid "OK"
 msgstr "OK"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
-#: usr/share/jellyfix/gui/windows/main_window.py:746
-msgid "Preparing..."
-msgstr "Förbereder..."
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
+#: usr/share/jellyfix/gui/handlers/operations.py:248
+msgid "Operation Generation Failed"
+msgstr "Operation generation misslyckades"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
-#: usr/share/jellyfix/gui/windows/main_window.py:954
+# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
+#: usr/share/jellyfix/gui/handlers/operations.py:447
+msgid "Execution Failed"
+msgstr "Körning misslyckades"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
+msgid "Search Subtitles"
+msgstr "Sök undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
+msgid "Download"
+msgstr "Ladda ner"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
+msgid "Enter movie or show title..."
+msgstr "Ange film- eller programtitel..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
+msgid "Season"
+msgstr "Säsong"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
+msgid "Episode"
+msgstr "Avsnitt"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
+#: usr/share/jellyfix/gui/windows/search_dialog.py:175
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
+msgid "Movie"
+msgstr "Film"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
+msgid "Search for Subtitles"
+msgstr "Sök efter undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
+msgid "Enter a title and click search"
+msgstr "Ange en titel och klicka på sök"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
+#: usr/share/jellyfix/gui/windows/search_dialog.py:257
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
+msgid "Searching..."
+msgstr "Söker..."
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
+msgid "No Results"
+msgstr "Inga resultat"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
+msgid "Try a different search term"
+msgstr "Försök med en annan sökterm"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
 #, python-brace-format
-msgid "Searching subtitles ({}/{})"
-msgstr "Söker efter undertexter ({}/{})"
+msgid "Found {} subtitles"
+msgstr "Hittade {} undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Fel: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+#, python-brace-format
+msgid "Downloaded: {}"
+msgstr "Nedladdad: {}"
+# 
+# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
+#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
+msgid "Download failed"
+msgstr "Nedladdning misslyckades"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
+msgid "TMDB Configuration"
+msgstr "TMDB-konfiguration"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
+msgid "Configure The Movie Database API key"
+msgstr "Konfigurera API-nyckel för Filmdatabasen"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
+msgid "✓ Configured"
+msgstr "✓ Konfigurerad"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
+msgid "✗ Not configured"
+msgstr "✗ Inte konfigurerad"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
+msgid "TMDB API Key"
+msgstr "TMDB API-nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
+msgid "Config file"
+msgstr "Konfigurationsfil"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: NEEDS WORK
+msgid "OpenSubtitles Login"
+msgstr "OpenSubtitles Inloggning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 89
+#: NEEDS WORK
+msgid "A free opensubtitles.com account is required to download subtitles (searching works without it)"
+msgstr "Ett gratis opensubtitles.com-konto krävs för att ladda ner undertexter (sökning fungerar utan det)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 328
+#: NEEDS WORK
+#, python-format
+msgid "✓ Configured (%s)"
+msgstr "✓ Konfigurerad (%s)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 96
+#: NEEDS WORK
+msgid "Account"
+msgstr "Konto"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 103
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 285
+#: NEEDS WORK
+msgid "Configure OpenSubtitles Login"
+msgstr "Konfigurera OpenSubtitles-inloggning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 104
+#: NEEDS WORK
+msgid "Enter your username and password"
+msgstr "Ange ditt användarnamn och lösenord"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
+msgid "Configure"
+msgstr "Konfigurera"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 114
+#: NEEDS WORK
+msgid "Test OpenSubtitles Login"
+msgstr "Test OpenSubtitles Inloggning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 115
+#: NEEDS WORK
+msgid "Verify your credentials actually work"
+msgstr "Verifiera att dina referenser faktiskt fungerar"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
+msgid "Test"
+msgstr "Testa"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
+#: NEEDS WORK
+msgid "Remove OpenSubtitles Login"
+msgstr "Ta bort OpenSubtitles-inloggning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 125
+#: NEEDS WORK
+msgid "Delete stored credentials"
+msgstr "Ta bort sparade referenser"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
+msgid "Remove"
+msgstr "Ta bort"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 135
+#: NEEDS WORK
+msgid "Create a free account"
+msgstr "Skapa ett gratis konto"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 138
+#: NEEDS WORK
+msgid "Open"
+msgstr "Öppna"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
+msgid "Actions"
+msgstr "Åtgärder"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
+msgid "Enter your TMDB API key"
+msgstr "Ange din TMDB API-nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
+msgid "View Current Key"
+msgstr "Visa nuvarande nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
+msgid "Show masked API key"
+msgstr "Visa maskerat API-nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
+msgid "View"
+msgstr "Visa"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
+msgid "Test TMDB Connection"
+msgstr "Testa TMDB-anslutning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
+msgid "Verify API key is working"
+msgstr "Verifiera att API-nyckeln fungerar"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
+msgid "Remove TMDB Key"
+msgstr "Ta bort TMDB-nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
+msgid "Delete stored API key"
+msgstr "Ta bort lagrad API-nyckel"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/gui/windows/main_window.py:993
-#, fuzzy
-msgid "subtitle"
-msgstr "Undertexter"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 149
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:149
+#: usr/share/jellyfix/gui/windows/main_window.py:175
+msgid "Help"
+msgstr "Hjälp"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
+msgid "Step-by-step tutorial"
+msgstr "Steg-för-steg handledning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
+msgid "Tutorial"
+msgstr "Handledning"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
+msgid "Enter your TMDB API key below"
+msgstr "Ange din TMDB API-nyckel nedan"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
+msgid "Paste API key here"
+msgstr "Klistra in API-nyckel här"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/cli/display.py, line: 80
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
-#: usr/share/jellyfix/gui/windows/main_window.py:993
-#, fuzzy
-msgid "subtitles"
-msgstr "Undertexter"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 188
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 282
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 329
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 371
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:188
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:287
+#: usr/share/jellyfix/gui/windows/main_window.py:514
+#: usr/share/jellyfix/gui/windows/main_window.py:550
+#: usr/share/jellyfix/gui/windows/search_dialog.py:230
+msgid "Cancel"
+msgstr "Avbryt"
 # 
-# File: usr/share/jellyfix/cli/interactive.py, line: 170
-#: usr/share/jellyfix/gui/windows/main_window.py:994
-#: usr/share/jellyfix/gui/windows/main_window.py:1014
-#, fuzzy
-msgid "video"
-msgstr "videor"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
+msgid "Save"
+msgstr "Spara"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
-#: usr/share/jellyfix/gui/windows/main_window.py:997
-msgid "No Subtitles Found"
-msgstr "Inga undertexter hittades"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
+msgid "API key saved successfully"
+msgstr "API-nyckel sparad framgångsrikt"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
-#: usr/share/jellyfix/gui/windows/main_window.py:998
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 286
+#: NEEDS WORK
 msgid ""
-"Could not find any subtitles automatically.\n"
-"Try manual search?"
-msgstr "Kunde inte hitta några undertexter automatiskt. Försök med manuell sökning?"
+"Enter your opensubtitles.com username and password.\n"
+"⚠ Use your USERNAME, not your e-mail address."
+msgstr ""
+"Ange ditt opensubtitles.com användarnamn och lösenord.  \n"
+"⚠ Använd ditt ANVÄNDARNAMN, inte din e-postadress."
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
-#: usr/share/jellyfix/gui/windows/main_window.py:1002
-msgid "Partial Success"
-msgstr "Delvis framgång"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 294
+#: NEEDS WORK
+msgid "Username (not e-mail)"
+msgstr "Användarnamn (inte e-post)"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
-#: usr/share/jellyfix/gui/windows/main_window.py:1010
-#, fuzzy, python-brace-format
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 299
+#: NEEDS WORK
+msgid "Password"
+msgstr "Lösenord"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 306
+#: NEEDS WORK
+msgid "Show password"
+msgstr "Visa lösenord"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 340
+#: NEEDS WORK
+msgid "Remove OpenSubtitles Login?"
+msgstr "Ta bort OpenSubtitles-inloggning?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 341
+#: NEEDS WORK
 msgid ""
-"Downloaded {} {}.\n"
+"This will delete your stored credentials. You will not be able to download from opensubtitles.com "
+"until you configure it again."
+msgstr ""
+"Detta kommer att ta bort dina sparade referenser. Du kommer inte att kunna ladda ner från "
+"opensubtitles.com förrän du konfigurerar det igen."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 371
+#: NEEDS WORK
+msgid "Configure your login first"
+msgstr "Konfigurera din inloggning först"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 374
+#: NEEDS WORK
+msgid "Testing login…"
+msgstr "Testar inloggning…"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 380
+#: NEEDS WORK
+#, python-format
+msgid "✓ Login OK (%s)"
+msgstr "✓ Inloggning OK (%s)"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
+msgid "Current TMDB API Key"
+msgstr "Aktuell TMDB API-nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Masked key"
+msgstr "Maskerad nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
+msgid "Full key stored in"
+msgstr "Fullständig nyckel lagrad i"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
+msgid "No API Key"
+msgstr "Ingen API-nyckel"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
+msgid "No TMDB API key configured yet"
+msgstr "Ingen TMDB API-nyckel är ännu konfigurerad"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
+msgid "Please configure TMDB API key first"
+msgstr "Vänligen konfigurera TMDB API-nyckeln först"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
+msgid "✓ Connection Successful"
+msgstr "✓ Anslutning Lyckades"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+#, python-brace-format
+msgid ""
+"TMDB API key is working correctly!\n"
 "\n"
-"Missing languages: {}\n"
-"Try manual search?"
-msgstr "Nedladdade {} undertexter."
+"Test search returned: {}"
+msgstr "TMDB API-nyckel fungerar korrekt!"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
-#: usr/share/jellyfix/gui/windows/main_window.py:1015
-#, fuzzy, python-brace-format
-msgid ""
-"Downloaded {} {} for {} of {} {}.\n"
-"Try manual search for missing?"
-msgstr ""
-"Nedladdade {} undertexter för {} av {} videor.  \n"
-"Försök med manuell sökning för att hitta saknade?"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
+msgid "⚠ Connection Failed"
+msgstr "⚠ Anslutning misslyckades"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
-#: usr/share/jellyfix/gui/windows/main_window.py:1020
-msgid "Download Complete"
-msgstr "Nedladdning klar"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
+msgid "Could not fetch data from TMDB. Please check your API key."
+msgstr "Kunde inte hämta data från TMDB. Kontrollera din API-nyckel."
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
-#: usr/share/jellyfix/gui/windows/main_window.py:1021
-#, fuzzy, python-brace-format
-msgid "Downloaded {} {} for {} {} (all languages)."
-msgstr "Laddade ner {} undertexter för {} videor (alla språk)."
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
+msgid "✗ Connection Error"
+msgstr "✗ Anslutningsfel"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
-#: usr/share/jellyfix/gui/windows/main_window.py:1034
-msgid "Manual Search"
-msgstr "Manuell sökning"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
-#: usr/share/jellyfix/gui/windows/main_window.py:1071
-msgid "Batch Error"
-msgstr "Batchfel"
-# 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
-#: usr/share/jellyfix/gui/windows/main_window.py:1072
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
 #, python-brace-format
-msgid ""
-"An error occurred during batch download:\n"
-"{}"
-msgstr ""
-"Ett fel inträffade under batchnedladdning:  \n"
-"{}"
+msgid "Error testing connection: {}"
+msgstr "Fel vid test av anslutning: {}"
 # 
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
-#: usr/share/jellyfix/gui/windows/main_window.py:1154
-#, python-brace-format
-msgid "Subtitle downloaded: {}"
-msgstr "Undertext nedladdad: {}"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
+msgid "Remove API Key?"
+msgstr "Ta bort API-nyckel?"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
+msgid "This will delete your stored TMDB API key. You will need to configure it again."
+msgstr "Detta kommer att ta bort din sparade TMDB API-nyckel. Du måste konfigurera den igen."
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
+msgid "API key removed"
+msgstr "API-nyckel borttagen"
+# 
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
+#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
+msgid ""
+"How to Get TMDB API Key:\n"
+"\n"
+"1. Go to https://www.themoviedb.org/signup\n"
+"2. Create a free account\n"
+"3. Go to Settings → API\n"
+"4. Request an API key (choose \"Developer\" option)\n"
+"5. Fill in the required information\n"
+"6. Copy the API Key (v3 auth)\n"
+"7. Paste it in Jellyfix\n"
+"\n"
+"The API key is free and allows you to:\n"
+"• Fetch movie and TV show metadata\n"
+"• Download posters and backdrops\n"
+"• Get accurate titles and release dates\n"
+"• Organize your library with TMDB IDs"
+msgstr ""
+"Hur man får TMDB API-nyckel:\n"
+"\n"
+"1. Gå till https://www.themoviedb.org/signup\n"
+"2. Skapa ett gratis konto\n"
+"3. Gå till Inställningar → API\n"
+"4. Begär en API-nyckel (välj \"Utvecklare\" alternativet)\n"
+"5. Fyll i den nödvändiga informationen\n"
+"6. Kopiera API-nyckeln (v3 autentisering)\n"
+"7. Klistra in den i Jellyfix\n"
+"\n"
+"API-nyckeln är gratis och gör att du kan:\n"
+"• Hämta metadata för filmer och TV-program\n"
+"• Ladda ner affischer och bakgrunder\n"
+"• Få exakta titlar och releasedatum\n"
+"• Organisera ditt bibliotek med TMDB-IDn"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
+#: usr/share/jellyfix/gui/windows/search_dialog.py:129
+msgid "Search Title"
+msgstr "Sök Titel"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
+#: usr/share/jellyfix/gui/windows/search_dialog.py:158
+msgid "Enter movie or series name..."
+msgstr "Ange film- eller serienamn..."
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
+#: usr/share/jellyfix/gui/windows/search_dialog.py:162
+msgid "Search"
+msgstr "Sök"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
+#: usr/share/jellyfix/gui/windows/search_dialog.py:180
+msgid "TV Series"
+msgstr "TV-serie"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 330
+# File: usr/share/jellyfix/gui/widgets/operations_list.py, line: 211
+#: usr/share/jellyfix/gui/widgets/operations_list.py:247
+#: usr/share/jellyfix/gui/windows/main_window.py:515
+#: usr/share/jellyfix/gui/windows/search_dialog.py:234
+msgid "Apply"
+msgstr "Tillämpa"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
+#: usr/share/jellyfix/gui/windows/search_dialog.py:268
+msgid "TMDB not configured"
+msgstr "TMDB är inte konfigurerad"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
+#: usr/share/jellyfix/gui/windows/search_dialog.py:308
+msgid "No results found"
+msgstr "Inga resultat hittades"
+# 
+# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
+#: usr/share/jellyfix/gui/windows/search_dialog.py:311
+msgid "results"
+msgstr "resultat"
+# 
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 182
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 44
+#: usr/share/jellyfix/gui/windows/main_window.py:169
+#: usr/share/jellyfix/gui/windows/preferences_window.py:44
+msgid "Preferences"
+msgstr "Inställningar"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
+#: usr/share/jellyfix/gui/windows/preferences_window.py:60
+msgid "Subtitle Handling"
+msgstr "Undertextshantering"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
+#: usr/share/jellyfix/gui/windows/preferences_window.py:61
+msgid "Configure how subtitles are processed"
+msgstr "Konfigurera hur undertexter behandlas"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
+#: usr/share/jellyfix/gui/windows/preferences_window.py:66
+msgid "Rename Language Variants"
+msgstr "Byt namn på språkvarianter"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
+#: usr/share/jellyfix/gui/windows/preferences_window.py:67
+msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
+msgstr "Byt namn på .por2.srt, .eng2.srt till .por.srt, .eng.srt"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
+#: usr/share/jellyfix/gui/windows/preferences_window.py:75
+msgid "Remove Duplicate Variants"
+msgstr "Ta bort dubbletter av varianter"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
+#: usr/share/jellyfix/gui/windows/preferences_window.py:76
+msgid "Remove .lang2, .lang3 files after renaming"
+msgstr "Ta bort .lang2, .lang3-filer efter omdöpning"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
+#: usr/share/jellyfix/gui/windows/preferences_window.py:84
+msgid "Add Language Codes"
+msgstr "Lägg till språkkoder"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
+#: usr/share/jellyfix/gui/windows/preferences_window.py:85
+msgid "Add language codes to subtitles without them"
+msgstr "Lägg till språkkoder till undertexter utan dem"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
+#: usr/share/jellyfix/gui/windows/preferences_window.py:93
+msgid "Remove Foreign Subtitles"
+msgstr "Ta bort utländska undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
+#: usr/share/jellyfix/gui/windows/preferences_window.py:94
+msgid "Remove subtitles not in kept languages list"
+msgstr "Ta bort undertexter som inte finns i listan över bevarade språk"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
+#: usr/share/jellyfix/gui/windows/preferences_window.py:102
+msgid "Minimum Portuguese Words"
+msgstr "Minimala portugisiska ord"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
+#: usr/share/jellyfix/gui/windows/preferences_window.py:103
+msgid "Min words to detect Portuguese subtitles"
+msgstr "Min ord för att upptäcka portugisiska undertexter"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
+#: usr/share/jellyfix/gui/windows/preferences_window.py:112
+msgid "Kept Languages"
+msgstr "Bevarade språk"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
+#: usr/share/jellyfix/gui/windows/preferences_window.py:113
+msgid "Subtitles in these languages will be kept"
+msgstr "Undertexter på dessa språk kommer att behållas"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
+#: usr/share/jellyfix/gui/windows/preferences_window.py:134
+msgid "Video"
+msgstr "Video"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
+#: usr/share/jellyfix/gui/windows/preferences_window.py:140
+msgid "Video Handling"
+msgstr "Videohantering"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
+#: usr/share/jellyfix/gui/windows/preferences_window.py:141
+msgid "Configure how videos are processed"
+msgstr "Konfigurera hur videor bearbetas"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
+#: usr/share/jellyfix/gui/windows/preferences_window.py:146
+msgid "Organize in Folders"
+msgstr "Organisera i mappar"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
+#: usr/share/jellyfix/gui/windows/preferences_window.py:147
+msgid "Organize TV episodes in Season folders"
+msgstr "Organisera TV-avsnitt i säsongsmappar"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
+#: usr/share/jellyfix/gui/windows/preferences_window.py:155
+msgid "Add Quality Tags"
+msgstr "Lägg till kvalitetsmärken"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
+#: usr/share/jellyfix/gui/windows/preferences_window.py:156
+msgid "Add resolution tags (1080p, 720p, etc) to filenames"
+msgstr "Lägg till upplösningsetiketter (1080p, 720p, etc) till filnamn"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
+#: usr/share/jellyfix/gui/windows/preferences_window.py:164
+msgid "Use ffprobe for Detection"
+msgstr "Använd ffprobe för detektion"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
+#: usr/share/jellyfix/gui/windows/preferences_window.py:165
+msgid "More accurate but slower quality detection"
+msgstr "Mer exakt men långsammare kvalitetsdetektering"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
+#: usr/share/jellyfix/gui/windows/preferences_window.py:177
+msgid "Metadata"
+msgstr "Metadata"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
+#: usr/share/jellyfix/gui/windows/preferences_window.py:183
+msgid "Metadata Fetching"
+msgstr "Metadatahämtning"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
+#: usr/share/jellyfix/gui/windows/preferences_window.py:184
+msgid "Configure metadata from TMDB"
+msgstr "Konfigurera metadata från TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
+#: usr/share/jellyfix/gui/windows/preferences_window.py:189
+msgid "Fetch Metadata"
+msgstr "Hämta metadata"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
+#: usr/share/jellyfix/gui/windows/preferences_window.py:190
+msgid "Download metadata and posters from TMDB"
+msgstr "Ladda ner metadata och affischer från TMDB"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
+#: usr/share/jellyfix/gui/windows/preferences_window.py:202
+msgid "General"
+msgstr "Allmänt"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
+#: usr/share/jellyfix/gui/windows/preferences_window.py:208
+msgid "Application"
+msgstr "Applikation"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
+#: usr/share/jellyfix/gui/windows/preferences_window.py:209
+msgid "General application settings"
+msgstr "Allmänna applikationsinställningar"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
+#: usr/share/jellyfix/gui/windows/preferences_window.py:217
+msgid "Keep Recent Libraries"
+msgstr "Håll senaste bibliotek"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
+#: usr/share/jellyfix/gui/windows/preferences_window.py:218
+msgid "Remember recently scanned libraries between sessions"
+msgstr "Kom ihåg nyligen skannade bibliotek mellan sessioner"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
+#: usr/share/jellyfix/gui/windows/preferences_window.py:228
+msgid "File Cleanup"
+msgstr "Filrensning"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
+#: usr/share/jellyfix/gui/windows/preferences_window.py:229
+msgid "Configure which files to remove"
+msgstr "Konfigurera vilka filer som ska tas bort"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
+#: usr/share/jellyfix/gui/windows/preferences_window.py:234
+msgid "Remove Non-Media Files"
+msgstr "Ta bort icke-mediefiler"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
+#: usr/share/jellyfix/gui/windows/preferences_window.py:235
+msgid "Remove all files that are not .srt or .mp4"
+msgstr "Ta bort alla filer som inte är .srt eller .mp4"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
+#: usr/share/jellyfix/gui/windows/preferences_window.py:243
+msgid "Fix Mirabel Files"
+msgstr "Åtgärda Mirabel-filer"
+# 
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
+#: usr/share/jellyfix/gui/windows/preferences_window.py:244
+msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
+msgstr "Byt namn på .pt-BR.hi.srt, .br.hi.srt till .por.srt"
 # 
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
 #: usr/share/jellyfix/gui/windows/help_window.py:34
@@ -2170,697 +2672,201 @@ msgstr "Rapportera problem"
 msgid "Get TMDB API Key"
 msgstr "Hämta TMDB API-nyckel"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 130
-#: usr/share/jellyfix/gui/windows/search_dialog.py:129
-msgid "Search Title"
-msgstr "Sök Titel"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 183
+#: usr/share/jellyfix/gui/windows/main_window.py:170
+msgid "Configure API Keys"
+msgstr "Konfigurera API-nycklar"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 159
-#: usr/share/jellyfix/gui/windows/search_dialog.py:158
-msgid "Enter movie or series name..."
-msgstr "Ange film- eller serienamn..."
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 189
+#: usr/share/jellyfix/gui/windows/main_window.py:176
+msgid "About Jellyfix"
+msgstr "Om Jellyfix"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 163
-#: usr/share/jellyfix/gui/windows/search_dialog.py:162
-msgid "Search"
-msgstr "Sök"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 193
+#: usr/share/jellyfix/gui/windows/main_window.py:180
+msgid "Quit"
+msgstr "Avsluta"
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 176
-#: usr/share/jellyfix/gui/windows/search_dialog.py:175
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:241
-msgid "Movie"
-msgstr "Film"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 248
+#: usr/share/jellyfix/gui/windows/main_window.py:248
+msgid "Scanning directory..."
+msgstr "Skannar katalog..."
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 181
-#: usr/share/jellyfix/gui/windows/search_dialog.py:180
-msgid "TV Series"
-msgstr "TV-serie"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 276
+#: usr/share/jellyfix/gui/windows/main_window.py:360
+msgid "Generating operations..."
+msgstr "Genererar operationer..."
 # 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 258
-#: usr/share/jellyfix/gui/windows/search_dialog.py:257
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:308
-msgid "Searching..."
-msgstr "Söker..."
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/search_dialog.py:268
-msgid "TMDB not configured"
-msgstr "TMDB är inte konfigurerad"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 309
-#: usr/share/jellyfix/gui/windows/search_dialog.py:308
-msgid "No results found"
-msgstr "Inga resultat hittades"
-# 
-# File: usr/share/jellyfix/gui/windows/search_dialog.py, line: 312
-#: usr/share/jellyfix/gui/windows/search_dialog.py:311
-msgid "results"
-msgstr "resultat"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 350
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:350
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 301
+#: usr/share/jellyfix/gui/windows/main_window.py:385
 #, python-brace-format
-msgid "Error: {}"
-msgstr "Fel: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 60
-#: usr/share/jellyfix/gui/windows/preferences_window.py:60
-msgid "Subtitle Handling"
-msgstr "Undertextshantering"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 61
-#: usr/share/jellyfix/gui/windows/preferences_window.py:61
-msgid "Configure how subtitles are processed"
-msgstr "Konfigurera hur undertexter behandlas"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 66
-#: usr/share/jellyfix/gui/windows/preferences_window.py:66
-msgid "Rename Language Variants"
-msgstr "Byt namn på språkvarianter"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 67
-#: usr/share/jellyfix/gui/windows/preferences_window.py:67
-msgid "Rename .por2.srt, .eng2.srt to .por.srt, .eng.srt"
-msgstr "Byt namn på .por2.srt, .eng2.srt till .por.srt, .eng.srt"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 75
-#: usr/share/jellyfix/gui/windows/preferences_window.py:75
-msgid "Remove Duplicate Variants"
-msgstr "Ta bort dubbletter av varianter"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 76
-#: usr/share/jellyfix/gui/windows/preferences_window.py:76
-msgid "Remove .lang2, .lang3 files after renaming"
-msgstr "Ta bort .lang2, .lang3-filer efter omdöpning"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 84
-#: usr/share/jellyfix/gui/windows/preferences_window.py:84
-msgid "Add Language Codes"
-msgstr "Lägg till språkkoder"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 85
-#: usr/share/jellyfix/gui/windows/preferences_window.py:85
-msgid "Add language codes to subtitles without them"
-msgstr "Lägg till språkkoder till undertexter utan dem"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 93
-#: usr/share/jellyfix/gui/windows/preferences_window.py:93
-msgid "Remove Foreign Subtitles"
-msgstr "Ta bort utländska undertexter"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 94
-#: usr/share/jellyfix/gui/windows/preferences_window.py:94
-msgid "Remove subtitles not in kept languages list"
-msgstr "Ta bort undertexter som inte finns i listan över bevarade språk"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 102
-#: usr/share/jellyfix/gui/windows/preferences_window.py:102
-msgid "Minimum Portuguese Words"
-msgstr "Minimala portugisiska ord"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 103
-#: usr/share/jellyfix/gui/windows/preferences_window.py:103
-msgid "Min words to detect Portuguese subtitles"
-msgstr "Min ord för att upptäcka portugisiska undertexter"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 112
-#: usr/share/jellyfix/gui/windows/preferences_window.py:112
-msgid "Kept Languages"
-msgstr "Bevarade språk"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 113
-#: usr/share/jellyfix/gui/windows/preferences_window.py:113
-msgid "Subtitles in these languages will be kept"
-msgstr "Undertexter på dessa språk kommer att behållas"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 134
-#: usr/share/jellyfix/gui/windows/preferences_window.py:134
-msgid "Video"
-msgstr "Video"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 140
-#: usr/share/jellyfix/gui/windows/preferences_window.py:140
-msgid "Video Handling"
-msgstr "Videohantering"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 141
-#: usr/share/jellyfix/gui/windows/preferences_window.py:141
-msgid "Configure how videos are processed"
-msgstr "Konfigurera hur videor bearbetas"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 146
-#: usr/share/jellyfix/gui/windows/preferences_window.py:146
-msgid "Organize in Folders"
-msgstr "Organisera i mappar"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 147
-#: usr/share/jellyfix/gui/windows/preferences_window.py:147
-msgid "Organize TV episodes in Season folders"
-msgstr "Organisera TV-avsnitt i säsongsmappar"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 155
-#: usr/share/jellyfix/gui/windows/preferences_window.py:155
-msgid "Add Quality Tags"
-msgstr "Lägg till kvalitetsmärken"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 156
-#: usr/share/jellyfix/gui/windows/preferences_window.py:156
-msgid "Add resolution tags (1080p, 720p, etc) to filenames"
-msgstr "Lägg till upplösningsetiketter (1080p, 720p, etc) till filnamn"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 164
-#: usr/share/jellyfix/gui/windows/preferences_window.py:164
-msgid "Use ffprobe for Detection"
-msgstr "Använd ffprobe för detektion"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 165
-#: usr/share/jellyfix/gui/windows/preferences_window.py:165
-msgid "More accurate but slower quality detection"
-msgstr "Mer exakt men långsammare kvalitetsdetektering"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 177
-#: usr/share/jellyfix/gui/windows/preferences_window.py:177
-msgid "Metadata"
-msgstr "Metadata"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 183
-#: usr/share/jellyfix/gui/windows/preferences_window.py:183
-msgid "Metadata Fetching"
-msgstr "Metadatahämtning"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 184
-#: usr/share/jellyfix/gui/windows/preferences_window.py:184
-msgid "Configure metadata from TMDB"
-msgstr "Konfigurera metadata från TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 189
-#: usr/share/jellyfix/gui/windows/preferences_window.py:189
-msgid "Fetch Metadata"
-msgstr "Hämta metadata"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 190
-#: usr/share/jellyfix/gui/windows/preferences_window.py:190
-msgid "Download metadata and posters from TMDB"
-msgstr "Ladda ner metadata och affischer från TMDB"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 202
-#: usr/share/jellyfix/gui/windows/preferences_window.py:202
-msgid "General"
-msgstr "Allmänt"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 208
-#: usr/share/jellyfix/gui/windows/preferences_window.py:208
-msgid "Application"
-msgstr "Applikation"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 209
-#: usr/share/jellyfix/gui/windows/preferences_window.py:209
-msgid "General application settings"
-msgstr "Allmänna applikationsinställningar"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 217
-#: usr/share/jellyfix/gui/windows/preferences_window.py:217
-msgid "Keep Recent Libraries"
-msgstr "Håll senaste bibliotek"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 218
-#: usr/share/jellyfix/gui/windows/preferences_window.py:218
-msgid "Remember recently scanned libraries between sessions"
-msgstr "Kom ihåg nyligen skannade bibliotek mellan sessioner"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 228
-#: usr/share/jellyfix/gui/windows/preferences_window.py:228
-msgid "File Cleanup"
-msgstr "Filrensning"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 229
-#: usr/share/jellyfix/gui/windows/preferences_window.py:229
-msgid "Configure which files to remove"
-msgstr "Konfigurera vilka filer som ska tas bort"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 234
-#: usr/share/jellyfix/gui/windows/preferences_window.py:234
-msgid "Remove Non-Media Files"
-msgstr "Ta bort icke-mediefiler"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 235
-#: usr/share/jellyfix/gui/windows/preferences_window.py:235
-msgid "Remove all files that are not .srt or .mp4"
-msgstr "Ta bort alla filer som inte är .srt eller .mp4"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 243
-#: usr/share/jellyfix/gui/windows/preferences_window.py:243
-msgid "Fix Mirabel Files"
-msgstr "Åtgärda Mirabel-filer"
-# 
-# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
-#: usr/share/jellyfix/gui/windows/preferences_window.py:244
-msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
-msgstr "Byt namn på .pt-BR.hi.srt, .br.hi.srt till .por.srt"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 63
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:63
-msgid "TMDB Configuration"
-msgstr "TMDB-konfiguration"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 64
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:64
-msgid "Configure The Movie Database API key"
-msgstr "Konfigurera API-nyckel för Filmdatabasen"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 200
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:205
-msgid "✓ Configured"
-msgstr "✓ Konfigurerad"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 69
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 289
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:69
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:300
-msgid "✗ Not configured"
-msgstr "✗ Inte konfigurerad"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 71
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:71
-msgid "TMDB API Key"
-msgstr "TMDB API-nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 79
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:79
-msgid "Config file"
-msgstr "Konfigurationsfil"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: NEEDS WORK
-msgid "OpenSubtitles Login"
-msgstr "OpenSubtitles Inloggning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 89
-#: NEEDS WORK
-msgid "A free opensubtitles.com account is required to download subtitles (searching works without it)"
-msgstr "Ett gratis opensubtitles.com-konto krävs för att ladda ner undertexter (sökning fungerar utan det)"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 328
-#: NEEDS WORK
-#, python-format
-msgid "✓ Configured (%s)"
-msgstr "✓ Konfigurerad (%s)"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 96
-#: NEEDS WORK
-msgid "Account"
-msgstr "Konto"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 103
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 285
-#: NEEDS WORK
-msgid "Configure OpenSubtitles Login"
-msgstr "Konfigurera OpenSubtitles-inloggning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 104
-#: NEEDS WORK
-msgid "Enter your username and password"
-msgstr "Ange ditt användarnamn och lösenord"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 97
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:97
-msgid "Configure"
-msgstr "Konfigurera"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 114
-#: NEEDS WORK
-msgid "Test OpenSubtitles Login"
-msgstr "Test OpenSubtitles Inloggning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 115
-#: NEEDS WORK
-msgid "Verify your credentials actually work"
-msgstr "Verifiera att dina referenser faktiskt fungerar"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:124
-msgid "Test"
-msgstr "Testa"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 124
-#: NEEDS WORK
-msgid "Remove OpenSubtitles Login"
-msgstr "Ta bort OpenSubtitles-inloggning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 125
-#: NEEDS WORK
-msgid "Delete stored credentials"
-msgstr "Ta bort sparade referenser"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 137
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 283
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:137
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:288
-msgid "Remove"
-msgstr "Ta bort"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 135
-#: NEEDS WORK
-msgid "Create a free account"
-msgstr "Skapa ett gratis konto"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 138
-#: NEEDS WORK
-msgid "Open"
-msgstr "Öppna"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 88
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:88
-msgid "Actions"
-msgstr "Åtgärder"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 94
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:94
-msgid "Enter your TMDB API key"
-msgstr "Ange din TMDB API-nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 107
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:107
-msgid "View Current Key"
-msgstr "Visa nuvarande nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 108
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:108
-msgid "Show masked API key"
-msgstr "Visa maskerat API-nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 111
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:111
-msgid "View"
-msgstr "Visa"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 120
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:120
-msgid "Test TMDB Connection"
-msgstr "Testa TMDB-anslutning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 121
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:121
-msgid "Verify API key is working"
-msgstr "Verifiera att API-nyckeln fungerar"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 133
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:133
-msgid "Remove TMDB Key"
-msgstr "Ta bort TMDB-nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 134
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:134
-msgid "Delete stored API key"
-msgstr "Ta bort lagrad API-nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 155
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:155
-msgid "Step-by-step tutorial"
-msgstr "Steg-för-steg handledning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 158
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:158
-msgid "Tutorial"
-msgstr "Handledning"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 179
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:179
-msgid "Enter your TMDB API key below"
-msgstr "Ange din TMDB API-nyckel nedan"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 184
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:184
-msgid "Paste API key here"
-msgstr "Klistra in API-nyckel här"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:189
-msgid "Save"
-msgstr "Spara"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 203
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:208
-msgid "API key saved successfully"
-msgstr "API-nyckel sparad framgångsrikt"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 286
-#: NEEDS WORK
+msgid "{} operations ready"
+msgstr "{} operationer klara"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 326
+#: usr/share/jellyfix/gui/windows/main_window.py:511
+msgid "Apply Operations?"
+msgstr "Tillämpa åtgärder?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 327
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 367
+#: usr/share/jellyfix/gui/windows/main_window.py:512
+#: usr/share/jellyfix/gui/windows/main_window.py:546
+#, python-brace-format
+msgid "This will rename {} files. Continue?"
+msgstr "Detta kommer att döpa om {} filer. Fortsätta?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 366
+#: usr/share/jellyfix/gui/windows/main_window.py:545
+msgid "Execute Operations?"
+msgstr "Utför operationer?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 372
+#: usr/share/jellyfix/gui/windows/main_window.py:551
+msgid "Execute"
+msgstr "Kör"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 395
+#: usr/share/jellyfix/gui/windows/main_window.py:574
+#, python-brace-format
+msgid "Dry-run: {} operations previewed"
+msgstr "Torrkörning: {} operationer förhandsgranskade"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 398
+#: usr/share/jellyfix/gui/windows/main_window.py:577
+#, python-brace-format
+msgid "{} operations completed"
+msgstr "{} operationer slutförda"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 751
+#: usr/share/jellyfix/gui/windows/main_window.py:721
+msgid "Feature Unavailable"
+msgstr "Funktionen är inte tillgänglig"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 752
+#: usr/share/jellyfix/gui/windows/main_window.py:722
 msgid ""
-"Enter your opensubtitles.com username and password.\n"
-"⚠ Use your USERNAME, not your e-mail address."
+"The 'subliminal' library is not installed.\n"
+"Please install it to use this feature."
 msgstr ""
-"Ange ditt opensubtitles.com användarnamn och lösenord.  \n"
-"⚠ Använd ditt ANVÄNDARNAMN, inte din e-postadress."
+"Biblioteket 'subliminal' är inte installerat. Vänligen installera det för att använda denna "
+"funktion."
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 294
-#: NEEDS WORK
-msgid "Username (not e-mail)"
-msgstr "Användarnamn (inte e-post)"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 775
+#: usr/share/jellyfix/gui/windows/main_window.py:746
+msgid "Preparing..."
+msgstr "Förbereder..."
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 299
-#: NEEDS WORK
-msgid "Password"
-msgstr "Lösenord"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 863
+#: usr/share/jellyfix/gui/windows/main_window.py:954
+#, python-brace-format
+msgid "Searching subtitles ({}/{})"
+msgstr "Söker efter undertexter ({}/{})"
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 306
-#: NEEDS WORK
-msgid "Show password"
-msgstr "Visa lösenord"
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 340
-#: NEEDS WORK
-msgid "Remove OpenSubtitles Login?"
-msgstr "Ta bort OpenSubtitles-inloggning?"
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/gui/windows/main_window.py:993
+#, fuzzy
+msgid "subtitle"
+msgstr "Undertexter"
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 341
-#: NEEDS WORK
+# #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
+# 
+# File: usr/share/jellyfix/cli/display.py, line: 80
+# File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 54
+#: usr/share/jellyfix/gui/windows/main_window.py:993
+#, fuzzy
+msgid "subtitles"
+msgstr "Undertexter"
+# 
+# File: usr/share/jellyfix/cli/interactive.py, line: 170
+#: usr/share/jellyfix/gui/windows/main_window.py:994
+#: usr/share/jellyfix/gui/windows/main_window.py:1014
+#, fuzzy
+msgid "video"
+msgstr "videor"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 992
+#: usr/share/jellyfix/gui/windows/main_window.py:997
+msgid "No Subtitles Found"
+msgstr "Inga undertexter hittades"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 993
+#: usr/share/jellyfix/gui/windows/main_window.py:998
 msgid ""
-"This will delete your stored credentials. You will not be able to download from opensubtitles.com "
-"until you configure it again."
+"Could not find any subtitles automatically.\n"
+"Try manual search?"
+msgstr "Kunde inte hitta några undertexter automatiskt. Försök med manuell sökning?"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 997
+#: usr/share/jellyfix/gui/windows/main_window.py:1002
+msgid "Partial Success"
+msgstr "Delvis framgång"
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1005
+#: usr/share/jellyfix/gui/windows/main_window.py:1010
+#, fuzzy, python-brace-format
+msgid ""
+"Downloaded {} {}.\n"
+"\n"
+"Missing languages: {}\n"
+"Try manual search?"
+msgstr "Nedladdade {} undertexter."
+# 
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1009
+#: usr/share/jellyfix/gui/windows/main_window.py:1015
+#, fuzzy, python-brace-format
+msgid ""
+"Downloaded {} {} for {} of {} {}.\n"
+"Try manual search for missing?"
 msgstr ""
-"Detta kommer att ta bort dina sparade referenser. Du kommer inte att kunna ladda ner från "
-"opensubtitles.com förrän du konfigurerar det igen."
+"Nedladdade {} undertexter för {} av {} videor.  \n"
+"Försök med manuell sökning för att hitta saknade?"
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 371
-#: NEEDS WORK
-msgid "Configure your login first"
-msgstr "Konfigurera din inloggning först"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 884
+#: usr/share/jellyfix/gui/windows/main_window.py:1020
+msgid "Download Complete"
+msgstr "Nedladdning klar"
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 374
-#: NEEDS WORK
-msgid "Testing login…"
-msgstr "Testar inloggning…"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1015
+#: usr/share/jellyfix/gui/windows/main_window.py:1021
+#, fuzzy, python-brace-format
+msgid "Downloaded {} {} for {} {} (all languages)."
+msgstr "Laddade ner {} undertexter för {} videor (alla språk)."
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 380
-#: NEEDS WORK
-#, python-format
-msgid "✓ Login OK (%s)"
-msgstr "✓ Inloggning OK (%s)"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1026
+#: usr/share/jellyfix/gui/windows/main_window.py:1034
+msgid "Manual Search"
+msgstr "Manuell sökning"
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 220
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:225
-msgid "Current TMDB API Key"
-msgstr "Aktuell TMDB API-nyckel"
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 913
+#: usr/share/jellyfix/gui/windows/main_window.py:1071
+msgid "Batch Error"
+msgstr "Batchfel"
 # 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Masked key"
-msgstr "Maskerad nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 221
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:226
-msgid "Full key stored in"
-msgstr "Fullständig nyckel lagrad i"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 226
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 241
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:231
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:246
-msgid "No API Key"
-msgstr "Ingen API-nyckel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 227
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:232
-msgid "No TMDB API key configured yet"
-msgstr "Ingen TMDB API-nyckel är ännu konfigurerad"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 242
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:247
-msgid "Please configure TMDB API key first"
-msgstr "Vänligen konfigurera TMDB API-nyckeln först"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 256
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:261
-msgid "✓ Connection Successful"
-msgstr "✓ Anslutning Lyckades"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 257
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:262
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 914
+#: usr/share/jellyfix/gui/windows/main_window.py:1072
 #, python-brace-format
 msgid ""
-"TMDB API key is working correctly!\n"
-"\n"
-"Test search returned: {}"
-msgstr "TMDB API-nyckel fungerar korrekt!"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 262
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:267
-msgid "⚠ Connection Failed"
-msgstr "⚠ Anslutning misslyckades"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 263
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:268
-msgid "Could not fetch data from TMDB. Please check your API key."
-msgstr "Kunde inte hämta data från TMDB. Kontrollera din API-nyckel."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:273
-msgid "✗ Connection Error"
-msgstr "✗ Anslutningsfel"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 269
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:274
-#, python-brace-format
-msgid "Error testing connection: {}"
-msgstr "Fel vid test av anslutning: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 279
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:284
-msgid "Remove API Key?"
-msgstr "Ta bort API-nyckel?"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 280
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:285
-msgid "This will delete your stored TMDB API key. You will need to configure it again."
-msgstr "Detta kommer att ta bort din sparade TMDB API-nyckel. Du måste konfigurera den igen."
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 293
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:304
-msgid "API key removed"
-msgstr "API-nyckel borttagen"
-# 
-# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 302
-#: usr/share/jellyfix/gui/windows/api_config_dialog.py:313
-msgid ""
-"How to Get TMDB API Key:\n"
-"\n"
-"1. Go to https://www.themoviedb.org/signup\n"
-"2. Create a free account\n"
-"3. Go to Settings → API\n"
-"4. Request an API key (choose \"Developer\" option)\n"
-"5. Fill in the required information\n"
-"6. Copy the API Key (v3 auth)\n"
-"7. Paste it in Jellyfix\n"
-"\n"
-"The API key is free and allows you to:\n"
-"• Fetch movie and TV show metadata\n"
-"• Download posters and backdrops\n"
-"• Get accurate titles and release dates\n"
-"• Organize your library with TMDB IDs"
+"An error occurred during batch download:\n"
+"{}"
 msgstr ""
-"Hur man får TMDB API-nyckel:\n"
-"\n"
-"1. Gå till https://www.themoviedb.org/signup\n"
-"2. Skapa ett gratis konto\n"
-"3. Gå till Inställningar → API\n"
-"4. Begär en API-nyckel (välj \"Utvecklare\" alternativet)\n"
-"5. Fyll i den nödvändiga informationen\n"
-"6. Kopiera API-nyckeln (v3 autentisering)\n"
-"7. Klistra in den i Jellyfix\n"
-"\n"
-"API-nyckeln är gratis och gör att du kan:\n"
-"• Hämta metadata för filmer och TV-program\n"
-"• Ladda ner affischer och bakgrunder\n"
-"• Få exakta titlar och releasedatum\n"
-"• Organisera ditt bibliotek med TMDB-IDn"
+"Ett fel inträffade under batchnedladdning:  \n"
+"{}"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 165
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:165
-msgid "Search Subtitles"
-msgstr "Sök undertexter"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 189
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:189
-msgid "Download"
-msgstr "Ladda ner"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 208
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:208
-msgid "Enter movie or show title..."
-msgstr "Ange film- eller programtitel..."
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 216
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:216
-msgid "Season"
-msgstr "Säsong"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 221
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 246
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:221
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:246
-msgid "Episode"
-msgstr "Avsnitt"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 267
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:267
-msgid "Search for Subtitles"
-msgstr "Sök efter undertexter"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 268
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:268
-msgid "Enter a title and click search"
-msgstr "Ange en titel och klicka på sök"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 338
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:338
-msgid "No Results"
-msgstr "Inga resultat"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 339
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:339
-msgid "Try a different search term"
-msgstr "Försök med en annan sökterm"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 342
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:342
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1146
+#: usr/share/jellyfix/gui/windows/main_window.py:1154
 #, python-brace-format
-msgid "Found {} subtitles"
-msgstr "Hittade {} undertexter"
+msgid "Subtitle downloaded: {}"
+msgstr "Undertext nedladdad: {}"
 # 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 386
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:386
+# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1332
+#: NEEDS WORK
 #, python-brace-format
-msgid "Downloaded: {}"
-msgstr "Nedladdad: {}"
-# 
-# File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 395
-#: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py:395
-msgid "Download failed"
-msgstr "Nedladdning misslyckades"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 68
-#: usr/share/jellyfix/gui/handlers/operations.py:73
-msgid "Select Directory to Scan"
-msgstr "Välj katalog att skanna"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 160
-#: usr/share/jellyfix/gui/handlers/operations.py:174
-msgid "Scan Failed"
-msgstr "Skanning misslyckades"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 229
-#: usr/share/jellyfix/gui/handlers/operations.py:248
-msgid "Operation Generation Failed"
-msgstr "Operation generation misslyckades"
-# 
-# File: usr/share/jellyfix/gui/handlers/operations.py, line: 428
-#: usr/share/jellyfix/gui/handlers/operations.py:447
-msgid "Execution Failed"
-msgstr "Körning misslyckades"
+msgid "Updated: {title} ({year}) - applied to {count} episodes"
+msgstr "Uppdaterad: {title} ({year}) - tillämpad på {count} avsnitt"
 # 
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 # 
