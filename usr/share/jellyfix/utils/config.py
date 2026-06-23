@@ -6,7 +6,7 @@ from typing import Optional
 import os
 
 # Application version
-APP_VERSION = "2.8.12"
+APP_VERSION = "2.9.0"
 
 
 @dataclass
@@ -116,6 +116,7 @@ class Config:
         "nor": "Norwegian",
         "pol": "Polish",
         "por": "Portuguese",
+        "por-pt": "Portuguese (Portugal)",
         "rum": "Romanian",
         "rus": "Russian",
         "slo": "Slovak",
@@ -158,7 +159,8 @@ class Config:
         # Carrega configurações do arquivo persistente
         saved_languages = config_mgr.get('kept_languages')
         if saved_languages:
-            self.kept_languages = saved_languages
+            from .helpers import normalize_language_code
+            self.kept_languages = [normalize_language_code(lang) for lang in saved_languages]
 
         # Carrega opções booleanas
         for key in ['rename_por2', 'rename_no_lang', 'remove_foreign_subs',
