@@ -136,24 +136,24 @@ msgstr "Image cache cleared"
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 232
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 274
 # File: usr/share/jellyfix/cli/interactive.py, line: 764
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
 msgid "Username and password are both required"
 msgstr "Username and password are both required"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 262
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 304
 msgid "Login OK — subtitles can be downloaded"
 msgstr "Login OK — subtitles can be downloaded"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 270
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 312
 msgid "Use your username, not your e-mail address."
 msgstr "Use your username, not your e-mail address."
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 285
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 327
 msgid ""
 "opensubtitles.com requires a free account to download subtitles. Set "
 "opensubtitles_username/opensubtitles_password in ~/.jellyfix/config.json (or "
@@ -164,91 +164,91 @@ msgstr ""
 "the OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD environment variables)."
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 342
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 384
 #, python-format
 msgid "Searching subtitles for: %s (Languages: %s)"
 msgstr "Searching subtitles for: %s (Languages: %s)"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 355
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 397
 #, python-format
 msgid "Level 1 (hash) found: %s"
 msgstr "Level 1 (hash) found: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 359
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 401
 #, python-format
 msgid "Missing languages: %s - trying TMDB title search"
 msgstr "Missing languages: %s - trying TMDB title search"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 380
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 422
 #, python-format
 msgid "Level 2 (TMDB) found: %s"
 msgstr "Level 2 (TMDB) found: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 383
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 425
 #, python-format
 msgid "Still missing: %s (try manual search)"
 msgstr "Still missing: %s (try manual search)"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 386
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 428
 #, python-format
 msgid "No subtitles found for: %s"
 msgstr "No subtitles found for: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 430
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 472
 #, python-format
 msgid "Batch Level 1: scanning %d videos by hash..."
 msgstr "Batch Level 1: scanning %d videos by hash..."
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 468
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 510
 #, python-format
 msgid "Level 1 (hash) found: %s for %s"
 msgstr "Level 1 (hash) found: %s for %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 482
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 524
 #, python-format
 msgid "Batch Level 2: title search for %d videos..."
 msgstr "Batch Level 2: title search for %d videos..."
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 500
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 542
 #, python-format
 msgid "Level 2 (TMDB) found: %s for %s"
 msgstr "Level 2 (TMDB) found: %s for %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 525
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 567
 #, python-format
 msgid "Level 3 (fallback %s) found: %s for %s"
 msgstr "Level 3 (fallback %s) found: %s for %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 557
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 599
 #, python-format
 msgid "Found %d subtitles by hash for: %s"
 msgstr "Found %d subtitles by hash for: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 665
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 702
 #, python-format
 msgid "Found %d validated subtitles by title for: %s"
 msgstr "Found %d validated subtitles by title for: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 907
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 959
 #, python-format
 msgid "Manual search: %s"
 msgstr "Manual search: %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 923
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 975
 #, python-format
 msgid "No results from primary providers, trying: %s"
 msgstr "No results from primary providers, trying: %s"
@@ -256,25 +256,25 @@ msgstr "No results from primary providers, trying: %s"
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 944
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 996
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
 msgid "Unknown release"
 msgstr "Unknown release"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 979
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1031
 #, python-format
 msgid "Found %d subtitles in manual search"
 msgstr "Found %d subtitles in manual search"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1013
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1065
 #, python-format
 msgid "Failed to download subtitle content. %s"
 msgstr "Failed to download subtitle content. %s"
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1033
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1085
 #, python-format
 msgid "Downloaded subtitle: %s"
 msgstr "Downloaded subtitle: %s"
@@ -2472,12 +2472,6 @@ msgstr "Fix Mirabel Files"
 # File: usr/share/jellyfix/gui/windows/preferences_window.py, line: 244
 msgid "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
 msgstr "Rename .pt-BR.hi.srt, .br.hi.srt to .por.srt"
-
-#
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1332
-#, python-brace-format
-msgid "Updated: {title} ({year}) - applied to {count} episodes"
-msgstr "Updated: {title} ({year}) - applied to {count} episodes"
 
 #
 # File: usr/share/jellyfix/gui/windows/help_window.py, line: 34

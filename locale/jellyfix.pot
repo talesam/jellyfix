@@ -135,24 +135,24 @@ msgstr  ""
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 232
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 274
 # File: usr/share/jellyfix/cli/interactive.py, line: 764
 # File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 331
 msgid   "Username and password are both required"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 262
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 304
 msgid   "Login OK — subtitles can be downloaded"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 270
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 312
 msgid   "Use your username, not your e-mail address."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 285
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 327
 msgid   "opensubtitles.com requires a free account to download subtitles. Set "
         "opensubtitles_username/opensubtitles_password in ~/.jellyfix/"
         "config.json (or the OPENSUBTITLES_USERNAME/OPENSUBTITLES_PASSWORD "
@@ -160,91 +160,91 @@ msgid   "opensubtitles.com requires a free account to download subtitles. Set "
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 342
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 384
 #, python-format
 msgid   "Searching subtitles for: %s (Languages: %s)"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 355
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 397
 #, python-format
 msgid   "Level 1 (hash) found: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 359
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 401
 #, python-format
 msgid   "Missing languages: %s - trying TMDB title search"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 380
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 422
 #, python-format
 msgid   "Level 2 (TMDB) found: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 383
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 425
 #, python-format
 msgid   "Still missing: %s (try manual search)"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 386
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 428
 #, python-format
 msgid   "No subtitles found for: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 430
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 472
 #, python-format
 msgid   "Batch Level 1: scanning %d videos by hash..."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 468
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 510
 #, python-format
 msgid   "Level 1 (hash) found: %s for %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 482
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 524
 #, python-format
 msgid   "Batch Level 2: title search for %d videos..."
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 500
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 542
 #, python-format
 msgid   "Level 2 (TMDB) found: %s for %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 525
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 567
 #, python-format
 msgid   "Level 3 (fallback %s) found: %s for %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 557
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 599
 #, python-format
 msgid   "Found %d subtitles by hash for: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 665
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 702
 #, python-format
 msgid   "Found %d validated subtitles by title for: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 907
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 959
 #, python-format
 msgid   "Manual search: %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 923
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 975
 #, python-format
 msgid   "No results from primary providers, trying: %s"
 msgstr  ""
@@ -252,25 +252,25 @@ msgstr  ""
 #
 # #-#-#-#-#  jellyfix.pot (jellyfix)  #-#-#-#-#
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 944
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 996
 # File: usr/share/jellyfix/gui/windows/subtitle_search_dialog.py, line: 79
 msgid   "Unknown release"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 979
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1031
 #, python-format
 msgid   "Found %d subtitles in manual search"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1013
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1065
 #, python-format
 msgid   "Failed to download subtitle content. %s"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1033
+# File: usr/share/jellyfix/core/subtitle_manager.py, line: 1085
 #, python-format
 msgid   "Downloaded subtitle: %s"
 msgstr  ""
@@ -2158,14 +2158,9 @@ msgid   "Remove API Key?"
 msgstr  ""
 
 #
-# File: usr/share/jellyfix/gui/windows/main_window.py, line: 1332
-#, python-brace-format
-msgid   "Updated: {title} ({year}) - applied to {count} episodes"
-msgstr  ""
-
-#
-# File: usr/share/jellyfix/gui/windows/help_window.py, line: 34
-msgid   "Jellyfix Help"
+# File: usr/share/jellyfix/gui/windows/api_config_dialog.py, line: 456
+msgid   "This will delete your stored TMDB API key. You will need to "
+        "configure it again."
 msgstr  ""
 
 #
