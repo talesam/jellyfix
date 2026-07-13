@@ -217,9 +217,11 @@ class TestHasLanguageCode:
         assert has_language_code("movie.pt.srt") == "por"
 
     def test_pt_br_code(self):
-        # pt-BR with dot separator doesn't match current regex (expected)
-        # The regex lowercases input, making region code not match [A-Z]{2}
-        assert has_language_code("movie.pt-BR.srt") is None
+        assert has_language_code("movie.pt-BR.srt") == "por"
+
+    def test_pt_pt_code(self):
+        assert has_language_code("movie.pt-PT.srt") == "por-pt"
+        assert has_language_code("movie.pt_PT.srt") == "por-pt"
 
     def test_pt_code_detected(self):
         # Plain .pt. works fine
@@ -256,6 +258,8 @@ class TestNormalizeLanguageCode:
     def test_region_stripped(self):
         assert normalize_language_code("pt-BR") == "por"
         assert normalize_language_code("pt_BR") == "por"
+        assert normalize_language_code("pt-PT") == "por-pt"
+        assert normalize_language_code("pt_PT") == "por-pt"
 
 
 # ─── calculate_subtitle_quality ──────────────────────────────────────
@@ -357,6 +361,10 @@ class TestParseSubtitleFilename:
         info = parse_subtitle_filename(Path("Movie.por.default.srt"))
         assert info["default"] is True
 
+    def test_pt_pt_lang_code(self):
+        info = parse_subtitle_filename(Path("Movie.pt-PT.srt"))
+        assert info["language"] == "por-pt"
+
     def test_no_lang(self):
         info = parse_subtitle_filename(Path("Movie.srt"))
         assert info["language"] is None
@@ -371,6 +379,10 @@ class TestParseSubtitleFilename:
 class TestGetBaseName:
     def test_removes_lang_suffix(self):
         assert get_base_name(Path("Movie.por.srt")) == "Movie"
+
+    def test_removes_regional_lang_suffix(self):
+        assert get_base_name(Path("Movie.pt-PT.srt")) == "Movie"
+        assert get_base_name(Path("Movie.pt_PT.srt")) == "Movie"
 
     def test_video_file(self):
         assert get_base_name(Path("Movie Name.mkv")) == "Movie Name"

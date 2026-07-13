@@ -1086,22 +1086,23 @@ class Renamer:
 
         # Remove legendas estrangeiras (que NÃO estão na lista de idiomas mantidos)
         if self.config.remove_foreign_subs:
-            # Verifica se tem código de idioma que NÃO está na lista de mantidos
-            for lang_code in self.config.all_languages.keys():
-                # Pula idiomas que devem ser mantidos
-                if lang_code in self.config.kept_languages:
-                    continue
+            from ..utils.helpers import has_language_code
 
-                # Verifica padrões: .LANG.srt, .LANG2.srt, .LANG.forced.srt
-                pattern = rf'\.{lang_code}\d?(?:\.forced)?\.srt$'
-                if re.search(pattern, filename):
-                    self.operations.append(RenameOperation(
-                        source=file_path,
-                        destination=file_path,  # Será deletado
-                        operation_type='delete',
-                        reason=f"Remover legenda em idioma estrangeiro ({lang_code})"
-                    ))
-                    return
+            lang_code = has_language_code(filename)
+            known_languages = set(self.config.all_languages.keys())
+            if (
+                lang_code
+                and lang_code in known_languages
+                and lang_code not in self.config.kept_languages
+                and '.forced.' not in filename
+            ):
+                self.operations.append(RenameOperation(
+                    source=file_path,
+                    destination=file_path,  # Será deletado
+                    operation_type='delete',
+                    reason=f"Remover legenda em idioma estrangeiro ({lang_code})"
+                ))
+                return
 
         # 3. Adiciona código de idioma a legendas sem código
         if self.config.rename_no_lang:

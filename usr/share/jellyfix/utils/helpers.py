@@ -102,9 +102,9 @@ _RELEASE_GROUPS = [
 ]
 _RE_RELEASE_GROUPS = [re.compile(rf"\b{g}\b", re.IGNORECASE) for g in _RELEASE_GROUPS]
 
-_RE_LANG_CODE = re.compile(r"\.([a-z]{2,3}(?:[-_][A-Z]{2})?)(?:\d)?(?:\.(forced|sdh|default))?\.(srt|ass|ssa|sub|vtt)$")
-_RE_LANG_SUFFIX = re.compile(r"\.[a-z]{2,3}(?:-[A-Z]{2})?$")
-_RE_LANG_PART = re.compile(r"^[a-z]{2,3}(?:[-_][A-Z]{2})?$")
+_RE_LANG_CODE = re.compile(r"\.([a-z]{2,3}(?:[-_][a-z]{2})?)(?:\d)?(?:\.(forced|sdh|default))?\.(srt|ass|ssa|sub|vtt)$")
+_RE_LANG_SUFFIX = re.compile(r"\.[a-z]{2,3}(?:[-_][a-z]{2})?$", re.IGNORECASE)
+_RE_LANG_PART = re.compile(r"^[a-z]{2,3}(?:[-_][a-z]{2})?$")
 
 _RE_SE_ALT_PATTERNS = [
     re.compile(
@@ -525,13 +525,22 @@ def normalize_language_code(lang_code: str) -> str:
     Normaliza códigos de idioma de 2 ou 3 caracteres para o padrão de 3 letras.
 
     Args:
-        lang_code: Código de idioma (pode ser en, eng, pt, pt-BR, pt_BR, br, etc.)
+        lang_code: Código de idioma (pode ser en, eng, pt, pt-BR, pt-PT, br, etc.)
 
     Returns:
-        Código normalizado de 3 letras (eng, por, spa, etc.)
+        Código normalizado (eng, por, por-pt, spa, etc.)
     """
-    # Remove qualquer região/país do código (pt-BR -> pt, pt_BR -> pt)
-    base_code = lang_code.split('-')[0].split('_')[0].lower()
+    normalized = (lang_code or "").strip().lower().replace('_', '-')
+
+    # Preserve the Portuguese Portugal variant so users can keep/search it
+    # separately from the existing generic/Brazilian Portuguese preference.
+    if normalized in {'pt-pt', 'por-pt'}:
+        return 'por-pt'
+    if normalized in {'pt-br', 'por-br'}:
+        return 'por'
+
+    # Remove qualquer outra região/país do código (en-US -> en)
+    base_code = normalized.split('-')[0]
 
     # Mapa de códigos de 2 letras para 3 letras (ISO 639-1 -> ISO 639-2)
     code_map = {

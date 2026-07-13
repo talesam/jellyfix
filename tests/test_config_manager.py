@@ -9,6 +9,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "usr" / "share"))
 
 from jellyfix.utils.config_manager import ConfigManager
+from jellyfix.utils.config import Config
 
 
 @pytest.fixture
@@ -148,3 +149,13 @@ class TestMinPtWords:
     def test_custom(self, config_manager):
         config_manager.set_min_pt_words(10)
         assert config_manager.get_min_pt_words() == 10
+
+
+class TestConfigPersistentSettings:
+    def test_kept_languages_are_normalized(self, config_manager):
+        config_manager.set("kept_languages", ["pt-PT", "pt_BR", "eng"])
+
+        config = Config()
+        config.load_persistent_settings()
+
+        assert config.kept_languages == ["por-pt", "por", "eng"]

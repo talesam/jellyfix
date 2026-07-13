@@ -36,6 +36,7 @@ except ImportError:
     HAS_SUBLIMINAL = False
 
 _CACHE_CONFIGURED = False
+_OSCOM_LANGUAGES_PATCHED = False
 
 
 def _configure_subliminal_cache() -> None:
@@ -70,6 +71,25 @@ def _configure_subliminal_cache() -> None:
     except Exception:
         pass
 
+
+def _patch_opensubtitlescom_languages() -> None:
+    """Ensure OpenSubtitles.com can search European Portuguese.
+
+    Subliminal 2.5.0 can convert pt-PT to the API code ``pt-pt``, but its
+    provider language whitelist omits pt-PT. AsyncProviderPool filters by that
+    whitelist before querying, so pt-PT searches otherwise return zero results.
+    """
+    global _OSCOM_LANGUAGES_PATCHED
+    if not HAS_SUBLIMINAL or _OSCOM_LANGUAGES_PATCHED:
+        return
+    try:
+        from subliminal.providers.opensubtitlescom import OpenSubtitlesComProvider
+
+        OpenSubtitlesComProvider.languages.add(Language('por', 'PT'))
+        _OSCOM_LANGUAGES_PATCHED = True
+    except Exception:
+        pass
+
 # Curated provider list: fast and reliable for multilingual subtitle search.
 # NOTE: the legacy "opensubtitles" XML-RPC provider was intentionally dropped —
 # OpenSubtitles.org disabled that API and it now only raises Unauthorized,
@@ -85,6 +105,7 @@ DEFAULT_EXTRA_PROVIDERS = ["bsplayer", "tvsubtitles"]
 # Language display names mapping (ISO 639-2 to human readable)
 LANGUAGE_NAMES = {
     'por': 'Português',
+    'por-pt': 'Português (Portugal)',
     'eng': 'English',
     'spa': 'Español',
     'fre': 'Français',
@@ -146,6 +167,7 @@ class SubtitleManager:
         if not HAS_SUBLIMINAL:
             self.logger.warning("Subliminal library not found. Subtitle downloading disabled.")
         else:
+            _patch_opensubtitlescom_languages()
             _configure_subliminal_cache()
 
     def is_available(self) -> bool:
@@ -159,25 +181,45 @@ class SubtitleManager:
     def _build_languages(self, languages: Optional[List[str]]) -> Set:
         """Convert ISO 639-2 codes into a set of babelfish Language objects.
 
-        Portuguese is special-cased: OpenSubtitles.com only returns results for
-        the country-qualified variants (pt-BR / pt-PT), never the bare 'pt', so
-        we always request the Brazilian variant alongside generic Portuguese.
+        Portuguese variants are special-cased: OpenSubtitles.com returns the
+        country-qualified variants (pt-BR / pt-PT), so the new 'por-pt'
+        preference must be requested as Portuguese from Portugal.
         """
         if not languages:
             languages = self.config.kept_languages or ['por', 'eng']
 
         langs: Set = set()
         for lang in languages:
-            if lang == "por":
+            lang = str(lang).lower()
+            if lang in ("por-pt", "pt-pt"):
+                try:
+                    langs.add(Language('por', 'PT'))
+                except Exception:
+                    langs.add(Language('por'))
+            elif lang in ("por", "pt", "por-br", "pt-br"):
                 langs.add(Language('por'))
                 try:
                     langs.add(Language('por', 'BR'))
-                    langs.add(Language('por', 'PT'))
                 except Exception:
                     pass  # Some babelfish versions may not support country codes
             else:
                 langs.add(Language(lang))
         return langs
+
+    def _language_country_code(self, language: Any) -> str:
+        """Return a language object's country code (BR/PT/etc.), if present."""
+        country = getattr(language, 'country', None)
+        if not country:
+            return ""
+        alpha2 = getattr(country, 'alpha2', None)
+        return str(alpha2 or country).upper()
+
+    def _subtitle_language_code(self, sub: Any) -> str:
+        """Return Jellyfix's internal language code, preserving pt-PT."""
+        lang_code = str(sub.language.alpha3)
+        if lang_code == 'por' and self._get_portuguese_variant(sub) == 'por-pt':
+            return 'por-pt'
+        return lang_code
 
     def _get_providers(self) -> List[str]:
         """Primary providers, from config with a safe default."""
@@ -360,7 +402,7 @@ class SubtitleManager:
                            ", ".join(missing_langs))
             
             # Convert missing languages to Language objects
-            missing_lang_objs = {Language(lang) for lang in missing_langs}
+            missing_lang_objs = self._build_languages(list(missing_langs))
             
             result2 = self._search_by_title(
                 video_path=video_path,
@@ -481,7 +523,7 @@ class SubtitleManager:
         if missing_videos:
             self.logger.info(_("Batch Level 2: title search for %d videos...") % len(missing_videos))
             for vpath, need_langs, info in missing_videos:
-                lang_objs = {Language(code) for code in need_langs}
+                lang_objs = self._build_languages(list(need_langs))
                 result2 = self._search_by_title(
                     video_path=vpath,
                     title=info["title"],
@@ -651,12 +693,7 @@ class SubtitleManager:
             # Group by language and pick best for each
             best_by_lang = {}
             for sub in validated_subs:
-                lang = str(sub.language.alpha3)
-                # Prioritize pt-BR over pt-PT
-                if lang == 'por':
-                    self._get_portuguese_variant(sub)
-                else:
-                    pass
+                lang = self._subtitle_language_code(sub)
                 
                 if lang not in best_by_lang:
                     best_by_lang[lang] = sub
@@ -774,17 +811,25 @@ class SubtitleManager:
             if releases:
                 release_info = releases[0] or ''
         release_info = release_info.lower()
+
+        country = self._language_country_code(getattr(sub, 'language', None))
+        if country == 'BR':
+            return 'por-br'
+        if country == 'PT':
+            return 'por-pt'
         
-        # Check for Brazilian Portuguese indicators
-        br_indicators = ['brazil', 'brasileiro', 'br', 'pt-br', 'ptbr', 'bra']
-        pt_indicators = ['portugal', 'português', 'pt-pt', 'ptpt', 'por']
+        release_text = f" {release_info} "
+
+        # Check for explicit Brazilian/European Portuguese indicators.
+        br_indicators = ['brazil', 'brasileiro', 'brazilian', 'pt-br', 'ptbr', '(br)', '[br]', ' br ']
+        pt_indicators = ['portugal', 'pt-pt', 'ptpt', '(pt)', '[pt]', ' pt ']
         
         for indicator in br_indicators:
-            if indicator in release_info:
+            if indicator in release_text:
                 return 'por-br'
         
         for indicator in pt_indicators:
-            if indicator in release_info:
+            if indicator in release_text:
                 return 'por-pt'
         
         # Default to generic Portuguese
@@ -815,17 +860,24 @@ class SubtitleManager:
         
         # Detect Portuguese variant
         if lang_code == 'por':
-            br_indicators = ['brazil', 'brasileiro', 'br ', 'pt-br', 'ptbr', 'bra ', '(br)', '[br]']
-            pt_indicators = ['portugal', 'pt-pt', 'ptpt', '(pt)', '[pt]']
+            language_country = self._language_country_code(sub.language)
+            if language_country == "BR":
+                return "Português (Brasil)", "BR"
+            if language_country == "PT":
+                return "Português (Portugal)", "PT"
+
+            release_text = f" {release_info} "
+            br_indicators = ['brazil', 'brasileiro', 'brazilian', 'pt-br', 'ptbr', '(br)', '[br]', ' br ']
+            pt_indicators = ['portugal', 'pt-pt', 'ptpt', '(pt)', '[pt]', ' pt ']
             
             for indicator in br_indicators:
-                if indicator in release_info:
+                if indicator in release_text:
                     country = "BR"
                     base_name = "Português (Brasil)"
                     break
             else:
                 for indicator in pt_indicators:
-                    if indicator in release_info:
+                    if indicator in release_text:
                         country = "PT"
                         base_name = "Português (Portugal)"
                         break
@@ -944,7 +996,7 @@ class SubtitleManager:
                     release = _("Unknown release")
                 
                 # Get language info
-                lang_code = str(sub.language.alpha3)
+                lang_code = self._subtitle_language_code(sub)
                 lang_name, lang_country = self._get_language_display_info(sub)
                 
                 # Detect forced/hearing impaired from release info
@@ -1063,9 +1115,8 @@ class SubtitleManager:
                     self.logger.warning(f"Failed to download subtitle content for {sub}")
                     continue
                 
-                # Always aim for 3-letter code (por, eng)
-                lang_alpha3 = str(sub.language.alpha3)
-                str(sub.language.alpha2)
+                # Keep 3-letter codes, preserving pt-PT as Jellyfix's por-pt.
+                lang_alpha3 = self._subtitle_language_code(sub)
                 
                 if lang_alpha3 not in result:
                     result[lang_alpha3] = []

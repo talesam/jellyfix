@@ -75,6 +75,17 @@ class TestScanSubtitleFiles:
         result = scanner.scan(tmp_path)
         assert len(result.kept_subtitles) == 1
 
+    def test_categorizes_portugal_portuguese_when_kept(self, mock_config, tmp_path):
+        mock_config.kept_languages = ["por-pt", "eng"]
+        with patch("jellyfix.core.scanner.get_config", return_value=mock_config):
+            scanner = LibraryScanner()
+
+        srt = tmp_path / "movie.pt-PT.srt"
+        srt.write_text("1\n00:00:01,000 --> 00:00:02,000\nOlá Mundo\n")
+
+        result = scanner.scan(tmp_path)
+        assert len(result.kept_subtitles) == 1
+
     def test_categorizes_variant(self, scanner, tmp_path):
         srt = tmp_path / "movie.por2.srt"
         srt.write_text("1\n00:00:01,000 --> 00:00:02,000\nOlá Mundo\n")
