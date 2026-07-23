@@ -191,6 +191,10 @@ class TestNormalizeSpaces:
         assert "BluRay" not in result
         assert "x264" not in result
 
+    def test_removes_concatenated_streaming_source(self):
+        result = normalize_spaces("Barba.Ensopada.De.Sangue.2025.1080p.AMZNWEB")
+        assert result == "Barba Ensopada De Sangue"
+
     def test_preserves_year_in_parens(self):
         result = normalize_spaces("Movie Name (2024)")
         assert "(2024)" in result
@@ -432,6 +436,13 @@ class TestParseDestinationForSearch:
         info = parse_destination_for_search(dest)
         assert info["title"] == "Untitled"
         assert info["year"] is None
+        assert info["is_episode"] is False
+
+    def test_raw_release_filename_with_bare_year(self):
+        dest = Path("/tmp/a/Barba.Ensopada.De.Sangue.2025.1080p.AMZNWEB.mp4")
+        info = parse_destination_for_search(dest)
+        assert info["title"] == "Barba Ensopada De Sangue"
+        assert info["year"] == 2025
         assert info["is_episode"] is False
 
     def test_episode_without_folder_year(self):

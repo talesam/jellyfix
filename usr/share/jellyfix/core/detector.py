@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from enum import Enum
 from typing import Optional
-from ..utils.helpers import extract_season_episode, is_video_file
+from ..utils.helpers import extract_season_episode, extract_year, is_video_file, normalize_spaces
 
 # Pre-compiled patterns for title extraction
 _RE_TITLE_SXXEXX = re.compile(r"^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,2}")
@@ -83,7 +83,10 @@ class MediaInfo:
             else:
                 # Probably a movie
                 self.media_type = MediaType.MOVIE
-                self.title = filename
+                self.year = extract_year(filename)
+                self.title = normalize_spaces(filename)
+                if self.year:
+                    self.title = re.sub(rf"\s*[\(\[]{self.year}[\)\]]\s*", " ", self.title).strip()
 
     def is_movie(self) -> bool:
         """Check if it's a movie"""

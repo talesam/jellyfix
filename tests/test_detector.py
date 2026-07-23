@@ -23,12 +23,32 @@ class TestMovieDetection:
         f.touch()
         info = MediaInfo(f)
         assert info.is_movie()
+        assert info.title == "Inception"
+        assert info.year == 2010
+
+    def test_movie_with_parenthesized_year(self, tmp_path):
+        f = tmp_path / "Nada Entre Nós (2026) - 1080p.mp4"
+        f.touch()
+        info = MediaInfo(f)
+        assert info.is_movie()
+        assert info.title == "Nada Entre Nós"
+        assert info.year == 2026
 
     def test_movie_with_quality(self, tmp_path):
         f = tmp_path / "Movie.Name.2024.720p.BluRay.mkv"
         f.touch()
         info = MediaInfo(f)
         assert info.is_movie()
+        assert info.title == "Movie Name"
+        assert info.year == 2024
+
+    def test_movie_with_concatenated_streaming_source(self, tmp_path):
+        f = tmp_path / "Barba.Ensopada.De.Sangue.2025.1080p.AMZNWEB.mp4"
+        f.touch()
+        info = MediaInfo(f)
+        assert info.is_movie()
+        assert info.title == "Barba Ensopada De Sangue"
+        assert info.year == 2025
 
     def test_non_video_ignored(self, tmp_path):
         f = tmp_path / "readme.txt"

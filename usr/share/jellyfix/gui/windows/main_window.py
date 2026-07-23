@@ -652,8 +652,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
             return
 
         # Get clean title and year
-        title = clean_filename(operation.source.stem)
-        year = extract_year(operation.source.stem)
+        title = clean_filename(media_info.title or operation.source.stem)
+        year = media_info.year or extract_year(operation.source.stem)
         self.logger.debug(f"Fetching poster for: {title} ({year})")
 
         # Try to extract TMDB ID from destination path

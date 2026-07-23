@@ -74,3 +74,13 @@ def test_generic_portuguese_release_stays_generic(monkeypatch):
     sub = DummySubtitle(Language("por"), release_info="Portuguese subtitles")
 
     assert manager._subtitle_language_code(sub) == "por"
+
+
+def test_extract_tmdb_info_cleans_raw_release_filename():
+    path = Path("/tmp/a/Barba.Ensopada.De.Sangue.2025.1080p.AMZNWEB.mp4")
+
+    assert SubtitleManager.extract_tmdb_info_from_path(path) == (
+        None,
+        "Barba Ensopada De Sangue",
+        2025,
+    )

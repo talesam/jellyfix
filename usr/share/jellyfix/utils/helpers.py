@@ -55,7 +55,7 @@ _RE_QUALITY_PATTERNS = [
     re.compile(r"\b(1080p|720p|480p|2160p|4K|HD|UHD|FHD)\b", re.IGNORECASE),
     re.compile(r"\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|CAMRip|TS|TC)\b", re.IGNORECASE),
     re.compile(r"\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC)\b", re.IGNORECASE),
-    re.compile(r"\b(Amazon|Netflix|Hulu|HBO|HMAX|Disney|Apple|Paramount|Peacock|Showtime|Starz)\b", re.IGNORECASE),
+    re.compile(r"\b(AMZNWEB|AMZN|Amazon|Netflix|Hulu|HBO|HMAX|Disney|Apple|Paramount|Peacock|Showtime|Starz)\b", re.IGNORECASE),
     re.compile(r"\b(Dual\.?Audio|DUAL)\b", re.IGNORECASE),
     re.compile(r"\b(Audio)\b", re.IGNORECASE),
     re.compile(r"\b(AAC|AC3|E-?AC-?3|DTS|DD\+?|MP3|FLAC|Dolby|Atmos|TrueHD)\b", re.IGNORECASE),
@@ -727,7 +727,7 @@ def parse_destination_for_search(destination: Path) -> dict:
     year_match = _RE_PAREN_YEAR.search(dest_name)
 
     if episode_match:
-        title = episode_match.group(1).strip()
+        title = normalize_spaces(episode_match.group(1).strip())
         season = int(episode_match.group(2))
         episode = int(episode_match.group(3))
         # Episodes usually omit the year — try the parent folder ("Show (YYYY)/Season XX").
@@ -743,16 +743,18 @@ def parse_destination_for_search(destination: Path) -> dict:
 
     if year_match:
         return {
-            'title': dest_name[: year_match.start()].strip(),
+            'title': normalize_spaces(dest_name[: year_match.start()].strip()),
             'year': int(year_match.group(1)),
             'is_episode': False,
             'season': None,
             'episode': None,
         }
 
+    bare_year = extract_year(dest_name)
+
     return {
-        'title': dest_name.strip(),
-        'year': None,
+        'title': normalize_spaces(dest_name),
+        'year': bare_year,
         'is_episode': False,
         'season': None,
         'episode': None,

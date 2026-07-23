@@ -1179,6 +1179,8 @@ class SubtitleManager:
         tmdb_match = re.search(r'\[tmdbid-(\d+)\]', path_str)
         tmdb_id = int(tmdb_match.group(1)) if tmdb_match else None
         
+        from ..utils.helpers import extract_year, normalize_spaces
+
         # Extract title and year from filename or folder
         # Pattern: "Title (Year)" or "Title (Year) [tmdbid-XXX]"
         name = path.stem if path.is_file() else path.name
@@ -1189,7 +1191,7 @@ class SubtitleManager:
         
         # Extract year
         year_match = re.search(r'\((\d{4})\)', name)
-        year = int(year_match.group(1)) if year_match else None
+        year = int(year_match.group(1)) if year_match else extract_year(name)
         
         # Extract title (before the year)
         if year_match:
@@ -1197,4 +1199,4 @@ class SubtitleManager:
         else:
             title = name.strip()
         
-        return tmdb_id, title, year
+        return tmdb_id, normalize_spaces(title), year
