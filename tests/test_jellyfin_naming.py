@@ -15,6 +15,7 @@ suíte antes de chegar na biblioteca de alguém.
 
 import sys
 from pathlib import Path
+from unittest.mock import Mock
 
 import pytest
 
@@ -45,6 +46,83 @@ def _config(tmp_path):
     cfg = Config(work_dir=tmp_path, fetch_metadata=False, dry_run=True)
     set_config(cfg)
     return cfg
+
+
+@pytest.mark.parametrize("manual", [False, True], ids=["automatic", "manual"])
+@pytest.mark.parametrize("provider", ["tmdb", "imdb", None])
+@pytest.mark.parametrize("year", [1999, None])
+@pytest.mark.parametrize("quality", ["1080p", None])
+def test_movie_filename_matches_folder(tmp_path, _config, manual, provider, year, quality):
+    """Movie filenames include the folder's year and provider ID."""
+    from jellyfix.core.metadata import Metadata
+    from jellyfix.core.renamer import Renamer
+
+    metadata = Metadata(
+        title="Matrix", year=year, media_type="movie",
+        tmdb_id=603 if provider == "tmdb" else None,
+        imdb_id="tt0133093" if provider == "imdb" else None,
+    )
+    fetcher = Mock()
+    fetcher.search_movie.return_value = metadata
+    _config.fetch_metadata = True
+    _config.add_quality_tag = quality is not None
+    video = tmp_path / "Matrix.1080p.mkv"
+    video.write_bytes(b"video")
+    renamer = Renamer(metadata_fetcher=fetcher)
+
+    if manual:
+        ops = renamer.replan_for_video_with_metadata(video, metadata, work_dir=tmp_path)
+    else:
+        ops = renamer.plan_operations(tmp_path)
+
+    destination = next(op.destination for op in ops if op.source == video)
+    folder = "Matrix" + (f" ({year})" if year else "")
+    if provider == "tmdb":
+        folder += " [tmdbid-603]"
+    elif provider == "imdb":
+        folder += " [imdbid-tt0133093]"
+    version = f" - {quality}" if quality else ""
+    assert destination == tmp_path / folder / f"{folder}{version}.mkv"
+
+
+@pytest.mark.parametrize("manual", [False, True], ids=["automatic", "manual"])
+def test_movie_versions_and_subtitles_keep_folder_prefix(tmp_path, _config, manual):
+    """Repair old names, preserve each version's subtitles, then remain stable."""
+    from jellyfix.core.metadata import Metadata
+    from jellyfix.core.renamer import Renamer
+
+    metadata = Metadata(title="Matrix", year=1999, tmdb_id=603, media_type="movie")
+    fetcher = Mock()
+    fetcher.search_movie.return_value = metadata
+    fetcher.get_movie_by_id.return_value = metadata
+    _config.fetch_metadata = True
+    folder = tmp_path / "Matrix (1999) [tmdbid-603]"
+    folder.mkdir()
+    videos = []
+    expected = {}
+    for source_quality, quality in [("4K", "2160p"), ("1080p", "1080p")]:
+        stem = f"Matrix (1999) - {source_quality}"
+        videos.append(folder / f"{stem}.mkv")
+        for suffix, content in [(".mkv", quality), (".por.srt", PT_BODY + quality)]:
+            (folder / f"{stem}{suffix}").write_text(content)
+            expected[folder / f"{folder.name} - {quality}{suffix}"] = content
+
+    renamer = Renamer(metadata_fetcher=fetcher)
+    if manual:
+        for video in videos:
+            renamer.replan_for_video_with_metadata(video, metadata, work_dir=tmp_path)
+            assert renamer.execute_operations(dry_run=False)["failed"] == 0
+    else:
+        renamer.plan_operations(tmp_path)
+        assert renamer.execute_operations(dry_run=False)["failed"] == 0
+
+    assert set(folder.iterdir()) == set(expected)
+    for path, content in expected.items():
+        assert path.read_text() == content
+    if manual:
+        for video in folder.glob("*.mkv"):
+            assert renamer.replan_for_video_with_metadata(video, metadata, work_dir=tmp_path) == []
+    assert renamer.plan_operations(tmp_path) == []
 
 
 # ---------------------------------------------------------------------------
@@ -435,7 +513,7 @@ def test_pasta_de_origem_vazia_e_removida_quando_e_o_proprio_workdir(tmp_path, _
     stats = renamer.execute_operations(dry_run=False)
 
     destino = container / "A Morte de Robin Hood (2026) [tmdbid-1284465]"
-    assert (destino / "A Morte de Robin Hood (2026) - 1080p.mp4").exists()
+    assert (destino / "A Morte de Robin Hood (2026) [tmdbid-1284465] - 1080p.mp4").exists()
     assert not work.exists(), "pasta de origem vazia ficou para trás"
     assert stats["cleaned"] >= 1
     # E o container acima do work_dir continua intocado

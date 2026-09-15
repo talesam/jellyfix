@@ -79,9 +79,13 @@ jellyfix --workdir /media/movies --execute --yes
 Before: /Movies/Matrix.1999.1080p.BluRay.mkv
 
 After:  /Movies/Matrix (1999) [tmdbid-603]/
-        ├── Matrix (1999) - 1080p.mkv
-        └── Matrix (1999).por.srt
+        ├── Matrix (1999) [tmdbid-603] - 1080p.mkv
+        └── Matrix (1999) [tmdbid-603] - 1080p.por.srt
 ```
+
+Movie filenames share the full folder name, including the provider ID. Versions
+in the same folder use suffixes such as ` - 2160p` and ` - 1080p` for
+[Jellyfin's automatic grouping](https://jellyfin.org/docs/general/server/media/movies/#multiple-versions).
 
 ### TV Shows
 

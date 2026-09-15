@@ -214,6 +214,10 @@ class Renamer:
         video_stem_original = video_path.stem
         video_normalized = normalize_spaces(video_stem_original)
         related_files = []
+        other_video_stems = {
+            path.stem for path in video_path.parent.iterdir()
+            if path.is_file() and is_video_file(path) and path != video_path
+        }
 
         # Busca legendas, NFO, e outros arquivos relacionados no mesmo diretório
         for file_path in video_path.parent.iterdir():
@@ -233,7 +237,11 @@ class Renamer:
                 else:
                     file_base = file_stem
 
-                if normalize_spaces(file_base) == video_normalized or file_base == video_stem_original:
+                # Exact matches to another version take priority over normalized titles.
+                if file_base == video_stem_original or (
+                    file_base not in other_video_stems
+                    and normalize_spaces(file_base) == video_normalized
+                ):
                     related_files.append(file_path)
 
             # Para NFO e outros, compara nome completo
@@ -243,8 +251,6 @@ class Renamer:
 
         # Coleta TODOS os arquivos extras da pasta (Jellyfin convention: backdrop.jpg, folder.jpg, etc.)
         # que não correspondem ao stem do vídeo mas devem acompanhar a mudança de pasta
-        from ..utils.helpers import is_video_file
-
         folder_extras = []
         for file_path in video_path.parent.iterdir():
             if not file_path.is_file():
@@ -387,13 +393,15 @@ class Renamer:
         else:
             base_name = f"{title}"
 
+        # Jellyfin groups versions only when the full folder name is the prefix.
+        base_name += folder_suffix
         if quality_tag:
             new_name = f"{base_name} - {quality_tag}{file_path.suffix}"
         else:
             new_name = f"{base_name}{file_path.suffix}"
 
         # Expected folder name
-        expected_folder = f"{base_name}{folder_suffix}"
+        expected_folder = base_name
 
         # Determine if we need to organize into folders
         if self.config.organize_folders:
@@ -706,12 +714,13 @@ class Renamer:
             if not quality_tag and self.config.use_ffprobe:
                 quality_tag = detect_video_resolution(file_path)
 
-        # Jellyfin format: "Movie Name (YYYY) - 1080p.ext" or "Movie Name (YYYY).ext"
+        # Share the full movie name, including provider ID, with the folder.
         if year:
             base_name = f"{title} ({year})"
         else:
             base_name = f"{title}"
 
+        base_name += folder_suffix
         if quality_tag:
             new_name = f"{base_name} - {quality_tag}{file_path.suffix}"
         else:
@@ -719,7 +728,7 @@ class Renamer:
 
         # Check if in correct folder
         parent_folder = file_path.parent.name
-        expected_folder = f"{title} ({year}){folder_suffix}" if year else f"{title}{folder_suffix}"
+        expected_folder = base_name
 
         # Define destination
         if parent_folder != expected_folder:
