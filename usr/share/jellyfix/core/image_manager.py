@@ -100,7 +100,15 @@ class ImageManager:
             from ..utils.http import get_session
 
             session = get_session('tmdb-images', timeout=get_config().image_download_timeout)
-            response = session.get(url)
+            # A transient CDN connection failure should not leave the preview empty.
+            for attempt in range(2):
+                try:
+                    response = session.get(url)
+                    break
+                except (requests.ConnectionError, requests.Timeout):
+                    if attempt == 1:
+                        raise
+                    self.logger.debug("Retrying image download after a connection failure")
             response.raise_for_status()
 
             # Save to cache
