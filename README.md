@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="usr/share/icons/hicolor/scalable/apps/jellyfix.svg" alt="Jellyfix Logo" width="128" height="128">
+  <img src="usr/share/icons/hicolor/512x512/apps/jellyfix.png" alt="Jellyfix Logo" width="128" height="128">
 </p>
 
 <h1 align="center">Jellyfix</h1>
