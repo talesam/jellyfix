@@ -9,8 +9,8 @@ import shutil
 from ..utils.helpers import (
     clean_filename, normalize_spaces, extract_year,
     detect_subtitle_language, format_season_folder, is_extras_path,
-    parse_subtitle_name, build_subtitle_name,
-    is_video_file, is_subtitle_file, calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
+    parse_subtitle_name, build_subtitle_name, language_code_for_filename,
+    extract_season_episode, is_video_file, is_subtitle_file, calculate_subtitle_quality, extract_quality_tag, detect_video_resolution
 )
 from ..utils.config import get_config
 from ..utils.logger import get_logger
@@ -929,6 +929,15 @@ class Renamer:
         # Armazena para uso em _plan_subtitle_variants
         self.video_operations_map = video_operations
 
+        # Legendas avulsas com nome de release (ex.: "Show.S03E01...ViSUM.por.srt")
+        # só são associadas pelo SxxExx DEPOIS das companheiras reconhecidas
+        # pelo nome — assim nunca tomam o nome canônico de uma legenda que já
+        # pertencia ao vídeo.
+        episode_index = None
+        episode_candidates = []
+        # Legenda que já leva o nome de um vídeo não é "avulsa".
+        video_stems = {normalize_spaces(video.stem) for video in video_files}
+
         # Processa cada legenda
         for subtitle_path in subtitle_files:
             # Verifica se é arquivo Mirabel (já identificado em _plan_mirabel_fixes)
@@ -941,6 +950,7 @@ class Renamer:
                 is_variant = False
                 is_forced = mirabel_data['forced']
                 is_hearing_impaired = mirabel_data['hearing_impaired']
+                is_default = False
             else:
                 # Parser único (helpers.parse_subtitle_name): conhece os flags
                 # do Jellyfin (default/forced/foreign/sdh/cc/hi) e nunca os
@@ -951,6 +961,7 @@ class Renamer:
                 is_variant = info['variant'] is not None
                 is_forced = info['forced']
                 is_hearing_impaired = info['hearing_impaired']
+                is_default = info['default']
 
                 # Forced subtitles do not enter variant processing, so attach a
                 # confidently detected kept language here.
@@ -969,6 +980,18 @@ class Renamer:
                 # Tenta matching normalizado (mais flexível)
                 subtitle_normalized = normalize_spaces(subtitle_base)
                 matching_video_op = video_operations.get(subtitle_normalized)
+
+            if not matching_video_op and not mirabel_data and not is_variant:
+                if normalize_spaces(subtitle_base) in video_stems:
+                    continue
+                if episode_index is None:
+                    episode_index = self._build_episode_video_index(video_files, video_file_set)
+                video = self._match_subtitle_by_episode(
+                    subtitle_path, subtitle_base, episode_index
+                )
+                if video is not None:
+                    episode_candidates.append((subtitle_path, info, video))
+                continue
 
             if matching_video_op:
                 # Encontrou vídeo correspondente que será movido/renomeado
@@ -1018,6 +1041,7 @@ class Renamer:
                         subtitle_path.suffix,
                         forced=is_forced,
                         hearing_impaired=is_hearing_impaired,
+                        default=is_default,
                     )
 
                     # Destino é na mesma pasta do novo vídeo
@@ -1063,7 +1087,204 @@ class Renamer:
                         # Marca o destino como usado
                         self.planned_destinations.add(new_subtitle_path)
 
+        # A melhor legenda avulsa de cada episódio fica com o nome base.
+        episode_candidates.sort(key=lambda c: -self._subtitle_quality(c[0]))
+        for subtitle_path, info, video in episode_candidates:
+            if self._plan_subtitle_by_episode(subtitle_path, info, video):
+                processed_subtitles.append(subtitle_path)
+
         return processed_subtitles
+
+    @staticmethod
+    def _subtitle_quality(path: Path) -> float:
+        try:
+            file_size = path.stat().st_size
+        except OSError:
+            file_size = 0
+        return calculate_subtitle_quality(path, file_size=file_size)
+
+    def _build_episode_video_index(self, video_files: List[Path], video_file_set: set) -> Dict:
+        """Indexa os episódios por (pasta de origem, SxxExx) → (vídeo, caminho final).
+
+        Inclui vídeos que NÃO serão alterados (já estão no padrão), que é
+        justamente o caso das legendas baixadas à mão depois da organização.
+        O caminho final é o destino planejado do vídeo, ou ele mesmo.
+
+        Valores ``None`` marcam chaves ambíguas (duas versões do mesmo episódio).
+        Pastas com episódios de mais de uma série ficam fora do índice: sem
+        comparar títulos não dá para saber a qual série a legenda pertence.
+        """
+        destinations = {
+            op.source: op.destination
+            for op in self.operations
+            if op.source in video_file_set
+        }
+
+        index: Dict = {}
+        series_by_folder: Dict[Path, set] = {}
+        for video in video_files:
+            # Mesma trava de _plan_video_rename: [tmdbid-N] fora de pasta de
+            # temporada é planejado como filme — filme não recebe legenda por SxxExx.
+            in_season_folder = video.parent.name.lower().startswith(("season", "temporada"))
+            if self._extract_pinned_tmdbid(video) is not None and not in_season_folder:
+                continue
+
+            target = destinations.get(video, video)
+            media_info = detect_media_type(target)
+            se_info = extract_season_episode(target.stem)
+            if not media_info.is_tvshow() or se_info is None:
+                continue
+
+            key = (video.parent, se_info)
+            index[key] = None if key in index else (video, target)
+            series_by_folder.setdefault(video.parent, set()).add(
+                normalize_spaces(media_info.title or '').lower()
+            )
+
+        mixed_folders = {folder for folder, titles in series_by_folder.items() if len(titles) > 1}
+        for folder in mixed_folders:
+            self.logger.debug(
+                f"{folder} tem episódios de mais de uma série: legendas avulsas não são associadas por SxxExx"
+            )
+        return {key: entry for key, entry in index.items() if key[0] not in mixed_folders}
+
+    def _match_subtitle_by_episode(self, subtitle_path: Path, subtitle_base: str,
+                                   episode_index: Dict) -> Optional[tuple]:
+        """Encontra o vídeo de uma legenda avulsa pelo SxxExx, na mesma pasta.
+
+        Multi-episódio só casa com o mesmo intervalo (S01E01-E02 ≠ S01E01).
+        """
+        se_info = extract_season_episode(subtitle_base)
+        if se_info is None:
+            return None
+
+        key = (subtitle_path.parent, se_info)
+        if key not in episode_index:
+            return None
+
+        entry = episode_index[key]
+        if entry is None:
+            self.logger.warning(
+                f"Legenda {subtitle_path.name}: mais de um vídeo com o mesmo episódio "
+                "na pasta; associação ignorada"
+            )
+        return entry
+
+    def _plan_subtitle_by_episode(self, subtitle_path: Path, info: dict, video: tuple) -> bool:
+        """Renomeia uma legenda avulsa para o nome do vídeo do mesmo episódio.
+
+        Se o nome base já existir (ou já estiver reservado), a legenda vira a
+        próxima variante livre (.por2, .por3…): nada é sobrescrito, a regra
+        "a .por base nunca é substituída por variante" se mantém e a próxima
+        execução aplica a política de variantes normalmente.
+
+        Returns:
+            True se a legenda foi tratada aqui (operação planejada ou mantida
+            de propósito); False para seguir o fluxo normal de variantes.
+        """
+        lang_code = info['language']
+        is_forced = info['forced']
+
+        # .forced nunca é removida (regra do projeto).
+        if (
+            lang_code
+            and self.config.remove_foreign_subs
+            and not is_forced
+            and lang_code not in self.config.kept_languages
+        ):
+            self.operations.append(RenameOperation(
+                source=subtitle_path,
+                destination=subtitle_path,
+                operation_type='delete',
+                reason=f"Remover legenda em idioma estrangeiro ({lang_code})"
+            ))
+            return True
+
+        if lang_code is None and self.config.rename_no_lang:
+            detected_language = detect_subtitle_language(
+                subtitle_path,
+                min_portuguese_words=self.config.min_pt_words,
+            )
+            if detected_language in self.config.kept_languages:
+                lang_code = detected_language
+        if lang_code is None:
+            return False  # sem idioma não dá para criar variante; fluxo normal
+
+        source_video, target_video = video
+        target_dir = target_video.parent
+        taken = self._taken_subtitle_slots(
+            (source_video, target_video), lang_code, subtitle_path, info
+        )
+
+        new_path = None
+        for number in range(1, 10):  # .por … .por9 (o parser aceita 1 dígito)
+            if number in taken:
+                continue
+            token = language_code_for_filename(lang_code) + (str(number) if number > 1 else '')
+            candidate = target_dir / build_subtitle_name(
+                target_video.stem,
+                token,
+                subtitle_path.suffix,
+                forced=is_forced,
+                hearing_impaired=info['hearing_impaired'],
+                default=info['default'],
+            )
+            if candidate == subtitle_path:
+                return True  # já está com o nome certo
+            if candidate.exists() or candidate in self.planned_destinations:
+                continue
+            new_path = candidate
+            break
+
+        if new_path is None:
+            self.logger.warning(
+                f"Legenda {subtitle_path.name}: nenhuma variante livre para {target_video.stem}; mantendo"
+            )
+            return True
+
+        op_type = 'move_rename' if new_path.parent != subtitle_path.parent else 'rename'
+        self.operations.append(RenameOperation(
+            source=subtitle_path,
+            destination=new_path,
+            operation_type=op_type,
+            reason=f"Associar legenda ao episódio: {subtitle_path.name} → {new_path.name}"
+        ))
+        self.planned_destinations.add(new_path)
+        return True
+
+    def _taken_subtitle_slots(self, videos, lang_code: str, subtitle_path: Path, info: dict) -> set:
+        """Números de variante já ocupados por legendas do próprio vídeo.
+
+        1 = nome base (.por), 2 = .por2… Se o vídeo já tem QUALQUER legenda
+        nesse idioma, a avulsa só pode ocupar um número acima do maior: senão
+        ela tomaria o .por que a fase de variantes daria à .por2 existente.
+
+        ``videos`` traz o vídeo na origem e no destino: se ele vai mudar de
+        nome, as legendas antigas ainda estão com o nome de origem.
+        """
+        suffix = subtitle_path.suffix
+        numbers = set()
+        for video in dict.fromkeys(videos):
+            try:
+                siblings = list(video.parent.iterdir())
+            except OSError:
+                continue
+            for path in siblings:
+                if path == subtitle_path or path.suffix.lower() != suffix.lower():
+                    continue
+                if not is_subtitle_file(path):
+                    continue
+                sibling = parse_subtitle_name(path.stem)
+                if (
+                    normalize_spaces(sibling['base_name']) == normalize_spaces(video.stem)
+                    and sibling['language'] == lang_code
+                    and sibling['forced'] == info['forced']
+                    and sibling['hearing_impaired'] == info['hearing_impaired']
+                ):
+                    numbers.add(sibling['variant'] or 1)
+        if numbers:
+            numbers.update(range(1, max(numbers) + 1))
+        return numbers
 
     def _plan_subtitle_variants(self, subtitle_files: List[Path], directory: Path):
         """
