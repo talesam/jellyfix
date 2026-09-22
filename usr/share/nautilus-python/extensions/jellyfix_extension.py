@@ -66,6 +66,10 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
 
         Note: Using *args for compatibility across Nautilus versions.
         The last argument is always the list of selected files.
+
+        IMPORTANT: Nautilus calls this synchronously while building the context
+        menu, so it must never touch the filesystem. Folder contents are only
+        inspected later, inside the application itself.
         """
         files = args[-1]
 
@@ -76,35 +80,21 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         video_files = [f for f in regular_files if self._is_video_file(f)]
         subtitle_files = [f for f in regular_files if self._is_subtitle_file(f)]
 
-        # Count media files in folders (for label display)
-        folder_video_count = 0
-        folder_subtitle_count = 0
-        for folder in folders:
-            folder_path = self._get_file_path(folder)
-            if folder_path:
-                v_count, s_count = self._count_media_in_folder(Path(folder_path))
-                folder_video_count += v_count
-                folder_subtitle_count += s_count
-
-        # Show menu if we have any media files OR any folders selected
-        total_videos = len(video_files) + folder_video_count
-        total_subtitles = len(subtitle_files) + folder_subtitle_count
-        
         if not folders and not video_files and not subtitle_files:
             return []
 
-        # Build the label based on what's selected
+        # Build the label based on what's selected. Counting inside folders is
+        # deliberately skipped: it would require walking the directory tree and
+        # would freeze the file manager on large selections.
         if folders and not video_files and not subtitle_files:
-            # Only folders selected - show folder count or media count if available
-            if total_videos > 0 or total_subtitles > 0:
-                label = self._build_label(total_videos, total_subtitles)
+            if len(folders) == 1:
+                label = _('Organize Folder with Jellyfix')
             else:
-                if len(folders) == 1:
-                    label = _('Organize Folder with Jellyfix')
-                else:
-                    label = _('Organize {0} Folders with Jellyfix').format(len(folders))
+                label = _('Organize {0} Folders with Jellyfix').format(len(folders))
+        elif folders:
+            label = _('Organize Media with Jellyfix')
         else:
-            label = self._build_label(total_videos, total_subtitles)
+            label = self._build_label(len(video_files), len(subtitle_files))
 
         name = 'Jellyfix::Organize'
 
@@ -113,32 +103,6 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         menu_item = Nautilus.MenuItem(name=name, label=label)
         menu_item.connect('activate', self._launch_application, all_items)
         return [menu_item]
-
-    def _count_media_in_folder(self, folder_path: Path) -> tuple[int, int]:
-        """
-        Counts video and subtitle files in a folder (RECURSIVE, includes subfolders).
-        Returns (video_count, subtitle_count).
-        """
-        video_extensions = {'.mp4', '.mkv', '.webm', '.mov', '.avi', '.wmv', 
-                           '.mpeg', '.mpg', '.m4v', '.ts', '.flv', '.3gp', '.ogv'}
-        subtitle_extensions = {'.srt', '.vtt', '.ass', '.sub', '.ssa'}
-        
-        video_count = 0
-        subtitle_count = 0
-        
-        try:
-            # Use rglob for recursive search
-            for item in folder_path.rglob('*'):
-                if item.is_file():
-                    ext = item.suffix.lower()
-                    if ext in video_extensions:
-                        video_count += 1
-                    elif ext in subtitle_extensions:
-                        subtitle_count += 1
-        except (PermissionError, OSError):
-            pass
-        
-        return video_count, subtitle_count
 
     def _build_label(self, num_videos: int, num_subtitles: int) -> str:
         """
@@ -262,7 +226,7 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
                 f'--app-name={APP_NAME}',
                 title,
                 message
-            ], check=False)
-        except FileNotFoundError:
+            ], check=False, timeout=5)
+        except (FileNotFoundError, subprocess.TimeoutExpired):
             # Fallback if 'notify-send' is not installed.
             print(f"ERROR: [{title}] {message}")
