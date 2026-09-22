@@ -239,12 +239,18 @@ class InteractiveCLI:
         from ..core.detector import detect_media_type
         from ..utils.helpers import extract_year
 
-        # Build metadata map for Level 2 fallback
+        # Build metadata map for Level 2 fallback. O título do arquivo costuma
+        # ser o traduzido; resolve_search_titles põe o original do TMDB (pelo
+        # [tmdbid-N] da pasta) na frente, que é como os provedores indexam.
         metadata_map = {}
         for video in selected_videos:
             media_info = detect_media_type(video)
+            title = media_info.title or video.stem
             metadata_map[video] = {
-                "title": media_info.title or video.stem,
+                "title": title,
+                "titles": subtitle_manager.resolve_search_titles(
+                    video, title, is_episode=media_info.is_tvshow()
+                ),
                 "year": media_info.year or extract_year(video.stem),
                 "is_episode": media_info.is_tvshow(),
                 "season": media_info.season,

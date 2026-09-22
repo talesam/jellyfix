@@ -1049,29 +1049,12 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     season = parsed['season']
                     episode_num = parsed['episode']
                     
-                    # IMPORTANT: Use original title from TMDB for subtitle search
-                    # Subtitle providers index by original (usually English) title
-                    original_title = None
-                    if tmdb_id:
-                        try:
-                            from ...core.metadata import MetadataFetcher
-                            fetcher = MetadataFetcher()
-                            if is_episode:
-                                metadata = fetcher.get_tvshow_by_id(tmdb_id)
-                            else:
-                                metadata = fetcher.get_movie_by_id(tmdb_id)
-                            
-                            if metadata and metadata.original_title:
-                                original_title = metadata.original_title
-                                self.logger.info(f"Using original title for subtitle search: '{original_title}' (translated: '{tmdb_title}')")
-                        except Exception as e:
-                            self.logger.debug(f"Could not fetch original title: {e}")
-                    
-                    # Use original title if available, fallback to translated title
-                    search_title = original_title or tmdb_title
-                    
-                    # Log what we're using for subtitle search
-                    self.logger.info(f"TMDB info for subtitle search: title='{search_title}', year={tmdb_year}, episode={is_episode}")
+                    # Original do TMDB primeiro (é como os provedores indexam),
+                    # traduzido como fallback — mesma regra da CLI.
+                    search_titles = self.subtitle_manager.resolve_search_titles(
+                        op.destination, tmdb_title, is_episode, tmdb_id=tmdb_id
+                    )
+                    self.logger.info(f"TMDB info for subtitle search: titles={search_titles}, year={tmdb_year}, episode={is_episode}")
 
                     # Collect existing subtitle files before download
                     existing_subs = set(
@@ -1085,7 +1068,8 @@ class JellyfixMainWindow(Adw.ApplicationWindow):
                     try:
                         results = self.subtitle_manager.download_subtitles(
                             op.source,
-                            tmdb_title=search_title,
+                            tmdb_title=search_titles[0] if search_titles else None,
+                            search_titles=search_titles,
                             tmdb_year=tmdb_year,
                             tmdb_id=tmdb_id,
                             is_episode=is_episode,

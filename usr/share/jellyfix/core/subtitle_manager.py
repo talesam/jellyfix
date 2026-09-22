@@ -30,6 +30,7 @@ from ..utils.config import get_config
 try:
     from subliminal import download_best_subtitles, scan_video  # noqa: F401
     from subliminal import list_subtitles, AsyncProviderPool  # noqa: F401
+    from subliminal import compute_score
     from subliminal.video import Video, Movie  # noqa: F401
     from babelfish import Language
     HAS_SUBLIMINAL = True
@@ -162,6 +163,10 @@ DEFAULT_PROVIDERS = ["opensubtitlescom", "podnapisi", "gestdown"]
 # works without any account, unlike addic7ed which requires login.
 DEFAULT_EXTRA_PROVIDERS = ["bsplayer", "tvsubtitles"]
 
+# Level 2: quantas legendas do MESMO idioma tentar baixar quando a melhor
+# falha (link vazio, provedor fora). Limitado para não gastar a cota diária.
+TITLE_SEARCH_DOWNLOAD_ATTEMPTS = 3
+
 # Language display names mapping (ISO 639-2 to human readable)
 LANGUAGE_NAMES = {
     'por': 'Português',
@@ -231,6 +236,9 @@ class SubtitleManager:
         self._quota_cache: Dict[str, Optional[Dict[str, Any]]] = {}
         # A sessão só é descartada uma vez por execução
         self._token_reset_done = False
+        # Criado sob demanda por resolve_search_titles; o próprio fetcher
+        # guarda as buscas por id, então uma série inteira custa 1 consulta.
+        self._metadata_fetcher = None
 
         if not HAS_SUBLIMINAL:
             self.logger.warning("Subliminal library not found. Subtitle downloading disabled.")
@@ -771,7 +779,8 @@ class SubtitleManager:
                            is_episode: bool = False,
                            season: Optional[int] = None,
                            episode: Optional[int] = None,
-                           min_score: int = 0) -> Dict[str, List[Path]]:
+                           min_score: int = 0,
+                           search_titles: Optional[List[str]] = None) -> Dict[str, List[Path]]:
         """
         Download subtitles for a video file using multi-level search.
 
@@ -791,6 +800,8 @@ class SubtitleManager:
             season: Season number for episodes
             episode: Episode number for episodes
             min_score: Minimum score to accept subtitles (0 = accept all)
+            search_titles: Titles for Level 2, in order of preference (see
+                resolve_search_titles). Defaults to ``[tmdb_title]``.
 
         Returns:
             Dictionary mapping language code to list of downloaded subtitle paths
@@ -842,19 +853,18 @@ class SubtitleManager:
             missing_langs -= set(result.keys())
             self.logger.info(_("Level 1 (hash) found: %s") % ", ".join(result.keys()))
         
+        titles = search_titles or ([tmdb_title] if tmdb_title else [])
+
         # If we still have missing languages and have TMDB info, try Level 2
-        if missing_langs and tmdb_title:
+        if missing_langs and titles:
             self.logger.info(_("Missing languages: %s - trying TMDB title search") % 
                            ", ".join(missing_langs))
-            
-            # Convert missing languages to Language objects
-            missing_lang_objs = self._build_languages(list(missing_langs))
-            
-            result2 = self._search_by_title(
+
+            result2 = self._search_by_titles(
                 video_path=video_path,
-                title=tmdb_title,
+                titles=titles,
                 year=tmdb_year,
-                langs=missing_lang_objs,
+                languages=missing_langs,
                 providers=providers,
                 is_episode=is_episode,
                 season=season,
@@ -894,7 +904,8 @@ class SubtitleManager:
             video_paths: List of video file paths
             languages: Languages to download (default: config kept_languages)
             providers: Providers to use (default: DEFAULT_PROVIDERS)
-            metadata_map: Optional dict mapping Path -> {title, year, is_episode, season, episode}
+            metadata_map: Optional dict mapping Path -> {title, titles, year, is_episode, season, episode}.
+                ``titles`` (see resolve_search_titles) takes precedence over ``title``.
             min_score: Minimum score to accept
             progress_callback: Optional callable(video_path, index, total) for progress updates
 
@@ -986,18 +997,17 @@ class SubtitleManager:
                 progress_callback(vpath, idx, total)
             found_langs = set(all_results.get(vpath, {}).keys())
             still_need = set(languages) - found_langs
-            if still_need and vpath in meta and meta[vpath].get("title"):
+            if still_need and vpath in meta and self._meta_titles(meta[vpath]):
                 missing_videos.append((vpath, still_need, meta[vpath]))
 
         if missing_videos:
             self.logger.info(_("Batch Level 2: title search for %d videos...") % len(missing_videos))
             for vpath, need_langs, info in missing_videos:
-                lang_objs = self._build_languages(list(need_langs))
-                result2 = self._search_by_title(
+                result2 = self._search_by_titles(
                     video_path=vpath,
-                    title=info["title"],
+                    titles=self._meta_titles(info),
                     year=info.get("year"),
-                    langs=lang_objs,
+                    languages=need_langs,
                     providers=use_providers,
                     is_episode=info.get("is_episode", False),
                     season=info.get("season"),
@@ -1018,14 +1028,13 @@ class SubtitleManager:
                 if not need_langs:
                     continue
                 info = meta.get(vpath)
-                if not info or not info.get("title"):
+                if not info or not self._meta_titles(info):
                     continue
-                lang_objs = self._build_languages(list(need_langs))
-                result3 = self._search_by_title(
+                result3 = self._search_by_titles(
                     video_path=vpath,
-                    title=info["title"],
+                    titles=self._meta_titles(info),
                     year=info.get("year"),
-                    langs=lang_objs,
+                    languages=need_langs,
                     providers=extra_providers,
                     is_episode=info.get("is_episode", False),
                     season=info.get("season"),
@@ -1038,6 +1047,91 @@ class SubtitleManager:
                                      % (", ".join(extra_providers), ", ".join(result3.keys()), vpath.name))
 
         return all_results
+
+    @staticmethod
+    def _meta_titles(info: dict) -> List[str]:
+        """Títulos de uma entrada do metadata_map (``titles`` > ``title``)."""
+        titles = info.get("titles") or ([info["title"]] if info.get("title") else [])
+        return [t for t in titles if t]
+
+    def _get_metadata_fetcher(self):
+        if self._metadata_fetcher is None:
+            from .metadata import MetadataFetcher
+            self._metadata_fetcher = MetadataFetcher()
+        return self._metadata_fetcher
+
+    def resolve_search_titles(self, path: Path, fallback_title: Optional[str],
+                              is_episode: bool, tmdb_id: Optional[int] = None) -> List[str]:
+        """Títulos para buscar legenda, do mais para o menos provável de achar.
+
+        Fonte única usada pela CLI e pela GUI. Os provedores (OpenSubtitles
+        em especial) indexam pelo título ORIGINAL, e o opensubtitlescom do
+        subliminal busca episódio só por ``query`` + temporada/episódio — o id
+        do TMDB não é enviado. Com o título traduzido da pasta ("Wynonna Earp
+        A Maldição dos Renascidos") a busca não acha nada.
+
+        Ordem: original do TMDB (pelo ``[tmdbid-N]`` do caminho) → título do
+        TMDB → ``fallback_title`` (o que veio do nome do arquivo/pasta).
+
+        Args:
+            path: vídeo (ou destino planejado) — de onde sai o ``[tmdbid-N]``.
+            fallback_title: título já conhecido pelo chamador.
+            is_episode: consulta o id como série (True) ou filme (False).
+            tmdb_id: id já conhecido; se None, é lido do caminho.
+        """
+        if tmdb_id is None:
+            tmdb_id = self.extract_tmdb_info_from_path(path)[0]
+
+        candidates: List[Optional[str]] = []
+        if tmdb_id:
+            try:
+                fetcher = self._get_metadata_fetcher()
+                if is_episode:
+                    metadata = fetcher.get_tvshow_by_id(tmdb_id)
+                else:
+                    metadata = fetcher.get_movie_by_id(tmdb_id)
+            except Exception as e:
+                self.logger.debug(f"Could not resolve tmdbid-{tmdb_id} for subtitle search: {e}")
+                metadata = None
+            if metadata:
+                candidates += [metadata.original_title, metadata.title]
+        candidates.append(fallback_title)
+
+        titles: List[str] = []
+        seen = set()
+        for title in candidates:
+            key = ' '.join(sorted(self._words(title or '')))
+            if key and key not in seen:
+                seen.add(key)
+                titles.append(title.strip())
+        return titles
+
+    def _search_by_titles(self, video_path: Path, titles: List[str], year: Optional[int],
+                          languages: Set[str], providers: Optional[List[str]] = None,
+                          is_episode: bool = False,
+                          season: Optional[int] = None,
+                          episode: Optional[int] = None,
+                          min_score: int = 0) -> Dict[str, List[Path]]:
+        """Level 2 com fallback: tenta cada título só para os idiomas que faltam."""
+        results: Dict[str, List[Path]] = {}
+        missing = set(languages)
+        for title in titles:
+            if not missing:
+                break
+            found = self._search_by_title(
+                video_path=video_path,
+                title=title,
+                year=year,
+                langs=self._build_languages(list(missing)),
+                providers=providers,
+                is_episode=is_episode,
+                season=season,
+                episode=episode,
+                min_score=min_score,
+            )
+            results.update(found)
+            missing -= set(found)
+        return results
 
     def _search_by_hash(self, video_path: Path, langs: Set, 
                         providers: Optional[List[str]] = None,
@@ -1133,8 +1227,17 @@ class SubtitleManager:
                 is_valid = True
                 rejection_reason = None
                 
+                # Episódio: a temporada/episódio decide. O ano que os
+                # provedores devolvem para um episódio é o da exibição dele
+                # (S04 de uma série de 2016 sai em 2020), não o da estreia da
+                # série — comparar anos descartava as temporadas mais novas.
+                if is_episode:
+                    mismatch = self._episode_mismatch(sub, season, episode)
+                    if mismatch:
+                        is_valid = False
+                        rejection_reason = mismatch
                 # Check year mismatch (only if both years are available)
-                if year and sub_year and abs(year - sub_year) > 2:
+                elif year and sub_year and abs(year - sub_year) > 2:
                     is_valid = False
                     rejection_reason = f"year mismatch ({sub_year} vs {year})"
                 
@@ -1158,19 +1261,24 @@ class SubtitleManager:
                 self.logger.info(f"Level 2: No validated subtitles for '{title}' ({year})")
                 return {}
             
-            # Group by language and pick best for each
-            best_by_lang = {}
-            for sub in validated_subs:
-                lang = self._subtitle_language_code(sub)
-                
-                if lang not in best_by_lang:
-                    best_by_lang[lang] = sub
-            
-            downloaded_subs = list(best_by_lang.values())
-            self.logger.info(_("Found %d validated subtitles by title for: %s") % 
-                           (len(downloaded_subs), video_path.name))
+            # Agrupa por idioma, da melhor para a pior. Antes ficava a PRIMEIRA
+            # da lista (ordem dos provedores) e, se o download dela falhasse,
+            # o idioma era dado como "não encontrado" mesmo havendo outras.
+            by_lang: Dict[str, List[Any]] = {}
+            for sub in self._rank_subtitles(validated_subs, video):
+                by_lang.setdefault(self._subtitle_language_code(sub), []).append(sub)
 
-            return self._save_subtitles(video, video_path, downloaded_subs)
+            self.logger.info(_("Found %d validated subtitles by title for: %s") %
+                           (len(by_lang), video_path.name))
+
+            result: Dict[str, List[Path]] = {}
+            for lang, candidates in by_lang.items():
+                for sub in candidates[:TITLE_SEARCH_DOWNLOAD_ATTEMPTS]:
+                    saved = self._save_subtitles(video, video_path, [sub])
+                    if lang in saved:
+                        result.update(saved)
+                        break
+            return result
 
         except Exception as e:
             self.logger.error(f"Title search failed: {e}")
@@ -1178,6 +1286,36 @@ class SubtitleManager:
             traceback.print_exc()
             return {}
     
+    @staticmethod
+    def _episode_mismatch(sub: Any, season: Optional[int], episode: Optional[int]) -> Optional[str]:
+        """Motivo para rejeitar legenda de OUTRO episódio (None = pode ser este).
+
+        Só rejeita com prova: provedor que não informa temporada/episódio passa.
+        """
+        for attrs, wanted, label in (
+            (('season', 'series_season'), season, 'season'),
+            (('episode', 'series_episode'), episode, 'episode'),
+        ):
+            if wanted is None:
+                continue
+            for attr in attrs:
+                value = getattr(sub, attr, None)
+                if isinstance(value, int) and not isinstance(value, bool):
+                    if value != wanted:
+                        return f"{label} mismatch ({value} vs {wanted})"
+                    break
+        return None
+
+    @staticmethod
+    def _rank_subtitles(subtitles: List[Any], video: Any) -> List[Any]:
+        """Ordena pelo score do subliminal (estável: empate mantém a ordem do provedor)."""
+        def score(sub: Any) -> int:
+            try:
+                return compute_score(sub, video)
+            except Exception:
+                return 0
+        return sorted(subtitles, key=score, reverse=True)
+
     def _validate_subtitle_match(self, title: str, year: Optional[int],
                                   sub_movie_name: str, sub_year: Optional[int],
                                   release_info: str, is_episode: bool = False,
