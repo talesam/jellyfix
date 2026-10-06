@@ -855,6 +855,9 @@ def normalize_language_code(lang_code: str) -> str:
         'sl': 'slv',  # Slovenian
         'ta': 'tam',  # Tamil
         'te': 'tel',  # Telugu
+        'et': 'est',  # Estonian
+        'is': 'ice',  # Icelandic
+        'sr': 'srp',  # Serbian
     }
 
     # Se já está no formato de 3 letras, retorna normalizado
@@ -872,10 +875,11 @@ def normalize_language_code(lang_code: str) -> str:
 # Códigos ISO 639-2 aceitos como idioma de legenda. Usado para não confundir
 # um flag ("cc", "hi", "sdh") ou um pedaço do título ("sub", "the") com idioma.
 KNOWN_LANGUAGE_CODES = frozenset({
-    'ara', 'baq', 'bul', 'cat', 'chi', 'cze', 'dan', 'dut', 'eng', 'fil', 'fin',
-    'fre', 'ger', 'glg', 'gre', 'heb', 'hin', 'hrv', 'hun', 'ind', 'ita', 'jpn',
-    'kor', 'lav', 'lit', 'may', 'nob', 'nor', 'pol', 'por', 'por-pt', 'rum',
-    'rus', 'slo', 'slv', 'spa', 'swe', 'tam', 'tel', 'tha', 'tur', 'ukr', 'vie',
+    'ara', 'baq', 'bul', 'cat', 'chi', 'cze', 'dan', 'dut', 'eng', 'est', 'fil',
+    'fin', 'fre', 'ger', 'glg', 'gre', 'heb', 'hin', 'hrv', 'hun', 'ice', 'ind',
+    'ita', 'jpn', 'kor', 'lav', 'lit', 'may', 'nob', 'nor', 'pol', 'por',
+    'por-pt', 'rum', 'rus', 'slo', 'slv', 'spa', 'srp', 'swe', 'tam', 'tel',
+    'tha', 'tur', 'ukr', 'vie',
 })
 
 _RE_LANG_TOKEN = re.compile(r'^([a-z]{2,3})([-_][a-z]{2})?(\d)?$', re.IGNORECASE)
