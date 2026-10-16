@@ -8,7 +8,9 @@ for Jellyfin using the Jellyfix application.
 """
 
 import gettext
+import os
 import subprocess
+import time
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -18,6 +20,18 @@ import gi
 gi.require_version('Gtk', '4.0')
 
 from gi.repository import GObject, Nautilus
+
+# Folder scan limits. get_file_items() runs synchronously while Nautilus builds
+# the context menu, so the media count inside selected folders must stay cheap:
+# past either limit the scan stops and the menu falls back to a generic label.
+FOLDER_SCAN_MAX_ENTRIES = 5000
+FOLDER_SCAN_MAX_SECONDS = 0.15
+
+VIDEO_EXTENSIONS = {
+    '.mkv', '.mp4', '.avi', '.mov', '.wmv', '.flv', '.webm',
+    '.m4v', '.mpg', '.mpeg', '.3gp', '.ogv'
+}
+SUBTITLE_EXTENSIONS = {'.srt', '.vtt', '.ass', '.sub', '.ssa'}
 
 # --- Internationalization (i18n) Setup ---
 APP_NAME = "jellyfix"
@@ -43,20 +57,11 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         super().__init__()
         self.app_executable = 'jellyfix-gui'
 
-        # Using a set provides O(1) lookup time, which is more efficient than a list.
-        self.supported_video_mimetypes = {
-            'video/mp4', 'video/x-matroska', 'video/webm', 'video/quicktime',
-            'video/x-msvideo', 'video/x-ms-wmv', 'video/mpeg', 'video/x-m4v',
-            'video/mp2t', 'video/x-flv', 'video/3gpp', 'video/ogg'
-        }
-
         self.supported_subtitle_mimetypes = {
             'application/x-subrip', 'text/vtt', 'application/x-ass',
             'text/x-ssa', 'text/plain'  # text/plain for .sub files
         }
 
-        # Subtitle extensions for fallback detection
-        self.subtitle_extensions = {'.srt', '.vtt', '.ass', '.sub', '.ssa'}
 
     def get_file_items(self, *args):
         """
@@ -68,8 +73,8 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         The last argument is always the list of selected files.
 
         IMPORTANT: Nautilus calls this synchronously while building the context
-        menu, so it must never touch the filesystem. Folder contents are only
-        inspected later, inside the application itself.
+        menu, so anything slow here freezes the file manager. Folder contents are
+        only counted by a bounded scan (see _count_media_in_folders).
         """
         files = args[-1]
 
@@ -83,18 +88,19 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         if not folders and not video_files and not subtitle_files:
             return []
 
-        # Build the label based on what's selected. Counting inside folders is
-        # deliberately skipped: it would require walking the directory tree and
-        # would freeze the file manager on large selections.
-        if folders and not video_files and not subtitle_files:
+        folder_counts = self._count_media_in_folders(folders) if folders else (0, 0)
+
+        if folder_counts is not None and (
+                len(video_files) + folder_counts[0] or len(subtitle_files) + folder_counts[1]):
+            label = self._build_label(len(video_files) + folder_counts[0],
+                                      len(subtitle_files) + folder_counts[1])
+        elif folders and not video_files and not subtitle_files:
             if len(folders) == 1:
                 label = _('Organize Folder with Jellyfix')
             else:
                 label = _('Organize {0} Folders with Jellyfix').format(len(folders))
-        elif folders:
-            label = _('Organize Media with Jellyfix')
         else:
-            label = self._build_label(len(video_files), len(subtitle_files))
+            label = _('Organize Media with Jellyfix')
 
         name = 'Jellyfix::Organize'
 
@@ -103,6 +109,48 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         menu_item = Nautilus.MenuItem(name=name, label=label)
         menu_item.connect('activate', self._launch_application, all_items)
         return [menu_item]
+
+    def _count_media_in_folders(self, folders: list) -> tuple[int, int] | None:
+        """
+        Counts videos and subtitles inside the folders, recursively.
+
+        Returns (video_count, subtitle_count), or None when the count would be
+        incomplete: a folder is not local, or the scan hit the entry/time limit.
+        Uses os.scandir, which reads the file type from the directory listing
+        without a stat() per file, skips hidden folders and does not follow
+        symlinks.
+        """
+        deadline = time.monotonic() + FOLDER_SCAN_MAX_SECONDS
+        scanned = 0
+        videos = subtitles = 0
+
+        pending = []
+        for folder in folders:
+            path = self._get_file_path(folder)
+            if not path:
+                return None
+            pending.append(path)
+
+        while pending:
+            try:
+                with os.scandir(pending.pop()) as entries:
+                    for entry in entries:
+                        scanned += 1
+                        if scanned > FOLDER_SCAN_MAX_ENTRIES or time.monotonic() > deadline:
+                            return None
+                        if entry.is_dir(follow_symlinks=False):
+                            if not entry.name.startswith('.'):
+                                pending.append(entry.path)
+                            continue
+                        ext = os.path.splitext(entry.name)[1].lower()
+                        if ext in VIDEO_EXTENSIONS:
+                            videos += 1
+                        elif ext in SUBTITLE_EXTENSIONS:
+                            subtitles += 1
+            except OSError:
+                continue
+
+        return videos, subtitles
 
     def _build_label(self, num_videos: int, num_subtitles: int) -> str:
         """
@@ -133,12 +181,18 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
 
     def _is_video_file(self, file_info: Nautilus.FileInfo) -> bool:
         """
-        Checks if a file is a supported video by its mimetype.
+        Checks if a file is a supported video by its mimetype or extension.
+
+        Any video/* mimetype is accepted instead of a fixed list: shared-mime-info
+        2.5 renamed video/x-matroska to video/matroska and video/x-msvideo to
+        video/vnd.avi, which silently hid the menu for .mkv and .avi files.
         """
         if not file_info or file_info.is_directory():
             return False
 
-        return file_info.get_mime_type() in self.supported_video_mimetypes
+        if (file_info.get_mime_type() or '').startswith('video/'):
+            return True
+        return self._has_extension(file_info, VIDEO_EXTENSIONS)
 
     def _is_subtitle_file(self, file_info: Nautilus.FileInfo) -> bool:
         """
@@ -151,21 +205,21 @@ class JellyfixExtension(GObject.GObject, Nautilus.MenuProvider):
         if file_info.get_mime_type() in self.supported_subtitle_mimetypes:
             # For text/plain, verify by extension
             if file_info.get_mime_type() == 'text/plain':
-                return self._has_subtitle_extension(file_info)
+                return self._has_extension(file_info, SUBTITLE_EXTENSIONS)
             return True
 
         # Fallback: check by extension
-        return self._has_subtitle_extension(file_info)
+        return self._has_extension(file_info, SUBTITLE_EXTENSIONS)
 
-    def _has_subtitle_extension(self, file_info: Nautilus.FileInfo) -> bool:
+    def _has_extension(self, file_info: Nautilus.FileInfo, extensions: set) -> bool:
         """
-        Checks if the file has a subtitle extension.
+        Checks if the file name ends with one of the given extensions.
         """
         uri = file_info.get_uri()
         if not uri:
             return False
         path = Path(unquote(uri.replace('file://', '')))
-        return path.suffix.lower() in self.subtitle_extensions
+        return path.suffix.lower() in extensions
 
     def _get_file_path(self, file_info: Nautilus.FileInfo) -> str | None:
         """
