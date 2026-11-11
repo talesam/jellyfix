@@ -149,6 +149,26 @@ class TestTVShowDetection:
         assert info.episode_start == 1
         assert info.title == "[Elite] Serial Experiments Lain"
 
+    def test_three_digit_episode(self, tmp_path):
+        """Regressão: S03E104 virava S03E10 e os episódios colidiam no destino."""
+        f = tmp_path / "Black.Clover.S03E104.1080p.CR.WEB-DL.AAC2.0.H.264.DUAL-Carmanhan.mp4"
+        f.touch()
+        info = MediaInfo(f)
+        assert info.is_tvshow()
+        assert info.season == 3
+        assert info.episode_start == 104
+        assert info.episode_end == 104
+
+    def test_zero_padded_episode_before_year(self, tmp_path):
+        """Regressão: "Título.01.1996.DVDRemux" virava filme com tags no título."""
+        f = tmp_path / "Kakugo.no.Susume.02.1996.DVDRemux.480i.MPEG-2.AC3-Anonymous.mkv"
+        f.touch()
+        info = MediaInfo(f)
+        assert info.is_tvshow()
+        assert info.season == 1
+        assert info.episode_start == 2
+        assert info.title == "Kakugo.no.Susume"
+
 
 class TestEdgeCases:
     """Edge cases and tricky filenames."""
@@ -159,6 +179,13 @@ class TestEdgeCases:
         f.touch()
         info = MediaInfo(f)
         assert info.is_movie()
+
+    def test_sequel_number_before_year_is_a_movie(self, tmp_path):
+        """Número sem zero à esquerda antes do ano é sequência/título de filme."""
+        for name in ("Apollo.13.1995.1080p.BluRay.mkv", "Blade.2.2002.mkv"):
+            f = tmp_path / name
+            f.touch()
+            assert MediaInfo(f).is_movie(), name
 
     def test_subtitle_detected_as_unknown(self, tmp_path):
         f = tmp_path / "movie.srt"

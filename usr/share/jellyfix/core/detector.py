@@ -7,7 +7,7 @@ from typing import Optional
 from ..utils.helpers import extract_season_episode, extract_year, is_video_file, normalize_spaces
 
 # Pre-compiled patterns for title extraction
-_RE_TITLE_SXXEXX = re.compile(r"^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,2}")
+_RE_TITLE_SXXEXX = re.compile(r"^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,4}")
 _RE_TITLE_NxNN = re.compile(r"^(.+?)\s*\d{1,2}x\d{1,2}")
 _RE_TITLE_BOOK_VOL = re.compile(
     r"^(.+?)\s*(?:Book|Volume|Vol|Part|Season|Temporada|Cap\.?|Ep\.?)\s*\d{1,2}",
@@ -16,6 +16,7 @@ _RE_TITLE_BOOK_VOL = re.compile(
 _RE_TITLE_DASH_NUM = re.compile(
     r"^(.+?)\s-\s(?!(?:19|20)\d{2}(?!\d))\d{2,4}(?:v\d)?(?![\dpPkKiI])"
 )
+_RE_TITLE_NUM_YEAR = re.compile(r"^(.+?)[.\s_]0[1-9][.\s_](?:19|20)\d{2}(?!\d)")
 _RE_DIGITS = re.compile(r"(\d+)")
 
 
@@ -74,7 +75,8 @@ class MediaInfo:
                         # Numeração absoluta de anime ("Título - 01 [tags]"):
                         # sem isso o título ficava sendo o nome inteiro do
                         # arquivo e a busca no TMDB casava com qualquer coisa.
-                        match = _RE_TITLE_DASH_NUM.search(filename)
+                        match = (_RE_TITLE_DASH_NUM.search(filename)
+                                 or _RE_TITLE_NUM_YEAR.search(filename))
                         if match:
                             self.title = match.group(1).strip()
                         else:

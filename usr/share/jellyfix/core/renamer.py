@@ -511,6 +511,19 @@ class Renamer:
                 ep_start = candidates[0]
                 ep_end = ep_start
 
+        # Escolha manual de série: o usuário já disse que é episódio, então vale
+        # o número solto no trecho do título, antes do ano e das tags de
+        # release ("Kakugo.no.Susume.01.1996.DVDRemux" -> 1). Cortar ali evita
+        # pegar o "1" de "DDP5.1" ou o "480" de "480i".
+        if ep_start is None:
+            title_part = re.split(
+                r'[.\s_\-\[(](?:(?:19|20)\d{2}|\d{3,4}[pPiI]|4[kK])(?![0-9A-Za-z])',
+                stem, maxsplit=1,
+            )[0]
+            numbers = re.findall(r'(?:^|[.\s_])(\d{1,3})(?=$|[.\s_])', title_part)
+            if numbers:
+                ep_start = ep_end = int(numbers[-1])
+
         if ep_start is None:
             return None
 

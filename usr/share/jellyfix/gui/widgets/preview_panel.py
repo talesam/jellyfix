@@ -330,7 +330,7 @@ class PreviewPanel(Gtk.Box):
         is_movie = True
         if self.current_operation is not None:
             dest_name = self.current_operation.destination.name
-            if re.search(r'[Ss]\d{1,2}[Ee]\d{1,3}', dest_name):
+            if re.search(r'[Ss]\d{1,2}[Ee]\d{1,4}', dest_name):
                 is_movie = False
 
         # Create and show dialog

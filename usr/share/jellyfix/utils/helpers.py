@@ -134,13 +134,13 @@ _RE_LEADING_JUNK = re.compile(r"^[\s\-\.]+")
 # anime põem no nome ("[75012039]") contém "2039" e virava ano, envenenando a
 # busca no TMDB. Separadores ( ) [ ] . _ - e espaço continuam valendo.
 _RE_YEAR = re.compile(r"(?<![0-9A-Za-z])(19\d{2}|20\d{2})(?![0-9A-Za-z])")
-_RE_SXXEXX = re.compile(r"[Ss](\d{1,2})[Ee](\d{1,2})(?:-?[Ee](\d{1,2}))?")
+_RE_SXXEXX = re.compile(r"[Ss](\d{1,2})[Ee](\d{1,4})(?:-?[Ee](\d{1,4}))?")
 _RE_NxNN = re.compile(r"\b(\d{1,2})x(\d{1,2})\b")
 
 _RE_QUALITY_PATTERNS = [
-    re.compile(r"\b(1080p|720p|480p|2160p|4K|HD|UHD|FHD)\b", re.IGNORECASE),
-    re.compile(r"\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|CAMRip|TS|TC)\b", re.IGNORECASE),
-    re.compile(r"\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC)\b", re.IGNORECASE),
+    re.compile(r"\b(1080p|720p|480p|2160p|1080i|576i|480i|4K|HD|UHD|FHD)\b", re.IGNORECASE),
+    re.compile(r"\b(BluRay|BRRip|BDRip|WEB-?DL|WEBRip|HDTV|DVDRip|DVD-?Rip|DVD-?Remux|Remux|CAMRip|TS|TC)\b", re.IGNORECASE),
+    re.compile(r"\b(x264|x265|H\.?264|H\.?265|HEVC|XviD|DivX|AVC|MPEG-?2|VC-?1|AV1)\b", re.IGNORECASE),
     re.compile(r"\b(AMZNWEB|AMZN|Amazon|Netflix|Hulu|HBO|HMAX|Disney|Apple|Paramount|Peacock|Showtime|Starz)\b", re.IGNORECASE),
     re.compile(r"\b(Dual\.?Audio|DUAL)\b", re.IGNORECASE),
     re.compile(r"\b(Audio)\b", re.IGNORECASE),
@@ -245,6 +245,10 @@ _RE_SE_ALT_PATTERNS = [
     # resolução ("Filme - 720p") e o lookahead descarta ano ("Filme - 2015"),
     # sem perder anime de 4 dígitos ("One Piece - 1015").
     re.compile(r"\s-\s(?!(?:19|20)\d{2}(?!\d))(\d{2,4})(?:v\d)?(?![\dpPkKiI])"),
+    # Episódio solto logo antes do ano: "Kakugo.no.Susume.01.1996.DVDRemux".
+    # Só com zero à esquerda (01-09): "Apollo.13.1995" e "Blade.2.2002" são
+    # filmes, e é assim que releases de filme escrevem sequências.
+    re.compile(r"(?<=[.\s_])(0[1-9])(?=[.\s_](?:19|20)\d{2}(?!\d))"),
 ]
 
 
