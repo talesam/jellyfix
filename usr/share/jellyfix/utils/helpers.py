@@ -858,6 +858,9 @@ def normalize_language_code(lang_code: str) -> str:
         'et': 'est',  # Estonian
         'is': 'ice',  # Icelandic
         'sr': 'srp',  # Serbian
+        'kn': 'kan',  # Kannada
+        'ml': 'mal',  # Malayalam
+        'nn': 'nno',  # Norwegian (Nynorsk)
     }
 
     # Se já está no formato de 3 letras, retorna normalizado
@@ -877,9 +880,9 @@ def normalize_language_code(lang_code: str) -> str:
 KNOWN_LANGUAGE_CODES = frozenset({
     'ara', 'baq', 'bul', 'cat', 'chi', 'cze', 'dan', 'dut', 'eng', 'est', 'fil',
     'fin', 'fre', 'ger', 'glg', 'gre', 'heb', 'hin', 'hrv', 'hun', 'ice', 'ind',
-    'ita', 'jpn', 'kor', 'lav', 'lit', 'may', 'nob', 'nor', 'pol', 'por',
-    'por-pt', 'rum', 'rus', 'slo', 'slv', 'spa', 'srp', 'swe', 'tam', 'tel',
-    'tha', 'tur', 'ukr', 'vie',
+    'ita', 'jpn', 'kan', 'kor', 'lav', 'lit', 'mal', 'may', 'nno', 'nob', 'nor',
+    'pol', 'por', 'por-pt', 'rum', 'rus', 'slo', 'slv', 'spa', 'srp', 'swe',
+    'tam', 'tel', 'tha', 'tur', 'ukr', 'vie',
 })
 
 _RE_LANG_TOKEN = re.compile(r'^([a-z]{2,3})([-_][a-z]{2})?(\d)?$', re.IGNORECASE)
