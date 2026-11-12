@@ -1,7 +1,7 @@
 """Busca de metadados via TMDB e TVDB"""
 
 import time
-from typing import Optional, List
+from typing import Dict, Optional, List
 from dataclasses import dataclass
 import re
 
@@ -351,6 +351,42 @@ class MetadataFetcher:
         except Exception as e:
             self.logger.error(f"Erro ao buscar filme por ID {tmdb_id}: {e}")
             return None
+
+    def get_tvshow_season_counts(self, tmdb_id: int) -> Dict[int, int]:
+        """
+        Número de episódios de cada temporada da série no TMDB.
+
+        Args:
+            tmdb_id: TMDB ID da série
+
+        Returns:
+            {numero_temporada: episode_count}; vazio se não for possível obter.
+        """
+        cache_key = ('tv_seasons', tmdb_id)
+        if cache_key in self._id_cache:
+            return self._id_cache[cache_key]
+
+        tmdb = self._init_tmdb()
+        if not tmdb:
+            return {}
+
+        counts: Dict[int, int] = {}
+        try:
+            self._rate_limit()
+            show = tmdb['tv'].details(tmdb_id)
+            for season in getattr(show, 'seasons', None) or []:
+                number = season.get('season_number') if isinstance(season, dict) \
+                    else getattr(season, 'season_number', None)
+                count = season.get('episode_count') if isinstance(season, dict) \
+                    else getattr(season, 'episode_count', None)
+                if number is not None and count:
+                    counts[int(number)] = int(count)
+        except Exception as e:
+            self.logger.debug(f"Temporadas da série {tmdb_id} indisponíveis: {e}")
+            return {}
+
+        self._id_cache[cache_key] = counts
+        return counts
 
     def get_tvshow_by_id(self, tmdb_id: int) -> Optional[Metadata]:
         """

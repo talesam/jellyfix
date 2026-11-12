@@ -140,6 +140,9 @@ class TestExtractSeasonEpisode:
         ("Naruto - 07", (1, 7, 7)),
         # Anime longo: episódio de 4 dígitos ainda é episódio
         ("One Piece - 1015 [1080p]", (1, 1015, 1015)),
+        # Regressão: "- 100" caía na regra compacta e virava S01E00
+        ("Black Clover - 100 (BD 1920x1080 x.264) [YusukeFLA IceBlue]", (1, 100, 100)),
+        ("Black Clover - 101 (BD 1920x1080 x.264) [YusukeFLA IceBlue]", (1, 101, 101)),
     ])
     def test_anime_absolute_numbering(self, name, expected):
         """Regressão: 'Título - 01' virava FILME e todo episódio caía no mesmo destino."""
@@ -590,3 +593,8 @@ class TestParseDestinationForSearch:
         info = parse_destination_for_search(dest)
         assert info["is_episode"] is True
         assert info["year"] is None
+
+
+def test_compact_episode_never_yields_episode_zero():
+    assert extract_season_episode("Show 101 HDTV") == (1, 1, 1)
+    assert extract_season_episode("Show 100 HDTV") is None

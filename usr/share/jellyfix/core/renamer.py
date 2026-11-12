@@ -18,6 +18,51 @@ from .detector import detect_media_type
 from .metadata import MetadataFetcher
 
 
+def map_to_tmdb_episode(season: int, ep_start: int, ep_end: int,
+                        season_counts: Dict[int, int]) -> Optional[tuple]:
+    """
+    Converte para a numeração do TMDB um episódio cujo SxxExx não existe lá.
+
+    Releases de anime longo dividem a série em "temporadas" próprias mas
+    mantêm o número absoluto: "Black.Clover.S03E104" é o episódio 104, que no
+    TMDB fica em S01E104 (a temporada 1 tem 170 episódios). Sem converter, o
+    Jellyfin procura S03E104, não acha e o episódio fica sem metadados.
+
+    Só converte quando o par do arquivo é impossível no TMDB (temporada
+    inexistente ou episódio além do total dela). Se a temporada não existe,
+    exige também que o episódio passe do total da temporada anterior, para
+    não transformar um "S03E05" legítimo de outra divisão em S01E05.
+
+    Returns:
+        (season, ep_start, ep_end) na numeração do TMDB, ou None se não deve
+        (ou não dá para) converter.
+    """
+    if not season_counts or season == 0:
+        return None
+    if season in season_counts:
+        if ep_end <= season_counts[season]:
+            return None
+    else:
+        previous = [s for s in season_counts if 0 < s < season]
+        if not previous or ep_start <= season_counts[max(previous)]:
+            return None
+
+    def locate(absolute: int) -> Optional[tuple]:
+        offset = 0
+        for number in sorted(s for s in season_counts if s > 0):
+            count = season_counts[number]
+            if absolute <= offset + count:
+                return number, absolute - offset
+            offset += count
+        return None
+
+    start = locate(ep_start)
+    end = locate(ep_end)
+    if not start or not end or start[0] != end[0]:
+        return None
+    return start[0], start[1], end[1]
+
+
 @dataclass
 class RenameOperation:
     """Representa uma operação de renomeação"""
@@ -536,6 +581,23 @@ class Renamer:
 
         return (season, ep_start, ep_end)
 
+    def _align_episode_with_tmdb(self, file_path: Path, metadata, season: int,
+                                 ep_start: int, ep_end: int) -> tuple:
+        """Ajusta (season, ep_start, ep_end) à numeração do TMDB, se preciso."""
+        if not (self.metadata_fetcher and metadata and metadata.tmdb_id):
+            return season, ep_start, ep_end
+        counts = self.metadata_fetcher.get_tvshow_season_counts(metadata.tmdb_id)
+        if not isinstance(counts, dict):
+            return season, ep_start, ep_end
+        mapped = map_to_tmdb_episode(season, ep_start, ep_end, counts)
+        if not mapped:
+            return season, ep_start, ep_end
+        self.logger.info(
+            f"↪ {file_path.name}: S{season:02d}E{ep_start:02d} não existe no TMDB; "
+            f"numeração absoluta → S{mapped[0]:02d}E{mapped[1]:02d}"
+        )
+        return mapped
+
     def _plan_tvshow_rename_with_metadata(self, file_path: Path, media_info, metadata) -> Optional[RenameOperation]:
         """
         Planeja renomeação de série usando metadata fornecido (não busca TMDB).
@@ -548,7 +610,9 @@ class Renamer:
                 "renomeação de série ignorada"
             )
             return None
-        season, episode_start, episode_end = se_info
+        season, episode_start, episode_end = self._align_episode_with_tmdb(
+            file_path, metadata, *se_info
+        )
 
         title = clean_filename(metadata.title)
         year = metadata.year
@@ -839,18 +903,23 @@ class Renamer:
             else:
                 self.logger.warning(f"✗ Não encontrado: {title}")
 
+        season, episode_start, episode_end = self._align_episode_with_tmdb(
+            file_path, metadata, media_info.season, media_info.episode_start,
+            media_info.episode_end or media_info.episode_start,
+        )
+
         # Jellyfin format: "Series Name - S01E01.ext"
         # Ref: https://jellyfin.org/docs/general/server/media/shows
-        if media_info.episode_end and media_info.episode_end != media_info.episode_start:
-            episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}-E{media_info.episode_end:02d}"
+        if episode_end != episode_start:
+            episode_part = f"S{season:02d}E{episode_start:02d}-E{episode_end:02d}"
         else:
-            episode_part = f"S{media_info.season:02d}E{media_info.episode_start:02d}"
+            episode_part = f"S{season:02d}E{episode_start:02d}"
 
         new_name = f"{title} - {episode_part}{file_path.suffix}"
 
         # Verifica estrutura de pastas
         # Esperado: SeriesFolder/Season XX/episode.mkv
-        season_folder_name = format_season_folder(media_info.season)
+        season_folder_name = format_season_folder(season)
 
         # Encontra a pasta da série
         if file_path.parent.name.lower().startswith('season'):

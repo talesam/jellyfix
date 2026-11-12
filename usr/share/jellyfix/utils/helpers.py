@@ -233,10 +233,6 @@ _RE_SE_ALT_PATTERNS = [
     # NÃO incluir "E" sozinho: o "e" de "Grease 2", "Blade 2" casava com " 2" e
     # classificava o FILME como série (S02E02). Exige fronteira de palavra.
     re.compile(r"\b(?:Cap(?:[íi]tulo)?|Ep(?:is[óo]dio)?)\.?\s*(\d{1,2})\b", re.IGNORECASE),
-    # Episódio compacto "- 101" (=S01E01). Guardas para não pegar resolução
-    # (720p/480p) nem ano (2015): não seguido de p/k/i nem de mais dígitos,
-    # e não precedido por dígito (parte de número maior).
-    re.compile(r"(?<!\d)[-\s](\d)(\d{2})(?![\dpPkKiI])(?:\D|$)"),
     # Numeração absoluta de anime: "[Grupo] Título - 01 [tags]", "Título - 12v2".
     # Sem isso cada episódio virava um FILME e todos casavam com o mesmo título
     # no TMDB, indo parar no mesmo destino. Só episódio (1 grupo) => temporada 1.
@@ -245,6 +241,11 @@ _RE_SE_ALT_PATTERNS = [
     # resolução ("Filme - 720p") e o lookahead descarta ano ("Filme - 2015"),
     # sem perder anime de 4 dígitos ("One Piece - 1015").
     re.compile(r"\s-\s(?!(?:19|20)\d{2}(?!\d))(\d{2,4})(?:v\d)?(?![\dpPkKiI])"),
+    # Episódio compacto "Show 101" (=S01E01). Vem DEPOIS da numeração de
+    # anime: "Black Clover - 100" é o episódio absoluto 100, não S01E00.
+    # Guardas para não pegar resolução (720p/480p) nem ano (2015): não seguido
+    # de p/k/i nem de mais dígitos, não precedido por dígito, e nunca "E00".
+    re.compile(r"(?<!\d)[-\s](\d)(?!00)(\d{2})(?![\dpPkKiI])(?:\D|$)"),
     # Episódio solto logo antes do ano: "Kakugo.no.Susume.01.1996.DVDRemux".
     # Só com zero à esquerda (01-09): "Apollo.13.1995" e "Blade.2.2002" são
     # filmes, e é assim que releases de filme escrevem sequências.
