@@ -136,6 +136,9 @@ _RE_LEADING_JUNK = re.compile(r"^[\s\-\.]+")
 _RE_YEAR = re.compile(r"(?<![0-9A-Za-z])(19\d{2}|20\d{2})(?![0-9A-Za-z])")
 _RE_SXXEXX = re.compile(r"[Ss](\d{1,2})[Ee](\d{1,4})(?:-?[Ee](\d{1,4}))?")
 _RE_NxNN = re.compile(r"\b(\d{1,2})x(\d{1,2})\b")
+# Episódio no INÍCIO do nome, seguido do título do episódio e sem o nome da
+# série: "01 - Asta e Yuno.mp4" (a série vem da pasta).
+_RE_LEADING_EPISODE = re.compile(r"^\s*(\d{1,3})\s+-\s+\S")
 
 _RE_QUALITY_PATTERNS = [
     re.compile(r"\b(1080p|720p|480p|2160p|1080i|576i|480i|4K|HD|UHD|FHD)\b", re.IGNORECASE),
@@ -777,6 +780,13 @@ def extract_season_episode(name: str) -> Optional[tuple]:
                 season = 1
                 episode = int(match.group(1))
             return (season, episode, episode)
+
+    # "01 - Título do Episódio": exige que não haja ano no nome, senão um
+    # filme como "300 - A Ascensão do Império (2014)" virava episódio 300.
+    match = _RE_LEADING_EPISODE.match(name)
+    if match and not extract_year(name):
+        episode = int(match.group(1))
+        return (1, episode, episode)
 
     return None
 

@@ -8,7 +8,7 @@ from ..utils.helpers import extract_season_episode, extract_year, is_video_file,
 
 # Pre-compiled patterns for title extraction
 _RE_TITLE_SXXEXX = re.compile(r"^(.+?)\s*[Ss]\d{1,2}[Ee]\d{1,4}")
-_RE_TITLE_NxNN = re.compile(r"^(.+?)\s*\d{1,2}x\d{1,2}")
+_RE_TITLE_NxNN = re.compile(r"^(.+?)\s*\b\d{1,2}x\d{1,2}\b")
 _RE_TITLE_BOOK_VOL = re.compile(
     r"^(.+?)\s*(?:Book|Volume|Vol|Part|Season|Temporada|Cap\.?|Ep\.?)\s*\d{1,2}",
     re.IGNORECASE,
@@ -16,6 +16,7 @@ _RE_TITLE_BOOK_VOL = re.compile(
 _RE_TITLE_DASH_NUM = re.compile(
     r"^(.+?)\s-\s(?!(?:19|20)\d{2}(?!\d))\d{2,4}(?:v\d)?(?![\dpPkKiI])"
 )
+_RE_LEADING_EPISODE = re.compile(r"^\s*\d{1,3}\s+-\s+\S")
 _RE_TITLE_NUM_YEAR = re.compile(r"^(.+?)[.\s_]0[1-9][.\s_](?:19|20)\d{2}(?!\d)")
 _RE_DIGITS = re.compile(r"(\d+)")
 
@@ -79,6 +80,13 @@ class MediaInfo:
                                  or _RE_TITLE_NUM_YEAR.search(filename))
                         if match:
                             self.title = match.group(1).strip()
+                        elif _RE_LEADING_EPISODE.match(filename):
+                            # "01 - Título do Episódio": o nome da série não
+                            # está no arquivo, só na pasta (acima de
+                            # "Season XX", se houver). Usar a pasta também
+                            # agrupa os episódios para a escolha manual valer
+                            # para todos.
+                            self.title = self._series_folder_name()
                         else:
                             # Fallback: use filename without extension
                             self.title = filename
@@ -99,6 +107,13 @@ class MediaInfo:
                 self.title = normalize_spaces(filename)
                 if self.year:
                     self.title = re.sub(rf"\s*[\(\[]{self.year}[\)\]]\s*", " ", self.title).strip()
+
+    def _series_folder_name(self) -> str:
+        """Nome da pasta da série, pulando a pasta de temporada."""
+        folder = self.file_path.parent
+        if folder.name.lower().startswith(('season', 'temporada')):
+            folder = folder.parent
+        return folder.name
 
     def is_movie(self) -> bool:
         """Check if it's a movie"""

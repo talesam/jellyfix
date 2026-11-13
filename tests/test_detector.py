@@ -159,6 +159,28 @@ class TestTVShowDetection:
         assert info.episode_start == 104
         assert info.episode_end == 104
 
+    def test_leading_episode_number_takes_series_from_folder(self, tmp_path):
+        """Regressão: "01 - Asta e Yuno.mp4" virava filme e a escolha manual
+        da série não passava para os outros episódios da pasta."""
+        folder = tmp_path / "Black Clover" / "Season 01"
+        folder.mkdir(parents=True)
+        infos = []
+        for name in ("01 - Asta e Yuno.mp4", "02 - A Promessa dos Meninos.mp4"):
+            f = folder / name
+            f.touch()
+            infos.append(MediaInfo(f))
+        assert all(i.is_tvshow() for i in infos)
+        assert [i.episode_start for i in infos] == [1, 2]
+        assert {i.title for i in infos} == {"Black Clover"}
+
+    def test_resolution_is_not_nxnn_in_title(self, tmp_path):
+        """O "20x10" de "1920x1080" cortava o título da série."""
+        f = tmp_path / "Black Clover - 100 (BD 1920x1080 x.264) [YusukeFLA IceBlue].mp4"
+        f.touch()
+        info = MediaInfo(f)
+        assert info.episode_start == 100
+        assert info.title == "Black Clover"
+
     def test_zero_padded_episode_before_year(self, tmp_path):
         """Regressão: "Título.01.1996.DVDRemux" virava filme com tags no título."""
         f = tmp_path / "Kakugo.no.Susume.02.1996.DVDRemux.480i.MPEG-2.AC3-Anonymous.mkv"
@@ -179,6 +201,12 @@ class TestEdgeCases:
         f.touch()
         info = MediaInfo(f)
         assert info.is_movie()
+
+    def test_leading_number_with_year_is_a_movie(self, tmp_path):
+        for name in ("300 - A Ascensão do Império (2014).mkv", "2001 - Uma Odisseia no Espaço.mkv"):
+            f = tmp_path / name
+            f.touch()
+            assert MediaInfo(f).is_movie(), name
 
     def test_sequel_number_before_year_is_a_movie(self, tmp_path):
         """Número sem zero à esquerda antes do ano é sequência/título de filme."""
